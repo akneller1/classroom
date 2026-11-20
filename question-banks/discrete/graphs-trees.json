@@ -8845,6 +8845,455 @@
      "correct": false
     }
    ]
+  },
+  {
+   "id": "dm-gr-s01-honors-f01",
+   "skillId": "graphs-trees-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A graph has vertices A, B, C, D, E and edges BE, DE, AD, CE, AC, BC, BB (an edge written like CC is a loop). What is the sum of the degrees of all vertices?",
+   "answer": "14",
+   "solutionSteps": [
+    "Each edge adds 2 to the degree sum (a loop adds 2 to its one vertex).",
+    "Degrees: A 2, B 4, C 3, D 2, E 3; sum = 14 = 2 · 7 edges."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: degree_sum_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.GRAPHS.1"
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/discrete/graphs-trees/drawn/dm-gr-s01-honors-f01.png",
+     "alt": "Undirected graph with vertices A, B, C, D, E and edges BE, DE, AD, CE, AC, BC, loop at B."
+    }
+   }
+  },
+  {
+   "id": "dm-gr-s02-cp2-f01",
+   "skillId": "graphs-trees-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A directed graph has vertices A, B, C, D and arrows C→B, B→D, A→B, D→B, C→A, C→D. What is the out-degree of B?",
+   "answer": "1",
+   "solutionSteps": [
+    "The out-degree counts arcs starting at B.",
+    "Arcs out of B: B→D. So it is 1."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_degree). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.GRAPHS.2"
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/discrete/graphs-trees/drawn/dm-gr-s02-cp2-f01.png",
+     "alt": "Directed graph with vertices A, B, C, D and arrows C→B, B→D, A→B, D→B, C→A, C→D."
+    }
+   }
+  },
+  {
+   "id": "dm-gr-s02-cp1-f01",
+   "skillId": "graphs-trees-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A directed graph has vertices A, B, C, D and arrows C→D, D→C, B→D, C→B, B→C, D→B, D→A. What is the in-degree of B?",
+   "answer": "2",
+   "solutionSteps": [
+    "The in-degree counts arcs ending at B.",
+    "Arcs into B: C→B, D→B. So it is 2."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_degree). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.GRAPHS.2"
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/discrete/graphs-trees/drawn/dm-gr-s02-cp1-f01.png",
+     "alt": "Directed graph with vertices A, B, C, D and arrows C→D, D→C, B→D, C→B, B→C, D→B, D→A."
+    }
+   }
+  },
+  {
+   "id": "dm-gr-s02-honors-f01",
+   "skillId": "graphs-trees-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A directed graph has vertices A, B, C, D, E and arrows C→E, A→C, A→E, B→C, C→A, C→D. How many vertices have in-degree greater than out-degree?",
+   "answer": "2",
+   "solutionSteps": [
+    "(in, out) for each vertex: A (1, 2), B (0, 1), C (2, 3), D (1, 0), E (2, 0).",
+    "2 vertices have more arcs in than out."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_compare_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.GRAPHS.2"
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/discrete/graphs-trees/drawn/dm-gr-s02-honors-f01.png",
+     "alt": "Directed graph with vertices A, B, C, D, E and arrows C→E, A→C, A→E, B→C, C→A, C→D."
+    }
+   }
+  },
+  {
+   "id": "dm-gr-s02-honors-f02",
+   "skillId": "graphs-trees-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A directed graph has vertices A, B, C, D, E and arrows B→D, A→C, E→B, A→D, D→B, B→A, B→C, C→D, A→E. How many other vertices can be reached from B by a directed path?",
+   "answer": "4",
+   "solutionSteps": [
+    "Follow arcs forward from B, adding each new vertex reached.",
+    "Reachable: A, C, D, E; that is 4 vertices."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: digraph_reach_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.GRAPHS.2"
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/discrete/graphs-trees/drawn/dm-gr-s02-honors-f02.png",
+     "alt": "Directed graph with vertices A, B, C, D, E and arrows B→D, A→C, E→B, A→D, D→B, B→A, B→C, C→D, A→E."
+    }
+   }
+  },
+  {
+   "id": "dm-gr-s04-cp2-f01",
+   "skillId": "graphs-trees-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A graph has vertices A, B, C, D, E and edges AD, CD, AC, BC, BE. What is its chromatic number (fewest colors so that adjacent vertices differ)?",
+   "answer": "3",
+   "options": [
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Color greedily, then check whether fewer colors could work (a triangle needs 3; an odd cycle needs 3).",
+    "A coloring with 3 colors: A=1, B=1, C=2, D=3, E=2; no coloring with 2 works."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: chromatic). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.GRAPHS.4",
+    "MP.4"
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/discrete/graphs-trees/drawn/dm-gr-s04-cp2-f01.png",
+     "alt": "Undirected graph with vertices A, B, C, D, E and edges AD, CD, AC, BC, BE."
+    }
+   }
+  },
+  {
+   "id": "dm-gr-s04-honors-f01",
+   "skillId": "graphs-trees-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Final exams must be scheduled so that no student has two exams at once. These pairs of courses share a student: Bio–Drama, Drama–Econ, Art–Chem, Econ–French, Chem–Econ, Chem–Drama, Art–Drama. What is the fewest number of exam time slots needed?",
+   "answer": "3",
+   "solutionSteps": [
+    "Make a graph: courses are vertices and an edge joins two courses that share a student. Time slots are colors.",
+    "A schedule with 3 slots: Art slot 1, Bio slot 1, Chem slot 2, Drama slot 3, Econ slot 1, French slot 2. Fewer slots fail because some 3 courses are pairwise linked or an odd cycle forces it.",
+    "The minimum is the chromatic number, 3."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: exam_coloring_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.GRAPHS.4",
+    "MP.4"
+   ]
+  },
+  {
+   "id": "dm-gr-s05-cp2-f01",
+   "skillId": "graphs-trees-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A graph has vertices A, B, C, D, E and edges BC, CD, BD, BE, AE, CE, AC. Classify the sequence D–B–C–D–C–E. (A trail repeats no edge; a path repeats no vertex.)",
+   "answer": "A walk that is not a trail",
+   "options": [
+    {
+     "text": "A walk that is not a trail",
+     "correct": true
+    },
+    {
+     "text": "A path (no repeated vertex, so also a trail)",
+     "correct": false
+    },
+    {
+     "text": "A trail that is not a path",
+     "correct": false
+    },
+    {
+     "text": "A circuit",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Edges used: BD, BC, CD, CD, CE.",
+    "An edge repeats, so it is only a walk."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: walk_class). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.GRAPHS.5"
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/discrete/graphs-trees/drawn/dm-gr-s05-cp2-f01.png",
+     "alt": "Undirected graph with vertices A, B, C, D, E and edges BC, CD, BD, BE, AE, CE, AC."
+    }
+   }
+  },
+  {
+   "id": "dm-gr-s05-honors-f01",
+   "skillId": "graphs-trees-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A connected graph has vertices A, B, C, D, E and edges BD, AB, CE, BE, CD, DE. What is the fewest number of edges you must duplicate (add as extra copies of existing edges) so the graph has an Euler circuit? Assume the odd vertices can be paired by edges between them.",
+   "answer": "2",
+   "solutionSteps": [
+    "Degrees: A 1, B 3, C 2, D 3, E 3; odd-degree vertices: A, B, D, E.",
+    "Each added edge fixes at most two odd vertices, so at least 4/2 = 2 edges are needed."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: eulerize_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.GRAPHS.5"
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/discrete/graphs-trees/drawn/dm-gr-s05-honors-f01.png",
+     "alt": "Undirected graph with vertices A, B, C, D, E and edges BD, AB, CE, BE, CD, DE."
+    }
+   }
+  },
+  {
+   "id": "dm-gr-s05-honors-f02",
+   "skillId": "graphs-trees-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A connected graph has vertices A, B, C, D, E and edges CD, AD, AE, CE, AB, BC, AC, DE, BE. Does it have an Euler trail or circuit?",
+   "answer": "Yes: an Euler trail from B to D",
+   "options": [
+    {
+     "text": "Yes: an Euler circuit (every vertex has even degree)",
+     "correct": false
+    },
+    {
+     "text": "Yes: an Euler trail from B to D",
+     "correct": true
+    },
+    {
+     "text": "Yes: an Euler trail from A to B",
+     "correct": false
+    },
+    {
+     "text": "No: the graph is not connected",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Degrees: A 4, B 3, C 4, D 3, E 4.",
+    "A connected graph has an Euler circuit if 0 vertices have odd degree and an Euler trail (not closed) if exactly 2 do.",
+    "Here 2 vertices have odd degree, so: Yes: an Euler trail from B to D."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: euler_check_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.GRAPHS.5"
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/discrete/graphs-trees/drawn/dm-gr-s05-honors-f02.png",
+     "alt": "Undirected graph with vertices A, B, C, D, E and edges CD, AD, AE, CE, AB, BC, AC, DE, BE."
+    }
+   }
+  },
+  {
+   "id": "dm-gr-s05-honors-f03",
+   "skillId": "graphs-trees-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A connected graph has vertices A, B, C, D, E, F and edges AE, BE, AD, BF, EF, CF. Does it have an Euler trail or circuit?",
+   "answer": "No: 4 vertices have odd degree",
+   "options": [
+    {
+     "text": "Yes: an Euler circuit (every vertex has even degree)",
+     "correct": false
+    },
+    {
+     "text": "Yes: an Euler trail from A to B",
+     "correct": false
+    },
+    {
+     "text": "No: 4 vertices have odd degree",
+     "correct": true
+    },
+    {
+     "text": "No: the graph is not connected",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Degrees: A 2, B 2, C 1, D 1, E 3, F 3.",
+    "A connected graph has an Euler circuit if 0 vertices have odd degree and an Euler trail (not closed) if exactly 2 do.",
+    "Here 4 vertices have odd degree, so: No: 4 vertices have odd degree."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: euler_check_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.GRAPHS.5"
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/discrete/graphs-trees/drawn/dm-gr-s05-honors-f03.png",
+     "alt": "Undirected graph with vertices A, B, C, D, E, F and edges AE, BE, AD, BF, EF, CF."
+    }
+   }
+  },
+  {
+   "id": "dm-gr-s06-cp2-f01",
+   "skillId": "graphs-trees-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A connected graph has vertices A, B, C, D, E and edges DE, BC, CD, AC, AB, BD, AD, BE. Does it have an Euler circuit (a circuit using every edge exactly once)?",
+   "answer": "No: A, C have odd degree",
+   "options": [
+    {
+     "text": "Yes: every vertex has even degree",
+     "correct": false
+    },
+    {
+     "text": "No: the graph is not connected",
+     "correct": false
+    },
+    {
+     "text": "Yes: there are exactly two odd vertices",
+     "correct": false
+    },
+    {
+     "text": "No: A, C have odd degree",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Degrees: A 3, B 4, C 3, D 4, E 2.",
+    "A connected graph has an Euler circuit exactly when every vertex has even degree.",
+    "No: A, C have odd degree."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: euler_circuit). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.GRAPHS.6"
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/discrete/graphs-trees/drawn/dm-gr-s06-cp2-f01.png",
+     "alt": "Undirected graph with vertices A, B, C, D, E and edges DE, BC, CD, AC, AB, BD, AD, BE."
+    }
+   }
+  },
+  {
+   "id": "dm-gr-s06-cp2-f02",
+   "skillId": "graphs-trees-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A connected graph has vertices A, B, C, D, E and edges BC, BE, AC, CE, AB, DE, AE, AD. Does it have an Euler circuit (a circuit using every edge exactly once)?",
+   "answer": "No: B, C have odd degree",
+   "options": [
+    {
+     "text": "No: B, C have odd degree",
+     "correct": true
+    },
+    {
+     "text": "Yes: every vertex has even degree",
+     "correct": false
+    },
+    {
+     "text": "No: the graph is not connected",
+     "correct": false
+    },
+    {
+     "text": "Yes: there are exactly two odd vertices",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Degrees: A 4, B 3, C 3, D 2, E 4.",
+    "A connected graph has an Euler circuit exactly when every vertex has even degree.",
+    "No: B, C have odd degree."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: euler_circuit). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.GRAPHS.6"
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/discrete/graphs-trees/drawn/dm-gr-s06-cp2-f02.png",
+     "alt": "Undirected graph with vertices A, B, C, D, E and edges BC, BE, AC, CE, AB, DE, AE, AD."
+    }
+   }
+  },
+  {
+   "id": "dm-gr-s06-honors-f01",
+   "skillId": "graphs-trees-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A graph has vertices A, B, C, D, E and edges AB, CE, AD, CD, AC, BE. Does it have a Hamiltonian circuit (a circuit through every vertex exactly once)?",
+   "answer": "Yes, for example A–B–E–C–D–A",
+   "options": [
+    {
+     "text": "No Hamiltonian circuit exists",
+     "correct": false
+    },
+    {
+     "text": "Yes, for example A–B–E–C–D–A",
+     "correct": true
+    },
+    {
+     "text": "Yes, for example A–B–C–D–E–A",
+     "correct": false
+    },
+    {
+     "text": "Yes, because every vertex has even degree",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Try to build a cycle through all 5 vertices using only the listed edges.",
+    "The cycle A–B–E–C–D–A uses only listed edges.",
+    "Degree parity matters for Euler circuits, not Hamiltonian ones."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: hamilton_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.GRAPHS.6"
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/discrete/graphs-trees/drawn/dm-gr-s06-honors-f01.png",
+     "alt": "Undirected graph with vertices A, B, C, D, E and edges AB, CE, AD, CD, AC, BE."
+    }
+   }
   }
  ]
 }

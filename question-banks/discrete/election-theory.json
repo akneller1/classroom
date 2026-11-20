@@ -10105,6 +10105,268 @@
      "correct": false
     }
    ]
+  },
+  {
+   "id": "dm-el-s03-cp2-f01",
+   "skillId": "election-theory-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Which fairness criterion is described here?\n\"Removing a losing candidate should not change the winner.\"",
+   "answer": "Independence of irrelevant alternatives",
+   "options": [
+    {
+     "text": "Majority criterion",
+     "correct": false
+    },
+    {
+     "text": "Condorcet criterion",
+     "correct": false
+    },
+    {
+     "text": "Independence of irrelevant alternatives",
+     "correct": true
+    },
+    {
+     "text": "Monotonicity criterion",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The description is the definition of the Independence of irrelevant alternatives.",
+    "Majority: first-place majority wins. Condorcet: head-to-head winner wins. Monotonicity: more support cannot hurt. IIA: dropping a loser changes nothing."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: criterion_name). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.ELECTIONS.3"
+   ]
+  },
+  {
+   "id": "dm-el-s03-cp2-f02",
+   "skillId": "election-theory-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Which fairness criterion is described here?\n\"A candidate with a majority of first-place votes should win.\"",
+   "answer": "Majority criterion",
+   "options": [
+    {
+     "text": "Condorcet criterion",
+     "correct": false
+    },
+    {
+     "text": "Monotonicity criterion",
+     "correct": false
+    },
+    {
+     "text": "Independence of irrelevant alternatives",
+     "correct": false
+    },
+    {
+     "text": "Majority criterion",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The description is the definition of the majority criterion.",
+    "Majority: first-place majority wins. Condorcet: head-to-head winner wins. Monotonicity: more support cannot hurt. IIA: dropping a loser changes nothing."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: criterion_name). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.ELECTIONS.3"
+   ]
+  },
+  {
+   "id": "dm-el-s03-honors-f01",
+   "skillId": "election-theory-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Preference schedule (20 voters):\n5 voters: B > C > A\n9 voters: A > B > C\n6 voters: C > B > A\nWho wins by plurality, and who is the Condorcet winner?",
+   "answer": "Plurality: A; Condorcet winner: B",
+   "options": [
+    {
+     "text": "Plurality: A; Condorcet winner: B",
+     "correct": true
+    },
+    {
+     "text": "Plurality: B; Condorcet winner: A",
+     "correct": false
+    },
+    {
+     "text": "Plurality: A; Condorcet winner: C",
+     "correct": false
+    },
+    {
+     "text": "Plurality: A; there is no Condorcet winner",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "First-place votes: A 9, B 5, C 6, so A wins by plurality.",
+    "Head to head, B beats each other candidate with more than 10 votes.",
+    "So the plurality method fails the Condorcet criterion in this election."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: plurality_vs_condorcet_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.ELECTIONS.3"
+   ]
+  },
+  {
+   "id": "dm-el-s06-cp2-f01",
+   "skillId": "election-theory-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "3 friends divide a cake fairly. Jada values all of it at $51. What is Jada's fair share, in dollars? (Write the number only.)",
+   "answer": "17",
+   "solutionSteps": [
+    "A fair share is at least 1/3 of the whole by the player's own values.",
+    "$51 ÷ 3 = $17."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: fair_share). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.ELECTIONS.6",
+    "MP.4"
+   ]
+  },
+  {
+   "id": "dm-el-s06-honors-f01",
+   "skillId": "election-theory-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two heirs settle an estate by sealed bids:\nAna bids: car $1150, painting $1500\nBen bids: car $700, painting $1400\nEach item goes to the higher bidder, fair shares are half of each heir's total bid, and any surplus is split equally. How much cash does Ana receive? (A negative amount means Ana pays. Write dollars and cents, like 125.00.)",
+   "answer": "-1187.50",
+   "solutionSteps": [
+    "Fair shares: Ana $1325.00, Ben $1050.00. Items: car to Ana, painting to Ana.",
+    "Before the surplus: Ana gets $-1325.00, Ben gets $1050.00; the surplus is $275.00, so each adds $137.50.",
+    "Ana receives $-1187.50."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: sealed_bids_two_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.ELECTIONS.6",
+    "MP.4"
+   ]
+  },
+  {
+   "id": "dm-el-s06-honors-f02",
+   "skillId": "election-theory-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two heirs settle an estate by sealed bids:\nAna bids: boat $1700, piano $1000\nBen bids: boat $250, piano $300\nEach item goes to the higher bidder, fair shares are half of each heir's total bid, and any surplus is split equally. How much cash does Ben receive? (A negative amount means Ben pays. Write dollars and cents, like 125.00.)",
+   "answer": "812.50",
+   "solutionSteps": [
+    "Fair shares: Ana $1350.00, Ben $275.00. Items: boat to Ana, piano to Ana.",
+    "Before the surplus: Ana gets $-1350.00, Ben gets $275.00; the surplus is $1075.00, so each adds $537.50.",
+    "Ben receives $812.50."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: sealed_bids_two_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.ELECTIONS.6",
+    "MP.4"
+   ]
+  },
+  {
+   "id": "dm-el-s08-cp2-f01",
+   "skillId": "election-theory-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Which apportionment method can produce the Alabama paradox (a state loses a seat when the house grows)?",
+   "answer": "Hamilton's method",
+   "options": [
+    {
+     "text": "Jefferson's method",
+     "correct": false
+    },
+    {
+     "text": "Hamilton's method",
+     "correct": true
+    },
+    {
+     "text": "Webster's method",
+     "correct": false
+    },
+    {
+     "text": "Adams's method",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The Alabama paradox comes from ranking fractional parts, which can change order when the house size changes.",
+    "Hamilton's method assigns extra seats by fractional parts; divisor methods (Jefferson, Webster, Adams) avoid this paradox."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: paradox_method). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.ELECTIONS.8",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-el-s08-cp2-f02",
+   "skillId": "election-theory-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Name the paradox:\nThe house grows from 40 to 41 seats and state C drops from 5 seats to 4.",
+   "answer": "Alabama paradox",
+   "options": [
+    {
+     "text": "Population paradox",
+     "correct": false
+    },
+    {
+     "text": "New-states paradox",
+     "correct": false
+    },
+    {
+     "text": "Alabama paradox",
+     "correct": true
+    },
+    {
+     "text": "Quota rule violation",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "A state losing a seat only because the house grew is the Alabama paradox.",
+    "So this is the alabama paradox."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: paradox_name). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.ELECTIONS.8",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-el-s08-honors-f01",
+   "skillId": "election-theory-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Apportion 10 seats among states A, B and C (populations A 8,600, B 5,500, C 2,200) by Jefferson's method. List the seats for A, B, C in order, separated by commas.",
+   "answer": "6, 3, 1",
+   "solutionSteps": [
+    "Lower quotas add to less than 10, so lower the divisor until the rounded-down quotients add to 10.",
+    "With divisor about 1433.3 the quotients round down to 6, 3, 1.",
+    "(Compare: the other common method gives 5, 4, 1, so the method choice changes the outcome.)"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: apportion_compare_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.ELECTIONS.8",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-el-s08-honors-f02",
+   "skillId": "election-theory-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Apportion 15 seats among states A, B and C (populations A 5,000, B 1,500, C 2,500) by Jefferson's method. List the seats for A, B, C in order, separated by commas.",
+   "answer": "9, 2, 4",
+   "solutionSteps": [
+    "Lower quotas add to less than 15, so lower the divisor until the rounded-down quotients add to 15.",
+    "With divisor about 555.5 the quotients round down to 9, 2, 4.",
+    "(Compare: the other common method gives 8, 3, 4, so the method choice changes the outcome.)"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: apportion_compare_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.ELECTIONS.8",
+    "MP.3"
+   ]
   }
  ]
 }

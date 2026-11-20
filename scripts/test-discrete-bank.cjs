@@ -1,7 +1,7 @@
 'use strict';
 /* Discrete Math bank verification (independent of the Python authoring code).
  * 1. Every bank passes the site's own validator (question-bank-adapter.js) against course-catalog.js skills.
- * 2. Coverage: every catalog skill has >= 30 questions, >= 8 per level; >= 12 error-analysis items per unit (>= 4 per level).
+ * 2. Coverage: every catalog skill has >= 30 questions, >= 12 per level (whole-site audit 2 #6); >= 12 error-analysis items per unit (>= 4 per level).
  * 3. Structural checks: MC key = the single correct option; select-all has >= 2 correct and >= 1 wrong; open response >= 4 parts;
  *    images exist; no duplicate prompts; error-analysis items follow the authored format (first step "Mistake:").
  * 4. Independent recomputation of parseable families: truth-table columns, set operations/complements, list counts,
@@ -236,9 +236,9 @@ for (const unit of course.units) {
   }
   for (const s of skills) {
     const n = ['cp2', 'cp1', 'honors'].map(l => cells[s.id + '/' + l] || 0);
-    if (n.reduce((a, b) => a + b, 0) < 30 || Math.min(...n) < 8) fails.push('thin skill ' + s.id + ' ' + n);
+    if (n.reduce((a, b) => a + b, 0) < 30 || Math.min(...n) < 12) fails.push('thin skill ' + s.id + ' ' + n);
   }
   if (Object.values(errLv).some(n => n < 4) || Object.values(errLv).reduce((a, b) => a + b, 0) < 12) fails.push('error analysis coverage ' + unit.id);
 }
 if (fails.length) { console.error(fails.slice(0, 60).join('\n')); console.error(fails.length + ' problems'); process.exit(1); }
-console.log('PASS ' + total + ' Discrete Math questions in 10 banks; every skill >= 30 (>= 8 per level); error analysis >= 12 per unit; ' + recomputed + ' answers independently recomputed');
+console.log('PASS ' + total + ' Discrete Math questions in 10 banks; every skill >= 30 (>= 12 per level); error analysis >= 12 per unit; ' + recomputed + ' answers independently recomputed');
