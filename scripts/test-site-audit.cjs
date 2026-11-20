@@ -153,3 +153,17 @@ for (const c of ['financial-algebra', 'statistics']) for (const f of fs.readdirS
   }
 }
 console.log(`PASS site audit: ${checks} checks (${keys} bank keys grade themselves correct)`);
+// Whole-site audit 2 #4: printed cumulative practice tests for Grades 3, 4 and 8, Algebra 1, Geometry and Algebra 2.
+{
+  const T = JSON.parse(rd('tools/site-audit-20261120/practice_tests/practice-tests.json'));
+  const data = rd('data.js');
+  for (const slug of ['grade3', 'grade4', 'grade8', 'algebra1', 'geometry', 'algebra2']) for (const ex of ['a', 'b']) {
+    const name = `${slug}-practice-test-${ex}`, t = T[name];
+    ok(t && t.counts.mc >= 20 && t.counts.sa >= 10 && t.items.length === t.counts.mc + t.counts.sa, '#4 ' + name + ' question counts');
+    ok(t.items.every((i) => ['verified', 'source-key'].includes(i.verify)), '#4 ' + name + ' every answer verified or from a reviewed key');
+    ok(new Set(t.items.map((i) => i.unit)).size >= 7, '#4 ' + name + ' covers every unit');
+    for (const f of ['exam.pdf', 'teacher-key.pdf']) ok(fs.statSync(path.join(ROOT, 'artifacts', name, f)).size > 40000, '#4 ' + name + '/' + f);
+    ok(fs.existsSync(path.join(ROOT, 'thumbs', name + '.jpg')) && data.includes(`artifacts/${name}/exam.pdf`) && data.includes(`artifacts/${name}/teacher-key.pdf`), '#4 ' + name + ' card');
+  }
+}
+console.log('PASS whole-site audit 2 #4 practice tests');
