@@ -1,0 +1,160 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Make a Ten: Regrouping with Base-Ten Blocks · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script src="../interactive-math/lab-plus.js?v=20261119"></script>
+<script src="../interactive-math/motion.js?v=20261120"></script>
+<script>
+(function () {
+'use strict';
+/* Make a Ten: Regrouping with Base-Ten Blocks (1.NBT.C.4, 2.NBT.B.5, 2.NBT.B.7, 2.NBT.B.9, 3.NBT.A.2).
+   Adding: the two numbers' blocks slide together. Ten ones line up and become one ten; ten tens become one hundred.
+   Subtracting: when there are not enough ones (or tens) to take away, one ten opens up into ten ones (one hundred into
+   ten tens), then the blocks being taken away slide off. The place-value chart under the blocks shows each step. */
+var L = Lab, M = Motion;
+var P = L.layout({ course: 'Grades 1–3', unit: 'Place Value, Addition and Subtraction', title: 'Make a Ten: Regrouping with Base-Ten Blocks',
+  intro: 'Watch the blocks move. When you add, ten ones join to make a ten. When you subtract and there are not enough ones, a ten opens up into ten ones.' });
+var st = { op: '+', a: 27, b: 15, t: 0, seen: {} };
+var W = 660, H = 430, svg = L.s('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'Base-ten blocks regrouping' }, P.stage);
+var g = L.s('g', null, svg);
+var step = L.h('p', { class: 'motion-step', 'aria-live': 'polite' }, P.stage, '');
+var tl;
+L.chips(P.panel, { label: 'Operation', value: '+', options: [{ value: '+', label: 'Add' }, { value: '-', label: 'Subtract' }], onChange: function (v) { st.op = v; clamp(); tl.set(0); } });
+var sa = L.slider(P.panel, { id: 'a', label: 'First number', min: 1, max: 999, step: 1, value: st.a, color: 'blue', format: String, onInput: function (v) { st.a = v; clamp(); tl.set(0); } });
+var sb = L.slider(P.panel, { id: 'b', label: 'Second number', min: 1, max: 999, step: 1, value: st.b, color: 'orange', format: String, onInput: function (v) { st.b = v; clamp(); tl.set(0); } });
+L.chips(P.panel, { label: 'Numbers up to', value: '99', options: [{ value: '20', label: '20' }, { value: '99', label: '100' }, { value: '999', label: '1,000' }],
+  onChange: function (v) { var m = +v; [sa, sb].forEach(function (s) { s.input.max = m; }); if (st.a > m) { st.a = m; sa.set(m, true); } if (st.b > m) { st.b = m; sb.set(m, true); } clamp(); tl.set(0); } });
+sa.input.max = 99; sb.input.max = 99;
+tl = M.timeline(P.panel, { id: 'go', label: 'Show the steps', seconds: 6, onChange: function (t) { st.t = t; draw(); } });
+var read = L.h('div', { class: 'motion-readout', 'aria-live': 'polite' }, P.panel);
+var ch = L.challenges(P.below, [
+  { text: 'Add 8 + 5. How many ones are left after you make a ten?', check: function () { return st.seen.s8p5; } },
+  { text: 'Add two numbers so that you make a ten AND a hundred (try 75 + 48).', check: function () { return st.seen.both; } },
+  { text: 'Subtract 42 − 17. Why does a ten open up first?', check: function () { return st.seen.m42; } },
+  { text: 'Find an addition with no regrouping at all. What is true about the ones digits?', check: function () { return st.seen.none; } }], 'Try this');
+function pl(n, w) { return n + ' ' + (n === 1 ? w.replace(/s$/, '') : w); }
+function clamp() { if (st.op === '-' && st.b > st.a) { st.b = st.a; sb.set(st.b, true); } }
+
+var COL = { h: 45, t: 260, o: 470 }, CUBE = 13, ROD = 130;
+function digits(n) { return { h: Math.floor(n / 100), t: Math.floor(n / 10) % 10, o: n % 10 }; }
+// slot positions inside a column; band is the vertical start of the area
+function slot(kind, i, band) {
+  if (kind === 'o') return [COL.o + (i % 5) * (CUBE + 3) + Math.floor(i / 10) * 92, band + Math.floor((i % 10) / 5) * (CUBE + 3) + Math.floor(i / 20) * 40];
+  if (kind === 't') return [COL.t + (i % 12) * (CUBE + 4), band + Math.floor(i / 12) * (ROD + 8)];
+  return [COL.h + (i % 3) * 18 + Math.floor(i / 3) * 4, band + (i % 3) * 18 + Math.floor(i / 3) * 4];
+}
+function cube(x, y, color, op) { return '<rect x="' + L.round(x, 1) + '" y="' + L.round(y, 1) + '" width="' + CUBE + '" height="' + CUBE + '" rx="2" fill="' + color + '" fill-opacity="' + L.round(op, 2) + '" stroke="var(--ink)" stroke-opacity="' + L.round(op, 2) + '"/>'; }
+function rod(x, y, color, op) {
+  var s = '<rect x="' + L.round(x, 1) + '" y="' + L.round(y, 1) + '" width="' + CUBE + '" height="' + ROD + '" rx="2" fill="' + color + '" fill-opacity="' + L.round(op, 2) + '" stroke="var(--ink)" stroke-opacity="' + L.round(op, 2) + '"/>';
+  for (var i = 1; i < 10; i++) s += '<line x1="' + L.round(x, 1) + '" x2="' + L.round(x + CUBE, 1) + '" y1="' + L.round(y + i * 13, 1) + '" y2="' + L.round(y + i * 13, 1) + '" stroke="var(--ink)" stroke-opacity="' + L.round(op * 0.35, 2) + '"/>';
+  return s;
+}
+function flat(x, y, color, op) {
+  var s = '<rect x="' + L.round(x, 1) + '" y="' + L.round(y, 1) + '" width="' + ROD + '" height="' + ROD + '" rx="3" fill="' + color + '" fill-opacity="' + L.round(op, 2) + '" stroke="var(--ink)" stroke-opacity="' + L.round(op, 2) + '"/>';
+  for (var i = 1; i < 10; i++) s += '<line x1="' + L.round(x + i * 13, 1) + '" x2="' + L.round(x + i * 13, 1) + '" y1="' + L.round(y, 1) + '" y2="' + L.round(y + ROD, 1) + '" stroke="var(--ink)" stroke-opacity="' + L.round(op * 0.25, 2) + '"/><line x1="' + L.round(x, 1) + '" x2="' + L.round(x + ROD, 1) + '" y1="' + L.round(y + i * 13, 1) + '" y2="' + L.round(y + i * 13, 1) + '" stroke="var(--ink)" stroke-opacity="' + L.round(op * 0.25, 2) + '"/>';
+  return s;
+}
+function pv(D) { var p = []; if (D.h) p.push(pl(D.h, 'hundreds')); if (D.t || D.h) p.push(pl(D.t, 'tens')); p.push(pl(D.o, 'ones')); return p.length > 1 ? p.slice(0, -1).join(', ') + ' and ' + p[p.length - 1] : p[0]; }
+
+function draw() {
+  var a = st.a, b = st.b, add = st.op === '+', A = digits(a), B = digits(b), html = '', msg = '';
+  var top = 64, low = 236;
+  ['Hundreds', 'Tens', 'Ones'].forEach(function (name, i) {
+    var x = [COL.h, COL.t, COL.o][i];
+    html += '<text x="' + (x + 70) + '" y="24" text-anchor="middle" font-weight="800" fill="var(--ink-soft)">' + name + '</text>';
+    if (i) html += '<line x1="' + (x - 18) + '" x2="' + (x - 18) + '" y1="34" y2="' + (H - 16) + '" stroke="var(--line)" stroke-width="2"/>';
+  });
+  if (add) {
+    var p1 = M.ease(M.stage(st.t, 0, 3)), p2 = M.stage(st.t, 1, 3), p3 = M.stage(st.t, 2, 3);
+    var O = A.o + B.o, T = A.t + B.t + (O >= 10 ? 1 : 0), Hh = A.h + B.h + (T >= 10 ? 1 : 0);
+    // ones: a's cubes, then b's cubes slide up beside them
+    for (var i = 0; i < O; i++) {
+      var from = i < A.o ? slot('o', i, top) : slot('o', i - A.o, low), mid = slot('o', i, top), pos = M.lerpPt(from, mid, i < A.o ? 1 : p1), op = 1;
+      if (O >= 10 && i < 10) {                                  // these ten line up, then become one ten
+        var line = [COL.o + 100, top + i * 13];
+        pos = M.lerpPt(pos, line, M.ease(Math.min(1, p2 * 2)));
+        op = 1 - M.ease(Math.max(0, p2 * 2 - 1));
+      } else if (O >= 10) pos = M.lerpPt(pos, slot('o', i - 10, top), M.ease(Math.max(0, p2 * 2 - 1)));
+      html += cube(pos[0], pos[1], i < A.o ? 'var(--blue)' : 'var(--orange)', op);
+    }
+    var tensBefore = A.t + B.t;
+    for (var j = 0; j < tensBefore + (O >= 10 ? 1 : 0); j++) {
+      var newRod = j === tensBefore, pos2, op2 = 1, col = j < A.t ? 'var(--blue)' : 'var(--orange)';
+      if (newRod) { pos2 = M.lerpPt([COL.o + 100, top], slot('t', j, top), M.ease(Math.max(0, p2 * 2 - 1))); op2 = M.ease(Math.max(0, p2 * 2 - 1)); col = 'var(--green)'; if (p2 <= 0.5) op2 = 0; }
+      else { var f2 = j < A.t ? slot('t', j, top) : slot('t', j - A.t, low); pos2 = M.lerpPt(f2, slot('t', j, top), j < A.t ? 1 : p1); }
+      if (T >= 10 && j < 10) { pos2 = M.lerpPt(pos2, [COL.t + 160, top], M.ease(Math.min(1, p3 * 2))); op2 *= 1 - M.ease(Math.max(0, p3 * 2 - 1)); }
+      else if (T >= 10) pos2 = M.lerpPt(pos2, slot('t', j - 10, top), M.ease(Math.max(0, p3 * 2 - 1)));
+      html += rod(pos2[0], pos2[1], col, op2);
+    }
+    var hundredsBefore = A.h + B.h;
+    for (var k = 0; k < hundredsBefore + (T >= 10 ? 1 : 0); k++) {
+      var nf = k === hundredsBefore, pos3, op3 = 1;
+      if (nf) { pos3 = M.lerpPt([COL.t + 120, top], slot('h', k, top), M.ease(Math.max(0, p3 * 2 - 1))); op3 = p3 > 0.5 ? M.ease(p3 * 2 - 1) : 0; }
+      else pos3 = M.lerpPt(k < A.h ? slot('h', k, top) : slot('h', k - A.h, low), slot('h', k, top), k < A.h ? 1 : p1);
+      html += flat(pos3[0], pos3[1], nf ? 'var(--purple)' : k < A.h ? 'var(--blue)' : 'var(--orange)', op3);
+    }
+    msg = st.t === 0 ? a + ' and ' + b + ': ' + pv(A) + ' and ' + pv(B) + '.' :
+      st.t < 1 / 3 ? 'Put the blocks together.' : st.t < 2 / 3 ? (O >= 10 ? O + ' ones: ten ones make one ten. ' + pl(O - 10, 'ones') + ' left.' : O + ' ones: not enough to make a ten.') :
+      st.t < 1 ? (T >= 10 ? T + ' tens: ten tens make one hundred.' : T + ' tens: not enough to make a hundred.') : a + ' + ' + b + ' = ' + (a + b);
+    if (st.t >= 1) {
+      if (a + b === 13 && Math.min(a, b) === 5) st.seen.s8p5 = true;
+      if (O >= 10 && T >= 10) st.seen.both = true;
+      if (O < 10 && T < 10) st.seen.none = true;
+    }
+    read.innerHTML = '<table class="lab-table"><thead><tr><th></th><th>Hundreds</th><th>Tens</th><th>Ones</th></tr></thead><tbody>' +
+      '<tr><td>' + a + '</td><td>' + A.h + '</td><td>' + A.t + '</td><td>' + A.o + '</td></tr><tr><td>+ ' + b + '</td><td>' + B.h + '</td><td>' + B.t + '</td><td>' + B.o + '</td></tr>' +
+      '<tr><td>Together</td><td>' + (A.h + B.h) + '</td><td>' + (A.t + B.t) + '</td><td>' + O + '</td></tr>' +
+      (st.t >= 2 / 3 ? '<tr><td>Regrouped</td><td>' + digits(a + b).h + '</td><td>' + digits(a + b).t + '</td><td>' + digits(a + b).o + '</td></tr>' : '') + '</tbody></table>' +
+      '<p><b>' + a + ' + ' + b + ' = ' + (st.t >= 1 ? a + b : '?') + '</b></p>';
+  } else {
+    // subtract: break a ten if needed, break a hundred if needed, then take away
+    var q1 = M.stage(st.t, 0, 3), q2 = M.stage(st.t, 1, 3), q3 = M.ease(M.stage(st.t, 2, 3));
+    var needTen = A.o < B.o, tensAfter = A.t - (needTen ? 1 : 0), needHundred = tensAfter < B.t;
+    var ones = A.o + (needTen ? 10 : 0), tens = tensAfter + (needHundred ? 10 : 0), hund = A.h - (needHundred ? 1 : 0);
+    // ones: the original cubes, then the ten new ones from the opened ten
+    for (var u = 0; u < ones; u++) {
+      var fresh = u >= A.o, posu = slot('o', u, top), opu = 1;
+      if (fresh) { posu = M.lerpPt([COL.t + (A.t - 1) * (CUBE + 4), top + (u - A.o) * 13], slot('o', u, top), M.ease(Math.max(0, q1 * 2 - 1))); opu = q1 > 0.5 ? 1 : 0; }
+      var gone = u >= ones - B.o;                                  // take away from the end
+      if (gone) { posu = [posu[0] + 0, posu[1] + 150 * q3]; opu *= 1 - 0.75 * q3; }
+      html += cube(posu[0], posu[1], fresh ? 'var(--green)' : 'var(--blue)', opu);
+    }
+    for (var v = 0; v < A.t + (needHundred ? 10 : 0); v++) {
+      var isOld = v < A.t, posv, opv = 1, colv = 'var(--blue)';
+      if (isOld) {
+        posv = slot('t', v, top);
+        if (needTen && v === A.t - 1) { opv = 1 - M.ease(Math.min(1, q1 * 2)); }
+      } else {
+        posv = M.lerpPt([COL.h + 10, top + (v - A.t) * 4], slot('t', tensAfter + (v - A.t), top), M.ease(Math.max(0, q2 * 2 - 1))); opv = q2 > 0.5 ? 1 : 0; colv = 'var(--green)';
+      }
+      var idx = isOld ? v : tensAfter + (v - A.t);
+      if (!(needTen && v === A.t - 1) && idx >= tens - B.t && idx < tens) { posv = [posv[0], posv[1] + 150 * q3]; opv *= 1 - 0.75 * q3; }
+      html += rod(posv[0], posv[1], colv, opv);
+    }
+    for (var w = 0; w < A.h; w++) {
+      var posw = slot('h', w, top), opw = 1;
+      if (needHundred && w === A.h - 1) opw = 1 - M.ease(Math.min(1, q2 * 2));
+      else if (w >= hund - B.h && w < hund) { posw = [posw[0], posw[1] + 150 * q3]; opw *= 1 - 0.75 * q3; }
+      html += flat(posw[0], posw[1], 'var(--blue)', opw);
+    }
+    msg = st.t === 0 ? a + ' is ' + pv(A) + '. Take away ' + b + '.' :
+      st.t < 1 / 3 ? (needTen ? 'Only ' + pl(A.o, 'ones') + ', and you need ' + B.o + ': open one ten into ten ones.' : 'There are enough ones to take away ' + B.o + '.') :
+      st.t < 2 / 3 ? (needHundred ? 'Only ' + pl(tensAfter, 'tens') + ', and you need ' + B.t + ': open one hundred into ten tens.' : 'There are enough tens to take away ' + B.t + '.') :
+      st.t < 1 ? 'Take away ' + pv(B) + '.' : a + ' − ' + b + ' = ' + (a - b);
+    if (st.t >= 1 && a === 42 && b === 17) st.seen.m42 = true;
+    read.innerHTML = '<table class="lab-table"><thead><tr><th></th><th>Hundreds</th><th>Tens</th><th>Ones</th></tr></thead><tbody>' +
+      '<tr><td>' + a + '</td><td>' + A.h + '</td><td>' + A.t + '</td><td>' + A.o + '</td></tr>' +
+      (st.t > 0 && (needTen || needHundred) ? '<tr><td>Regrouped</td><td>' + hund + '</td><td>' + tens + '</td><td>' + ones + '</td></tr>' : '') +
+      '<tr><td>− ' + b + '</td><td>' + B.h + '</td><td>' + B.t + '</td><td>' + B.o + '</td></tr></tbody></table><p><b>' + a + ' − ' + b + ' = ' + (st.t >= 1 ? a - b : '?') + '</b></p>';
+  }
+  g.innerHTML = html;
+  step.textContent = msg;
+  ch.update();
+}
+draw();
+})();
+</script>
+</body></html>

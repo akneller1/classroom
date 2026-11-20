@@ -156,6 +156,8 @@ jobs:
           node scripts/test-grade2-audit.cjs _site
           node scripts/apply-grade1-audit.mjs _site
           node scripts/test-grade1-audit.cjs _site
+          node scripts/apply-site-audit.mjs _site
+          node scripts/test-site-audit.cjs _site
           node scripts/test-kid-friendly.cjs _site
           node scripts/test-read-aloud.cjs _site
           node scripts/test-kid-ui.cjs _site

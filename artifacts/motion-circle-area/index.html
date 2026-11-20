@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Circle Area: Unroll the Sectors · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script src="../interactive-math/lab-plus.js?v=20261119"></script>
+<script src="../interactive-math/motion.js?v=20261120"></script>
+<script>
+(function () {
+'use strict';
+/* Circle Area: Unroll the Sectors (7.G.B.4, G-GMD.A.1). A circle is cut into n equal sectors. The top half and the
+   bottom half separate, and the sectors slide into a row, pointing up and down in turn. The row is close to a
+   parallelogram whose base is half the circumference (πr) and whose height is the radius (r); with more sectors it
+   gets closer to a rectangle, so the area is πr · r = πr². */
+var L = Lab, M = Motion;
+var P = L.layout({ course: 'Geometry and Measurement', unit: 'Circles', title: 'Circle Area: Unroll the Sectors',
+  intro: 'Cut a circle into equal slices and lay them side by side. The slices make a shape close to a parallelogram whose base is half the circumference and whose height is the radius. With more slices it looks like a rectangle.' });
+var st = { n: 12, r: 3, t: 0, seen: {} };
+var W = 660, H = 400, svg = L.s('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'Circle cut into sectors that rearrange into a parallelogram' }, P.stage);
+var g = L.s('g', null, svg);
+var step = L.h('p', { class: 'motion-step', 'aria-live': 'polite' }, P.stage, '');
+L.slider(P.panel, { id: 'n', label: 'Number of sectors', min: 4, max: 64, step: 2, value: st.n, color: 'blue', format: String, onInput: function (v) { st.n = v; draw(); } });
+L.slider(P.panel, { id: 'r', label: 'Radius r', min: 1, max: 5, step: 1, value: st.r, color: 'orange', format: String, onInput: function (v) { st.r = v; draw(); } });
+var tl = M.timeline(P.panel, { id: 'unroll', label: 'Rearrange', seconds: 5, onChange: function (t) { st.t = t; draw(); } });
+var read = L.h('div', { class: 'motion-readout', 'aria-live': 'polite' }, P.panel);
+var ch = L.challenges(P.below, [
+  { text: 'Play the animation with 8 sectors. Which part of the circle becomes the long side of the new shape?', check: function () { return st.seen.n8; } },
+  { text: 'Use 64 sectors. How close is the shape to a rectangle?', check: function () { return st.seen.n64; } },
+  { text: 'With r = 4, find the base and the height of the rectangle, then its area. Compare with π · 4².', check: function () { return st.seen.r4; } }], 'Try this');
+
+function draw() {
+  var n = st.n, R = st.r, a = Math.PI / n, s = 2 * Math.PI * R / n;
+  // scale: the final row is about πR + s/2 wide; the circle is 2R across
+  var k = Math.min(W * 0.84 / (Math.PI * R + s), H * 0.7 / (2 * R));
+  var split = M.ease(M.stage(st.t, 0, 3)), move = M.ease(Math.max(0, (st.t - 1 / 3) * 1.5));
+  var sectors = [];
+  for (var i = 0; i < n; i++) sectors.push({ i: i, th: (i + 0.5) * 2 * a });
+  var top = sectors.filter(function (x) { return x.th < Math.PI; }).sort(function (p, q) { return Math.cos(q.th) - Math.cos(p.th); });
+  var bot = sectors.filter(function (x) { return x.th >= Math.PI; }).sort(function (p, q) { return Math.cos(q.th) - Math.cos(p.th); });
+  var rowW = (n / 2) * s + s / 2;
+  top.forEach(function (x, j) { x.end = [-rowW / 2 + j * s + s / 2, R / 2]; x.dir = Math.PI / 2; x.half = 'top'; });
+  bot.forEach(function (x, j) { x.end = [-rowW / 2 + j * s + s, -R / 2]; x.dir = -Math.PI / 2; x.half = 'bot'; });
+  // the apex of a top sector sits on the bottom edge of the row, and of a bottom sector on the top edge
+  var cx = W / 2, cy = H / 2 - 6, html = '';
+  if (move > 0.98) {
+    html += '<rect x="' + L.round(cx - Math.PI * R * k / 2, 1) + '" y="' + L.round(cy - R * k / 2, 1) + '" width="' + L.round(Math.PI * R * k, 1) + '" height="' + L.round(R * k, 1) +
+      '" fill="none" stroke="var(--ink-soft)" stroke-dasharray="6 5" stroke-width="1.5"/>';
+  }
+  sectors.forEach(function (x) {
+    var off = (x.half === 'top' ? -1 : 1) * 0.35 * R * split;               // halves pull apart
+    var start = [0, off], th0 = x.th;
+    var j = (x.half === 'top' ? top : bot).indexOf(x), mj = M.ease(Math.max(0, Math.min(1, move * 1.6 - 0.6 * j / Math.max(1, n / 2 - 1))));   // the sectors leave one after another
+    var ap = M.lerpPt(start, x.end, mj), dir = th0 + (shortest(th0, x.dir)) * mj;
+    var p0 = [ap[0] + R * Math.cos(dir - a), ap[1] - R * Math.sin(dir - a)], p1 = [ap[0] + R * Math.cos(dir + a), ap[1] - R * Math.sin(dir + a)];
+    var X = function (p) { return L.round(cx + p[0] * k, 1) + ',' + L.round(cy + p[1] * k, 1); };
+    html += '<path d="M' + X(ap) + ' L' + X(p0) + ' A' + L.round(R * k, 1) + ' ' + L.round(R * k, 1) + ' 0 0 0 ' + X(p1) + ' Z" fill="' + (x.half === 'top' ? 'var(--blue)' : 'var(--orange)') +
+      '" fill-opacity="' + (x.i % 2 ? 0.75 : 0.95) + '" stroke="var(--card)" stroke-width="' + (n > 40 ? 0.6 : 1.2) + '"/>';
+  });
+  function shortest(from, to) { var d = to - from; while (d > Math.PI) d -= 2 * Math.PI; while (d < -Math.PI) d += 2 * Math.PI; return d; }
+  if (move > 0.98) {
+    var bx = cx - Math.PI * R * k / 2, by = cy + R * k / 2 + 22;
+    html += '<text x="' + L.round(cx, 1) + '" y="' + L.round(by, 1) + '" text-anchor="middle" font-weight="700" fill="var(--ink)">base ≈ half the circumference = πr ≈ ' + L.round(Math.PI * R, 2) + '</text>';
+    html += '<text x="' + L.round(bx, 1) + '" y="' + L.round(cy - R * k / 2 - 12, 1) + '" text-anchor="start" font-weight="700" fill="var(--ink)">height ≈ r = ' + R + ' ↕</text>';
+  } else if (st.t === 0) {
+    html += '<line x1="' + cx + '" y1="' + cy + '" x2="' + L.round(cx + R * k, 1) + '" y2="' + cy + '" stroke="var(--ink)" stroke-width="2.5"/><text x="' + L.round(cx + R * k / 2, 1) + '" y="' + L.round(cy - 8, 1) + '" text-anchor="middle" font-weight="700" fill="var(--ink)">r = ' + R + '</text>';
+  }
+  g.innerHTML = html;
+  step.textContent = st.t === 0 ? 'A circle cut into ' + n + ' equal sectors.' : st.t < 1 / 3 ? 'The top half and the bottom half separate.' : move < 0.98 ? 'The sectors slide into a row, pointing up and down in turn.' :
+    'Done: a shape close to a ' + (n >= 32 ? 'rectangle' : 'parallelogram') + ', πr wide and r tall.';
+  read.innerHTML = '<p>Circumference = 2πr = ' + L.round(2 * Math.PI * R, 2) + '</p><p>Base of the row = half the circumference = πr ≈ ' + L.round(Math.PI * R, 2) + '</p><p>Height = r = ' + R + '</p>' +
+    '<p><b>Area ≈ πr · r = πr² ≈ ' + L.round(Math.PI * R * R, 2) + '</b> square units</p><p class="sub">Each sector\'s arc is 2πr ÷ ' + n + ' ≈ ' + L.round(s, 3) + ' long.</p>';
+  var done = st.t >= 0.999;
+  if (done && n === 8) st.seen.n8 = true;
+  if (done && n === 64) st.seen.n64 = true;
+  if (done && R === 4) st.seen.r4 = true;
+  ch.update();
+}
+draw();
+})();
+</script>
+</body></html>

@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pythagorean Theorem: A Proof in Motion · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script src="../interactive-math/lab-plus.js?v=20261119"></script>
+<script src="../interactive-math/motion.js?v=20261120"></script>
+<script>
+(function () {
+'use strict';
+/* Pythagorean Theorem: A Proof in Motion (8.G.B.6, G-SRT.C.8). Four copies of a right triangle with legs a and b sit in
+   a square of side a + b. In the first arrangement the uncovered space is one tilted square of side c. The triangles
+   slide and turn (no flips, no stretching) into the second arrangement, where the uncovered space is a square of side a
+   and a square of side b. The big square and the four triangles did not change, so the uncovered areas are equal:
+   c² = a² + b². */
+var L = Lab, M = Motion;
+var P = L.layout({ course: '8th Grade Math and Geometry', unit: 'Right Triangles', title: 'Pythagorean Theorem: A Proof in Motion',
+  intro: 'Four copies of the same right triangle sit inside a square of side a + b. Slide them into a new arrangement and compare the space they leave uncovered: first one square of side c, then two squares of sides a and b.' });
+var st = { a: 3, b: 4, t: 0, seen: {} };
+var W = 660, H = 430, svg = L.s('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'Four right triangles rearranged inside a square' }, P.stage);
+var g = L.s('g', null, svg);
+var step = L.h('p', { class: 'motion-step', 'aria-live': 'polite' }, P.stage, '');
+L.slider(P.panel, { id: 'a', label: 'Leg a', min: 1, max: 8, step: 1, value: st.a, color: 'blue', format: String, onInput: function (v) { st.a = v; draw(); } });
+L.slider(P.panel, { id: 'b', label: 'Leg b', min: 1, max: 8, step: 1, value: st.b, color: 'orange', format: String, onInput: function (v) { st.b = v; draw(); } });
+M.timeline(P.panel, { id: 'move', label: 'Rearrange', seconds: 4, onChange: function (t) { st.t = t; draw(); } });
+var read = L.h('div', { class: 'motion-readout', 'aria-live': 'polite' }, P.panel);
+var ch = L.challenges(P.below, [
+  { text: 'With a = 3 and b = 4, read the uncovered area before and after. What is c?', check: function () { return st.seen.c5; } },
+  { text: 'Find another pair of whole-number legs whose c is also a whole number (try a = 5 or a = 6).', check: function () { return st.seen.other; } },
+  { text: 'Make a = b. What do the two small squares look like, and how does c² compare with a²?', check: function () { return st.seen.iso; } }], 'Try this');
+
+function draw() {
+  var a = st.a, b = st.b, S = a + b, c2 = a * a + b * b;
+  var k = Math.min(W * 0.6, H * 0.8) / S, ox = (W - S * k) / 2 - 40, oy = (H - S * k) / 2 + S * k - 12;
+  var X = function (p) { return [ox + p[0] * k, oy - p[1] * k]; };
+  var F = function (p) { var q = X(p); return L.round(q[0], 1) + ',' + L.round(q[1], 1); };
+  // each triangle: right-angle corner R, end of leg a (A), end of leg b (B); first and second arrangement
+  var start = [[[0, 0], [a, 0], [0, b]], [[S, 0], [S, a], [a, 0]], [[S, S], [b, S], [S, a]], [[0, S], [0, b], [b, S]]];
+  var end = [[[a, a], [a, 0], [S, a]], [[S, 0], [S, a], [a, 0]], [[0, a], [a, a], [0, S]], [[a, S], [0, S], [a, a]]];
+  var colors = ['var(--blue)', 'var(--green)', 'var(--purple)', 'var(--red)'];
+  var html = '<rect x="' + L.round(ox, 1) + '" y="' + L.round(oy - S * k, 1) + '" width="' + L.round(S * k, 1) + '" height="' + L.round(S * k, 1) + '" fill="var(--sun)" fill-opacity="0.35" stroke="var(--ink)" stroke-width="2.5"/>';
+  start.forEach(function (s0, i) {
+    var e0 = end[i], ang = function (T) { return Math.atan2(T[1][1] - T[0][1], T[1][0] - T[0][0]); };
+    var d = ang(e0) - ang(s0); while (d > Math.PI) d -= 2 * Math.PI; while (d < -Math.PI) d += 2 * Math.PI;
+    var mi = i === 1 ? 0 : M.ease(M.stage(st.t, [0, 0, 1, 2][i], 3));   // one triangle at a time
+    var R = M.lerpPt(s0[0], e0[0], mi), th = ang(s0) + d * mi;
+    var A = [R[0] + a * Math.cos(th), R[1] + a * Math.sin(th)], B = [R[0] + b * Math.cos(th + Math.PI / 2), R[1] + b * Math.sin(th + Math.PI / 2)];
+    html += '<polygon points="' + [R, A, B].map(F).join(' ') + '" fill="' + colors[i] + '" fill-opacity="0.85" stroke="var(--card)" stroke-width="2" stroke-linejoin="round"/>';
+  });
+  var lab = function (p, txt, size) { var q = X(p); return '<text x="' + L.round(q[0], 1) + '" y="' + L.round(q[1] + 6, 1) + '" text-anchor="middle" font-size="' + (size || 20) + '" font-weight="800" fill="var(--ink)" paint-order="stroke" stroke="var(--card)" stroke-width="4">' + txt + '</text>'; };
+  if (st.t < 0.02) html += lab([S / 2, S / 2], 'c² = ' + c2, 22) + lab([a / 2, -S * 0.07], 'a', 18) + lab([a + b / 2, -S * 0.07], 'b', 18);
+  if (st.t > 0.98) html += lab([a / 2, a / 2], 'a² = ' + a * a, a > 1 ? 20 : 14) + lab([a + b / 2, a + b / 2], 'b² = ' + b * b, b > 1 ? 20 : 14);
+  g.innerHTML = html;
+  var c = Math.sqrt(c2);
+  step.textContent = st.t < 0.02 ? 'Uncovered: one tilted square with side c.' : st.t > 0.98 ? 'Uncovered: a square with side a and a square with side b. Same square, same four triangles, so c² = a² + b².' : 'The triangles slide and turn. Nothing is stretched or flipped.';
+  read.innerHTML = '<p>Big square: (a + b)² = ' + S * S + '</p><p>Four triangles: 4 · ½ab = ' + 2 * a * b + '</p><p>Uncovered: ' + S * S + ' − ' + 2 * a * b + ' = <b>' + c2 + '</b></p>' +
+    '<p>a² + b² = ' + a * a + ' + ' + b * b + ' = ' + c2 + '</p><p><b>c = √' + c2 + (Number.isInteger(c) ? ' = ' + c : ' ≈ ' + L.round(c, 3)) + '</b></p>';
+  if (st.t > 0.98 || st.t < 0.02) {
+    if (a * b === 12 && a + b === 7) st.seen.c5 = true;
+    if (Number.isInteger(c) && !(a * b === 12 && a + b === 7)) st.seen.other = true;
+    if (a === b) st.seen.iso = true;
+  }
+  ch.update();
+}
+draw();
+})();
+</script>
+</body></html>

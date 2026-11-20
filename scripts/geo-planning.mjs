@@ -314,6 +314,11 @@ ${C.mcas ? '<div style="overflow-x:auto">' : ""}<table><thead><tr><th>Unit</th><
    the weeks after the test preview the next grade, then the projects and the final review. Returns null when the
    course is not in the site. */
 const ELEMENTARY = {
+  // Site audit #15 (2026-11-20): Grade 5 had only a PDF pacing guide; its catalog lives in grade5/.
+  5: { name: "5th Grade Math", units: 11, catalog: "grade5/grade5-main-catalog.js", notes: "grade5/grade5-native-notes.js", std: "grade5/grade5-standards-map.js",
+    all: "5.OA.A.1 5.OA.A.2 5.OA.B.3 5.NBT.A.1 5.NBT.A.2 5.NBT.A.3.a 5.NBT.A.3.b 5.NBT.A.4 5.NBT.B.5 5.NBT.B.6 5.NBT.B.7 5.NF.A.1 5.NF.A.2 5.NF.B.3 5.NF.B.4.a 5.NF.B.4.b 5.NF.B.5.a 5.NF.B.5.b 5.NF.B.6 5.NF.B.7.a 5.NF.B.7.b 5.NF.B.7.c 5.MD.A.1 5.MD.B.2 5.MD.C.3.a 5.MD.C.3.b 5.MD.C.4 5.MD.C.5.a 5.MD.C.5.b 5.MD.C.5.c 5.G.A.1 5.G.A.2 5.G.B.3 5.G.B.4",
+    titles: ["Mixed practice: whole numbers and decimals", "Mixed practice: fraction operations", "Mixed practice: volume and measurement", "Mixed practice: the coordinate plane and expressions", "Multi-step word problems and open response", "Targeted reteach"],
+    post: ["Grade 6 preview: ratios and rates", "Grade 6 preview: dividing fractions", "Grade 6 preview: negative numbers", "Grade 5 project", "Fluency and spiral review"], next: "Grade 6" },
   4: { name: "4th Grade Math", units: 10, all: "4.OA.A.1 4.OA.A.2 4.OA.A.3 4.OA.B.4 4.OA.C.5 4.NBT.A.1 4.NBT.A.2 4.NBT.A.3 4.NBT.B.4 4.NBT.B.5 4.NBT.B.6 4.NF.A.1 4.NF.A.2 4.NF.B.3.a 4.NF.B.3.b 4.NF.B.3.c 4.NF.B.3.d 4.NF.B.4.a 4.NF.B.4.b 4.NF.B.4.c 4.NF.C.5 4.NF.C.6 4.NF.C.7 4.MD.A.1 4.MD.A.2 4.MD.A.3 4.MD.B.4 4.MD.C.5.a 4.MD.C.5.b 4.MD.C.6 4.MD.C.7 4.G.A.1 4.G.A.2 4.G.A.3",
     titles: ["Mixed practice: place value and operations", "Mixed practice: fractions and decimals", "Mixed practice: measurement and geometry", "Multi-step word problems", "Open response practice", "Targeted reteach"],
     post: ["Grade 5 preview: multiplying larger numbers", "Grade 5 preview: fractions with unlike denominators", "Grade 5 preview: decimals to thousandths", "Grade 4 project", "Fluency and spiral review"], next: "Grade 5" },
@@ -328,18 +333,18 @@ const ELEMENTARY = {
     post: ["Grade 4 preview: multi-digit multiplication", "Grade 4 preview: equivalent fractions and decimals", "Grade 4 preview: angles and lines", "Grade 3 project", "Fact fluency and spiral review"], next: "Grade 4" }
 };
 export function elementaryPacing(grade, siteDir) {
-  const E = ELEMENTARY[grade], id = "grade" + grade;
-  if (!E || !fs.existsSync(path.join(siteDir, id + "-main-catalog.js"))) return null;
+  const E = ELEMENTARY[grade], id = "grade" + grade, catalog = (E && E.catalog) || id + "-main-catalog.js";
+  if (!E || !fs.existsSync(path.join(siteDir, catalog))) return null;
   const saved = BASE;
   BASE = siteDir;
   try {
     COURSES[id] = { name: E.name, sets: new RegExp("^" + id + "-"), page: `grade-${grade}-pacing/`, framework: "Common Core Grade " + grade, bank: true, mcas: grade, mcasUnit: E.units, all: E.all.split(" ").map((c) => [c]),
-      load: () => bankScope(id, "G" + grade, { extra: [id + "-main-catalog.js", `${id}/${id}-native-notes.js`], mcas: { grade, afterUnit: E.units, review: 6, testing: 2, titles: E.titles, post: { days: 18, titles: E.post } } }),
+      load: () => bankScope(id, "G" + grade, { extra: [catalog, E.notes || `${id}/${id}-native-notes.js`, ...(E.std ? [E.std] : [])], mcas: { grade, afterUnit: E.units, review: 6, testing: 2, titles: E.titles, post: { days: 18, titles: E.post } } }),
       intro: (scope) => {
         const t = scope.days.filter((d) => new RegExp("^MCAS Grade " + grade).test(d.title));
         return E.nomcas ? `There is no state test in Grade ${grade}, so the plan keeps a spring review window like Grades 3–5: all ${({ 10: "ten", 11: "eleven", 12: "twelve" })[E.units]} units come first, six days of mixed review follow, then two days for a school or district benchmark (about days ${t[0] ? t[0].day : ""}–${t.length ? t[t.length - 1].day : ""}). The weeks after are ${E.next} previews, the Grade ${grade} projects and the final review.` : `The year is built around the spring Grade ${grade} MCAS. All ${({ 10: "ten", 11: "eleven", 12: "twelve" })[E.units]} units come first, so every Grade ${grade} standard is taught before the test; six review days of mixed practice come next, then the two testing sessions (about days ${t[0] ? t[0].day : ""}–${t.length ? t[t.length - 1].day : ""}; check your district’s testing window). The weeks after the test are ${E.next} previews, the Grade ${grade} projects and the final review.`;
       } };
-    const bridge = fs.readFileSync(path.join(siteDir, id + "-main-catalog.js"), "utf8").match(/var course=(\{.*?\}),skills=/s);
+    const src = fs.readFileSync(path.join(siteDir, catalog), "utf8"), bridge = src.match(/var course=(\{.*?\}),skills=/s) || src.match(/var data=(\{.*?\});/s);
     const ids = Object.fromEntries(JSON.parse(bridge[1]).units.map((u) => [u.name, u.id]));
     const html = geoPacingMain(id, (title) => `../u/${id}/` + (ids[title] || "") + "/");
     // Grade 2 has no state test: the same spring window holds review and a school or district benchmark.

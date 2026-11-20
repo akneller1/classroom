@@ -56,7 +56,7 @@ for (const u of urls.filter((u) => /\/u\/[^/]+\/[^/]+\/$/.test(u))) {
 for (const a of activities) if (!seen.has(a)) { urls.push(a); seen.add(a); }
 // Financial Algebra planning pages (2026-11-17): the pacing guide and standards map, and the Spreadsheet Labs.
 // 4th and 3rd Grade Math pacing guides (2026-11-19, Grade 4 and Grade 3 audits #6), written at deploy by apply-grade<N>-audit.mjs.
-for (const r of ["financial/pacing/", "financial/spreadsheet-labs/", "grade-4-pacing/", "grade-3-pacing/", "grade-2-pacing/", "grade-1-pacing/"]) if (read(r) && !seen.has(SITE_URL + r)) { urls.push(SITE_URL + r); seen.add(SITE_URL + r); }
+for (const r of ["financial/pacing/", "financial/spreadsheet-labs/", "grade-5-pacing/", "grade-4-pacing/", "grade-3-pacing/", "grade-2-pacing/", "grade-1-pacing/"]) if (read(r) && !seen.has(SITE_URL + r)) { urls.push(SITE_URL + r); seen.add(SITE_URL + r); }
 
 // 2. lastmod per URL.
 function lastmod(u) {

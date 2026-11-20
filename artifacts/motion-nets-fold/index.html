@@ -1,0 +1,233 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>3D Nets: Fold and Unfold · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script src="../interactive-math/lab-plus.js?v=20261119"></script>
+<script src="../interactive-math/motion.js?v=20261120"></script>
+<script>
+(function () {
+'use strict';
+/* 3D Nets: Fold and Unfold (6.G.A.4, 7.G.B.6, G-GMD.B.4, G-MG.A.1). A net folds up into its solid and unfolds again.
+   Each face turns about the edge it shares with the face it hangs from (a hinge), by the angle that face makes with
+   its neighbor in the solid. The faces fold all at once or one at a time. The surface area is the sum of the face areas,
+   which is easiest to see on the flat net. A 2 × 3 block of squares shows a net that does not fold into a cube. */
+var L = Lab, M = Motion, V3 = M.v3;
+var P = L.layout({ course: 'Geometry and Measurement', unit: 'Surface Area and Volume', title: '3D Nets: Fold and Unfold',
+  intro: 'Watch a flat net fold up into a solid and unfold again. Turn the solid by dragging it. The surface area is the total area of the faces, which you can read on the flat net.' });
+
+var PAL = ['var(--blue)', 'var(--orange)', 'var(--green)', 'var(--purple)', 'var(--red)', 'var(--sun)'];
+var EPS = 1e-6;
+function sq(x, y, w, h) { return [[x, y], [x + w, y], [x + w, y + h], [x, y + h]]; }
+function regular(n, a, b, out) {           // regular n-gon with edge a→b, built on the side away from point out
+  var dx = b[0] - a[0], dy = b[1] - a[1], s = Math.hypot(dx, dy), pts = [a, b], ang = Math.atan2(dy, dx);
+  var turn = 2 * Math.PI / n, mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, nx = -dy / s, ny = dx / s;
+  if ((out[0] - mx) * nx + (out[1] - my) * ny > 0) turn = -turn;
+  var p = b;
+  for (var i = 1; i < n - 1; i++) { ang += turn; p = [p[0] + s * Math.cos(ang), p[1] + s * Math.sin(ang)]; pts.push(p); }
+  return pts;
+}
+function tri(a, b, h, out) {                 // isosceles triangle on edge a→b with height h, away from out
+  var mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, dx = b[0] - a[0], dy = b[1] - a[1], s = Math.hypot(dx, dy), nx = -dy / s, ny = dx / s;
+  if ((out[0] - mx) * nx + (out[1] - my) * ny > 0) { nx = -nx; ny = -ny; }
+  return [a, b, [mx + nx * h, my + ny * h]];
+}
+function polyArea(p) { var s = 0; for (var i = 0; i < p.length; i++) { var q = p[(i + 1) % p.length]; s += p[i][0] * q[1] - q[0] * p[i][1]; } return Math.abs(s) / 2; }
+
+/* ---------- the solids ---------- */
+function cubeNet(cells, root, name, valid) {
+  return { name: name, valid: valid, kind: 'cube', faces: cells.map(function (c, i) { return { pts: sq(c[0], c[1], 1, 1), color: PAL[i % 6], label: '1 × 1' }; }),
+    root: root, fold: function () { return Math.PI / 2; } };
+}
+function prism(l, w, h) {
+  var f = [
+    { pts: sq(0, 0, l, w), color: PAL[0], name: 'Bottom', label: l + ' × ' + w },
+    { pts: sq(0, w, l, h), color: PAL[1], name: 'Back', label: l + ' × ' + h },
+    { pts: sq(0, -h, l, h), color: PAL[1], name: 'Front', label: l + ' × ' + h },
+    { pts: sq(-h, 0, h, w), color: PAL[2], name: 'Left', label: h + ' × ' + w },
+    { pts: sq(l, 0, h, w), color: PAL[2], name: 'Right', label: h + ' × ' + w },
+    { pts: sq(0, w + h, l, w), color: PAL[0], name: 'Top', label: l + ' × ' + w }];
+  return { name: 'Rectangular prism', kind: 'prism', faces: f, root: 0, fold: function () { return Math.PI / 2; },
+    sa: '2(' + l + '·' + w + ' + ' + l + '·' + h + ' + ' + w + '·' + h + ') = ' + 2 * (l * w + l * h + w * h), vol: l + ' × ' + w + ' × ' + h + ' = ' + l * w * h };
+}
+function triPrism() {
+  var a = 2, Lh = 3, h = a * Math.sqrt(3) / 2;
+  var f = [{ pts: sq(0, 0, a, Lh), color: PAL[1], name: 'Side', label: a + ' × ' + Lh, rect: 1 }, { pts: sq(a, 0, a, Lh), color: PAL[1], name: 'Side', label: a + ' × ' + Lh, rect: 1 },
+    { pts: sq(2 * a, 0, a, Lh), color: PAL[1], name: 'Side', label: a + ' × ' + Lh, rect: 1 }];
+  f.push({ pts: tri([a, Lh], [2 * a, Lh], h, [1.5 * a, 0]), color: PAL[0], name: 'Base', label: '½ · 2 · ' + L.round(h, 2) });
+  f.push({ pts: tri([a, 0], [2 * a, 0], h, [1.5 * a, Lh]), color: PAL[0], name: 'Base', label: '½ · 2 · ' + L.round(h, 2) });
+  return { name: 'Triangular prism', kind: 'triprism', faces: f, root: 1, fold: function (c, p) { return c.rect && p.rect ? 2 * Math.PI / 3 : Math.PI / 2; },
+    sa: '3(2 · 3) + 2(½ · 2 · ' + L.round(h, 2) + ') ≈ ' + L.round(18 + 2 * h, 2), vol: 'base area × length = ' + L.round(h, 2) + ' × 3 ≈ ' + L.round(3 * h, 2) };
+}
+function pyramid() {
+  var s = 2, H = 1.6, l = Math.sqrt(H * H + 1), c = [s / 2, s / 2];
+  var f = [{ pts: sq(0, 0, s, s), color: PAL[0], name: 'Base', label: '2 × 2' }];
+  var base = f[0].pts;
+  for (var i = 0; i < 4; i++) f.push({ pts: tri(base[i], base[(i + 1) % 4], l, c), color: PAL[i % 2 ? 2 : 3], name: 'Triangle', label: '½ · 2 · ' + L.round(l, 2) });
+  return { name: 'Square pyramid', kind: 'pyramid', faces: f, root: 0, fold: function () { return Math.PI - Math.acos(1 / l); },
+    sa: '2² + 4(½ · 2 · ' + L.round(l, 2) + ') ≈ ' + L.round(4 + 4 * l, 2), vol: '⅓ · 2² · 1.6 ≈ ' + L.round(4 * 1.6 / 3, 2), note: 'slant height ' + L.round(l, 2) + ', height 1.6' };
+}
+function tetra() {
+  var a = 2, h = a * Math.sqrt(3) / 2, base = [[0, 0], [a, 0], [a / 2, h]], c = [a / 2, h / 3];
+  var f = [{ pts: base, color: PAL[0], name: 'Face', label: '½ · 2 · ' + L.round(h, 2) }];
+  for (var i = 0; i < 3; i++) f.push({ pts: tri(base[i], base[(i + 1) % 3], h, c), color: PAL[i + 1], name: 'Face', label: '½ · 2 · ' + L.round(h, 2) });
+  return { name: 'Tetrahedron', kind: 'tetra', faces: f, root: 0, fold: function () { return Math.PI - Math.acos(1 / 3); },
+    sa: '4(½ · 2 · ' + L.round(h, 2) + ') ≈ ' + L.round(4 * h / 2 * 2, 2), vol: '' };
+}
+function cylinder() {
+  var N = 24, r = 1, hh = 2.4, w = 2 * r * Math.sin(Math.PI / N), f = [], mid = N / 2;
+  for (var k = 0; k < N; k++) f.push({ pts: sq(k * w, 0, w, hh), color: 'var(--orange)', name: 'Side', strip: 1, label: '' });
+  var top = regular(N, [mid * w + w, hh], [mid * w, hh], [mid * w, 0]), bot = regular(N, [mid * w, 0], [mid * w + w, 0], [mid * w, hh]);
+  f.push({ pts: top, color: 'var(--blue)', name: 'Circle', label: 'π · 1²' }); f.push({ pts: bot, color: 'var(--blue)', name: 'Circle', label: 'π · 1²' });
+  return { name: 'Cylinder', kind: 'cylinder', faces: f, root: mid, fold: function (c, p) { return c.strip && p.strip ? 2 * Math.PI / N : Math.PI / 2; }, outline: true,
+    sa: '2π(1²) + 2π(1)(2.4) ≈ ' + L.round(2 * Math.PI + 2 * Math.PI * 2.4, 2), vol: 'π(1²)(2.4) ≈ ' + L.round(Math.PI * 2.4, 2),
+    note: 'The side unrolls to a rectangle 2π(1) ≈ 6.28 wide and 2.4 tall. (Drawn with 24 strips.)' };
+}
+
+/* ---------- folding ---------- */
+function build(solid) {
+  var F = solid.faces, n = F.length;
+  F.forEach(function (f) { f.area = polyArea(f.pts); f.parent = -1; f.depth = 0; });
+  function shared(a, b) {
+    for (var i = 0; i < a.pts.length; i++) {
+      var p = a.pts[i], q = a.pts[(i + 1) % a.pts.length];
+      for (var j = 0; j < b.pts.length; j++) {
+        var r = b.pts[j], s = b.pts[(j + 1) % b.pts.length];
+        var same = function (u, v) { return Math.abs(u[0] - v[0]) < EPS && Math.abs(u[1] - v[1]) < EPS; };
+        if ((same(p, s) && same(q, r)) || (same(p, r) && same(q, s))) return [p, q];
+      }
+    }
+    return null;
+  }
+  var seen = {}, queue = [solid.root], order = []; seen[solid.root] = 1;
+  while (queue.length) {
+    var i = queue.shift(); order.push(i);
+    for (var j = 0; j < n; j++) if (!seen[j]) {
+      var e = shared(F[i], F[j]);
+      if (e) { seen[j] = 1; F[j].parent = i; F[j].depth = F[i].depth + 1; F[j].hinge = e; queue.push(j); }
+    }
+  }
+  order.forEach(function (k) {
+    var f = F[k]; if (f.parent < 0) return;
+    var a = [f.hinge[0][0], f.hinge[0][1], 0], b = [f.hinge[1][0], f.hinge[1][1], 0], u = V3.norm(V3.sub(b, a));
+    var cx = 0, cy = 0; f.pts.forEach(function (p) { cx += p[0]; cy += p[1]; });
+    var c = [cx / f.pts.length, cy / f.pts.length, 0], test = M.rotateAbout(c, a, u, 0.1);
+    f.axis = { a: a, u: u, sign: test[2] > 0 ? 1 : -1, angle: solid.fold(f, F[f.parent]) };
+  });
+  solid.order = order.filter(function (k) { return F[k].parent >= 0; });
+  solid.total = F.reduce(function (s, f) { return s + f.area; }, 0);
+  return solid;
+}
+function folded(solid, t, oneAtATime) {
+  var F = solid.faces, steps = solid.order.length, out = [];
+  var amount = {};
+  solid.order.forEach(function (k, i) { amount[k] = oneAtATime ? M.ease(M.stage(t, i, steps)) : M.ease(t); });
+  F.forEach(function (f, k) {
+    var pts = f.pts.map(function (p) {
+      var q = [p[0], p[1], 0], g = k;
+      while (F[g].parent >= 0) { var ax = F[g].axis; q = M.rotateAbout(q, ax.a, ax.u, ax.sign * ax.angle * amount[g]); g = F[g].parent; }
+      return q;
+    });
+    out.push(pts);
+  });
+  return out;
+}
+
+/* ---------- state and drawing ---------- */
+var SOLIDS = {
+  cross: function () { return cubeNet([[1, 0], [0, 1], [1, 1], [2, 1], [3, 1], [1, 2]], 2, 'Cube: cross net', true); },
+  stairs: function () { return cubeNet([[0, 0], [1, 0], [1, 1], [2, 1], [2, 2], [3, 2]], 2, 'Cube: staircase net', true); },
+  tee: function () { return cubeNet([[0, 0], [1, 0], [2, 0], [1, 1], [1, 2], [1, 3]], 3, 'Cube: T net', true); },
+  block: function () { return cubeNet([[0, 0], [1, 0], [2, 0], [0, 1], [1, 1], [2, 1]], 4, 'Not a net: 2 × 3 block', false); },
+  prism: function () { return prism(st.l, st.w, st.h); }, triprism: triPrism, pyramid: pyramid, tetra: tetra, cylinder: cylinder };
+var st = { pick: 'cross', l: 4, w: 3, h: 2, t: 0, one: false, areas: true, seen: {} };
+var solid = build(SOLIDS.cross());
+var view = { yaw: 0.55, pitch: 0.7, cx: 330, cy: 215, s: 60, dist: 30 };
+var svg = L.s('svg', { viewBox: '0 0 660 430', role: 'img', 'aria-label': 'A net folding into a solid' }, P.stage);
+var g = L.s('g', null, svg);
+var stepLine = L.h('p', { class: 'motion-step', 'aria-live': 'polite' }, P.stage, '');
+var help = L.h('p', { class: 'sub', style: 'margin:0 6px' }, P.stage, 'Drag the solid (or use the arrow keys) to turn it.');
+
+L.chips(P.panel, { label: 'Solid', value: 'cross', options: [
+  { value: 'cross', label: 'Cube (cross)' }, { value: 'stairs', label: 'Cube (stairs)' }, { value: 'tee', label: 'Cube (T)' }, { value: 'block', label: '2 × 3 block' },
+  { value: 'prism', label: 'Rectangular prism' }, { value: 'triprism', label: 'Triangular prism' }, { value: 'pyramid', label: 'Square pyramid' },
+  { value: 'tetra', label: 'Tetrahedron' }, { value: 'cylinder', label: 'Cylinder' }], onChange: function (v) { st.pick = v; reset(); } });
+var dims = L.h('div', null, P.panel);
+var f0 = function (v) { return String(v); };
+L.slider(dims, { id: 'l', label: 'Length', min: 1, max: 6, step: 1, value: st.l, color: 'blue', format: f0, onInput: function (v) { st.l = v; reset(true); } });
+L.slider(dims, { id: 'w', label: 'Width', min: 1, max: 5, step: 1, value: st.w, color: 'orange', format: f0, onInput: function (v) { st.w = v; reset(true); } });
+L.slider(dims, { id: 'h', label: 'Height', min: 1, max: 5, step: 1, value: st.h, color: 'green', format: f0, onInput: function (v) { st.h = v; reset(true); } });
+var tl = M.timeline(P.panel, { id: 'fold', label: 'Fold', seconds: 4, onChange: function (t) { st.t = t; draw(); } });
+L.chips(P.panel, { label: 'Folding', value: 'all', options: [{ value: 'all', label: 'All faces together' }, { value: 'one', label: 'One face at a time' }],
+  onChange: function (v) { st.one = v === 'one'; draw(); } });
+L.chips(P.panel, { label: 'Face areas', value: 'on', options: [{ value: 'on', label: 'Show' }, { value: 'off', label: 'Hide' }], onChange: function (v) { st.areas = v === 'on'; draw(); } });
+var read = L.h('div', { class: 'motion-readout', 'aria-live': 'polite' }, P.panel);
+var ch = L.challenges(P.below, [
+  { text: 'Fold a cube net all the way, then turn the cube to check that every side is covered once.', check: function () { return st.seen.cube; } },
+  { text: 'Fold the 2 × 3 block. Which two squares end up on the same side of the cube, and which side is left open?', check: function () { return st.seen.block; } },
+  { text: 'Make a 4 × 3 × 2 box. Add the six face areas on the flat net: is the surface area 52 square units?', check: function () { return st.seen.box; } },
+  { text: 'Unfold the cylinder. How wide is the rectangle that wraps around it? (Hint: the circumference.)', check: function () { return st.seen.cyl; } },
+  { text: 'Fold the pyramid one face at a time. Why do all four triangles stop at the same angle?', check: function () { return st.seen.pyr; } }], 'Try this');
+
+function reset(keepT) {
+  dims.style.display = st.pick === 'prism' ? '' : 'none';
+  solid = build(SOLIDS[st.pick]());
+  if (!keepT) tl.set(0); else draw();
+}
+function bounds(faces3) {
+  var lo = [1e9, 1e9, 1e9], hi = [-1e9, -1e9, -1e9];
+  faces3.forEach(function (f) { f.forEach(function (p) { for (var i = 0; i < 3; i++) { lo[i] = Math.min(lo[i], p[i]); hi[i] = Math.max(hi[i], p[i]); } }); });
+  return { c: [(lo[0] + hi[0]) / 2, (lo[1] + hi[1]) / 2, (lo[2] + hi[2]) / 2], r: Math.max(hi[0] - lo[0], hi[1] - lo[1], hi[2] - lo[2]) };
+}
+var flatSize = 1;
+function draw() {
+  var faces3 = folded(solid, st.t, st.one);
+  var b = bounds(faces3);
+  if (st.t === 0 || !solid.flat) { var b0 = bounds(folded(solid, 0, false)); solid.flat = b0.r; }
+  view.s = 440 / (solid.flat || 1);
+  var items = faces3.map(function (pts, k) {
+    var q = pts.map(function (p) { return M.project(V3.sub(p, b.c), view); });
+    var n = V3.norm(V3.cross(V3.sub(pts[1], pts[0]), V3.sub(pts[2], pts[0])));
+    var depth = q.reduce(function (s, x) { return s + x[2]; }, 0) / q.length;
+    return { k: k, q: q, depth: depth, light: M.shade(n, view) };
+  }).sort(function (a, b2) { return b2.depth - a.depth; });
+  var html = '';
+  items.forEach(function (it) {
+    var f = solid.faces[it.k];
+    html += '<polygon points="' + it.q.map(function (p) { return L.round(p[0], 1) + ',' + L.round(p[1], 1); }).join(' ') + '" fill="' + f.color + '" fill-opacity="' + L.round(0.25 + 0.6 * it.light, 2) +
+      '" stroke="var(--ink)" stroke-opacity="' + (solid.kind === 'cylinder' && f.strip ? 0.18 : 0.85) + '" stroke-width="' + (f.strip ? 0.6 : 1.6) + '" stroke-linejoin="round"/>';
+  });
+  if (st.areas) items.forEach(function (it) {
+    var f = solid.faces[it.k]; if (!f.label) return;
+    var cx = 0, cy = 0; it.q.forEach(function (p) { cx += p[0]; cy += p[1]; }); cx /= it.q.length; cy /= it.q.length;
+    if (st.t > 0.05 && items.indexOf(it) < items.length / 2) return;   // label the near faces once folded
+    html += '<text x="' + L.round(cx, 1) + '" y="' + L.round(cy + 5, 1) + '" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)" paint-order="stroke" stroke="var(--card)" stroke-width="3">' + L.esc(f.label) + '</text>';
+  });
+  g.innerHTML = html;
+  var done = st.t >= 0.999;
+  var steps = solid.order.length;
+  stepLine.textContent = st.t === 0 ? 'Flat net: ' + solid.faces.length + ' faces.' : done ? (solid.valid === false ? 'Folded: two squares overlap and one side of the cube is open. A 2 × 3 block is not a cube net.' : 'Folded: ' + solid.name.replace(/^Cube: .*/, 'a cube') + '.')
+    : st.one ? 'Folding face ' + Math.min(steps, Math.floor(st.t * steps) + 1) + ' of ' + steps + '.' : 'Folding… ' + Math.round(st.t * 100) + '%';
+  var faceRows = {};
+  solid.faces.forEach(function (f) { var key = (f.name || 'Square') + (f.label ? ' (' + f.label + ')' : ''); faceRows[key] = faceRows[key] || { n: 0, a: f.area }; faceRows[key].n++; });
+  var rows = Object.keys(faceRows).filter(function (k) { return !/^Side \(\)$/.test(k); }).map(function (k) { return '<li>' + faceRows[k].n + ' × ' + L.esc(k) + ' = ' + L.round(faceRows[k].n * faceRows[k].a, 2) + '</li>'; });
+  if (solid.kind === 'cylinder') rows.unshift('<li>Side: one rectangle, about 6.28 × 2.4</li>');
+  read.innerHTML = '<p><b>' + L.esc(solid.name) + '</b></p><ul style="margin:4px 0 8px 18px;padding:0">' + rows.join('') + '</ul>' +
+    (solid.valid === false ? '<p>Total area of the squares = 6 square units, but they do not close up into a cube.</p>' : '<p>Surface area = ' + (solid.sa || '6 × 1² = 6') + ' square units</p>') +
+    (solid.vol ? '<p>Volume = ' + solid.vol + ' cubic units</p>' : solid.kind === 'cube' && solid.valid ? '<p>Volume = 1³ = 1 cubic unit</p>' : '') +
+    (solid.note ? '<p class="sub">' + L.esc(solid.note) + '</p>' : '');
+  if (done && solid.kind === 'cube' && solid.valid) st.seen.cube = true;
+  if (done && solid.valid === false) st.seen.block = true;
+  if (solid.kind === 'prism' && [st.l, st.w, st.h].sort().join() === '2,3,4') st.seen.box = true;
+  if (solid.kind === 'cylinder' && done) st.seen.cylFolded = true;
+  if (solid.kind === 'cylinder' && st.seen.cylFolded && st.t < 0.05) st.seen.cyl = true;
+  if (solid.kind === 'pyramid' && st.one && done) st.seen.pyr = true;
+  ch.update();
+}
+M.orbit(svg, view, draw);
+reset();
+})();
+</script>
+</body></html>

@@ -1,0 +1,34 @@
+[
+ {"slug":"motion-nets-fold","title":"3D Nets: Fold and Unfold","course":"Geometry and Measurement","q":[
+  ["Choose Cube (cross) and fold it all the way. Which square ends up opposite the center square of the long row?","The square two places away from it in the same row (opposite faces are never next to each other in the net)."],
+  ["Choose the 2 × 3 block and fold it. What goes wrong?","Two squares land on the same side of the cube and one side is left open, so a 2 × 3 block is not a cube net."],
+  ["Make a 4 × 3 × 2 box. Fill in: 2 faces of ___, 2 faces of ___, 2 faces of ___. Surface area = ___.","2 faces of 12, 2 faces of 8, 2 faces of 6. Surface area = 2(12 + 8 + 6) = 52 square units."],
+  ["Unfold the cylinder (radius 1, height 2.4). How wide is the rectangle that wraps around it? What is the surface area?","The width is the circumference, 2π(1) ≈ 6.28. Surface area = 2π(1²) + 2π(1)(2.4) ≈ 21.36 square units."],
+  ["Fold the square pyramid one face at a time. Why do all four triangles stop at the same angle?","The four triangles are congruent and each meets the square base along an equal edge, so each makes the same angle with the base."]]},
+ {"slug":"motion-circle-area","title":"Circle Area: Unroll the Sectors","course":"Geometry and Measurement","q":[
+  ["Use 8 sectors and play the animation. Which part of the circle becomes the two long sides of the new shape?","The circumference: half of it (the top arcs) on one long side and half (the bottom arcs) on the other."],
+  ["In terms of r, what is the base of the new shape? What is its height?","Base = half the circumference = πr. Height = the radius, r."],
+  ["Set r = 4. Find the base, the height and the area. Compare with π · 4².","Base ≈ 12.57, height 4, area ≈ 50.27, which is π · 4² = 16π ≈ 50.27."],
+  ["Use 64 sectors. Why does the shape look more like a rectangle?","With thinner sectors the arcs are flatter and the slanted sides are nearly vertical, so the parallelogram approaches a rectangle πr by r."]]},
+ {"slug":"motion-pythagorean-proof","title":"Pythagorean Theorem: A Proof in Motion","course":"8th Grade Math and Geometry","q":[
+  ["With a = 3 and b = 4, find the area of the big square, of the four triangles, and of the uncovered part.","Big square (3 + 4)² = 49; triangles 4 · ½ · 3 · 4 = 24; uncovered 49 − 24 = 25, so c² = 25 and c = 5."],
+  ["Write the uncovered area in the second arrangement using a and b.","a² + b² (a square of side a and a square of side b)."],
+  ["Explain why the uncovered area is the same in both arrangements.","The big square and the four triangles did not change; the triangles only moved. The square minus the triangles is the same area, so c² = a² + b²."],
+  ["Find another pair of whole-number legs with a whole-number c.","Examples: 6 and 8 give c = 10; 5 and 12 give c = 13."]]},
+ {"slug":"motion-triangle-angle-sum","title":"Triangle Angle Sum: Tear and Line Up","course":"8th Grade Math and Geometry","q":[
+  ["With A = 50° and B = 70°, what is C? What do the three corners make when they are lined up?","C = 60°. Together they make a straight line, 180°."],
+  ["Make a right triangle. What do the other two angles add to?","90°, because 180° − 90° = 90°."],
+  ["Make an obtuse triangle. Do the corners still make a straight line?","Yes. The angles still add to 180°; one angle is more than 90°, so the other two add to less than 90°."],
+  ["Make an equilateral triangle. How big is each angle? Why?","60°, because the three angles are equal and add to 180°."]]},
+ {"slug":"motion-volume-pour","title":"Volume by Pouring: Cone, Sphere and Cylinder","course":"8th Grade Math and Geometry","q":[
+  ["How many full cones fill the cylinder? Write the volume of the cone using r and h.","Three. V(cone) = ⅓ · πr²h."],
+  ["With r = 3 and h = 6, find the volume of the cylinder and of the cone.","Cylinder π · 9 · 6 = 54π ≈ 169.6; cone 18π ≈ 56.5."],
+  ["Pour the sphere into a cylinder of radius r and height 2r. What fraction fills? Write the volume of the sphere.","Two thirds. V(sphere) = ⅔ · πr² · 2r = 4⁄3 · πr³."],
+  ["Find the volume of a sphere with r = 3.","4⁄3 · π · 27 = 36π ≈ 113.1."]]},
+ {"slug":"motion-make-a-ten","title":"Make a Ten: Regrouping with Base-Ten Blocks","course":"Grades 1–3","q":[
+  ["Add 8 + 5. After you make a ten, how many ones are left? What is the sum?","3 ones are left. 8 + 5 = 1 ten and 3 ones = 13."],
+  ["Add 27 + 15. How many ones are there together? What happens to ten of them?","12 ones. Ten ones become one ten, so the sum is 4 tens and 2 ones = 42."],
+  ["Subtract 42 − 17. Why does a ten open up first? What is the answer?","There are only 2 ones and you need to take 7. One ten opens into ten ones: 3 tens and 12 ones. 12 − 7 = 5 and 3 − 1 = 2, so 42 − 17 = 25."],
+  ["Add 75 + 48. What two kinds of regrouping happen?","13 ones make a ten (3 ones left) and 12 tens make a hundred (2 tens left): 1 hundred, 2 tens, 3 ones = 123."],
+  ["Write an addition with no regrouping. What is true about its digits?","Example: 23 + 45 = 68. The ones digits add to less than 10 and the tens digits add to less than 10."]]}
+]

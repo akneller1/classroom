@@ -18,6 +18,7 @@ const units=require('../question-banks/manifest.json').banks.filter(b=>b.courseI
   await page.waitForFunction(()=>document.querySelectorAll('a[href*="course-game.html"],a[href*="course-activity.html"]').length>=7);
   const resourceShortcuts=['Games','Study Guides'];
   resourceShortcuts.push('Interactive Math');
+  resourceShortcuts.push('Pacing Guide');   // site UX audit 2026-11-20
   assert.equal(await page.locator('.generator-shortcuts a').count(),4+resourceShortcuts.length);
   assert.deepEqual(await page.locator('.generator-shortcut.resource-shortcut strong').allTextContents(),resourceShortcuts);
   for(const mode of ['lesson','worksheet','assessment']){

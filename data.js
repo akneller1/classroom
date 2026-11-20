@@ -393,6 +393,22 @@ window.LIBRARY = {
           "name": "Foundations of Algebra",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra1-foundations&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Foundations of Algebra"
+              ],
+              "added": "2026-11-20"
+            },
+            {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-foundations",
               "thumb": "thumbs/practice-test.svg",
@@ -663,6 +679,22 @@ window.LIBRARY = {
           "id": "expressions-equations",
           "name": "Solving Linear Equations",
           "artifacts": [
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra1-expressions-equations&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Solving Linear Equations"
+              ],
+              "added": "2026-11-20"
+            },
             {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-expressions-equations",
@@ -939,6 +971,22 @@ window.LIBRARY = {
           "name": "Linear Inequalities",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra1-inequalities&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Linear Inequalities"
+              ],
+              "added": "2026-11-20"
+            },
+            {
               "title": "Inequality Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra1-inequalities&kind=ineq",
               "thumb": "thumbs/matching-ineq.svg",
@@ -1212,6 +1260,22 @@ window.LIBRARY = {
           "id": "relations-functions",
           "name": "Relations and Functions",
           "artifacts": [
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra1-relations-functions&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Relations and Functions"
+              ],
+              "added": "2026-11-20"
+            },
             {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-relations-functions",
@@ -1495,6 +1559,22 @@ window.LIBRARY = {
           "id": "linear-equations-slope",
           "name": "Linear Functions and Graphing",
           "artifacts": [
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra1-linear-equations-slope&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Linear Functions and Graphing"
+              ],
+              "added": "2026-11-20"
+            },
             {
               "title": "Linear Functions and Graphing Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra1-linear-equations-slope",
@@ -1784,6 +1864,22 @@ window.LIBRARY = {
           "id": "systems-of-equations",
           "name": "Systems of Equations and Inequalities",
           "artifacts": [
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra1-systems-of-equations&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Systems of Equations and Inequalities"
+              ],
+              "added": "2026-11-20"
+            },
             {
               "title": "Systems of Equations Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra1-systems-of-equations&kind=sys",
@@ -2114,6 +2210,22 @@ window.LIBRARY = {
           "name": "Exponents and Scientific Notation",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponents-scientific-notation&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Exponents and Scientific Notation"
+              ],
+              "added": "2026-11-20"
+            },
+            {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-exponents-scientific-notation",
               "thumb": "thumbs/practice-test.svg",
@@ -2382,6 +2494,22 @@ window.LIBRARY = {
           "id": "exponential-functions",
           "name": "Exponential Functions",
           "artifacts": [
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponential-functions&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Exponential Functions"
+              ],
+              "added": "2026-11-20"
+            },
             {
               "title": "Outbreak Simulator",
               "path": "artifacts/exponential-functions-outbreak-simulator/index.html",
@@ -2675,6 +2803,22 @@ window.LIBRARY = {
           "name": "Polynomials",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra1-polynomials&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Polynomials"
+              ],
+              "added": "2026-11-20"
+            },
+            {
               "title": "Polynomial Garden Planner",
               "path": "artifacts/polynomials-garden-planner/index.html",
               "thumb": "thumbs/polynomials-garden-planner.jpg",
@@ -2953,6 +3097,22 @@ window.LIBRARY = {
           "name": "Factoring and Zero Product Property",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra1-factoring-zero-product&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Factoring and Zero Product Property"
+              ],
+              "added": "2026-11-20"
+            },
+            {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-factoring-zero-product",
               "thumb": "thumbs/practice-test.svg",
@@ -3215,6 +3375,22 @@ window.LIBRARY = {
           "id": "quadratics",
           "name": "Quadratic Functions and Equations",
           "artifacts": [
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra1-quadratics&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Quadratic Functions and Equations"
+              ],
+              "added": "2026-11-20"
+            },
             {
               "title": "Quadratic Functions and Equations Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra1-quadratics",
@@ -3489,6 +3665,22 @@ window.LIBRARY = {
           "id": "statistics-data-modeling",
           "name": "Statistics and Data Modeling",
           "artifacts": [
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra1-statistics-data-modeling&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Statistics and Data Modeling"
+              ],
+              "added": "2026-11-20"
+            },
             {
               "title": "Data Display Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra1-statistics-data-modeling&kind=data",
@@ -3779,6 +3971,22 @@ window.LIBRARY = {
           "name": "Functions & Transformations",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra2-functions-transformations&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Functions & Transformations"
+              ],
+              "added": "2026-11-20"
+            },
+            {
               "title": "Functions & Transformations Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra2-functions-transformations",
               "thumb": "thumbs/matching-game-algebra2-functions-transformations.svg",
@@ -4028,6 +4236,22 @@ window.LIBRARY = {
           "id": "linear-functions-systems",
           "name": "Linear Functions & Systems",
           "artifacts": [
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra2-linear-functions-systems&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Linear Functions & Systems"
+              ],
+              "added": "2026-11-20"
+            },
             {
               "title": "Linear Functions & Systems Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra2-linear-functions-systems",
@@ -4279,6 +4503,22 @@ window.LIBRARY = {
           "name": "Quadratic Functions & Complex Numbers",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra2-quadratic-functions-complex-numbers&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Quadratic Functions & Complex Numbers"
+              ],
+              "added": "2026-11-20"
+            },
+            {
               "title": "Quadratic Functions & Complex Numbers Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra2-quadratic-functions-complex-numbers",
               "thumb": "thumbs/matching-game-algebra2-quadratic-functions-complex-numbers.svg",
@@ -4529,6 +4769,105 @@ window.LIBRARY = {
           "name": "Polynomial Functions",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra2-polynomial-functions&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Polynomial Functions"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-polynomial-functions&kind=error",
+              "type": "Printable",
+              "thumb": "thumbs/error-generator-foundations.svg",
+              "description": "Find, explain, and correct mistakes using authored Algebra 2 questions. Includes teacher solutions.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Polynomial Functions"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-polynomial-functions&kind=tarsia",
+              "type": "Printable",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Match problems and answers to assemble a triangle puzzle. Includes work pages and a solved teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Polynomial Functions"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-polynomial-functions&kind=maze",
+              "type": "Printable",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Follow a route of correctly answered questions through a mathematical maze. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Polynomial Functions"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-polynomial-functions&kind=color",
+              "type": "Printable",
+              "thumb": "thumbs/geometry-color-generator-basics-reasoning.svg",
+              "description": "Solve problems to reveal a color-coded picture. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Polynomial Functions"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-polynomial-functions&kind=who",
+              "type": "Printable",
+              "thumb": "thumbs/foundations-algebra-whodunnit.jpg",
+              "description": "Solve clues and narrow down the mystery. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Polynomial Functions"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
               "title": "Polynomial Functions Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra2-polynomial-functions",
               "thumb": "thumbs/matching-game-algebra2-polynomial-functions.svg",
@@ -4604,6 +4943,105 @@ window.LIBRARY = {
           "name": "Radicals & Rational Exponents",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra2-radicals-rational-exponents&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Radicals & Rational Exponents"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-radicals-rational-exponents&kind=error",
+              "type": "Printable",
+              "thumb": "thumbs/error-generator-foundations.svg",
+              "description": "Find, explain, and correct mistakes using authored Algebra 2 questions. Includes teacher solutions.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Radicals & Rational Exponents"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-radicals-rational-exponents&kind=tarsia",
+              "type": "Printable",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Match problems and answers to assemble a triangle puzzle. Includes work pages and a solved teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Radicals & Rational Exponents"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-radicals-rational-exponents&kind=maze",
+              "type": "Printable",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Follow a route of correctly answered questions through a mathematical maze. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Radicals & Rational Exponents"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-radicals-rational-exponents&kind=color",
+              "type": "Printable",
+              "thumb": "thumbs/geometry-color-generator-basics-reasoning.svg",
+              "description": "Solve problems to reveal a color-coded picture. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Radicals & Rational Exponents"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-radicals-rational-exponents&kind=who",
+              "type": "Printable",
+              "thumb": "thumbs/foundations-algebra-whodunnit.jpg",
+              "description": "Solve clues and narrow down the mystery. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Radicals & Rational Exponents"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
               "title": "Radicals & Rational Exponents Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra2-radicals-rational-exponents",
               "thumb": "thumbs/matching-game-algebra2-radicals-rational-exponents.svg",
@@ -4678,6 +5116,22 @@ window.LIBRARY = {
           "id": "exponential-logarithmic-functions",
           "name": "Exponential & Logarithmic Functions",
           "artifacts": [
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra2-exponential-logarithmic-functions&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Exponential & Logarithmic Functions"
+              ],
+              "added": "2026-11-20"
+            },
             {
               "title": "Exponential & Logarithmic Functions Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra2-exponential-logarithmic-functions",
@@ -4929,6 +5383,105 @@ window.LIBRARY = {
           "name": "Rational Functions",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra2-rational-functions&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Rational Functions"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-rational-functions&kind=error",
+              "type": "Printable",
+              "thumb": "thumbs/error-generator-foundations.svg",
+              "description": "Find, explain, and correct mistakes using authored Algebra 2 questions. Includes teacher solutions.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Rational Functions"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-rational-functions&kind=tarsia",
+              "type": "Printable",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Match problems and answers to assemble a triangle puzzle. Includes work pages and a solved teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Rational Functions"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-rational-functions&kind=maze",
+              "type": "Printable",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Follow a route of correctly answered questions through a mathematical maze. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Rational Functions"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-rational-functions&kind=color",
+              "type": "Printable",
+              "thumb": "thumbs/geometry-color-generator-basics-reasoning.svg",
+              "description": "Solve problems to reveal a color-coded picture. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Rational Functions"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-rational-functions&kind=who",
+              "type": "Printable",
+              "thumb": "thumbs/foundations-algebra-whodunnit.jpg",
+              "description": "Solve clues and narrow down the mystery. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Rational Functions"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
               "title": "Rational Functions Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra2-rational-functions",
               "thumb": "thumbs/matching-game-algebra2-rational-functions.svg",
@@ -5003,6 +5556,105 @@ window.LIBRARY = {
           "id": "sequences-series",
           "name": "Sequences & Series",
           "artifacts": [
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra2-sequences-series&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Sequences & Series"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-sequences-series&kind=error",
+              "type": "Printable",
+              "thumb": "thumbs/error-generator-foundations.svg",
+              "description": "Find, explain, and correct mistakes using authored Algebra 2 questions. Includes teacher solutions.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Sequences & Series"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-sequences-series&kind=tarsia",
+              "type": "Printable",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Match problems and answers to assemble a triangle puzzle. Includes work pages and a solved teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Sequences & Series"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-sequences-series&kind=maze",
+              "type": "Printable",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Follow a route of correctly answered questions through a mathematical maze. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Sequences & Series"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-sequences-series&kind=color",
+              "type": "Printable",
+              "thumb": "thumbs/geometry-color-generator-basics-reasoning.svg",
+              "description": "Solve problems to reveal a color-coded picture. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Sequences & Series"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-sequences-series&kind=who",
+              "type": "Printable",
+              "thumb": "thumbs/foundations-algebra-whodunnit.jpg",
+              "description": "Solve clues and narrow down the mystery. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Sequences & Series"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
             {
               "title": "Sequences & Series Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra2-sequences-series",
@@ -5079,6 +5731,105 @@ window.LIBRARY = {
           "name": "Conic Sections",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra2-conic-sections&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Conic Sections"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-conic-sections&kind=error",
+              "type": "Printable",
+              "thumb": "thumbs/error-generator-foundations.svg",
+              "description": "Find, explain, and correct mistakes using authored Algebra 2 questions. Includes teacher solutions.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Conic Sections"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-conic-sections&kind=tarsia",
+              "type": "Printable",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Match problems and answers to assemble a triangle puzzle. Includes work pages and a solved teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Conic Sections"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-conic-sections&kind=maze",
+              "type": "Printable",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Follow a route of correctly answered questions through a mathematical maze. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Conic Sections"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-conic-sections&kind=color",
+              "type": "Printable",
+              "thumb": "thumbs/geometry-color-generator-basics-reasoning.svg",
+              "description": "Solve problems to reveal a color-coded picture. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Conic Sections"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-conic-sections&kind=who",
+              "type": "Printable",
+              "thumb": "thumbs/foundations-algebra-whodunnit.jpg",
+              "description": "Solve clues and narrow down the mystery. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Conic Sections"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
               "title": "Conic Section Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra2-conic-sections&kind=conic",
               "thumb": "thumbs/matching-conic.svg",
@@ -5153,6 +5904,105 @@ window.LIBRARY = {
           "id": "trigonometric-functions",
           "name": "Trigonometric Functions",
           "artifacts": [
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra2-trigonometric-functions&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Trigonometric Functions"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-trigonometric-functions&kind=error",
+              "type": "Printable",
+              "thumb": "thumbs/error-generator-foundations.svg",
+              "description": "Find, explain, and correct mistakes using authored Algebra 2 questions. Includes teacher solutions.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Trigonometric Functions"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-trigonometric-functions&kind=tarsia",
+              "type": "Printable",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Match problems and answers to assemble a triangle puzzle. Includes work pages and a solved teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Trigonometric Functions"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-trigonometric-functions&kind=maze",
+              "type": "Printable",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Follow a route of correctly answered questions through a mathematical maze. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Trigonometric Functions"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-trigonometric-functions&kind=color",
+              "type": "Printable",
+              "thumb": "thumbs/geometry-color-generator-basics-reasoning.svg",
+              "description": "Solve problems to reveal a color-coded picture. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Trigonometric Functions"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-trigonometric-functions&kind=who",
+              "type": "Printable",
+              "thumb": "thumbs/foundations-algebra-whodunnit.jpg",
+              "description": "Solve clues and narrow down the mystery. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Trigonometric Functions"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
             {
               "title": "Sine and Cosine Graph Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra2-trigonometric-functions&kind=trig",
@@ -5229,6 +6079,105 @@ window.LIBRARY = {
           "name": "Probability & Statistics",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=algebra2-probability-statistics&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Probability & Statistics"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-probability-statistics&kind=error",
+              "type": "Printable",
+              "thumb": "thumbs/error-generator-foundations.svg",
+              "description": "Find, explain, and correct mistakes using authored Algebra 2 questions. Includes teacher solutions.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Probability & Statistics"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Tarsia Puzzle Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-probability-statistics&kind=tarsia",
+              "type": "Printable",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Match problems and answers to assemble a triangle puzzle. Includes work pages and a solved teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Probability & Statistics"
+              ],
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-probability-statistics&kind=maze",
+              "type": "Printable",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Follow a route of correctly answered questions through a mathematical maze. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Probability & Statistics"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-probability-statistics&kind=color",
+              "type": "Printable",
+              "thumb": "thumbs/geometry-color-generator-basics-reasoning.svg",
+              "description": "Solve problems to reveal a color-coded picture. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Probability & Statistics"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra2-probability-statistics&kind=who",
+              "type": "Printable",
+              "thumb": "thumbs/foundations-algebra-whodunnit.jpg",
+              "description": "Solve clues and narrow down the mystery. Uses Algebra 2 questions and a teacher key.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Probability & Statistics"
+              ],
+              "added": "2026-11-20",
+              "bankFormat": "printable-generator"
+            },
+            {
               "title": "Partner Check 1: Counting & Probability",
               "path": "artifacts/algebra2-probability-statistics-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-probability-statistics-partner-check-1.jpg",
@@ -5300,6 +6249,22 @@ window.LIBRARY = {
           "id": "foundations-geometry",
           "name": "Foundations of Geometry",
           "artifacts": [
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=geometry-basics-reasoning&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Foundations of Geometry"
+              ],
+              "added": "2026-11-20"
+            },
             {
               "title": "Shipwreck Salvage",
               "path": "artifacts/geometry-shipwreck-salvage/index.html",
@@ -5565,6 +6530,22 @@ window.LIBRARY = {
           "name": "Angles and Parallel Lines",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=geometry-angles-parallel-lines&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Angles and Parallel Lines"
+              ],
+              "added": "2026-11-20"
+            },
+            {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-angles-parallel-lines",
               "thumb": "thumbs/practice-test.svg",
@@ -5799,6 +6780,22 @@ window.LIBRARY = {
           "id": "transformations",
           "name": "Transformations",
           "artifacts": [
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=geometry-transformations&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Transformations"
+              ],
+              "added": "2026-11-20"
+            },
             {
               "title": "Transformation Matching Game",
               "path": "worksheet-generator/match-game.html#unit=geometry-transformations&kind=xform",
@@ -6048,6 +7045,22 @@ window.LIBRARY = {
           "name": "Triangle Congruence",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Triangle Congruence"
+              ],
+              "added": "2026-11-20"
+            },
+            {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-triangles-congruence",
               "thumb": "thumbs/practice-test.svg",
@@ -6282,6 +7295,38 @@ window.LIBRARY = {
           "name": "Triangle Relationships",
           "artifacts": [
             {
+              "title": "Triangle Angle Sum: Tear and Line Up",
+              "path": "artifacts/motion-triangle-angle-sum/index.html?course=Geometry&unit=Triangle%20Relationships",
+              "bankFormat": "interactive-math",
+              "type": "Interactive",
+              "thumb": "thumbs/motion-triangle-angle-sum.jpg",
+              "description": "Tear the three corners off any triangle and slide them together: they always make a straight line, so the angles add to 180°.",
+              "topics": [
+                "Triangle angle sum",
+                "Straight angles",
+                "Motion diagram"
+              ],
+              "worksheet": "artifacts/motion-triangle-angle-sum/worksheet.pdf",
+              "answerKey": "artifacts/motion-triangle-angle-sum/teacher-key.pdf",
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Triangle Relationships"
+              ],
+              "added": "2026-11-20"
+            },
+            {
               "title": "Starlight Observatory: Locked Under the Stars",
               "path": "artifacts/triangle-relationships-escape-room/index.html",
               "thumb": "thumbs/triangle-relationships-escape-room.jpg",
@@ -6498,6 +7543,22 @@ window.LIBRARY = {
           "id": "similarity",
           "name": "Similarity",
           "artifacts": [
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Similarity"
+              ],
+              "added": "2026-11-20"
+            },
             {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-similarity",
@@ -6734,6 +7795,38 @@ window.LIBRARY = {
           "name": "Right Triangles and Trigonometry",
           "artifacts": [
             {
+              "title": "Pythagorean Theorem: A Proof in Motion",
+              "path": "artifacts/motion-pythagorean-proof/index.html?course=Geometry&unit=Right%20Triangles%20and%20Trigonometry",
+              "bankFormat": "interactive-math",
+              "type": "Interactive",
+              "thumb": "thumbs/motion-pythagorean-proof.jpg",
+              "description": "Four copies of a right triangle slide and turn inside a square of side a + b. The uncovered area changes from one square of side c to squares of sides a and b, so c² = a² + b².",
+              "topics": [
+                "Pythagorean theorem",
+                "Proof by rearrangement",
+                "Motion diagram"
+              ],
+              "worksheet": "artifacts/motion-pythagorean-proof/worksheet.pdf",
+              "answerKey": "artifacts/motion-pythagorean-proof/teacher-key.pdf",
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Right Triangles and Trigonometry"
+              ],
+              "added": "2026-11-20"
+            },
+            {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-right-triangles-trigonometry",
               "thumb": "thumbs/practice-test.svg",
@@ -6969,6 +8062,22 @@ window.LIBRARY = {
           "name": "Quadrilaterals and Polygons",
           "artifacts": [
             {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Quadrilaterals and Polygons"
+              ],
+              "added": "2026-11-20"
+            },
+            {
               "title": "Lockdown at the Tile Factory",
               "path": "artifacts/quadrilaterals-polygons-escape-room/index.html",
               "thumb": "thumbs/quadrilaterals-polygons-escape-room.jpg",
@@ -7185,6 +8294,38 @@ window.LIBRARY = {
           "id": "circles",
           "name": "Circles",
           "artifacts": [
+            {
+              "title": "Circle Area: Unroll the Sectors",
+              "path": "artifacts/motion-circle-area/index.html?course=Geometry&unit=Circles",
+              "bankFormat": "interactive-math",
+              "type": "Interactive",
+              "thumb": "thumbs/motion-circle-area.jpg",
+              "description": "Cut a circle into equal sectors and watch them slide into a row that is close to a parallelogram, πr wide and r tall. More sectors make it closer to a rectangle, so the area is πr².",
+              "topics": [
+                "Area of a circle",
+                "Circumference",
+                "Motion diagram"
+              ],
+              "worksheet": "artifacts/motion-circle-area/worksheet.pdf",
+              "answerKey": "artifacts/motion-circle-area/teacher-key.pdf",
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=geometry-circles&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Circles"
+              ],
+              "added": "2026-11-20"
+            },
             {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-circles",
@@ -7433,6 +8574,56 @@ window.LIBRARY = {
           "id": "area-surface-area-volume",
           "name": "Area, Surface Area and Volume",
           "artifacts": [
+            {
+              "title": "Volume by Pouring: Cone, Sphere and Cylinder",
+              "path": "artifacts/motion-volume-pour/index.html?course=Geometry&unit=Area%2C%20Surface%20Area%20and%20Volume",
+              "bankFormat": "interactive-math",
+              "type": "Interactive",
+              "thumb": "thumbs/motion-volume-pour.jpg",
+              "description": "Pour a full cone into a cylinder with the same base and height (three pours fill it) and a sphere into a cylinder 2r tall (it fills two thirds), to see where ⅓πr²h and 4⁄3πr³ come from.",
+              "topics": [
+                "Volume of cones",
+                "Volume of spheres",
+                "Volume of cylinders",
+                "Motion diagram"
+              ],
+              "worksheet": "artifacts/motion-volume-pour/worksheet.pdf",
+              "answerKey": "artifacts/motion-volume-pour/teacher-key.pdf",
+              "added": "2026-11-20"
+            },
+            {
+              "title": "3D Nets: Fold and Unfold",
+              "path": "artifacts/motion-nets-fold/index.html?course=Geometry&unit=Area%2C%20Surface%20Area%20and%20Volume",
+              "bankFormat": "interactive-math",
+              "type": "Interactive",
+              "thumb": "thumbs/motion-nets-fold.jpg",
+              "description": "Watch a net fold into a cube, prism, pyramid, tetrahedron or cylinder and unfold again. Turn the solid by dragging; fold all faces together or one at a time; read the face areas on the flat net. A 2 × 3 block shows a net that does not fold into a cube.",
+              "topics": [
+                "Nets",
+                "Surface area",
+                "Folding and unfolding",
+                "Motion diagram"
+              ],
+              "worksheet": "artifacts/motion-nets-fold/worksheet.pdf",
+              "answerKey": "artifacts/motion-nets-fold/teacher-key.pdf",
+              "added": "2026-11-20"
+            },
+            {
+              "title": "Vocabulary Activities and Crosswords",
+              "path": "worksheet-generator/printables.html#unit=geometry-area-surface-area-volume&kind=vocabulary",
+              "type": "Printable",
+              "thumb": "thumbs/vocabulary-prealgebra.svg",
+              "description": "Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Area, Surface Area and Volume"
+              ],
+              "added": "2026-11-20"
+            },
             {
               "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-area-surface-area-volume",
@@ -7805,6 +8996,22 @@ window.LIBRARY = {
               "name": "Congruence and Similarity",
               "artifacts": [
                 {
+                  "title": "Triangle Angle Sum: Tear and Line Up",
+                  "path": "artifacts/motion-triangle-angle-sum/index.html?course=8th%20Grade%20Math&unit=Congruence%20and%20Similarity",
+                  "bankFormat": "interactive-math",
+                  "type": "Interactive",
+                  "thumb": "thumbs/motion-triangle-angle-sum.jpg",
+                  "description": "Tear the three corners off any triangle and slide them together: they always make a straight line, so the angles add to 180°.",
+                  "topics": [
+                    "Triangle angle sum",
+                    "Straight angles",
+                    "Motion diagram"
+                  ],
+                  "worksheet": "artifacts/motion-triangle-angle-sum/worksheet.pdf",
+                  "answerKey": "artifacts/motion-triangle-angle-sum/teacher-key.pdf",
+                  "added": "2026-11-20"
+                },
+                {
                   "title": "Transformation Matching Game",
                   "path": "worksheet-generator/match-game.html#unit=prealgebra-congruence-similarity&kind=xform",
                   "thumb": "thumbs/matching-xform.svg",
@@ -7837,6 +9044,56 @@ window.LIBRARY = {
               "id": "geometry-applications",
               "name": "Geometry",
               "artifacts": [
+                {
+                  "title": "Volume by Pouring: Cone, Sphere and Cylinder",
+                  "path": "artifacts/motion-volume-pour/index.html?course=8th%20Grade%20Math&unit=Geometry",
+                  "bankFormat": "interactive-math",
+                  "type": "Interactive",
+                  "thumb": "thumbs/motion-volume-pour.jpg",
+                  "description": "Pour a full cone into a cylinder with the same base and height (three pours fill it) and a sphere into a cylinder 2r tall (it fills two thirds), to see where ⅓πr²h and 4⁄3πr³ come from.",
+                  "topics": [
+                    "Volume of cones",
+                    "Volume of spheres",
+                    "Volume of cylinders",
+                    "Motion diagram"
+                  ],
+                  "worksheet": "artifacts/motion-volume-pour/worksheet.pdf",
+                  "answerKey": "artifacts/motion-volume-pour/teacher-key.pdf",
+                  "added": "2026-11-20"
+                },
+                {
+                  "title": "Pythagorean Theorem: A Proof in Motion",
+                  "path": "artifacts/motion-pythagorean-proof/index.html?course=8th%20Grade%20Math&unit=Geometry",
+                  "bankFormat": "interactive-math",
+                  "type": "Interactive",
+                  "thumb": "thumbs/motion-pythagorean-proof.jpg",
+                  "description": "Four copies of a right triangle slide and turn inside a square of side a + b. The uncovered area changes from one square of side c to squares of sides a and b, so c² = a² + b².",
+                  "topics": [
+                    "Pythagorean theorem",
+                    "Proof by rearrangement",
+                    "Motion diagram"
+                  ],
+                  "worksheet": "artifacts/motion-pythagorean-proof/worksheet.pdf",
+                  "answerKey": "artifacts/motion-pythagorean-proof/teacher-key.pdf",
+                  "added": "2026-11-20"
+                },
+                {
+                  "title": "3D Nets: Fold and Unfold",
+                  "path": "artifacts/motion-nets-fold/index.html?course=8th%20Grade%20Math&unit=Geometry",
+                  "bankFormat": "interactive-math",
+                  "type": "Interactive",
+                  "thumb": "thumbs/motion-nets-fold.jpg",
+                  "description": "Watch a net fold into a cube, prism, pyramid, tetrahedron or cylinder and unfold again. Turn the solid by dragging; fold all faces together or one at a time; read the face areas on the flat net. A 2 × 3 block shows a net that does not fold into a cube.",
+                  "topics": [
+                    "Nets",
+                    "Surface area",
+                    "Folding and unfolding",
+                    "Motion diagram"
+                  ],
+                  "worksheet": "artifacts/motion-nets-fold/worksheet.pdf",
+                  "answerKey": "artifacts/motion-nets-fold/teacher-key.pdf",
+                  "added": "2026-11-20"
+                },
                 {
                   "title": "Geometry Cheat Sheet",
                   "path": "artifacts/prealgebra-geometry-applications-cheat-sheet/worksheet.pdf",
@@ -7975,17 +9232,99 @@ window.LIBRARY = {
     {
       "id": "spatial-thinking",
       "name": "Spatial Thinking",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Triangle Angle Sum: Tear and Line Up",
+          "path": "artifacts/motion-triangle-angle-sum/index.html?course=7th%20Grade%20Math&unit=Spatial%20Thinking",
+          "bankFormat": "interactive-math",
+          "type": "Interactive",
+          "thumb": "thumbs/motion-triangle-angle-sum.jpg",
+          "description": "Tear the three corners off any triangle and slide them together: they always make a straight line, so the angles add to 180°.",
+          "topics": [
+            "Triangle angle sum",
+            "Straight angles",
+            "Motion diagram"
+          ],
+          "worksheet": "artifacts/motion-triangle-angle-sum/worksheet.pdf",
+          "answerKey": "artifacts/motion-triangle-angle-sum/teacher-key.pdf",
+          "added": "2026-11-20"
+        },]
     },
     {
       "id": "area-volume",
       "name": "Area and Volume",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Volume by Pouring: Cone, Sphere and Cylinder",
+          "path": "artifacts/motion-volume-pour/index.html?course=7th%20Grade%20Math&unit=Area%20and%20Volume",
+          "bankFormat": "interactive-math",
+          "type": "Interactive",
+          "thumb": "thumbs/motion-volume-pour.jpg",
+          "description": "Pour a full cone into a cylinder with the same base and height (three pours fill it) and a sphere into a cylinder 2r tall (it fills two thirds), to see where ⅓πr²h and 4⁄3πr³ come from.",
+          "topics": [
+            "Volume of cones",
+            "Volume of spheres",
+            "Volume of cylinders",
+            "Motion diagram"
+          ],
+          "worksheet": "artifacts/motion-volume-pour/worksheet.pdf",
+          "answerKey": "artifacts/motion-volume-pour/teacher-key.pdf",
+          "added": "2026-11-20"
+        },
+        {
+          "title": "Circle Area: Unroll the Sectors",
+          "path": "artifacts/motion-circle-area/index.html?course=7th%20Grade%20Math&unit=Area%20and%20Volume",
+          "bankFormat": "interactive-math",
+          "type": "Interactive",
+          "thumb": "thumbs/motion-circle-area.jpg",
+          "description": "Cut a circle into equal sectors and watch them slide into a row that is close to a parallelogram, πr wide and r tall. More sectors make it closer to a rectangle, so the area is πr².",
+          "topics": [
+            "Area of a circle",
+            "Circumference",
+            "Motion diagram"
+          ],
+          "worksheet": "artifacts/motion-circle-area/worksheet.pdf",
+          "answerKey": "artifacts/motion-circle-area/teacher-key.pdf",
+          "added": "2026-11-20"
+        },
+        {
+          "title": "3D Nets: Fold and Unfold",
+          "path": "artifacts/motion-nets-fold/index.html?course=7th%20Grade%20Math&unit=Area%20and%20Volume",
+          "bankFormat": "interactive-math",
+          "type": "Interactive",
+          "thumb": "thumbs/motion-nets-fold.jpg",
+          "description": "Watch a net fold into a cube, prism, pyramid, tetrahedron or cylinder and unfold again. Turn the solid by dragging; fold all faces together or one at a time; read the face areas on the flat net. A 2 × 3 block shows a net that does not fold into a cube.",
+          "topics": [
+            "Nets",
+            "Surface area",
+            "Folding and unfolding",
+            "Motion diagram"
+          ],
+          "worksheet": "artifacts/motion-nets-fold/worksheet.pdf",
+          "answerKey": "artifacts/motion-nets-fold/teacher-key.pdf",
+          "added": "2026-11-20"
+        },]
     },
     {
       "id": "right-triangles-algebra",
       "name": "Right Triangles in Algebra",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "Pythagorean Theorem: A Proof in Motion",
+          "path": "artifacts/motion-pythagorean-proof/index.html?course=7th%20Grade%20Math&unit=Right%20Triangles%20in%20Algebra",
+          "bankFormat": "interactive-math",
+          "type": "Interactive",
+          "thumb": "thumbs/motion-pythagorean-proof.jpg",
+          "description": "Four copies of a right triangle slide and turn inside a square of side a + b. The uncovered area changes from one square of side c to squares of sides a and b, so c² = a² + b².",
+          "topics": [
+            "Pythagorean theorem",
+            "Proof by rearrangement",
+            "Motion diagram"
+          ],
+          "worksheet": "artifacts/motion-pythagorean-proof/worksheet.pdf",
+          "answerKey": "artifacts/motion-pythagorean-proof/teacher-key.pdf",
+          "added": "2026-11-20"
+        },]
     },
     {
       "id": "data-analysis-probability",
@@ -8104,7 +9443,24 @@ window.LIBRARY = {
     {
       "id": "geometry",
       "name": "Geometry",
-      "artifacts": []
+      "artifacts": [
+        {
+          "title": "3D Nets: Fold and Unfold",
+          "path": "artifacts/motion-nets-fold/index.html?course=6th%20Grade%20Math&unit=Geometry",
+          "bankFormat": "interactive-math",
+          "type": "Interactive",
+          "thumb": "thumbs/motion-nets-fold.jpg",
+          "description": "Watch a net fold into a cube, prism, pyramid, tetrahedron or cylinder and unfold again. Turn the solid by dragging; fold all faces together or one at a time; read the face areas on the flat net. A 2 × 3 block shows a net that does not fold into a cube.",
+          "topics": [
+            "Nets",
+            "Surface area",
+            "Folding and unfolding",
+            "Motion diagram"
+          ],
+          "worksheet": "artifacts/motion-nets-fold/worksheet.pdf",
+          "answerKey": "artifacts/motion-nets-fold/teacher-key.pdf",
+          "added": "2026-11-20"
+        },]
     },
     {
       "id": "data-displays",

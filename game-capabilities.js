@@ -4,7 +4,9 @@
  function capabilities(a){
   a=a||{};var path=String(a.path||''), title=String(a.title||''), u;
   try{u=new URL(path,G.location.href)}catch(e){return {solo:false,team:false}}
-  var game=u.searchParams.get('game')||'', name=(game+' '+path+' '+title).toLowerCase();
+  // Site audit (2026-11-20): read the page name, not the query string; a cache tag such as v=showdown-fix-20261031 made
+  // 552 flashcards, board games, detectives, escape rooms and picture reveals look like team-only Showdown games.
+  var game=u.searchParams.get('game')||'', name=(game+' '+u.pathname+' '+title).toLowerCase();
   var board=/connect[- ]?(?:four|4)|four-in-a-row|inequality-four|tic[- ]tac[- ]toe/.test(name);
   var teams=/showdown|jeopardy|math-race|rocket-race|math-soccer|number-race|number-soccer|team[- ]race|soccer|relay/.test(name);
   // Team-only engines must take precedence over the generic Game type.

@@ -392,7 +392,7 @@
       (on ? STAR_ON : STAR) + '<span>' + (on ? 'Saved' : 'Save') + '</span></button>';
   }
 
-  function activityUrl(a) { var path=a.path||''; if (/^artifacts\/postit-games\/[a-z0-9-]+\/index\.html(?:#[a-z0-9=&.%,_-]+)?$/.test(path)) return path; if (/^\/?artifacts\/(multiple-drop|times-table-sorter|input-output-grid)\/index\.html(?:\?rules=linear)?$/.test(path)) return path; if (/^\/?grade[1-5]\//.test(path)) return path; if (/^worksheet-generator\/plot-practice\.html\?course=grade[1-5]&unit=[a-z0-9-]+$/.test(path)) return path; /* elementary Graphing Practice opens directly, as on the unit pages: activity.html only knows the courses in data.js */ if (/^https:\/\//i.test(path) || /^\/grade5\//.test(path) || /^financial\//.test(path) || /^artifacts\/financial-algebra-/.test(path)) return path; if (path === 'artifacts/relations-functions-function-machine-factory/index.html' || path === 'artifacts/polynomials-garden-planner/index.html' || path === 'artifacts/exponential-functions-outbreak-simulator/index.html' || path === 'artifacts/geometry-shipwreck-salvage/index.html') return path; if (/^artifacts\/math-arcade\/index\.html\?game=(rocket|inequality|laser|mirror|cannon|portal|catapult)$/.test(path)) return path; return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(path) || /^worksheet-generator\/(approved-flashcards|approved-games|grade-practice|middle-school-game|algebra2-game|algebra2-practice|bank-printable|course-game|course-activity|asteroid-blaster)\.html\?[a-z0-9_=&%\-]+$/i.test(path) ? path : 'activity.html?path=' + encodeURIComponent(path); }
+  function activityUrl(a) { var path=a.path||''; if (/^artifacts\/postit-games\/[a-z0-9-]+\/index\.html(?:#[a-z0-9=&.%,_-]+)?$/.test(path)) return path; if (/^\/?artifacts\/(multiple-drop|times-table-sorter|input-output-grid)\/index\.html(?:\?rules=linear)?$/.test(path)) return path; if (/^\/?grade[1-5]\//.test(path)) return path; if (path === 'artifacts/motion-make-a-ten/index.html') return path; /* shared by the Grades 1-3 catalogs, which activity.html does not load */ if (/^worksheet-generator\/plot-practice\.html\?course=grade[1-5]&unit=[a-z0-9-]+$/.test(path)) return path; /* elementary Graphing Practice opens directly, as on the unit pages: activity.html only knows the courses in data.js */ if (/^https:\/\//i.test(path) || /^\/grade5\//.test(path) || /^financial\//.test(path) || /^artifacts\/financial-algebra-/.test(path)) return path; if (path === 'artifacts/relations-functions-function-machine-factory/index.html' || path === 'artifacts/polynomials-garden-planner/index.html' || path === 'artifacts/exponential-functions-outbreak-simulator/index.html' || path === 'artifacts/geometry-shipwreck-salvage/index.html') return path; if (/^artifacts\/math-arcade\/index\.html\?game=(rocket|inequality|laser|mirror|cannon|portal|catapult)$/.test(path)) return path; return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(path) || /^worksheet-generator\/(approved-flashcards|approved-games|grade-practice|middle-school-game|algebra2-game|algebra2-practice|bank-printable|course-game|course-activity|asteroid-blaster)\.html\?[a-z0-9_=&%\-]+$/i.test(path) ? path : 'activity.html?path=' + encodeURIComponent(path); }
 
   function actionLabel(a) {
     if (activityFormat(a) === 'projects') return 'Open project';
@@ -718,7 +718,7 @@
   var GENERATOR_ACTIONS = [
     { format: 'lesson-planner', title: 'Lesson Plan', icon: '📖', description: 'Objectives, notes, examples, practice, and exit tickets.', page: 'lesson-planner.html' },
     { format: 'worksheet-generator', title: 'Worksheet', icon: '📝', description: 'Differentiated questions, versions, and answer keys.', page: 'worksheet.html' },
-    { format: 'printable-generator', title: 'Activity', icon: '🧩', description: 'Mazes, puzzles, partner checks, and more.', page: 'printables.html' },
+    { format: 'printable-generator', title: 'Activity', short: 'Mazes & Puzzles', icon: '🧩', description: 'Mazes, puzzles, partner checks, and more.', page: 'printables.html' },
     { format: 'assessment-generator', title: 'Assessment', icon: '📋', description: 'Tests and choice-based assessments.', page: 'menu-assessment.html' }
   ];
   /* The URL a creation tool opens for a course (u null) or unit; '' when the course has no such tool,
@@ -756,6 +756,17 @@
       return uu.artifacts.some(function (a) { return activityFormat(a) === 'interactive-math'; });
     });
   }
+  /* Site UX audit (2026-11-20): every course's pacing guide, reachable from the course and unit shortcuts and from search. */
+  var PACING_PAGES = { grade1: 'grade-1-pacing/', grade2: 'grade-2-pacing/', grade3: 'grade-3-pacing/', grade4: 'grade-4-pacing/', grade5: 'grade-5-pacing/',
+    math6: 'grade-6-pacing/', prealgebra7: 'grade-7-pacing/', prealgebra: '8th-grade-math-pacing/', algebra: 'algebra-1-pacing/', geometry: 'geometry-pacing/',
+    algebra2: 'algebra-2-pacing/', precalculus: 'precalculus-pacing/', calculus: 'calculus-pacing/', statistics: 'statistics-pacing/', discrete: 'discrete-math-pacing/',
+    'financial-algebra': 'financial/pacing/' };
+  function pacingShortcut(c, compact) {
+    if (!c || !PACING_PAGES[c.id]) return '';
+    return '<li><a class="generator-shortcut resource-shortcut" href="' + PACING_PAGES[c.id] + '">' +
+      '<span class="generator-shortcut-icon" aria-hidden="true">▦</span><span class="generator-shortcut-copy"><strong>Pacing Guide</strong>' +
+      (!compact ? '<small>A 180-day plan and the standards each skill practices.</small>' : '') + '</span></a></li>';
+  }
   function generatorLinks(c, u, compact) {
     return '<div class="generator-banner' + (compact ? ' compact' : '') + '">' +
       '<div class="generator-banner-heading"><h2>' + (compact ? (u ? 'Create Resources for This Unit' : 'Create Resources for This Course') : 'What would you like to do today?') + '</h2>' +
@@ -766,7 +777,7 @@
         if (url === 'soon') return '<li><span class="generator-shortcut" aria-disabled="true" title="Geometry question banks still in development"><span class="generator-shortcut-icon" aria-hidden="true">◌</span><span class="generator-shortcut-copy"><strong>' + esc(tool.title) + '</strong><small>Coming soon</small></span></span></li>';
         return '<li><a class="generator-shortcut" href="' + esc(url) + '">' +
           '<span class="generator-shortcut-icon" aria-hidden="true">' + ({'lesson-planner':'▤','worksheet-generator':'≡','printable-generator':'✦','assessment-generator':'☑'}[tool.format]) + '</span>' +
-          '<span class="generator-shortcut-copy"><strong>' + (compact ? esc(tool.title) : 'Create a ' + esc(tool.title)) + '</strong>' +
+          '<span class="generator-shortcut-copy"><strong>' + (compact ? esc(tool.short || tool.title) : 'Create a ' + esc(tool.title)) + '</strong>' +
           (!compact ? '<small>' + esc(tool.description) + '</small>' : '') +
           '</span></a></li>';
       }).join('') +
@@ -784,7 +795,7 @@
           '<span class="generator-shortcut-copy"><strong>' + label + '</strong>' +
           (!compact ? '<small>' + ({ games: 'Interactive challenges and team review.', 'study-guides': 'Flashcards, practice tests, and reference sheets.', interactive: 'Hands-on tools with printable reflection worksheets.' }[category]) + '</small>' : '') +
           '</span></a></li>';
-      }).join('') + '</ul></div>';
+      }).join('') + pacingShortcut(c, compact) + '</ul></div>';
   }
   function unitPager(c, u) {
     var list = c.units.filter(function (x) { return c.planned || x === u || x.artifacts.length || c.id === 'geometry' || c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6' || c.id === 'algebra2'; });
@@ -1103,6 +1114,14 @@
       function score(it) { var title = searchWords(it.a.title); return terms.filter(function (t) { return title.indexOf(t) >= 0; }).length; }
       return score(b) - score(a);
     });
+    var pacingHits = /\b(pacing|scope|sequence|year plan|calendar|curriculum map|planning)\b/i.test(text) ? L.courses.filter(function (c) {
+      if (!PACING_PAGES[c.id]) return false;
+      var others = terms.filter(function (t) { return !/^(pacing|guide|scope|sequence|year|plan|calendar|curriculum|map|planning|and|for|the)$/.test(t); });
+      var hay = searchWords(c.name + ' ' + c.id);
+      return others.every(function (t) { return hay.indexOf(t) >= 0; });
+    }) : [];
+    var pacingHtml = pacingHits.length ? '<section class="search-pages"><h2>Pacing guides</h2><ul>' + pacingHits.map(function (c) {
+      return '<li><a href="' + PACING_PAGES[c.id] + '">' + esc(c.name) + ' pacing guide</a></li>'; }).join('') + '</ul></section>' : '';
     var inner = crumbs([['Home', '#'], ['Search', null]]) +
       '<h1 tabindex="-1">Results for “' + esc(text) + '”</h1><p class="band-meta" role="status">' +
       acts(applyFilters(items).length) + '</p>';
@@ -1110,7 +1129,7 @@
       title: 'Search: ' + text,
       html: bandHtml(null, inner) +
         '<section class="section"><div class="wrap"><button class="btn clear-search" type="button" id="clear-search">Clear search</button>' +
-        (items.length ? chipsHtml(items) + cardsHtml(items, true) :
+        pacingHtml + (items.length ? chipsHtml(items) + cardsHtml(items, true) : pacingHtml ? '' :
           '<div class="empty"><h2>No matches</h2><p>Try a topic such as slope, an activity type such as flashcards, or a subject such as Algebra 1.</p><p><a href="#activities">Browse with subject, unit, and activity filters</a></p></div>') +
         '</div></section>'
     };
@@ -1127,12 +1146,22 @@
     return {
       title: 'Page not found',
       html: bandHtml(null, '<h1 tabindex="-1">Page not found</h1>') +
-        '<section class="section"><div class="wrap"><div class="empty"><h2>That page does not exist</h2><p><a href="#">Go to the home page</a> and choose a course.</p></div></div></section>'
+        '<section class="section"><div class="wrap"><div class="empty"><h2>That page does not exist</h2><p><a href="#">Go to the home page</a>, search above, or choose a course:</p>' +
+        '<ul class="nf-courses">' + L.courses.filter(function (c) { return !c.hidden; }).map(function (c) { return '<li><a href="' + href(courseToken(c)) + '">' + esc(c.name) + '</a></li>'; }).join('') + '</ul></div></div></section>'
     };
   }
 
+  /* Site UX audit (2026-11-20): typed or shared links still land: #algebra2/polynomial-functions, #Algebra2, #grade6, #algebra1. */
+  var COURSE_ALIASES = { grade6: 'math6', grade7: 'prealgebra7', grade8: 'prealgebra', algebra1: 'algebra', 'algebra-1': 'algebra', 'algebra-2': 'algebra2',
+    precalc: 'precalculus', calc: 'calculus', stats: 'statistics', 'ap-statistics': 'statistics', 'ap-calculus': 'calculus', financial: 'financial-algebra', 'discrete-math': 'discrete' };
   function resolve(t) {
     t = t.split('?')[0];
+    try { t = decodeURIComponent(t); } catch (e) {}
+    if (!/^(saved|activities|activity\.)/.test(t)) {
+      t = t.toLowerCase().replace(/^\/+|\/+$/g, '').replace(/\//g, '.').replace(/\.+$/, '');
+      var head = t.split('.')[0];
+      if (COURSE_ALIASES[head] && !L.courses.some(function (x) { return x.id === head; })) t = COURSE_ALIASES[head] + t.slice(head.length);
+    }
     if (!t) return { name: 'home' };
     if (t === 'saved') return { name: 'saved' };
     if (t === 'activities') return { name: 'activities' };

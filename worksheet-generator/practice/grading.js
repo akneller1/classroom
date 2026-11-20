@@ -70,6 +70,8 @@ var BANK_KINDS={number:1,pair:1,roots:1,special:1};
 var UNIT=/^(\$?)\s*(-?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?|-?\d+\/\d+)\s*(%|°|[a-zA-Z][a-zA-Z .\/²³-]{0,30})?$/;
 function bankCore(s){
  s=String(s==null?'':s).replace(/[−–]/g,'-').trim().replace(/\.$/,'');
+ /* Site audit (2026-11-20): 4y², -60x², 8i and 22t are terms, not a number with a unit; read as units they accepted 4y³, 8 or 22. */
+ if(/^-?\d+(?:\.\d+)?[a-zA-Z][⁰¹²³⁴⁵⁶⁷⁸⁹⁻]*$/.test(s))return {text:s,unit:'',money:false,term:true};
  var m=UNIT.exec(s);
  if(m&&(m[1]||m[3]))return {text:m[2].replace(/,/g,''),unit:(m[3]||'').trim(),money:!!m[1]};
  return {text:s.replace(/(\d),(?=\d{3}\b)/g,'$1'),unit:'',money:false};
@@ -268,7 +270,79 @@ function gradeDims(answer,typed,prompt){
  if(!m)return {status:'invalid',message:'Give the dimensions as rows × columns, such as 2 × 3.'};
  return {status:+m[1]===+k[1]&&+m[2]===+k[2]?'correct':'incorrect'};
 }
+/* Site audit #11 (2026-11-20): Grades 1-5 practice tests read the everyday forms the Grades 1-4 Understanding Check
+   reads: money in any equal form ($1.25, 125¢, 1 dollar 25 cents), times (5 o'clock, half past 3, 4:30 pm), tens and
+   ones (3 tens 8 ones, 3 8 or 38), comparison words (greater, more than, >), and numbers or fractions in words. */
+var ELW={zero:0,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,thirteen:13,fourteen:14,fifteen:15,sixteen:16,seventeen:17,eighteen:18,nineteen:19,twenty:20,thirty:30,forty:40,fifty:50,sixty:60,seventy:70,eighty:80,ninety:90};
+var ELD={half:2,halves:2,third:3,thirds:3,fourth:4,fourths:4,quarter:4,quarters:4,fifth:5,fifths:5,sixth:6,sixths:6,eighth:8,eighths:8,tenth:10,tenths:10,twelfth:12,twelfths:12,hundredth:100,hundredths:100};
+function elOn(){return /^grade[1-5]$/.test(G.MK_PRACTICE_COURSE||'');}
+function elLow(s){return String(s==null?'':s).toLowerCase().replace(/[‑–−]/g,'-').replace(/\s+/g,' ').trim().replace(/[.!]+$/,'');}
+function elNum(s){s=elLow(s);if(/^\d[\d,]*$/.test(s))return +s.replace(/,/g,'');var m=/^([a-z]+)(?:[- ]([a-z]+))?$/.exec(s);if(!m||!(m[1] in ELW))return null;if(!m[2])return ELW[m[1]];return ELW[m[1]]>=20&&ELW[m[1]]%10===0&&ELW[m[2]]<10&&ELW[m[2]]>0?ELW[m[1]]+ELW[m[2]]:null;}
+function elFrac(s){var m=/^([a-z]+|\d+)[ -]([a-z]+)$/.exec(elLow(s));if(!m)return null;var n=/^\d+$/.test(m[1])?+m[1]:m[1]==='a'?1:ELW[m[1]];if(n==null||!(m[2] in ELD))return null;return n+'/'+ELD[m[2]];}
+function elMoney(s){s=elLow(s).replace(/,/g,'');var m;
+ if((m=/^\$\s*(\d+)(?:\.(\d\d?))?$/.exec(s)))return +m[1]*100+(m[2]?+(m[2].length===1?m[2]+'0':m[2]):0);
+ if((m=/^(\d+)\s*(?:¢|cents?)$/.exec(s)))return +m[1];
+ if((m=/^(\d+)(?:\.(\d\d))?\s*dollars?(?:,?\s*(?:and\s*)?(\d+)\s*(?:¢|cents?))?$/.exec(s)))return +m[1]*100+(m[2]?+m[2]:0)+(m[3]?+m[3]:0);
+ return null;}
+function elClock(s){s=elLow(s).replace(/\s+/g,' ');var ap='',m=/\s*([ap])\.? ?m$/.exec(s);if(m){ap=m[1];s=s.slice(0,m.index).trim();}
+ var h=null,mm=null;if((m=/^(\d{1,2}):(\d\d)$/.exec(s))){h=+m[1];mm=+m[2];}
+ else if((m=/^(\d{1,2}|[a-z]+) ?o'?clock$/.exec(s))){h=/^\d/.test(m[1])?+m[1]:ELW[m[1]];mm=0;}
+ else if((m=/^half past (\d{1,2}|[a-z]+)$/.exec(s))){h=/^\d/.test(m[1])?+m[1]:ELW[m[1]];mm=30;}
+ else if((m=/^quarter past (\d{1,2}|[a-z]+)$/.exec(s))){h=/^\d/.test(m[1])?+m[1]:ELW[m[1]];mm=15;}
+ else if((m=/^quarter (?:to|till|of) (\d{1,2}|[a-z]+)$/.exec(s))){h=(/^\d/.test(m[1])?+m[1]:ELW[m[1]])-1;if(h===0)h=12;mm=45;}
+ if(h==null||isNaN(h)||h<1||h>12||mm>59)return null;return {t:h+':'+(mm<10?'0':'')+mm,ap:ap};}
+function elTO(s){var m=/^(\d+) ?tens?,? (?:and )?(\d+) ?ones?$/.exec(elLow(s));return m?[+m[1],+m[2]]:null;}
+function elCmp(s){s=elLow(s).replace(/^is /,'');if(/^(?:>|greater|greater than|more|more than|bigger|larger)$/.test(s))return '>';if(/^(?:<|less|less than|fewer|fewer than|smaller)$/.test(s))return '<';if(/^(?:=|equal|equal to|equals|the same|the same as)$/.test(s))return '=';return null;}
+function elKind(answer){if(!elOn()||typeof answer!=='string')return null;var a=answer.trim();
+ if(/[$¢]|\bcents?\b|\bdollars?\b/i.test(a)&&elMoney(a)!==null)return 'money';
+ if(elClock(a))return 'clock';if(elTO(a))return 'tensones';if(elCmp(a)&&!/^[<>=]$/.test(a))return 'cmp';return null;}
+function elGrade(answer,typed){var k=elKind(answer);if(!k)return null;var t=String(typed==null?'':typed).trim();if(!t)return {status:'empty'};
+ if(k==='money'){var v=elMoney(t);return v===null?{status:'invalid',message:'Write the money amount, such as $1.25, 45¢ or 45 cents.'}:{status:v===elMoney(answer)?'correct':'incorrect'};}
+ if(k==='clock'){var c=elClock(t),kc=elClock(answer);if(!c)return {status:'invalid',message:"Write the time, such as 3:30, half past 3 or 5 o'clock."};return {status:c.t===kc.t&&(!c.ap||!kc.ap||c.ap===kc.ap)?'correct':'incorrect'};}
+ if(k==='tensones'){var ko=elTO(answer),to=elTO(t),pr=/^(\d+)[ ,]+(\d+)$/.exec(elLow(t)),n=elNum(t);
+  if(to)return {status:to[0]===ko[0]&&to[1]===ko[1]?'correct':'incorrect'};if(pr)return {status:+pr[1]===ko[0]&&+pr[2]===ko[1]?'correct':'incorrect'};
+  if(n!==null)return {status:n===10*ko[0]+ko[1]&&ko[1]<10?'correct':'incorrect'};return {status:'invalid',message:'Type the tens, a space, then the ones, such as 3 8.'};}
+ if(k==='cmp'){var y=elCmp(t);return y?{status:y===elCmp(answer)?'correct':'incorrect'}:{status:'invalid',message:'Answer greater, less or equal (or >, <, =).'};}
+ return null;}
+function elTyped(answer,t){if(!elOn()||typeof answer!=='string')return t;var n=elNum(t);if(n!==null&&/^\d[\d,]*$/.test(answer.trim())&&!/^\d/.test(String(t).trim()))return String(n);var f=elFrac(t);if(f&&/^\d+\/\d+$/.test(answer.trim()))return f;return t;}
+/* Site audit #1 and #2 (2026-11-20): what students type on a keyboard. When the key has exponents, x^2, x**2 and m^2 mean
+   x², x² and m² (also cm2 and ft3 after a length unit). When the key is an ordered pair or interval written "(a, b)",
+   "(a,b)" is the same answer. */
+var SUPS={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function typedForm(answer,typed){
+ var t=String(typed==null?'':typed);if(typeof answer!=='string')return t;
+ if(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/.test(answer)){
+  t=t.replace(/\s*(?:\^|\*\*)\s*(?:\(\s*([-−]?\d+)\s*\)|([-−]?\d+))/g,function(m,a,b){return (a||b).replace('−','-').split('').map(function(c){return SUPS[c];}).join('');});
+  t=t.replace(/(\d\s*(?:mm|cm|km|m|in|ft|yd|mi|units?))([23])\b/gi,function(m,u,d){return u+(d==='2'?'²':'³');});
+ }
+ if(/^\s*[(\[][^()\[\]]*,\s[^()\[\]]*[)\]]\s*$/.test(answer)&&/^\s*[(\[][^()\[\]]*,[^()\[\]]*[)\]]\s*$/.test(t))t=t.replace(/\s*,\s*/g,', ');
+ return t;
+}
+/* Site audit #3 (2026-11-20): a self-scored answer whose final line is the key, written the same way, is scored correct;
+   anything else still goes to the student's self-review. */
+function keyText(s){return String(s==null?'':s).replace(/^\s*(?:the|an|a)\s+/i,'').replace(/[−–]/g,'-').replace(/[×·]/g,'*').replace(/(\d)\s*x\s*(?=\d)/gi,'$1*').replace(/\s+/g,'').replace(/[.!]+$/,'').toLowerCase();}
+function sameAsKey(answer,typed){
+ if(typeof answer!=='string'||!answer.trim())return false;
+ var lines=String(typed==null?'':typed).split(/\n/).map(function(x){return x.trim();}).filter(Boolean);if(!lines.length)return false;
+ var last=lines[lines.length-1].replace(/^(?:final answer|answer)\s*[:=-]\s*/i,'');
+ return keyText(typedForm(answer,last))===keyText(answer);
+}
+function termKey(answer){return typeof answer==='string'&&!!C&&bankCore(answer).term&&!/^-?\d+(?:\.\d+)?i$/.test(answer.trim());}
+function caret(s){return String(s).replace(/[−–]/g,'-').replace(/[⁻⁰¹²³⁴⁵⁶⁷⁸⁹]+/g,function(m){return '^('+m.split('').map(function(c){return {'⁻':'-','⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9'}[c];}).join('')+')';}).replace(/×|·/g,'*');}
+function gradeTerm(answer,typed){var t=String(typed==null?'':typed).trim();if(!t)return {status:'empty'};if(/[=<>]/.test(t))return {status:'invalid',message:'Enter the term only, such as 4y².'};if(/[+()\/]|.-/.test(t.replace(/\s+/g,'')))return {status:'invalid',message:'Simplify to a single term, such as 4y².'};try{return {status:C.equivalent(caret(answer),caret(t))?'correct':'incorrect'};}catch(e){return {status:'invalid',message:'Answer format could not be read.'};}}
+var UNITW={mm:'millimeter',cm:'centimeter',m:'meter',km:'kilometer','in':'inch',ft:'foot',yd:'yard',mi:'mile',g:'gram',kg:'kilogram',mg:'milligram',lb:'pound',lbs:'pound',oz:'ounce',l:'liter',ml:'milliliter',gal:'gallon',qt:'quart',pt:'pint',c:'cup',s:'second',sec:'second',min:'minute',h:'hour',hr:'hour',hrs:'hour'};
+var UNITOK=/^(?:(?:square|cubic) )?(?:millimeter|centimeter|meter|kilometer|inch|foot|yard|mile|gram|kilogram|milligram|pound|ounce|liter|milliliter|gallon|quart|pint|cup|second|minute|hour|day|week|year|unit|degree|dollar|cent)$/;
+function unitWord(u){var t=String(u||'').toLowerCase().replace(/\./g,'').replace(/\s+/g,' ').trim();if(!t)return '';var pow='';
+ var m=/^(.*?)\s*(?:²|\^2)$/.exec(t);if(m){pow='square ';t=m[1];}else if((m=/^(.*?)\s*(?:³|\^3)$/.exec(t))){pow='cubic ';t=m[1];}
+ if((m=/^(?:sq|square) (.+)$/.exec(t))){pow='square ';t=m[1];}else if((m=/^(?:cu|cubic) (.+)$/.exec(t))){pow='cubic ';t=m[1];}
+ t=UNITW[t]||t;t=t.replace(/^feet$/,'foot').replace(/^inches$/,'inch').replace(/(?:es|s)$/,function(x){return /(inch)es$/.test(t)?'':'s'===x?'':x;}).replace(/^inche$/,'inch');
+ if(/s$/.test(t)&&UNITOK.test(t.slice(0,-1)))t=t.slice(0,-1);
+ var w=pow+t;return UNITOK.test(w)?w:null;}
+function unitsDiffer(k,t){if(!k||!t)return false;var a=unitWord(k),b=unitWord(t);return !!(a&&b&&a!==b);}
 function gradeBank(answer,typed,prompt){
+ typed=elTyped(answer,typedForm(answer,typed));
+ if(termKey(answer)&&!(gr8On()&&G.MKGRADE8.supports(answer,prompt))&&!(calcOn()&&G.MKCALC.supports(answer)))return gradeTerm(answer,typed);
+ var el=elGrade(answer,typed);if(el)return el;
  var gd=gradeDims(answer,typed,prompt);if(gd)return gd;
  var g5=grade5(answer,typed,prompt);if(g5)return g5;
  var g6=grade6(answer,typed,prompt);if(g6)return g6;
@@ -277,8 +351,10 @@ function gradeBank(answer,typed,prompt){
  if(calcOn()&&typeof answer==='string'&&(G.MKCALC.preferred(answer)||(/Factor completely/i.test(prompt||'')&&G.MKCALC.supports(answer))))return G.MKCALC.grade(answer,typed,prompt);
  var key=bankAnswer(answer);
  if(key===null)return exactKey(answer)!==null?G.MKEXACT.grade(answer,typed):discreteKey(answer)!==null?G.MKDISCRETE.grade(answer,typed):calcKey(answer)!==null?G.MKCALC.grade(answer,typed,prompt):statKey(answer)!==null?G.MKSTAT.grade(answer,typed,prompt):gr8Key(answer,prompt)!==null?G.MKGRADE8.grade(answer,typed,prompt):{status:'self'};
- var input=bankCore(typed).text;
- return grade({parts:[{answer:key}]},input);
+ var tc=bankCore(typed),kc=bankCore(answer);
+ /* Site audit #20 (2026-11-20): the unit is optional, but a different known unit is wrong (38 ft³ for 38 ft², 5 cm for 5 m). */
+ if(unitsDiffer(kc.unit,tc.unit))return {status:'incorrect'};
+ return grade({parts:[{answer:key}]},tc.text);
 }
-API.supports=supports;API.grade=grade;API.bankAnswer=function(answer,prompt){if(grade5Kind(answer,prompt))return answer;if(grade6Kind(answer,prompt))return answer;if(grade7Supports(answer))return answer;var k=bankAnswer(answer);if(k!==null)return k;k=exactKey(answer);if(k!==null)return k;k=discreteKey(answer);if(k!==null)return k;k=calcKey(answer);if(k!==null)return k;k=statKey(answer);return k!==null?k:gr8Key(answer,prompt);};API.gradeBank=gradeBank;
+API.supports=supports;API.grade=grade;API.bankAnswer=function(answer,prompt){if(elKind(answer))return answer;if(termKey(answer))return answer;if(grade5Kind(answer,prompt))return answer;if(grade6Kind(answer,prompt))return answer;if(grade7Supports(answer))return answer;var k=bankAnswer(answer);if(k!==null)return k;k=exactKey(answer);if(k!==null)return k;k=discreteKey(answer);if(k!==null)return k;k=calcKey(answer);if(k!==null)return k;k=statKey(answer);return k!==null?k:gr8Key(answer,prompt);};API.gradeBank=gradeBank;API.typedForm=typedForm;API.unitsDiffer=unitsDiffer;API.sameAsKey=sameAsKey;
 })(window);
