@@ -169,6 +169,21 @@ for (const c of ['financial-algebra', 'statistics']) for (const f of fs.readdirS
   }
 }
 console.log(`PASS site audit: ${checks} checks (${keys} bank keys grade themselves correct)`);
+// Whole-site audit 2 #3 (Grade 5): the Standard and Advanced rewrites are applied to every published copy of the Grade 5 banks.
+if (SITE) {
+  const { items } = JSON.parse(rd('content-updates/2026-11-20/grade5-levels.json'));
+  for (const rel of ['question-banks/grade5', 'grade5/math5']) {
+    const dir = path.join(SITE, rel); if (!fs.existsSync(dir)) continue;
+    const got = {};
+    for (const f of fs.readdirSync(dir).filter((f) => f.endsWith('.json'))) for (const q of JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')).questions || []) if (items[q.id]) got[q.id] = q;
+    for (const [id, e] of Object.entries(items)) ok(got[id] && got[id].prompt === e.to.prompt && got[id].answer === e.to.answer, '#3 Grade 5 rewrite applied in ' + rel + ': ' + id);
+  }
+}
+// Whole-site audit 2 #8: the Financial Algebra games header follows the level in the link.
+if (SITE) for (const rel of ['financial/games/index.html', 'financial-algebra/financial/games/index.html']) {
+  const f = path.join(SITE, rel); if (!fs.existsSync(f)) continue;
+  ok(/id="faLevelNote"/.test(fs.readFileSync(f, 'utf8')), '#8 ' + rel + ' header names the level');
+}
 // Whole-site audit 2 #4: printed cumulative practice tests for Grades 3, 4 and 8, Algebra 1, Geometry and Algebra 2.
 {
   const T = JSON.parse(rd('tools/site-audit-20261120/practice_tests/practice-tests.json'));

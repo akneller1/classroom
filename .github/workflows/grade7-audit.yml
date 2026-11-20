@@ -41,6 +41,8 @@ jobs:
         run: python -m pip install sympy matplotlib==3.11.2   # matplotlib: figures.py, run by run_all.sh (Grade 7 G2)
       - name: Recompute Grade 7 keys from the printed prompts (Grade 7 audit 2026-11-19)
         run: python tools/grade7-audit-20261119/verify_keys.py
+      - name: Recompute the keys of the rewritten Standard items (whole-site audit 2 #3)
+        run: python tools/grade7-audit-20261119/verify_levels.py
       - name: The bank changes rebuild exactly from the scripts
         run: |
           bash tools/grade7-audit-20261119/run_all.sh

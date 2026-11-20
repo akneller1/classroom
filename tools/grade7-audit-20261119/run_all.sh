@@ -8,5 +8,6 @@ python3 $T/place_value.py   # G1: 12
 python3 $T/retag.py         # G1: 11
 python3 $T/new_items.py     # G2: 4-10, 13
 python3 $T/honors.py        # G2: 3
+python3 $T/levels.py        # whole-site audit 2 #3: Standard items stop reusing Support templates
 python3 $T/vocab.py         # G1: 19
 node $R/scripts/build_standards_map.cjs

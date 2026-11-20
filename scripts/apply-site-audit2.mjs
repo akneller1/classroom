@@ -47,3 +47,16 @@ if (fs.existsSync(pacing)) {
   const html = fs.readFileSync(pacing, "utf8"), fixed = html.replace(/href="\.\.\/\.\.\/u\/financial-algebra\//g, 'href="/u/financial-algebra/');
   if (fixed !== html) { fs.writeFileSync(pacing, fixed); console.log("Site audit 2: legacy Financial Algebra pacing links fixed"); }
 }
+
+// #8 Financial Algebra games always said "Standard" in the page header, even when a teacher's link asked for Support or
+// Advanced (the games already use the level in ?level=). The header now names the level being played.
+for (const rel of ["financial/games/index.html", "financial-algebra/financial/games/index.html"]) {
+  const f = path.join(SITE, rel);
+  if (!fs.existsSync(f)) continue;
+  const html = fs.readFileSync(f, "utf8");
+  const from = "<small>Standard · Fictional classroom scenarios</small>";
+  if (!html.includes(from)) continue;
+  const to = '<small id="faLevelNote">Standard · Fictional classroom scenarios</small><script>(function(){var n={cp2:"Support",cp1:"Standard",honors:"Advanced",support:"Support",standard:"Standard",advanced:"Advanced"}[new URLSearchParams(location.search).get("level")||""];if(n)document.getElementById("faLevelNote").textContent=n+" · Fictional classroom scenarios";})();</script>';
+  fs.writeFileSync(f, html.replace(from, to));
+  console.log("Site audit 2: Financial Algebra games header names the level (" + rel + ")");
+}
