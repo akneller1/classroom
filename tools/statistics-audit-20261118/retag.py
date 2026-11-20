@@ -234,8 +234,8 @@ def main():
     n = 0
     for u, q in lib.items(banks):
         k = int(re.search(r'skill-(\d+)', q['skillId']).group(1))
-        if 'batch S2' in q.get('sourceNotes', ''):
-            # batch S2 items carry the objectives chosen when they were written (s2fill.py, s2frq.py)
+        if 'batch S2' in q.get('sourceNotes', '') or 'objective gaps 2026-11-19' in q.get('sourceNotes', ''):
+            # batch S2 items and the objective-gap items carry the objectives chosen when they were written (s2fill.py, s2frq.py, gap_items.py)
             codes = [c.split('APSTATS.', 1)[1] for c in q['standards']]
         else:
             codes = tag(u, k, q)

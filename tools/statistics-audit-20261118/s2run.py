@@ -49,7 +49,10 @@ def main():
     shutil.rmtree(os.path.join(lib.ROOT, s2diagrams.REL), ignore_errors=True)
     # remove this batch's earlier output (rebuild in place)
     for u in lib.UNITS:
-        banks[u]['questions'] = [q for q in banks[u]['questions'] if TAG not in q.get('sourceNotes', '') or q['id'] in GENERIC]
+        # also drop the objective-gap items (gap_items.py runs next and writes them again), so the fill to TARGET
+        # always counts the same items and a rerun reproduces the banks exactly
+        banks[u]['questions'] = [q for q in banks[u]['questions'] if (TAG not in q.get('sourceNotes', '') or q['id'] in GENERIC)
+                                 and 'objective gaps 2026-11-19' not in q.get('sourceNotes', '')]
     # the nine replaced-in-place items are rebuilt below, so their current text does not count as taken
     prompts = {(q['skillId'], q['prompt']) for _, q in lib.items(banks) if q['id'] not in GENERIC}
     allp = {q['prompt'] for _, q in lib.items(banks) if q['id'] not in GENERIC}

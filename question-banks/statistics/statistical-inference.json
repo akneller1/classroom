@@ -34387,6 +34387,74 @@
    ]
   },
   {
+   "id": "stat-u4-s04-cp2-o01",
+   "skillId": "statistical-inference-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A 95% confidence interval for the mean amount of soda in \"20-ounce\" bottles is 19.6 to 19.9 ounces. Does the interval support the claim that the mean is 20 ounces? Explain.",
+   "answer": "No. 20 is not in the interval (19.6, 19.9); all plausible values for the mean are below 20 ounces.",
+   "solutionSteps": [
+    "A confidence interval gives the plausible values of the population mean.",
+    "20 is above 19.9, so it is not in the interval.",
+    "The interval suggests the mean is less than 20 ounces."
+   ],
+   "standards": [
+    "APSTATS.4.3.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_t_interval_claim). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: A confidence interval gives the plausible values of the population mean.",
+   "selfCheck": [
+    "States the key idea: “No”.",
+    "Links the decision to the evidence (the p-value compared with α, or whether the value is in the interval).",
+    "Includes the key value(s): 20, 19.6, 19.9."
+   ]
+  },
+  {
+   "id": "stat-u4-s04-cp1-o01",
+   "skillId": "statistical-inference-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A 90% t-interval for the mean daily screen time of students at a school is (4.1, 5.3) hours. The principal claims students average more than 4 hours a day. A parent claims the mean is 5 hours. Which claims does the interval support? Explain.",
+   "answer": "Both are plausible. Every value in (4.1, 5.3) is more than 4, which supports the principal; 5 is inside the interval, so 5 hours is plausible, but so are other values.",
+   "solutionSteps": [
+    "All values in the interval are plausible values of μ.",
+    "The whole interval is above 4, so \"more than 4 hours\" is supported.",
+    "5 is inside the interval, so μ = 5 is plausible; the interval does not prove it equals 5."
+   ],
+   "standards": [
+    "APSTATS.4.3.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_t_interval_claim). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Both are plausible”.",
+    "Links the decision to the evidence (the p-value compared with α, or whether the value is in the interval).",
+    "Includes the key value(s): 4.1, 5.3, 4."
+   ]
+  },
+  {
+   "id": "stat-u4-s04-honors-o01",
+   "skillId": "statistical-inference-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A paired study of 18 runners gives a 95% t-interval for the mean difference in 5K time (old shoes − new shoes) of (−0.4, 1.8) minutes. The shoe company claims the new shoes make runners faster. Does the interval support the claim? What would a 99% interval look like?",
+   "answer": "No. The interval includes 0 (and negative values), so \"no difference\" is plausible; there is not convincing evidence the new shoes are faster. A 99% interval would be wider and would still include 0.",
+   "solutionSteps": [
+    "μ_diff > 0 would mean the old-shoe time is longer, so the new shoes are faster.",
+    "The interval (−0.4, 1.8) contains 0 and negative values.",
+    "So the data do not give convincing evidence that the new shoes help.",
+    "A higher confidence level gives a wider interval around the same center, so it would also contain 0."
+   ],
+   "standards": [
+    "APSTATS.4.3.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_t_interval_claim). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “No”.",
+    "Links the decision to the evidence (the p-value compared with α, or whether the value is in the interval).",
+    "Includes the key value(s): 0, 99%."
+   ]
+  },
+  {
    "id": "stat-u4-s05-cp2-f01",
    "skillId": "statistical-inference-skill-05",
    "level": "cp2",
@@ -36541,6 +36609,201 @@
    "sourceNotes": "Original Claude-authored item (family: s2_two_sample_t_stat). Statistics audit 2026-11-18, batch S2; key computed with scipy in tools/statistics-audit-20261118/s2fill.py or s2frq.py."
   },
   {
+   "id": "stat-u4-s10-cp2-o01",
+   "skillId": "statistical-inference-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A researcher takes independent random samples of 35 fourth graders and 35 eighth graders and records hours of sleep. She wants to estimate how much more sleep fourth graders get, on average. Name the procedure and the parameter.",
+   "answer": "Two-sample t-interval for μ₄ − μ₈, the difference in mean hours of sleep (fourth graders minus eighth graders).",
+   "solutionSteps": [
+    "Two independent groups, a quantitative variable (hours), and the goal is to estimate: a two-sample t-interval.",
+    "Parameter: μ₄ − μ₈, mean sleep of all fourth graders minus mean sleep of all eighth graders."
+   ],
+   "standards": [
+    "APSTATS.4.7.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_identify_two_sample_interval). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: two independent groups, a quantitative variable (hours), and the goal is to estimate: a two-sample t-interval.",
+   "selfCheck": [
+    "States the key idea: “Two-sample t-interval for μ₄ − μ₈, the difference in mean hours of sleep (fourth graders minus eighth graders)”.",
+    "Uses the context of the problem (the variables, groups or individuals named), not just symbols."
+   ]
+  },
+  {
+   "id": "stat-u4-s10-cp1-o01",
+   "skillId": "statistical-inference-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Twenty volunteers are randomly assigned, 10 to a new study method and 10 to the usual method, and their test scores are recorded. The teacher wants to estimate the difference in mean scores. Name the procedure, define the parameter, and explain why it is not a paired procedure.",
+   "answer": "Two-sample t-interval for μ_new − μ_usual (the difference in true mean scores for the two methods). It is not paired because each volunteer gets only one method; the groups are separate.",
+   "solutionSteps": [
+    "Two separate groups formed by random assignment, a quantitative response, and an estimate: two-sample t-interval.",
+    "Parameter: μ_new − μ_usual, the true mean score with the new method minus the true mean score with the usual method.",
+    "A paired procedure needs two measurements on the same individual or matched pairs; here each volunteer has one score."
+   ],
+   "standards": [
+    "APSTATS.4.7.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_identify_two_sample_interval). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Two-sample t-interval for μ_new − μ_usual (the difference in true mean scores for the two methods)”.",
+    "Uses the context of the problem (the variables, groups or individuals named), not just symbols."
+   ]
+  },
+  {
+   "id": "stat-u4-s10-honors-o01",
+   "skillId": "statistical-inference-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A nutritionist wants to estimate how much the mean sodium content differs between two brands of canned soup. Plan 1: measure 20 randomly chosen cans of each brand. Plan 2: for 20 soup flavors, measure one can of each brand. Name the correct interval procedure and parameter for each plan.",
+   "answer": "Plan 1: two-sample t-interval for μ_A − μ_B (difference in mean sodium of all cans of the two brands). Plan 2: paired t-interval for μ_diff, the mean of the flavor-by-flavor differences (Brand A − Brand B).",
+   "solutionSteps": [
+    "Plan 1 uses two independent samples, so use a two-sample t-interval for μ_A − μ_B.",
+    "Plan 2 matches the cans by flavor, so the data are paired.",
+    "For paired data, take the difference for each flavor and use a one-sample t-interval for the mean difference μ_diff."
+   ],
+   "standards": [
+    "APSTATS.4.7.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_identify_two_sample_interval). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Plan 1: two-sample t-interval for μ_A − μ_B (difference in mean sodium of all cans of the two brands)”.",
+    "Includes the key value(s): 1, 2."
+   ]
+  },
+  {
+   "id": "stat-u4-s10-cp2-o02",
+   "skillId": "statistical-inference-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Independent random samples of 40 cars from Lot A and 36 from Lot B (each lot has hundreds of cars) are used to estimate the difference in mean mileage. Check the Random, 10% and Normal/Large Sample conditions for a two-sample t-interval.",
+   "answer": "Random: independent random samples, met. 10%: 40 and 36 are each less than 10% of hundreds of cars, met. Large Sample: 40 ≥ 30 and 36 ≥ 30, met.",
+   "solutionSteps": [
+    "Random: independent random samples from the two lots.",
+    "10%: each sample is less than 10% of its lot.",
+    "Normal/Large Sample: both sample sizes are at least 30."
+   ],
+   "standards": [
+    "APSTATS.4.7.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_conditions_two_sample_interval). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Random: independent random samples, met”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 10%, 40, 36."
+   ]
+  },
+  {
+   "id": "stat-u4-s10-cp1-o02",
+   "skillId": "statistical-inference-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Fourteen plants were randomly assigned to two light conditions, 7 each, and growth (cm) was recorded. Each group's dot plot is roughly symmetric with no outliers. Check the conditions for a two-sample t-interval.",
+   "answer": "Random: random assignment, met. 10%: not needed for random assignment. Normal: n = 7 < 30 in each group, but both dot plots are roughly symmetric with no outliers, so the condition is reasonably met.",
+   "solutionSteps": [
+    "Random: the plants were randomly assigned to conditions.",
+    "10%: not needed, because there is no sampling without replacement.",
+    "Normal: both samples are small, so check the data: roughly symmetric with no outliers in each group."
+   ],
+   "standards": [
+    "APSTATS.4.7.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_conditions_two_sample_interval). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Random: random assignment, met”.",
+    "Includes the key value(s): 10%, 7, 30."
+   ]
+  },
+  {
+   "id": "stat-u4-s10-honors-o02",
+   "skillId": "statistical-inference-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A study compares mean monthly phone bills for adults under 30 and over 50 using random samples of 22 and 25 from a city. A boxplot of the under-30 sample shows two high outliers and strong right skew; the over-50 boxplot is roughly symmetric. Can a two-sample t-interval be used? What could the researcher do?",
+   "answer": "Not safely. The under-30 sample is small (22 < 30) and strongly skewed with outliers, so the Normal condition fails for that group. The researcher could take a larger sample (at least 30 in each group) or use a method that does not assume Normality.",
+   "solutionSteps": [
+    "Each group must satisfy the Normal/Large Sample condition.",
+    "Over 50: n = 25 < 30, but the data are roughly symmetric, so it is reasonable.",
+    "Under 30: n = 22 < 30 with strong skew and outliers, so the condition fails.",
+    "A larger sample (n ≥ 30 in each group) would let the Central Limit Theorem justify the procedure."
+   ],
+   "standards": [
+    "APSTATS.4.7.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_conditions_two_sample_interval). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Not safely”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): -30, 22, 30."
+   ]
+  },
+  {
+   "id": "stat-u4-s10-cp2-o03",
+   "skillId": "statistical-inference-skill-10",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A teacher randomly assigns 32 students to a quiz with music and 32 to a quiz without music to test whether mean scores differ. Check the conditions for a two-sample t-test.",
+   "answer": "Random: random assignment, met. 10%: not needed for an experiment. Large Sample: 32 ≥ 30 in each group, met.",
+   "solutionSteps": [
+    "Random: the students were randomly assigned to the two conditions.",
+    "10%: not needed, because there is no sampling from a population.",
+    "Large Sample: both groups have 32 ≥ 30."
+   ],
+   "standards": [
+    "APSTATS.4.9.C"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_conditions_two_sample_test). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: random: the students were randomly assigned to the two conditions.",
+   "selfCheck": [
+    "States the key idea: “Random: random assignment, met”.",
+    "Includes the key value(s): 10%, 32, 30."
+   ]
+  },
+  {
+   "id": "stat-u4-s10-cp1-o03",
+   "skillId": "statistical-inference-skill-10",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "To test whether mean commute times differ between two towns, a planner surveys every resident who answers the phone on one morning: 45 in Town A and 50 in Town B. Is the Random condition for a two-sample t-test met? Explain.",
+   "answer": "No. The samples are not random: they include only residents who answered the phone that morning, a convenience sample that may differ from each town's population.",
+   "solutionSteps": [
+    "The Random condition needs random samples from each population (or random assignment).",
+    "Calling and keeping whoever answers is not a random sample of residents.",
+    "The results may not represent the towns, so the condition is not met."
+   ],
+   "standards": [
+    "APSTATS.4.9.C"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_conditions_two_sample_test). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “No”.",
+    "Uses the context of the problem (the variables, groups or individuals named), not just symbols."
+   ]
+  },
+  {
+   "id": "stat-u4-s10-honors-o03",
+   "skillId": "statistical-inference-skill-10",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A researcher tests whether a coaching program raises mean SAT math scores. Independent random samples: 28 coached students (from 600) and 26 uncoached students (from 900). Both sample dot plots are slightly skewed with no outliers. Check every condition for the two-sample t-test and state whether a cause-and-effect conclusion would be justified.",
+   "answer": "Random: independent random samples, met. 10%: 28 ≤ 60 and 26 ≤ 90, met. Normal: both n < 30, but only slight skew and no outliers, so reasonably met. The test can be done, but this is an observational study (no random assignment), so a significant result would not show that coaching causes higher scores.",
+   "solutionSteps": [
+    "Random: independent random samples from the two groups.",
+    "10%: 28 ≤ 0.10(600) = 60 and 26 ≤ 0.10(900) = 90.",
+    "Normal: both samples are under 30 but show no strong skew or outliers.",
+    "Without random assignment, a difference could be due to other variables, so no cause-and-effect conclusion."
+   ],
+   "standards": [
+    "APSTATS.4.9.C"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_conditions_two_sample_test). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Random: independent random samples, met”.",
+    "Links the decision to the evidence (the p-value compared with α, or whether the value is in the interval).",
+    "Includes the key value(s): 10%, 28, 60."
+   ]
+  },
+  {
    "id": "stat-u4-s11-cp2-f01",
    "skillId": "statistical-inference-skill-11",
    "level": "cp2",
@@ -37600,6 +37863,142 @@
     "APSTATS.3.15.B"
    ],
    "sourceNotes": "Original Claude-authored item (family: s2_chisq_df_pvalue). Statistics audit 2026-11-18, batch S2; key computed with scipy in tools/statistics-audit-20261118/s2fill.py or s2frq.py."
+  },
+  {
+   "id": "stat-u4-s13-cp2-o01",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A random sample of 130 adults was classified by age group and favorite season. The smallest expected count in the two-way table is 11.54. Is the Large Counts condition for a chi-square test met? Explain.",
+   "answer": "Yes. All expected counts are at least 5 (the smallest is 11.54).",
+   "solutionSteps": [
+    "The Large Counts condition for chi-square tests needs every expected count to be at least 5.",
+    "The smallest expected count is 11.54, which is at least 5, so all are.",
+    "The condition is met."
+   ],
+   "standards": [
+    "APSTATS.3.14.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_chisq_conditions). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: the Large Counts condition for chi-square tests needs every expected count to be at least 5.",
+   "selfCheck": [
+    "States the key idea: “Yes”.",
+    "Includes the key value(s): 5, 11.54."
+   ]
+  },
+  {
+   "id": "stat-u4-s13-cp1-o01",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A random sample of 60 students was classified by grade (rows) and lunch choice (columns). Observed counts: Grade 9: 12, 9, 4; Grade 10: 18, 11, 6. Find the smallest expected count and say whether the chi-square test for independence is appropriate.",
+   "answer": "Smallest expected count ≈ 4.17, which is less than 5, so the Large Counts condition is not met and the test is not appropriate.",
+   "solutionSteps": [
+    "Expected count = (row total)(column total)/(table total).",
+    "Row totals 25 and 35; column totals 30, 20 and 10; total 60.",
+    "Smallest: (25)(10)/60 ≈ 4.17.",
+    "It is below 5, so the chi-square test is not appropriate."
+   ],
+   "standards": [
+    "APSTATS.3.14.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_chisq_conditions). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Smallest expected count ≈ 4.17, which is less than 5, so the Large Counts condition is not met and the test is not appropriate”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 4.17, 5."
+   ]
+  },
+  {
+   "id": "stat-u4-s13-honors-o01",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Independent random samples of 86 customers from Store 1 and 94 from Store 2 were asked their preferred payment (card, phone, cash, check): Store 1: 40, 25, 15, 6; Store 2: 35, 30, 20, 9. Each store has thousands of customers. Check all the conditions for a chi-square test for homogeneity.",
+   "answer": "Random: independent random samples, met. 10%: 86 and 94 are less than 10% of each store's thousands of customers, met. Large Counts: the smallest expected count is (86)(15)/180 ≈ 7.17, at least 5, so all expected counts are at least 5. The test is appropriate.",
+   "solutionSteps": [
+    "Random: independent random samples from the two stores.",
+    "10%: each sample is less than 10% of the store's customers.",
+    "Expected counts: (row total)(column total)/180; the smallest uses the check column (15).",
+    "(86)(15)/180 ≈ 7.17 ≥ 5, so every expected count is at least 5."
+   ],
+   "standards": [
+    "APSTATS.3.14.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_chisq_conditions). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Random: independent random samples, met”.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 10%, 86, 94."
+   ]
+  },
+  {
+   "id": "stat-u4-s13-cp2-o02",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A chi-square test for independence of grade level and favorite sport gives a p-value of 0.03. Interpret the p-value.",
+   "answer": "Assuming grade level and favorite sport are independent, there is a 0.03 probability of getting a chi-square statistic as large as or larger than the one observed, by chance alone.",
+   "solutionSteps": [
+    "A p-value is a probability calculated assuming the null hypothesis is true.",
+    "H₀: grade level and favorite sport are independent (no association).",
+    "P = 0.03 is the chance of a χ² value at least as large as the observed one if H₀ were true."
+   ],
+   "standards": [
+    "APSTATS.3.15.C"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_chisq_pvalue). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: A p-value is a probability calculated assuming the null hypothesis is true.",
+   "selfCheck": [
+    "States the key idea of the model answer.",
+    "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
+    "Includes the key value(s): 0.03."
+   ]
+  },
+  {
+   "id": "stat-u4-s13-cp1-o02",
+   "skillId": "statistical-inference-skill-13",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Independent random samples of voters from three districts were asked whether they support a park levy. A chi-square test for homogeneity gives χ² = 7.92 with df = 2 and a p-value of 0.019. Interpret the p-value in context and state a conclusion at α = 0.05.",
+   "answer": "If the distribution of support were the same in all three districts, there would be a 0.019 probability of getting χ² = 7.92 or larger by chance. Since 0.019 < 0.05, reject H₀: there is convincing evidence that support differs among the districts.",
+   "solutionSteps": [
+    "H₀: the distribution of support is the same in the three districts.",
+    "Assuming H₀, P(χ² ≥ 7.92) with df = 2 is 0.019.",
+    "p-value 0.019 < α = 0.05, so reject H₀.",
+    "There is convincing evidence that the distribution of support differs among the districts."
+   ],
+   "standards": [
+    "APSTATS.3.15.C"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_chisq_pvalue). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea of the model answer.",
+    "Links the decision to the evidence (the p-value compared with α, or whether the value is in the interval).",
+    "Includes the key value(s): 0.019, 7.92."
+   ]
+  },
+  {
+   "id": "stat-u4-s13-honors-o02",
+   "skillId": "statistical-inference-skill-13",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A random sample of adults was classified by exercise level and sleep quality. A chi-square test for independence gives χ² = 5.40 with df = 4. Find the p-value, interpret it, and explain why \"the p-value is the probability that exercise and sleep are independent\" is not a correct interpretation.",
+   "answer": "p-value ≈ 0.249. If exercise level and sleep quality were independent, there would be about a 0.249 probability of getting χ² ≥ 5.40 by chance. The p-value is computed assuming H₀ is true, so it is not the probability that H₀ is true.",
+   "solutionSteps": [
+    "P(χ² ≥ 5.40) with df = 4 ≈ 0.249 (technology).",
+    "Interpretation: assuming independence, a statistic this large or larger happens with that probability by chance.",
+    "The p-value is a probability about the data given H₀, not about H₀ itself.",
+    "With a p-value this large, there is not convincing evidence of an association."
+   ],
+   "standards": [
+    "APSTATS.3.15.C"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_chisq_pvalue). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “p-value ≈ 0.249”.",
+    "Includes the key value(s): 0.249, 5.40."
+   ]
   },
   {
    "id": "stat-u4-s14-cp2-g01",

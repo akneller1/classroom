@@ -19546,6 +19546,139 @@
    "sourceNotes": "Original Claude-authored item (family: frq_sampling_dist_frq). Statistics audit 2026-11-18, batch S2; key computed with scipy in tools/statistics-audit-20261118/s2fill.py or s2frq.py."
   },
   {
+   "id": "stat-u3-s09-cp2-o01",
+   "skillId": "anticipating-patterns-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Random samples of 200 students from School A and 150 from School B are taken; each school has more than 3,000 students. In the populations, 30% of A and 40% of B ride the bus. Check the Large Counts condition for the sampling distribution of p̂_A − p̂_B.",
+   "answer": "Met: 200(0.30) = 60, 200(0.70) = 140, 150(0.40) = 60, 150(0.60) = 90 are all at least 10.",
+   "solutionSteps": [
+    "Large Counts needs n₁p₁, n₁(1 − p₁), n₂p₂ and n₂(1 − p₂) all at least 10.",
+    "School A: 200(0.30) = 60 and 200(0.70) = 140.",
+    "School B: 150(0.40) = 60 and 150(0.60) = 90.",
+    "All four are at least 10, so the sampling distribution of p̂_A − p̂_B is approximately Normal."
+   ],
+   "standards": [
+    "APSTATS.3.9.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_conditions_two_proportions). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: large Counts needs n₁p₁, n₁(1 − p₁), n₂p₂ and n₂(1 − p₂) all at least 10.",
+   "selfCheck": [
+    "States the key idea: “Met: 200(0.30) = 60, 200(0.70) = 140, 150(0.40) = 60, 150(0.60) = 90 are all at least 10”.",
+    "Includes the key value(s): 200, 0.30, 60."
+   ]
+  },
+  {
+   "id": "stat-u3-s09-cp1-o01",
+   "skillId": "anticipating-patterns-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A researcher takes independent random samples of 80 adults from a city of 50,000 and 60 adults from a town of 500. In the populations, 15% of city adults and 10% of town adults bike to work. Check the Random, 10% and Large Counts conditions for the sampling distribution of p̂_city − p̂_town.",
+   "answer": "Random: met (independent random samples). 10%: met for the city (80 ≤ 5,000) but not the town (60 > 50). Large Counts: not met for the town, 60(0.10) = 6 < 10 (city: 12 and 68; town: 54).",
+   "solutionSteps": [
+    "Random: independent random samples from each population, so met.",
+    "10%: city 80 ≤ 0.10(50,000) = 5,000, met; town 60 > 0.10(500) = 50, not met.",
+    "Large Counts: city 80(0.15) = 12 and 80(0.85) = 68; town 60(0.10) = 6 and 60(0.90) = 54.",
+    "The town count 6 is below 10, so the Normal model for p̂_city − p̂_town is not justified."
+   ],
+   "standards": [
+    "APSTATS.3.9.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_conditions_two_proportions). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Random: met (independent random samples)”.",
+    "Includes the key value(s): 10%, 80, 5."
+   ]
+  },
+  {
+   "id": "stat-u3-s09-honors-o01",
+   "skillId": "anticipating-patterns-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In a randomized experiment, 120 volunteers are randomly assigned to a new allergy medicine and 120 to a placebo. Assume the true proportions with relief are 0.55 and 0.35. Justify whether the sampling distribution of p̂_new − p̂_placebo is approximately Normal, and explain why the 10% condition is not needed here.",
+   "answer": "Approximately Normal: 120(0.55) = 66, 120(0.45) = 54, 120(0.35) = 42, 120(0.65) = 78 are all at least 10. The 10% condition is for sampling without replacement from a population; here the groups come from random assignment of volunteers, so independence comes from the random assignment.",
+   "solutionSteps": [
+    "Random: the treatments were randomly assigned.",
+    "Large Counts: 66, 54, 42 and 78 are all at least 10, so the distribution is approximately Normal.",
+    "The 10% condition checks sampling without replacement from a population; there is no such sampling here.",
+    "Random assignment makes the two groups independent, so the condition does not apply."
+   ],
+   "standards": [
+    "APSTATS.3.9.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_conditions_two_proportions). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Approximately Normal: 120(0.55) = 66, 120(0.45) = 54, 120(0.35) = 42, 120(0.65) = 78 are all at least 10”.",
+    "Includes the key value(s): 120, 0.55, 66."
+   ]
+  },
+  {
+   "id": "stat-u3-s09-cp2-o02",
+   "skillId": "anticipating-patterns-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Independent random samples of 40 boys and 45 girls are taken from a large school to compare mean hours of sleep. The population distributions are unknown. Is the sampling distribution of x̄_boys − x̄_girls approximately Normal? Explain.",
+   "answer": "Yes. Both samples are at least 30 (40 and 45), so by the Central Limit Theorem each x̄, and their difference, is approximately Normal.",
+   "solutionSteps": [
+    "With unknown population shapes, each sample needs n ≥ 30 (CLT).",
+    "n_boys = 40 and n_girls = 45 are both at least 30.",
+    "So x̄_boys − x̄_girls is approximately Normal."
+   ],
+   "standards": [
+    "APSTATS.4.6.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_conditions_two_means). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "hint": "First step: with unknown population shapes, each sample needs n ≥ 30 (CLT).",
+   "selfCheck": [
+    "States the key idea: “Yes”.",
+    "Includes the key value(s): 30, 40, 45."
+   ]
+  },
+  {
+   "id": "stat-u3-s09-cp1-o02",
+   "skillId": "anticipating-patterns-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A company takes independent random samples of 12 batteries of Brand A and 15 of Brand B. Lifetimes of Brand A are known to be Normal; Brand B's sample dot plot is strongly skewed right with an outlier. Justify whether the sampling distribution of x̄_A − x̄_B can be treated as Normal.",
+   "answer": "No. Brand A is fine (Normal population), but Brand B's sample is small (15 < 30) and strongly skewed with an outlier, so x̄_B, and the difference, may not be Normal.",
+   "solutionSteps": [
+    "Each sample mean must be approximately Normal.",
+    "Brand A: the population is Normal, so x̄_A is Normal for any n.",
+    "Brand B: n = 15 < 30, and the data are strongly skewed with an outlier.",
+    "The condition fails for Brand B, so the difference cannot be treated as Normal."
+   ],
+   "standards": [
+    "APSTATS.4.6.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_conditions_two_means). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “No”.",
+    "Includes the key value(s): 15, 30."
+   ]
+  },
+  {
+   "id": "stat-u3-s09-honors-o02",
+   "skillId": "anticipating-patterns-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Researchers compare mean reaction times for two age groups using independent random samples of 25 teens (from 2,000 at a school) and 25 adults (from a city of 80,000). Both sample dot plots are roughly symmetric with no outliers. Check every condition for the sampling distribution of x̄_teens − x̄_adults.",
+   "answer": "Random: independent random samples, met. 10%: 25 ≤ 200 teens and 25 ≤ 8,000 adults, met. Normal: n = 25 < 30 for both, but both samples are roughly symmetric with no outliers, so the populations are plausibly Normal and the difference is approximately Normal.",
+   "solutionSteps": [
+    "Random: two independent random samples.",
+    "10%: 25 ≤ 0.10(2,000) = 200 and 25 ≤ 0.10(80,000) = 8,000.",
+    "Normal/Large sample: both n = 25 < 30, so look at the data.",
+    "Both dot plots are roughly symmetric with no outliers, so the condition is reasonably met."
+   ],
+   "standards": [
+    "APSTATS.4.6.B"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gap_conditions_two_means). Statistics objective gaps 2026-11-19: practice for an AP objective that had none; key computed in tools/statistics-audit-20261118/gap_items.py.",
+   "selfCheck": [
+    "States the key idea: “Random: independent random samples, met”.",
+    "Includes the key value(s): 10%, 25, 200."
+   ]
+  },
+  {
    "id": "stat-u3-s10-cp2-f01",
    "skillId": "anticipating-patterns-skill-10",
    "level": "cp2",
