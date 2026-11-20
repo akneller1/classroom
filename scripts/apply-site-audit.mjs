@@ -170,3 +170,56 @@ for (const [grade, units] of Object.entries(TEN)) {
   fs.writeFileSync(f, src);
   console.log(`Site audit: Make a Ten added to ${added} Grade ${grade} units`);
 }
+
+// #20 Picture descriptions (alt text) that state the answer. A screen-reader student hears the description, so it must
+// say what is drawn without doing the question for them:
+// - "Name this shape" pictures in Grade 1 named the shape ("A cube."): they now describe its faces, sides and corners;
+// - "Which shape is cut into halves/fourths?" said which parts were equal: it now describes where the cuts are;
+// - systems-of-equations graphs said where the lines cross: that clause is gone (the lines and the grid stay);
+// - "Which graph shows 4x + y = -3?" named each graph's equation: each line is now given by its y-intercept and slope;
+// - "Which equation matches the graph?" named the parent function: the curve is described by its points.
+const SHAPE = {
+  square: "a flat shape with 4 straight sides that are all the same length and 4 square corners",
+  rectangle: "a flat shape with 4 straight sides and 4 square corners; two sides are longer than the other two",
+  triangle: "a flat shape with 3 straight sides and 3 corners",
+  circle: "a flat, round shape with no straight sides and no corners",
+  trapezoid: "a flat shape with 4 straight sides; only two of its sides are parallel",
+  hexagon: "a flat shape with 6 straight sides and 6 corners",
+  cube: "a solid shape with 6 flat square faces that are all the same size",
+  "rectangular prism": "a solid shape like a box, with 6 flat rectangle faces",
+  cone: "a solid shape with one flat circle at the bottom and a curved side that comes to a point",
+  cylinder: "a solid shape with a flat circle at each end and a curved side, like a can",
+  sphere: "a solid shape that is round all over, like a ball, with no flat faces"
+};
+function fixAlt(q) {
+  const d = q.diagram, spec = d && d.spec; if (!spec || typeof spec.alt !== "string") return false;
+  const p = q.prompt || "", a = typeof q.answer === "string" ? q.answer.trim().toLowerCase().replace(/\.$/, "") : "";
+  let alt = spec.alt;
+  if (/\bname\b|what shape is this|which name matches/i.test(p) && SHAPE[a] && alt.toLowerCase().includes(a)) {
+    const m = /^An? (\w+) /i.exec(alt), color = m && !SHAPE[m[1].toLowerCase()] ? m[1].toLowerCase() + " " : "", turned = /turned/.test(alt) ? ", turned," : "";
+    const sm = /^a ((?:flat|solid)(?:, round)? shape)(.*)$/.exec(SHAPE[a]) || [null, "shape", " " + SHAPE[a]];
+    alt = ("A " + color + sm[1] + turned + sm[2] + ".").replace(/^A ([aeiou])/i, "An $1");
+  }
+  const cutWords = (n, un) => n === "2" ? (un ? "by one line that is closer to one side" : "by one line through the middle") : (un ? "by two lines that do not go through the middle" : "by two lines through the middle");
+  if (/is the shape cut into (halves|fourths)/i.test(p)) alt = alt.replace(/^(An? [a-z]+) cut into (2|4) (un)?equal parts\./i, (m, sh, n, un) => sh + " cut " + cutWords(n, un) + ".");
+  if (/which shape is cut into (halves|fourths)/i.test(p)) {
+    alt = alt.replace(/(Shape [AB]) is cut into (2|4) (un)?equal parts\./g, (m, sh, n, un) =>
+      sh + " is cut " + (n === "2" ? (un ? "by one line that is closer to one side" : "by one line through the middle") : (un ? "by two lines that do not go through the middle" : "by two lines through the middle")) + ".");
+  }
+  if (/solution of the system|solution to the system|use the graph to find the solution/i.test(p)) alt = alt.replace(/,?\s*(?:which\s+)?(?:intersect(?:ing)?|crossing)\s+at\s+\([^)]*\)/i, "");
+  if (/^Which graph shows .*=/i.test(p)) alt = alt.replace(/y = (-?\d*(?:\/\d+)?)x(?: ([+-]) (\d+(?:\/\d+)?))?(?=[;.,]|$)/g, (m, k, sg, b) =>
+    "a line through (0, " + (b ? (sg === "-" ? "-" : "") + b : "0") + ") with slope " + (k === "" ? "1" : k === "-" ? "-1" : k));
+  if (/which equation matches the graph/i.test(p) && a && alt.toLowerCase().includes(a)) alt = alt.replace(/the parent function /i, "").replace(new RegExp(String(q.answer).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"), "a curve");
+  if (alt === spec.alt) return false;
+  spec.alt = alt; return true;
+}
+let altFixed = 0;
+const altDirs = [...fs.readdirSync(path.join(SITE, "question-banks")).map((c) => path.join(SITE, "question-banks", c)),
+  ...[1, 2, 3, 4].map((g) => path.join(SITE, `grade${g}/question-banks/math${g}`)), path.join(SITE, "grade5/math5")].filter((d) => fs.existsSync(d) && fs.statSync(d).isDirectory());
+for (const dir of altDirs) for (const file of fs.readdirSync(dir).filter((f) => f.endsWith(".json"))) {
+  const f = path.join(dir, file), d = JSON.parse(fs.readFileSync(f, "utf8"));
+  if (!Array.isArray(d.questions)) continue;
+  let n = 0; for (const q of d.questions) if (fixAlt(q)) n++;
+  if (n) { altFixed += n; fs.writeFileSync(f, JSON.stringify(d, null, 1) + "\n"); }
+}
+console.log(`Site audit: ${altFixed} picture descriptions no longer state the answer`);

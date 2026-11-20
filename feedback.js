@@ -62,7 +62,26 @@
     try { links = composeLinks(mailto); } catch (_) { return; }
     if (!links) return;
     activeMail = mailto; activeBody = new URL(mailto, document.baseURI).searchParams.get('body') || ('Page: ' + document.title + '\nLink: ' + location.href);
-    page.value = activeBody; details.value = ''; kind.value = 'Other'; refresh();
+    page.value = activeBody; details.value = ''; kind.value = 'Other';
+    /* A page-level link (one per page, 2026-11-20) asks which activity the problem is with. */
+    var pick = document.getElementById('feedbackActivity');
+    if (pick) pick.parentNode.parentNode.removeChild(pick.parentNode);
+    if (source.hasAttribute('data-report-choices')) {
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.card[data-report]'));
+      if (cards.length) {
+        var wrap = document.createElement('p'), label = document.createElement('label');
+        label.textContent = 'Which activity?';
+        var sel = document.createElement('select'); sel.id = 'feedbackActivity'; sel.style.cssText = 'display:block;width:100%;box-sizing:border-box';
+        var o0 = document.createElement('option'); o0.value = ''; o0.textContent = 'This page in general'; sel.appendChild(o0);
+        cards.forEach(function (c, i) { var o = document.createElement('option'); o.value = String(i); o.textContent = c.getAttribute('data-report-title'); sel.appendChild(o); });
+        sel.addEventListener('change', function () {
+          var m = sel.value === '' ? mailto : cards[+sel.value].getAttribute('data-report');
+          activeMail = m; activeBody = new URL(m, document.baseURI).searchParams.get('body') || ''; page.value = activeBody; refresh();
+        });
+        label.appendChild(sel); wrap.appendChild(label); fields.insertBefore(wrap, fields.firstChild);
+      }
+    }
+    refresh();
     event.preventDefault();
     dialog.showModal();
   });
