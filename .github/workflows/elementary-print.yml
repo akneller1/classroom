@@ -35,9 +35,17 @@ jobs:
           ref: e6c1aee6800f12f5734ebcbfb6b8ca2961fc6026
           path: _course_sources/grade4
           persist-credentials: false
+      - name: Check out the released Grade 5 source
+        uses: actions/checkout@v4
+        with:
+          repository: akneller1/FinancialAlgebra
+          # Keep in step with GRADE5_SOURCE_REF in deploy-site.yml (Grade 5 release 5A-5C, 2026-11-19).
+          ref: a662c0f460aa012e9e3c1f48675c87893708385d
+          path: _course_sources/grade5
+          persist-credentials: false
       - name: Assemble released elementary courses
         run: |
-          GRADE5_SOURCE_DIR=_course_sources/current node scripts/integrate-approved-courses.mjs
+          GRADE5_SOURCE_DIR=_course_sources/grade5 node scripts/integrate-approved-courses.mjs
           GRADE4_SOURCE_DIR=_course_sources/grade4 node scripts/integrate-grade4.mjs
           GRADE3_SOURCE_DIR=_course_sources/current node scripts/integrate-grade3.mjs
           GRADE2_SOURCE_DIR=_course_sources/current node scripts/integrate-grade2.mjs
