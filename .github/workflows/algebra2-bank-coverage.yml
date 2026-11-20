@@ -73,7 +73,7 @@ jobs:
       - run: node scripts/test-algebra2-printable-sections.cjs
       - run: node scripts/test-resource-eligibility.cjs
       - run: node scripts/audit-course-catalog.cjs
-      - run: npm install --no-save playwright@1.58.2
+      - run: npm install --no-save playwright
       - run: npx playwright install --with-deps chromium
       - name: Start local website
         run: python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/algebra2-http.log 2>&1 &

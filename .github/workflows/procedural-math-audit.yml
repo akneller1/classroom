@@ -28,7 +28,7 @@ jobs:
         run: node scripts/build-site.mjs
       - name: Install Chromium
         run: |
-          npm install --no-save --no-package-lock playwright@1.56.1
+          npm install --no-save --no-package-lock playwright
           npx playwright install --with-deps chromium
       - name: Serve the built site
         run: |
