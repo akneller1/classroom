@@ -17,7 +17,7 @@ spec = importlib.util.spec_from_file_location('g7verify', os.path.join(ROOT, 'to
 V = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(V)
 sp, same, num, ex, d, Skip = V.sp, V.same, V.num, V.ex, V.d, V.Skip
-MIN = 2000
+MIN = 1750  # whole-site audit #9: the 397 items rewritten by levels.py are recomputed by verify_levels.py instead
 
 
 def nums(s):

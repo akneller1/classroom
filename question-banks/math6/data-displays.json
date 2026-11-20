@@ -833,34 +833,35 @@
    "skillId": "data-displays-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which question is not a statistical question?",
-   "answer": "How tall is the school flagpole?",
+   "prompt": "To answer \"How many hours do students in our class read each week?\", Kai collected 5 responses: 7, 3, 12, 5, 12. One more student answered 15. What is the mean of all 6 responses?",
+   "answer": "9",
    "options": [
     {
-     "text": "How many books did each sixth grader read this summer?",
+     "text": "15",
      "correct": false
     },
     {
-     "text": "How many pets do families on my street have?",
+     "text": "6",
      "correct": false
     },
     {
-     "text": "How tall is the school flagpole?",
+     "text": "9",
      "correct": true
     },
     {
-     "text": "How tall are the players on the basketball team?",
+     "text": "54",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A statistical question expects variability in the answers.",
-    "“How tall is the school flagpole?” does not have variability in its answers."
+    "Sum of the first 5: 39.",
+    "Add 15: 54.",
+    "Mean: 54 ÷ 6 = 9."
    ],
    "standards": [
     "6.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_which). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Which question is not a statistical question?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s01-honors-002",
@@ -914,34 +915,35 @@
    "skillId": "data-displays-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which question is not a statistical question?",
-   "answer": "What is the capital of France?",
+   "prompt": "To answer \"How many hours do students in our class read each week?\", Rosa collected 5 responses: 6, 2, 5, 4, 11. One more student answered 14. What is the mean of all 6 responses?",
+   "answer": "7",
    "options": [
     {
-     "text": "What are the daily high temperatures in our town this month?",
+     "text": "28",
      "correct": false
     },
     {
-     "text": "What is the capital of France?",
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "7",
      "correct": true
-    },
-    {
-     "text": "How tall are the players on the basketball team?",
-     "correct": false
-    },
-    {
-     "text": "How long does it take students in our school to get to school?",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "A statistical question expects variability in the answers.",
-    "“What is the capital of France?” does not have variability in its answers."
+    "Sum of the first 5: 28.",
+    "Add 14: 42.",
+    "Mean: 42 ÷ 6 = 7."
    ],
    "standards": [
     "6.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_which). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Which question is not a statistical question?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s01-honors-005",
@@ -1013,34 +1015,35 @@
    "skillId": "data-displays-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which question is a statistical question?",
-   "answer": "What are the daily high temperatures in our town this month?",
+   "prompt": "To answer \"How many hours do students in our class read each week?\", Leo collected 5 responses: 2, 3, 2, 5, 12. One more student answered 12. What is the mean of all 6 responses?",
+   "answer": "6",
    "options": [
     {
-     "text": "What is the capital of France?",
+     "text": "36",
      "correct": false
     },
     {
-     "text": "What are the daily high temperatures in our town this month?",
+     "text": "6",
      "correct": true
     },
     {
-     "text": "How many students are in Room 12 right now?",
+     "text": "5",
      "correct": false
     },
     {
-     "text": "How tall is the school flagpole?",
+     "text": "12",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A statistical question expects variability in the answers.",
-    "“What are the daily high temperatures in our town this month?” has variability in its answers."
+    "Sum of the first 5: 24.",
+    "Add 12: 36.",
+    "Mean: 36 ÷ 6 = 6."
    ],
    "standards": [
     "6.SP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_which). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Which question is a statistical question?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s01-honors-008",
@@ -1962,16 +1965,16 @@
    "skillId": "data-displays-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A frequency table shows the number of values in each interval: 50–59: 12; 60–69: 13; 70–79: 12; 80–89: 2; 90–99: 7. Which interval has the most values?",
-   "answer": "60–69",
+   "prompt": "Data: 16, 4, 27, 8, 27, 5, 18, 7, 11, 14. A histogram uses the interval 1–10. What percent of the data values are in that interval?",
+   "answer": "40%",
    "solutionSteps": [
-    "Compare the frequencies.",
-    "The greatest frequency is 13, for 60–69."
+    "Values from 1 to 10: 4 of 10.",
+    "4/10 = 40%."
    ],
    "standards": [
     "6.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_freq_text). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “A frequency table shows the number of values in each interval: 50–59: ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s02-cp1-009",
@@ -2066,34 +2069,34 @@
    "skillId": "data-displays-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A frequency table shows the number of values in each interval: 1–5: 14; 6–10: 11; 11–15: 9; 16–20: 15. How many values are there in all?",
-   "answer": "49",
+   "prompt": "Data: 29, 5, 4, 23, 20, 18, 28, 30, 25, 15. A histogram uses the interval 1–10. What percent of the data values are in that interval?",
+   "answer": "20%",
    "options": [
     {
-     "text": "49",
+     "text": "10%",
+     "correct": false
+    },
+    {
+     "text": "20%",
      "correct": true
     },
     {
-     "text": "34",
+     "text": "1%",
      "correct": false
     },
     {
-     "text": "4",
-     "correct": false
-    },
-    {
-     "text": "15",
+     "text": "1/5%",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Add all the frequencies.",
-    "14 + 11 + 9 + 15 = 49."
+    "Values from 1 to 10: 2 of 10.",
+    "2/10 = 20%."
    ],
    "standards": [
     "6.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_freq_text). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “A frequency table shows the number of values in each interval: 1–5: 14”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s02-cp1-013",
@@ -2533,34 +2536,35 @@
    "skillId": "data-displays-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A frequency table shows the number of values in each interval: 1–5: 12; 6–10: 5; 11–15: 8; 16–20: 10. Which interval has the most values?",
-   "answer": "1–5",
+   "prompt": "A box plot of test scores has minimum 36, lower quartile 42, median 49, upper quartile 54 and maximum 72. How much greater is the range than the interquartile range?",
+   "answer": "24",
    "options": [
     {
-     "text": "16–20",
-     "correct": false
-    },
-    {
-     "text": "11–15",
-     "correct": false
-    },
-    {
-     "text": "1–5",
+     "text": "24",
      "correct": true
     },
     {
-     "text": "6–10",
+     "text": "72",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "42",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Compare the frequencies.",
-    "The greatest frequency is 12, for 1–5."
+    "Range: 72 − 36 = 36.",
+    "IQR: 54 − 42 = 12.",
+    "Difference: 24."
    ],
    "standards": [
     "6.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_freq_text). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “A frequency table shows the number of values in each interval: 1–5: 12”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s02-honors-013",
@@ -3135,71 +3139,68 @@
    "skillId": "data-displays-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Ben's first 3 test scores are 90, 89, 98. What score does Ben need on test 4 to have a mean of exactly 74?",
-   "answer": "19",
+   "prompt": "Owen's first four quiz scores are 94, 63, 84, 96. Owen scores 78 on the fifth quiz. What is the mean of all five scores?",
+   "answer": "83",
    "options": [
     {
-     "text": "19",
+     "text": "83",
      "correct": true
     },
     {
-     "text": "55",
+     "text": "94",
      "correct": false
     },
     {
-     "text": "74",
+     "text": "78",
      "correct": false
     },
     {
-     "text": "24",
+     "text": "5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Total needed: 74 × 4 = 296.",
-    "Current total: 277.",
-    "Needed score: 296 - 277 = 19.",
-    "Check: (277 + 19) ÷ 4 = 74."
+    "Sum: 94 + 63 + 84 + 96 + 78 = 415.",
+    "Mean: 415 ÷ 5 = 83."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s3_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Ben's first 3 test scores are 90, 89, 98. What score does Ben need on ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s03-cp1-003",
    "skillId": "data-displays-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the mode of the data: 1.4, 12.6, 4.4, 12.8, 16.2, 15.9, 4.4",
-   "answer": "4.4",
+   "prompt": "Zoe's first four quiz scores are 77, 91, 99, 72. Zoe scores 71 on the fifth quiz. What is the mean of all five scores?",
+   "answer": "82",
    "options": [
     {
-     "text": "12.6",
+     "text": "77",
      "correct": false
     },
     {
-     "text": "16.2",
-     "correct": false
-    },
-    {
-     "text": "4.4",
+     "text": "82",
      "correct": true
     },
     {
-     "text": "1.4",
+     "text": "99",
+     "correct": false
+    },
+    {
+     "text": "5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Order the data: 1.4, 4.4, 4.4, 12.6, 12.8, 15.9, 16.2.",
-    "Find the value that occurs most often.",
-    "The mode is 4.4."
+    "Sum: 77 + 91 + 99 + 72 + 71 = 410.",
+    "Mean: 410 ÷ 5 = 82."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s3_stat). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Find the mode of the data: 1.4, 12.6, 4.4, 12.8, 16.2, 15.9, 4.4”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s03-cp1-004",
@@ -3418,18 +3419,16 @@
    "skillId": "data-displays-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Ben's first 4 test scores are 67, 87, 93, 89. What score does Ben need on test 5 to have a mean of exactly 79?",
-   "answer": "59",
+   "prompt": "Kai's first four quiz scores are 62, 88, 91, 71. Kai scores 83 on the fifth quiz. What is the mean of all five scores?",
+   "answer": "79",
    "solutionSteps": [
-    "Total needed: 79 × 5 = 395.",
-    "Current total: 336.",
-    "Needed score: 395 - 336 = 59.",
-    "Check: (336 + 59) ÷ 5 = 79."
+    "Sum: 62 + 88 + 91 + 71 + 83 = 395.",
+    "Mean: 395 ÷ 5 = 79."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s3_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Ben's first 4 test scores are 67, 87, 93, 89. What score does Ben need”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s03-cp1-013",
@@ -3527,53 +3526,52 @@
    "skillId": "data-displays-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the mode of the data: 2.6, 11.7, 7.9, 1.2, 1.7, 12.3, 17.7, 10.1, 1.6, 11.7",
-   "answer": "11.7",
+   "prompt": "Owen's five test scores are 72, 72, 86, 70, 55. The teacher drops the lowest score. What is Owen's new mean?",
+   "answer": "75",
    "solutionSteps": [
-    "Order the data: 1.2, 1.6, 1.7, 2.6, 7.9, 10.1, 11.7, 11.7, 12.3, 17.7.",
-    "Find the value that occurs most often.",
-    "The mode is 11.7."
+    "Lowest score: 55.",
+    "Sum of the other four: 300.",
+    "New mean: 300 ÷ 4 = 75."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s3_stat). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Find the mode of the data: 2.6, 11.7, 7.9, 1.2, 1.7, 12.3, 17.7, 10.1,”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s03-honors-002",
    "skillId": "data-displays-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Zoe's first 3 test scores are 69, 70, 98. What score does Zoe need on test 4 to have a mean of exactly 80?",
-   "answer": "83",
+   "prompt": "Zoe's five test scores are 89, 87, 93, 95, 45. The teacher drops the lowest score. What is Zoe's new mean?",
+   "answer": "91",
    "options": [
     {
-     "text": "80",
-     "correct": false
-    },
-    {
-     "text": "83",
+     "text": "91",
      "correct": true
     },
     {
-     "text": "3",
+     "text": "364",
      "correct": false
     },
     {
-     "text": "88",
+     "text": "45",
+     "correct": false
+    },
+    {
+     "text": "4",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Total needed: 80 × 4 = 320.",
-    "Current total: 237.",
-    "Needed score: 320 - 237 = 83.",
-    "Check: (237 + 83) ÷ 4 = 80."
+    "Lowest score: 45.",
+    "Sum of the other four: 364.",
+    "New mean: 364 ÷ 4 = 91."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s3_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Zoe's first 3 test scores are 69, 70, 98. What score does Zoe need on ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s03-honors-003",
@@ -3756,36 +3754,35 @@
    "skillId": "data-displays-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Elena's first 4 test scores are 92, 64, 78, 82. What score does Elena need on test 5 to have a mean of exactly 75?",
-   "answer": "59",
+   "prompt": "Kai's five test scores are 78, 95, 98, 81, 57. The teacher drops the lowest score. What is Kai's new mean?",
+   "answer": "88",
    "options": [
     {
-     "text": "16",
+     "text": "4",
      "correct": false
     },
     {
-     "text": "75",
+     "text": "352",
      "correct": false
     },
     {
-     "text": "59",
+     "text": "88",
      "correct": true
     },
     {
-     "text": "64",
+     "text": "57",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Total needed: 75 × 5 = 375.",
-    "Current total: 316.",
-    "Needed score: 375 - 316 = 59.",
-    "Check: (316 + 59) ÷ 5 = 75."
+    "Lowest score: 57.",
+    "Sum of the other four: 352.",
+    "New mean: 352 ÷ 4 = 88."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s3_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Elena's first 4 test scores are 92, 64, 78, 82. What score does Elena ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s03-honors-011",
@@ -4428,17 +4425,17 @@
    "skillId": "data-displays-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: 10, 11, 11, 14, 30, 32, 33, 53, 55, 59, 60. Find the median.",
-   "answer": "32",
+   "prompt": "Data: 10, 14, 16, 22, 23, 33, 49, 52. How much greater is the range than the interquartile range?",
+   "answer": "16",
    "solutionSteps": [
-    "Order the data (already ordered).",
-    "Median = 32; Q1 = 11 (median of the lower half); Q3 = 55 (median of the upper half).",
-    "The median is 32."
+    "Range: 52 − 10 = 42.",
+    "Q1 = (14 + 16) ÷ 2 = 15; Q3 = (33 + 49) ÷ 2 = 41; IQR = 26.",
+    "42 − 26 = 16."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_summary). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Data: 10, 11, 11, 14, 30, 32, 33, 53, 55, 59, 60. Find the median.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s04-cp1-002",
@@ -4504,35 +4501,35 @@
    "skillId": "data-displays-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Data: 10, 21, 22, 25, 42, 43, 49, 55, 55, 60. Find the median.",
-   "answer": "42.5",
+   "prompt": "Data: 13, 23, 23, 26, 32, 42, 52, 55. How much greater is the range than the interquartile range?",
+   "answer": "18",
    "options": [
     {
-     "text": "33",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "50",
-     "correct": false
-    },
-    {
-     "text": "22",
-     "correct": false
-    },
-    {
-     "text": "42.5",
+     "text": "18",
      "correct": true
+    },
+    {
+     "text": "47",
+     "correct": false
+    },
+    {
+     "text": "23",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Order the data (already ordered).",
-    "Median = 42.5; Q1 = 22 (median of the lower half); Q3 = 55 (median of the upper half).",
-    "The median is 42.5."
+    "Range: 55 − 13 = 42.",
+    "Q1 = (23 + 23) ÷ 2 = 23; Q3 = (42 + 52) ÷ 2 = 47; IQR = 24.",
+    "42 − 24 = 18."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_summary). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Data: 10, 21, 22, 25, 42, 43, 49, 55, 55, 60. Find the median.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s04-cp1-005",
@@ -4598,17 +4595,17 @@
    "skillId": "data-displays-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: 11, 15, 33, 39, 41, 47, 51, 52, 55, 58. Find the median.",
-   "answer": "44",
+   "prompt": "Data: 10, 15, 19, 21, 22, 30, 48, 55. How much greater is the range than the interquartile range?",
+   "answer": "23",
    "solutionSteps": [
-    "Order the data (already ordered).",
-    "Median = 44; Q1 = 33 (median of the lower half); Q3 = 52 (median of the upper half).",
-    "The median is 44."
+    "Range: 55 − 10 = 45.",
+    "Q1 = (15 + 19) ÷ 2 = 17; Q3 = (30 + 48) ÷ 2 = 39; IQR = 22.",
+    "45 − 22 = 23."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_summary). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Data: 11, 15, 33, 39, 41, 47, 51, 52, 55, 58. Find the median.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s04-cp1-008",
@@ -4918,17 +4915,17 @@
    "skillId": "data-displays-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Data: 12, 14, 17, 20, 26, 37, 38, 40, 40. Give the median and the interquartile range, separated by a comma.",
-   "answer": "26, 23.5",
+   "prompt": "Data: 10, 19, 19, 27, 30, 32, 42, 46. How much greater is the range than the interquartile range?",
+   "answer": "18",
    "solutionSteps": [
-    "Median: 26.",
-    "Q1 = 15.5, Q3 = 39.",
-    "IQR = 23.5."
+    "Range: 46 − 10 = 36.",
+    "Q1 = 19, Q3 = 37, IQR = 18.",
+    "Difference: 18."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_describe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Data: 12, 14, 17, 20, 26, 37, 38, 40, 40. Give the median and the inte”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s04-honors-004",
@@ -4994,52 +4991,52 @@
    "skillId": "data-displays-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Data: 15, 16, 18, 25, 29, 29, 29, 36, 40. Give the median and the interquartile range, separated by a comma.",
-   "answer": "29, 15.5",
+   "prompt": "Data: 18, 20, 21, 25, 29, 37, 37, 57. How much greater is the range than the interquartile range?",
+   "answer": "22 1/2",
    "options": [
     {
-     "text": "29, 25",
+     "text": "57",
      "correct": false
     },
     {
-     "text": "30, 15.5",
-     "correct": false
-    },
-    {
-     "text": "29, 15.5",
+     "text": "22 1/2",
      "correct": true
     },
     {
-     "text": "17, 32.5",
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "39",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Median: 29.",
-    "Q1 = 17, Q3 = 32.5.",
-    "IQR = 15.5."
+    "Range: 57 − 18 = 39.",
+    "Q1 = 20 1/2, Q3 = 37, IQR = 16 1/2.",
+    "Difference: 22 1/2."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_describe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Data: 15, 16, 18, 25, 29, 29, 29, 36, 40. Give the median and the inte”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s04-honors-007",
    "skillId": "data-displays-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Data: 14, 16, 19, 32, 38, 41, 43, 44, 48, 51, 57. Find the interquartile range.",
-   "answer": "29",
+   "prompt": "Data: 14, 15, 22, 23, 27, 32, 35, 39. How much greater is the range than the interquartile range?",
+   "answer": "10",
    "solutionSteps": [
-    "Order the data (already ordered).",
-    "Median = 41; Q1 = 19 (median of the lower half); Q3 = 48 (median of the upper half).",
-    "The interquartile range is 29."
+    "Range: 39 − 14 = 25.",
+    "Q1 = 18 1/2, Q3 = 33 1/2, IQR = 15.",
+    "Difference: 10."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_summary). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Data: 14, 16, 19, 32, 38, 41, 43, 44, 48, 51, 57. Find the interquarti”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s04-honors-008",
@@ -5088,52 +5085,52 @@
    "skillId": "data-displays-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Data: 11, 11, 12, 17, 18, 21, 22, 35, 39. Give the median and the interquartile range, separated by a comma.",
-   "answer": "18, 17",
+   "prompt": "Data: 22, 25, 33, 36, 37, 44, 54, 57. How much greater is the range than the interquartile range?",
+   "answer": "15",
    "solutionSteps": [
-    "Median: 18.",
-    "Q1 = 11.5, Q3 = 28.5.",
-    "IQR = 17."
+    "Range: 57 − 22 = 35.",
+    "Q1 = 29, Q3 = 49, IQR = 20.",
+    "Difference: 15."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_describe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Data: 11, 11, 12, 17, 18, 21, 22, 35, 39. Give the median and the inte”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s04-honors-010",
    "skillId": "data-displays-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Data: 10, 11, 11, 25, 30, 32, 33, 36, 42, 47, 53. Find the upper quartile (Q3).",
-   "answer": "42",
+   "prompt": "Data: 14, 23, 36, 37, 47, 50, 56, 59. How much greater is the range than the interquartile range?",
+   "answer": "21 1/2",
    "options": [
     {
-     "text": "32",
+     "text": "14",
      "correct": false
     },
     {
-     "text": "42",
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "21 1/2",
      "correct": true
     },
     {
-     "text": "43",
-     "correct": false
-    },
-    {
-     "text": "11",
+     "text": "23 1/2",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Order the data (already ordered).",
-    "Median = 32; Q1 = 11 (median of the lower half); Q3 = 42 (median of the upper half).",
-    "The upper quartile (Q3) is 42."
+    "Range: 59 − 14 = 45.",
+    "Q1 = 29 1/2, Q3 = 53, IQR = 23 1/2.",
+    "Difference: 21 1/2."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_summary). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Data: 10, 11, 11, 25, 30, 32, 33, 36, 42, 47, 53. Find the upper quart”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s04-honors-011",
@@ -5754,18 +5751,17 @@
    "skillId": "data-displays-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the mean absolute deviation (MAD) of the data: 4, 8, 3, 19, 3, 5, 14, 8",
-   "answer": "4.25",
+   "prompt": "Data set A: 13, 17, 16, 14. Data set B: 2, 12, 2, 20. How much greater is the larger mean absolute deviation (MAD) than the smaller one?",
+   "answer": "5.5",
    "solutionSteps": [
-    "Mean = 64 ÷ 8 = 8.",
-    "Distances from the mean: 4, 0, 5, 11, 5, 3, 6, 0.",
-    "Sum of distances = 34.",
-    "MAD = 34 ÷ 8 = 4.25."
+    "A: mean 15, MAD = 1.5.",
+    "B: mean 9, MAD = 7.",
+    "Difference: 5.5."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_mad). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Find the mean absolute deviation (MAD) of the data: 4, 8, 3, 19, 3, 5,”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s05-cp1-002",
@@ -5806,36 +5802,35 @@
    "skillId": "data-displays-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the mean absolute deviation (MAD) of the data: 4, 5, 5, 11, 1, 10",
-   "answer": "3",
+   "prompt": "Data set A: 12, 7, 12, 13. Data set B: 14, 4, 11, 19. How much greater is the larger mean absolute deviation (MAD) than the smaller one?",
+   "answer": "2.5",
    "options": [
     {
-     "text": "3",
+     "text": "11",
+     "correct": false
+    },
+    {
+     "text": "2.5",
      "correct": true
     },
     {
-     "text": "18",
+     "text": "4.5",
      "correct": false
     },
     {
-     "text": "10",
-     "correct": false
-    },
-    {
-     "text": "6",
+     "text": "2",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Mean = 36 ÷ 6 = 6.",
-    "Distances from the mean: 2, 1, 1, 5, 5, 4.",
-    "Sum of distances = 18.",
-    "MAD = 18 ÷ 6 = 3."
+    "A: mean 11, MAD = 2.",
+    "B: mean 12, MAD = 4.5.",
+    "Difference: 2.5."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_mad). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Find the mean absolute deviation (MAD) of the data: 4, 5, 5, 11, 1, 10”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s05-cp1-004",
@@ -5876,18 +5871,17 @@
    "skillId": "data-displays-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the mean absolute deviation (MAD) of the data: 8, 14, 3, 18, 17",
-   "answer": "5.2",
+   "prompt": "Data set A: 19, 8, 16, 13. Data set B: 16, 16, 12, 12. How much greater is the larger mean absolute deviation (MAD) than the smaller one?",
+   "answer": "1.5",
    "solutionSteps": [
-    "Mean = 60 ÷ 5 = 12.",
-    "Distances from the mean: 4, 2, 9, 6, 5.",
-    "Sum of distances = 26.",
-    "MAD = 26 ÷ 5 = 5.2."
+    "A: mean 14, MAD = 3.5.",
+    "B: mean 14, MAD = 2.",
+    "Difference: 1.5."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_mad). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Find the mean absolute deviation (MAD) of the data: 8, 14, 3, 18, 17”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s05-cp1-006",
@@ -5928,36 +5922,35 @@
    "skillId": "data-displays-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the mean absolute deviation (MAD) of the data: 13, 2, 6, 7",
+   "prompt": "Data set A: 2, 17, 17, 20. Data set B: 5, 10, 5, 12. How much greater is the larger mean absolute deviation (MAD) than the smaller one?",
    "answer": "3",
    "options": [
+    {
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
     {
      "text": "3",
      "correct": true
     },
     {
-     "text": "12",
-     "correct": false
-    },
-    {
-     "text": "11",
-     "correct": false
-    },
-    {
-     "text": "7",
+     "text": "6",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Mean = 28 ÷ 4 = 7.",
-    "Distances from the mean: 6, 5, 1, 0.",
-    "Sum of distances = 12.",
-    "MAD = 12 ÷ 4 = 3."
+    "A: mean 14, MAD = 6.",
+    "B: mean 8, MAD = 3.",
+    "Difference: 3."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_mad). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Find the mean absolute deviation (MAD) of the data: 13, 2, 6, 7”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s05-cp1-008",
@@ -5998,18 +5991,17 @@
    "skillId": "data-displays-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the mean absolute deviation (MAD) of the data: 19, 11, 5, 1, 11, 5, 18, 18",
-   "answer": "5.5",
+   "prompt": "Data set A: 19, 10, 8, 11. Data set B: 11, 18, 12, 3. How much greater is the larger mean absolute deviation (MAD) than the smaller one?",
+   "answer": "0.5",
    "solutionSteps": [
-    "Mean = 88 ÷ 8 = 11.",
-    "Distances from the mean: 8, 0, 6, 10, 0, 6, 7, 7.",
-    "Sum of distances = 44.",
-    "MAD = 44 ÷ 8 = 5.5."
+    "A: mean 12, MAD = 3.5.",
+    "B: mean 11, MAD = 4.",
+    "Difference: 0.5."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_mad). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Find the mean absolute deviation (MAD) of the data: 19, 11, 5, 1, 11, ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s05-cp1-010",
@@ -6164,122 +6156,122 @@
    "skillId": "data-displays-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the mean absolute deviation (MAD) of the data: 10, 18, 14, 15, 10, 8, 13, 8",
-   "answer": "3",
+   "prompt": "Class A scored 14, 15, 16, 17, 18 and Class B scored 12, 14, 16, 18, 20 on a quiz. How much greater is the mean absolute deviation of Class B than of Class A?",
+   "answer": "1.2",
    "solutionSteps": [
-    "Mean = 96 ÷ 8 = 12.",
-    "Distances from the mean: 2, 6, 2, 3, 2, 4, 1, 4.",
-    "Sum of distances = 24.",
-    "MAD = 24 ÷ 8 = 3."
+    "Mean of A: 16; MAD of A: 1.2.",
+    "Mean of B: 16; MAD of B: 2.4.",
+    "Difference: 1.2."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_mad). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Find the mean absolute deviation (MAD) of the data: 10, 18, 14, 15, 10”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s05-honors-002",
    "skillId": "data-displays-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Class A's scores: 12, 13, 13, 14. Class B's scores: 7, 11, 15, 19. Both have mean 13. Which statement is true?",
-   "answer": "Class B's scores are more spread out.",
+   "prompt": "Class A scored 15, 17, 19, 21, 23 and Class B scored 12, 16, 20, 24, 28 on a quiz. How much greater is the mean absolute deviation of Class B than of Class A?",
+   "answer": "2.4",
    "options": [
     {
-     "text": "Both classes have the same spread.",
+     "text": "20",
      "correct": false
     },
     {
-     "text": "Class B has a greater mean.",
-     "correct": false
-    },
-    {
-     "text": "Class B's scores are more spread out.",
+     "text": "2.4",
      "correct": true
     },
     {
-     "text": "Class A's scores are more spread out.",
+     "text": "4.8",
+     "correct": false
+    },
+    {
+     "text": "19",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "MAD of A = 0.5; MAD of B = 4.",
-    "A greater MAD means the data are more spread out."
+    "Mean of A: 19; MAD of A: 2.4.",
+    "Mean of B: 20; MAD of B: 4.8.",
+    "Difference: 2.4."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Class A's scores: 12, 13, 13, 14. Class B's scores: 7, 11, 15, 19. Bot”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s05-honors-003",
    "skillId": "data-displays-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the mean absolute deviation (MAD) of the data: 17, 12, 12, 14, 19, 12, 7, 11",
-   "answer": "2.75",
+   "prompt": "Class A scored 30, 32, 34, 36, 38 and Class B scored 27, 31, 35, 39, 43 on a quiz. How much greater is the mean absolute deviation of Class B than of Class A?",
+   "answer": "2.4",
    "options": [
     {
-     "text": "13",
-     "correct": false
-    },
-    {
-     "text": "22",
-     "correct": false
-    },
-    {
-     "text": "2.75",
+     "text": "2.4",
      "correct": true
     },
     {
-     "text": "12",
+     "text": "35",
+     "correct": false
+    },
+    {
+     "text": "4.8",
+     "correct": false
+    },
+    {
+     "text": "34",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Mean = 104 ÷ 8 = 13.",
-    "Distances from the mean: 4, 1, 1, 1, 6, 1, 6, 2.",
-    "Sum of distances = 22.",
-    "MAD = 22 ÷ 8 = 2.75."
+    "Mean of A: 34; MAD of A: 2.4.",
+    "Mean of B: 35; MAD of B: 4.8.",
+    "Difference: 2.4."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_mad). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Find the mean absolute deviation (MAD) of the data: 17, 12, 12, 14, 19”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s05-honors-004",
    "skillId": "data-displays-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Class A's scores: 11, 12, 12, 13. Class B's scores: 6, 10, 14, 18. Both have mean 12. Which statement is true?",
-   "answer": "Class B's scores are more spread out.",
+   "prompt": "Class A scored 39, 40, 41, 42, 43 and Class B scored 37, 39, 41, 43, 45 on a quiz. How much greater is the mean absolute deviation of Class B than of Class A?",
+   "answer": "1.2",
    "options": [
     {
-     "text": "Class B's scores are more spread out.",
+     "text": "41",
+     "correct": false
+    },
+    {
+     "text": "1.2",
      "correct": true
     },
     {
-     "text": "Both classes have the same spread.",
+     "text": "2.4",
      "correct": false
     },
     {
-     "text": "Class B has a greater mean.",
-     "correct": false
-    },
-    {
-     "text": "Class A's scores are more spread out.",
+     "text": "2.2",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "MAD of A = 0.5; MAD of B = 4.",
-    "A greater MAD means the data are more spread out."
+    "Mean of A: 41; MAD of A: 1.2.",
+    "Mean of B: 41; MAD of B: 2.4.",
+    "Difference: 1.2."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Class A's scores: 11, 12, 12, 13. Class B's scores: 6, 10, 14, 18. Bot”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s05-honors-005",
@@ -6304,34 +6296,35 @@
    "skillId": "data-displays-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Class A's scores: 22, 23, 23, 24. Class B's scores: 17, 21, 25, 29. Both have mean 23. Which statement is true?",
-   "answer": "Class B's scores are more spread out.",
+   "prompt": "Class A scored 18, 20, 22, 24, 26 and Class B scored 15, 19, 23, 27, 31 on a quiz. How much greater is the mean absolute deviation of Class B than of Class A?",
+   "answer": "2.4",
    "options": [
     {
-     "text": "Class B's scores are more spread out.",
+     "text": "22",
+     "correct": false
+    },
+    {
+     "text": "23",
+     "correct": false
+    },
+    {
+     "text": "2.4",
      "correct": true
     },
     {
-     "text": "Class B has a greater mean.",
-     "correct": false
-    },
-    {
-     "text": "Both classes have the same spread.",
-     "correct": false
-    },
-    {
-     "text": "Class A's scores are more spread out.",
+     "text": "4.8",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "MAD of A = 0.5; MAD of B = 4.",
-    "A greater MAD means the data are more spread out."
+    "Mean of A: 22; MAD of A: 2.4.",
+    "Mean of B: 23; MAD of B: 4.8.",
+    "Difference: 2.4."
    ],
    "standards": [
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Class A's scores: 22, 23, 23, 24. Class B's scores: 17, 21, 25, 29. Bo”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s05-honors-007",
@@ -7034,36 +7027,36 @@
    "skillId": "data-displays-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Points scored — Team A: 7, 11, 12, 15, 19, 20, 24; Team B: 5, 19, 22, 25, 28, 29, 29. Which statement is true?",
-   "answer": "Team B has the greater median.",
+   "prompt": "Points scored — Team A: 9, 38, 31, 23, 40; Team B: 19, 10, 12, 37, 15. How much greater is the larger range than the smaller range?",
+   "answer": "4",
    "options": [
     {
-     "text": "Team A has the greater median.",
+     "text": "9",
      "correct": false
     },
     {
-     "text": "Team B has the greater median.",
+     "text": "40",
+     "correct": false
+    },
+    {
+     "text": "31",
+     "correct": false
+    },
+    {
+     "text": "4",
      "correct": true
-    },
-    {
-     "text": "The teams have the same median.",
-     "correct": false
-    },
-    {
-     "text": "The data cannot be compared.",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Team A median: 15.",
-    "Team B median: 25.",
-    "Team B has the greater median."
+    "Team A range: 40 − 9 = 31.",
+    "Team B range: 37 − 10 = 27.",
+    "Difference: 4."
    ],
    "standards": [
     "6.SP.B.5c",
     "7.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Points scored — Team A: 7, 11, 12, 15, 19, 20, 24; Team B: 5, 19, 22, ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s06-cp1-002",
@@ -7113,54 +7106,54 @@
    "skillId": "data-displays-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Plant heights (cm) — Group A: 12, 21, 13, 27, 7; Group B: 14, 24, 15, 23, 24. How much greater is the mean height of Group B than Group A?",
-   "answer": "4 cm",
+   "prompt": "Points scored — Team A: 6, 24, 21, 26, 5; Team B: 18, 33, 39, 13, 6. How much greater is the larger range than the smaller range?",
+   "answer": "12",
    "solutionSteps": [
-    "Mean A = 80 ÷ 5 = 16.",
-    "Mean B = 100 ÷ 5 = 20.",
-    "Difference = 4 cm."
+    "Team A range: 26 − 5 = 21.",
+    "Team B range: 39 − 6 = 33.",
+    "Difference: 12."
    ],
    "standards": [
     "6.SP.B.5c",
     "7.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Plant heights (cm) — Group A: 12, 21, 13, 27, 7; Group B: 14, 24, 15, ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s06-cp1-004",
    "skillId": "data-displays-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Points scored — Team A: 6, 11, 16, 19, 21, 22, 22; Team B: 9, 13, 14, 18, 23, 24, 25. Which statement is true?",
-   "answer": "Team A has the greater median.",
+   "prompt": "Points scored — Team A: 26, 40, 5, 9, 34; Team B: 18, 12, 30, 26, 27. How much greater is the larger range than the smaller range?",
+   "answer": "17",
    "options": [
     {
-     "text": "Team B has the greater median.",
+     "text": "12",
      "correct": false
     },
     {
-     "text": "The teams have the same median.",
-     "correct": false
-    },
-    {
-     "text": "The data cannot be compared.",
-     "correct": false
-    },
-    {
-     "text": "Team A has the greater median.",
+     "text": "17",
      "correct": true
+    },
+    {
+     "text": "40",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Team A median: 19.",
-    "Team B median: 18.",
-    "Team A has the greater median."
+    "Team A range: 40 − 5 = 35.",
+    "Team B range: 30 − 12 = 18.",
+    "Difference: 17."
    ],
    "standards": [
     "6.SP.B.5c",
     "7.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Points scored — Team A: 6, 11, 16, 19, 21, 22, 22; Team B: 9, 13, 14, ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s06-cp1-005",
@@ -7210,72 +7203,72 @@
    "skillId": "data-displays-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Plant heights (cm) — Group A: 23, 26, 12, 5, 9; Group B: 28, 27, 25, 11, 19. How much greater is the mean height of Group B than Group A?",
-   "answer": "7 cm",
+   "prompt": "Points scored — Team A: 21, 19, 33, 26, 14; Team B: 26, 5, 17, 25, 25. How much greater is the larger range than the smaller range?",
+   "answer": "2",
    "options": [
     {
-     "text": "37 cm",
+     "text": "26",
      "correct": false
     },
     {
-     "text": "13 cm",
+     "text": "33",
      "correct": false
     },
     {
-     "text": "7 cm",
+     "text": "2",
      "correct": true
     },
     {
-     "text": "35 cm",
+     "text": "5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Mean A = 75 ÷ 5 = 15.",
-    "Mean B = 110 ÷ 5 = 22.",
-    "Difference = 7 cm."
+    "Team A range: 33 − 14 = 19.",
+    "Team B range: 26 − 5 = 21.",
+    "Difference: 2."
    ],
    "standards": [
     "6.SP.B.5c",
     "7.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Plant heights (cm) — Group A: 23, 26, 12, 5, 9; Group B: 28, 27, 25, 1”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s06-cp1-007",
    "skillId": "data-displays-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Points scored — Team A: 5, 6, 8, 9, 19, 27, 29; Team B: 6, 9, 16, 19, 23, 24, 30. Which statement is true?",
-   "answer": "Team B has the greater median.",
+   "prompt": "Points scored — Team A: 37, 8, 20, 11, 17; Team B: 9, 21, 11, 33, 19. How much greater is the larger range than the smaller range?",
+   "answer": "5",
    "options": [
     {
-     "text": "Team B has the greater median.",
+     "text": "33",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "37",
+     "correct": false
+    },
+    {
+     "text": "5",
      "correct": true
-    },
-    {
-     "text": "Team A has the greater median.",
-     "correct": false
-    },
-    {
-     "text": "The data cannot be compared.",
-     "correct": false
-    },
-    {
-     "text": "The teams have the same median.",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Team A median: 9.",
-    "Team B median: 19.",
-    "Team B has the greater median."
+    "Team A range: 37 − 8 = 29.",
+    "Team B range: 33 − 9 = 24.",
+    "Difference: 5."
    ],
    "standards": [
     "6.SP.B.5c",
     "7.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Points scored — Team A: 5, 6, 8, 9, 19, 27, 29; Team B: 6, 9, 16, 19, ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s06-cp1-008",
@@ -7447,36 +7440,36 @@
    "skillId": "data-displays-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Points scored — Team A: 14, 16, 17, 18, 25, 28, 30; Team B: 5, 14, 19, 20, 25, 28, 29. Which statement is true?",
-   "answer": "Team B has the greater median.",
+   "prompt": "Points scored by two teams in 7 games. Team A: 21, 26, 37, 37, 50, 50, 50. Team B: 32, 34, 39, 52, 57, 58, 59. How much greater is the larger median than the smaller median?",
+   "answer": "15",
    "options": [
     {
-     "text": "Team B has the greater median.",
+     "text": "15",
      "correct": true
     },
     {
-     "text": "The teams have the same median.",
+     "text": "37",
      "correct": false
     },
     {
-     "text": "Team A has the greater median.",
+     "text": "52",
      "correct": false
     },
     {
-     "text": "The data cannot be compared.",
+     "text": "4",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Team A median: 18.",
-    "Team B median: 20.",
-    "Team B has the greater median."
+    "Median of A (4th value): 37.",
+    "Median of B: 52.",
+    "Difference: 15."
    ],
    "standards": [
     "6.SP.B.5c",
     "7.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Points scored — Team A: 14, 16, 17, 18, 25, 28, 30; Team B: 5, 14, 19,”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s06-honors-002",
@@ -7526,54 +7519,54 @@
    "skillId": "data-displays-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Plant heights (cm) — Group A: 18, 11, 21, 30, 25; Group B: 21, 20, 26, 11, 12. How much greater is the mean height of Group A than Group B?",
-   "answer": "3 cm",
+   "prompt": "Points scored by two teams in 7 games. Team A: 23, 23, 24, 25, 48, 50, 50. Team B: 43, 47, 49, 50, 53, 55, 56. How much greater is the larger median than the smaller median?",
+   "answer": "25",
    "solutionSteps": [
-    "Mean A = 105 ÷ 5 = 21.",
-    "Mean B = 90 ÷ 5 = 18.",
-    "Difference = 3 cm."
+    "Median of A (4th value): 25.",
+    "Median of B: 50.",
+    "Difference: 25."
    ],
    "standards": [
     "6.SP.B.5c",
     "7.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Plant heights (cm) — Group A: 18, 11, 21, 30, 25; Group B: 21, 20, 26,”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s06-honors-004",
    "skillId": "data-displays-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Points scored — Team A: 5, 16, 22, 22, 26, 27, 29; Team B: 5, 10, 10, 17, 19, 19, 22. Which statement is true?",
-   "answer": "Team A has the greater median.",
+   "prompt": "Points scored by two teams in 7 games. Team A: 22, 28, 39, 39, 41, 41, 49. Team B: 31, 41, 43, 45, 45, 50, 51. How much greater is the larger median than the smaller median?",
+   "answer": "6",
    "options": [
     {
-     "text": "The data cannot be compared.",
+     "text": "45",
      "correct": false
     },
     {
-     "text": "Team A has the greater median.",
+     "text": "39",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "6",
      "correct": true
-    },
-    {
-     "text": "Team B has the greater median.",
-     "correct": false
-    },
-    {
-     "text": "The teams have the same median.",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Team A median: 22.",
-    "Team B median: 17.",
-    "Team A has the greater median."
+    "Median of A (4th value): 39.",
+    "Median of B: 45.",
+    "Difference: 6."
    ],
    "standards": [
     "6.SP.B.5c",
     "7.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Points scored — Team A: 5, 16, 22, 22, 26, 27, 29; Team B: 5, 10, 10, ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s06-honors-005",
@@ -7623,72 +7616,72 @@
    "skillId": "data-displays-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Plant heights (cm) — Group A: 28, 5, 9, 14, 29; Group B: 8, 17, 20, 20, 30. How much greater is the mean height of Group B than Group A?",
-   "answer": "2 cm",
+   "prompt": "Points scored by two teams in 7 games. Team A: 28, 30, 32, 37, 44, 47, 50. Team B: 38, 46, 49, 50, 55, 58, 59. How much greater is the larger median than the smaller median?",
+   "answer": "13",
    "options": [
     {
-     "text": "2 cm",
+     "text": "13",
      "correct": true
     },
     {
-     "text": "10 cm",
+     "text": "37",
      "correct": false
     },
     {
-     "text": "6 cm",
+     "text": "50",
      "correct": false
     },
     {
-     "text": "36 cm",
+     "text": "4",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Mean A = 85 ÷ 5 = 17.",
-    "Mean B = 95 ÷ 5 = 19.",
-    "Difference = 2 cm."
+    "Median of A (4th value): 37.",
+    "Median of B: 50.",
+    "Difference: 13."
    ],
    "standards": [
     "6.SP.B.5c",
     "7.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Plant heights (cm) — Group A: 28, 5, 9, 14, 29; Group B: 8, 17, 20, 20”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s06-honors-007",
    "skillId": "data-displays-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Points scored — Team A: 9, 15, 17, 18, 19, 20, 21; Team B: 6, 7, 12, 20, 22, 29, 30. Which statement is true?",
-   "answer": "Team B has the greater range.",
+   "prompt": "Points scored by two teams in 7 games. Team A: 24, 26, 32, 35, 36, 36, 38. Team B: 35, 39, 40, 51, 58, 59, 59. How much greater is the larger median than the smaller median?",
+   "answer": "16",
    "options": [
     {
-     "text": "Team A has the greater range.",
+     "text": "35",
      "correct": false
     },
     {
-     "text": "Team B has the greater range.",
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "16",
      "correct": true
     },
     {
-     "text": "The teams have the same range.",
-     "correct": false
-    },
-    {
-     "text": "The data cannot be compared.",
+     "text": "51",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Team A range: 12.",
-    "Team B range: 24.",
-    "Team B has the greater range."
+    "Median of A (4th value): 35.",
+    "Median of B: 51.",
+    "Difference: 16."
    ],
    "standards": [
     "6.SP.B.5c",
     "7.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Points scored — Team A: 9, 15, 17, 18, 19, 20, 21; Team B: 6, 7, 12, 2”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s06-honors-008",
@@ -9902,54 +9895,55 @@
    "skillId": "data-displays-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Data: 30, 27, 29, 24, 26, 25, 28, 134. Which measure best describes the center?",
-   "answer": "median, because the outlier pulls the mean",
+   "prompt": "Data: 29, 30, 34, 34, 34, 39, 107. The value 107 is an outlier. By how much does the median change when the outlier is removed?",
+   "answer": "0",
    "options": [
     {
-     "text": "mode, because it is always in the middle",
-     "correct": false
-    },
-    {
-     "text": "mean, because it uses every value",
-     "correct": false
-    },
-    {
-     "text": "median, because the outlier pulls the mean",
+     "text": "0",
      "correct": true
     },
     {
-     "text": "range, because it shows the spread",
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "6",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "134 is an outlier.",
-    "Mean ≈ 40.4; median = 27.5.",
-    "The median is not affected much by the outlier."
+    "Median with the outlier (4th of 7): 34.",
+    "Median without it (mean of the 3rd and 4th of 6): 34.",
+    "Change: 0."
    ],
    "standards": [
     "6.SP.B.5",
     "6.SP.A.2",
     "6.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_best_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Data: 30, 27, 29, 24, 26, 25, 28, 134. Which measure best describes th”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s08-cp1-002",
    "skillId": "data-displays-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Which value in the data set is an outlier? 33, 34, 34, 40, 47, 48, 50, 51, 57, 97",
-   "answer": "97",
+   "prompt": "Data: 22, 23, 25, 26, 28, 33, 107. The value 107 is an outlier. By how much does the median change when the outlier is removed?",
+   "answer": "0.5",
    "solutionSteps": [
-    "An outlier is far from the rest of the data.",
-    "97 is much greater than the other values."
+    "Median with the outlier (4th of 7): 26.",
+    "Median without it (mean of the 3rd and 4th of 6): 25.5.",
+    "Change: 0.5."
    ],
    "standards": [
     "6.SP.B.5",
     "6.SP.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_outlier). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Which value in the data set is an outlier? 33, 34, 34, 40, 47, 48, 50,”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s08-cp1-003",
@@ -9975,72 +9969,73 @@
    "skillId": "data-displays-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Data: 23, 30, 20, 30, 30, 20, 30, 111. Which measure best describes the center?",
-   "answer": "median, because the outlier pulls the mean",
+   "prompt": "Data: 23, 28, 28, 31, 32, 38, 120. The value 120 is an outlier. By how much does the median change when the outlier is removed?",
+   "answer": "1.5",
    "options": [
     {
-     "text": "mean, because it uses every value",
+     "text": "4",
      "correct": false
     },
     {
-     "text": "median, because the outlier pulls the mean",
+     "text": "1.5",
      "correct": true
     },
     {
-     "text": "range, because it shows the spread",
+     "text": "6",
      "correct": false
     },
     {
-     "text": "mode, because it is always in the middle",
+     "text": "31",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "111 is an outlier.",
-    "Mean ≈ 36.8; median = 30.",
-    "The median is not affected much by the outlier."
+    "Median with the outlier (4th of 7): 31.",
+    "Median without it (mean of the 3rd and 4th of 6): 29.5.",
+    "Change: 1.5."
    ],
    "standards": [
     "6.SP.B.5",
     "6.SP.A.2",
     "6.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_best_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Data: 23, 30, 20, 30, 30, 20, 30, 111. Which measure best describes th”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s08-cp1-005",
    "skillId": "data-displays-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which value in the data set is an outlier? 4, 34, 40, 40, 49, 50, 50, 54, 57, 57",
-   "answer": "4",
+   "prompt": "Data: 21, 21, 23, 23, 27, 38, 104. The value 104 is an outlier. By how much does the median change when the outlier is removed?",
+   "answer": "0",
    "options": [
     {
-     "text": "57",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "4",
+     "text": "0",
      "correct": true
     },
     {
-     "text": "34",
+     "text": "4",
      "correct": false
     },
     {
-     "text": "50",
+     "text": "23",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "An outlier is far from the rest of the data.",
-    "4 is much less than the other values."
+    "Median with the outlier (4th of 7): 23.",
+    "Median without it (mean of the 3rd and 4th of 6): 23.",
+    "Change: 0."
    ],
    "standards": [
     "6.SP.B.5",
     "6.SP.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_outlier). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Which value in the data set is an outlier? 4, 34, 40, 40, 49, 50, 50, ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s08-cp1-006",
@@ -10084,37 +10079,37 @@
    "skillId": "data-displays-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Data: 20, 26, 23, 30, 21, 23, 21, 118. Which measure best describes the center?",
-   "answer": "median, because the outlier pulls the mean",
+   "prompt": "Data: 21, 27, 31, 33, 34, 34, 96. The value 96 is an outlier. By how much does the median change when the outlier is removed?",
+   "answer": "1",
    "options": [
     {
-     "text": "median, because the outlier pulls the mean",
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "1",
      "correct": true
     },
     {
-     "text": "range, because it shows the spread",
-     "correct": false
-    },
-    {
-     "text": "mode, because it is always in the middle",
-     "correct": false
-    },
-    {
-     "text": "mean, because it uses every value",
+     "text": "33",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "118 is an outlier.",
-    "Mean ≈ 35.3; median = 23.",
-    "The median is not affected much by the outlier."
+    "Median with the outlier (4th of 7): 33.",
+    "Median without it (mean of the 3rd and 4th of 6): 32.",
+    "Change: 1."
    ],
    "standards": [
     "6.SP.B.5",
     "6.SP.A.2",
     "6.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_best_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_dd_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Data: 20, 26, 23, 30, 21, 23, 21, 118. Which measure best describes th”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s08-cp1-008",
@@ -10450,145 +10445,147 @@
    "skillId": "data-displays-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Data: 30, 21, 23, 29, 24, 30, 24, 83. Which measure best describes the center?",
-   "answer": "median, because the outlier pulls the mean",
+   "prompt": "Data: 31, 26, 24, 28, 27, 22, 24, 106. The value 106 is an outlier. By how much does the mean decrease when the outlier is removed?",
+   "answer": "10",
    "options": [
     {
-     "text": "mean, because it uses every value",
-     "correct": false
-    },
-    {
-     "text": "median, because the outlier pulls the mean",
+     "text": "10",
      "correct": true
     },
     {
-     "text": "range, because it shows the spread",
+     "text": "7",
      "correct": false
     },
     {
-     "text": "mode, because it is always in the middle",
+     "text": "288",
+     "correct": false
+    },
+    {
+     "text": "182",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "83 is an outlier.",
-    "Mean ≈ 33.0; median = 26.5.",
-    "The median is not affected much by the outlier."
+    "Mean with the outlier: 288 ÷ 8 = 36.",
+    "Mean without it: 182 ÷ 7 = 26.",
+    "Decrease: 10."
    ],
    "standards": [
     "6.SP.B.5",
     "6.SP.A.2",
     "6.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_best_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Data: 30, 21, 23, 29, 24, 30, 24, 83. Which measure best describes the”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s08-honors-002",
    "skillId": "data-displays-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Which value in the data set is an outlier? 31, 31, 35, 49, 50, 56, 58, 59, 59, 107",
-   "answer": "107",
+   "prompt": "Data: 48, 30, 30, 27, 22, 27, 26, 110. The value 110 is an outlier. By how much does the mean decrease when the outlier is removed?",
+   "answer": "10",
    "solutionSteps": [
-    "An outlier is far from the rest of the data.",
-    "107 is much greater than the other values."
+    "Mean with the outlier: 320 ÷ 8 = 40.",
+    "Mean without it: 210 ÷ 7 = 30.",
+    "Decrease: 10."
    ],
    "standards": [
     "6.SP.B.5",
     "6.SP.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_outlier). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Which value in the data set is an outlier? 31, 31, 35, 49, 50, 56, 58,”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s08-honors-003",
    "skillId": "data-displays-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Data: 11, 11, 19, 22, 23, 24, 25, 31, 35. Give the median and the interquartile range, separated by a comma.",
-   "answer": "23, 13",
+   "prompt": "Data: 39, 28, 24, 27, 26, 21, 24, 83. The value 83 is an outlier. By how much does the mean decrease when the outlier is removed?",
+   "answer": "7",
    "solutionSteps": [
-    "Median: 23.",
-    "Q1 = 15, Q3 = 28.",
-    "IQR = 13."
+    "Mean with the outlier: 272 ÷ 8 = 34.",
+    "Mean without it: 189 ÷ 7 = 27.",
+    "Decrease: 7."
    ],
    "standards": [
     "6.SP.B.5",
     "6.SP.A.2",
     "6.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_describe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Data: 11, 11, 19, 22, 23, 24, 25, 31, 35. Give the median and the inte”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s08-honors-004",
    "skillId": "data-displays-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Data: 27, 27, 24, 27, 26, 25, 25, 94. Which measure best describes the center?",
-   "answer": "median, because the outlier pulls the mean",
+   "prompt": "Data: 67, 30, 29, 25, 27, 24, 29, 97. The value 97 is an outlier. By how much does the mean decrease when the outlier is removed?",
+   "answer": "8",
    "options": [
     {
-     "text": "mode, because it is always in the middle",
-     "correct": false
-    },
-    {
-     "text": "median, because the outlier pulls the mean",
+     "text": "8",
      "correct": true
     },
     {
-     "text": "range, because it shows the spread",
+     "text": "7",
      "correct": false
     },
     {
-     "text": "mean, because it uses every value",
+     "text": "328",
+     "correct": false
+    },
+    {
+     "text": "33",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "94 is an outlier.",
-    "Mean ≈ 34.4; median = 26.5.",
-    "The median is not affected much by the outlier."
+    "Mean with the outlier: 328 ÷ 8 = 41.",
+    "Mean without it: 231 ÷ 7 = 33.",
+    "Decrease: 8."
    ],
    "standards": [
     "6.SP.B.5",
     "6.SP.A.2",
     "6.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_best_center). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Data: 27, 27, 24, 27, 26, 25, 25, 94. Which measure best describes the”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s08-honors-005",
    "skillId": "data-displays-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which value in the data set is an outlier? 34, 36, 36, 44, 44, 53, 56, 58, 59, 110",
-   "answer": "110",
+   "prompt": "Data: 41, 23, 28, 20, 29, 30, 25, 108. The value 108 is an outlier. By how much does the mean decrease when the outlier is removed?",
+   "answer": "10",
    "options": [
     {
-     "text": "53",
+     "text": "304",
      "correct": false
     },
     {
-     "text": "59",
+     "text": "7",
      "correct": false
     },
     {
-     "text": "110",
+     "text": "10",
      "correct": true
     },
     {
-     "text": "34",
+     "text": "38",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "An outlier is far from the rest of the data.",
-    "110 is much greater than the other values."
+    "Mean with the outlier: 304 ÷ 8 = 38.",
+    "Mean without it: 196 ÷ 7 = 28.",
+    "Decrease: 10."
    ],
    "standards": [
     "6.SP.B.5",
     "6.SP.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_outlier). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_dd_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Which value in the data set is an outlier? 34, 36, 36, 44, 44, 53, 56,”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-dd-s08-honors-006",
