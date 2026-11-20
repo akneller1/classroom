@@ -4,7 +4,7 @@ templates and Advanced items stop reusing Support or Standard templates.
 Grade 5 comes from a pinned release, so this script does not edit it. It reads the Grade 5 banks of a local site build
 (_site/question-banks/grade5), finds the Standard (cp1) multiple-choice and short-answer items without a diagram whose
 prompt is a Support (cp2) prompt with different numbers, and the Advanced (honors) items whose prompt is a Support or
-not-rewritten Standard prompt with different numbers, and writes up to CAP rewrites per skill and level to
+not-rewritten Standard prompt with different numbers, and writes a rewrite for every such item (CAP per skill and level) to
 content-updates/2026-11-20/grade5-levels.json. Each rewrite keeps the item's id, skill, level, format and standards;
 the new problem adds a step (Advanced: a multi-step problem from the TH generators). scripts/apply-grade5-levels.mjs applies the file at deploy (after checking each item's
 current prompt), and verify.py recomputes every new key from its printed prompt.
@@ -18,7 +18,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
 SITE = os.path.join(ROOT, '_site', 'question-banks', 'grade5')
 OUT = os.path.join(ROOT, 'content-updates', '2026-11-20', 'grade5-levels.json')
-CAP = 5
+CAP = 1000  # per skill and level; high enough that every eligible item is rewritten (was 5)
 N = ['Maya', 'Leo', 'Priya', 'Diego', 'Ana', 'Owen', 'Nia', 'Raj', 'Zoe', 'Sam', 'Lena', 'Kai', 'Iris', 'Theo', 'Rosa', 'Eli']
 R = lambda r, a, b: r.randint(a, b)
 T = {}
