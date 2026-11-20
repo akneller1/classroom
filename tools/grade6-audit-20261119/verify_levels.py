@@ -38,7 +38,7 @@ RULES = [
     (r'The low temperature was (-?\d+)°C in Town A and (-?\d+)°C in Town B\. Town C was (\d+) degrees colder than the warmer', lambda g: max(I(g[0]), I(g[1])) - I(g[2])),
     (r'^Evaluate: \|(-?\d+)\| \+ \|(-?\d+)\| − \|(-?\d+)\|$', lambda g: abs(I(g[0])) + abs(I(g[1])) - abs(I(g[2]))),
     (r'Three account balances are -\$(\d+), -\$(\d+) and \$(\d+)\. How many more dollars', lambda g: abs(I(g[0]) - I(g[1]))),
-    (r'Point \(' + P + r', ' + P + r'\) is reflected across the x-axis, and then the image is reflected across the y-axis', lambda g: (-I(g[0]), -I(g[1]))),
+    (r'^Reflect the point \(' + P + r', ' + P + r'\) across the x-axis\. Then reflect that image across the y-axis', lambda g: (-I(g[0]), -I(g[1]))),
     (r'A robot starts at \(' + P + r', ' + P + r'\)\. It moves (\d+) units left and then (\d+) units up\.', lambda g: (I(g[0]) - I(g[2]), I(g[1]) + I(g[3]))),
     (r'A rectangle has vertices \(' + P + ', ' + P + r'\), \(' + P + ', ' + P + r'\), \(' + P + ', ' + P + r'\) and \(-?\d+, -?\d+\)\. What is its area', lambda g: abs(I(g[2]) - I(g[0])) * abs(I(g[5]) - I(g[3]))),
     (r'^Evaluate: (\d+)² \+ (\d+)³$', lambda g: I(g[0]) ** 2 + I(g[1]) ** 3),

@@ -222,7 +222,7 @@ def _(rng, nm):
 @t(U, 7)
 def _(rng, nm):
     x, y = rng.choice([-1, 1]) * R(rng, 1, 9), rng.choice([-1, 1]) * R(rng, 1, 9)
-    return (f'Point ({x}, {y}) is reflected across the x-axis, and then the image is reflected across the y-axis. What are the coordinates of the final image?',
+    return (f'Reflect the point ({x}, {y}) across the x-axis. Then reflect that image across the y-axis. What are the coordinates of the final image?',
             f'({-x}, {-y})', [f'Across the x-axis: ({x}, {-y}).', f'Across the y-axis: ({-x}, {-y}).'])
 
 
@@ -548,7 +548,11 @@ def pinned():
     """Ids that other audit scripts or tests rely on: never rewritten."""
     txt = ''.join(open(os.path.join(d, f), encoding='utf-8').read() for d, fs in ((lib.HERE, os.listdir(lib.HERE)), (os.path.join(lib.ROOT, 'scripts'), ['test-grade6-audit.cjs', 'test-grade6-c.cjs', 'test-grade6-plot.cjs']))
                   for f in fs if f.endswith(('.py', '.cjs')) and f not in ('levels.py', 'verify_levels.py') and os.path.isfile(os.path.join(d, f)))
-    return set(re.findall(r'm6-[a-z]+-s\d\d-(?:cp1|cp2|honors)-\w+', txt))
+    ids = set(re.findall(r'm6-[a-z]+-s\d\d-(?:cp1|cp2|honors)-\w+', txt))
+    for f in os.listdir(lib.BANKS):   # partner-check companions must keep their partner's answer
+        if f.endswith('.json'):
+            ids |= set(re.findall(r'Partner-check companion to (\S+) ', open(os.path.join(lib.BANKS, f), encoding='utf-8').read()))
+    return ids
 
 
 def main():
