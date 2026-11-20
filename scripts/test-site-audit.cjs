@@ -110,4 +110,15 @@ if (SITE && fs.existsSync(SITE)) {
   const legacy = path.join(SITE, 'courses/precalculus.html');
   if (fs.existsSync(legacy)) ok(/http-equiv="refresh" content="0; url=https:\/\/mrksclassroom\.com\/u\/precalculus\/"/.test(fs.readFileSync(legacy, 'utf8')), 'Precalculus legacy page redirects');
 }
+// #19 worked solutions: every Financial Algebra item (repo export and pinned copies) has more than one step
+if (SITE) for (const d of ['financial/banks', 'financial-algebra/financial/banks', 'financial-algebra/question-banks/financial-algebra', 'question-banks/financial-algebra'].map((x) => path.join(SITE, x)).filter((x) => fs.existsSync(x))) {
+  for (const f of fs.readdirSync(d).filter((f) => f.endsWith('.json') && f !== 'index.json')) {
+    const qs = JSON.parse(fs.readFileSync(path.join(d, f), 'utf8')).questions || [];
+    ok(qs.every((q) => (q.solutionSteps || []).length > 1), 'Financial Algebra worked steps in ' + path.relative(SITE, d) + '/' + f);
+  }
+}
+for (const c of ['financial-algebra', 'statistics']) for (const f of fs.readdirSync(path.join(ROOT, 'question-banks', c)).filter((f) => f.endsWith('.json'))) {
+  const qs = JSON.parse(fs.readFileSync(path.join(ROOT, 'question-banks', c, f), 'utf8')).questions || [];
+  ok(qs.every((q) => (q.solutionSteps || []).length > 1), 'worked steps in question-banks/' + c + '/' + f);
+}
 console.log(`PASS site audit: ${checks} checks (${keys} bank keys grade themselves correct)`);

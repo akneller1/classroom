@@ -1177,7 +1177,9 @@
    "prompt": "Exam scores in a class have mean 71 and median 79. What is the most likely shape of the distribution?",
    "answer": "Skewed left",
    "solutionSteps": [
-    "The mean is pulled toward the long tail; a mean below the median points to a long left tail (a few very low scores)."
+    "Compare the mean with the median: 71 < 79.",
+    "The mean is pulled toward the long tail; a mean below the median points to a long left tail (a few very low scores).",
+    "A long left tail of very low scores pulls the mean below the median."
    ],
    "standards": [
     "APSTATS.1.6.A"
@@ -1312,7 +1314,9 @@
    "prompt": "The distribution of KenKen completion times is strongly skewed right with two high outliers. Which measures should be used to describe its center and spread?",
    "answer": "Median and IQR",
    "solutionSteps": [
-    "For skewed data with outliers, use resistant measures: the median for center and the IQR for spread."
+    "Check shape: strongly skewed right with two high outliers.",
+    "For skewed data with outliers, use resistant measures: the median for center and the IQR for spread.",
+    "The mean, SD and range are pulled by outliers; the median and IQR are resistant."
    ],
    "standards": [
     "APSTATS.1.7.F"
@@ -1381,7 +1385,9 @@
    "prompt": "When comparing two distributions, which description is most complete?",
    "answer": "Compare shape, center, spread and unusual features (outliers, gaps, clusters) in context, using comparative language.",
    "solutionSteps": [
-    "A complete comparison addresses shape, center, spread and outliers/unusual features, uses words like “greater than” or “similar to,” and stays in context."
+    "A full comparison needs four features: shape, center, spread and unusual features.",
+    "A complete comparison addresses shape, center, spread and outliers/unusual features, uses words like “greater than” or “similar to,” and stays in context.",
+    "One mean or two separate summaries leaves most of that out."
    ],
    "standards": [
     "APSTATS.1.7.D"
@@ -1450,7 +1456,9 @@
    "prompt": "A cumulative relative frequency graph of KenKen times passes through (60 seconds, 0.70). Which statement is correct?",
    "answer": "About 70% of students finished in 60 seconds or less.",
    "solutionSteps": [
-    "Cumulative relative frequency at a value gives the proportion of observations at or below that value."
+    "The y-value on a cumulative graph is the proportion at or below the x-value.",
+    "Cumulative relative frequency at a value gives the proportion of observations at or below that value.",
+    "So 0.70 at 60 seconds means 70% took 60 seconds or less."
    ],
    "standards": [
     "APSTATS.1.5.A",
@@ -2039,7 +2047,9 @@
    "prompt": "For a density curve that is skewed left, which is true?",
    "answer": "The mean is less than the median.",
    "solutionSteps": [
-    "The mean is the balance point and is pulled toward the long left tail; the median is the equal-areas point."
+    "In a left-skewed curve, the long tail is on the left.",
+    "The mean is the balance point and is pulled toward the long left tail; the median is the equal-areas point.",
+    "The mean is pulled toward the tail, so mean < median."
    ],
    "standards": [
     "APSTATS.2.11.A"
@@ -2106,7 +2116,9 @@
    "prompt": "A data set of 40 values has mean 50 and SD 10. 52% of values are within 1 SD of the mean, 98% within 2 SD, and 100% within 3 SD. Is a Normal model appropriate?",
    "answer": "Probably not: only 52% are within 1 SD, well below the expected 68%.",
    "solutionSteps": [
-    "Compare to 68–95–99.7. 98% vs 95% and 100% vs 99.7% are close, but 52% vs 68% is a large departure, suggesting the data are more spread out in the middle than a Normal curve."
+    "Compare with the 68–95–99.7 rule.",
+    "Compare to 68–95–99.7. 98% vs 95% and 100% vs 99.7% are close, but 52% vs 68% is a large departure, suggesting the data are more spread out in the middle than a Normal curve.",
+    "52% within 1 SD is far below 68%, so a Normal model is probably not appropriate."
    ],
    "standards": [
     "APSTATS.2.11.C"
@@ -2347,7 +2359,9 @@
    "prompt": "Which graph is best for comparing the distribution of responses for males and females in a two-way table?",
    "answer": "Segmented (stacked) bar graph showing the conditional distribution of response for each gender",
    "solutionSteps": [
-    "Segmented bar graphs (or side-by-side bar graphs of conditional percents) compare categorical distributions across groups with different totals."
+    "The question compares a categorical variable (response) across two groups.",
+    "Segmented bar graphs (or side-by-side bar graphs of conditional percents) compare categorical distributions across groups with different totals.",
+    "Raw counts mislead when group totals differ, so compare conditional percents in segmented bars."
    ],
    "standards": [
     "APSTATS.2.2.A"
@@ -2925,7 +2939,9 @@
    "prompt": "A researcher studies whether the number of hours of sleep affects reaction time. Which is the explanatory variable?",
    "answer": "Hours of sleep",
    "solutionSteps": [
-    "The explanatory variable is the one that may help explain or predict changes in the response (reaction time)."
+    "The explanatory variable is the one thought to affect the other.",
+    "The explanatory variable is the one that may help explain or predict changes in the response (reaction time).",
+    "Sleep may affect reaction time, so reaction time is the response and sleep is explanatory."
    ],
    "standards": [
     "APSTATS.5.1.B"
@@ -2948,7 +2964,8 @@
      "text": "Reaction time",
      "correct": false
     }
-   ]
+   ],
+   "hint": "First step: the explanatory variable is the one thought to affect the other."
   },
   {
    "id": "stat-u1-t3-019",
@@ -2958,7 +2975,9 @@
    "prompt": "Which features should be included when describing a scatterplot?",
    "answer": "Direction, form, strength, and unusual features (outliers), in context",
    "solutionSteps": [
-    "Scatterplots are described by direction (positive/negative), form (linear/curved), strength, and unusual features."
+    "Shape, center and spread describe one variable; a scatterplot shows two.",
+    "Scatterplots are described by direction (positive/negative), form (linear/curved), strength, and unusual features.",
+    "So describe direction, form, strength and outliers, in context."
    ],
    "standards": [
     "APSTATS.5.1.B"
@@ -2981,7 +3000,8 @@
      "text": "Only the value of r",
      "correct": false
     }
-   ]
+   ],
+   "hint": "First step: shape, center and spread describe one variable; a scatterplot shows two."
   },
   {
    "id": "stat-u1-t3-020",
@@ -3025,7 +3045,9 @@
    "prompt": "The LSRL for predicting used-car price (thousands of $) from age (years) is ŷ = 25.9 − 1.82x. Interpret the y-intercept.",
    "answer": "The predicted price of a new (0-year-old) car of this type is about $25,900.",
    "solutionSteps": [
-    "The y-intercept is the predicted y when x = 0; here x = 0 means a new car."
+    "The y-intercept is ŷ when x = 0: ŷ = 25.9 − 1.82(0) = 25.9.",
+    "The y-intercept is the predicted y when x = 0; here x = 0 means a new car.",
+    "Age 0 means a new car, so the predicted price is about $25,900."
    ],
    "standards": [
     "APSTATS.5.5.B"
@@ -3058,7 +3080,9 @@
    "prompt": "For predicting battery life from netbook cost, r² = 0.64. What does this mean?",
    "answer": "About 64% of the variation in battery life is accounted for by the linear model relating battery life to cost.",
    "solutionSteps": [
-    "r² is the fraction of the variation in the response explained by the least-squares line."
+    "r² is a percent of variation in the response (battery life).",
+    "r² is the fraction of the variation in the response explained by the least-squares line.",
+    "It is not a slope or a percent of correct predictions, and r = √0.64 = 0.8, not 0.64."
    ],
    "standards": [
     "APSTATS.5.5.B"
@@ -3091,7 +3115,9 @@
    "prompt": "For the regression of height on shoe size, s = 2.1 inches. What does s measure?",
    "answer": "The typical distance between actual heights and the heights predicted by the line is about 2.1 inches.",
    "solutionSteps": [
-    "s (the standard deviation of the residuals) is the typical size of a prediction error."
+    "s is the standard deviation of the residuals.",
+    "s (the standard deviation of the residuals) is the typical size of a prediction error.",
+    "It describes the typical prediction error of the line, not the spread around the mean height."
    ],
    "standards": [
     "APSTATS.5.1.B",
@@ -3125,7 +3151,9 @@
    "prompt": "A regression of child height on age was built from children aged 2 to 10. Using it to predict the height of a 30-year-old is an example of",
    "answer": "extrapolation, which is unreliable",
    "solutionSteps": [
-    "Predicting far outside the range of x values used to build the model is extrapolation; the linear pattern may not continue."
+    "The model used ages 2 to 10 only.",
+    "Predicting far outside the range of x values used to build the model is extrapolation; the linear pattern may not continue.",
+    "Age 30 is far outside that range, so this is extrapolation and is unreliable."
    ],
    "standards": [
     "APSTATS.5.1.B",
@@ -3193,7 +3221,9 @@
    "prompt": "Which residual plot pattern indicates a linear model is appropriate?",
    "answer": "Residuals scattered randomly above and below 0 with no pattern",
    "solutionSteps": [
-    "Random scatter around zero means the line captures the form of the relationship."
+    "A residual plot shows what the line leaves unexplained.",
+    "Random scatter around zero means the line captures the form of the relationship.",
+    "A curve or fan is a leftover pattern; random scatter around 0 means the line fits the form."
    ],
    "standards": [
     "APSTATS.5.4.C"
@@ -3226,7 +3256,9 @@
    "prompt": "A scatterplot shows a strong positive linear association. Adding one new point far to the right of the other points, but well below the line they form, would most likely",
    "answer": "be an influential point that pulls the slope down and lowers r",
    "solutionSteps": [
-    "Points with extreme x-values have high leverage; if they fall off the pattern they strongly change the slope and correlation."
+    "A point far to the right has high leverage.",
+    "Points with extreme x-values have high leverage; if they fall off the pattern they strongly change the slope and correlation.",
+    "Because it falls below the pattern, it pulls the slope down and weakens r."
    ],
    "standards": [
     "APSTATS.5.1.B",
@@ -3328,7 +3360,9 @@
    "prompt": "There is a strong positive correlation between ice cream sales and drownings. Which is the best explanation?",
    "answer": "A lurking variable, such as hot weather, may increase both.",
    "solutionSteps": [
-    "Association does not imply causation; a lurking variable can drive both variables."
+    "Ask whether a third variable could drive both.",
+    "Association does not imply causation; a lurking variable can drive both variables.",
+    "Hot weather raises ice cream sales and swimming (and so drownings)."
    ],
    "standards": [
     "APSTATS.5.2.A"
@@ -3436,7 +3470,9 @@
    "prompt": "A nurse records each patient's blood type (A, B, AB, or O). What type of variable is this?",
    "answer": "Categorical",
    "solutionSteps": [
-    "Blood type places each patient into a group; arithmetic on the labels makes no sense, so it is categorical."
+    "Ask whether the values are numbers you could average or group labels.",
+    "Blood type places each patient into a group; arithmetic on the labels makes no sense, so it is categorical.",
+    "A, B, AB and O are labels, so blood type is categorical."
    ],
    "options": [
     {
@@ -3460,7 +3496,8 @@
     "APSTATS.1.2.B",
     "APSTATS.1.2.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_vartype). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_vartype). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: ask whether the values are numbers you could average or group labels."
   },
   {
    "id": "stat-u1-s01-cp2-x03",
@@ -4156,7 +4193,9 @@
    "prompt": "The heights of players on a basketball team are mostly between 72 and 80 inches, with the values piling up in the middle and tapering off equally on both sides. What is the shape?",
    "answer": "Roughly symmetric",
    "solutionSteps": [
-    "Equal tapering on both sides of the center describes a roughly symmetric distribution."
+    "Look at the two tails of the distribution.",
+    "Equal tapering on both sides of the center describes a roughly symmetric distribution.",
+    "Both sides taper off about equally, so neither tail is longer: roughly symmetric."
    ],
    "options": [
     {
@@ -4179,7 +4218,8 @@
    "standards": [
     "APSTATS.1.6.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_shape_words). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_shape_words). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: look at the two tails of the distribution."
   },
   {
    "id": "stat-u1-s02-cp2-x06",
@@ -4229,7 +4269,9 @@
     "Spread"
    ],
    "solutionSteps": [
-    "Describe shape, center, spread, and unusual features (outliers, gaps, clusters), in context."
+    "A description of a quantitative distribution answers: what shape, where is the center, how spread out, anything unusual?",
+    "Describe shape, center, spread, and unusual features (outliers, gaps, clusters), in context.",
+    "Who collected the data and in what order are not features of the distribution."
    ],
    "options": [
     {
@@ -4260,7 +4302,8 @@
    "standards": [
     "APSTATS.1.7.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_socs_sel). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_socs_sel). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: a description of a quantitative distribution answers: what shape, where is the center, how spread out, anything unusual?"
   },
   {
    "id": "stat-u1-s02-cp2-x08",
@@ -4750,7 +4793,9 @@
    "prompt": "Which measure of spread uses only the largest and smallest values?",
    "answer": "Range",
    "solutionSteps": [
-    "Range = maximum − minimum, so it depends only on the two extreme values."
+    "Range = maximum − minimum.",
+    "Range = maximum − minimum, so it depends only on the two extreme values.",
+    "The IQR uses quartiles and the SD uses every value; only the range uses just the extremes."
    ],
    "options": [
     {
@@ -4773,7 +4818,8 @@
    "standards": [
     "APSTATS.1.7.F"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_spread_def). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_spread_def). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: range = maximum − minimum."
   },
   {
    "id": "stat-u1-s03-cp1-x01",
@@ -5163,7 +5209,9 @@
    "prompt": "Ana's score is at the 85th percentile on a state test. What does this mean?",
    "answer": "About 85% of test takers scored lower than Ana.",
    "solutionSteps": [
-    "A percentile is the percent of values below a given value; it is not a percent correct."
+    "A percentile tells where a value falls compared with others.",
+    "A percentile is the percent of values below a given value; it is not a percent correct.",
+    "85th percentile: about 85% scored lower, not 85% correct."
    ],
    "options": [
     {
@@ -5186,7 +5234,8 @@
    "standards": [
     "APSTATS.1.7.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_percentile_meaning). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_percentile_meaning). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: a percentile tells where a value falls compared with others."
   },
   {
    "id": "stat-u1-s04-cp1-x02",
@@ -5247,7 +5296,9 @@
    "prompt": "Two boxplots have the same median and the same range, but Box A is much wider than Box B. What does this show?",
    "answer": "The middle 50% of A is more spread out (larger IQR).",
    "solutionSteps": [
-    "The box width is the IQR, which measures the spread of the middle half."
+    "The box runs from Q1 to Q3, so its width is the IQR.",
+    "The box width is the IQR, which measures the spread of the middle half.",
+    "Same median and range, but a wider box means A’s middle 50% is more spread out."
    ],
    "options": [
     {
@@ -5280,7 +5331,9 @@
    "prompt": "Which feature of a distribution can a boxplot hide?",
    "answer": "Clusters, gaps, or two peaks (bimodality) in the data",
    "solutionSteps": [
-    "A boxplot shows only five summary values plus outliers; peaks and gaps inside a section are invisible."
+    "A boxplot shows only min, Q1, median, Q3, max and outliers.",
+    "A boxplot shows only five summary values plus outliers; peaks and gaps inside a section are invisible.",
+    "So it can hide clusters, gaps or two peaks inside a section."
    ],
    "options": [
     {
@@ -5550,7 +5603,9 @@
    "prompt": "Which statement about the standard Normal distribution is true?",
    "answer": "It has mean 0 and standard deviation 1.",
    "solutionSteps": [
-    "The standard Normal (Z) distribution is N(0, 1); total area under any density curve is 1."
+    "The standard Normal is written N(0, 1).",
+    "The standard Normal (Z) distribution is N(0, 1); total area under any density curve is 1.",
+    "It is symmetric, has mean 0 and SD 1, and its total area is 1."
    ],
    "options": [
     {
@@ -5573,7 +5628,8 @@
    "standards": [
     "APSTATS.2.11.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_std_normal). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_std_normal). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: the standard Normal is written N(0, 1)."
   },
   {
    "id": "stat-u1-s05-cp2-x05",
@@ -5583,6 +5639,7 @@
    "prompt": "A z-score of −2 means the value is",
    "answer": "2 standard deviations below the mean",
    "solutionSteps": [
+    "z = (value − mean)/SD measures distance in standard deviations.",
     "z measures distance from the mean in standard-deviation units; negative means below the mean."
    ],
    "options": [
@@ -5606,7 +5663,8 @@
    "standards": [
     "APSTATS.1.9.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_z_meaning). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_z_meaning). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: z = (value − mean)/SD measures distance in standard deviations."
   },
   {
    "id": "stat-u1-s05-cp1-x01",
@@ -5666,7 +5724,9 @@
    "prompt": "On a density curve, the area under the curve between 2 and 5 is 0.35. What does this mean?",
    "answer": "About 35% of observations fall between 2 and 5.",
    "solutionSteps": [
-    "Area under a density curve over an interval equals the proportion of observations in that interval."
+    "On a density curve, area over an interval is a proportion of observations.",
+    "Area under a density curve over an interval equals the proportion of observations in that interval.",
+    "So 0.35 means about 35% fall between 2 and 5, not 35 observations."
    ],
    "options": [
     {
@@ -5892,7 +5952,9 @@
    "prompt": "In a two-way table, what is a marginal distribution?",
    "answer": "The distribution of one variable alone, using the row or column totals",
    "solutionSteps": [
-    "Marginal distributions come from the totals in the margins of the table."
+    "The margins of a two-way table hold the row and column totals.",
+    "Marginal distributions come from the totals in the margins of the table.",
+    "A marginal distribution uses those totals for one variable alone."
    ],
    "options": [
     {
@@ -5915,7 +5977,8 @@
    "standards": [
     "APSTATS.2.2.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_tw_vocab). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_tw_vocab). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: the margins of a two-way table hold the row and column totals."
   },
   {
    "id": "stat-u1-s06-cp2-x05",
@@ -6073,7 +6136,9 @@
    "prompt": "A segmented bar graph shows, for each of two schools, the percent of students who bike, walk, or ride the bus. If the segments are nearly identical for both schools, what does that suggest?",
    "answer": "There is little or no association between school and mode of transportation.",
    "solutionSteps": [
-    "Similar conditional distributions across groups indicate little association."
+    "Association means the conditional distributions differ between groups.",
+    "Similar conditional distributions across groups indicate little association.",
+    "Nearly identical segments mean school tells little about how students travel."
    ],
    "options": [
     {
@@ -6181,7 +6246,9 @@
    "prompt": "Simpson's paradox: Hospital A has a higher overall survival rate than Hospital B, but Hospital B has a higher survival rate for both mild and severe cases. What explains this?",
    "answer": "Hospital B treats a much larger share of severe cases, and severity is a lurking variable that changes the overall comparison.",
    "solutionSteps": [
-    "Aggregating over a lurking variable (severity) can reverse a comparison when groups have different mixes of that variable."
+    "Compare within groups: B does better for both mild and severe cases.",
+    "Aggregating over a lurking variable (severity) can reverse a comparison when groups have different mixes of that variable.",
+    "B treats more severe cases, which have lower survival, so B’s overall rate looks worse."
    ],
    "options": [
     {
@@ -6232,7 +6299,9 @@
    "prompt": "A researcher wants to predict a student's final exam score from the number of practice quizzes completed. Which is the response variable?",
    "answer": "Final exam score",
    "solutionSteps": [
-    "The response variable is the outcome being predicted."
+    "The response variable is the outcome you want to predict.",
+    "The response variable is the outcome being predicted.",
+    "Quizzes completed is the explanatory variable; final exam score is the response."
    ],
    "options": [
     {
@@ -6255,7 +6324,8 @@
    "standards": [
     "APSTATS.5.1.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_expl_resp). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_expl_resp). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: the response variable is the outcome you want to predict."
   },
   {
    "id": "stat-u1-s07-cp2-x02",
@@ -6265,7 +6335,9 @@
    "prompt": "The scatterplot shows the resale price of a video game against weeks since its release. What is the direction of the association?",
    "answer": "Negative",
    "solutionSteps": [
-    "As weeks increase, prices decrease, so the association is negative."
+    "Direction: as x increases, does y tend to go up or down?",
+    "As weeks increase, prices decrease, so the association is negative.",
+    "Prices fall as weeks pass, so the direction is negative."
    ],
    "options": [
     {
@@ -6295,7 +6367,8 @@
    "standards": [
     "APSTATS.5.1.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_scatter_dir). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_scatter_dir). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: direction: as x increases, does y tend to go up or down?"
   },
   {
    "id": "stat-u1-s07-cp2-x03",
@@ -6379,7 +6452,9 @@
     "−0.99"
    ],
    "solutionSteps": [
-    "r is always between −1 and 1 inclusive."
+    "Correlation always satisfies −1 ≤ r ≤ 1.",
+    "r is always between −1 and 1 inclusive.",
+    "So −2 and 1.3 are impossible; 0, 0.4 and −0.99 are possible."
    ],
    "options": [
     {
@@ -6406,7 +6481,8 @@
    "standards": [
     "APSTATS.5.2.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_r_range_sel). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_r_range_sel). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: correlation always satisfies −1 ≤ r ≤ 1."
   },
   {
    "id": "stat-u1-s07-cp1-x01",
@@ -6485,7 +6561,9 @@
    "prompt": "A scatterplot shows a strong curved (U-shaped) pattern, and r = 0.05. What is the best conclusion?",
    "answer": "There is a strong nonlinear relationship; r only measures linear association.",
    "solutionSteps": [
-    "r near 0 means no LINEAR association, but a clear curve is a strong relationship of another form."
+    "r measures only the strength of a linear association.",
+    "r near 0 means no LINEAR association, but a clear curve is a strong relationship of another form.",
+    "A strong U-shape can have r near 0, so the relationship is strong but not linear."
    ],
    "options": [
     {
@@ -6518,7 +6596,9 @@
    "prompt": "Swapping which variable is on the x-axis and which is on the y-axis changes",
    "answer": "neither the correlation nor its sign",
    "solutionSteps": [
-    "r is symmetric in x and y."
+    "The formula for r treats x and y the same way.",
+    "r is symmetric in x and y.",
+    "Swapping the axes leaves r, and its sign, unchanged."
    ],
    "options": [
     {
@@ -6594,7 +6674,9 @@
    "prompt": "For a data set, zₓ and z_y are computed for each point and r = Σ(zₓz_y)/(n − 1). Most points are in quadrants where zₓ and z_y have opposite signs. What can you conclude?",
    "answer": "r is negative because most products zₓz_y are negative.",
    "solutionSteps": [
-    "Opposite signs make negative products; their sum (and r) is negative."
+    "Each point adds zₓ·z_y to the sum; opposite signs make that product negative.",
+    "Opposite signs make negative products; their sum (and r) is negative.",
+    "Mostly negative products give a negative sum, so r < 0."
    ],
    "options": [
     {
@@ -6717,7 +6799,9 @@
    "prompt": "The line ŷ = 3.2 + 0.5x predicts plant height (cm) from days of growth. What does the slope 0.5 mean?",
    "answer": "For each additional day, predicted height increases by 0.5 cm.",
    "solutionSteps": [
-    "Slope = predicted change in y per one-unit increase in x; use “predicted.”"
+    "In ŷ = a + bx, b is the slope: change in predicted y per 1 unit of x.",
+    "Slope = predicted change in y per one-unit increase in x; use “predicted.”",
+    "Here b = 0.5, so predicted height rises 0.5 cm per day; actual plants vary."
    ],
    "options": [
     {
@@ -6740,7 +6824,8 @@
    "standards": [
     "APSTATS.5.5.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_slope_interp). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_slope_interp). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: in ŷ = a + bx, b is the slope: change in predicted y per 1 unit of x."
   },
   {
    "id": "stat-u1-s08-cp2-x03",
@@ -6767,7 +6852,9 @@
    "prompt": "If r = 0.9, what is r², and what does it tell you?",
    "answer": "0.81; about 81% of the variation in y is accounted for by the linear model.",
    "solutionSteps": [
-    "r² = 0.9² = 0.81."
+    "Square the correlation: 0.9 × 0.9 = 0.81.",
+    "r² = 0.9² = 0.81.",
+    "Interpret r² as the percent of variation in y explained by the linear model."
    ],
    "options": [
     {
@@ -6790,7 +6877,8 @@
    "standards": [
     "APSTATS.5.5.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_r2_basic). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_r2_basic). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Teacher reviewed 2026-11-15.",
+   "hint": "First step: square the correlation: 0.9 × 0.9 = 0.81."
   },
   {
    "id": "stat-u1-s08-cp2-x05",
@@ -6800,7 +6888,9 @@
    "prompt": "Which point is always on the least-squares regression line?",
    "answer": "(x̄, ȳ)",
    "solutionSteps": [
-    "The LSRL always passes through the point of means (x̄, ȳ)."
+    "The least-squares line has intercept a = ȳ − b·x̄.",
+    "The LSRL always passes through the point of means (x̄, ȳ).",
+    "Substituting x = x̄ gives ŷ = ȳ, so (x̄, ȳ) is always on the line."
    ],
    "options": [
     {
@@ -6823,7 +6913,8 @@
    "standards": [
     "APSTATS.5.5.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_lsrl_mean_point). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_lsrl_mean_point). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: the least-squares line has intercept a = ȳ − b·x̄."
   },
   {
    "id": "stat-u1-s08-cp2-x06",
@@ -7140,6 +7231,7 @@
    "prompt": "A residual is",
    "answer": "the actual y-value minus the predicted y-value",
    "solutionSteps": [
+    "A residual measures how far a point is from the line vertically.",
     "Residual = y − ŷ."
    ],
    "options": [
@@ -7163,7 +7255,8 @@
    "standards": [
     "APSTATS.5.4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_resid_def). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_resid_def). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: a residual measures how far a point is from the line vertically."
   },
   {
    "id": "stat-u1-s09-cp2-x02",
@@ -7173,7 +7266,9 @@
    "prompt": "A point has a positive residual. Where is the point relative to the regression line?",
    "answer": "Above the line (the model underpredicted)",
    "solutionSteps": [
-    "Positive residual: y > ŷ, so the point is above the line."
+    "Residual = y − ŷ > 0 means y > ŷ.",
+    "Positive residual: y > ŷ, so the point is above the line.",
+    "The actual value is above the line, so the line underpredicted."
    ],
    "options": [
     {
@@ -7196,7 +7291,8 @@
    "standards": [
     "APSTATS.5.4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_resid_sign). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_resid_sign). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: residual = y − ŷ > 0 means y > ŷ."
   },
   {
    "id": "stat-u1-s09-cp2-x03",
@@ -7292,7 +7388,9 @@
    "prompt": "A residual plot shows points scattered randomly above and below zero with no pattern. What does this mean?",
    "answer": "A linear model is appropriate for the data.",
    "solutionSteps": [
-    "Random scatter means the line has captured the form; leftover variation is just noise."
+    "A residual plot shows what is left after the line.",
+    "Random scatter means the line has captured the form; leftover variation is just noise.",
+    "No pattern means the line captured the form, so a linear model fits."
    ],
    "options": [
     {
@@ -7315,7 +7413,8 @@
    "standards": [
     "APSTATS.5.4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_resid_random). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_resid_random). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: a residual plot shows what is left after the line."
   },
   {
    "id": "stat-u1-s09-cp2-x07",
@@ -7363,7 +7462,9 @@
    "prompt": "Which point in a scatterplot is most likely to be influential?",
    "answer": "A point with an x-value far from the other points that does not follow their pattern",
    "solutionSteps": [
-    "Points far out in the x-direction have high leverage; if off the pattern, they move the line a lot."
+    "Influence comes from leverage (an extreme x) plus being off the pattern.",
+    "Points far out in the x-direction have high leverage; if off the pattern, they move the line a lot.",
+    "A point near (x̄, ȳ) or in the middle of the data has little leverage."
    ],
    "options": [
     {
@@ -7386,7 +7487,8 @@
    "standards": [
     "APSTATS.5.4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_influential). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_influential). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: influence comes from leverage (an extreme x) plus being off the pattern."
   },
   {
    "id": "stat-u1-s09-cp2-x09",
@@ -7396,7 +7498,9 @@
    "prompt": "Residuals from a linear model have standard deviation s = 3.2 points. What does s tell us?",
    "answer": "Predictions from the line are typically off by about 3.2 points.",
    "solutionSteps": [
-    "s measures the typical size of a residual (prediction error)."
+    "s is the standard deviation of the residuals.",
+    "s measures the typical size of a residual (prediction error).",
+    "So predictions are typically off by about 3.2 points."
    ],
    "options": [
     {
@@ -7419,7 +7523,8 @@
    "standards": [
     "APSTATS.5.4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_s_interp). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_s_interp). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: s is the standard deviation of the residuals."
   },
   {
    "id": "stat-u1-s09-cp1-x01",
@@ -7446,7 +7551,9 @@
    "prompt": "A residual plot shows residuals that are small for small x and spread out more and more as x increases (a fan shape). What does this indicate?",
    "answer": "Predictions are less precise for larger x; the variability of y is not constant.",
    "solutionSteps": [
-    "A fan shape shows changing spread, so prediction error grows with x."
+    "A fan shape means residuals grow as x grows.",
+    "A fan shape shows changing spread, so prediction error grows with x.",
+    "The spread of y is not constant, so predictions are less precise for larger x."
    ],
    "options": [
     {
@@ -7514,7 +7621,9 @@
    "prompt": "A data set relating population (y) to year (x) shows clear exponential growth. What is an appropriate first step before fitting a line?",
    "answer": "Transform y with a logarithm and check whether log(y) vs. x is linear.",
    "solutionSteps": [
-    "Exponential growth becomes linear after taking log(y)."
+    "Exponential growth curves upward, so a line fits poorly.",
+    "Exponential growth becomes linear after taking log(y).",
+    "Taking log(y) turns exponential growth into a straight line; check that plot."
    ],
    "options": [
     {
@@ -7662,7 +7771,9 @@
    "prompt": "A dotplot is best used for",
    "answer": "showing each value of a small quantitative data set on a number line",
    "solutionSteps": [
-    "Each dot represents one observation on a number line, which works well for small quantitative data sets."
+    "A dotplot puts one dot per observation on a number line.",
+    "Each dot represents one observation on a number line, which works well for small quantitative data sets.",
+    "Relationships need a scatterplot, and parts of a whole need a pie or bar chart."
    ],
    "options": [
     {
@@ -7686,7 +7797,8 @@
     "APSTATS.1.2.B",
     "APSTATS.1.2.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_dotplot_purpose). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_dotplot_purpose). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: a dotplot puts one dot per observation on a number line."
   },
   {
    "id": "stat-u1-s01-cp1-x07",
@@ -7748,7 +7860,9 @@
    "prompt": "Which type of distribution would most likely be skewed right?",
    "answer": "Annual incomes of all adults in a city",
    "solutionSteps": [
-    "Incomes have a floor near zero but a long tail of very high earners."
+    "Right skew means a long tail of large values.",
+    "Incomes have a floor near zero but a long tail of very high earners.",
+    "Incomes cannot go below 0 but a few are very large."
    ],
    "options": [
     {
@@ -7885,7 +7999,9 @@
    "prompt": "If the largest value in a data set is increased by 50, which part of the boxplot changes?",
    "answer": "Only the upper whisker (or an outlier mark) changes",
    "solutionSteps": [
-    "Quartiles and the median do not depend on the maximum's exact value."
+    "Only the maximum changes; Q1, the median and Q3 stay the same.",
+    "Quartiles and the median do not depend on the maximum's exact value.",
+    "So only the upper whisker (or an outlier mark) moves."
    ],
    "options": [
     {
@@ -8003,7 +8119,9 @@
    "prompt": "On a Normal curve, the mean, median, and mode are",
    "answer": "all equal, at the center of the curve",
    "solutionSteps": [
-    "A Normal curve is symmetric and unimodal, so all three centers coincide."
+    "A Normal curve is symmetric with one peak.",
+    "A Normal curve is symmetric and unimodal, so all three centers coincide.",
+    "The balance point, the middle value and the peak are all at the center."
    ],
    "options": [
     {
@@ -8026,7 +8144,8 @@
    "standards": [
     "APSTATS.2.11.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_normal_centers). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_normal_centers). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: a Normal curve is symmetric with one peak."
   },
   {
    "id": "stat-u1-s05-honors-x04",
@@ -8036,7 +8155,9 @@
    "prompt": "A Normal probability plot for a data set curves upward at the right end (points rise above the line). What does this suggest?",
    "answer": "The largest values are larger than a Normal model predicts — the distribution is skewed right.",
    "solutionSteps": [
-    "In a Normal probability plot, a long right tail shows as points bending away from the line at the high end."
+    "In a Normal probability plot, Normal data fall close to a straight line.",
+    "In a Normal probability plot, a long right tail shows as points bending away from the line at the high end.",
+    "Points rising above the line at the right mean the high values are too large: a long right tail."
    ],
    "options": [
     {
@@ -8138,7 +8259,9 @@
    "prompt": "When describing a scatterplot, “form” refers to",
    "answer": "whether the pattern is linear, curved, or has clusters",
    "solutionSteps": [
-    "Direction = positive/negative; form = linear/curved; strength = how tightly points follow the form."
+    "A scatterplot description has direction, form, strength and unusual features.",
+    "Direction = positive/negative; form = linear/curved; strength = how tightly points follow the form.",
+    "Form is the overall shape of the pattern: linear, curved or clustered."
    ],
    "options": [
     {
@@ -8296,6 +8419,7 @@
    "prompt": "Which scatterplot description is complete?",
    "answer": "There is a strong, negative, linear association between car age and price, with one unusual car that is old but expensive.",
    "solutionSteps": [
+    "Check each choice for direction, form, strength, unusual features and context.",
     "Include direction, form, strength, unusual features, and context."
    ],
    "options": [
@@ -8329,7 +8453,9 @@
    "prompt": "A regression of exam score on hours studied has residual 6 for a student who studied 3 hours. What does this mean?",
    "answer": "The student scored 6 points higher than the line predicted for someone who studied 3 hours.",
    "solutionSteps": [
-    "Residual = actual − predicted; positive means above the line."
+    "Residual = actual − predicted = 6.",
+    "Residual = actual − predicted; positive means above the line.",
+    "So the student scored 6 points above the line’s prediction for 3 hours."
    ],
    "options": [
     {
@@ -8475,7 +8601,9 @@
    "prompt": "In a study, the conditional distribution of “recommends the product” is 80% for new customers and 80% for returning customers. A segmented bar graph would show",
    "answer": "two bars with identical segments, indicating no association",
    "solutionSteps": [
-    "Identical conditional distributions → identical segmented bars."
+    "A segmented bar shows a conditional distribution for each group.",
+    "Identical conditional distributions → identical segmented bars.",
+    "80% for both groups means the bars match, so customer type and recommending are not associated."
    ],
    "options": [
     {
@@ -10153,7 +10281,9 @@
    "prompt": "Mean 50 and median 42. What is the likely shape?",
    "answer": "skewed right",
    "solutionSteps": [
-    "Mean pulled toward a long right tail."
+    "Compare the mean with the median: 50 > 42.",
+    "Mean pulled toward a long right tail.",
+    "A few large values pull the mean up, so the shape is skewed right."
    ],
    "options": [
     {
@@ -10437,7 +10567,9 @@
    "prompt": "A distribution has mean 72 and median 80. What is its likely shape?",
    "answer": "skewed left",
    "solutionSteps": [
-    "Mean below median → long left tail."
+    "Compare the mean with the median: 72 < 80.",
+    "Mean below median → long left tail.",
+    "A few small values pull the mean down, so the shape is skewed left."
    ],
    "standards": [
     "APSTATS.1.6.A"
@@ -10457,7 +10589,9 @@
    "prompt": "Five-number summary: 5, 40, 52, 55, 60. What is the likely shape?",
    "answer": "skewed left",
    "solutionSteps": [
-    "Left whisker and lower box section are much longer."
+    "Find the section lengths: min to Q1 = 35, Q1 to median = 12, median to Q3 = 3, Q3 to max = 5.",
+    "Left whisker and lower box section are much longer.",
+    "The lower quarter is by far the longest, so the long tail is on the left."
    ],
    "standards": [
     "APSTATS.1.6.A"
@@ -11529,7 +11663,9 @@
    "prompt": "Error analysis. 200 students; 80 own bikes; 30 seniors own bikes.\nStep 1: P(senior and owns a bike) = 30/80 = 0.375.\nFind and fix the error.",
    "answer": "Step 1: a joint probability uses the grand total: 30/200 = 0.15",
    "solutionSteps": [
-    "“And” = joint → divide by 200."
+    "Check each step. Step 1 is wrong: “P(senior and owns a bike) = 30/80 = 0.375.”",
+    "“And” = joint → divide by 200.",
+    "Fix: A joint probability uses the grand total: 30/200 = 0.15."
    ],
    "standards": [
     "APSTATS.2.2.A"
@@ -11538,7 +11674,8 @@
    "selfCheck": [
     "States the key idea: “a joint probability uses the grand total: 30/200 = 0.15”.",
     "Includes the key value(s): 30, 200, 0.15."
-   ]
+   ],
+   "hint": "First step: check each step. Step 1 is wrong: “P(senior and owns a bike) = 30/80 = 0.375.”"
   },
   {
    "id": "stat-u1-s06-cp1-x10",
@@ -11548,7 +11685,9 @@
    "prompt": "Error analysis. 40 of 100 athletes are vegetarian; those 40 are among 160 vegetarians.\nStep 1: P(vegetarian | athlete) = 40/160 = 0.25.\nFind and fix the error.",
    "answer": "Step 1: condition on athletes: 40/100 = 0.4",
    "solutionSteps": [
-    "“Given athlete” restricts to the 100 athletes."
+    "Check each step. Step 1 is wrong: “P(vegetarian | athlete) = 40/160 = 0.25.”",
+    "“Given athlete” restricts to the 100 athletes.",
+    "Fix: Condition on athletes: 40/100 = 0.4."
    ],
    "standards": [
     "APSTATS.2.2.A"
@@ -11653,7 +11792,9 @@
    "prompt": "Error analysis. ŷ = 20 + 3x predicts y from x.\nStep 1: The slope means that each 1-unit increase in y adds 3 to x.\nFind and fix the error.",
    "answer": "The slope describes y per unit of x: each 1-unit increase in x raises predicted y by 3",
    "solutionSteps": [
-    "Slope = change in predicted y per unit x."
+    "Find the mistake in the student’s work: Step 1: The slope means that each 1-unit increase in y adds 3 to x.",
+    "Slope = change in predicted y per unit x.",
+    "Fix: The slope describes y per unit of x: each 1-unit increase in x raises predicted y by 3."
    ],
    "standards": [
     "APSTATS.5.5.B"
@@ -11663,7 +11804,8 @@
     "States the key idea: “The slope describes y per unit of x: each 1-unit increase in x raises predicted y by 3”.",
     "Makes the comparison or direction explicit (which is larger, or which way the change goes).",
     "Includes the key value(s): 1, 3."
-   ]
+   ],
+   "hint": "First step: find the mistake in the student’s work: Step 1: The slope means that each 1-unit increase in y adds 3 to x."
   },
   {
    "id": "stat-u1-s08-cp1-x10",
@@ -11673,7 +11815,9 @@
    "prompt": "Error analysis. r = 0.5, sₓ = 4, s_y = 10.\nStep 1: b = r(sₓ/s_y) = 0.5(4/10) = 0.2.\nFind and fix the error.",
    "answer": "Step 1: b = r(s_y/sₓ) = 0.5(10/4) = 1.25",
    "solutionSteps": [
-    "The SD of y goes on top."
+    "Check each step. Step 1 is wrong: “b = r(sₓ/s_y) = 0.5(4/10) = 0.2.”",
+    "The SD of y goes on top.",
+    "Fix: B = r(s_y/sₓ) = 0.5(10/4) = 1.25."
    ],
    "standards": [
     "APSTATS.5.5.A"
@@ -11692,7 +11836,9 @@
    "prompt": "Error analysis. b = 2, x̄ = 6, ȳ = 20.\nStep 1: a = ȳ + b·x̄ = 20 + 12 = 32.\nFind and fix the error.",
    "answer": "Step 1: a = ȳ − b·x̄ = 20 − 12 = 8",
    "solutionSteps": [
-    "The line passes through (x̄, ȳ): ȳ = a + b·x̄."
+    "Check each step. Step 1 is wrong: “a = ȳ + b·x̄ = 20 + 12 = 32.”",
+    "The line passes through (x̄, ȳ): ȳ = a + b·x̄.",
+    "Fix: A = ȳ − b·x̄ = 20 − 12 = 8."
    ],
    "standards": [
     "APSTATS.5.5.A"
@@ -11711,7 +11857,9 @@
    "prompt": "Error analysis. A point has residual +4.\nStep 1: Positive residual.\nStep 2: So the model overpredicted this point.\nFind and fix the error.",
    "answer": "Step 2: a positive residual means y > ŷ; the model UNDERpredicted",
    "solutionSteps": [
-    "Residual = y − ŷ > 0."
+    "Check each step. Step 2 is wrong: “So the model overpredicted this point.”",
+    "Residual = y − ŷ > 0.",
+    "Fix: A positive residual means y > ŷ; the model UNDERpredicted."
    ],
    "standards": [
     "APSTATS.5.4.A"
@@ -11720,7 +11868,8 @@
    "selfCheck": [
     "States the key idea: “a positive residual means y > ŷ”.",
     "Uses the context of the problem (the variables, groups or individuals named), not just symbols."
-   ]
+   ],
+   "hint": "First step: check each step. Step 2 is wrong: “So the model overpredicted this point.”"
   },
   {
    "id": "stat-u1-s09-cp1-x09",
@@ -11730,7 +11879,9 @@
    "prompt": "Error analysis. A linear model has r = 0.9, but the residual plot shows a clear curve.\nStep 1: r is high.\nStep 2: So the linear model is appropriate.\nFind and fix the error.",
    "answer": "Step 2: a curved residual plot shows the linear form is wrong, even with a high r",
    "solutionSteps": [
-    "Check residual plots, not just r."
+    "Check each step. Step 2 is wrong: “So the linear model is appropriate.”",
+    "Check residual plots, not just r.",
+    "Fix: A curved residual plot shows the linear form is wrong, even with a high r."
    ],
    "standards": [
     "APSTATS.5.4.C"
@@ -11749,7 +11900,9 @@
    "prompt": "Error analysis. SSE = 40 for n = 12 points.\nStep 1: s = √(40/11) ≈ 1.91.\nFind and fix the error.",
    "answer": "Step 1: divide by n − 2 = 10: s = √4 = 2.00",
    "solutionSteps": [
-    "Regression s uses n − 2."
+    "Check each step. Step 1 is wrong: “s = √(40/11) ≈ 1.91.”",
+    "Regression s uses n − 2.",
+    "Fix: Divide by n − 2 = 10: s = √4 = 2.00."
    ],
    "standards": [
     "APSTATS.5.1.B",
@@ -12305,7 +12458,9 @@
    "prompt": "Which display best compares how many of 120 students chose each favorite color?",
    "answer": "Bar graph",
    "solutionSteps": [
-    "Favorite color is categorical; bar graphs display categorical counts."
+    "Favorite color is a categorical variable.",
+    "Favorite color is categorical; bar graphs display categorical counts.",
+    "Histograms, dotplots and scatterplots need quantitative values; a bar graph shows category counts."
    ],
    "options": [
     {
@@ -12329,7 +12484,8 @@
     "APSTATS.1.4.A",
     "APSTATS.1.3.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_s01_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_s01_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: favorite color is a categorical variable."
   },
   {
    "id": "stat-u1-s01-cp1-x13",
@@ -12374,7 +12530,9 @@
    "prompt": "A split stemplot puts leaves 0–4 on the first line of each stem and 5–9 on the second. Where is 37 recorded?",
    "answer": "Second line of stem 3",
    "solutionSteps": [
-    "Stem 3, leaf 7; leaves 5–9 go on the second line."
+    "Split 37 into stem 3 and leaf 7.",
+    "Stem 3, leaf 7; leaves 5–9 go on the second line.",
+    "Leaf 7 is in 5–9, so it goes on the second line of stem 3."
    ],
    "options": [
     {
@@ -12408,7 +12566,9 @@
    "prompt": "A dotplot of 15 quiz scores has a peak at 9 and a long tail stretching toward 2. What is the shape?",
    "answer": "Skewed left",
    "solutionSteps": [
-    "The tail points toward small values."
+    "Skew is named for the direction of the long tail.",
+    "The tail points toward small values.",
+    "The tail stretches toward the small value 2, so it is skewed left."
    ],
    "options": [
     {
@@ -12512,7 +12672,9 @@
    "prompt": "Two histograms of the same 200 values: bin width 2 shows two peaks; bin width 20 shows one. Best conclusion?",
    "answer": "The data are likely bimodal; the wide bins hid a peak",
    "solutionSteps": [
-    "Wide bins can merge clusters."
+    "Bin width changes how much detail a histogram shows.",
+    "Wide bins can merge clusters.",
+    "Narrow bins show two peaks; wide bins can merge them into one."
    ],
    "options": [
     {
@@ -12616,7 +12778,9 @@
    "prompt": "A long tail toward small values describes which shape?",
    "answer": "Skewed left",
    "solutionSteps": [
-    "Skew is named for the tail."
+    "Skew is named for where the long tail points.",
+    "Skew is named for the tail.",
+    "A tail toward small values is on the left: skewed left."
    ],
    "options": [
     {
@@ -12639,7 +12803,8 @@
    "standards": [
     "APSTATS.1.6.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_s02_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_s02_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: skew is named for where the long tail points."
   },
   {
    "id": "stat-u1-s02-cp1-x11",
@@ -12683,7 +12848,9 @@
    "prompt": "Q1 = 20 and Q3 = 28. The maximum changes from 60 to 40. What changes?",
    "answer": "Whether the maximum is an outlier",
    "solutionSteps": [
-    "Upper fence = 40; 60 was an outlier, 40 is not. Quartiles don't change."
+    "IQR = 28 − 20 = 8, so the upper fence = 28 + 1.5 × 8 = 40.",
+    "Upper fence = 40; 60 was an outlier, 40 is not. Quartiles don't change.",
+    "60 is above 40 (an outlier); 40 is not. Q1, the median and the IQR stay the same."
    ],
    "options": [
     {
@@ -12716,7 +12883,9 @@
    "prompt": "A distribution has mean 30 and median 22; Q3 − median = 18 while median − Q1 = 5. What is the likely shape?",
    "answer": "Skewed right",
    "solutionSteps": [
-    "Mean > median and a long upper section of the box."
+    "Compare the two halves of the box: 18 above the median, 5 below.",
+    "Mean > median and a long upper section of the box.",
+    "Together with mean > median, the long side is on the right."
    ],
    "options": [
     {
@@ -12783,7 +12952,9 @@
    "prompt": "Removing a single high outlier will most likely",
    "answer": "decrease the mean more than the median",
    "solutionSteps": [
-    "The mean is not resistant; the median barely moves."
+    "The mean uses every value, so an outlier pulls it.",
+    "The mean is not resistant; the median barely moves.",
+    "The median depends on the middle position, which barely changes."
    ],
    "options": [
     {
@@ -12886,7 +13057,9 @@
    "prompt": "On a boxplot, the line inside the box marks the",
    "answer": "median",
    "solutionSteps": [
-    "The box is split at the median."
+    "A boxplot is drawn from the five-number summary, and the box runs from Q1 to Q3.",
+    "The box is split at the median.",
+    "The line inside the box is the median, not the mean."
    ],
    "options": [
     {
@@ -12910,7 +13083,8 @@
     "APSTATS.1.8.A",
     "APSTATS.1.8.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_s04_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_s04_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: a boxplot is drawn from the five-number summary, and the box runs from Q1 to Q3."
   },
   {
    "id": "stat-u1-s04-cp2-x16",
@@ -12990,6 +13164,7 @@
    "prompt": "What does the length of the box in a boxplot show?",
    "answer": "The IQR",
    "solutionSteps": [
+    "The box runs from Q1 to Q3.",
     "Box = Q1 to Q3."
    ],
    "options": [
@@ -13058,7 +13233,9 @@
    "prompt": "A boxplot has min 10, Q1 20, median 24, Q3 40, max 44. Which is true?",
    "answer": "The right part of the box is longer, suggesting right skew in the middle half",
    "solutionSteps": [
-    "Median − Q1 = 4; Q3 − median = 16."
+    "Compare the two parts of the box.",
+    "Median − Q1 = 4; Q3 − median = 16.",
+    "The longer upper part shows the middle half is skewed right; nothing makes 10 an outlier."
    ],
    "options": [
     {
@@ -13092,7 +13269,9 @@
    "prompt": "Two classes have the same median; class A has IQR 6 and class B has IQR 15. Which statement is supported?",
    "answer": "Class B's middle half is more spread out",
    "solutionSteps": [
-    "IQR measures spread of the middle 50%."
+    "The IQR measures the spread of the middle 50%.",
+    "IQR measures spread of the middle 50%.",
+    "15 > 6, so class B’s middle half is more spread out; the IQR says nothing about the mean or size."
    ],
    "options": [
     {
@@ -13161,7 +13340,9 @@
    "prompt": "Q3 = 50 and a value of 75 is marked as a high outlier. What must be true about the IQR?",
    "answer": "It is less than about 16.7",
    "solutionSteps": [
-    "75 > 50 + 1.5·IQR ⇒ IQR < 16.67."
+    "An outlier is above Q3 + 1.5 × IQR.",
+    "75 > 50 + 1.5·IQR ⇒ IQR < 16.67.",
+    "So 75 > 50 + 1.5 × IQR, which gives 1.5 × IQR < 25, so IQR < 16.7."
    ],
    "options": [
     {
@@ -13229,7 +13410,9 @@
    "prompt": "30 of 50 juniors and 45 of 50 seniors drive. Which comparison shows whether grade and driving are associated?",
    "answer": "Percent who drive among juniors vs. among seniors",
    "solutionSteps": [
-    "Compare conditional distributions."
+    "Use percents within each grade, since group sizes could differ.",
+    "Compare conditional distributions.",
+    "Juniors: 30/50 = 60%; seniors: 45/50 = 90%."
    ],
    "options": [
     {
@@ -13331,7 +13514,9 @@
    "prompt": "400 adults: 160 exercise; 120 exercisers and 60 of the 240 non-exercisers sleep well. Is sleeping well associated with exercise?",
    "answer": "Yes: 75% of exercisers vs. 25% of non-exercisers sleep well",
    "solutionSteps": [
-    "120/160 = 0.75; 60/240 = 0.25."
+    "Compute conditional percents: exercisers 120/160 and non-exercisers 60/240.",
+    "120/160 = 0.75; 60/240 = 0.25.",
+    "75% vs 25% is a big difference, so there is an association."
    ],
    "options": [
     {
@@ -13400,7 +13585,9 @@
    "prompt": "As study hours increase, test scores tend to increase. The direction of the association is",
    "answer": "positive",
    "solutionSteps": [
-    "Both rise together."
+    "Direction describes how y changes as x increases.",
+    "Both rise together.",
+    "Scores rise as hours rise: positive."
    ],
    "options": [
     {
@@ -13423,7 +13610,8 @@
    "standards": [
     "APSTATS.5.1.B"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_s07_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_s07_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: direction describes how y changes as x increases."
   },
   {
    "id": "stat-u1-s07-cp2-x12",
@@ -13469,7 +13657,9 @@
    "prompt": "Adding 5 to every x-value changes r how?",
    "answer": "It does not change r",
    "solutionSteps": [
-    "Shifts don't affect correlation."
+    "Adding 5 to every x moves the points sideways without changing their pattern.",
+    "Shifts don't affect correlation.",
+    "The z-scores stay the same, so r does not change."
    ],
    "options": [
     {
@@ -13572,7 +13762,9 @@
    "prompt": "Which change would most likely increase r for a positive linear pattern?",
    "answer": "Removing a point far below the pattern",
    "solutionSteps": [
-    "Off-pattern points weaken r."
+    "Points far from the pattern weaken a linear association.",
+    "Off-pattern points weaken r.",
+    "Removing one makes the points follow the line more closely, so r increases."
    ],
    "options": [
     {
@@ -13742,7 +13934,9 @@
    "prompt": "Which residual plot pattern suggests a linear model fits well?",
    "answer": "Random scatter around 0",
    "solutionSteps": [
-    "No pattern = good fit."
+    "A residual plot shows the leftover error after fitting the line.",
+    "No pattern = good fit.",
+    "Any pattern (fan, U, all one sign) means the line misses something."
    ],
    "options": [
     {
@@ -13810,7 +14004,9 @@
    "prompt": "A negative residual means the point is",
    "answer": "below the line",
    "solutionSteps": [
-    "y < ŷ."
+    "Residual = y − ŷ < 0 means y < ŷ.",
+    "y < ŷ.",
+    "The point is below the line; a negative residual alone does not make it an outlier."
    ],
    "options": [
     {
@@ -13833,7 +14029,8 @@
    "standards": [
     "APSTATS.5.4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: u1_s09_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (family: u1_s09_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Teacher reviewed 2026-11-15.",
+   "hint": "First step: residual = y − ŷ < 0 means y < ŷ."
   },
   {
    "id": "stat-u1-s09-honors-x11",
@@ -13914,7 +14111,9 @@
    "prompt": "A point with a large residual but an x-value near x̄ is removed. The slope will most likely",
    "answer": "change very little",
    "solutionSteps": [
-    "Points near x̄ have little leverage."
+    "Leverage depends on how far a point’s x-value is from x̄.",
+    "Points near x̄ have little leverage.",
+    "This point has x near x̄, so removing it barely changes the slope (it mostly moves the intercept)."
    ],
    "options": [
     {
@@ -15881,7 +16080,9 @@
    "prompt": "Use the box plot of minutes of homework. Give the five-number summary (Min, Q1, Median, Q3, Max).",
    "answer": "Min = 200, Q1 = 380, Median = 440, Q3 = 560, Max = 680",
    "solutionSteps": [
-    "Read the whisker ends, box ends and the line inside the box."
+    "Left whisker end = Min; left box edge = Q1; line in the box = Median.",
+    "Read the whisker ends, box ends and the line inside the box.",
+    "Right box edge = Q3; right whisker end = Max."
    ],
    "standards": [
     "APSTATS.1.8.A",
@@ -15894,7 +16095,8 @@
      "src": "question-banks/assets/statistics/displays/s04-box-56.png",
      "alt": "Box plot of minutes of homework: minimum 200, Q1 380, median 440, Q3 560, maximum 680."
     }
-   }
+   },
+   "hint": "First step: left whisker end = Min; left box edge = Q1; line in the box = Median."
   },
   {
    "id": "stat-u1-s04-cp2-k003",
@@ -15929,7 +16131,9 @@
    "prompt": "Use the box plot of minutes of homework. Give the five-number summary (Min, Q1, Median, Q3, Max).",
    "answer": "Min = 100, Q1 = 140, Median = 180, Q3 = 220, Max = 300",
    "solutionSteps": [
-    "Read the whisker ends, box ends and the line inside the box."
+    "Left whisker end = Min; left box edge = Q1; line in the box = Median.",
+    "Read the whisker ends, box ends and the line inside the box.",
+    "Right box edge = Q3; right whisker end = Max."
    ],
    "standards": [
     "APSTATS.1.8.A",
@@ -15942,7 +16146,8 @@
      "src": "question-banks/assets/statistics/displays/s04-box-58.png",
      "alt": "Box plot of minutes of homework: minimum 100, Q1 140, median 180, Q3 220, maximum 300."
     }
-   }
+   },
+   "hint": "First step: left whisker end = Min; left box edge = Q1; line in the box = Median."
   },
   {
    "id": "stat-u1-s04-cp2-k005",
@@ -15977,7 +16182,9 @@
    "prompt": "Use the box plot of price of a used textbook ($). Give the five-number summary (Min, Q1, Median, Q3, Max).",
    "answer": "Min = 40, Q1 = 64, Median = 76, Q3 = 112, Max = 148",
    "solutionSteps": [
-    "Read the whisker ends, box ends and the line inside the box."
+    "Left whisker end = Min; left box edge = Q1; line in the box = Median.",
+    "Read the whisker ends, box ends and the line inside the box.",
+    "Right box edge = Q3; right whisker end = Max."
    ],
    "standards": [
     "APSTATS.1.8.A",
@@ -15990,7 +16197,8 @@
      "src": "question-banks/assets/statistics/displays/s04-box-60.png",
      "alt": "Box plot of price of a used textbook ($): minimum 40, Q1 64, median 76, Q3 112, maximum 148."
     }
-   }
+   },
+   "hint": "First step: left whisker end = Min; left box edge = Q1; line in the box = Median."
   },
   {
    "id": "stat-u1-s04-cp2-k007",
@@ -16025,7 +16233,9 @@
    "prompt": "Use the box plot of reaction time (ms). Give the five-number summary (Min, Q1, Median, Q3, Max).",
    "answer": "Min = 200, Q1 = 320, Median = 360, Q3 = 480, Max = 600",
    "solutionSteps": [
-    "Read the whisker ends, box ends and the line inside the box."
+    "Left whisker end = Min; left box edge = Q1; line in the box = Median.",
+    "Read the whisker ends, box ends and the line inside the box.",
+    "Right box edge = Q3; right whisker end = Max."
    ],
    "standards": [
     "APSTATS.1.8.A",
@@ -16038,7 +16248,8 @@
      "src": "question-banks/assets/statistics/displays/s04-box-62.png",
      "alt": "Box plot of reaction time (ms): minimum 200, Q1 320, median 360, Q3 480, maximum 600."
     }
-   }
+   },
+   "hint": "First step: left whisker end = Min; left box edge = Q1; line in the box = Median."
   },
   {
    "id": "stat-u1-s04-cp2-k009",
@@ -16073,7 +16284,9 @@
    "prompt": "Use the box plot of minutes of homework. Give the five-number summary (Min, Q1, Median, Q3, Max).",
    "answer": "Min = 10, Q1 = 14, Median = 18, Q3 = 24, Max = 28",
    "solutionSteps": [
-    "Read the whisker ends, box ends and the line inside the box."
+    "Left whisker end = Min; left box edge = Q1; line in the box = Median.",
+    "Read the whisker ends, box ends and the line inside the box.",
+    "Right box edge = Q3; right whisker end = Max."
    ],
    "standards": [
     "APSTATS.1.8.A",
@@ -16086,7 +16299,8 @@
      "src": "question-banks/assets/statistics/displays/s04-box-64.png",
      "alt": "Box plot of minutes of homework: minimum 10, Q1 14, median 18, Q3 24, maximum 28."
     }
-   }
+   },
+   "hint": "First step: left whisker end = Min; left box edge = Q1; line in the box = Median."
   },
   {
    "id": "stat-u1-s04-cp1-k001",
@@ -18354,7 +18568,9 @@
    "prompt": "Describe the direction of the association in the scatterplot.",
    "answer": "positive",
    "solutionSteps": [
-    "As shoe size increases, height (in) tends to increase."
+    "Read the plot from left to right: what happens to y as x increases?",
+    "As shoe size increases, height (in) tends to increase.",
+    "The points rise, so the direction is positive."
    ],
    "standards": [
     "APSTATS.5.1.B"
@@ -18384,7 +18600,8 @@
      "src": "question-banks/assets/statistics/displays/s07-scat-139.png",
      "alt": "Scatterplot of height (in) against shoe size, 18 points: (12, 69.5); (6.6, 61.7); (6.4, 64.1); (8, 66.1); (8.5, 63.2); (10.7, 68.4); (10.9, 69.1); (12, 70.8); (7.1, 64.2); (9.8, 67.9); (6.5, 64.8); (9.1, 68.2); (10.8, 68.2); (8.3, 65.1); (12.8, 72.3); (9.3, 66.8); (11.2, 68.6); (12.1, 70.6)."
     }
-   }
+   },
+   "hint": "First step: read the plot from left to right: what happens to y as x increases?"
   },
   {
    "id": "stat-u1-s07-cp2-k002",
@@ -18394,7 +18611,9 @@
    "prompt": "Describe the direction of the association in the scatterplot.",
    "answer": "negative",
    "solutionSteps": [
-    "As car age (years) increases, price ($ thousands) tends to decrease."
+    "Read the plot from left to right: what happens to y as x increases?",
+    "As car age (years) increases, price ($ thousands) tends to decrease.",
+    "The points fall, so the direction is negative."
    ],
    "standards": [
     "APSTATS.5.1.B"
@@ -18424,7 +18643,8 @@
      "src": "question-banks/assets/statistics/displays/s07-scat-140.png",
      "alt": "Scatterplot of price ($ thousands) against car age (years), 18 points: (8.1, 15.1); (4.3, 23.3); (8.8, 8.6); (10.2, 5.9); (7, 16.2); (1.3, 25); (6.7, 15.5); (3.1, 23.4); (1.1, 26.7); (5.9, 20.4); (8.6, 11.3); (3.8, 23.7); (2, 25.9); (4.1, 20.4); (3.4, 23.7); (7.6, 15.1); (9.9, 9.8); (7.9, 14)."
     }
-   }
+   },
+   "hint": "First step: read the plot from left to right: what happens to y as x increases?"
   },
   {
    "id": "stat-u1-s07-cp2-k003",
@@ -18434,7 +18654,9 @@
    "prompt": "Describe the direction of the association in the scatterplot.",
    "answer": "no clear association",
    "solutionSteps": [
-    "As temperature (°f) increases, ice cream sales ($) tends to show no pattern."
+    "Read the plot from left to right: what happens to y as x increases?",
+    "As temperature (°f) increases, ice cream sales ($) tends to show no pattern.",
+    "The points neither rise nor fall, so there is no clear association."
    ],
    "standards": [
     "APSTATS.5.1.B"
@@ -18464,7 +18686,8 @@
      "src": "question-banks/assets/statistics/displays/s07-scat-141.png",
      "alt": "Scatterplot of ice cream sales ($) against temperature (°f), 18 points: (94, 97.1); (93, 152.4); (71, 99); (91, 255.4); (85, 170.4); (94, 149.8); (62, 182.6); (87, 211.6); (79, 269.9); (84, 126.5); (73, 236.7); (62, 180.6); (76, 239.9); (68, 281.1); (91, 269.7); (66, 150.3); (87, 264.5); (69, 203.7)."
     }
-   }
+   },
+   "hint": "First step: read the plot from left to right: what happens to y as x increases?"
   },
   {
    "id": "stat-u1-s07-cp2-k004",
@@ -18474,7 +18697,9 @@
    "prompt": "Describe the direction of the association in the scatterplot.",
    "answer": "negative",
    "solutionSteps": [
-    "As hours of phone use per day increases, hours of sleep tends to decrease."
+    "Read the plot from left to right: what happens to y as x increases?",
+    "As hours of phone use per day increases, hours of sleep tends to decrease.",
+    "The points fall, so the direction is negative."
    ],
    "standards": [
     "APSTATS.5.1.B"
@@ -18504,7 +18729,8 @@
      "src": "question-banks/assets/statistics/displays/s07-scat-142.png",
      "alt": "Scatterplot of hours of sleep against hours of phone use per day, 18 points: (6.1, 7.2); (4.3, 8.2); (0.7, 9.9); (6.6, 7.5); (0.1, 9.5); (4, 8.1); (7.7, 6.5); (0, 9.1); (6.2, 7.1); (5.5, 7.4); (1.6, 8.6); (1.3, 9.3); (2.4, 8.5); (6.4, 9); (2.8, 6.4); (6.1, 8.2); (1.8, 8.5); (1, 9)."
     }
-   }
+   },
+   "hint": "First step: read the plot from left to right: what happens to y as x increases?"
   },
   {
    "id": "stat-u1-s07-cp2-k005",
@@ -18514,7 +18740,9 @@
    "prompt": "Describe the direction of the association in the scatterplot.",
    "answer": "positive",
    "solutionSteps": [
-    "As hours studied increases, exam score tends to increase."
+    "Read the plot from left to right: what happens to y as x increases?",
+    "As hours studied increases, exam score tends to increase.",
+    "The points rise, so the direction is positive."
    ],
    "standards": [
     "APSTATS.5.1.B"
@@ -18544,7 +18772,8 @@
      "src": "question-banks/assets/statistics/displays/s07-scat-143.png",
      "alt": "Scatterplot of exam score against hours studied, 18 points: (7.9, 81.5); (3.5, 65.6); (5.6, 79.5); (3, 63.7); (3, 63); (0.1, 56); (2.2, 59.2); (8, 93.3); (1.8, 62); (9.1, 89.2); (0.8, 58.1); (1, 55.3); (2.1, 62.5); (6.3, 83.5); (1.1, 61.2); (8.6, 87.6); (7.4, 88.4); (6, 77.2)."
     }
-   }
+   },
+   "hint": "First step: read the plot from left to right: what happens to y as x increases?"
   },
   {
    "id": "stat-u1-s07-cp2-k006",
@@ -18554,7 +18783,9 @@
    "prompt": "Describe the direction of the association in the scatterplot.",
    "answer": "positive",
    "solutionSteps": [
-    "As temperature (°f) increases, ice cream sales ($) tends to increase."
+    "Read the plot from left to right: what happens to y as x increases?",
+    "As temperature (°f) increases, ice cream sales ($) tends to increase.",
+    "The points rise, so the direction is positive."
    ],
    "standards": [
     "APSTATS.5.1.B"
@@ -18584,7 +18815,8 @@
      "src": "question-banks/assets/statistics/displays/s07-scat-144.png",
      "alt": "Scatterplot of ice cream sales ($) against temperature (°f), 18 points: (85, 207.2); (77, 207.1); (66, 104.6); (92, 274.1); (64, 213.6); (79, 283.7); (70, 155.5); (92, 181.8); (88, 235.9); (68, 147.9); (80, 213.3); (76, 185.9); (83, 229.2); (78, 238.3); (85, 265); (87, 233.3); (60, 81.2); (90, 269.2)."
     }
-   }
+   },
+   "hint": "First step: read the plot from left to right: what happens to y as x increases?"
   },
   {
    "id": "stat-u1-s07-cp1-k001",

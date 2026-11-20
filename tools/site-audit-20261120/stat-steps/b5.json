@@ -1,0 +1,410 @@
+{
+"stat-u4-s07-cp2-x03": [
+"A significance test is carried out assuming H₀ is true.",
+"So the SD of p̂ uses the null value p₀, not p̂ (which is used for intervals)."
+],
+"stat-u4-s07-cp1-x03": [
+"The variable (ounces) is quantitative, there is one sample, and σ is unknown.",
+"That calls for a one-sample t test for a mean."
+],
+"stat-u4-s08-cp2-x01": [
+"A Type I error is a false alarm.",
+"It happens only when we reject H₀, and H₀ was actually true."
+],
+"stat-u4-s08-cp2-x02": [
+"A Type II error is a missed detection.",
+"It happens when we fail to reject H₀, but H₀ was actually false."
+],
+"stat-u4-s08-cp2-x04": [
+"The alarm sounding means rejecting H₀: “no fire.”",
+"There was no fire, so H₀ was true: a Type I error."
+],
+"stat-u4-s08-cp2-x05": [
+"Staying silent means not rejecting H₀: “no fire.”",
+"There was a fire, so H₀ was false: a Type II error."
+],
+"stat-u4-s08-cp2-x06": [
+"Power measures how good a test is at detecting a real effect.",
+"It is the probability of rejecting H₀ when H₀ is false."
+],
+"stat-u4-s08-cp2-x08": [
+"Power is the chance of rejecting H₀ when it is false.",
+"Larger n and larger α make rejection easier when the effect is real; a smaller n or smaller effect lowers power."
+],
+"stat-u4-s08-cp1-x01": [
+"A Type II error here means missing real side effects, which could harm patients.",
+"A larger α (and larger n) increases power and lowers the chance of that error."
+],
+"stat-u4-s08-cp1-x03": [
+"Type I errors happen only when H₀ is rejected; Type II only when it is not.",
+"The test rejected H₀, so only a Type I error is possible."
+],
+"stat-u4-s08-honors-x01": [
+"α is the probability of a Type I error, so lowering α lowers it.",
+"Rejecting becomes harder, so more real effects are missed: Type II goes up."
+],
+"stat-u4-s08-honors-x02": [
+"The SE of a statistic shrinks as n grows.",
+"The null and true sampling distributions overlap less, so the test rejects more often when Hₐ is true."
+],
+"stat-u4-s09-cp2-x01": [
+"p₁ − p₂ compares the two population proportions.",
+"A difference of 0 means they are equal."
+],
+"stat-u4-s09-cp2-x02": [
+"Check whether 0 is in the interval.",
+"Every plausible difference is positive, so p₁ is likely greater than p₂."
+],
+"stat-u4-s09-cp2-x03": [
+"Check whether 0 is in the interval.",
+"It runs from negative to positive, so 0 is plausible: no convincing difference."
+],
+"stat-u4-s09-cp1-x03": [
+"A test assumes H₀: p₁ = p₂, so both groups share one proportion.",
+"Pooling estimates that common value; an interval assumes nothing about equality."
+],
+"stat-u4-s10-cp2-x01": [
+"Paired data are two measurements on the same individual.",
+"Before and after on each patient is paired; the others are independent groups."
+],
+"stat-u4-s10-cp2-x02": [
+"Paired data are reduced to one difference per pair.",
+"Then a one-sample t procedure is run on those differences."
+],
+"stat-u4-s10-cp2-x03": [
+"The parameter is μ₁ − μ₂.",
+"Its point estimate is the matching statistic: x̄₁ − x̄₂."
+],
+"stat-u4-s10-cp2-x06": [
+"Check whether 0 is in the interval.",
+"It runs from −3.1 to 5.4, so 0 is plausible: no convincing difference."
+],
+"stat-u4-s10-cp1-x03": [
+"Twins are matched pairs, so the two groups are not independent.",
+"Analyze the 10 differences with a paired t procedure."
+],
+"stat-u4-s11-cp2-x04": [
+"Check whether 0 (no linear relationship) is in the interval.",
+"Both endpoints are positive, so the slope is plausibly positive; it is not exactly 3."
+],
+"stat-u4-s11-cp1-x03": [
+"Slope inference conditions: Linear, Independent, Normal residuals, Equal SD, Random.",
+"They concern the residuals, not the x-values, n ≥ 100 or a large r."
+],
+"stat-u4-s11-cp1-x04": [
+"S in regression output is the standard deviation of the residuals.",
+"So predictions are typically off by about 4.6 units."
+],
+"stat-u4-s11-cp1-x05": [
+"The interval is b ± t*·SE_b with df = n − 2.",
+"It is centered at the slope b, not the intercept, and uses t*, not z*."
+],
+"stat-u4-s11-honors-x02": [
+"Interval width = 2·t*·SE_b.",
+"The smaller SE gives the narrower interval, so that slope is estimated more precisely."
+],
+"stat-u4-s11-honors-x04": [
+"A 95% CI and a two-sided test at α = 0.05 agree.",
+"0 is inside (−0.12, 0.85), so we fail to reject H₀: β = 0."
+],
+"stat-u4-s01-cp1-x06": [
+"The SD of x̄ is σ/√n.",
+"With σ unknown, replace it with sₓ: SE = sₓ/√n."
+],
+"stat-u4-s01-honors-x06": [
+"Both estimators are unbiased, so compare variability.",
+"A’s smaller SE means estimates closer to μ and narrower intervals."
+],
+"stat-u4-s02-cp2-x07": [
+"The interval estimates the proportion for all students (the parameter).",
+"It is not about the sample proportion or a probability for p̂."
+],
+"stat-u4-s02-cp1-x05": [
+"A convenience sample is not random.",
+"The 95% confidence level is valid only for random samples, so the interval may miss p."
+],
+"stat-u4-s02-honors-x05": [
+"Each 90% interval misses with probability 0.10.",
+"Expected misses = 200 × 0.10 = 20, but the actual count varies by chance."
+],
+"stat-u4-s02-honors-x06": [
+"Once computed, an interval either contains μ or not.",
+"If μ = 10, it is outside (8.1, 9.9), so this interval missed."
+],
+"stat-u4-s03-honors-x05": [
+"Count successes: n·p̂ = 100 × 0.02 = 2.",
+"That is fewer than 10, so the Normal approximation fails."
+],
+"stat-u4-s03-honors-x06": [
+"The intervals are 49%–55% and 44%–50%; they barely overlap.",
+"Sampling variability, different methods or a real change could explain it."
+],
+"stat-u4-s04-cp2-x06": [
+"With σ estimated by sₓ, the interval uses a t distribution with df = 19.",
+"Heavier tails need a larger critical value."
+],
+"stat-u4-s04-cp1-x05": [
+"The interval is about the population mean μ.",
+"It is centered at x̄ = 3.2 and does not describe individual students."
+],
+"stat-u4-s04-honors-x05": [
+"With df = 99, t* ≈ 1.984 and z* = 1.96.",
+"Same center and almost the same critical value, so nearly identical intervals."
+],
+"stat-u4-s05-cp1-x06": [
+"Hypotheses describe the population, so they use parameters.",
+"They come from the research question before data are collected."
+],
+"stat-u4-s05-honors-x05": [
+"Both start from the same no-difference value: μ = 8.",
+"The manufacturer tests μ > 8 and the consumer group tests μ < 8."
+],
+"stat-u4-s05-honors-x06": [
+"A large p-value means the data are consistent with H₀.",
+"That is not proof, so say “fail to reject,” never “accept.”"
+],
+"stat-u4-s05-honors-x07": [
+"Look for direction words: below, more than, longer than.",
+"“Different from” has no direction, so the test is two-sided."
+],
+"stat-u4-s07-cp2-x06": [
+"The variable (defective or not) is categorical, with one sample.",
+"That calls for a one-proportion z test."
+],
+"stat-u4-s08-cp1-x06": [
+"A false negative says “no disease” when there is disease.",
+"That fails to reject a false H₀: a Type II error."
+],
+"stat-u4-s08-honors-x04": [
+"α sets the Type I error probability, so it stays 0.05.",
+"A larger sample reduces variability, so power goes up."
+],
+"stat-u4-s08-honors-x05": [
+"Power depends on how far the true value is from the null value.",
+"A larger difference is easier to detect, so power is higher."
+],
+"stat-u4-s09-cp2-x08": [
+"Under H₀, p₁ = p₂, so both samples share one proportion.",
+"Estimate it by pooling: total successes ÷ total sample size."
+],
+"stat-u4-s09-cp1-x04": [
+"Check whether 0 is in the interval.",
+"It is, so a difference of 0 is plausible: no convincing difference."
+],
+"stat-u4-s09-honors-x03": [
+"Count successes in group 1: 150 × 0.04 = 6.",
+"6 is fewer than 10, so the Normal approximation is questionable."
+],
+"stat-u4-s10-cp2-x08": [
+"The response (reaction time) is quantitative, and there are two independent groups.",
+"That calls for a two-sample t procedure."
+],
+"stat-u4-s10-cp1-x05": [
+"H₀: μ_d = 0 (no change). A p-value of 0.002 is very small.",
+"So there is convincing evidence the mean difference is not 0."
+],
+"stat-u4-s11-cp2-x07": [
+"The sign of the slope gives the direction.",
+"b = −2.3 means predicted y decreases by 2.3 per unit of x."
+],
+"stat-u4-s11-cp1-x08": [
+"A slope describes the line, which gives predicted (mean) values.",
+"Individual points scatter around the line, so “exactly” is wrong."
+],
+"stat-u4-s11-honors-x06": [
+"t = b/SE_b = 2.1/0.7 = 3.0.",
+"Multiplying both by 10 gives 21/7 = 3.0, the same t."
+],
+"stat-u4-s11-honors-x07": [
+"Slope inference requires a linear relationship.",
+"A curved residual plot means the Linear condition fails, whatever n is."
+],
+"stat-u4-s06-honors-x09": [
+"A p-value depends on both the effect size and n.",
+"With n = 5,000, a much smaller effect can give the same P = 0.04."
+],
+"stat-u4-s08-cp1-x07": [
+"P(Type II error) = 1 − power.",
+"Increasing n raises power without changing α."
+],
+"stat-u4-s08-cp2-x10": [
+"P(Type II error) is the chance of missing a real effect.",
+"1 minus that is the chance of detecting it: power."
+],
+"stat-u4-s08-honors-x07": [
+"A smaller α makes H₀ harder to reject.",
+"More real effects are missed, so P(Type II error) increases."
+],
+"stat-u4-s11-honors-x10": [
+"A 95% CI matches a two-sided test at α = 0.05.",
+"0 is inside the interval, so do not reject H₀."
+],
+"stat-u4-s02-cp2-x09": [
+"Plausible values are those inside the interval.",
+"0.47 ≤ 0.50 ≤ 0.55, so yes."
+],
+"stat-u4-s02-cp2-x10": [
+"Plausible values are those inside the interval.",
+"12 ≤ 15 ≤ 16, so yes."
+],
+"stat-u4-s08-cp2-x12": [
+"Convicting rejects H₀: “innocent.”",
+"The person is innocent, so H₀ is true: a Type I error."
+],
+"stat-u4-s08-cp2-x13": [
+"The alarm rejects H₀: “no fire.”",
+"There is no fire, so H₀ is true: a Type I error."
+],
+"stat-u4-s08-honors-x08": [
+"Missing the disease means not rejecting H₀: “healthy.”",
+"The patient is sick, so H₀ is false: a Type II error."
+],
+"stat-u4-s08-honors-x09": [
+"Missing the defect means not rejecting H₀: “fine.”",
+"The batch is defective, so H₀ is false: a Type II error."
+],
+"stat-u4-s01-cp2-x16": [
+"A point estimate is the sample statistic that matches the parameter.",
+"For p, that is p̂."
+],
+"stat-u4-s01-cp2-x17": [
+"The margin of error measures how far the estimate is likely to be from the parameter because of sampling variability.",
+"The critical value (z* or t*) multiplies the standard error."
+],
+"stat-u4-s01-honors-x16": [
+"A good estimator is unbiased and has low variability.",
+"p̂ is centered at p, and its SD √(p(1 − p)/n) shrinks as n grows."
+],
+"stat-u4-s02-cp2-x13": [
+"Plausible values are those inside the interval.",
+"30 is above 28, so it is not plausible."
+],
+"stat-u4-s02-cp2-x14": [
+"A confidence interval is about the population mean.",
+"So: 90% confident the interval captures the true mean hours of sleep."
+],
+"stat-u4-s02-cp2-x15": [
+"The Normal model for p̂ needs enough successes and failures.",
+"That is the Large Counts condition: at least 10 of each."
+],
+"stat-u4-s02-cp1-x11": [
+"Confidence level describes the method over many samples.",
+"About 95% of intervals made this way capture the parameter."
+],
+"stat-u4-s02-cp1-x12": [
+"Width = 2 × critical value × SE.",
+"A higher confidence level uses a larger critical value, so the interval widens."
+],
+"stat-u4-s02-honors-x12": [
+"A majority means p > 0.50.",
+"The interval includes 0.48 to 0.50, so a majority is not established."
+],
+"stat-u4-s02-honors-x13": [
+"Both intervals are centered at the same estimate.",
+"99% uses a larger critical value, so A is wider and contains B."
+],
+"stat-u4-s03-honors-x15": [
+"n depends on p*(1 − p*): 0.5 × 0.5 = 0.25 versus 0.9 × 0.1 = 0.09.",
+"Using 0.5 gives a larger sample than needed; it does not bias the estimate."
+],
+"stat-u4-s04-cp2-x13": [
+"σ is usually unknown, so it is estimated from the sample.",
+"A t interval uses s."
+],
+"stat-u4-s04-cp1-x14": [
+"t procedures are for means when σ is estimated by s.",
+"Proportions use z procedures."
+],
+"stat-u4-s04-honors-x14": [
+"With n = 10, t procedures need data without strong skew or outliers.",
+"That condition fails, so a t interval is unreliable."
+],
+"stat-u4-s05-cp2-x12": [
+"Hypotheses describe the population.",
+"So they are statements about parameters."
+],
+"stat-u4-s05-cp2-x13": [
+"A test assumes the null hypothesis and looks for evidence against it.",
+"H₀ states no effect or no difference."
+],
+"stat-u4-s05-honors-x15": [
+"H₀ is the no-change claim.",
+"What the researcher suspects goes in the alternative, Hₐ."
+],
+"stat-u4-s05-honors-x16": [
+"The direction must come from the question, set before the data.",
+"Choosing it after seeing the data is not allowed."
+],
+"stat-u4-s06-cp2-x14": [
+"Compare: p-value 0.002 < α = 0.01.",
+"The result is significant, so reject H₀."
+],
+"stat-u4-s07-cp2-x13": [
+"Weight is quantitative, there is one sample, and σ is unknown.",
+"That calls for a one-sample t test."
+],
+"stat-u4-s07-cp2-x16": [
+"Test statistic = (statistic − null value) ÷ standard error.",
+"So it measures distance from the null value in standard errors."
+],
+"stat-u4-s07-honors-x12": [
+"With n = 12, t procedures need data without strong skew or outliers.",
+"That condition fails, so the p-value may be unreliable."
+],
+"stat-u4-s07-honors-x14": [
+"A two-sided p-value counts both tails.",
+"So it is twice the one-sided p-value, and the one-sided p-value is smaller."
+],
+"stat-u4-s08-cp2-x17": [
+"H₀ is false, but the test does not reject it.",
+"That missed detection is a Type II error."
+],
+"stat-u4-s08-cp1-x12": [
+"Power is the chance of detecting a real effect.",
+"A larger true effect is easier to detect; more variability, smaller α or smaller n lower power."
+],
+"stat-u4-s08-cp1-x13": [
+"A Type I error rejects H₀ when it is true.",
+"Here: concluding the schedule affects attendance when it does not."
+],
+"stat-u4-s08-honors-x12": [
+"A larger α makes it easier to reject H₀.",
+"So power increases, though not to a value we can name without more information."
+],
+"stat-u4-s09-cp2-x15": [
+"The response is categorical, from two independent groups.",
+"That calls for a two-proportion z procedure."
+],
+"stat-u4-s09-cp2-x16": [
+"Check whether 0 is in the interval.",
+"It is, so there is no convincing difference."
+],
+"stat-u4-s09-cp2-x18": [
+"Each p̂ needs its own approximately Normal sampling distribution.",
+"So check at least 10 successes and 10 failures in each group."
+],
+"stat-u4-s10-cp2-x13": [
+"The response is quantitative, from two independent groups.",
+"That calls for a two-sample t procedure."
+],
+"stat-u4-s10-cp2-x16": [
+"Check whether 0 is in the interval.",
+"Both endpoints are positive, so μ₁ > μ₂ is supported."
+],
+"stat-u4-s10-cp1-x12": [
+"Matched pairs are two measurements linked to one individual.",
+"Each person’s two hands are paired; the others are independent groups."
+],
+"stat-u4-s11-cp2-x14": [
+"Regression output has a row for the constant and a row for x.",
+"The slope’s SE is in the SE Coef column of the x row."
+],
+"stat-u4-s11-cp1-x15": [
+"A CI for the slope gives plausible values for the true slope β.",
+"It is not about where points fall or about r."
+],
+"stat-u4-s11-cp1-x16": [
+"A curved residual plot means a line misses the pattern.",
+"The Linear condition fails."
+]
+}

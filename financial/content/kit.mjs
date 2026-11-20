@@ -1,6 +1,9 @@
 /* Build-time authoring kit for Financial Algebra question families (Node ESM).
  * Deterministic: every variant is produced from a seeded RNG, so builds are reproducible. */
 import '../lib/finance.js';
+import CONCEPT_STEPS from './concept-steps.mjs';
+const lc = t => /^[A-Z][a-z]/.test(t) ? t[0].toLowerCase() + t.slice(1) : t;
+const endDot = t => /[.!?…]$/.test(String(t).trim()) ? String(t).trim() : String(t).trim() + '.';
 export const M = globalThis.FA_MATH;
 
 export function rng(seed) {
@@ -123,20 +126,20 @@ export function buildUnit(unitId, content) {
     push({ skill: v.skill, type: 'vocabulary', prompt: `Which term matches this description? “${v.def}”`, ...mc(r, v.term, dTerms), solutionSteps: [`The description defines ${v.term}.`, v.example ? 'Example: ' + v.example : ''].filter(Boolean), activityTypes: ['showdown', 'connect4', 'tictactoe', 'picture-reveal', 'worksheet', 'assessment'], gameEligible: true }, 'vocab-term', i);
     if (v.example) {
       const dEx = r.sample(others.filter(o => o.example), 3).map(o => o.term);
-      if (dEx.length >= 2) push({ skill: v.skill, type: 'concept', prompt: `Which financial term is illustrated? ${v.example}`, ...mc(r, v.term, dEx), solutionSteps: [`This is an example of ${v.term}: ${v.def}`], activityTypes: ['showdown', 'connect4', 'worksheet', 'assessment'], gameEligible: true }, 'vocab-ex', i);
+      if (dEx.length >= 2) push({ skill: v.skill, type: 'concept', prompt: `Which financial term is illustrated? ${v.example}`, ...mc(r, v.term, dEx), solutionSteps: [`Match the example to a definition. ${v.term}: ${endDot(v.def)}`, `The example fits that definition, so it illustrates ${v.term}.`, ...dEx.slice(0, 1).map(t => `It is not ${t}, which means ${lc(endDot(V.find(o => o.term === t).def))}`), ...(v.mis ? ['Watch out: ' + endDot(v.mis)] : [])], activityTypes: ['showdown', 'connect4', 'worksheet', 'assessment'], gameEligible: true }, 'vocab-ex', i);
     }
   });
   (content.concepts || []).forEach((c, i) => {
     const r = rng(unitId + 'c' + i);
-    push({ skill: c.skill, type: c.type || 'concept', prompt: c.q, ...(c.all ? selectAll(r, c.all, c.wrong) : mc(r, c.a, c.d)), solutionSteps: [c.why], misconceptions: c.mis ? [c.mis] : [], activityTypes: c.all ? ['worksheet', 'assessment'] : ['showdown', 'connect4', 'tictactoe', 'detective', 'worksheet', 'assessment'], gameEligible: !c.all && c.q.length < 260 }, 'concept', i);
+    push({ skill: c.skill, type: c.type || 'concept', prompt: c.q, ...(c.all ? selectAll(r, c.all, c.wrong) : mc(r, c.a, c.d)), solutionSteps: (([a, b]) => [a, c.why, b].filter(Boolean))(CONCEPT_STEPS[unitId + '#' + i] || []), misconceptions: c.mis ? [c.mis] : [], activityTypes: c.all ? ['worksheet', 'assessment'] : ['showdown', 'connect4', 'tictactoe', 'detective', 'worksheet', 'assessment'], gameEligible: !c.all && c.q.length < 260 }, 'concept', i);
   });
   (content.claims || []).forEach((c, i) => {
     const r = rng(unitId + 'cl' + i);
     const correct = CLAIM_OPTIONS[c.verdict];
-    push({ skill: c.skill, type: 'claim', prompt: `Evaluate the claim: “${c.claim}”`, format: 'multiple-choice', answer: correct, options: CLAIM_OPTIONS.map(t => ({ text: t, correct: t === correct })), solutionSteps: [c.model], modelResponse: c.model, misconceptions: [c.claim], activityTypes: ['showdown', 'worksheet', 'assessment', 'detective'], gameEligible: true }, 'claim', i);
+    push({ skill: c.skill, type: 'claim', prompt: `Evaluate the claim: “${c.claim}”`, format: 'multiple-choice', answer: correct, options: CLAIM_OPTIONS.map(t => ({ text: t, correct: t === correct })), solutionSteps: [c.model, c.example ? 'Example: ' + c.example : '', 'Verdict: ' + correct + '.'].filter(Boolean), modelResponse: c.model, misconceptions: [c.claim], activityTypes: ['showdown', 'worksheet', 'assessment', 'detective'], gameEligible: true }, 'claim', i);
     push({ skill: c.skill, type: 'claim', format: 'open-response', prompt: `A friend says: “${c.claim}” Do you agree? Use a specific numerical example to support or refute the claim.`,
       parts: [{ prompt: 'State whether the claim is always, sometimes, or never true.', answer: correct }, { prompt: 'Give a specific numerical example.', answer: c.example || 'Answers vary; see model response.' }, { prompt: 'Explain the financial principle involved.', answer: c.model }, { prompt: 'Describe a situation where a reasonable person might see it differently.', answer: c.other || 'Answers vary; accept any defensible situation.' }],
-      answer: correct, solutionSteps: [c.model], modelResponse: c.model + (c.example ? ' Example: ' + c.example : ''), rubric: rubric({ evidence: 'Supports the verdict with a correct, specific numerical example.' }), activityTypes: ['worksheet', 'assessment', 'lesson'], gameEligible: false }, 'claim-cer', i);
+      answer: correct, solutionSteps: [c.model, c.example ? 'Example: ' + c.example : '', 'Verdict: ' + correct + '.'].filter(Boolean), modelResponse: c.model + (c.example ? ' Example: ' + c.example : ''), rubric: rubric({ evidence: 'Supports the verdict with a correct, specific numerical example.' }), activityTypes: ['worksheet', 'assessment', 'lesson'], gameEligible: false }, 'claim-cer', i);
   });
   for (const fam of content.families) {
     let made = 0;

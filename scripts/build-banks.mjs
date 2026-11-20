@@ -36,7 +36,7 @@ export function toClassroom(q) {
   if (q.options) out.options = q.options.map(o => ({ text: strip(o.text), correct: o.correct }));
   if (q.parts) out.parts = q.parts.map(p => ({ prompt: strip(p.prompt), answer: strip(p.answer) }));
   if (q.rubric) out.solutionSteps = out.solutionSteps.concat('Rubric (' + q.rubric.reduce((s, c) => s + c.points, 0) + ' pts):', ...q.rubric.map(c => `${c.criterion} (${c.points}): ${c.full}`));
-  if (q.modelResponse) out.solutionSteps.push('Model response: ' + strip(q.modelResponse));
+  if (q.modelResponse && !out.solutionSteps.some(s => strip(q.modelResponse).startsWith(s))) out.solutionSteps.push('Model response: ' + strip(q.modelResponse));
   out.sourceNotes = `Financial Algebra original item (family ${q.family}; type ${q.type}). Fictional scenario; hypothetical values. Single course level "standard" stored as cp1 for Classroom schema compatibility.`;
   return out;
 }
