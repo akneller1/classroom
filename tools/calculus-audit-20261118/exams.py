@@ -244,7 +244,7 @@ def page(ex, E, names, key):
              f'<tr><td>B</td><td>4 (3–6)</td><td>60 minutes</td><td>Not allowed</td></tr></table>')
     P.append('<div class="box"><b>Timing notes.</b> The whole exam takes 3 hours 15 minutes. To give it over two class periods, do Section I '
              '(105 minutes, with a short break between Part A and Part B) one day and Section II (90 minutes) the next. In Section II, students may keep '
-             'working on Part A questions during Part B, but without a calculator. A calculator answer should be correct to three decimal places.</div>')
+             'working on Part A questions during Part B, but without a calculator. A calculator answer should be correct to three decimal places unless the question says otherwise.</div>')
     if not key:
         P.append('<ul><li>Multiple choice: circle one answer. There is no penalty for guessing.</li><li>Free response: show all your work. Justify answers with '
                  'calculus, not only calculator results, and give units where the question has a context.</li><li>Unless a question says otherwise, the domain of a function '
