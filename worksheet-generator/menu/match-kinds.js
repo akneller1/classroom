@@ -64,7 +64,7 @@
 
   /* ---------------- SVG ---------------- */
   var S = MK.svg = {};
-  var INK = '#16202e', GRID = '#c7cfdb', BLUE = '#1d4ed8', ORANGE = '#c2410c', FONT = 'font-family="Arial,sans-serif"';
+  var INK = '#16202e', GRID = '#aab5c5', BLUE = '#1d4ed8', ORANGE = '#c2410c', FONT = 'font-family="Arial,sans-serif"';
   S.colors = { ink: INK, grid: GRID, blue: BLUE, orange: ORANGE, green: '#15803d', purple: '#7c3aed', shade: '#bfdbfe' };
   function t(x, y, s, o) { o = o || {}; return '<text x="' + (+x).toFixed(1) + '" y="' + (+y).toFixed(1) + '" text-anchor="' + (o.a || 'middle') + '" font-size="' + (o.fs || 12) + '" ' + (o.it ? 'font-style="italic" font-family="Georgia,serif"' : FONT) + (o.bold ? ' font-weight="700"' : '') + ' fill="' + (o.fill || '#222') + '"' + (o.halo === false ? '' : ' stroke="#fff" stroke-width="3" paint-order="stroke"') + '>' + s + '</text>'; }
   S.text = t;
@@ -116,7 +116,7 @@
         var cx = it.pts.reduce(function (s, p) { return s + p[0]; }, 0) / it.pts.length, cy = it.pts.reduce(function (s, p) { return s + p[1]; }, 0) / it.pts.length;
         (it.labels || []).forEach(function (L, i) {
           var p = it.pts[i], dx = p[0] - cx, dy = p[1] - cy, d = Math.hypot(dx, dy) || 1;
-          h += '<circle cx="' + X(p[0]).toFixed(1) + '" cy="' + Y(p[1]).toFixed(1) + '" r="3" fill="' + col + '"/>' + t(X(p[0]) + dx / d * 11, Y(p[1]) - dy / d * 11 + 4, L, { fs: big ? 11 : 13, bold: true, fill: col });
+          h += '<circle cx="' + X(p[0]).toFixed(1) + '" cy="' + Y(p[1]).toFixed(1) + '" r="3.6" fill="' + col + '"/>' + t(X(p[0]) + dx / d * 11, Y(p[1]) - dy / d * 11 + 4, L, { fs: big ? 11 : 13, bold: true, fill: col });
         });
       }
     });
