@@ -17,6 +17,12 @@ import { loadSiteCatalog } from "./load-site-catalog.mjs";
 import { faUnitGuide } from "./fa-unit-guide.mjs";
 import { unitPageTitle, coursePageTitle, unitDescription, courseDescription, unitBody, courseBody, itemHtml as itemHtmlCopy, EXTRA_CSS } from "./page-copy.mjs";
 
+// Footer feedback uses the same email-draft dialog as the home page (feedback.js), never a GitHub form (site audit 2 #9).
+const FEEDBACK_HREF = (fs.readFileSync(new URL("../index.html", import.meta.url), "utf8").match(/data-feedback-chooser href="([^"]+)"/) || [])[1];
+if (!FEEDBACK_HREF) throw Error("index.html has no data-feedback-chooser link");
+const feedbackLink = (depth) => `<a data-feedback-chooser href="${FEEDBACK_HREF}">Send feedback</a><script src="${"../".repeat(depth)}feedback.js?v=report-20261120b" defer></script>`;
+
+
 const OUT = path.resolve(process.env.SITE_DIR || "_site");
 const SITE_URL = (process.env.SITE_URL || "https://mrksclassroom.com/").replace(/\/?$/, "/");
 const SITE_NAME = "Mr. K's Classroom";
@@ -68,7 +74,7 @@ ${fontsHref(depth) ? `<link rel="stylesheet" href="${htmlEsc(fontsHref(depth))}"
 const isExternal = (p) => /^(https?:)?\/\//i.test(p);
 const href = (p, depth) => isExternal(p) || String(p).startsWith("/") ? String(p) : "../".repeat(depth) + String(p).replace(/^\.?\//, "");
 const itemHtml = (a, depth) => itemHtmlCopy(a, depth, href);
-const footer = `<footer>© ${new Date().getFullYear()} ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>`;
+const footer = (depth) => `<footer>© ${new Date().getFullYear()} ${htmlEsc(SITE_NAME)} · ${feedbackLink(depth)}</footer>`;
 
 // ---------- 3. Write the pages ----------
 const added = [];
@@ -106,7 +112,7 @@ ${courseJsonLd({ siteUrl: SITE_URL, courseName: title, courseUrl, description: c
 ${courseBody({ id: course.id, title, blurb: course.blurb || "", units })}
 ${fs.existsSync(path.join(OUT, "grade-" + String(course.id).replace("grade", "") + "-pacing", "index.html")) && /^grade\d$/.test(course.id) ? `<h2>Planning</h2>\n<ul class="mk-skills"><li><a href="../../grade-${String(course.id).replace("grade", "")}-pacing/">${htmlEsc(title)} pacing guide and standards coverage</a>: a 180-day plan ${/^grade[12]$/.test(course.id) ? "with a spring review window" : "built around the spring MCAS"}, a block plan, and which skills practice each Common Core standard</li></ul>\n` : ""}<a class="open-app" href="../../#${encodeURIComponent(course.id)}">Open ${htmlEsc(title)} in the full classroom site</a>
 </main>
-${footer}
+${footer(2)}
 </div>
 </body>
 </html>
@@ -134,7 +140,7 @@ ${unitBody({ courseTitle: title, unitTitle: u.title, skills: u.skills, items: u.
 ${course.id === "financial-algebra" ? faUnitGuide(readJson(path.join(OUT, "financial", "banks", u.id + ".json")), u.title) : ""}
 <a class="open-app" href="${u.id ? `../../../#${encodeURIComponent(course.id + "." + u.id)}` : "../../../"}">Open this unit in the full classroom site</a>
 </main>
-${footer}
+${footer(3)}
 </div>
 </body>
 </html>

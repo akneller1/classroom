@@ -194,3 +194,10 @@ th {
 }
 .success { color: #2ecc71; }
 .error { color: #e74c3c; }
+
+/* Phones (site audit 2 #17): stack the panels so nothing runs off the screen. */
+@media (max-width: 700px) {
+    body { padding: 10px; }
+    .game-container { flex-direction: column; }
+    .game-container > .panel { width: 100%; min-width: 0; box-sizing: border-box; }
+}

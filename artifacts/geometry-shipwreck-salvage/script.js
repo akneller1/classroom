@@ -112,8 +112,8 @@ function loadLevel() {
     
     if (lvl.type === 'coord' || lvl.type === 'midpoint') {
         container.innerHTML = `
-            <div class="input-row"><span>X-Coordinate:</span><input type="number" id="in-x" placeholder="X"></div>
-            <div class="input-row"><span>Y-Coordinate:</span><input type="number" id="in-y" placeholder="Y"></div>
+            <div class="input-row"><label for="in-x">X-Coordinate:</label><input type="number" id="in-x" placeholder="X"></div>
+            <div class="input-row"><label for="in-y">Y-Coordinate:</label><input type="number" id="in-y" placeholder="Y"></div>
         `;
     } else if (lvl.type === 'dist') {
         container.innerHTML = `

@@ -129,7 +129,7 @@ const COURSES = {
      planned around the spring Grade 7 MCAS: review days with the two cumulative practice tests and the testing sessions
      come after Data Analysis and Probability (unit 12), and unit 13 (Nonlinear Functions and Polynomials, high-school
      algebra) follows the test. The coverage table lists every Grade 7 and Grade 8 standard. */
-  prealgebra7: { name: "Pre-Algebra (Grade 7)", load: () => bankScope("prealgebra7", "PA7", { mcas: { compact: true, afterUnit: 12, review: 6, testing: 2, flex: 4,
+  prealgebra7: { name: "7th Grade Math", load: () => bankScope("prealgebra7", "PA7", { mcas: { compact: true, afterUnit: 12, review: 6, testing: 2, flex: 4,
     titles: ["Practice Test A", "Practice Test A review", "Practice Test B", "Practice Test B review", "Reference sheet and open response", "Targeted reteach"] } }),
     sets: /^prealgebra7-/, page: "grade-7-pacing/", framework: "Massachusetts Grade 7 and Grade 8 mathematics", bank: true, mcas: true, mcasCol: true },
   /* 6th Grade Math (2026-11-19, Grade 6 audit #13): the seven units in order, with the spring Grade 6 MCAS after Data

@@ -121,4 +121,35 @@ for (const c of ['financial-algebra', 'statistics']) for (const f of fs.readdirS
   const qs = JSON.parse(fs.readFileSync(path.join(ROOT, 'question-banks', c, f), 'utf8')).questions || [];
   ok(qs.every((q) => (q.solutionSteps || []).length > 1), 'worked steps in question-banks/' + c + '/' + f);
 }
+// Whole-site audit 2 (2026-11-20)
+{
+  const data = fs.readFileSync(path.join(ROOT, 'data.js'), 'utf8');
+  ok(!/Add #key to the address|answer key behind code 205/.test(data), '#13 cards do not tell students how to open answer keys');
+  ok(/#key/.test(fs.readFileSync(path.join(ROOT, 'guide.html'), 'utf8')), '#13 the Teacher Guide explains answer keys');
+  const std = fs.readFileSync(path.join(ROOT, 'worksheet-generator/menu/standards.js'), 'utf8');
+  for (const c of ['N-VM.C.9', 'F-TF.A.4', 'G-C.A.4', 'S-MD.A.4']) ok(std.includes(`'${c}':`), '#15 description for ' + c);
+  const ob = fs.readFileSync(path.join(ROOT, 'artifacts/exponential-functions-outbreak-simulator/index.html'), 'utf8');
+  ok(!/src="https?:\/\//.test(ob) && /chart-lite\.js/.test(ob), '#10 Outbreak Simulator loads nothing from outside sites');
+  for (const d of ['slope-links-mini-golf', 'zombie-fence', 'functions-transformations-connect-four', 'exponential-logarithmic-functions-jeopardy'])
+    ok(/<html lang="en">/.test(fs.readFileSync(path.join(ROOT, 'artifacts', d, 'index.html'), 'utf8')), '#18 page language: ' + d);
+  ok(/<label for="in-x">/.test(fs.readFileSync(path.join(ROOT, 'artifacts/geometry-shipwreck-salvage/script.js'), 'utf8')), '#18 Shipwreck Salvage inputs are labelled');
+  ok(/relevel\(s\.blurb\)/.test(fs.readFileSync(path.join(ROOT, 'worksheet-generator/menu/app.js'), 'utf8')), '#14 skill hints use Support/Standard/Advanced');
+  ok(!/NS\.LEVELS\[id\]\.name;\}$/m.test(fs.readFileSync(path.join(ROOT, 'worksheet-generator/menu/match-game.js'), 'utf8')), '#14 card-sort header uses public level names');
+  if (SITE) {
+    const gh = [];
+    (function walk(d) { for (const f of fs.readdirSync(d)) { const p = path.join(d, f); if (fs.statSync(p).isDirectory()) { if (!/^(vendor|node_modules)$/.test(f)) walk(p); } else if (f.endsWith('.html') && fs.readFileSync(p, 'utf8').includes('github.com/akneller1/classroom/issues')) gh.push(path.relative(SITE, p)); } })(SITE);
+    ok(gh.length === 0, '#9 no page sends feedback to GitHub: ' + gh.slice(0, 5).join(', '));
+    const fap = path.join(SITE, 'financial-algebra/financial/pacing/index.html');
+    if (fs.existsSync(fap)) ok(!/href="\.\.\/\.\.\/u\//.test(fs.readFileSync(fap, 'utf8')), '#11 legacy Financial Algebra pacing links');
+    const g7 = path.join(SITE, 'u/grade7/index.html');
+    if (fs.existsSync(g7)) ok(/<h1>7th Grade Math by Standard<\/h1>/.test(fs.readFileSync(g7, 'utf8')), '#12 the standards hub has its own name');
+    for (const g of [1, 2, 3, 4, 5]) {
+      const d = path.join(SITE, 'question-banks', 'grade' + g); if (!fs.existsSync(d)) continue;
+      for (const f of fs.readdirSync(d).filter((f) => f.endsWith('.json'))) {
+        const qs = JSON.parse(fs.readFileSync(path.join(d, f), 'utf8')).questions || [], seen = new Set();
+        for (const q of qs) { const k = JSON.stringify([String(q.prompt).trim(), q.answer, q.diagram || null, (q.options || []).map((o) => o.text).sort(), q.level, q.parts || null, q.plot || null]); ok(!seen.has(k), '#5 repeated question in grade' + g + '/' + f + ': ' + q.id); seen.add(k); }
+      }
+    }
+  }
+}
 console.log(`PASS site audit: ${checks} checks (${keys} bank keys grade themselves correct)`);
