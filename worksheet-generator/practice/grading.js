@@ -330,6 +330,15 @@ function sameAsKey(answer,typed){
 function termKey(answer){return typeof answer==='string'&&!!C&&bankCore(answer).term&&!/^-?\d+(?:\.\d+)?i$/.test(answer.trim());}
 function caret(s){return String(s).replace(/[−–]/g,'-').replace(/[⁻⁰¹²³⁴⁵⁶⁷⁸⁹]+/g,function(m){return '^('+m.split('').map(function(c){return {'⁻':'-','⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9'}[c];}).join('')+')';}).replace(/×|·/g,'*');}
 function gradeTerm(answer,typed){var t=String(typed==null?'':typed).trim();if(!t)return {status:'empty'};if(/[=<>]/.test(t))return {status:'invalid',message:'Enter the term only, such as 4y².'};if(/[+()\/]|.-/.test(t.replace(/\s+/g,'')))return {status:'invalid',message:'Simplify to a single term, such as 4y².'};try{return {status:C.equivalent(caret(answer),caret(t))?'correct':'incorrect'};}catch(e){return {status:'invalid',message:'Answer format could not be read.'};}}
+var UNITW={mm:'millimeter',cm:'centimeter',m:'meter',km:'kilometer','in':'inch',ft:'foot',yd:'yard',mi:'mile',g:'gram',kg:'kilogram',mg:'milligram',lb:'pound',lbs:'pound',oz:'ounce',l:'liter',ml:'milliliter',gal:'gallon',qt:'quart',pt:'pint',c:'cup',s:'second',sec:'second',min:'minute',h:'hour',hr:'hour',hrs:'hour'};
+var UNITOK=/^(?:(?:square|cubic) )?(?:millimeter|centimeter|meter|kilometer|inch|foot|yard|mile|gram|kilogram|milligram|pound|ounce|liter|milliliter|gallon|quart|pint|cup|second|minute|hour|day|week|year|unit|degree|dollar|cent)$/;
+function unitWord(u){var t=String(u||'').toLowerCase().replace(/\./g,'').replace(/\s+/g,' ').trim();if(!t)return '';var pow='';
+ var m=/^(.*?)\s*(?:²|\^2)$/.exec(t);if(m){pow='square ';t=m[1];}else if((m=/^(.*?)\s*(?:³|\^3)$/.exec(t))){pow='cubic ';t=m[1];}
+ if((m=/^(?:sq|square) (.+)$/.exec(t))){pow='square ';t=m[1];}else if((m=/^(?:cu|cubic) (.+)$/.exec(t))){pow='cubic ';t=m[1];}
+ t=UNITW[t]||t;t=t.replace(/^feet$/,'foot').replace(/^inches$/,'inch').replace(/(?:es|s)$/,function(x){return /(inch)es$/.test(t)?'':'s'===x?'':x;}).replace(/^inche$/,'inch');
+ if(/s$/.test(t)&&UNITOK.test(t.slice(0,-1)))t=t.slice(0,-1);
+ var w=pow+t;return UNITOK.test(w)?w:null;}
+function unitsDiffer(k,t){if(!k||!t)return false;var a=unitWord(k),b=unitWord(t);return !!(a&&b&&a!==b);}
 function gradeBank(answer,typed,prompt){
  typed=elTyped(answer,typedForm(answer,typed));
  if(termKey(answer)&&!(gr8On()&&G.MKGRADE8.supports(answer,prompt))&&!(calcOn()&&G.MKCALC.supports(answer)))return gradeTerm(answer,typed);
@@ -342,8 +351,10 @@ function gradeBank(answer,typed,prompt){
  if(calcOn()&&typeof answer==='string'&&(G.MKCALC.preferred(answer)||(/Factor completely/i.test(prompt||'')&&G.MKCALC.supports(answer))))return G.MKCALC.grade(answer,typed,prompt);
  var key=bankAnswer(answer);
  if(key===null)return exactKey(answer)!==null?G.MKEXACT.grade(answer,typed):discreteKey(answer)!==null?G.MKDISCRETE.grade(answer,typed):calcKey(answer)!==null?G.MKCALC.grade(answer,typed,prompt):statKey(answer)!==null?G.MKSTAT.grade(answer,typed,prompt):gr8Key(answer,prompt)!==null?G.MKGRADE8.grade(answer,typed,prompt):{status:'self'};
- var input=bankCore(typed).text;
- return grade({parts:[{answer:key}]},input);
+ var tc=bankCore(typed),kc=bankCore(answer);
+ /* Site audit #20 (2026-11-20): the unit is optional, but a different known unit is wrong (38 ft³ for 38 ft², 5 cm for 5 m). */
+ if(unitsDiffer(kc.unit,tc.unit))return {status:'incorrect'};
+ return grade({parts:[{answer:key}]},tc.text);
 }
-API.supports=supports;API.grade=grade;API.bankAnswer=function(answer,prompt){if(elKind(answer))return answer;if(termKey(answer))return answer;if(grade5Kind(answer,prompt))return answer;if(grade6Kind(answer,prompt))return answer;if(grade7Supports(answer))return answer;var k=bankAnswer(answer);if(k!==null)return k;k=exactKey(answer);if(k!==null)return k;k=discreteKey(answer);if(k!==null)return k;k=calcKey(answer);if(k!==null)return k;k=statKey(answer);return k!==null?k:gr8Key(answer,prompt);};API.gradeBank=gradeBank;API.typedForm=typedForm;API.sameAsKey=sameAsKey;
+API.supports=supports;API.grade=grade;API.bankAnswer=function(answer,prompt){if(elKind(answer))return answer;if(termKey(answer))return answer;if(grade5Kind(answer,prompt))return answer;if(grade6Kind(answer,prompt))return answer;if(grade7Supports(answer))return answer;var k=bankAnswer(answer);if(k!==null)return k;k=exactKey(answer);if(k!==null)return k;k=discreteKey(answer);if(k!==null)return k;k=calcKey(answer);if(k!==null)return k;k=statKey(answer);return k!==null?k:gr8Key(answer,prompt);};API.gradeBank=gradeBank;API.typedForm=typedForm;API.unitsDiffer=unitsDiffer;API.sameAsKey=sameAsKey;
 })(window);

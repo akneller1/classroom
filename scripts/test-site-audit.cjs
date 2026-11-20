@@ -20,6 +20,8 @@ const cases = [
   ['grade1', '3 tens and 8 ones', '3 8', 'correct'], ['grade1', '3 tens and 8 ones', '38', 'correct'], ['grade1', '3 tens and 8 ones', '83', 'incorrect'],
   ['grade1', "5 o'clock", '5:00', 'correct'], ['grade1', 'half past 3', '3:30', 'correct'], ['grade1', "5 o'clock", '6:00', 'incorrect'],
   ['grade3', '4:30 p.m.', '4:30 pm', 'correct'], ['grade3', '4:30 p.m.', '4:30 am', 'incorrect'], ['grade2', 'greater', '>', 'correct'], ['grade2', 'greater', '<', 'incorrect'],
+  ['math6', '38 ft²', '38 ft³', 'incorrect'], ['math6', '38 ft²', '38 sq ft', 'correct'], ['math6', '5 m', '5 cm', 'incorrect'], ['math6', '12 inches', '12 in.', 'correct'],
+  ['prealgebra7', '22t', '22', 'incorrect'], ['prealgebra7', '22t', '22 t', 'correct'], ['calculus', '-60x²', '-60x^3', 'incorrect'], ['precalculus', '8i', '8', 'incorrect'],
   ['grade4', '3/4', 'three fourths', 'correct'], ['grade4', '3/4', 'one fourth', 'incorrect'], ['grade1', '12', 'twelve', 'correct'], ['grade1', '12', 'eleven', 'incorrect']];
 for (const [c, k, t, want] of cases) ok(g(c, k, t) === want, `${c}: ${k} / ${t} should be ${want}, got ${g(c, k, t)}`);
 ok(P.sameAsKey('x² + 12x + 32', 'my work\nx^2+12x+32') && !P.sameAsKey('x² + 12x + 32', 'x^2+12x+31') && P.sameAsKey('ax + b', 'ax+b') && P.sameAsKey('7.5 × 10⁷', '7.5 x 10^7'), 'exact final answer on a self-scored item');
@@ -71,6 +73,8 @@ if (SITE && fs.existsSync(SITE)) {
     for (const q of JSON.parse(fs.readFileSync(path.join(SITE, 'question-banks/grade5', f))).questions)
       if (q.format === 'select-all') { const k = q.options.filter((o) => o.correct).length; n[k] = (n[k] || 0) + 1; }
   ok(n[2] >= 50 && n[3] >= 50, 'Grade 5 select-all counts vary ' + JSON.stringify(n));
+  const g5p = path.join(SITE, 'grade-5-pacing/index.html');
+  ok(fs.existsSync(g5p) && /34 of 34 standards have question-bank practice/.test(fs.readFileSync(g5p, 'utf8')) && /5th Grade Math Pacing Guide/.test(fs.readFileSync(g5p, 'utf8')), 'Grade 5 pacing page');
   const legacy = path.join(SITE, 'courses/precalculus.html');
   if (fs.existsSync(legacy)) ok(/http-equiv="refresh" content="0; url=https:\/\/mrksclassroom\.com\/u\/precalculus\/"/.test(fs.readFileSync(legacy, 'utf8')), 'Precalculus legacy page redirects');
 }

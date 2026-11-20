@@ -10,6 +10,7 @@
 // Usage: node scripts/apply-site-audit.mjs [_site]
 import fs from "node:fs";
 import path from "node:path";
+import { elementaryPacing } from "./geo-planning.mjs";
 
 const SITE = path.resolve(process.argv[2] || "_site");
 const COPIES = [path.join(SITE, "question-banks/grade5"), path.join(SITE, "grade5/math5")].filter((d) => fs.existsSync(d));
@@ -55,3 +56,29 @@ for (const file of fs.readdirSync(COPIES[0]).filter((f) => f.endsWith(".json")))
   }
 }
 console.log(`Site audit: Grade 5 matched select-all items now have 1 correct: ${counts[1]}, 2: ${counts[2]}, 3: ${counts[3]} (${changed} changed)`);
+
+// #15 Grade 5 web pacing page, like Grades 1-4 and 6-8 (Grade 5 had only a PDF). The skill standards come from the bank:
+// each skill is tagged with the standards its questions practice.
+const g5 = path.join(SITE, "question-banks/grade5");
+if (fs.existsSync(path.join(SITE, "grade5/grade5-main-catalog.js")) && fs.existsSync(g5) && fs.existsSync(path.join(SITE, "grade-6-pacing/index.html"))) {
+  const map = {};
+  for (const file of fs.readdirSync(g5).filter((f) => f.endsWith(".json"))) {
+    const unit = "grade5-" + file.replace(/\.json$/, ""), bySkill = {};
+    for (const q of JSON.parse(fs.readFileSync(path.join(g5, file), "utf8")).questions)
+      for (const s of q.standards || []) { const m = (bySkill[q.skillId] = bySkill[q.skillId] || {}); m[s] = (m[s] || 0) + 1; }
+    map[unit] = Object.fromEntries(Object.entries(bySkill).map(([k, m]) => [k, Object.keys(m).sort((a, b) => m[b] - m[a]).slice(0, 3)]));
+  }
+  fs.writeFileSync(path.join(SITE, "grade5/grade5-standards-map.js"), "/* Site audit 2026-11-20: Grade 5 skill standards, from the bank's question tags. */\n(function(G){var M=" + JSON.stringify(map) +
+    ";G.MKSTD_SKILLS=G.MKSTD_SKILLS||{};Object.keys(M).forEach(function(k){G.MKSTD_SKILLS[k]=M[k];});})(typeof window!==\"undefined\"?window:globalThis);\n");
+  const pacing = elementaryPacing(5, SITE);
+  if (!pacing) throw Error("Site audit: Grade 5 pacing could not be built");
+  const desc = "A 180-day 5th Grade Math pacing guide with Grade 5 MCAS review, a one-semester block plan, and Common Core Grade 5 standards coverage for every question-bank skill.";
+  const page = fs.readFileSync(path.join(SITE, "grade-6-pacing/index.html"), "utf8").replace(/<main>[\s\S]*<\/main>/, "<main>\n" + pacing + "\n</main>")
+    .replace(/6th Grade Math Pacing Guide and Standards Coverage/g, "5th Grade Math Pacing Guide and Standards Coverage").replace(/grade-6-pacing\//g, "grade-5-pacing/")
+    .replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${desc}"`).replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${desc}"`)
+    .replace(/<a href="\.\.\/u\/math6\/">[^<]*<\/a>/, '<a href="../u/grade5/">5th Grade Math</a>');
+  fs.mkdirSync(path.join(SITE, "grade-5-pacing"), { recursive: true });
+  fs.writeFileSync(path.join(SITE, "grade-5-pacing/index.html"), page);
+  const covered = /(\d+) of (\d+) standards have question-bank practice/.exec(page);
+  console.log(`Site audit: Grade 5 pacing page written (${covered ? covered[0] : "coverage not found"})`);
+}
