@@ -445,7 +445,7 @@ def _(r, nm):
 def _(r, nm):
     p = R(r, 3, 95)
     n = R(r, 2, 20) * 10
-    return (f'Write {p}% as a decimal, then use it to find {p}% of {n}.', dz(Fr(p * n, 100)), [f'{p}% = {dz(Fr(p, 100))}.', f'{dz(Fr(p, 100))} × {n} = {dz(Fr(p * n, 100))}.'])
+    return (f'Change {p}% to a decimal, then use the decimal to find {p}% of {n}.', dz(Fr(p * n, 100)), [f'{p}% = {dz(Fr(p, 100))}.', f'{dz(Fr(p, 100))} × {n} = {dz(Fr(p * n, 100))}.'])
 
 
 @t(U, 6)
@@ -701,7 +701,7 @@ def _(r, nm):
     k = R(r, 5, 15)
     n = k * k + R(r, 1, 2 * k)
     near = k if n - k * k < (k + 1) ** 2 - n else k + 1
-    return (f'Between which two consecutive whole numbers is √{n}? Give the one it is closer to.', str(near),
+    return (f'Which whole number is closest to √{n}? Use the perfect squares just below and above {n}.', str(near),
             [f'{k}² = {k * k} and {k + 1}² = {(k + 1) ** 2}, so √{n} is between {k} and {k + 1}.', f'{n} is {n - k * k} above {k * k} and {(k + 1) ** 2 - n} below {(k + 1) ** 2}, so it is closer to {near}.'])
 
 
