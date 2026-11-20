@@ -259,7 +259,17 @@ function grade6(answer,typed,prompt){
  }catch(e){return {status:'invalid',message:'Answer format could not be read.'};}
  return null;
 }
+/* Matrix dimensions ("What are the dimensions of A = [...]?" -> "2 × 3"): rows by columns, in that order. Read as a product,
+   2 × 3 would accept 3 × 2 and 6 × 1. */
+var DIMS=/^\s*(\d+)\s*(?:[×xX*]|by)\s*(\d+)\s*$/;
+function gradeDims(answer,typed,prompt){
+ if(typeof answer!=='string'||!/\bdimensions?\b/i.test(prompt||''))return null;var k=DIMS.exec(answer);if(!k)return null;
+ var t=String(typed==null?'':typed).trim();if(!t)return {status:'empty'};var m=DIMS.exec(t);
+ if(!m)return {status:'invalid',message:'Give the dimensions as rows × columns, such as 2 × 3.'};
+ return {status:+m[1]===+k[1]&&+m[2]===+k[2]?'correct':'incorrect'};
+}
 function gradeBank(answer,typed,prompt){
+ var gd=gradeDims(answer,typed,prompt);if(gd)return gd;
  var g5=grade5(answer,typed,prompt);if(g5)return g5;
  var g6=grade6(answer,typed,prompt);if(g6)return g6;
  var g7=grade7(answer,typed,prompt);if(g7)return g7;

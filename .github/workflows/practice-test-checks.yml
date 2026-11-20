@@ -2,6 +2,9 @@ name: Interactive practice test checks
 on:
   push:
     paths:
+      - 'question-banks/**'
+      - 'scripts/test-grading-baseline.cjs'
+      - 'tests/fixtures/grading-baseline.json'
       - 'worksheet-generator/practice/**'
       - 'scripts/test-precalculus-audit.cjs'
       - 'scripts/test-calculus-grading.cjs'
@@ -11,6 +14,9 @@ on:
       - '.github/workflows/practice-test-checks.yml'
   pull_request:
     paths:
+      - 'question-banks/**'
+      - 'scripts/test-grading-baseline.cjs'
+      - 'tests/fixtures/grading-baseline.json'
       - 'worksheet-generator/practice/**'
       - 'scripts/test-precalculus-audit.cjs'
       - 'scripts/test-calculus-grading.cjs'
@@ -26,6 +32,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: No course's grading gets worse (cross-course grading baseline)
+        run: node scripts/test-grading-baseline.cjs
       - name: Exact grading regression tests
         run: node worksheet-generator/tests/practice-grading-test.js
       - name: Exact-value grading for bank answers (Precalculus audit)
