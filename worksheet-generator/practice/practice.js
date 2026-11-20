@@ -91,18 +91,42 @@ function bankProblem(q){
    plot:q.plot||null,fig:q.diagram&&q.diagram.type==='image'?{kind:'authored-image',src:q.diagram.spec.src,alt:q.diagram.spec.alt}:null,
    parts:parts,steps:(q.solutionSteps||[]).map(function(t){return {t:t};}),
    /* Statistics audit #7/#8 (2026-11-18): an optional first-step hint and a self-check list for written answers */
-   hint:typeof q.hint==='string'?q.hint:null,selfCheck:Array.isArray(q.selfCheck)?q.selfCheck:null};
+   hint:typeof q.hint==='string'?q.hint:null,selfCheck:Array.isArray(q.selfCheck)?q.selfCheck:autoSelfCheck(q)};
+}
+/* Site audit #4 (2026-11-20): written answers in courses without an authored self-check list get a short one built from
+   the question, so every self-scored item says what to compare. Authored lists (Statistics) are used as they are. */
+function autoSelfCheck(q){
+ if(q.format!=='short-answer'&&q.format!=='open-response')return null;
+ var p=String(q.prompt||''),a=Array.isArray(q.answer)?q.answer.join('; '):String(q.answer==null?'':q.answer),list=[];
+ list.push('Your final answer matches the answer above. An equal form counts unless the question asks for a particular form.');
+ if(/\bfactor/i.test(p))list.push('Your answer is factored completely: no factor can be factored again.');
+ else if(/\bsimplif|simplest form|lowest terms/i.test(p))list.push('Your answer is fully simplified.');
+ else if(/\bexpand|standard form|vertex form|slope-intercept|point-slope/i.test(p))list.push('Your answer is written in the form the question names.');
+ if(/round|nearest|≈|decimal places?/i.test(p+' '+a))list.push('You rounded the way the question asks.');
+ var u=/\d\s*(cm|mm|km|m|in\.?|ft|yd|mi|units?|square \w+|cubic \w+|degrees|°|hours?|minutes?|seconds?|dollars|\$|%|mph|feet|inches|meters)\b/i.exec(a);
+ if(u)list.push('You included the units ('+u[1]+').');
+ if(q.format==='open-response'||/explain|justify|show that|prove|why/i.test(p))list.push('You explained each step, not only the final answer.');
+ if((p.match(/\?/g)||[]).length>1||/\band\b.*\?$/.test(p)&&/;/.test(a))list.push('You answered every part of the question.');
+ return list;
 }
 function buildAuthored(selected,overrides){
  var bank=G.MK_QUESTION_BANKS,courseId=config.unit.split('-')[0],unitId=config.unit.slice(courseId.length+1);
  G.MK_PRACTICE_COURSE=courseId;
  var formats=config.format==='mc'?['multiple-choice','select-all']:config.format==='self'?['short-answer','open-response']:['multiple-choice','select-all','short-answer','open-response','plot'];
  var pools=selected.map(function(skill){return bank.select({courseId:courseId,unitId:unitId,skillIds:[skill.id],level:config.level,formats:formats}).sort(function(){return Math.random()-0.5;});});
- var questions=[],requested=Math.max(5,Math.min(25,+config.count||10));
+ var questions=[],seenSig={},requested=Math.max(5,Math.min(25,+config.count||10));
  while(questions.length<requested&&pools.some(function(pool){return pool.length;})){
    for(var i=0;i<pools.length&&questions.length<requested;i++){
      if(!pools[i].length)continue;
-     var q=pools[i].shift(),kind=q.format==='multiple-choice'?'mc':q.format==='select-all'?'multi':q.format==='plot'?'plot':q.format==='short-answer'&&G.MKPRACTICE&&G.MKPRACTICE.bankAnswer&&G.MKPRACTICE.bankAnswer(q.answer,q.prompt)!==null?'auto':'self';
+     var q=pools[i].shift();
+     /* Site audit #9 (2026-11-20): a few banks repeat a question word for word (Calculus has 38 such pairs), and in Grades 5-8
+        half the items in a level share a template with another. One test shows a question once, and uses a template again
+        only when the skill has nothing else left. */
+     var sig=q.diagram?q.id:String(q.prompt).trim()+'\u0000'+JSON.stringify(q.answer);if(seenSig[sig])continue;
+     var tsig=String(q.prompt).replace(/\d+(?:\.\d+)?/g,'#').trim();
+     if(seenSig['t:'+tsig]&&pools[i].some(function(x){return !seenSig['t:'+String(x.prompt).replace(/\d+(?:\.\d+)?/g,'#').trim()];})){pools[i].push(q);continue;}
+     seenSig[sig]=1;seenSig['t:'+tsig]=1;
+     var kind=q.format==='multiple-choice'?'mc':q.format==='select-all'?'multi':q.format==='plot'?'plot':q.format==='short-answer'&&G.MKPRACTICE&&G.MKPRACTICE.bankAnswer&&G.MKPRACTICE.bankAnswer(q.answer,q.prompt)!==null?'auto':'self';
      var options=(q.options||[]).map(function(o){return o.text;});
      var choices=kind==='mc'?{opts:options,key:(q.options||[]).findIndex(function(o){return o.correct===true;})}
        :kind==='multi'?{opts:options,keys:(q.options||[]).map(function(o,j){return o.correct===true?j:-1;}).filter(function(j){return j>=0;})}:null;
@@ -355,7 +379,7 @@ function show(){
  tickTimer();
 }
 function go(i){state.index=Math.max(0,Math.min(state.questions.length-1,i));save();show();}
-function submit(forced){var missing=state.questions.filter(q=>!isAnswered(q)).length;if(!forced&&!confirm('Submit assessment now? '+missing+' question(s) are unanswered. '+state.questions.filter(q=>q.review).length+' marked for review.'))return;state.questions.forEach(q=>{if(q.kind==='plot'){var result=G.MK_PLOT.check(q.problem.plot,q.response);q.correct=result.ok;q.invalidResponse=result.ok?null:(q.problem.plot.feedback[result.code]||'Check the graph.');}else if(q.kind==='multi'){var actual=Array.isArray(q.response)?q.response.slice().sort(function(a,b){return a-b;}):[],expected=(q.choices.keys||[]).slice().sort(function(a,b){return a-b;});q.correct=actual.length===expected.length&&actual.every(function(v,i){return v===expected[i];});}else if(q.kind==='mc'){q.correct=typeof q.response==='number'&&q.response===q.choices.key;}else if(G.MKEXPGRAPH&&G.MKEXPGRAPH.target(q)){q.correct=G.MKEXPGRAPH.grade(q).status==='correct';}else if(G.MKSYSTEM&&G.MKSYSTEM.target(q)){q.correct=G.MKSYSTEM.grade(q).status==='correct';}else if(G.MKLINE&&G.MKLINE.target(q)){q.correct=G.MKLINE.grade(q).status==='correct';}else if(G.MKPARABOLA&&G.MKPARABOLA.target(q)){q.correct=G.MKPARABOLA.grade(q).status==='correct';}else if(G.MKGRAPH&&G.MKGRAPH.pointTarget(q)){var gg=G.MKGRAPH.pointGrade(q);q.correct=gg.status==='correct';}else if(G.MKGRAPH&&G.MKGRAPH.supports(q)){var gg=G.MKGRAPH.grade(q);q.correct=gg.status==='correct';}else if(q.kind==='auto'){var g=q.bank?G.MKPRACTICE.gradeBank(q.problem.parts[0].answer,q.response,q.problem.prompt):G.MKPRACTICE.grade(q.problem,q.response);q.correct=g.status==='correct';if(g.status==='self')q.invalidResponse='This response could not be graded automatically.';else q.invalidResponse=g.status==='invalid'?g.message:null;}if(q.kind==='self'&&(q.response===null||q.response===''))q.correct=false;q.checked=true;});state.done=true;state.finished=Date.now();save();results();}
+function submit(forced){var missing=state.questions.filter(q=>!isAnswered(q)).length;if(!forced&&!confirm('Submit assessment now? '+missing+' question(s) are unanswered. '+state.questions.filter(q=>q.review).length+' marked for review.'))return;state.questions.forEach(q=>{if(q.kind==='plot'){var result=G.MK_PLOT.check(q.problem.plot,q.response);q.correct=result.ok;q.invalidResponse=result.ok?null:(q.problem.plot.feedback[result.code]||'Check the graph.');}else if(q.kind==='multi'){var actual=Array.isArray(q.response)?q.response.slice().sort(function(a,b){return a-b;}):[],expected=(q.choices.keys||[]).slice().sort(function(a,b){return a-b;});q.correct=actual.length===expected.length&&actual.every(function(v,i){return v===expected[i];});}else if(q.kind==='mc'){q.correct=typeof q.response==='number'&&q.response===q.choices.key;}else if(G.MKEXPGRAPH&&G.MKEXPGRAPH.target(q)){q.correct=G.MKEXPGRAPH.grade(q).status==='correct';}else if(G.MKSYSTEM&&G.MKSYSTEM.target(q)){q.correct=G.MKSYSTEM.grade(q).status==='correct';}else if(G.MKLINE&&G.MKLINE.target(q)){q.correct=G.MKLINE.grade(q).status==='correct';}else if(G.MKPARABOLA&&G.MKPARABOLA.target(q)){q.correct=G.MKPARABOLA.grade(q).status==='correct';}else if(G.MKGRAPH&&G.MKGRAPH.pointTarget(q)){var gg=G.MKGRAPH.pointGrade(q);q.correct=gg.status==='correct';}else if(G.MKGRAPH&&G.MKGRAPH.supports(q)){var gg=G.MKGRAPH.grade(q);q.correct=gg.status==='correct';}else if(q.kind==='auto'){var g=q.bank?G.MKPRACTICE.gradeBank(q.problem.parts[0].answer,q.response,q.problem.prompt):G.MKPRACTICE.grade(q.problem,q.response);q.correct=g.status==='correct';if(g.status==='self')q.invalidResponse='This response could not be graded automatically.';else q.invalidResponse=g.status==='invalid'?g.message:null;}if(q.kind==='self'&&(q.response===null||q.response===''))q.correct=false;else if(q.kind==='self'&&G.MKPRACTICE&&G.MKPRACTICE.sameAsKey&&typeof q.response==='string'&&q.problem.parts.length===1&&G.MKPRACTICE.sameAsKey(q.problem.parts[0].answer,q.response))q.correct=true;q.checked=true;});state.done=true;state.finished=Date.now();save();results();}
 function stats(){var buckets={};state.questions.forEach(q=>{var b=buckets[q.skill]||(buckets[q.skill]={name:q.skillName,correct:0,graded:0,missing:0});if(q.correct===null)b.missing++;else{b.graded++;if(q.correct)b.correct++;}});return Object.entries(buckets).map(([id,b])=>Object.assign({id:id},b));}
 function recommendations(){
  var list=stats().filter(b=>b.graded>0).sort((a,b)=>a.correct/a.graded-b.correct/b.graded);

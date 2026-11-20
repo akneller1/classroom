@@ -542,6 +542,11 @@ for (const c of catalog) {
     if (!/name=["']robots["']/i.test(html)) {
       html = html.replace(/<head>/i, '<head><meta name="robots" content="noindex,follow">');
     }
+    // Site audit #12 (2026-11-20): these hand-written pages fell behind the course (Precalculus listed 8 of its 9 units),
+    // so a saved link now goes straight to the generated /u/ page.
+    if (!/http-equiv=["']refresh["']/i.test(html)) {
+      html = html.replace(/<head>/i, '<head><meta http-equiv="refresh" content="0; url=' + htmlEsc(canonical) + '"><script>location.replace(' + JSON.stringify(canonical) + ');</script>');
+    }
     fs.writeFileSync(file, html);
   }
 }

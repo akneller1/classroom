@@ -101,6 +101,8 @@
     var me = modelEq(a);
     if (me && !le) return 'model';
     var nu = numberUnit(a);
+    // Site audit (2026-11-20): "4y²" or "-8a¹⁵" is a monomial, not 4 with the unit "y²"; read as a unit it accepted 4y³ and 4y.
+    if (nu && nu.unit && /^-?\d*(?:\.\d+)?[a-z][⁻⁰¹²³⁴⁵⁶⁷⁸⁹]*(?:[a-z][⁻⁰¹²³⁴⁵⁶⁷⁸⁹]*)*$/.test(clean(a).replace(/\s+/g, '')) && !/\s/.test(clean(a)) && exprOK(a)) return 'form';
     if (nu && nu.unit) return 'unit';
     if (!/[=<>\s]/.test(a) && /[a-z]/i.test(a) && exprOK(a)) return 'form';
     if (!/[=<>]/.test(a) && /[a-z]/i.test(a) && /\d/.test(a) && exprOK(a) && !/[()]/.test(stripFracParens(a)) && a.split(' ').length > 1) return 'expanded';

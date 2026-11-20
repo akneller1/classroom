@@ -12,6 +12,8 @@ on:
       - 'worksheet-generator/tests/practice-grading-test.js'
       - 'worksheet-generator/menu/mathcheck.js'
       - '.github/workflows/practice-test-checks.yml'
+      - 'scripts/test-site-audit.cjs'
+      - 'data.js'
   pull_request:
     paths:
       - 'question-banks/**'
@@ -23,6 +25,8 @@ on:
       - 'worksheet-generator/practice-test.html'
       - 'worksheet-generator/tests/practice-grading-test.js'
       - 'worksheet-generator/menu/mathcheck.js'
+      - 'scripts/test-site-audit.cjs'
+      - 'data.js'
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -34,6 +38,8 @@ jobs:
           node-version: '22'
       - name: No course's grading gets worse (cross-course grading baseline)
         run: node scripts/test-grading-baseline.cjs
+      - name: Whole-site audit checks (grading, cards, select-all counts)
+        run: node scripts/test-site-audit.cjs
       - name: Exact grading regression tests
         run: node worksheet-generator/tests/practice-grading-test.js
       - name: Exact-value grading for bank answers (Precalculus audit)
