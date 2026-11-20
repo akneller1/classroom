@@ -97,6 +97,8 @@ def _(rng, nm):
 def _(rng, nm):
     T_ = 20 * R(rng, 20, 40); p = rng.choice([25, 40, 45, 60]); q = rng.choice([25, 50, 75])
     bus = T_ * p // 100; rest = T_ - bus
+    while (T_ * p) % 100 or (rest * q) % 100:   # keep every count whole
+        T_ += 20; bus = T_ * p // 100; rest = T_ - bus
     return (f'A school has {T_} students. {p}% ride the bus. Of the students who do not ride the bus, {q}% walk. How many students walk?',
             str(rest * q // 100), [f'Bus riders: {p}% of {T_} = {bus}.', f'Not on the bus: {T_} − {bus} = {rest}.', f'Walkers: {q}% of {rest} = {rest * q // 100}.'])
 

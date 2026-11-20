@@ -556,34 +556,35 @@
    "skillId": "ratios-rates-percent-proportions-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A team has 7 wins and 2 losses. Which ratio compares wins to losses?",
-   "answer": "7 : 2",
+   "prompt": "In a bag, the ratio of red marbles to blue marbles is 3 : 5. There are 32 marbles in all. How many blue marbles are there?",
+   "answer": "20",
    "options": [
     {
-     "text": "2 : 7",
-     "correct": false
-    },
-    {
-     "text": "7 : 2",
+     "text": "20",
      "correct": true
     },
     {
-     "text": "7 : 9",
+     "text": "8",
      "correct": false
     },
     {
-     "text": "9 : 7",
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Write the quantities in the order the words give.",
-    "wins : losses = 7 : 2."
+    "Each group of 3 red and 5 blue has 8 marbles.",
+    "Number of groups: 32 ÷ 8 = 4.",
+    "Blue marbles: 5 × 4 = 20."
    ],
    "standards": [
     "6.RP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_which_ratio). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “A team has 7 wins and 2 losses. Which ratio compares wins to losses?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s01-cp1-006",
@@ -676,17 +677,17 @@
    "skillId": "ratios-rates-percent-proportions-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A club has 81 cats and 90 dogs. Write the ratio of cats to dogs in simplest form, as a:b.",
-   "answer": "9:10",
+   "prompt": "In a bag, the ratio of red marbles to blue marbles is 7 : 3. There are 50 marbles in all. How many blue marbles are there?",
+   "answer": "15",
    "solutionSteps": [
-    "Ratio: 81:90.",
-    "GCF of 81 and 90 is 9.",
-    "Simplest form: 9:10."
+    "Each group of 7 red and 3 blue has 10 marbles.",
+    "Number of groups: 50 ÷ 10 = 5.",
+    "Blue marbles: 3 × 5 = 15."
    ],
    "standards": [
     "6.RP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_simplify). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “A club has 81 cats and 90 dogs. Write the ratio of cats to dogs in sim”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s01-cp1-010",
@@ -728,51 +729,52 @@
    "skillId": "ratios-rates-percent-proportions-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A team has 6 girls and 8 boys. Which ratio compares girls to boys?",
-   "answer": "6 : 8",
+   "prompt": "In a bag, the ratio of red marbles to blue marbles is 7 : 3. There are 40 marbles in all. How many blue marbles are there?",
+   "answer": "12",
    "options": [
     {
-     "text": "8 : 6",
+     "text": "10",
      "correct": false
     },
     {
-     "text": "6 : 14",
+     "text": "4",
      "correct": false
     },
     {
-     "text": "6 : 8",
+     "text": "12",
      "correct": true
     },
     {
-     "text": "14 : 6",
+     "text": "40",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Write the quantities in the order the words give.",
-    "girls : boys = 6 : 8."
+    "Each group of 7 red and 3 blue has 10 marbles.",
+    "Number of groups: 40 ÷ 10 = 4.",
+    "Blue marbles: 3 × 4 = 12."
    ],
    "standards": [
     "6.RP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_which_ratio). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “A team has 6 girls and 8 boys. Which ratio compares girls to boys?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s01-cp1-012",
    "skillId": "ratios-rates-percent-proportions-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A club has 54 red marbles and 24 blue marbles. Write the ratio of red marbles to blue marbles in simplest form, as a:b.",
-   "answer": "9:4",
+   "prompt": "In a bag, the ratio of red marbles to blue marbles is 7 : 3. There are 80 marbles in all. How many blue marbles are there?",
+   "answer": "24",
    "solutionSteps": [
-    "Ratio: 54:24.",
-    "GCF of 54 and 24 is 6.",
-    "Simplest form: 9:4."
+    "Each group of 7 red and 3 blue has 10 marbles.",
+    "Number of groups: 80 ÷ 10 = 8.",
+    "Blue marbles: 3 × 8 = 24."
    ],
    "standards": [
     "6.RP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_simplify). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “A club has 54 red marbles and 24 blue marbles. Write the ratio of red ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s01-cp1-013",
@@ -953,34 +955,35 @@
    "skillId": "ratios-rates-percent-proportions-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A team has 4 girls and 6 boys. Which ratio compares girls to boys?",
-   "answer": "4 : 6",
+   "prompt": "In a club, the ratio of boys to girls is 5 : 3. There are 64 members. How many more girls would have to join for the numbers of boys and girls to be equal?",
+   "answer": "16",
    "options": [
     {
-     "text": "4 : 10",
-     "correct": false
-    },
-    {
-     "text": "10 : 4",
-     "correct": false
-    },
-    {
-     "text": "6 : 4",
-     "correct": false
-    },
-    {
-     "text": "4 : 6",
+     "text": "16",
      "correct": true
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "64",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Write the quantities in the order the words give.",
-    "girls : boys = 4 : 6."
+    "Total parts: 5 + 3 = 8; each part is 64 ÷ 8 = 8 members.",
+    "Boys: 5 × 8 = 40; girls: 3 × 8 = 24.",
+    "40 − 24 = 16 more girls."
    ],
    "standards": [
     "6.RP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_which_ratio). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “A team has 4 girls and 6 boys. Which ratio compares girls to boys?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s01-honors-003",
@@ -1040,34 +1043,35 @@
    "skillId": "ratios-rates-percent-proportions-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A team has 6 girls and 11 boys. Which ratio compares girls to students?",
-   "answer": "6 : 17",
+   "prompt": "In a club, the ratio of boys to girls is 5 : 3. There are 48 members. How many more girls would have to join for the numbers of boys and girls to be equal?",
+   "answer": "12",
    "options": [
     {
-     "text": "11 : 6",
+     "text": "6",
      "correct": false
     },
     {
-     "text": "17 : 6",
-     "correct": false
-    },
-    {
-     "text": "6 : 11",
-     "correct": false
-    },
-    {
-     "text": "6 : 17",
+     "text": "12",
      "correct": true
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Write the quantities in the order the words give.",
-    "girls : students = 6 : 17."
+    "Total parts: 5 + 3 = 8; each part is 48 ÷ 8 = 6 members.",
+    "Boys: 5 × 6 = 30; girls: 3 × 6 = 18.",
+    "30 − 18 = 12 more girls."
    ],
    "standards": [
     "6.RP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_which_ratio). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “A team has 6 girls and 11 boys. Which ratio compares girls to students”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s01-honors-006",
@@ -1127,34 +1131,35 @@
    "skillId": "ratios-rates-percent-proportions-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A team has 5 wins and 8 losses. Which ratio compares wins to losses?",
-   "answer": "5 : 8",
+   "prompt": "In a club, the ratio of boys to girls is 3 : 2. There are 25 members. How many more girls would have to join for the numbers of boys and girls to be equal?",
+   "answer": "5",
    "options": [
     {
-     "text": "5 : 13",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "8 : 5",
+     "text": "15",
      "correct": false
     },
     {
-     "text": "5 : 8",
+     "text": "25",
+     "correct": false
+    },
+    {
+     "text": "5",
      "correct": true
-    },
-    {
-     "text": "13 : 5",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Write the quantities in the order the words give.",
-    "wins : losses = 5 : 8."
+    "Total parts: 3 + 2 = 5; each part is 25 ÷ 5 = 5 members.",
+    "Boys: 3 × 5 = 15; girls: 2 × 5 = 10.",
+    "15 − 10 = 5 more girls."
    ],
    "standards": [
     "6.RP.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_which_ratio). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “A team has 5 wins and 8 losses. Which ratio compares wins to losses?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s01-honors-009",
@@ -1869,72 +1874,70 @@
    "skillId": "ratios-rates-percent-proportions-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A boat travels 18 miles on 3 gallons of gas. How far can it travel on 5 gallons?",
-   "answer": "30 miles",
+   "prompt": "Lena earns $48 for 4 hours of work. At the same rate, how many dollars does Lena earn in 6 hours?",
+   "answer": "72",
    "options": [
     {
-     "text": "20 miles",
-     "correct": false
-    },
-    {
-     "text": "11 miles",
-     "correct": false
-    },
-    {
-     "text": "90 miles",
-     "correct": false
-    },
-    {
-     "text": "30 miles",
+     "text": "72",
      "correct": true
+    },
+    {
+     "text": "48",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Unit rate: 18 ÷ 3 = 6 per one.",
-    "Multiply: 6 × 5 = 30.",
-    "Answer: 30 miles."
+    "Unit rate: $48 ÷ 4 = $12 per hour.",
+    "6 hours: 6 × $12 = $72."
    ],
    "standards": [
     "6.RP.A.2",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_rate_use). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “A boat travels 18 miles on 3 gallons of gas. How far can it travel on ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s02-cp1-003",
    "skillId": "ratios-rates-percent-proportions-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which is the better buy: 4 ounces for $4.13 or 12 ounces for $5.70?",
-   "answer": "12 ounces for $5.70",
+   "prompt": "Theo earns $33 for 3 hours of work. At the same rate, how many dollars does Theo earn in 10 hours?",
+   "answer": "110",
    "options": [
     {
-     "text": "4 ounces for $4.13",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "12 ounces for $5.70",
+     "text": "110",
      "correct": true
     },
     {
-     "text": "They cost the same per ounce",
+     "text": "10",
      "correct": false
     },
     {
-     "text": "Not enough information",
+     "text": "33",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Unit prices: $1.033 per ounce and $0.475 per ounce.",
-    "The lower unit price is the better buy.",
-    "Better buy: 12 ounces for $5.70."
+    "Unit rate: $33 ÷ 3 = $11 per hour.",
+    "10 hours: 10 × $11 = $110."
    ],
    "standards": [
     "6.RP.A.2",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_better). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Which is the better buy: 4 ounces for $4.13 or 12 ounces for $5.70?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s02-cp1-004",
@@ -1994,36 +1997,35 @@
    "skillId": "ratios-rates-percent-proportions-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which is the better buy: 12 ounces for $4.92 or 6 ounces for $3.15?",
-   "answer": "12 ounces for $4.92",
+   "prompt": "Maya earns $66 for 6 hours of work. At the same rate, how many dollars does Maya earn in 5 hours?",
+   "answer": "55",
    "options": [
     {
-     "text": "12 ounces for $4.92",
+     "text": "66",
+     "correct": false
+    },
+    {
+     "text": "55",
      "correct": true
     },
     {
-     "text": "6 ounces for $3.15",
+     "text": "6",
      "correct": false
     },
     {
-     "text": "They cost the same per ounce",
-     "correct": false
-    },
-    {
-     "text": "Not enough information",
+     "text": "5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Unit prices: $0.410 per ounce and $0.525 per ounce.",
-    "The lower unit price is the better buy.",
-    "Better buy: 12 ounces for $4.92."
+    "Unit rate: $66 ÷ 6 = $11 per hour.",
+    "5 hours: 5 × $11 = $55."
    ],
    "standards": [
     "6.RP.A.2",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_better). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Which is the better buy: 12 ounces for $4.92 or 6 ounces for $3.15?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s02-cp1-007",
@@ -2065,36 +2067,35 @@
    "skillId": "ratios-rates-percent-proportions-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which is the better buy: 6 ounces for $5.80 or 10 ounces for $8.80?",
-   "answer": "10 ounces for $8.80",
+   "prompt": "Diego earns $144 for 8 hours of work. At the same rate, how many dollars does Diego earn in 7 hours?",
+   "answer": "126",
    "options": [
     {
-     "text": "6 ounces for $5.80",
+     "text": "7",
      "correct": false
     },
     {
-     "text": "10 ounces for $8.80",
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "144",
+     "correct": false
+    },
+    {
+     "text": "126",
      "correct": true
-    },
-    {
-     "text": "They cost the same per ounce",
-     "correct": false
-    },
-    {
-     "text": "Not enough information",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Unit prices: $0.967 per ounce and $0.880 per ounce.",
-    "The lower unit price is the better buy.",
-    "Better buy: 10 ounces for $8.80."
+    "Unit rate: $144 ÷ 8 = $18 per hour.",
+    "7 hours: 7 × $18 = $126."
    ],
    "standards": [
     "6.RP.A.2",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_better). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Which is the better buy: 6 ounces for $5.80 or 10 ounces for $8.80?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s02-cp1-010",
@@ -2302,106 +2303,108 @@
    "skillId": "ratios-rates-percent-proportions-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A pack of 6 fruit smoothies costs $52.20. What is the price per smoothie?",
-   "answer": "$8.70",
+   "prompt": "Store A sells 2 pounds of apples for $5.18. Store B sells 5 pounds for $13.55. Lena needs 24 pounds. How much does she save by buying them all at the store with the lower unit price?",
+   "answer": "$2.88",
    "solutionSteps": [
-    "Divide: 52.20 ÷ 6.",
-    "= $8.70 per smoothie."
+    "Store A: $5.18 ÷ 2 = $2.59 per pound. Store B: $13.55 ÷ 5 = $2.71 per pound.",
+    "24 pounds cost $62.16 at A and $65.04 at B.",
+    "Savings: $2.88."
    ],
    "standards": [
     "6.RP.A.2",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_unit_rate). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “A pack of 6 fruit smoothies costs $52.20. What is the price per smooth”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s02-honors-002",
    "skillId": "ratios-rates-percent-proportions-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Uma earns $63 for 9 hours of work. At this rate, how much does Uma earn in 9 hours?",
-   "answer": "$63",
+   "prompt": "Store A sells 3 pounds of apples for $8.70. Store B sells 4 pounds for $9.92. Theo needs 12 pounds. How much does he save by buying them all at the store with the lower unit price?",
+   "answer": "$5.04",
    "solutionSteps": [
-    "Unit rate: 63 ÷ 9 = 7 per one.",
-    "Multiply: 7 × 9 = 63.",
-    "Answer: $63."
+    "Store A: $8.70 ÷ 3 = $2.90 per pound. Store B: $9.92 ÷ 4 = $2.48 per pound.",
+    "12 pounds cost $34.80 at A and $29.76 at B.",
+    "Savings: $5.04."
    ],
    "standards": [
     "6.RP.A.2",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_rate_use). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Uma earns $63 for 9 hours of work. At this rate, how much does Uma ear”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s02-honors-003",
    "skillId": "ratios-rates-percent-proportions-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which is the better buy: 18 ounces for $10.48 or 24 ounces for $29.10?",
-   "answer": "18 ounces for $10.48",
+   "prompt": "Store A sells 2 pounds of apples for $6.22. Store B sells 5 pounds for $11.50. Maya needs 12 pounds. How much does she save by buying them all at the store with the lower unit price?",
+   "answer": "$9.72",
    "options": [
     {
-     "text": "18 ounces for $10.48",
+     "text": "$9.72",
      "correct": true
     },
     {
-     "text": "24 ounces for $29.10",
+     "text": "$2.30",
      "correct": false
     },
     {
-     "text": "They cost the same per ounce",
+     "text": "$27.60",
      "correct": false
     },
     {
-     "text": "Not enough information",
+     "text": "$11.50",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Unit prices: $0.582 per ounce and $1.213 per ounce.",
-    "The lower unit price is the better buy.",
-    "Better buy: 18 ounces for $10.48."
+    "Store A: $6.22 ÷ 2 = $3.11 per pound. Store B: $11.50 ÷ 5 = $2.30 per pound.",
+    "12 pounds cost $37.32 at A and $27.60 at B.",
+    "Savings: $9.72."
    ],
    "standards": [
     "6.RP.A.2",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_better). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Which is the better buy: 18 ounces for $10.48 or 24 ounces for $29.10?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s02-honors-004",
    "skillId": "ratios-rates-percent-proportions-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A pack of 12 fruit smoothies costs $80.64. What is the price per smoothie?",
-   "answer": "$6.72",
+   "prompt": "Store A sells 3 pounds of apples for $8.07. Store B sells 5 pounds for $15.55. Diego needs 24 pounds. How much does he save by buying them all at the store with the lower unit price?",
+   "answer": "$10.08",
    "options": [
     {
-     "text": "$68.64",
-     "correct": false
-    },
-    {
-     "text": "$967.68",
-     "correct": false
-    },
-    {
-     "text": "$6.72",
+     "text": "$10.08",
      "correct": true
     },
     {
-     "text": "$67.20",
+     "text": "$24.00",
+     "correct": false
+    },
+    {
+     "text": "$5.00",
+     "correct": false
+    },
+    {
+     "text": "$15.55",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Divide: 80.64 ÷ 12.",
-    "= $6.72 per smoothie."
+    "Store A: $8.07 ÷ 3 = $2.69 per pound. Store B: $15.55 ÷ 5 = $3.11 per pound.",
+    "24 pounds cost $64.56 at A and $74.64 at B.",
+    "Savings: $10.08."
    ],
    "standards": [
     "6.RP.A.2",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_unit_rate). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “A pack of 12 fruit smoothies costs $80.64. What is the price per smoot”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s02-honors-005",
@@ -2444,36 +2447,36 @@
    "skillId": "ratios-rates-percent-proportions-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which is the better buy: 12 ounces for $14.58 or 16 ounces for $16.04?",
-   "answer": "16 ounces for $16.04",
+   "prompt": "Store A sells 4 pounds of apples for $9.64. Store B sells 6 pounds for $17.22. Nia needs 24 pounds. How much does she save by buying them all at the store with the lower unit price?",
+   "answer": "$11.04",
    "options": [
     {
-     "text": "12 ounces for $14.58",
+     "text": "$68.88",
      "correct": false
     },
     {
-     "text": "16 ounces for $16.04",
+     "text": "$11.04",
      "correct": true
     },
     {
-     "text": "They cost the same per ounce",
+     "text": "$17.22",
      "correct": false
     },
     {
-     "text": "Not enough information",
+     "text": "$24.00",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Unit prices: $1.215 per ounce and $1.003 per ounce.",
-    "The lower unit price is the better buy.",
-    "Better buy: 16 ounces for $16.04."
+    "Store A: $9.64 ÷ 4 = $2.41 per pound. Store B: $17.22 ÷ 6 = $2.87 per pound.",
+    "24 pounds cost $57.84 at A and $68.88 at B.",
+    "Savings: $11.04."
    ],
    "standards": [
     "6.RP.A.2",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_better). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Which is the better buy: 12 ounces for $14.58 or 16 ounces for $16.04?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s02-honors-007",
@@ -3265,52 +3268,52 @@
    "skillId": "ratios-rates-percent-proportions-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the missing number to make equivalent ratios: 1 : 11 = ? : 22",
+   "prompt": "A lemonade recipe uses 4 scoops of mix for every 3 cups of water. Eli has 12 cups of water and 18 scoops of mix. If Eli uses all of the water, how many scoops of mix are left over?",
    "answer": "2",
    "solutionSteps": [
-    "The known term was multiplied by 2.",
-    "Multiply the other term by 2.",
-    "Missing number: 2."
+    "12 cups of water is 12 ÷ 3 = 4 batches.",
+    "Scoops used: 4 × 4 = 16.",
+    "Left over: 18 − 16 = 2."
    ],
    "standards": [
     "6.RP.A.3a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_equiv). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Find the missing number to make equivalent ratios: 1 : 11 = ? : 22”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s03-cp1-002",
    "skillId": "ratios-rates-percent-proportions-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which table shows only ratios equivalent to 4 : 6? Table A: (16, 10), (24, 12), (28, 13). Table B: (16, 24), (24, 40), (28, 42). Table C: (16, 24), (24, 36), (28, 42). Table D: (8, 10), (10, 12), (11, 13).",
-   "answer": "Table C",
+   "prompt": "A lemonade recipe uses 2 scoops of mix for every 3 cups of water. Priya has 21 cups of water and 18 scoops of mix. If Priya uses all of the water, how many scoops of mix are left over?",
+   "answer": "4",
    "options": [
     {
-     "text": "Table A",
+     "text": "21",
      "correct": false
     },
     {
-     "text": "Table B",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "Table C",
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "4",
      "correct": true
-    },
-    {
-     "text": "Table D",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Equivalent ratios come from multiplying both parts by the same number.",
-    "Check each pair against 4 : 6.",
-    "Only Table C works."
+    "21 cups of water is 21 ÷ 3 = 7 batches.",
+    "Scoops used: 2 × 7 = 14.",
+    "Left over: 18 − 14 = 4."
    ],
    "standards": [
     "6.RP.A.3a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table_equiv). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Which table shows only ratios equivalent to 4 : 6? Table A: (16, 10), ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s03-cp1-003",
@@ -3341,70 +3344,70 @@
    "skillId": "ratios-rates-percent-proportions-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the missing number to make equivalent ratios: 1 : 6 = 5 : ?",
-   "answer": "30",
+   "prompt": "A lemonade recipe uses 4 scoops of mix for every 3 cups of water. Owen has 12 cups of water and 22 scoops of mix. If Owen uses all of the water, how many scoops of mix are left over?",
+   "answer": "6",
    "options": [
     {
-     "text": "35",
+     "text": "22",
      "correct": false
     },
     {
-     "text": "5",
+     "text": "4",
      "correct": false
     },
     {
-     "text": "30",
+     "text": "6",
      "correct": true
     },
     {
-     "text": "10",
+     "text": "12",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "The known term was multiplied by 5.",
-    "Multiply the other term by 5.",
-    "Missing number: 30."
+    "12 cups of water is 12 ÷ 3 = 4 batches.",
+    "Scoops used: 4 × 4 = 16.",
+    "Left over: 22 − 16 = 6."
    ],
    "standards": [
     "6.RP.A.3a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_equiv). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Find the missing number to make equivalent ratios: 1 : 6 = 5 : ?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s03-cp1-005",
    "skillId": "ratios-rates-percent-proportions-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which table shows only ratios equivalent to 1 : 7? Table A: (4, 28), (6, 43), (7, 49). Table B: (4, 11), (6, 13), (7, 14). Table C: (4, 28), (6, 42), (7, 49). Table D: (5, 11), (7, 13), (8, 14).",
-   "answer": "Table C",
+   "prompt": "A lemonade recipe uses 3 scoops of mix for every 2 cups of water. Zoe has 10 cups of water and 24 scoops of mix. If Zoe uses all of the water, how many scoops of mix are left over?",
+   "answer": "9",
    "options": [
     {
-     "text": "Table A",
-     "correct": false
-    },
-    {
-     "text": "Table B",
-     "correct": false
-    },
-    {
-     "text": "Table C",
+     "text": "9",
      "correct": true
     },
     {
-     "text": "Table D",
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Equivalent ratios come from multiplying both parts by the same number.",
-    "Check each pair against 1 : 7.",
-    "Only Table C works."
+    "10 cups of water is 10 ÷ 2 = 5 batches.",
+    "Scoops used: 3 × 5 = 15.",
+    "Left over: 24 − 15 = 9."
    ],
    "standards": [
     "6.RP.A.3a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table_equiv). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Which table shows only ratios equivalent to 1 : 7? Table A: (4, 28), (”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s03-cp1-006",
@@ -3453,17 +3456,17 @@
    "skillId": "ratios-rates-percent-proportions-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the missing number to make equivalent ratios: 11 : 8 = ? : 24",
-   "answer": "33",
+   "prompt": "A lemonade recipe uses 3 scoops of mix for every 2 cups of water. Kai has 12 cups of water and 22 scoops of mix. If Kai uses all of the water, how many scoops of mix are left over?",
+   "answer": "4",
    "solutionSteps": [
-    "The known term was multiplied by 3.",
-    "Multiply the other term by 3.",
-    "Missing number: 33."
+    "12 cups of water is 12 ÷ 2 = 6 batches.",
+    "Scoops used: 3 × 6 = 18.",
+    "Left over: 22 − 18 = 4."
    ],
    "standards": [
     "6.RP.A.3a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_equiv). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Find the missing number to make equivalent ratios: 11 : 8 = ? : 24”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s03-cp1-008",
@@ -3766,52 +3769,52 @@
    "skillId": "ratios-rates-percent-proportions-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the missing number to make equivalent ratios: 1 : 2 = ? : 18",
-   "answer": "9",
+   "prompt": "A punch recipe mixes 4 cups of juice with 5 cups of sparkling water. Eli has 20 cups of juice and uses it all, keeping the same ratio. How many cups of punch does he make?",
+   "answer": "45",
    "solutionSteps": [
-    "The known term was multiplied by 9.",
-    "Multiply the other term by 9.",
-    "Missing number: 9."
+    "Scale factor: 20 ÷ 4 = 5.",
+    "Sparkling water: 5 × 5 = 25 cups.",
+    "Punch: 20 + 25 = 45 cups."
    ],
    "standards": [
     "6.RP.A.3a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_equiv). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Find the missing number to make equivalent ratios: 1 : 2 = ? : 18”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s03-honors-002",
    "skillId": "ratios-rates-percent-proportions-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which table shows only ratios equivalent to 3 : 6? Table A: (5, 8), (9, 12), (11, 14). Table B: (6, 12), (18, 36), (24, 48). Table C: (6, 12), (18, 39), (24, 48). Table D: (6, 8), (18, 12), (24, 14).",
-   "answer": "Table B",
+   "prompt": "A punch recipe mixes 2 cups of juice with 3 cups of sparkling water. Priya has 18 cups of juice and uses it all, keeping the same ratio. How many cups of punch does she make?",
+   "answer": "45",
    "options": [
     {
-     "text": "Table A",
-     "correct": false
-    },
-    {
-     "text": "Table B",
+     "text": "45",
      "correct": true
     },
     {
-     "text": "Table C",
+     "text": "2",
      "correct": false
     },
     {
-     "text": "Table D",
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "18",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Equivalent ratios come from multiplying both parts by the same number.",
-    "Check each pair against 3 : 6.",
-    "Only Table B works."
+    "Scale factor: 18 ÷ 2 = 9.",
+    "Sparkling water: 3 × 9 = 27 cups.",
+    "Punch: 18 + 27 = 45 cups."
    ],
    "standards": [
     "6.RP.A.3a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table_equiv). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Which table shows only ratios equivalent to 3 : 6? Table A: (5, 8), (9”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s03-honors-003",
@@ -3842,70 +3845,70 @@
    "skillId": "ratios-rates-percent-proportions-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the missing number to make equivalent ratios: 2 : 4 = ? : 24",
-   "answer": "12",
+   "prompt": "A punch recipe mixes 3 cups of juice with 4 cups of sparkling water. Owen has 15 cups of juice and uses it all, keeping the same ratio. How many cups of punch does he make?",
+   "answer": "35",
    "options": [
     {
-     "text": "6",
+     "text": "15",
      "correct": false
     },
     {
-     "text": "22",
+     "text": "20",
      "correct": false
     },
     {
-     "text": "18",
-     "correct": false
-    },
-    {
-     "text": "12",
+     "text": "35",
      "correct": true
+    },
+    {
+     "text": "4",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "The known term was multiplied by 6.",
-    "Multiply the other term by 6.",
-    "Missing number: 12."
+    "Scale factor: 15 ÷ 3 = 5.",
+    "Sparkling water: 4 × 5 = 20 cups.",
+    "Punch: 15 + 20 = 35 cups."
    ],
    "standards": [
     "6.RP.A.3a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_equiv). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Find the missing number to make equivalent ratios: 2 : 4 = ? : 24”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s03-honors-005",
    "skillId": "ratios-rates-percent-proportions-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which table shows only ratios equivalent to 4 : 1? Table A: (8, 2), (24, 10), (32, 8). Table B: (8, 3), (24, 7), (32, 9). Table C: (6, 3), (10, 7), (12, 9). Table D: (8, 2), (24, 6), (32, 8).",
-   "answer": "Table D",
+   "prompt": "A punch recipe mixes 3 cups of juice with 5 cups of sparkling water. Zoe has 12 cups of juice and uses it all, keeping the same ratio. How many cups of punch does she make?",
+   "answer": "32",
    "options": [
     {
-     "text": "Table A",
-     "correct": false
-    },
-    {
-     "text": "Table B",
-     "correct": false
-    },
-    {
-     "text": "Table C",
-     "correct": false
-    },
-    {
-     "text": "Table D",
+     "text": "32",
      "correct": true
+    },
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "20",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Equivalent ratios come from multiplying both parts by the same number.",
-    "Check each pair against 4 : 1.",
-    "Only Table D works."
+    "Scale factor: 12 ÷ 3 = 4.",
+    "Sparkling water: 5 × 4 = 20 cups.",
+    "Punch: 12 + 20 = 32 cups."
    ],
    "standards": [
     "6.RP.A.3a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_table_equiv). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Which table shows only ratios equivalent to 4 : 1? Table A: (8, 2), (2”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s03-honors-006",
@@ -3954,17 +3957,17 @@
    "skillId": "ratios-rates-percent-proportions-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the missing number to make equivalent ratios: 2 : 8 = ? : 40",
-   "answer": "10",
+   "prompt": "A punch recipe mixes 4 cups of juice with 5 cups of sparkling water. Kai has 20 cups of juice and uses it all, keeping the same ratio. How many cups of punch does he make?",
+   "answer": "45",
    "solutionSteps": [
-    "The known term was multiplied by 5.",
-    "Multiply the other term by 5.",
-    "Missing number: 10."
+    "Scale factor: 20 ÷ 4 = 5.",
+    "Sparkling water: 5 × 5 = 25 cups.",
+    "Punch: 20 + 25 = 45 cups."
    ],
    "standards": [
     "6.RP.A.3a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_equiv). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Find the missing number to make equivalent ratios: 2 : 8 = ? : 40”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s03-honors-008",
@@ -4749,54 +4752,54 @@
    "skillId": "ratios-rates-percent-proportions-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which is the better buy: 12 ounces for $12.21 or 8 ounces for $8.36?",
-   "answer": "12 ounces for $12.21",
+   "prompt": "Store A sells 8 ounces of cereal for $1.20. Store B sells 16 ounces for $2.72. How many cents less per ounce is the better buy?",
+   "answer": "2",
    "options": [
     {
-     "text": "12 ounces for $12.21",
+     "text": "17",
+     "correct": false
+    },
+    {
+     "text": "2",
      "correct": true
     },
     {
-     "text": "8 ounces for $8.36",
+     "text": "2 18/25",
      "correct": false
     },
     {
-     "text": "They cost the same per ounce",
-     "correct": false
-    },
-    {
-     "text": "Not enough information",
+     "text": "16",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Unit prices: $1.018 per ounce and $1.045 per ounce.",
-    "The lower unit price is the better buy.",
-    "Better buy: 12 ounces for $12.21."
+    "Store A: $1.20 ÷ 8 = 15¢ per ounce.",
+    "Store B: $2.72 ÷ 16 = 17¢ per ounce.",
+    "Difference: 2¢ per ounce."
    ],
    "standards": [
     "6.RP.A.3a",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_betterc). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Which is the better buy: 12 ounces for $12.21 or 8 ounces for $8.36?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s04-cp1-003",
    "skillId": "ratios-rates-percent-proportions-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is the relationship proportional? x: 2, 6, 8, 9; y: 13, 37, 49, 55",
-   "answer": "No",
+   "prompt": "Store A sells 24 ounces of cereal for $6.24. Store B sells 20 ounces for $2.60. How many cents less per ounce is the better buy?",
+   "answer": "13",
    "solutionSteps": [
-    "Find y ÷ x for each pair.",
-    "13/2, 37/6, 49/8, 55/9.",
-    "Proportional only if every ratio is the same. They are not."
+    "Store A: $6.24 ÷ 24 = 26¢ per ounce.",
+    "Store B: $2.60 ÷ 20 = 13¢ per ounce.",
+    "Difference: 13¢ per ounce."
    ],
    "standards": [
     "6.RP.A.3a",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s10_is_prop). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Is the relationship proportional? x: 2, 6, 8, 9; y: 13, 37, 49, 55”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s04-cp1-004",
@@ -4821,54 +4824,54 @@
    "skillId": "ratios-rates-percent-proportions-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which is the better buy: 4 ounces for $1.91 or 16 ounces for $6.68?",
-   "answer": "16 ounces for $6.68",
+   "prompt": "Store A sells 8 ounces of cereal for $0.96. Store B sells 24 ounces for $3.36. How many cents less per ounce is the better buy?",
+   "answer": "2",
    "options": [
     {
-     "text": "4 ounces for $1.91",
-     "correct": false
-    },
-    {
-     "text": "16 ounces for $6.68",
+     "text": "2",
      "correct": true
     },
     {
-     "text": "They cost the same per ounce",
+     "text": "24/25",
      "correct": false
     },
     {
-     "text": "Not enough information",
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "3 9/25",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Unit prices: $0.478 per ounce and $0.418 per ounce.",
-    "The lower unit price is the better buy.",
-    "Better buy: 16 ounces for $6.68."
+    "Store A: $0.96 ÷ 8 = 12¢ per ounce.",
+    "Store B: $3.36 ÷ 24 = 14¢ per ounce.",
+    "Difference: 2¢ per ounce."
    ],
    "standards": [
     "6.RP.A.3a",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_betterc). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Which is the better buy: 4 ounces for $1.91 or 16 ounces for $6.68?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s04-cp1-006",
    "skillId": "ratios-rates-percent-proportions-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is the relationship proportional? x: 1, 5, 8, 9; y: 6, 30, 48, 54",
-   "answer": "Yes",
+   "prompt": "Store A sells 8 ounces of cereal for $2.56. Store B sells 10 ounces for $1.30. How many cents less per ounce is the better buy?",
+   "answer": "19",
    "solutionSteps": [
-    "Find y ÷ x for each pair.",
-    "6/1, 30/5, 48/8, 54/9.",
-    "Proportional only if every ratio is the same. They are."
+    "Store A: $2.56 ÷ 8 = 32¢ per ounce.",
+    "Store B: $1.30 ÷ 10 = 13¢ per ounce.",
+    "Difference: 19¢ per ounce."
    ],
    "standards": [
     "6.RP.A.3a",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s10_is_prop). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Is the relationship proportional? x: 1, 5, 8, 9; y: 6, 30, 48, 54”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s04-cp1-007",
@@ -4893,36 +4896,36 @@
    "skillId": "ratios-rates-percent-proportions-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Which is the better buy: 8 ounces for $4.88 or 16 ounces for $14.80?",
-   "answer": "8 ounces for $4.88",
+   "prompt": "Store A sells 24 ounces of cereal for $4.80. Store B sells 8 ounces for $1.68. How many cents less per ounce is the better buy?",
+   "answer": "1",
    "options": [
     {
-     "text": "8 ounces for $4.88",
+     "text": "24",
+     "correct": false
+    },
+    {
+     "text": "21",
+     "correct": false
+    },
+    {
+     "text": "20",
+     "correct": false
+    },
+    {
+     "text": "1",
      "correct": true
-    },
-    {
-     "text": "16 ounces for $14.80",
-     "correct": false
-    },
-    {
-     "text": "They cost the same per ounce",
-     "correct": false
-    },
-    {
-     "text": "Not enough information",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Unit prices: $0.610 per ounce and $0.925 per ounce.",
-    "The lower unit price is the better buy.",
-    "Better buy: 8 ounces for $4.88."
+    "Store A: $4.80 ÷ 24 = 20¢ per ounce.",
+    "Store B: $1.68 ÷ 8 = 21¢ per ounce.",
+    "Difference: 1¢ per ounce."
    ],
    "standards": [
     "6.RP.A.3a",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_betterc). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Which is the better buy: 8 ounces for $4.88 or 16 ounces for $14.80?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s04-cp1-009",
@@ -5148,126 +5151,126 @@
    "skillId": "ratios-rates-percent-proportions-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Mix A uses 6 cups of blue paint for every 9 cups of white paint. Mix B uses 4 cups of blue paint for every 4 cups of white paint. Which mix is bluer?",
-   "answer": "Mix B",
+   "prompt": "Mix A uses 3 cups of blue paint for every 4 cups of white. Mix B has 10 cups of blue and 16 cups of white. How many cups of blue paint must be added to Mix B so it is the same shade as Mix A?",
+   "answer": "2",
    "solutionSteps": [
-    "Compare blue paint to white paint: 6/9 and 4/4.",
-    "Use a common denominator or unit rates: 0.667 and 1.000.",
-    "Mix B has more blue paint per cup of white paint."
+    "Mix A: 3/4 cup of blue per cup of white.",
+    "For 16 cups of white, Mix A uses 16 × 3/4 = 12 cups of blue.",
+    "Add 12 − 10 = 2 cups."
    ],
    "standards": [
     "6.RP.A.3a",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Mix A uses 6 cups of blue paint for every 9 cups of white paint. Mix B”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s04-honors-002",
    "skillId": "ratios-rates-percent-proportions-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which is the better buy: 10 ounces for $6.25 or 18 ounces for $10.35?",
-   "answer": "18 ounces for $10.35",
+   "prompt": "Mix A uses 2 cups of blue paint for every 3 cups of white. Mix B has 3 cups of blue and 6 cups of white. How many cups of blue paint must be added to Mix B so it is the same shade as Mix A?",
+   "answer": "1",
    "options": [
     {
-     "text": "10 ounces for $6.25",
+     "text": "2/3",
      "correct": false
     },
     {
-     "text": "18 ounces for $10.35",
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "1",
      "correct": true
     },
     {
-     "text": "They cost the same per ounce",
-     "correct": false
-    },
-    {
-     "text": "Not enough information",
+     "text": "6",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Unit prices: $0.625 per ounce and $0.575 per ounce.",
-    "The lower unit price is the better buy.",
-    "Better buy: 18 ounces for $10.35."
+    "Mix A: 2/3 cup of blue per cup of white.",
+    "For 6 cups of white, Mix A uses 6 × 2/3 = 4 cups of blue.",
+    "Add 4 − 3 = 1 cups."
    ],
    "standards": [
     "6.RP.A.3a",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_betterc). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Which is the better buy: 10 ounces for $6.25 or 18 ounces for $10.35?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s04-honors-003",
    "skillId": "ratios-rates-percent-proportions-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Is the relationship proportional? x: 3, 5, 6, 8; y: 12, 20, 24, 32",
-   "answer": "Yes",
+   "prompt": "Mix A uses 2 cups of blue paint for every 5 cups of white. Mix B has 6 cups of blue and 20 cups of white. How many cups of blue paint must be added to Mix B so it is the same shade as Mix A?",
+   "answer": "2",
    "solutionSteps": [
-    "Find y ÷ x for each pair.",
-    "12/3, 20/5, 24/6, 32/8.",
-    "Proportional only if every ratio is the same. They are."
+    "Mix A: 2/5 cup of blue per cup of white.",
+    "For 20 cups of white, Mix A uses 20 × 2/5 = 8 cups of blue.",
+    "Add 8 − 6 = 2 cups."
    ],
    "standards": [
     "6.RP.A.3a",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s10_is_prop). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Is the relationship proportional? x: 3, 5, 6, 8; y: 12, 20, 24, 32”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s04-honors-004",
    "skillId": "ratios-rates-percent-proportions-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Mix A uses 3 cups of blue paint for every 7 cups of white paint. Mix B uses 2 cups of blue paint for every 5 cups of white paint. Which mix is bluer?",
-   "answer": "Mix A",
+   "prompt": "Mix A uses 3 cups of blue paint for every 5 cups of white. Mix B has 3 cups of blue and 10 cups of white. How many cups of blue paint must be added to Mix B so it is the same shade as Mix A?",
+   "answer": "3",
    "solutionSteps": [
-    "Compare blue paint to white paint: 3/7 and 2/5.",
-    "Use a common denominator or unit rates: 0.429 and 0.400.",
-    "Mix A has more blue paint per cup of white paint."
+    "Mix A: 3/5 cup of blue per cup of white.",
+    "For 10 cups of white, Mix A uses 10 × 3/5 = 6 cups of blue.",
+    "Add 6 − 3 = 3 cups."
    ],
    "standards": [
     "6.RP.A.3a",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Mix A uses 3 cups of blue paint for every 7 cups of white paint. Mix B”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s04-honors-005",
    "skillId": "ratios-rates-percent-proportions-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which is the better buy: 12 ounces for $8.10 or 18 ounces for $20.43?",
-   "answer": "12 ounces for $8.10",
+   "prompt": "Mix A uses 3 cups of blue paint for every 5 cups of white. Mix B has 8 cups of blue and 15 cups of white. How many cups of blue paint must be added to Mix B so it is the same shade as Mix A?",
+   "answer": "1",
    "options": [
     {
-     "text": "12 ounces for $8.10",
+     "text": "1",
      "correct": true
     },
     {
-     "text": "18 ounces for $20.43",
+     "text": "15",
      "correct": false
     },
     {
-     "text": "They cost the same per ounce",
+     "text": "9",
      "correct": false
     },
     {
-     "text": "Not enough information",
+     "text": "3/5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Unit prices: $0.675 per ounce and $1.135 per ounce.",
-    "The lower unit price is the better buy.",
-    "Better buy: 12 ounces for $8.10."
+    "Mix A: 3/5 cup of blue per cup of white.",
+    "For 15 cups of white, Mix A uses 15 × 3/5 = 9 cups of blue.",
+    "Add 9 − 8 = 1 cups."
    ],
    "standards": [
     "6.RP.A.3a",
     "6.RP.A.3b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s1_betterc). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Which is the better buy: 12 ounces for $8.10 or 18 ounces for $20.43?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s04-honors-006",
@@ -6049,54 +6052,50 @@
    "skillId": "ratios-rates-percent-proportions-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A recipe uses 7 cups of flour for 10 muffins. How many cups are needed for 110 muffins?",
-   "answer": "77 cups",
+   "prompt": "On a map, 2 inches represent 30 miles. Two towns are 8 inches apart on the map. A car drives between them at 40 miles per hour. How many hours does the trip take?",
+   "answer": "3",
    "options": [
     {
-     "text": "7/11 cups",
+     "text": "1/15",
      "correct": false
     },
     {
-     "text": "77 cups",
+     "text": "3",
      "correct": true
     },
     {
-     "text": "117 cups",
+     "text": "8",
      "correct": false
     },
     {
-     "text": "84 cups",
+     "text": "40",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Set up a proportion: 7/10 = c/110.",
-    "Find the scale factor or use cross products.",
-    "c = 77.",
-    "Answer: 77 cups."
+    "Set up the proportion 2/30 = 8/d, so d = 8 × 30 ÷ 2 = 120 miles.",
+    "Time: 120 ÷ 40 = 3 hours."
    ],
    "standards": [
     "6.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “A recipe uses 7 cups of flour for 10 muffins. How many cups are needed”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s05-cp1-003",
    "skillId": "ratios-rates-percent-proportions-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Do the ratios 7/4 and 21/12 form a proportion?",
-   "answer": "Yes",
+   "prompt": "On a map, 2 inches represent 30 miles. Two towns are 15 inches apart on the map. A car drives between them at 45 miles per hour. How many hours does the trip take?",
+   "answer": "5",
    "solutionSteps": [
-    "Cross products: 7 × 12 = 84 and 4 × 21 = 84.",
-    "They are equal.",
-    "Yes"
+    "Set up the proportion 2/30 = 15/d, so d = 15 × 30 ÷ 2 = 225 miles.",
+    "Time: 225 ÷ 45 = 5 hours."
    ],
    "standards": [
-    "6.RP.A.3",
-    "7.RP.A.2a"
+    "6.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_is_prop). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Do the ratios 7/4 and 21/12 form a proportion?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s05-cp1-004",
@@ -6121,54 +6120,50 @@
    "skillId": "ratios-rates-percent-proportions-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A recipe uses 2 cups of flour for 6 muffins. How many cups are needed for 18 muffins?",
-   "answer": "6 cups",
+   "prompt": "On a map, 1 inch represents 15 miles. Two towns are 15 inches apart on the map. A car drives between them at 45 miles per hour. How many hours does the trip take?",
+   "answer": "5",
    "options": [
     {
-     "text": "6 cups",
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "1/15",
+     "correct": false
+    },
+    {
+     "text": "5",
      "correct": true
     },
     {
-     "text": "20 cups",
-     "correct": false
-    },
-    {
-     "text": "8 cups",
-     "correct": false
-    },
-    {
-     "text": "2/3 cups",
+     "text": "225",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Set up a proportion: 2/6 = c/18.",
-    "Find the scale factor or use cross products.",
-    "c = 6.",
-    "Answer: 6 cups."
+    "Set up the proportion 1/15 = 15/d, so d = 15 × 15 ÷ 1 = 225 miles.",
+    "Time: 225 ÷ 45 = 5 hours."
    ],
    "standards": [
     "6.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “A recipe uses 2 cups of flour for 6 muffins. How many cups are needed ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s05-cp1-006",
    "skillId": "ratios-rates-percent-proportions-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Do the ratios 4/12 and 24/71 form a proportion?",
-   "answer": "No",
+   "prompt": "On a map, 3 inches represent 40 miles. Two towns are 30 inches apart on the map. A car drives between them at 50 miles per hour. How many hours does the trip take?",
+   "answer": "8",
    "solutionSteps": [
-    "Cross products: 4 × 71 = 284 and 12 × 24 = 288.",
-    "They are not equal.",
-    "No"
+    "Set up the proportion 3/40 = 30/d, so d = 30 × 40 ÷ 3 = 400 miles.",
+    "Time: 400 ÷ 50 = 8 hours."
    ],
    "standards": [
-    "6.RP.A.3",
-    "7.RP.A.2a"
+    "6.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_is_prop). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Do the ratios 4/12 and 24/71 form a proportion?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s05-cp1-007",
@@ -6211,36 +6206,34 @@
    "skillId": "ratios-rates-percent-proportions-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A boat uses 8 gallons of gas to go 20 miles. How many gallons does it need to go 220 miles?",
-   "answer": "88 gallons",
+   "prompt": "On a map, 3 inches represent 40 miles. Two towns are 27 inches apart on the map. A car drives between them at 45 miles per hour. How many hours does the trip take?",
+   "answer": "8",
    "options": [
     {
-     "text": "96 gallons",
-     "correct": false
-    },
-    {
-     "text": "88 gallons",
+     "text": "8",
      "correct": true
     },
     {
-     "text": "8/11 gallons",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "30 gallons",
+     "text": "360",
+     "correct": false
+    },
+    {
+     "text": "40",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Set up a proportion: 8/20 = g/220.",
-    "Find the scale factor or use cross products.",
-    "g = 88.",
-    "Answer: 88 gallons."
+    "Set up the proportion 3/40 = 27/d, so d = 27 × 40 ÷ 3 = 360 miles.",
+    "Time: 360 ÷ 45 = 8 hours."
    ],
    "standards": [
     "6.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “A boat uses 8 gallons of gas to go 20 miles. How many gallons does it ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s05-cp1-009",
@@ -6467,126 +6460,121 @@
    "skillId": "ratios-rates-percent-proportions-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "On a map, 6 cm represents 5 km. How many km do 72 cm represent?",
-   "answer": "60 km",
+   "prompt": "On a map, 1 cm represents 5 km. A road goes 5 cm from Ashby to Bell and then 7 cm from Bell to Carver. A bus averages 50 km per hour. How many hours does the trip from Ashby to Carver take?",
+   "answer": "1 1/5",
    "options": [
     {
-     "text": "5/12 km",
+     "text": "7",
      "correct": false
     },
     {
-     "text": "72 km",
-     "correct": false
-    },
-    {
-     "text": "66 km",
-     "correct": false
-    },
-    {
-     "text": "60 km",
+     "text": "1 1/5",
      "correct": true
+    },
+    {
+     "text": "50",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Set up a proportion: 6/5 = 72/d.",
-    "Find the scale factor or use cross products.",
-    "d = 60.",
-    "Answer: 60 km."
+    "Map distance: 5 + 7 = 12 cm.",
+    "Actual distance: 12 × 5 = 60 km.",
+    "Time: 60 ÷ 50 = 1 1/5 hours."
    ],
    "standards": [
     "6.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “On a map, 6 cm represents 5 km. How many km do 72 cm represent?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s05-honors-003",
    "skillId": "ratios-rates-percent-proportions-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Do the ratios 5/7 and 25/35 form a proportion?",
-   "answer": "Yes",
+   "prompt": "On a map, 1 cm represents 10 km. A road goes 6 cm from Ashby to Bell and then 4 cm from Bell to Carver. A bus averages 50 km per hour. How many hours does the trip from Ashby to Carver take?",
+   "answer": "2",
    "solutionSteps": [
-    "Cross products: 5 × 35 = 175 and 7 × 25 = 175.",
-    "They are equal.",
-    "Yes"
+    "Map distance: 6 + 4 = 10 cm.",
+    "Actual distance: 10 × 10 = 100 km.",
+    "Time: 100 ÷ 50 = 2 hours."
    ],
    "standards": [
-    "6.RP.A.3",
-    "7.RP.A.2a"
+    "6.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_is_prop). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Do the ratios 5/7 and 25/35 form a proportion?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s05-honors-004",
    "skillId": "ratios-rates-percent-proportions-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve the proportion: 9/7 = n/49",
-   "answer": "n = 63",
+   "prompt": "On a map, 1 cm represents 5 km. A road goes 8 cm from Ashby to Bell and then 7 cm from Bell to Carver. A bus averages 40 km per hour. How many hours does the trip from Ashby to Carver take?",
+   "answer": "1 7/8",
    "solutionSteps": [
-    "Use cross products (or find the scale factor).",
-    "Cross products are equal.",
-    "Solve for n: n = 63.",
-    "Check: the cross products match."
+    "Map distance: 8 + 7 = 15 cm.",
+    "Actual distance: 15 × 5 = 75 km.",
+    "Time: 75 ÷ 40 = 1 7/8 hours."
    ],
    "standards": [
     "6.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Solve the proportion: 9/7 = n/49”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s05-honors-005",
    "skillId": "ratios-rates-percent-proportions-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A boat uses 7 gallons of gas to go 30 miles. How many gallons does it need to go 120 miles?",
-   "answer": "28 gallons",
+   "prompt": "On a map, 1 cm represents 10 km. A road goes 9 cm from Ashby to Bell and then 8 cm from Bell to Carver. A bus averages 60 km per hour. How many hours does the trip from Ashby to Carver take?",
+   "answer": "2 5/6",
    "options": [
     {
-     "text": "35 gallons",
-     "correct": false
-    },
-    {
-     "text": "7/4 gallons",
-     "correct": false
-    },
-    {
-     "text": "28 gallons",
+     "text": "2 5/6",
      "correct": true
     },
     {
-     "text": "19 gallons",
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "17",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Set up a proportion: 7/30 = g/120.",
-    "Find the scale factor or use cross products.",
-    "g = 28.",
-    "Answer: 28 gallons."
+    "Map distance: 9 + 8 = 17 cm.",
+    "Actual distance: 17 × 10 = 170 km.",
+    "Time: 170 ÷ 60 = 2 5/6 hours."
    ],
    "standards": [
     "6.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “A boat uses 7 gallons of gas to go 30 miles. How many gallons does it ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s05-honors-006",
    "skillId": "ratios-rates-percent-proportions-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Do the ratios 8/8 and 16/16 form a proportion?",
-   "answer": "Yes",
+   "prompt": "On a map, 1 cm represents 5 km. A road goes 7 cm from Ashby to Bell and then 3 cm from Bell to Carver. A bus averages 60 km per hour. How many hours does the trip from Ashby to Carver take?",
+   "answer": "5/6",
    "solutionSteps": [
-    "Cross products: 8 × 16 = 128 and 8 × 16 = 128.",
-    "They are equal.",
-    "Yes"
+    "Map distance: 7 + 3 = 10 cm.",
+    "Actual distance: 10 × 5 = 50 km.",
+    "Time: 50 ÷ 60 = 5/6 hours."
    ],
    "standards": [
-    "6.RP.A.3",
-    "7.RP.A.2a"
+    "6.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s2_is_prop). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Do the ratios 8/8 and 16/16 form a proportion?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s05-honors-007",
@@ -7424,51 +7412,50 @@
    "skillId": "ratios-rates-percent-proportions-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "30% of the students in a school ride the bus. If there are 300 in all, how many is that?",
-   "answer": "90",
+   "prompt": "15% of the 420 students at a school ride the bus. How many students do not ride the bus?",
+   "answer": "357",
    "options": [
     {
-     "text": "30",
+     "text": "420",
      "correct": false
     },
     {
-     "text": "90",
+     "text": "357",
      "correct": true
     },
     {
-     "text": "900",
+     "text": "15",
      "correct": false
     },
     {
-     "text": "210",
+     "text": "63",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "30% = 30 per 100.",
-    "30/100 × 300 = 90."
+    "Riders: 15% of 420 = 15/100 × 420 = 63.",
+    "Not riding: 420 − 63 = 357."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_rate100). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “30% of the students in a school ride the bus. If there are 300 in all,”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s06-cp1-003",
    "skillId": "ratios-rates-percent-proportions-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "What is 50% of 100?",
-   "answer": "50",
+   "prompt": "30% of the 680 students at a school ride the bus. How many students do not ride the bus?",
+   "answer": "476",
    "solutionSteps": [
-    "Write a proportion: 50/100 = n/100.",
-    "n = 50 × 100 ÷ 100.",
-    "n = 50."
+    "Riders: 30% of 680 = 30/100 × 680 = 204.",
+    "Not riding: 680 − 204 = 476."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s6_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “What is 50% of 100?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s06-cp1-004",
@@ -7532,35 +7519,34 @@
    "skillId": "ratios-rates-percent-proportions-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "What is 75% of 44?",
-   "answer": "33",
+   "prompt": "45% of the 780 students at a school ride the bus. How many students do not ride the bus?",
+   "answer": "429",
    "options": [
     {
-     "text": "33",
+     "text": "45",
+     "correct": false
+    },
+    {
+     "text": "429",
      "correct": true
     },
     {
-     "text": "3300",
+     "text": "9/20",
      "correct": false
     },
     {
-     "text": "330",
-     "correct": false
-    },
-    {
-     "text": "34",
+     "text": "780",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Write a proportion: 75/100 = n/44.",
-    "n = 75 × 44 ÷ 100.",
-    "n = 33."
+    "Riders: 45% of 780 = 45/100 × 780 = 351.",
+    "Not riding: 780 − 351 = 429."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s6_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “What is 75% of 44?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s06-cp1-007",
@@ -7590,51 +7576,50 @@
    "skillId": "ratios-rates-percent-proportions-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "55% of the students in a school ride the bus. If there are 20 in all, how many is that?",
-   "answer": "11",
+   "prompt": "45% of the 260 students at a school ride the bus. How many students do not ride the bus?",
+   "answer": "143",
    "options": [
     {
-     "text": "11",
+     "text": "45",
+     "correct": false
+    },
+    {
+     "text": "143",
      "correct": true
     },
     {
-     "text": "55",
+     "text": "117",
      "correct": false
     },
     {
-     "text": "110",
-     "correct": false
-    },
-    {
-     "text": "9",
+     "text": "260",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "55% = 55 per 100.",
-    "55/100 × 20 = 11."
+    "Riders: 45% of 260 = 45/100 × 260 = 117.",
+    "Not riding: 260 − 117 = 143."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_rate100). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “55% of the students in a school ride the bus. If there are 20 in all, ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s06-cp1-009",
    "skillId": "ratios-rates-percent-proportions-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "What is 10% of 420?",
-   "answer": "42",
+   "prompt": "60% of the 220 students at a school ride the bus. How many students do not ride the bus?",
+   "answer": "88",
    "solutionSteps": [
-    "Write a proportion: 10/100 = n/420.",
-    "n = 10 × 420 ÷ 100.",
-    "n = 42."
+    "Riders: 60% of 220 = 60/100 × 220 = 132.",
+    "Not riding: 220 − 132 = 88."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s6_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “What is 10% of 420?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s06-cp1-010",
@@ -7934,51 +7919,52 @@
    "skillId": "ratios-rates-percent-proportions-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "6% of the seats in a theater are filled. If there are 200 in all, how many is that?",
-   "answer": "12",
+   "prompt": "A school has 640 students. 45% ride the bus. Of the students who do not ride the bus, 75% walk. How many students walk?",
+   "answer": "264",
    "options": [
     {
-     "text": "12",
+     "text": "640",
+     "correct": false
+    },
+    {
+     "text": "264",
      "correct": true
     },
     {
-     "text": "188",
+     "text": "288",
      "correct": false
     },
     {
-     "text": "120",
-     "correct": false
-    },
-    {
-     "text": "6",
+     "text": "352",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "6% = 6 per 100.",
-    "6/100 × 200 = 12."
+    "Bus riders: 45% of 640 = 288.",
+    "Not on the bus: 640 − 288 = 352.",
+    "Walkers: 75% of 352 = 264."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_rate100). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “6% of the seats in a theater are filled. If there are 200 in all, how ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s06-honors-003",
    "skillId": "ratios-rates-percent-proportions-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "What is 50% of 60?",
-   "answer": "30",
+   "prompt": "A school has 640 students. 45% ride the bus. Of the students who do not ride the bus, 50% walk. How many students walk?",
+   "answer": "176",
    "solutionSteps": [
-    "Write a proportion: 50/100 = n/60.",
-    "n = 50 × 60 ÷ 100.",
-    "n = 30."
+    "Bus riders: 45% of 640 = 288.",
+    "Not on the bus: 640 − 288 = 352.",
+    "Walkers: 50% of 352 = 176."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s6_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “What is 50% of 60?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s06-honors-004",
@@ -8026,51 +8012,52 @@
    "skillId": "ratios-rates-percent-proportions-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "83% of the students in a school ride the bus. If there are 200 in all, how many is that?",
-   "answer": "166",
+   "prompt": "A school has 440 students. 40% ride the bus. Of the students who do not ride the bus, 25% walk. How many students walk?",
+   "answer": "66",
    "solutionSteps": [
-    "83% = 83 per 100.",
-    "83/100 × 200 = 166."
+    "Bus riders: 40% of 440 = 176.",
+    "Not on the bus: 440 − 176 = 264.",
+    "Walkers: 25% of 264 = 66."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_rate100). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “83% of the students in a school ride the bus. If there are 200 in all,”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s06-honors-006",
    "skillId": "ratios-rates-percent-proportions-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "What is 75% of 200?",
-   "answer": "150",
+   "prompt": "A school has 400 students. 25% ride the bus. Of the students who do not ride the bus, 25% walk. How many students walk?",
+   "answer": "75",
    "options": [
     {
-     "text": "1500",
+     "text": "300",
      "correct": false
     },
     {
-     "text": "15000",
+     "text": "100",
      "correct": false
     },
     {
-     "text": "150",
+     "text": "75",
      "correct": true
     },
     {
-     "text": "151",
+     "text": "400",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Write a proportion: 75/100 = n/200.",
-    "n = 75 × 200 ÷ 100.",
-    "n = 150."
+    "Bus riders: 25% of 400 = 100.",
+    "Not on the bus: 400 − 100 = 300.",
+    "Walkers: 25% of 300 = 75."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s6_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “What is 75% of 200?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s06-honors-007",
@@ -8100,34 +8087,35 @@
    "skillId": "ratios-rates-percent-proportions-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "99% of the students in a school ride the bus. If there are 300 in all, how many is that?",
-   "answer": "297",
+   "prompt": "A school has 640 students. 25% ride the bus. Of the students who do not ride the bus, 75% walk. How many students walk?",
+   "answer": "360",
    "options": [
     {
-     "text": "297",
+     "text": "480",
+     "correct": false
+    },
+    {
+     "text": "360",
      "correct": true
     },
     {
-     "text": "3",
+     "text": "160",
      "correct": false
     },
     {
-     "text": "99",
-     "correct": false
-    },
-    {
-     "text": "2970",
+     "text": "25",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "99% = 99 per 100.",
-    "99/100 × 300 = 297."
+    "Bus riders: 25% of 640 = 160.",
+    "Not on the bus: 640 − 160 = 480.",
+    "Walkers: 75% of 480 = 360."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_rate100). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “99% of the students in a school ride the bus. If there are 300 in all,”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s06-honors-009",
@@ -8870,17 +8858,16 @@
    "skillId": "ratios-rates-percent-proportions-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write 3/8 as a percent.",
-   "answer": "37.5%",
+   "prompt": "In a class survey, 6 out of 20 students chose pizza as their favorite lunch. What percent of the students did not choose pizza?",
+   "answer": "70%",
    "solutionSteps": [
-    "Make the denominator 100, or divide: 3 ÷ 8 = 0.375.",
-    "Multiply by 100 and write %.",
-    "3/8 = 37.5%."
+    "6/20 = 30/100 = 30%.",
+    "Not pizza: 100% − 30% = 70%."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_to_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Write 3/8 as a percent.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s07-cp1-002",
@@ -8956,15 +8943,15 @@
    "skillId": "ratios-rates-percent-proportions-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Write 12/25 as a percent.",
-   "answer": "48%",
+   "prompt": "In a class survey, 3 out of 25 students chose pizza as their favorite lunch. What percent of the students did not choose pizza?",
+   "answer": "88%",
    "options": [
     {
-     "text": "208.3%",
+     "text": "3/25%",
      "correct": false
     },
     {
-     "text": "48%",
+     "text": "88%",
      "correct": true
     },
     {
@@ -8972,19 +8959,18 @@
      "correct": false
     },
     {
-     "text": "25%",
+     "text": "100%",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Make the denominator 100, or divide: 12 ÷ 25 = 0.48.",
-    "Multiply by 100 and write %.",
-    "12/25 = 48%."
+    "3/25 = 12/100 = 12%.",
+    "Not pizza: 100% − 12% = 88%."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_to_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Write 12/25 as a percent.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s07-cp1-005",
@@ -9042,17 +9028,16 @@
    "skillId": "ratios-rates-percent-proportions-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write 1/5 as a percent.",
+   "prompt": "In a class survey, 4 out of 5 students chose pizza as their favorite lunch. What percent of the students did not choose pizza?",
    "answer": "20%",
    "solutionSteps": [
-    "Make the denominator 100, or divide: 1 ÷ 5 = 0.2.",
-    "Multiply by 100 and write %.",
-    "1/5 = 20%."
+    "4/5 = 80/100 = 80%.",
+    "Not pizza: 100% − 80% = 20%."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_to_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Write 1/5 as a percent.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s07-cp1-008",
@@ -9110,35 +9095,34 @@
    "skillId": "ratios-rates-percent-proportions-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Write 7/20 as a percent.",
-   "answer": "35%",
+   "prompt": "In a class survey, 1 out of 25 students chose pizza as their favorite lunch. What percent of the students did not choose pizza?",
+   "answer": "96%",
    "options": [
     {
-     "text": "7%",
+     "text": "4%",
      "correct": false
     },
     {
-     "text": "35%",
+     "text": "1/25%",
+     "correct": false
+    },
+    {
+     "text": "96%",
      "correct": true
     },
     {
-     "text": "20%",
-     "correct": false
-    },
-    {
-     "text": "285.7%",
+     "text": "100%",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Make the denominator 100, or divide: 7 ÷ 20 = 0.35.",
-    "Multiply by 100 and write %.",
-    "7/20 = 35%."
+    "1/25 = 4/100 = 4%.",
+    "Not pizza: 100% − 4% = 96%."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_to_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Write 7/20 as a percent.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s07-cp1-011",
@@ -9161,17 +9145,16 @@
    "skillId": "ratios-rates-percent-proportions-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write 15/20 as a percent.",
-   "answer": "75%",
+   "prompt": "In a class survey, 4 out of 10 students chose pizza as their favorite lunch. What percent of the students did not choose pizza?",
+   "answer": "60%",
    "solutionSteps": [
-    "Make the denominator 100, or divide: 15 ÷ 20 = 0.75.",
-    "Multiply by 100 and write %.",
-    "15/20 = 75%."
+    "4/10 = 40/100 = 40%.",
+    "Not pizza: 100% − 40% = 60%."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_to_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “Write 15/20 as a percent.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s07-cp1-013",
@@ -9283,17 +9266,17 @@
    "skillId": "ratios-rates-percent-proportions-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write 19/40 as a percent.",
-   "answer": "47.5%",
+   "prompt": "A team won 14 of its first 16 games and 18 of its last 24 games. What percent of all its games did the team win?",
+   "answer": "80%",
    "solutionSteps": [
-    "Make the denominator 100, or divide: 19 ÷ 40 = 0.475.",
-    "Multiply by 100 and write %.",
-    "19/40 = 47.5%."
+    "Games won: 14 + 18 = 32. Games played: 16 + 24 = 40.",
+    "32/40 = 0.8.",
+    "80%."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_to_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Write 19/40 as a percent.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s07-honors-002",
@@ -9334,70 +9317,70 @@
    "skillId": "ratios-rates-percent-proportions-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which value is greatest?",
+   "prompt": "A team won 12 of its first 14 games and 3 of its last 6 games. What percent of all its games did the team win?",
    "answer": "75%",
    "options": [
+    {
+     "text": "14%",
+     "correct": false
+    },
+    {
+     "text": "6%",
+     "correct": false
+    },
     {
      "text": "75%",
      "correct": true
     },
     {
-     "text": "1/4",
-     "correct": false
-    },
-    {
-     "text": "2/5",
-     "correct": false
-    },
-    {
-     "text": "0.3",
+     "text": "3%",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Convert each to a decimal.",
-    "75% = 0.75, 1/4 = 0.25, 2/5 = 0.4, 0.3 = 0.3.",
-    "Greatest: 75%."
+    "Games won: 12 + 3 = 15. Games played: 14 + 6 = 20.",
+    "15/20 = 0.75.",
+    "75%."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s5_greatest). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Which value is greatest?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s07-honors-004",
    "skillId": "ratios-rates-percent-proportions-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Write 79/80 as a percent.",
-   "answer": "98.75%",
+   "prompt": "A team won 7 of its first 16 games and 5 of its last 24 games. What percent of all its games did the team win?",
+   "answer": "30%",
    "options": [
     {
-     "text": "101.3%",
+     "text": "5%",
      "correct": false
     },
     {
-     "text": "80%",
+     "text": "12%",
      "correct": false
     },
     {
-     "text": "79%",
+     "text": "7%",
      "correct": false
     },
     {
-     "text": "98.75%",
+     "text": "30%",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Make the denominator 100, or divide: 79 ÷ 80 = 0.9875.",
-    "Multiply by 100 and write %.",
-    "79/80 = 98.75%."
+    "Games won: 7 + 5 = 12. Games played: 16 + 24 = 40.",
+    "12/40 = 0.3.",
+    "30%."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_to_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Write 79/80 as a percent.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s07-honors-005",
@@ -9420,35 +9403,35 @@
    "skillId": "ratios-rates-percent-proportions-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which value is greatest?",
-   "answer": "3/4",
+   "prompt": "A team won 4 of its first 12 games and 5 of its last 8 games. What percent of all its games did the team win?",
+   "answer": "45%",
    "options": [
     {
-     "text": "65%",
+     "text": "9/20%",
      "correct": false
     },
     {
-     "text": "7/10",
+     "text": "4%",
      "correct": false
     },
     {
-     "text": "0.2",
+     "text": "12%",
      "correct": false
     },
     {
-     "text": "3/4",
+     "text": "45%",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Convert each to a decimal.",
-    "65% = 0.65, 7/10 = 0.7, 0.2 = 0.2, 3/4 = 0.75.",
-    "Greatest: 3/4."
+    "Games won: 4 + 5 = 9. Games played: 12 + 8 = 20.",
+    "9/20 = 0.45.",
+    "45%."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s5_greatest). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Which value is greatest?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s07-honors-007",
@@ -9488,35 +9471,35 @@
    "skillId": "ratios-rates-percent-proportions-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which value is greatest?",
-   "answer": "75%",
+   "prompt": "A team won 6 of its first 12 games and 4 of its last 8 games. What percent of all its games did the team win?",
+   "answer": "50%",
    "options": [
     {
-     "text": "3/5",
+     "text": "10%",
      "correct": false
     },
     {
-     "text": "3/10",
+     "text": "12%",
      "correct": false
     },
     {
-     "text": "0.2",
+     "text": "6%",
      "correct": false
     },
     {
-     "text": "75%",
+     "text": "50%",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Convert each to a decimal.",
-    "3/5 = 0.6, 3/10 = 0.3, 0.2 = 0.2, 75% = 0.75.",
-    "Greatest: 75%."
+    "Games won: 6 + 4 = 10. Games played: 12 + 8 = 20.",
+    "10/20 = 0.5.",
+    "50%."
    ],
    "standards": [
     "6.RP.A.3c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s5_greatest). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Which value is greatest?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s07-honors-010",
@@ -10214,17 +10197,16 @@
    "skillId": "ratios-rates-percent-proportions-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "How many 1-cup servings are in 5 gallons of juice?",
-   "answer": "80 servings",
+   "prompt": "A ribbon is 10 feet long. Zoe cuts it into pieces that are each 8 inches long. How many pieces does Zoe get?",
+   "answer": "15",
    "solutionSteps": [
-    "1 gallon = 16 cups, so 5 gallons = 80 cups.",
-    "80 ÷ 1 = 80.",
-    "80 servings."
+    "Convert to inches: 10 × 12 = 120 inches.",
+    "Pieces: 120 ÷ 8 = 15."
    ],
    "standards": [
     "6.RP.A.3d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s5_multi). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_cp1_added_step_rrp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Standard item that reused a Support template (was: “How many 1-cup servings are in 5 gallons of juice?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s08-cp1-005",
@@ -10613,35 +10595,34 @@
    "skillId": "ratios-rates-percent-proportions-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Convert 8.17 liters to milliliters.",
-   "answer": "8,170 milliliters",
+   "prompt": "A soup recipe uses 2 1/2 cups of broth per batch. Zoe makes 4 batches. How many quarts of broth is that? (1 quart = 4 cups)",
+   "answer": "2 1/2",
    "options": [
     {
-     "text": "0.00817 milliliters",
+     "text": "10",
      "correct": false
     },
     {
-     "text": "8,170 milliliters",
+     "text": "3 1/2",
+     "correct": false
+    },
+    {
+     "text": "2 1/2",
      "correct": true
     },
     {
-     "text": "81,700 milliliters",
-     "correct": false
-    },
-    {
-     "text": "817 milliliters",
+     "text": "4",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "1 liter = 1,000 milliliters.",
-    "Multiply by 1,000.",
-    "8.17 liters = 8,170 milliliters."
+    "Broth: 2 1/2 × 4 = 10 cups.",
+    "Quarts: 10 ÷ 4 = 2 1/2."
    ],
    "standards": [
     "6.RP.A.3d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s7_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Convert 8.17 liters to milliliters.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s08-honors-005",
@@ -10665,34 +10646,34 @@
    "skillId": "ratios-rates-percent-proportions-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A toy car travels 23 feet per second. How many feet does it travel per minute?",
-   "answer": "1380 feet",
+   "prompt": "A soup recipe uses 3 cups of broth per batch. Kai makes 6 batches. How many quarts of broth is that? (1 quart = 4 cups)",
+   "answer": "4 1/2",
    "options": [
     {
-     "text": "1380 feet",
+     "text": "4 1/2",
      "correct": true
     },
     {
-     "text": "2300 feet",
+     "text": "6",
      "correct": false
     },
     {
-     "text": "83 feet",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "23/60 feet",
+     "text": "18",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "1 minute = 60 seconds.",
-    "23 × 60 = 1380 feet per minute."
+    "Broth: 3 × 6 = 18 cups.",
+    "Quarts: 18 ÷ 4 = 4 1/2."
    ],
    "standards": [
     "6.RP.A.3d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_rate_units). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “A toy car travels 23 feet per second. How many feet does it travel per”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s08-honors-007",
@@ -10767,35 +10748,34 @@
    "skillId": "ratios-rates-percent-proportions-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Convert 6.03 grams to milligrams.",
-   "answer": "6,030 milligrams",
+   "prompt": "A soup recipe uses 2 cups of broth per batch. Rosa makes 8 batches. How many quarts of broth is that? (1 quart = 4 cups)",
+   "answer": "4",
    "options": [
     {
-     "text": "0.00603 milligrams",
+     "text": "16",
      "correct": false
     },
     {
-     "text": "60,300 milligrams",
+     "text": "2",
      "correct": false
     },
     {
-     "text": "603 milligrams",
-     "correct": false
-    },
-    {
-     "text": "6,030 milligrams",
+     "text": "4",
      "correct": true
+    },
+    {
+     "text": "8",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "1 gram = 1,000 milligrams.",
-    "Multiply by 1,000.",
-    "6.03 grams = 6,030 milligrams."
+    "Broth: 2 × 8 = 16 cups.",
+    "Quarts: 16 ÷ 4 = 4."
    ],
    "standards": [
     "6.RP.A.3d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s7_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Convert 6.03 grams to milligrams.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s08-honors-011",
@@ -10853,17 +10833,16 @@
    "skillId": "ratios-rates-percent-proportions-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Convert 13.41 liters to milliliters.",
-   "answer": "13,410 milliliters",
+   "prompt": "A soup recipe uses 2 cups of broth per batch. Leo makes 8 batches. How many quarts of broth is that? (1 quart = 4 cups)",
+   "answer": "4",
    "solutionSteps": [
-    "1 liter = 1,000 milliliters.",
-    "Multiply by 1,000.",
-    "13.41 liters = 13,410 milliliters."
+    "Broth: 2 × 8 = 16 cups.",
+    "Quarts: 16 ÷ 4 = 4."
    ],
    "standards": [
     "6.RP.A.3d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s7_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 6 audit 2026-11-19, family: g6_honors_multistep_rrp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade6-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit #9 (2026-11-20), Honors item that reused a lower-level template (was: “Convert 13.41 liters to milliliters.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "m6-rrp-s08-honors-014",
