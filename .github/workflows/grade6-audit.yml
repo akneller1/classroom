@@ -45,6 +45,7 @@ jobs:
         run: |
           python tools/grade6-audit-20261119/verify_honors.py
           python tools/grade6-audit-20261119/verify_new.py
+          python tools/grade6-audit-20261119/verify_levels.py
       - name: Grade 6 audit regression checks
         run: node scripts/test-grade6-audit.cjs
       - name: Graphing Practice for three more Grade 6 units (#11)
