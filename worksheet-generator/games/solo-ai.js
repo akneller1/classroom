@@ -1,22 +1,23 @@
-/* Computer opponent for solo Connect 4 and Tic-Tac-Toe (MKSOLOAI).
-   The computer plays well but not perfectly, so a student who answers carefully can beat it:
+/* Computer opponent for solo Connect 4 (and Four in a Row) and Tic-Tac-Toe (MKSOLOAI).
+   The computer plays sensibly but not perfectly, so a student who answers carefully can beat it:
    - it also has to "answer" its own problem, and sometimes gets it wrong (no move that turn);
-   - it looks only a few moves ahead in Connect 4;
-   - now and then it plays a random or second-best move, or misses a block or a win.
+   - it takes a win and blocks the student's win when it sees one (on Easy it occasionally overlooks one);
+   - it never drops a disc that hands the student a win on top of it, unless every column does;
+   - otherwise it plans a few moves ahead (fewer on Easy) and picks among the good moves, not always the best one.
+   Before 2026-11-20 it also played fully random moves and skipped many blocks, which looked careless.
    Levels: 'easy' | 'medium' | 'hard' (anything else means medium).
    Board conventions: Tic-Tac-Toe uses 9 cells; Connect 4 uses board[row][col] with row 0 at the top.
    Empty cells are null, undefined or ''. 0 counts as a piece, because some games use team 0 and team 1. */
 (function (G) {
   'use strict';
-  // answer: how often the computer solves its own problem. The other numbers are how often it slips:
-  // random = plays a random move, missWin = overlooks its own winning move, missBlock = fails to block yours.
-  // Tuned by simulation (tests/solo-ai-tests.cjs). A student who answers about 70% of problems correctly
-  // and plays sensibly wins about 55–70% of games on Easy, 40–45% on Medium and about 20% on Hard;
-  // a student who answers 85% correctly wins about half the time even on Hard.
+  // answer: how often the computer solves its own problem. missWin / missBlock: how often it overlooks an immediate
+  // win or block. depth: Connect 4 look-ahead in moves. slack: how far below its best move (in Connect 4 points) a
+  // move may score and still be chosen. ttt.loose: how often in Tic-Tac-Toe it picks any move that does not lose
+  // instead of the best one. Tuned by simulation (tests/solo-ai-tests.cjs).
   var LEVELS = {
-    easy:   { label: 'Easy',   answer: 0.6, ttt: { random: 0.45, missWin: 0.3,  missBlock: 0.55 }, c4: { random: 0.4,  missWin: 0.3,  missBlock: 0.55, depth: 1 } },
-    medium: { label: 'Medium', answer: 0.7, ttt: { random: 0.3,  missWin: 0.15, missBlock: 0.4  }, c4: { random: 0.3,  missWin: 0.2,  missBlock: 0.45, depth: 2 } },
-    hard:   { label: 'Hard',   answer: 0.8, ttt: { random: 0.15, missWin: 0.05, missBlock: 0.2  }, c4: { random: 0.15, missWin: 0.05, missBlock: 0.25, depth: 3 } }
+    easy:   { label: 'Easy',   answer: 0.55, missWin: 0.1,  missBlock: 0.1,  ttt: { loose: 0.8 }, c4: { depth: 2, slack: 12 } },
+    medium: { label: 'Medium', answer: 0.65, missWin: 0.03, missBlock: 0.03, ttt: { loose: 0.45 }, c4: { depth: 3, slack: 5 } },
+    hard:   { label: 'Hard',   answer: 0.75, missWin: 0,    missBlock: 0,    ttt: { loose: 0.15 }, c4: { depth: 5, slack: 1 } }
   };
 
   var rand = Math.random;
@@ -58,20 +59,21 @@
   }
   /** The square (0–8) the computer chooses. */
   function tttMove(board, me, them, level) {
-    var s = cfg(level).ttt, f = tttFree(board);
+    var L = cfg(level), f = tttFree(board);
     if (!f.length) return -1;
     var win = tttWinningSquare(board, me);
-    if (win >= 0 && !chance(s.missWin)) return win;
+    if (win >= 0 && !chance(L.missWin)) return win;
     var block = tttWinningSquare(board, them);
-    if (block >= 0 && !chance(s.missBlock)) return block;
-    if (chance(s.random)) return pick(f);
-    var best = -99, opts = [];
-    for (var i = 0; i < f.length; i++) {
-      var c = board.slice(); c[f[i]] = me;
-      var sc = tttScore(c, them, me, them);
-      if (sc > best) { best = sc; opts = [f[i]]; } else if (sc === best) opts.push(f[i]);
+    if (block >= 0 && !chance(L.missBlock)) return block;
+    var scored = f.map(function (sq) { var c = board.slice(); c[sq] = me; return { sq: sq, s: tttScore(c, them, me, them) }; });
+    var best = Math.max.apply(null, scored.map(function (x) { return x.s; }));
+    var pool = scored.filter(function (x) { return x.s === best; });
+    if (chance(L.ttt.loose)) {
+      // any move that does not lose against good play; the centre and corners are the natural choices
+      var safe = scored.filter(function (x) { return x.s >= 0; });
+      if (safe.length) pool = safe.filter(function (x) { return x.sq === 4 || x.sq % 2 === 0; }).concat(safe);
     }
-    return pick(opts);
+    return pick(pool).sq;
   }
 
   /* ---------------- Connect 4 ---------------- */
@@ -111,10 +113,11 @@
     }
     return s;
   }
+  function c4Order(open, C) { var m = (C - 1) / 2; return open.slice().sort(function (x, y) { return Math.abs(x - m) - Math.abs(y - m); }); }
   function c4Search(g, depth, a, b, mine, me, them) {
     if (c4Wins(g, me)) return 10000 + depth;
     if (c4Wins(g, them)) return -10000 - depth;
-    var open = c4Open(g);
+    var open = c4Order(c4Open(g), g[0].length);
     if (!open.length) return 0;
     if (depth === 0) return c4Heuristic(g, me, them);
     var v = mine ? -Infinity : Infinity;
@@ -125,16 +128,24 @@
     }
     return v;
   }
+  // Columns where the other player would win right away.
+  function c4Threats(g, p) { return c4Open(g).filter(function (c) { return c4Wins(c4Drop(g, c, p), p); }); }
   /** The column (0-based) the computer drops into. */
   function c4Move(board, me, them, level) {
-    var s = cfg(level).c4, open = c4Open(board), i;
+    var L = cfg(level), open = c4Open(board);
     if (!open.length) return -1;
-    if (!chance(s.missWin)) for (i = 0; i < open.length; i++) if (c4Wins(c4Drop(board, open[i], me), me)) return open[i];
-    if (!chance(s.missBlock)) for (i = 0; i < open.length; i++) if (c4Wins(c4Drop(board, open[i], them), them)) return open[i];
-    if (chance(s.random)) return pick(open);
-    var scored = open.map(function (c) { return { c: c, s: c4Search(c4Drop(board, c, me), s.depth - 1, -Infinity, Infinity, false, me, them) }; });
+    var wins = c4Threats(board, me);
+    if (wins.length && !chance(L.missWin)) return wins[0];
+    var blocks = c4Threats(board, them);
+    if (blocks.length && !chance(L.missBlock)) return blocks[0];
+    // Never play under the student's winning square (it would hand them the win) while another column is safe.
+    var safe = open.filter(function (c) { return !c4Threats(c4Drop(board, c, me), them).length; });
+    var cand = safe.length ? safe : open;
+    var scored = cand.map(function (c) { return { c: c, s: c4Search(c4Drop(board, c, me), L.c4.depth - 1, -Infinity, Infinity, false, me, them) }; });
     var top = Math.max.apply(null, scored.map(function (x) { return x.s; }));
-    return pick(scored.filter(function (x) { return x.s >= top - 2; })).c;
+    // A forced win or loss found by the search is followed; otherwise any move close to the best is fine.
+    var slack = Math.abs(top) >= 9000 ? 0 : L.c4.slack;
+    return pick(scored.filter(function (x) { return x.s >= top - slack; })).c;
   }
 
   /** Whether the computer gets its own problem right this turn. */
