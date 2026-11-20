@@ -166,7 +166,7 @@
       if (t === 'rule') return U.bigTex('(x,\\ y) \\to ' + s.rule);
       if (t === 'img') return '<div class="mk-txt">' + s.img.map(function (P, i) { return k('ABC'[i] + "'(" + U.tex(P[0]) + ',\\ ' + U.tex(P[1]) + ')'); }).join('<br>') + '</div>';
       var tri = B.ctx.tri;
-      return SV.plane({ xmin: -8, xmax: 8, ymin: -8, ymax: 8, xstep: 1, ystep: 1, items: [{ kind: 'poly', pts: tri, labels: ['A', 'B', 'C'], color: '#64748b', dash: '5 4' }, { kind: 'poly', pts: s.img, labels: ["A′", "B′", "C′"], color: SV.colors.blue, fill: SV.colors.shade }] }, { big: mode === 'big' });
+      return SV.plane({ xmin: -8, xmax: 8, ymin: -8, ymax: 8, xstep: 1, ystep: 1, items: [{ kind: 'poly', pts: tri, labels: ['A', 'B', 'C'], color: '#334155', dash: '6 4' }, { kind: 'poly', pts: s.img, labels: ["A′", "B′", "C′"], color: SV.colors.blue, fill: SV.colors.shade }] }, { big: mode === 'big' });
     },
     legend: function (B) { var t = B.ctx.tri; return '<p>Every set transforms triangle ' + k('ABC') + ' with ' + t.map(function (P, i) { return k('ABC'[i] + '(' + P[0] + ',\\ ' + P[1] + ')'); }).join(', ') + '.</p>'; },
     summary: function (s) { return U.esc(s.words); },
