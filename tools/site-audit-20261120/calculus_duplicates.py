@@ -145,9 +145,9 @@ NEW["cal-aoi-s04-honors-013"] = ("A particle moves with velocity v(t) = 2sin(t) 
 NEW["cal-aoi-s05-honors-004"] = ("A particle moves with velocity v(t) = t³ - 9t ft/s. Find the total distance traveled from t = 0 to t = 4.", "65/2 ft",
     ["v(t) = 0 at t = 3, so the particle changes direction there.", "Antiderivative: s(t) = t⁴/4 - 9t²/2.", "From t = 0 to t = 3: s(3) − s(0) = -81/4.", "From t = 3 to t = 4: s(4) − s(3) = 49/4.", "Total distance = 81/4 + 49/4 = 65/2 ft."],
     ["8 ft", "-8 ft", "81/4 ft"], lambda: abs(dist(lambda t: t ** 3 - 9 * t, 0, 4) - 32.5) < 1e-5)
-NEW["cal-aoi-s05-honors-007"] = ("A particle moves with velocity v(t) = t³ - t ft/s. Find the total distance traveled from t = 0 to t = 2.", "5/2 ft",
-    ["v(t) = 0 at t = 1, so the particle changes direction there.", "Antiderivative: s(t) = t⁴/4 - t²/2.", "From t = 0 to t = 1: s(1) − s(0) = -1/4.", "From t = 1 to t = 2: s(2) − s(1) = 9/4.", "Total distance = 1/4 + 9/4 = 5/2 ft."], None,
-    lambda: abs(dist(lambda t: t ** 3 - t, 0, 2) - 2.5) < 1e-5)
+NEW["cal-aoi-s05-honors-007"] = ("A particle moves with velocity v(t) = t² - 1 ft/s. Find the total distance traveled from t = 0 to t = 3.", "22/3 ft",
+    ["v(t) = 0 at t = 1, so the particle changes direction there.", "Antiderivative: s(t) = t³/3 - t.", "From t = 0 to t = 1: s(1) − s(0) = -2/3.", "From t = 1 to t = 3: s(3) − s(1) = 20/3.", "Total distance = 2/3 + 20/3 = 22/3 ft."], None,
+    lambda: abs(dist(lambda t: t * t - 1, 0, 3) - 22 / 3) < 1e-5)
 NEW["cal-aoi-s05-honors-008"] = ("A particle moves with velocity v(t) = 2cos(πt/2) ft/s. Find the total distance traveled from t = 0 to t = 2.", "8/π ft",
     ["v(t) = 0 at t = 1, so the particle changes direction there.", "Antiderivative: s(t) = 4sin(tπ/2)/π.", "From t = 0 to t = 1: s(1) − s(0) = 4/π.", "From t = 1 to t = 2: s(2) − s(1) = -4/π.", "Total distance = 4/π + 4/π = 8/π ft."],
     ["0 ft", "4/π ft", "16/π ft"], lambda: abs(dist(lambda t: 2 * math.cos(PI * t / 2), 0, 2) - 8 / PI) < 1e-5)
