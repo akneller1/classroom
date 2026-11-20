@@ -4663,17 +4663,17 @@
    "skillId": "applications-derivatives-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the absolute maximum of f(x) = sin(x) - cos(x) on [0, π]. Give the value and where it occurs.",
-   "answer": "√2 at x = 3π/4",
+   "prompt": "Find the absolute maximum of f(x) = x³ - 12x on [-3, 5]. Give the value and where it occurs.",
+   "answer": "65 at x = 5",
    "solutionSteps": [
-    "f′(x) = cos(x) + sin(x); critical number(s) in the interval: 3π/4.",
-    "Candidates test: f(0) = -1; f(3π/4) = √2; f(π) = 1.",
-    "Absolute maximum: √2 at x = 3π/4."
+    "f′(x) = 3x² - 12; critical number(s) in the interval: -2, 2.",
+    "Candidates test: f(-3) = 9; f(-2) = 16; f(2) = -16; f(5) = 65.",
+    "Absolute maximum: 65 at x = 5."
    ],
    "standards": [
     "AP FUN-4.A"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_absolute_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
+   "sourceNotes": "Original Claude-authored item (family: s4_absolute_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-app-s04-honors-006",

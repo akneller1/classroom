@@ -89,9 +89,9 @@ NEW["cal-app-s03-honors-013"] = ("On what interval(s) is f(x) = x²e^(-x) increa
     ["f′(x) = x(2 - x)e^(-x).", "f′(x) = 0 at x = 0, 2.", "Test the sign of f′ on each interval of the domain.", "f is increasing on (0, 2)."], None,
     lambda: all((deriv(lambda x: x * x * math.exp(-x), p) > 0) == (0 < p < 2) for p in (-3, -0.1, 0.1, 1, 1.9, 2.1, 5)))
 # absolute maxima
-NEW["cal-app-s04-honors-005"] = ("Find the absolute maximum of f(x) = sin(x) - cos(x) on [0, π]. Give the value and where it occurs.", "√2 at x = 3π/4",
-    ["f′(x) = cos(x) + sin(x); critical number(s) in the interval: 3π/4.", "Candidates test: f(0) = -1; f(3π/4) = √2; f(π) = 1.", "Absolute maximum: √2 at x = 3π/4."], None,
-    lambda: abs(max(math.sin(i * PI / 10000) - math.cos(i * PI / 10000) for i in range(10001)) - math.sqrt(2)) < 1e-6 and abs(math.sin(3 * PI / 4) - math.cos(3 * PI / 4) - math.sqrt(2)) < 1e-12)
+NEW["cal-app-s04-honors-005"] = ("Find the absolute maximum of f(x) = x³ - 12x on [-3, 5]. Give the value and where it occurs.", "65 at x = 5",
+    ["f′(x) = 3x² - 12; critical number(s) in the interval: -2, 2.", "Candidates test: f(-3) = 9; f(-2) = 16; f(2) = -16; f(5) = 65.", "Absolute maximum: 65 at x = 5."], None,
+    lambda: abs(max((-3 + 8 * i / 8000) ** 3 - 12 * (-3 + 8 * i / 8000) for i in range(8001)) - 65) < 1e-9)
 NEW["cal-app-s04-honors-013"] = ("Find the absolute maximum of f(x) = x + 2cos(x) on [0, π]. Give the value and where it occurs.", "π/6 + √3 at x = π/6",
     ["f′(x) = 1 - 2sin(x); critical number(s) in the interval: π/6, 5π/6.", "Candidates test: f(0) = 2; f(π/6) = π/6 + √3; f(5π/6) = 5π/6 - √3; f(π) = π - 2.", "Absolute maximum: π/6 + √3 at x = π/6."], None,
     lambda: abs(max(i * PI / 10000 + 2 * math.cos(i * PI / 10000) for i in range(10001)) - (PI / 6 + math.sqrt(3))) < 1e-6)
