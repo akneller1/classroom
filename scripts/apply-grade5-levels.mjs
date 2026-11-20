@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Whole-site audit 2 #3 (2026-11-20), Grade 5 part: Standard items that reused a Support template are rewritten with an
-// added step. Grade 5 comes from a pinned release, so the rewrites live in content-updates/2026-11-20/grade5-levels.json
+// Whole-site audit 2 #3 (2026-11-20), Grade 5 part: Standard items that reused a Support template, and Advanced items
+// that reused a Support or Standard template, are rewritten with an added step. Grade 5 comes from a pinned release, so the rewrites live in content-updates/2026-11-20/grade5-levels.json
 // (made by the audit tools, every key recomputed by their verify.py) and are applied here to every published copy of the
 // Grade 5 banks. Each item must still have the prompt and answer the rewrite was made from; otherwise the build stops.
 // Runs after apply-site-audit2.mjs. Usage: node scripts/apply-grade5-levels.mjs [_site]
@@ -33,5 +33,5 @@ for (const dir of dirs) for (const f of fs.readdirSync(dir).filter((f) => f.ends
 }
 const missing = Object.keys(items).filter((id) => !seen.has(id));
 if (missing.length) problems.push(missing.length + " rewritten items are not in the Grade 5 banks: " + missing.slice(0, 5).join(", "));
-console.log(`Grade 5 levels: ${changed} item copies rewritten in ${files} files (${Object.keys(items).length} Standard items)`);
+console.log(`Grade 5 levels: ${changed} item copies rewritten in ${files} files (${Object.keys(items).length} Standard and Advanced items)`);
 if (problems.length) { console.error(problems.join("\n")); process.exit(1); }

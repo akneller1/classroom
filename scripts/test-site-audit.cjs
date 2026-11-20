@@ -169,7 +169,7 @@ for (const c of ['financial-algebra', 'statistics']) for (const f of fs.readdirS
   }
 }
 console.log(`PASS site audit: ${checks} checks (${keys} bank keys grade themselves correct)`);
-// Whole-site audit 2 #3 (Grade 5): the Standard rewrites are applied to every published copy of the Grade 5 banks.
+// Whole-site audit 2 #3 (Grade 5): the Standard and Advanced rewrites are applied to every published copy of the Grade 5 banks.
 if (SITE) {
   const { items } = JSON.parse(rd('content-updates/2026-11-20/grade5-levels.json'));
   for (const rel of ['question-banks/grade5', 'grade5/math5']) {
