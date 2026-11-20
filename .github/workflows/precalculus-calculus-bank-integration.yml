@@ -77,6 +77,7 @@ jobs:
         if: matrix.course == 'precalculus'
         run: |
           python3 tools/precalculus-audit-20261118/gaps/verify.py
+          python3 tools/site-audit-20261120/honors_standards/verify.py
           node scripts/test-precalculus-gap-skills.cjs
       - name: Precalculus Graphing Practice items (graded by core/plot.js, recomputed from prompts)
         if: matrix.course == 'precalculus'
