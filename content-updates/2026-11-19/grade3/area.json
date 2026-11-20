@@ -1,0 +1,3495 @@
+{
+ "unit": "area",
+ "edits": [
+  {
+   "id": "m3-ar-s01-cp1-001",
+   "changes": {
+    "prompt": {
+     "from": "Omar covers a shape with 9 square tiles. Some tiles overlap and there are gaps. Is the area 9 square units?",
+     "to": "Shape A is covered by 16 unit squares with no gaps or overlaps. Shape B is covered by 30 unit squares of the same size. What is the total area of both shapes?"
+    },
+    "answer": {
+     "from": "No. The tiles must cover the shape with no gaps or overlaps.",
+     "to": "46 square units"
+    },
+    "solutionSteps": {
+     "from": [
+      "Area is the number of unit squares that cover a shape with no gaps and no overlaps.",
+      "Gaps and overlaps make the count wrong."
+     ],
+     "to": [
+      "Area A is 16 square units and area B is 30 square units.",
+      "16 + 30 = 46 square units."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_gaps). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_two_shapes_total). Rewritten from a Support template (was au_gaps) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The tiles must cover the shape with no gaps or overlaps.",
+       "correct": true
+      },
+      {
+       "text": "No. Tiles can never measure area.",
+       "correct": false
+      },
+      {
+       "text": "Yes. The area is 9 square units.",
+       "correct": false
+      },
+      {
+       "text": "Yes, because 9 tiles were used.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "14 square units",
+       "correct": false
+      },
+      {
+       "text": "480 square units",
+       "correct": false
+      },
+      {
+       "text": "46 square units",
+       "correct": true
+      },
+      {
+       "text": "46 units",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-cp1-002",
+   "changes": {
+    "prompt": {
+     "from": "A rug is covered by 30 unit squares with no gaps or overlaps. What is its area?",
+     "to": "Shape A is covered by 10 unit squares with no gaps or overlaps. Shape B is covered by 26 unit squares of the same size. What is the total area of both shapes?"
+    },
+    "answer": {
+     "from": "30 square units",
+     "to": "36 square units"
+    },
+    "solutionSteps": {
+     "from": [
+      "A figure covered by n unit squares has an area of n square units.",
+      "The area is 30 square units."
+     ],
+     "to": [
+      "Area A is 10 square units and area B is 26 square units.",
+      "10 + 26 = 36 square units."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_two_shapes_total). Rewritten from a Support template (was au_n) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "Omar covers a shape with 10 square tiles. Some tiles overlap and there are gaps. Is the area 10 square units?",
+     "to": "Shape A is covered by 29 unit squares with no gaps or overlaps. Shape B is covered by 7 unit squares of the same size. What is the total area of both shapes?"
+    },
+    "answer": {
+     "from": "No. The tiles must cover the shape with no gaps or overlaps.",
+     "to": "36 square units"
+    },
+    "solutionSteps": {
+     "from": [
+      "Area is the number of unit squares that cover a shape with no gaps and no overlaps.",
+      "Gaps and overlaps make the count wrong."
+     ],
+     "to": [
+      "Area A is 29 square units and area B is 7 square units.",
+      "29 + 7 = 36 square units."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_gaps). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_two_shapes_total). Rewritten from a Support template (was au_gaps) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Yes, because 10 tiles were used.",
+       "correct": false
+      },
+      {
+       "text": "Yes. The area is 10 square units.",
+       "correct": false
+      },
+      {
+       "text": "No. The tiles must cover the shape with no gaps or overlaps.",
+       "correct": true
+      },
+      {
+       "text": "No. Tiles can never measure area.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "22 square units",
+       "correct": false
+      },
+      {
+       "text": "203 square units",
+       "correct": false
+      },
+      {
+       "text": "36 units",
+       "correct": false
+      },
+      {
+       "text": "36 square units",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-cp1-006",
+   "changes": {
+    "prompt": {
+     "from": "A tabletop is covered by 12 unit squares with no gaps or overlaps. What is its area?",
+     "to": "Shape A is covered by 8 unit squares with no gaps or overlaps. Shape B is covered by 10 unit squares of the same size. What is the total area of both shapes?"
+    },
+    "answer": {
+     "from": "12 square units",
+     "to": "18 square units"
+    },
+    "solutionSteps": {
+     "from": [
+      "A figure covered by n unit squares has an area of n square units.",
+      "The area is 12 square units."
+     ],
+     "to": [
+      "Area A is 8 square units and area B is 10 square units.",
+      "8 + 10 = 18 square units."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_two_shapes_total). Rewritten from a Support template (was au_n) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "A game board is covered by 29 unit squares with no gaps or overlaps. What is its area?",
+     "to": "Shape A is covered by 24 unit squares with no gaps or overlaps. Shape B is covered by 30 unit squares of the same size. What is the total area of both shapes?"
+    },
+    "answer": {
+     "from": "29 square units",
+     "to": "54 square units"
+    },
+    "solutionSteps": {
+     "from": [
+      "A figure covered by n unit squares has an area of n square units.",
+      "The area is 29 square units."
+     ],
+     "to": [
+      "Area A is 24 square units and area B is 30 square units.",
+      "24 + 30 = 54 square units."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_two_shapes_total). Rewritten from a Support template (was au_n) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-cp1-014",
+   "changes": {
+    "prompt": {
+     "from": "A game board is covered by 11 unit squares with no gaps or overlaps. What is its area?",
+     "to": "Shape A is covered by 10 unit squares with no gaps or overlaps. Shape B is covered by 20 unit squares of the same size. What is the total area of both shapes?"
+    },
+    "answer": {
+     "from": "11 square units",
+     "to": "30 square units"
+    },
+    "solutionSteps": {
+     "from": [
+      "A figure covered by n unit squares has an area of n square units.",
+      "The area is 11 square units."
+     ],
+     "to": [
+      "Area A is 10 square units and area B is 20 square units.",
+      "10 + 20 = 30 square units."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_two_shapes_total). Rewritten from a Support template (was au_n) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-cp1-018",
+   "changes": {
+    "prompt": {
+     "from": "A garden bed is covered by 11 unit squares with no gaps or overlaps. What is its area?",
+     "to": "Shape A is covered by 13 unit squares with no gaps or overlaps. Shape B is covered by 28 unit squares of the same size. What is the total area of both shapes?"
+    },
+    "answer": {
+     "from": "11 square units",
+     "to": "41 square units"
+    },
+    "solutionSteps": {
+     "from": [
+      "A figure covered by n unit squares has an area of n square units.",
+      "The area is 11 square units."
+     ],
+     "to": [
+      "Area A is 13 square units and area B is 28 square units.",
+      "13 + 28 = 41 square units."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_two_shapes_total). Rewritten from a Support template (was au_n) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-cp1-022",
+   "changes": {
+    "prompt": {
+     "from": "A rug is covered by 9 unit squares with no gaps or overlaps. What is its area?",
+     "to": "Shape A is covered by 21 unit squares with no gaps or overlaps. Shape B is covered by 24 unit squares of the same size. What is the total area of both shapes?"
+    },
+    "answer": {
+     "from": "9 square units",
+     "to": "45 square units"
+    },
+    "solutionSteps": {
+     "from": [
+      "A figure covered by n unit squares has an area of n square units.",
+      "The area is 9 square units."
+     ],
+     "to": [
+      "Area A is 21 square units and area B is 24 square units.",
+      "21 + 24 = 45 square units."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_two_shapes_total). Rewritten from a Support template (was au_n) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the shapes that have an area of 17 square units."
+    },
+    "answer": {
+     "from": [
+      "A tabletop is covered by 20 unit squares with no gaps or overlaps. What is its area? → 20 square units",
+      "A garden bed is covered by 15 unit squares with no gaps or overlaps. What is its area? → 15 square units"
+     ],
+     "to": [
+      "covered by 17 unit squares with no gaps or overlaps",
+      "17 unit squares in rows with no gaps"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A tabletop is covered by 20 unit squares with no gaps or overlaps. What is its area? → 20 square units",
+       "correct": true
+      },
+      {
+       "text": "A garden bed is covered by 15 unit squares with no gaps or overlaps. What is its area? → 15 square units",
+       "correct": true
+      },
+      {
+       "text": "A garden bed is covered by 12 unit squares with no gaps or overlaps. What is its area? → 48 square units",
+       "correct": false
+      },
+      {
+       "text": "A garden bed is covered by 25 unit squares with no gaps or overlaps. What is its area? → 100 square units",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "covered by 16 unit squares with no gaps or overlaps",
+       "correct": false
+      },
+      {
+       "text": "covered by 17 unit squares with a gap",
+       "correct": false
+      },
+      {
+       "text": "covered by 17 unit squares with some overlaps",
+       "correct": false
+      },
+      {
+       "text": "covered by 17 unit squares with no gaps or overlaps",
+       "correct": true
+      },
+      {
+       "text": "17 unit squares in rows with no gaps",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A tabletop is covered by 20 unit squares with no gaps or overlaps. What is its area? → 20 square units: correct.",
+      "A garden bed is covered by 15 unit squares with no gaps or overlaps. What is its area? → 15 square units: correct.",
+      "A garden bed is covered by 12 unit squares with no gaps or overlaps. What is its area? → 48 square units: not correct.",
+      "A garden bed is covered by 25 unit squares with no gaps or overlaps. What is its area? → 100 square units: not correct."
+     ],
+     "to": [
+      "Area counts the unit squares that cover a shape with no gaps or overlaps.",
+      "Correct choices: covered by 17 unit squares with no gaps or overlaps; 17 unit squares in rows with no gaps. Not correct: covered by 16 unit squares with no gaps or overlaps; covered by 17 unit squares with a gap; covered by 17 unit squares with some overlaps."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_select_area_equals). 3rd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Mat A is covered by 20 unit squares with no gaps or overlaps. Mat B is covered by 12 unit squares of the same size."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A tabletop is covered by 10 unit squares with no gaps or overlaps. What is its area?",
+       "answer": "10 square units"
+      },
+      {
+       "prompt": "A rug is covered by 22 unit squares with no gaps or overlaps. What is its area?",
+       "answer": "22 square units"
+      },
+      {
+       "prompt": "A garden bed is covered by 8 unit squares with no gaps or overlaps. What is its area?",
+       "answer": "8 square units"
+      },
+      {
+       "prompt": "A rug is covered by 26 unit squares with no gaps or overlaps. What is its area?",
+       "answer": "26 square units"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the area of mat A?",
+       "answer": "20 square units"
+      },
+      {
+       "prompt": "Which mat has the greater area?",
+       "answer": "A"
+      },
+      {
+       "prompt": "How much greater is it?",
+       "answer": "8 square units"
+      },
+      {
+       "prompt": "Explain why there can be no gaps or overlaps.",
+       "answer": "Sample answer: Gaps leave area uncounted and overlaps count some area twice."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 10 square units; (b) 22 square units; (c) 8 square units; (d) 26 square units",
+     "to": "(a) 20 square units; (b) A; (c) 8 square units; (d) Sample answer: Gaps leave area uncounted and overlaps count some area twice."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) A figure covered by n unit squares has an area of n square units. The area is 10 square units.",
+      "(b) A figure covered by n unit squares has an area of n square units. The area is 22 square units.",
+      "(c) A figure covered by n unit squares has an area of n square units. The area is 8 square units.",
+      "(d) A figure covered by n unit squares has an area of n square units. The area is 26 square units."
+     ],
+     "to": [
+      "(a) Count the unit squares.",
+      "(b) More unit squares.",
+      "(c) Subtract.",
+      "(d) Cover exactly."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_open_tiles). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the shapes that have an area of 8 square units."
+    },
+    "answer": {
+     "from": [
+      "A rug is covered by 11 unit squares with no gaps or overlaps. What is its area? → 11 square units",
+      "A game board is covered by 9 unit squares with no gaps or overlaps. What is its area? → 9 square units"
+     ],
+     "to": [
+      "covered by 8 unit squares with no gaps or overlaps",
+      "8 unit squares in rows with no gaps",
+      "2 rows of 4 unit squares"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A rug is covered by 11 unit squares with no gaps or overlaps. What is its area? → 11 square units",
+       "correct": true
+      },
+      {
+       "text": "A game board is covered by 9 unit squares with no gaps or overlaps. What is its area? → 9 square units",
+       "correct": true
+      },
+      {
+       "text": "A game board is covered by 5 unit squares with no gaps or overlaps. What is its area? → 4 square units",
+       "correct": false
+      },
+      {
+       "text": "A garden bed is covered by 4 unit squares with no gaps or overlaps. What is its area? → 16 square units",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "8 unit lengths around the edge",
+       "correct": false
+      },
+      {
+       "text": "covered by 8 unit squares with no gaps or overlaps",
+       "correct": true
+      },
+      {
+       "text": "covered by 7 unit squares with no gaps or overlaps",
+       "correct": false
+      },
+      {
+       "text": "8 unit squares in rows with no gaps",
+       "correct": true
+      },
+      {
+       "text": "2 rows of 4 unit squares",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A rug is covered by 11 unit squares with no gaps or overlaps. What is its area? → 11 square units: correct.",
+      "A game board is covered by 9 unit squares with no gaps or overlaps. What is its area? → 9 square units: correct.",
+      "A game board is covered by 5 unit squares with no gaps or overlaps. What is its area? → 4 square units: not correct.",
+      "A garden bed is covered by 4 unit squares with no gaps or overlaps. What is its area? → 16 square units: not correct."
+     ],
+     "to": [
+      "Area counts the unit squares that cover a shape with no gaps or overlaps.",
+      "Correct choices: covered by 8 unit squares with no gaps or overlaps; 8 unit squares in rows with no gaps; 2 rows of 4 unit squares. Not correct: 8 unit lengths around the edge; covered by 7 unit squares with no gaps or overlaps."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_select_area_equals). 3rd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Mat A is covered by 11 unit squares with no gaps or overlaps. Mat B is covered by 25 unit squares of the same size."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A garden bed is covered by 11 unit squares with no gaps or overlaps. What is its area?",
+       "answer": "11 square units"
+      },
+      {
+       "prompt": "A tabletop is covered by 10 unit squares with no gaps or overlaps. What is its area?",
+       "answer": "10 square units"
+      },
+      {
+       "prompt": "A garden bed is covered by 8 unit squares with no gaps or overlaps. What is its area?",
+       "answer": "8 square units"
+      },
+      {
+       "prompt": "A tabletop is covered by 12 unit squares with no gaps or overlaps. What is its area?",
+       "answer": "12 square units"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the area of mat A?",
+       "answer": "11 square units"
+      },
+      {
+       "prompt": "Which mat has the greater area?",
+       "answer": "B"
+      },
+      {
+       "prompt": "How much greater is it?",
+       "answer": "14 square units"
+      },
+      {
+       "prompt": "Explain why there can be no gaps or overlaps.",
+       "answer": "Sample answer: Gaps leave area uncounted and overlaps count some area twice."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 11 square units; (b) 10 square units; (c) 8 square units; (d) 12 square units",
+     "to": "(a) 11 square units; (b) B; (c) 14 square units; (d) Sample answer: Gaps leave area uncounted and overlaps count some area twice."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) A figure covered by n unit squares has an area of n square units. The area is 11 square units.",
+      "(b) A figure covered by n unit squares has an area of n square units. The area is 10 square units.",
+      "(c) A figure covered by n unit squares has an area of n square units. The area is 8 square units.",
+      "(d) A figure covered by n unit squares has an area of n square units. The area is 12 square units."
+     ],
+     "to": [
+      "(a) Count the unit squares.",
+      "(b) More unit squares.",
+      "(c) Subtract.",
+      "(d) Cover exactly."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_open_tiles). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "A garden bed is covered by 8 unit squares with no gaps or overlaps. What is its area?",
+     "to": "Tess wants to cover a rectangle that is 7 units long and 9 units wide with unit squares. 22 squares are already placed. How many more squares are needed?"
+    },
+    "answer": {
+     "from": "8 square units",
+     "to": "41 squares"
+    },
+    "solutionSteps": {
+     "from": [
+      "A figure covered by n unit squares has an area of n square units.",
+      "The area is 8 square units."
+     ],
+     "to": [
+      "The rectangle needs 7 × 9 = 63 unit squares.",
+      "63 − 22 = 41 more squares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_squares_still_needed). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "A garden bed is covered by 23 unit squares with no gaps or overlaps. What is its area?",
+     "to": "Hugo wants to cover a rectangle that is 4 units long and 5 units wide with unit squares. 17 squares are already placed. How many more squares are needed?"
+    },
+    "answer": {
+     "from": "23 square units",
+     "to": "3 squares"
+    },
+    "solutionSteps": {
+     "from": [
+      "A figure covered by n unit squares has an area of n square units.",
+      "The area is 23 square units."
+     ],
+     "to": [
+      "The rectangle needs 4 × 5 = 20 unit squares.",
+      "20 − 17 = 3 more squares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_squares_still_needed). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "A garden bed is covered by 13 unit squares with no gaps or overlaps. What is its area?",
+     "to": "Isla wants to cover a rectangle that is 3 units long and 4 units wide with unit squares. 10 squares are already placed. How many more squares are needed?"
+    },
+    "answer": {
+     "from": "13 square units",
+     "to": "2 squares"
+    },
+    "solutionSteps": {
+     "from": [
+      "A figure covered by n unit squares has an area of n square units.",
+      "The area is 13 square units."
+     ],
+     "to": [
+      "The rectangle needs 3 × 4 = 12 unit squares.",
+      "12 − 10 = 2 more squares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_squares_still_needed). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "Gabi covers a shape with 18 square tiles. Some tiles overlap and there are gaps. Is the area 18 square units?",
+     "to": "Max wants to cover a rectangle that is 4 units long and 7 units wide with unit squares. 16 squares are already placed. How many more squares are needed?"
+    },
+    "answer": {
+     "from": "No. The tiles must cover the shape with no gaps or overlaps.",
+     "to": "12 squares"
+    },
+    "solutionSteps": {
+     "from": [
+      "Area is the number of unit squares that cover a shape with no gaps and no overlaps.",
+      "Gaps and overlaps make the count wrong."
+     ],
+     "to": [
+      "The rectangle needs 4 × 7 = 28 unit squares.",
+      "28 − 16 = 12 more squares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_gaps). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_squares_still_needed). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. Tiles can never measure area.",
+       "correct": false
+      },
+      {
+       "text": "Yes. The area is 18 square units.",
+       "correct": false
+      },
+      {
+       "text": "No. The tiles must cover the shape with no gaps or overlaps.",
+       "correct": true
+      },
+      {
+       "text": "Yes, because 18 tiles were used.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "28 squares",
+       "correct": false
+      },
+      {
+       "text": "22 squares",
+       "correct": false
+      },
+      {
+       "text": "13 squares",
+       "correct": false
+      },
+      {
+       "text": "12 squares",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-honors-017",
+   "changes": {
+    "prompt": {
+     "from": "A game board is covered by 27 unit squares with no gaps or overlaps. What is its area?",
+     "to": "Tess wants to cover a rectangle that is 8 units long and 6 units wide with unit squares. 19 squares are already placed. How many more squares are needed?"
+    },
+    "answer": {
+     "from": "27 square units",
+     "to": "29 squares"
+    },
+    "solutionSteps": {
+     "from": [
+      "A figure covered by n unit squares has an area of n square units.",
+      "The area is 27 square units."
+     ],
+     "to": [
+      "The rectangle needs 8 × 6 = 48 unit squares.",
+      "48 − 19 = 29 more squares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_squares_still_needed). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-honors-022",
+   "changes": {
+    "prompt": {
+     "from": "A game board is covered by 13 unit squares with no gaps or overlaps. What is its area?",
+     "to": "Isla wants to cover a rectangle that is 4 units long and 9 units wide with unit squares. 19 squares are already placed. How many more squares are needed?"
+    },
+    "answer": {
+     "from": "13 square units",
+     "to": "17 squares"
+    },
+    "solutionSteps": {
+     "from": [
+      "A figure covered by n unit squares has an area of n square units.",
+      "The area is 13 square units."
+     ],
+     "to": [
+      "The rectangle needs 4 × 9 = 36 unit squares.",
+      "36 − 19 = 17 more squares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_squares_still_needed). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-honors-024",
+   "changes": {
+    "prompt": {
+     "from": "Rosa wants to cover a rectangle that is 5 units long and 3 units wide with unit squares. 9 squares are already placed with no gaps or overlaps. How many more squares are needed?",
+     "to": "Gabi wants to cover a rectangle that is 5 units long and 3 units wide with unit squares. 10 squares are already placed. How many more squares are needed?"
+    },
+    "answer": {
+     "from": "6 squares",
+     "to": "5 squares"
+    },
+    "solutionSteps": {
+     "from": [
+      "The rectangle needs 3 × 5 = 15 unit squares.",
+      "15 − 9 = 6 more squares."
+     ],
+     "to": [
+      "The rectangle needs 5 × 3 = 15 unit squares.",
+      "15 − 10 = 5 more squares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_more). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_squares_still_needed). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the shapes that have an area of 30 square units."
+    },
+    "answer": {
+     "from": [
+      "A tabletop is covered by 25 unit squares with no gaps or overlaps. What is its area? → 25 square units",
+      "A tabletop is covered by 22 unit squares with no gaps or overlaps. What is its area? → 22 square units"
+     ],
+     "to": [
+      "3 rows of 10 unit squares",
+      "30 unit squares in rows with no gaps",
+      "6 rows of 5 unit squares",
+      "2 rows of 15 unit squares"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A rug is covered by 22 unit squares with no gaps or overlaps. What is its area? → 21 square units",
+       "correct": false
+      },
+      {
+       "text": "A poster is covered by 9 unit squares with no gaps or overlaps. What is its area? → 8 square units",
+       "correct": false
+      },
+      {
+       "text": "A tabletop is covered by 25 unit squares with no gaps or overlaps. What is its area? → 25 square units",
+       "correct": true
+      },
+      {
+       "text": "A tabletop is covered by 22 unit squares with no gaps or overlaps. What is its area? → 22 square units",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "3 rows of 10 unit squares",
+       "correct": true
+      },
+      {
+       "text": "30 unit squares in rows with no gaps",
+       "correct": true
+      },
+      {
+       "text": "6 rows of 5 unit squares",
+       "correct": true
+      },
+      {
+       "text": "covered by 30 unit squares with a gap",
+       "correct": false
+      },
+      {
+       "text": "2 rows of 15 unit squares",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A rug is covered by 22 unit squares with no gaps or overlaps. What is its area? → 21 square units: not correct.",
+      "A poster is covered by 9 unit squares with no gaps or overlaps. What is its area? → 8 square units: not correct.",
+      "A tabletop is covered by 25 unit squares with no gaps or overlaps. What is its area? → 25 square units: correct.",
+      "A tabletop is covered by 22 unit squares with no gaps or overlaps. What is its area? → 22 square units: correct."
+     ],
+     "to": [
+      "Area counts the unit squares that cover a shape with no gaps or overlaps.",
+      "Correct choices: 3 rows of 10 unit squares; 30 unit squares in rows with no gaps; 6 rows of 5 unit squares; 2 rows of 15 unit squares. Not correct: covered by 30 unit squares with a gap."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_select_area_equals). 3rd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Mat A is covered by 23 unit squares with no gaps or overlaps. Mat B is covered by 10 unit squares of the same size."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A tabletop is covered by 7 unit squares with no gaps or overlaps. What is its area?",
+       "answer": "7 square units"
+      },
+      {
+       "prompt": "A rug is covered by 9 unit squares with no gaps or overlaps. What is its area?",
+       "answer": "9 square units"
+      },
+      {
+       "prompt": "A tabletop is covered by 23 unit squares with no gaps or overlaps. What is its area?",
+       "answer": "23 square units"
+      },
+      {
+       "prompt": "A game board is covered by 20 unit squares with no gaps or overlaps. What is its area?",
+       "answer": "20 square units"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the area of mat A?",
+       "answer": "23 square units"
+      },
+      {
+       "prompt": "Which mat has the greater area?",
+       "answer": "A"
+      },
+      {
+       "prompt": "How much greater is it?",
+       "answer": "13 square units"
+      },
+      {
+       "prompt": "Explain why there can be no gaps or overlaps.",
+       "answer": "Sample answer: Gaps leave area uncounted and overlaps count some area twice."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 7 square units; (b) 9 square units; (c) 23 square units; (d) 20 square units",
+     "to": "(a) 23 square units; (b) A; (c) 13 square units; (d) Sample answer: Gaps leave area uncounted and overlaps count some area twice."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) A figure covered by n unit squares has an area of n square units. The area is 7 square units.",
+      "(b) A figure covered by n unit squares has an area of n square units. The area is 9 square units.",
+      "(c) A figure covered by n unit squares has an area of n square units. The area is 23 square units.",
+      "(d) A figure covered by n unit squares has an area of n square units. The area is 20 square units."
+     ],
+     "to": [
+      "(a) Count the unit squares.",
+      "(b) More unit squares.",
+      "(c) Subtract.",
+      "(d) Cover exactly."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: au_n_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar1_open_tiles). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 18 squares. Each square is 1 foot long on each side. What is the area of the shape?",
+     "to": "One part of a shape is covered with 17 squares and the other part with 25 squares. Each square is 1 foot long on each side. What is the area of the whole shape?"
+    },
+    "answer": {
+     "from": "18 square feet",
+     "to": "42 square feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 foot on each side has an area of 1 square foot.",
+      "18 of them make 18 square feet."
+     ],
+     "to": [
+      "17 + 25 = 42 squares.",
+      "Each square is 1 square foot, so the area is 42 square feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_count_two_parts). Rewritten from a Support template (was ac_unit_name) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-cp1-009",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 15 squares. Each square is 1 meter long on each side. What is the area of the shape?",
+     "to": "One part of a shape is covered with 9 squares and the other part with 16 squares. Each square is 1 inch long on each side. What is the area of the whole shape?"
+    },
+    "answer": {
+     "from": "15 square meters",
+     "to": "25 square inches"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 meter on each side has an area of 1 square meter.",
+      "15 of them make 15 square meters."
+     ],
+     "to": [
+      "9 + 16 = 25 squares.",
+      "Each square is 1 square inch, so the area is 25 square inches."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_count_two_parts). Rewritten from a Support template (was ac_unit_name) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "60 square meters",
+       "correct": false
+      },
+      {
+       "text": "16 square meters",
+       "correct": false
+      },
+      {
+       "text": "14 square meters",
+       "correct": false
+      },
+      {
+       "text": "15 square meters",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "25 inches",
+       "correct": false
+      },
+      {
+       "text": "144 square inches",
+       "correct": false
+      },
+      {
+       "text": "7 square inches",
+       "correct": false
+      },
+      {
+       "text": "25 square inches",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-cp1-013",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 9 squares. Each square is 1 foot long on each side. What is the area of the shape?",
+     "to": "One part of a shape is covered with 19 squares and the other part with 17 squares. Each square is 1 centimeter long on each side. What is the area of the whole shape?"
+    },
+    "answer": {
+     "from": "9 square feet",
+     "to": "36 square centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 foot on each side has an area of 1 square foot.",
+      "9 of them make 9 square feet."
+     ],
+     "to": [
+      "19 + 17 = 36 squares.",
+      "Each square is 1 square centimeter, so the area is 36 square centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_count_two_parts). Rewritten from a Support template (was ac_unit_name) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-cp1-017",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 36 squares. Each square is 1 centimeter long on each side. What is the area of the shape?",
+     "to": "One part of a shape is covered with 14 squares and the other part with 5 squares. Each square is 1 centimeter long on each side. What is the area of the whole shape?"
+    },
+    "answer": {
+     "from": "36 square centimeters",
+     "to": "19 square centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 centimeter on each side has an area of 1 square centimeter.",
+      "36 of them make 36 square centimeters."
+     ],
+     "to": [
+      "14 + 5 = 19 squares.",
+      "Each square is 1 square centimeter, so the area is 19 square centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_count_two_parts). Rewritten from a Support template (was ac_unit_name) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-cp1-019",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 23 squares. Each square is 1 inch long on each side. What is the area of the shape?",
+     "to": "One part of a shape is covered with 11 squares and the other part with 8 squares. Each square is 1 meter long on each side. What is the area of the whole shape?"
+    },
+    "answer": {
+     "from": "23 square inches",
+     "to": "19 square meters"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 inch on each side has an area of 1 square inch.",
+      "23 of them make 23 square inches."
+     ],
+     "to": [
+      "11 + 8 = 19 squares.",
+      "Each square is 1 square meter, so the area is 19 square meters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_count_two_parts). Rewritten from a Support template (was ac_unit_name) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-cp1-021",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 18 squares. Each square is 1 inch long on each side. What is the area of the shape?",
+     "to": "One part of a shape is covered with 28 squares and the other part with 34 squares. Each square is 1 centimeter long on each side. What is the area of the whole shape?"
+    },
+    "answer": {
+     "from": "18 square inches",
+     "to": "62 square centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 inch on each side has an area of 1 square inch.",
+      "18 of them make 18 square inches."
+     ],
+     "to": [
+      "28 + 34 = 62 squares.",
+      "Each square is 1 square centimeter, so the area is 62 square centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_count_two_parts). Rewritten from a Support template (was ac_unit_name) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-cp1-023",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 33 squares. Each square is 1 inch long on each side. What is the area of the shape?",
+     "to": "One part of a shape is covered with 17 squares and the other part with 18 squares. Each square is 1 centimeter long on each side. What is the area of the whole shape?"
+    },
+    "answer": {
+     "from": "33 square inches",
+     "to": "35 square centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 inch on each side has an area of 1 square inch.",
+      "33 of them make 33 square inches."
+     ],
+     "to": [
+      "17 + 18 = 35 squares.",
+      "Each square is 1 square centimeter, so the area is 35 square centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_count_two_parts). Rewritten from a Support template (was ac_unit_name) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A shape is covered by 37 squares that are 1 inch on each side, and another part by 9 more squares of the same size."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A shape is covered with 39 squares. Each square is 1 foot long on each side. What is the area of the shape?",
+       "answer": "39 square feet"
+      },
+      {
+       "prompt": "A shape is covered with 14 squares. Each square is 1 inch long on each side. What is the area of the shape?",
+       "answer": "14 square inches"
+      },
+      {
+       "prompt": "A shape is covered with 40 squares. Each square is 1 foot long on each side. What is the area of the shape?",
+       "answer": "40 square feet"
+      },
+      {
+       "prompt": "A shape is covered with 21 squares. Each square is 1 centimeter long on each side. What is the area of the shape?",
+       "answer": "21 square centimeters"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many squares cover the whole shape?",
+       "answer": "46"
+      },
+      {
+       "prompt": "What is the area?",
+       "answer": "46 square inches"
+      },
+      {
+       "prompt": "If 5 squares are removed, what is the area?",
+       "answer": "41 square inches"
+      },
+      {
+       "prompt": "Explain why the unit is square inchs.",
+       "answer": "Sample answer: Each tile is a square 1 inch on each side, so area is counted in square inchs."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 39 square feet; (b) 14 square inches; (c) 40 square feet; (d) 21 square centimeters",
+     "to": "(a) 46; (b) 46 square inches; (c) 41 square inches; (d) Sample answer: Each tile is a square 1 inch on each side, so area is counted in square inchs."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) A square that is 1 foot on each side has an area of 1 square foot. 39 of them make 39 square feet.",
+      "(b) A square that is 1 inch on each side has an area of 1 square inch. 14 of them make 14 square inches.",
+      "(c) A square that is 1 foot on each side has an area of 1 square foot. 40 of them make 40 square feet.",
+      "(d) A square that is 1 centimeter on each side has an area of 1 square centimeter. 21 of them make 21 square centimeters."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Each square is 1 square unit.",
+      "(c) Subtract.",
+      "(d) Area uses square units."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_open_count). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A shape is covered by 17 squares that are 1 centimeter on each side, and another part by 6 more squares of the same size."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A shape is covered with 11 squares. Each square is 1 centimeter long on each side. What is the area of the shape?",
+       "answer": "11 square centimeters"
+      },
+      {
+       "prompt": "A shape is covered with 5 squares. Each square is 1 inch long on each side. What is the area of the shape?",
+       "answer": "5 square inches"
+      },
+      {
+       "prompt": "A shape is covered with 23 squares. Each square is 1 meter long on each side. What is the area of the shape?",
+       "answer": "23 square meters"
+      },
+      {
+       "prompt": "A shape is covered with 38 squares. Each square is 1 meter long on each side. What is the area of the shape?",
+       "answer": "38 square meters"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many squares cover the whole shape?",
+       "answer": "23"
+      },
+      {
+       "prompt": "What is the area?",
+       "answer": "23 square centimeters"
+      },
+      {
+       "prompt": "If 5 squares are removed, what is the area?",
+       "answer": "18 square centimeters"
+      },
+      {
+       "prompt": "Explain why the unit is square centimeters.",
+       "answer": "Sample answer: Each tile is a square 1 centimeter on each side, so area is counted in square centimeters."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 11 square centimeters; (b) 5 square inches; (c) 23 square meters; (d) 38 square meters",
+     "to": "(a) 23; (b) 23 square centimeters; (c) 18 square centimeters; (d) Sample answer: Each tile is a square 1 centimeter on each side, so area is counted in square centimeters."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) A square that is 1 centimeter on each side has an area of 1 square centimeter. 11 of them make 11 square centimeters.",
+      "(b) A square that is 1 inch on each side has an area of 1 square inch. 5 of them make 5 square inches.",
+      "(c) A square that is 1 meter on each side has an area of 1 square meter. 23 of them make 23 square meters.",
+      "(d) A square that is 1 meter on each side has an area of 1 square meter. 38 of them make 38 square meters."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Each square is 1 square unit.",
+      "(c) Subtract.",
+      "(d) Area uses square units."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_open_count). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 5 squares. Each square is 1 meter long on each side. What is the area of the shape?",
+     "to": "Card A is covered by 24 squares and card B by 14 squares. Each square is 1 centimeter on each side. How much greater is the area of the larger card?"
+    },
+    "answer": {
+     "from": "5 square meters",
+     "to": "10 square centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 meter on each side has an area of 1 square meter.",
+      "5 of them make 5 square meters."
+     ],
+     "to": [
+      "Areas: 24 and 14 square centimeters.",
+      "24 − 14 = 10 square centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_compare_counts). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "Shape A is covered by 13 square centimeters. Shape B is covered by 13 square inches. Do they have the same area?",
+     "to": "Card A is covered by 34 squares and card B by 12 squares. Each square is 1 inch on each side. How much greater is the area of the larger card?"
+    },
+    "answer": {
+     "from": "No. A square inch is bigger than one square centimeter, so the areas are different.",
+     "to": "22 square inches"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare unit sizes before comparing counts.",
+      "An inch is longer than one centimeter."
+     ],
+     "to": [
+      "Areas: 34 and 12 square inches.",
+      "34 − 12 = 22 square inches."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_compare_units). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_compare_counts). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Yes. The unit does not matter.",
+       "correct": false
+      },
+      {
+       "text": "Yes. Both are covered by the same number of squares.",
+       "correct": false
+      },
+      {
+       "text": "No. A square inch is bigger than one square centimeter, so the areas are different.",
+       "correct": true
+      },
+      {
+       "text": "No. Square centimeters are bigger than square inches.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "46 square inches",
+       "correct": false
+      },
+      {
+       "text": "22 square inches",
+       "correct": true
+      },
+      {
+       "text": "22 inches",
+       "correct": false
+      },
+      {
+       "text": "34 square inches",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 37 squares. Each square is 1 meter long on each side. What is the area of the shape?",
+     "to": "Card A is covered by 12 squares and card B by 17 squares. Each square is 1 centimeter on each side. How much greater is the area of the larger card?"
+    },
+    "answer": {
+     "from": "37 square meters",
+     "to": "5 square centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 meter on each side has an area of 1 square meter.",
+      "37 of them make 37 square meters."
+     ],
+     "to": [
+      "Areas: 12 and 17 square centimeters.",
+      "17 − 12 = 5 square centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_compare_counts). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "37 square meters",
+       "correct": true
+      },
+      {
+       "text": "38 square meters",
+       "correct": false
+      },
+      {
+       "text": "36 square meters",
+       "correct": false
+      },
+      {
+       "text": "148 square meters",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "5 square centimeters",
+       "correct": true
+      },
+      {
+       "text": "29 square centimeters",
+       "correct": false
+      },
+      {
+       "text": "5 centimeters",
+       "correct": false
+      },
+      {
+       "text": "17 square centimeters",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-honors-008",
+   "changes": {
+    "prompt": {
+     "from": "Shape A is covered by 11 square centimeters. Shape B is covered by 11 square inches. Do they have the same area?",
+     "to": "Card A is covered by 16 squares and card B by 28 squares. Each square is 1 inch on each side. How much greater is the area of the larger card?"
+    },
+    "answer": {
+     "from": "No. A square inch is bigger than one square centimeter, so the areas are different.",
+     "to": "12 square inches"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare unit sizes before comparing counts.",
+      "An inch is longer than one centimeter."
+     ],
+     "to": [
+      "Areas: 16 and 28 square inches.",
+      "28 − 16 = 12 square inches."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_compare_units). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_compare_counts). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Yes. Both are covered by the same number of squares.",
+       "correct": false
+      },
+      {
+       "text": "No. Square centimeters are bigger than square inches.",
+       "correct": false
+      },
+      {
+       "text": "Yes. The unit does not matter.",
+       "correct": false
+      },
+      {
+       "text": "No. A square inch is bigger than one square centimeter, so the areas are different.",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "44 square inches",
+       "correct": false
+      },
+      {
+       "text": "12 inches",
+       "correct": false
+      },
+      {
+       "text": "12 square inches",
+       "correct": true
+      },
+      {
+       "text": "28 square inches",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 23 squares. Each square is 1 meter long on each side. What is the area of the shape?",
+     "to": "Card A is covered by 13 squares and card B by 20 squares. Each square is 1 centimeter on each side. How much greater is the area of the larger card?"
+    },
+    "answer": {
+     "from": "23 square meters",
+     "to": "7 square centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 meter on each side has an area of 1 square meter.",
+      "23 of them make 23 square meters."
+     ],
+     "to": [
+      "Areas: 13 and 20 square centimeters.",
+      "20 − 13 = 7 square centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_compare_counts). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-honors-015",
+   "changes": {
+    "prompt": {
+     "from": "Shape A is covered by 8 square centimeters. Shape B is covered by 8 square inches. Do they have the same area?",
+     "to": "Card A is covered by 32 squares and card B by 11 squares. Each square is 1 centimeter on each side. How much greater is the area of the larger card?"
+    },
+    "answer": {
+     "from": "No. A square inch is bigger than one square centimeter, so the areas are different.",
+     "to": "21 square centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare unit sizes before comparing counts.",
+      "An inch is longer than one centimeter."
+     ],
+     "to": [
+      "Areas: 32 and 11 square centimeters.",
+      "32 − 11 = 21 square centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_compare_units). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_compare_counts). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Yes. The unit does not matter.",
+       "correct": false
+      },
+      {
+       "text": "Yes. Both are covered by the same number of squares.",
+       "correct": false
+      },
+      {
+       "text": "No. A square inch is bigger than one square centimeter, so the areas are different.",
+       "correct": true
+      },
+      {
+       "text": "No. Square centimeters are bigger than square inches.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "43 square centimeters",
+       "correct": false
+      },
+      {
+       "text": "21 square centimeters",
+       "correct": true
+      },
+      {
+       "text": "21 centimeters",
+       "correct": false
+      },
+      {
+       "text": "32 square centimeters",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 40 squares. Each square is 1 inch long on each side. What is the area of the shape?",
+     "to": "Card A is covered by 31 squares and card B by 21 squares. Each square is 1 centimeter on each side. How much greater is the area of the larger card?"
+    },
+    "answer": {
+     "from": "40 square inches",
+     "to": "10 square centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 inch on each side has an area of 1 square inch.",
+      "40 of them make 40 square inches."
+     ],
+     "to": [
+      "Areas: 31 and 21 square centimeters.",
+      "31 − 21 = 10 square centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_compare_counts). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "40 square inches",
+       "correct": true
+      },
+      {
+       "text": "39 square inches",
+       "correct": false
+      },
+      {
+       "text": "41 square inches",
+       "correct": false
+      },
+      {
+       "text": "160 square inches",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "10 square centimeters",
+       "correct": true
+      },
+      {
+       "text": "52 square centimeters",
+       "correct": false
+      },
+      {
+       "text": "10 centimeters",
+       "correct": false
+      },
+      {
+       "text": "31 square centimeters",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-honors-018",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 17 squares. Each square is 1 meter long on each side. What is the area of the shape?",
+     "to": "Card A is covered by 22 squares and card B by 12 squares. Each square is 1 centimeter on each side. How much greater is the area of the larger card?"
+    },
+    "answer": {
+     "from": "17 square meters",
+     "to": "10 square centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 meter on each side has an area of 1 square meter.",
+      "17 of them make 17 square meters."
+     ],
+     "to": [
+      "Areas: 22 and 12 square centimeters.",
+      "22 − 12 = 10 square centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_compare_counts). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-honors-020",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 13 squares. Each square is 1 inch long on each side. What is the area of the shape?",
+     "to": "Card A is covered by 24 squares and card B by 20 squares. Each square is 1 inch on each side. How much greater is the area of the larger card?"
+    },
+    "answer": {
+     "from": "13 square inches",
+     "to": "4 square inches"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 inch on each side has an area of 1 square inch.",
+      "13 of them make 13 square inches."
+     ],
+     "to": [
+      "Areas: 24 and 20 square inches.",
+      "24 − 20 = 4 square inches."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_compare_counts). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-honors-022",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 39 squares. Each square is 1 foot long on each side. What is the area of the shape?",
+     "to": "Card A is covered by 24 squares and card B by 17 squares. Each square is 1 centimeter on each side. How much greater is the area of the larger card?"
+    },
+    "answer": {
+     "from": "39 square feet",
+     "to": "7 square centimeters"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 foot on each side has an area of 1 square foot.",
+      "39 of them make 39 square feet."
+     ],
+     "to": [
+      "Areas: 24 and 17 square centimeters.",
+      "24 − 17 = 7 square centimeters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_compare_counts). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-honors-024",
+   "changes": {
+    "prompt": {
+     "from": "A shape is covered with 12 squares. Each square is 1 meter long on each side. What is the area of the shape?",
+     "to": "Card A is covered by 32 squares and card B by 19 squares. Each square is 1 inch on each side. How much greater is the area of the larger card?"
+    },
+    "answer": {
+     "from": "12 square meters",
+     "to": "13 square inches"
+    },
+    "solutionSteps": {
+     "from": [
+      "A square that is 1 meter on each side has an area of 1 square meter.",
+      "12 of them make 12 square meters."
+     ],
+     "to": [
+      "Areas: 32 and 19 square inches.",
+      "32 − 19 = 13 square inches."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_compare_counts). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s02-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A shape is covered by 18 squares that are 1 meter on each side, and another part by 13 more squares of the same size."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A shape is covered with 36 squares. Each square is 1 centimeter long on each side. What is the area of the shape?",
+       "answer": "36 square centimeters"
+      },
+      {
+       "prompt": "A shape is covered with 6 squares. Each square is 1 inch long on each side. What is the area of the shape?",
+       "answer": "6 square inches"
+      },
+      {
+       "prompt": "A shape is covered with 29 squares. Each square is 1 foot long on each side. What is the area of the shape?",
+       "answer": "29 square feet"
+      },
+      {
+       "prompt": "A shape is covered with 23 squares. Each square is 1 meter long on each side. What is the area of the shape?",
+       "answer": "23 square meters"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many squares cover the whole shape?",
+       "answer": "31"
+      },
+      {
+       "prompt": "What is the area?",
+       "answer": "31 square meters"
+      },
+      {
+       "prompt": "If 5 squares are removed, what is the area?",
+       "answer": "26 square meters"
+      },
+      {
+       "prompt": "Explain why the unit is square meters.",
+       "answer": "Sample answer: Each tile is a square 1 meter on each side, so area is counted in square meters."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 36 square centimeters; (b) 6 square inches; (c) 29 square feet; (d) 23 square meters",
+     "to": "(a) 31; (b) 31 square meters; (c) 26 square meters; (d) Sample answer: Each tile is a square 1 meter on each side, so area is counted in square meters."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) A square that is 1 centimeter on each side has an area of 1 square centimeter. 36 of them make 36 square centimeters.",
+      "(b) A square that is 1 inch on each side has an area of 1 square inch. 6 of them make 6 square inches.",
+      "(c) A square that is 1 foot on each side has an area of 1 square foot. 29 of them make 29 square feet.",
+      "(d) A square that is 1 meter on each side has an area of 1 square meter. 23 of them make 23 square meters."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) Each square is 1 square unit.",
+      "(c) Subtract.",
+      "(d) Area uses square units."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ac_unit_name_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar2_open_count). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s03-cp1-017",
+   "changes": {
+    "prompt": {
+     "from": "A rug is 5 feet long and 4 feet wide. What is its area?",
+     "to": "A rectangle is 4 feet by 7 feet. It is made 3 feet longer on the 4-foot side. What is the new area?"
+    },
+    "answer": {
+     "from": "20 square feet",
+     "to": "49 square feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "Multiply the side lengths: 5 × 4.",
+      "The area is 20 square feet."
+     ],
+     "to": [
+      "New side: 4 + 3 = 7 feet.",
+      "7 × 7 = 49 square feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_word). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar3_longer_rectangle). Rewritten from a Support template (was ar_word) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s03-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the rectangles (side lengths in feet) with an area of 24 square feet."
+    },
+    "answer": {
+     "from": [
+      "A photo is 6 inches long and 3 inches wide. What is its area? → 18 square inches",
+      "A sticker sheet is 3 centimeters long and 9 centimeters wide. What is its area? → 27 square centimeters"
+     ],
+     "to": [
+      "2 by 12",
+      "6 by 4"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A rug is 9 feet long and 7 feet wide. What is its area? → 32 square feet",
+       "correct": false
+      },
+      {
+       "text": "A photo is 6 inches long and 3 inches wide. What is its area? → 18 square inches",
+       "correct": true
+      },
+      {
+       "text": "A garden is 8 meters long and 4 meters wide. What is the area of the garden? → 12 square meters",
+       "correct": false
+      },
+      {
+       "text": "A sticker sheet is 3 centimeters long and 9 centimeters wide. What is its area? → 27 square centimeters",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "2 by 12",
+       "correct": true
+      },
+      {
+       "text": "6 by 5",
+       "correct": false
+      },
+      {
+       "text": "6 by 4",
+       "correct": true
+      },
+      {
+       "text": "3 by 7",
+       "correct": false
+      },
+      {
+       "text": "7 by 3",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A rug is 9 feet long and 7 feet wide. What is its area? → 32 square feet: not correct.",
+      "A photo is 6 inches long and 3 inches wide. What is its area? → 18 square inches: correct.",
+      "A garden is 8 meters long and 4 meters wide. What is the area of the garden? → 12 square meters: not correct.",
+      "A sticker sheet is 3 centimeters long and 9 centimeters wide. What is its area? → 27 square centimeters: correct."
+     ],
+     "to": [
+      "Multiply the side lengths of each rectangle.",
+      "Correct choices: 2 by 12; 6 by 4. Not correct: 6 by 5; 3 by 7; 7 by 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_word_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar3_select_rectangle_area). 3rd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A rug is 6 feet long and 8 feet wide."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A sticker sheet is 8 centimeters long and 9 centimeters wide. What is its area?",
+       "answer": "72 square centimeters"
+      },
+      {
+       "prompt": "A garden is 6 meters long and 3 meters wide. What is the area of the garden?",
+       "answer": "18 square meters"
+      },
+      {
+       "prompt": "A photo is 9 inches long and 7 inches wide. What is its area?",
+       "answer": "63 square inches"
+      },
+      {
+       "prompt": "A photo is 6 inches long and 5 inches wide. What is its area?",
+       "answer": "30 square inches"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the area of the rug?",
+       "answer": "48 square feet"
+      },
+      {
+       "prompt": "How many rows of 1-foot tiles would cover it?",
+       "answer": "8"
+      },
+      {
+       "prompt": "A second rug has the same area and is 8 feet long. How wide is it?",
+       "answer": "6 feet"
+      },
+      {
+       "prompt": "Explain why multiplying gives the same answer as counting tiles.",
+       "answer": "Sample answer: There are 8 rows with 6 tiles in each, and 8 × 6 counts them all."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 72 square centimeters; (b) 18 square meters; (c) 63 square inches; (d) 30 square inches",
+     "to": "(a) 48 square feet; (b) 8; (c) 6 feet; (d) Sample answer: There are 8 rows with 6 tiles in each, and 8 × 6 counts them all."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Multiply the side lengths: 8 × 9. The area is 72 square centimeters.",
+      "(b) Multiply the side lengths: 6 × 3. The area is 18 square meters.",
+      "(c) Multiply the side lengths: 9 × 7. The area is 63 square inches.",
+      "(d) Multiply the side lengths: 6 × 5. The area is 30 square inches."
+     ],
+     "to": [
+      "(a) 6 × 8.",
+      "(b) 8 rows of 6.",
+      "(c) 48 ÷ 8 = 6.",
+      "(d) Rows times columns."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_word_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar3_open_rug). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s03-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the rectangles (side lengths in feet) with an area of 18 square feet."
+    },
+    "answer": {
+     "from": [
+      "A rug is 5 feet long and 2 feet wide. What is its area? → 10 square feet",
+      "A rug is 2 feet long and 3 feet wide. What is its area? → 6 square feet"
+     ],
+     "to": [
+      "6 by 3",
+      "2 by 9",
+      "9 by 2"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A rug is 5 feet long and 2 feet wide. What is its area? → 10 square feet",
+       "correct": true
+      },
+      {
+       "text": "A rug is 2 feet long and 3 feet wide. What is its area? → 6 square feet",
+       "correct": true
+      },
+      {
+       "text": "A photo is 2 inches long and 6 inches wide. What is its area? → 8 square inches",
+       "correct": false
+      },
+      {
+       "text": "A garden is 4 meters long and 5 meters wide. What is the area of the garden? → 9 square meters",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6 by 3",
+       "correct": true
+      },
+      {
+       "text": "2 by 9",
+       "correct": true
+      },
+      {
+       "text": "3 by 8",
+       "correct": false
+      },
+      {
+       "text": "9 by 2",
+       "correct": true
+      },
+      {
+       "text": "2 by 7",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A rug is 5 feet long and 2 feet wide. What is its area? → 10 square feet: correct.",
+      "A rug is 2 feet long and 3 feet wide. What is its area? → 6 square feet: correct.",
+      "A photo is 2 inches long and 6 inches wide. What is its area? → 8 square inches: not correct.",
+      "A garden is 4 meters long and 5 meters wide. What is the area of the garden? → 9 square meters: not correct."
+     ],
+     "to": [
+      "Multiply the side lengths of each rectangle.",
+      "Correct choices: 6 by 3; 2 by 9; 9 by 2. Not correct: 2 by 7; 3 by 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_word_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar3_select_rectangle_area). 3rd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A rug is 3 feet long and 3 feet wide."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A photo is 5 inches long and 5 inches wide. What is its area?",
+       "answer": "25 square inches"
+      },
+      {
+       "prompt": "A photo is 2 inches long and 5 inches wide. What is its area?",
+       "answer": "10 square inches"
+      },
+      {
+       "prompt": "A rug is 4 feet long and 3 feet wide. What is its area?",
+       "answer": "12 square feet"
+      },
+      {
+       "prompt": "A sticker sheet is 4 centimeters long and 6 centimeters wide. What is its area?",
+       "answer": "24 square centimeters"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the area of the rug?",
+       "answer": "9 square feet"
+      },
+      {
+       "prompt": "How many rows of 1-foot tiles would cover it?",
+       "answer": "3"
+      },
+      {
+       "prompt": "A second rug has the same area and is 3 feet long. How wide is it?",
+       "answer": "3 feet"
+      },
+      {
+       "prompt": "Explain why multiplying gives the same answer as counting tiles.",
+       "answer": "Sample answer: There are 3 rows with 3 tiles in each, and 3 × 3 counts them all."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 25 square inches; (b) 10 square inches; (c) 12 square feet; (d) 24 square centimeters",
+     "to": "(a) 9 square feet; (b) 3; (c) 3 feet; (d) Sample answer: There are 3 rows with 3 tiles in each, and 3 × 3 counts them all."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Multiply the side lengths: 5 × 5. The area is 25 square inches.",
+      "(b) Multiply the side lengths: 2 × 5. The area is 10 square inches.",
+      "(c) Multiply the side lengths: 4 × 3. The area is 12 square feet.",
+      "(d) Multiply the side lengths: 4 × 6. The area is 24 square centimeters."
+     ],
+     "to": [
+      "(a) 3 × 3.",
+      "(b) 3 rows of 3.",
+      "(c) 9 ÷ 3 = 3.",
+      "(d) Rows times columns."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_word_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar3_open_rug). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s03-honors-005",
+   "changes": {
+    "prompt": {
+     "from": "A rectangle has an area of 56 square feet. One side is 7 feet. How long is the other side?",
+     "to": "Rug A is 4 feet by 9 feet. Rug B has the same area and one side is 6 feet. How long is the other side of rug B?"
+    },
+    "answer": {
+     "from": "8 feet",
+     "to": "6 feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "Area = side × side, so 7 × ? = 56.",
+      "56 ÷ 7 = 8 feet."
+     ],
+     "to": [
+      "Area of rug A: 4 × 9 = 36 square feet.",
+      "36 ÷ 6 = 6 feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_side). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar3_same_area_side). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s03-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "A rug is 9 feet long and 7 feet wide. What is its area?",
+     "to": "Rug A is 3 feet by 6 feet. Rug B has the same area and one side is 6 feet. How long is the other side of rug B?"
+    },
+    "answer": {
+     "from": "63 square feet",
+     "to": "3 feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "Multiply the side lengths: 9 × 7.",
+      "The area is 63 square feet."
+     ],
+     "to": [
+      "Area of rug A: 3 × 6 = 18 square feet.",
+      "18 ÷ 6 = 3 feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_word). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar3_same_area_side). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s03-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "A rectangle has an area of 36 square inches. One side is 6 inches. How long is the other side?",
+     "to": "Rug A is 3 feet by 8 feet. Rug B has the same area and one side is 4 feet. How long is the other side of rug B?"
+    },
+    "answer": {
+     "from": "6 inches",
+     "to": "6 feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "Area = side × side, so 6 × ? = 36.",
+      "36 ÷ 6 = 6 inches."
+     ],
+     "to": [
+      "Area of rug A: 3 × 8 = 24 square feet.",
+      "24 ÷ 4 = 6 feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_side). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar3_same_area_side). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "30 inches",
+       "correct": false
+      },
+      {
+       "text": "7 inches",
+       "correct": false
+      },
+      {
+       "text": "12 inches",
+       "correct": false
+      },
+      {
+       "text": "6 inches",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "24 feet",
+       "correct": false
+      },
+      {
+       "text": "6 feet",
+       "correct": true
+      },
+      {
+       "text": "20 feet",
+       "correct": false
+      },
+      {
+       "text": "7 feet",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s03-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "A photo is 9 inches long and 7 inches wide. What is its area?",
+     "to": "Rug A is 5 feet by 8 feet. Rug B has the same area and one side is 8 feet. How long is the other side of rug B?"
+    },
+    "answer": {
+     "from": "63 square inches",
+     "to": "5 feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "Multiply the side lengths: 9 × 7.",
+      "The area is 63 square inches."
+     ],
+     "to": [
+      "Area of rug A: 5 × 8 = 40 square feet.",
+      "40 ÷ 8 = 5 feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_word). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar3_same_area_side). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s03-honors-018",
+   "changes": {
+    "prompt": {
+     "from": "A rectangle has an area of 48 square inches. One side is 6 inches. How long is the other side?",
+     "to": "Rug A is 6 feet by 4 feet. Rug B has the same area and one side is 3 feet. How long is the other side of rug B?"
+    },
+    "answer": {
+     "from": "8 inches",
+     "to": "8 feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "Area = side × side, so 6 × ? = 48.",
+      "48 ÷ 6 = 8 inches."
+     ],
+     "to": [
+      "Area of rug A: 6 × 4 = 24 square feet.",
+      "24 ÷ 3 = 8 feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_side). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar3_same_area_side). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s03-honors-022",
+   "changes": {
+    "prompt": {
+     "from": "A rectangle has an area of 30 square meters. One side is 5 meters. How long is the other side?",
+     "to": "Rug A is 5 feet by 6 feet. Rug B has the same area and one side is 10 feet. How long is the other side of rug B?"
+    },
+    "answer": {
+     "from": "6 meters",
+     "to": "3 feet"
+    },
+    "solutionSteps": {
+     "from": [
+      "Area = side × side, so 5 × ? = 30.",
+      "30 ÷ 5 = 6 meters."
+     ],
+     "to": [
+      "Area of rug A: 5 × 6 = 30 square feet.",
+      "30 ÷ 10 = 3 feet."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_side). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar3_same_area_side). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "25 meters",
+       "correct": false
+      },
+      {
+       "text": "6 meters",
+       "correct": true
+      },
+      {
+       "text": "10 meters",
+       "correct": false
+      },
+      {
+       "text": "7 meters",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "30 feet",
+       "correct": false
+      },
+      {
+       "text": "3 feet",
+       "correct": true
+      },
+      {
+       "text": "20 feet",
+       "correct": false
+      },
+      {
+       "text": "1 foot",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the rectangles (side lengths in feet) with an area of 36 square feet."
+    },
+    "answer": {
+     "from": [
+      "A rug is 9 feet long and 8 feet wide. What is its area? → 72 square feet",
+      "A rug is 6 feet long and 6 feet wide. What is its area? → 36 square feet"
+     ],
+     "to": [
+      "6 by 6",
+      "4 by 9",
+      "9 by 4",
+      "3 by 12"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A garden is 8 meters long and 9 meters wide. What is the area of the garden? → 34 square meters",
+       "correct": false
+      },
+      {
+       "text": "A garden is 6 meters long and 10 meters wide. What is the area of the garden? → 32 square meters",
+       "correct": false
+      },
+      {
+       "text": "A rug is 9 feet long and 8 feet wide. What is its area? → 72 square feet",
+       "correct": true
+      },
+      {
+       "text": "A rug is 6 feet long and 6 feet wide. What is its area? → 36 square feet",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "6 by 6",
+       "correct": true
+      },
+      {
+       "text": "4 by 9",
+       "correct": true
+      },
+      {
+       "text": "9 by 4",
+       "correct": true
+      },
+      {
+       "text": "3 by 12",
+       "correct": true
+      },
+      {
+       "text": "5 by 7",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A garden is 8 meters long and 9 meters wide. What is the area of the garden? → 34 square meters: not correct.",
+      "A garden is 6 meters long and 10 meters wide. What is the area of the garden? → 32 square meters: not correct.",
+      "A rug is 9 feet long and 8 feet wide. What is its area? → 72 square feet: correct.",
+      "A rug is 6 feet long and 6 feet wide. What is its area? → 36 square feet: correct."
+     ],
+     "to": [
+      "Multiply the side lengths of each rectangle.",
+      "Correct choices: 6 by 6; 4 by 9; 9 by 4; 3 by 12. Not correct: 5 by 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_word_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar3_select_rectangle_area). 3rd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A rug is 8 feet long and 8 feet wide."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A photo is 6 inches long and 10 inches wide. What is its area?",
+       "answer": "60 square inches"
+      },
+      {
+       "prompt": "A garden is 7 meters long and 8 meters wide. What is the area of the garden?",
+       "answer": "56 square meters"
+      },
+      {
+       "prompt": "A rug is 8 feet long and 10 feet wide. What is its area?",
+       "answer": "80 square feet"
+      },
+      {
+       "prompt": "A garden is 5 meters long and 10 meters wide. What is the area of the garden?",
+       "answer": "50 square meters"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the area of the rug?",
+       "answer": "64 square feet"
+      },
+      {
+       "prompt": "How many rows of 1-foot tiles would cover it?",
+       "answer": "8"
+      },
+      {
+       "prompt": "A second rug has the same area and is 8 feet long. How wide is it?",
+       "answer": "8 feet"
+      },
+      {
+       "prompt": "Explain why multiplying gives the same answer as counting tiles.",
+       "answer": "Sample answer: There are 8 rows with 8 tiles in each, and 8 × 8 counts them all."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 60 square inches; (b) 56 square meters; (c) 80 square feet; (d) 50 square meters",
+     "to": "(a) 64 square feet; (b) 8; (c) 8 feet; (d) Sample answer: There are 8 rows with 8 tiles in each, and 8 × 8 counts them all."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Multiply the side lengths: 6 × 10. The area is 60 square inches.",
+      "(b) Multiply the side lengths: 7 × 8. The area is 56 square meters.",
+      "(c) Multiply the side lengths: 8 × 10. The area is 80 square feet.",
+      "(d) Multiply the side lengths: 5 × 10. The area is 50 square meters."
+     ],
+     "to": [
+      "(a) 8 × 8.",
+      "(b) 8 rows of 8.",
+      "(c) 64 ÷ 8 = 8.",
+      "(d) Rows times columns."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_word_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar3_open_rug). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s04-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A patio is 8 feet by 8 feet. Sam splits the 8-foot side into 4 and 4."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A garden is 6 feet wide. It has a vegetable part 5 feet long and one flower part 6 feet long, side by side. What is the area of the whole garden?",
+       "answer": "66 square feet"
+      },
+      {
+       "prompt": "A garden is 8 feet wide. It has a vegetable part 5 feet long and one flower part 5 feet long, side by side. What is the area of the whole garden?",
+       "answer": "80 square feet"
+      },
+      {
+       "prompt": "A garden is 6 feet wide. It has a vegetable part 5 feet long and one flower part 5 feet long, side by side. What is the area of the whole garden?",
+       "answer": "60 square feet"
+      },
+      {
+       "prompt": "A garden is 8 feet wide. It has a vegetable part 4 feet long and one flower part 5 feet long, side by side. What is the area of the whole garden?",
+       "answer": "72 square feet"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the area of the 8 by 4 part?",
+       "answer": "32 square feet"
+      },
+      {
+       "prompt": "What is the area of the 8 by 4 part?",
+       "answer": "32 square feet"
+      },
+      {
+       "prompt": "What is the area of the patio?",
+       "answer": "64 square feet"
+      },
+      {
+       "prompt": "Explain how this shows the distributive property.",
+       "answer": "Sample answer: 8 × 8 = 8 × 4 + 8 × 4."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 66 square feet; (b) 80 square feet; (c) 60 square feet; (d) 72 square feet",
+     "to": "(a) 32 square feet; (b) 32 square feet; (c) 64 square feet; (d) Sample answer: 8 × 8 = 8 × 4 + 8 × 4."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Vegetables: 6 × 5 = 30. Flowers: 6 × 6 = 36. 30 + 36 = 66 square feet.",
+      "(b) Vegetables: 8 × 5 = 40. Flowers: 8 × 5 = 40. 40 + 40 = 80 square feet.",
+      "(c) Vegetables: 6 × 5 = 30. Flowers: 6 × 5 = 30. 30 + 30 = 60 square feet.",
+      "(d) Vegetables: 8 × 4 = 32. Flowers: 8 × 5 = 40. 32 + 40 = 72 square feet."
+     ],
+     "to": [
+      "(a) 8 × 4.",
+      "(b) 8 × 4.",
+      "(c) 32 + 32.",
+      "(d) Break apart a side."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ad_word_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar4_open_two_parts). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s05-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "An L-shaped room is made of a 6 by 2 rectangle and a 3 by 6 rectangle that do not overlap."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A room is made of one rectangle 9 feet by 2 feet and one rectangle 2 feet by 6 feet that share no space. What is the area of the room?",
+       "answer": "30 square feet"
+      },
+      {
+       "prompt": "A room is made of one rectangle 6 feet by 4 feet and one rectangle 3 feet by 4 feet that share no space. What is the area of the room?",
+       "answer": "36 square feet"
+      },
+      {
+       "prompt": "A room is made of one rectangle 6 feet by 5 feet and one rectangle 2 feet by 2 feet that share no space. What is the area of the room?",
+       "answer": "34 square feet"
+      },
+      {
+       "prompt": "A room is made of one rectangle 8 feet by 2 feet and one rectangle 5 feet by 2 feet that share no space. What is the area of the room?",
+       "answer": "26 square feet"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the area of the first rectangle?",
+       "answer": "12 square units"
+      },
+      {
+       "prompt": "What is the area of the second rectangle?",
+       "answer": "18 square units"
+      },
+      {
+       "prompt": "What is the area of the room?",
+       "answer": "30 square units"
+      },
+      {
+       "prompt": "Explain another way to split the room.",
+       "answer": "Sample answer: Split it the other way into two different rectangles; the total area is the same."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 30 square feet; (b) 36 square feet; (c) 34 square feet; (d) 26 square feet",
+     "to": "(a) 12 square units; (b) 18 square units; (c) 30 square units; (d) Sample answer: Split it the other way into two different rectangles; the total area is the same."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 9 × 2 = 18 and 2 × 6 = 12. 18 + 12 = 30 square feet.",
+      "(b) 6 × 4 = 24 and 3 × 4 = 12. 24 + 12 = 36 square feet.",
+      "(c) 6 × 5 = 30 and 2 × 2 = 4. 30 + 4 = 34 square feet.",
+      "(d) 8 × 2 = 16 and 5 × 2 = 10. 16 + 10 = 26 square feet."
+     ],
+     "to": [
+      "(a) 6 × 2.",
+      "(b) 3 × 6.",
+      "(c) Add the parts.",
+      "(d) Different splits give the same area."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: rl_word_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar5_open_L_shape). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s05-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "An L-shaped room is made of a 3 by 4 rectangle and a 4 by 3 rectangle that do not overlap."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A room is made of one rectangle 10 feet by 2 feet and one rectangle 2 feet by 6 feet that share no space. What is the area of the room?",
+       "answer": "32 square feet"
+      },
+      {
+       "prompt": "A room is made of one rectangle 7 feet by 3 feet and one rectangle 2 feet by 3 feet that share no space. What is the area of the room?",
+       "answer": "27 square feet"
+      },
+      {
+       "prompt": "A room is made of one rectangle 6 feet by 3 feet and one rectangle 2 feet by 4 feet that share no space. What is the area of the room?",
+       "answer": "26 square feet"
+      },
+      {
+       "prompt": "A room is made of one rectangle 9 feet by 3 feet and one rectangle 6 feet by 5 feet that share no space. What is the area of the room?",
+       "answer": "57 square feet"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the area of the first rectangle?",
+       "answer": "12 square units"
+      },
+      {
+       "prompt": "What is the area of the second rectangle?",
+       "answer": "12 square units"
+      },
+      {
+       "prompt": "What is the area of the room?",
+       "answer": "24 square units"
+      },
+      {
+       "prompt": "Explain another way to split the room.",
+       "answer": "Sample answer: Split it the other way into two different rectangles; the total area is the same."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 32 square feet; (b) 27 square feet; (c) 26 square feet; (d) 57 square feet",
+     "to": "(a) 12 square units; (b) 12 square units; (c) 24 square units; (d) Sample answer: Split it the other way into two different rectangles; the total area is the same."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 10 × 2 = 20 and 2 × 6 = 12. 20 + 12 = 32 square feet.",
+      "(b) 7 × 3 = 21 and 2 × 3 = 6. 21 + 6 = 27 square feet.",
+      "(c) 6 × 3 = 18 and 2 × 4 = 8. 18 + 8 = 26 square feet.",
+      "(d) 9 × 3 = 27 and 6 × 5 = 30. 27 + 30 = 57 square feet."
+     ],
+     "to": [
+      "(a) 3 × 4.",
+      "(b) 4 × 3.",
+      "(c) Add the parts.",
+      "(d) Different splits give the same area."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: rl_word_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar5_open_L_shape). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-ar-s05-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "An L-shaped room is made of a 7 by 3 rectangle and a 3 by 4 rectangle that do not overlap."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A room is made of one rectangle 6 feet by 4 feet and one rectangle 4 feet by 2 feet that share no space. What is the area of the room?",
+       "answer": "32 square feet"
+      },
+      {
+       "prompt": "A room is made of one rectangle 8 feet by 7 feet and one rectangle 6 feet by 2 feet that share no space. What is the area of the room?",
+       "answer": "68 square feet"
+      },
+      {
+       "prompt": "A room is made of one rectangle 10 feet by 5 feet and one rectangle 2 feet by 2 feet that share no space. What is the area of the room?",
+       "answer": "54 square feet"
+      },
+      {
+       "prompt": "A room is made of one rectangle 7 feet by 3 feet and one rectangle 5 feet by 5 feet that share no space. What is the area of the room?",
+       "answer": "46 square feet"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the area of the first rectangle?",
+       "answer": "21 square units"
+      },
+      {
+       "prompt": "What is the area of the second rectangle?",
+       "answer": "12 square units"
+      },
+      {
+       "prompt": "What is the area of the room?",
+       "answer": "33 square units"
+      },
+      {
+       "prompt": "Explain another way to split the room.",
+       "answer": "Sample answer: Split it the other way into two different rectangles; the total area is the same."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 32 square feet; (b) 68 square feet; (c) 54 square feet; (d) 46 square feet",
+     "to": "(a) 21 square units; (b) 12 square units; (c) 33 square units; (d) Sample answer: Split it the other way into two different rectangles; the total area is the same."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 6 × 4 = 24 and 4 × 2 = 8. 24 + 8 = 32 square feet.",
+      "(b) 8 × 7 = 56 and 6 × 2 = 12. 56 + 12 = 68 square feet.",
+      "(c) 10 × 5 = 50 and 2 × 2 = 4. 50 + 4 = 54 square feet.",
+      "(d) 7 × 3 = 21 and 5 × 5 = 25. 21 + 25 = 46 square feet."
+     ],
+     "to": [
+      "(a) 7 × 3.",
+      "(b) 3 × 4.",
+      "(c) Add the parts.",
+      "(d) Different splits give the same area."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: rl_word_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ar5_open_L_shape). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [
+  {
+   "id": "m3-ar-s04-cp2-o01",
+   "skillId": "area-skill-04",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A patio is 3 feet by 8 feet. Sam splits the 8-foot side into 5 and 3.",
+   "parts": [
+    {
+     "prompt": "What is the area of the 3 by 5 part?",
+     "answer": "15 square feet"
+    },
+    {
+     "prompt": "What is the area of the 3 by 3 part?",
+     "answer": "9 square feet"
+    },
+    {
+     "prompt": "What is the area of the patio?",
+     "answer": "24 square feet"
+    },
+    {
+     "prompt": "Explain how this shows the distributive property.",
+     "answer": "Sample answer: 3 × 8 = 3 × 5 + 3 × 3."
+    }
+   ],
+   "answer": "(a) 15 square feet; (b) 9 square feet; (c) 24 square feet; (d) Sample answer: 3 × 8 = 3 × 5 + 3 × 3.",
+   "solutionSteps": [
+    "(a) 3 × 5.",
+    "(b) 3 × 3.",
+    "(c) 15 + 9.",
+    "(d) Break apart a side."
+   ],
+   "standards": [
+    "3.MD.C.7.c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ar4_open_two_parts). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m3-ar-s04-cp1-o01",
+   "skillId": "area-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A patio is 5 feet by 8 feet. Sam splits the 8-foot side into 3 and 5.",
+   "parts": [
+    {
+     "prompt": "What is the area of the 5 by 3 part?",
+     "answer": "15 square feet"
+    },
+    {
+     "prompt": "What is the area of the 5 by 5 part?",
+     "answer": "25 square feet"
+    },
+    {
+     "prompt": "What is the area of the patio?",
+     "answer": "40 square feet"
+    },
+    {
+     "prompt": "Explain how this shows the distributive property.",
+     "answer": "Sample answer: 5 × 8 = 5 × 3 + 5 × 5."
+    }
+   ],
+   "answer": "(a) 15 square feet; (b) 25 square feet; (c) 40 square feet; (d) Sample answer: 5 × 8 = 5 × 3 + 5 × 5.",
+   "solutionSteps": [
+    "(a) 5 × 3.",
+    "(b) 5 × 5.",
+    "(c) 15 + 25.",
+    "(d) Break apart a side."
+   ],
+   "standards": [
+    "3.MD.C.7.c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ar4_open_two_parts). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+  }
+ ],
+ "meta": {
+  "m3-ar-s01-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "63 − 22 = 41 more squares.",
+   "distractors": {
+    "63 squares": "a common mistake",
+    "32 squares": "a common mistake",
+    "42 squares": "a common mistake"
+   }
+  },
+  "m3-ar-s01-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "20 − 17 = 3 more squares.",
+   "distractors": {
+    "20 squares": "a common mistake",
+    "18 squares": "a common mistake",
+    "4 squares": "a common mistake"
+   }
+  },
+  "m3-ar-s01-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12 − 10 = 2 more squares.",
+   "distractors": {
+    "12 squares": "a common mistake",
+    "14 squares": "a common mistake",
+    "3 squares": "a common mistake"
+   }
+  },
+  "m3-ar-s01-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "28 − 16 = 12 more squares.",
+   "distractors": {
+    "28 squares": "a common mistake",
+    "22 squares": "a common mistake",
+    "13 squares": "a common mistake"
+   }
+  },
+  "m3-ar-s01-honors-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "48 − 19 = 29 more squares.",
+   "distractors": {
+    "48 squares": "a common mistake",
+    "28 squares": "a common mistake",
+    "30 squares": "a common mistake"
+   }
+  },
+  "m3-ar-s01-honors-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "36 − 19 = 17 more squares.",
+   "distractors": {
+    "36 squares": "a common mistake",
+    "26 squares": "a common mistake",
+    "18 squares": "a common mistake"
+   }
+  },
+  "m3-ar-s01-honors-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "15 − 10 = 5 more squares.",
+   "distractors": {
+    "15 squares": "a common mistake",
+    "16 squares": "a common mistake",
+    "6 squares": "a common mistake"
+   }
+  },
+  "m3-ar-s02-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "24 − 14 = 10 square centimeters.",
+   "distractors": {
+    "38 square centimeters": "a common mistake",
+    "10 centimeters": "a common mistake",
+    "24 square centimeters": "a common mistake"
+   }
+  },
+  "m3-ar-s02-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "34 − 12 = 22 square inches.",
+   "distractors": {
+    "46 square inches": "a common mistake",
+    "22 inches": "a common mistake",
+    "34 square inches": "a common mistake"
+   }
+  },
+  "m3-ar-s02-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "17 − 12 = 5 square centimeters.",
+   "distractors": {
+    "29 square centimeters": "a common mistake",
+    "5 centimeters": "a common mistake",
+    "17 square centimeters": "a common mistake"
+   }
+  },
+  "m3-ar-s02-honors-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "28 − 16 = 12 square inches.",
+   "distractors": {
+    "44 square inches": "a common mistake",
+    "12 inches": "a common mistake",
+    "28 square inches": "a common mistake"
+   }
+  },
+  "m3-ar-s02-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "20 − 13 = 7 square centimeters.",
+   "distractors": {
+    "33 square centimeters": "a common mistake",
+    "7 centimeters": "a common mistake",
+    "20 square centimeters": "a common mistake"
+   }
+  },
+  "m3-ar-s02-honors-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "32 − 11 = 21 square centimeters.",
+   "distractors": {
+    "43 square centimeters": "a common mistake",
+    "21 centimeters": "a common mistake",
+    "32 square centimeters": "a common mistake"
+   }
+  },
+  "m3-ar-s02-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "31 − 21 = 10 square centimeters.",
+   "distractors": {
+    "52 square centimeters": "a common mistake",
+    "10 centimeters": "a common mistake",
+    "31 square centimeters": "a common mistake"
+   }
+  },
+  "m3-ar-s02-honors-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "22 − 12 = 10 square centimeters.",
+   "distractors": {
+    "34 square centimeters": "a common mistake",
+    "10 centimeters": "a common mistake",
+    "22 square centimeters": "a common mistake"
+   }
+  },
+  "m3-ar-s02-honors-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "24 − 20 = 4 square inches.",
+   "distractors": {
+    "44 square inches": "a common mistake",
+    "4 inches": "a common mistake",
+    "24 square inches": "a common mistake"
+   }
+  },
+  "m3-ar-s02-honors-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "24 − 17 = 7 square centimeters.",
+   "distractors": {
+    "41 square centimeters": "a common mistake",
+    "7 centimeters": "a common mistake",
+    "24 square centimeters": "a common mistake"
+   }
+  },
+  "m3-ar-s02-honors-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "32 − 19 = 13 square inches.",
+   "distractors": {
+    "51 square inches": "a common mistake",
+    "13 inches": "a common mistake",
+    "32 square inches": "a common mistake"
+   }
+  },
+  "m3-ar-s03-honors-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "36 ÷ 6 = 6 feet.",
+   "distractors": {
+    "36 feet": "a common mistake",
+    "30 feet": "a common mistake",
+    "7 feet": "a common mistake"
+   }
+  },
+  "m3-ar-s03-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "18 ÷ 6 = 3 feet.",
+   "distractors": {
+    "18 feet": "a common mistake",
+    "12 feet": "a common mistake"
+   }
+  },
+  "m3-ar-s03-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "24 ÷ 4 = 6 feet.",
+   "distractors": {
+    "24 feet": "a common mistake",
+    "20 feet": "a common mistake",
+    "7 feet": "a common mistake"
+   }
+  },
+  "m3-ar-s03-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "40 ÷ 8 = 5 feet.",
+   "distractors": {
+    "40 feet": "a common mistake",
+    "32 feet": "a common mistake"
+   }
+  },
+  "m3-ar-s03-honors-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "24 ÷ 3 = 8 feet.",
+   "distractors": {
+    "24 feet": "a common mistake",
+    "21 feet": "a common mistake",
+    "7 feet": "a common mistake"
+   }
+  },
+  "m3-ar-s03-honors-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "30 ÷ 10 = 3 feet.",
+   "distractors": {
+    "30 feet": "a common mistake",
+    "20 feet": "a common mistake",
+    "1 foot": "a common mistake"
+   }
+  },
+  "m3-ar-s01-cp1-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "16 + 30 = 46 square units.",
+   "distractors": {
+    "14 square units": "a common mistake",
+    "480 square units": "a common mistake",
+    "46 units": "a common mistake"
+   }
+  },
+  "m3-ar-s01-cp1-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 26 = 36 square units.",
+   "distractors": {
+    "16 square units": "a common mistake",
+    "260 square units": "a common mistake",
+    "36 units": "a common mistake"
+   }
+  },
+  "m3-ar-s01-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "29 + 7 = 36 square units.",
+   "distractors": {
+    "22 square units": "a common mistake",
+    "203 square units": "a common mistake",
+    "36 units": "a common mistake"
+   }
+  },
+  "m3-ar-s01-cp1-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "8 + 10 = 18 square units.",
+   "distractors": {
+    "2 square units": "a common mistake",
+    "80 square units": "a common mistake",
+    "18 units": "a common mistake"
+   }
+  },
+  "m3-ar-s01-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "24 + 30 = 54 square units.",
+   "distractors": {
+    "6 square units": "a common mistake",
+    "720 square units": "a common mistake",
+    "54 units": "a common mistake"
+   }
+  },
+  "m3-ar-s01-cp1-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 + 20 = 30 square units.",
+   "distractors": {
+    "10 square units": "a common mistake",
+    "200 square units": "a common mistake",
+    "30 units": "a common mistake"
+   }
+  },
+  "m3-ar-s01-cp1-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "13 + 28 = 41 square units.",
+   "distractors": {
+    "15 square units": "a common mistake",
+    "364 square units": "a common mistake",
+    "41 units": "a common mistake"
+   }
+  },
+  "m3-ar-s01-cp1-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "21 + 24 = 45 square units.",
+   "distractors": {
+    "3 square units": "a common mistake",
+    "504 square units": "a common mistake",
+    "45 units": "a common mistake"
+   }
+  },
+  "m3-ar-s02-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Each square is 1 square foot, so the area is 42 square feet.",
+   "distractors": {
+    "42 feet": "a common mistake",
+    "425 square feet": "a common mistake",
+    "8 square feet": "a common mistake"
+   }
+  },
+  "m3-ar-s02-cp1-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Each square is 1 square inch, so the area is 25 square inches.",
+   "distractors": {
+    "25 inches": "a common mistake",
+    "144 square inches": "a common mistake",
+    "7 square inches": "a common mistake"
+   }
+  },
+  "m3-ar-s02-cp1-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Each square is 1 square centimeter, so the area is 36 square centimeters.",
+   "distractors": {
+    "36 centimeters": "a common mistake",
+    "323 square centimeters": "a common mistake",
+    "2 square centimeters": "a common mistake"
+   }
+  },
+  "m3-ar-s02-cp1-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Each square is 1 square centimeter, so the area is 19 square centimeters.",
+   "distractors": {
+    "19 centimeters": "a common mistake",
+    "70 square centimeters": "a common mistake",
+    "9 square centimeters": "a common mistake"
+   }
+  },
+  "m3-ar-s02-cp1-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Each square is 1 square meter, so the area is 19 square meters.",
+   "distractors": {
+    "19 meters": "a common mistake",
+    "88 square meters": "a common mistake",
+    "3 square meters": "a common mistake"
+   }
+  },
+  "m3-ar-s02-cp1-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Each square is 1 square centimeter, so the area is 62 square centimeters.",
+   "distractors": {
+    "62 centimeters": "a common mistake",
+    "952 square centimeters": "a common mistake",
+    "6 square centimeters": "a common mistake"
+   }
+  },
+  "m3-ar-s02-cp1-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Each square is 1 square centimeter, so the area is 35 square centimeters.",
+   "distractors": {
+    "35 centimeters": "a common mistake",
+    "306 square centimeters": "a common mistake",
+    "1 square centimeter": "a common mistake"
+   }
+  },
+  "m3-ar-s03-cp1-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "7 × 7 = 49 square feet.",
+   "distractors": {
+    "28 square feet": "a common mistake",
+    "31 square feet": "a common mistake",
+    "70 square feet": "a common mistake"
+   }
+  },
+  "m3-ar-s01-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m3-ar-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m3-ar-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m3-ar-s02-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m3-ar-s02-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m3-ar-s02-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m3-ar-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "9 ÷ 3 = 3."
+  },
+  "m3-ar-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "48 ÷ 8 = 6."
+  },
+  "m3-ar-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "64 ÷ 8 = 8."
+  },
+  "m3-ar-s04-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "15 + 9."
+  },
+  "m3-ar-s04-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "15 + 25."
+  },
+  "m3-ar-s04-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "32 + 32."
+  },
+  "m3-ar-s05-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add the parts."
+  },
+  "m3-ar-s05-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add the parts."
+  },
+  "m3-ar-s05-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add the parts."
+  },
+  "m3-ar-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Area counts the unit squares that cover a shape with no gaps or overlaps."
+  },
+  "m3-ar-s01-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Area counts the unit squares that cover a shape with no gaps or overlaps."
+  },
+  "m3-ar-s01-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Area counts the unit squares that cover a shape with no gaps or overlaps."
+  },
+  "m3-ar-s03-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Multiply the side lengths of each rectangle."
+  },
+  "m3-ar-s03-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Multiply the side lengths of each rectangle."
+  },
+  "m3-ar-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Multiply the side lengths of each rectangle."
+  }
+ }
+}

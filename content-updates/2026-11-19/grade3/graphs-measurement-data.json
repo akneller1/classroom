@@ -1,0 +1,2998 @@
+{
+ "unit": "graphs-measurement-data",
+ "edits": [
+  {
+   "id": "m3-gd-s01-cp2-005",
+   "changes": {
+    "options": {
+     "from": [
+      {
+       "text": "1 pets",
+       "correct": false
+      },
+      {
+       "text": "30 pets",
+       "correct": false
+      },
+      {
+       "text": "10 pets",
+       "correct": true
+      },
+      {
+       "text": "50 pets",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "1 pet",
+       "correct": false
+      },
+      {
+       "text": "30 pets",
+       "correct": false
+      },
+      {
+       "text": "10 pets",
+       "correct": true
+      },
+      {
+       "text": "50 pets",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s02-cp1-009",
+   "changes": {
+    "options": {
+     "from": [
+      {
+       "text": "15 pets",
+       "correct": false
+      },
+      {
+       "text": "13 pets",
+       "correct": true
+      },
+      {
+       "text": "17 pets",
+       "correct": false
+      },
+      {
+       "text": "1 pets",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "15 pets",
+       "correct": false
+      },
+      {
+       "text": "13 pets",
+       "correct": true
+      },
+      {
+       "text": "17 pets",
+       "correct": false
+      },
+      {
+       "text": "1 pet",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s02-cp2-003",
+   "changes": {
+    "answer": {
+     "from": "1 pets",
+     "to": "1 pet"
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp1-001",
+   "changes": {
+    "prompt": {
+     "from": "In a picture graph, each symbol stands for 2. How many symbols should be drawn to show 9?",
+     "to": "In a picture graph, each symbol stands for 10. Apples got 80 votes and pears got 90 votes. How many symbols are drawn in all for apples and pears?"
+    },
+    "answer": {
+     "from": "4 1/2",
+     "to": "17 symbols"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide by the key: 9 ÷ 2.",
+      "4 1/2 symbols. The half symbol stands for 1."
+     ],
+     "to": [
+      "Apples: 80 ÷ 10 = 8. Pears: 90 ÷ 10 = 9.",
+      "8 + 9 = 17 symbols."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_symbols_for_two). Rewritten from a Support template (was mk_symbols) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "The data are 3, 6, 9, 15. Which key lets you show every number with whole symbols only?",
+     "to": "In a picture graph, each symbol stands for 5. Apples got 35 votes and pears got 15 votes. How many symbols are drawn in all for apples and pears?"
+    },
+    "answer": {
+     "from": "each symbol = 3",
+     "to": "10 symbols"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number must be a multiple of the key.",
+      "All the numbers are multiples of 3."
+     ],
+     "to": [
+      "Apples: 35 ÷ 5 = 7. Pears: 15 ÷ 5 = 3.",
+      "7 + 3 = 10 symbols."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_key_choice). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_symbols_for_two). Rewritten from a Support template (was mk_key_choice) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "each symbol = 4",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 5",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 2",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 3",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "50 symbols",
+       "correct": false
+      },
+      {
+       "text": "7 symbols",
+       "correct": false
+      },
+      {
+       "text": "11 symbols",
+       "correct": false
+      },
+      {
+       "text": "10 symbols",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "In a picture graph, each symbol stands for 10. How many symbols should be drawn to show 65?",
+     "to": "In a picture graph, each symbol stands for 5. Apples got 20 votes and pears got 10 votes. How many symbols are drawn in all for apples and pears?"
+    },
+    "answer": {
+     "from": "6 1/2",
+     "to": "6 symbols"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide by the key: 65 ÷ 10.",
+      "6 1/2 symbols. The half symbol stands for 5."
+     ],
+     "to": [
+      "Apples: 20 ÷ 5 = 4. Pears: 10 ÷ 5 = 2.",
+      "4 + 2 = 6 symbols."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_symbols_for_two). Rewritten from a Support template (was mk_symbols) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "65",
+       "correct": false
+      },
+      {
+       "text": "75",
+       "correct": false
+      },
+      {
+       "text": "6 1/2",
+       "correct": true
+      },
+      {
+       "text": "7",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "30 symbols",
+       "correct": false
+      },
+      {
+       "text": "6 symbols",
+       "correct": true
+      },
+      {
+       "text": "4 symbols",
+       "correct": false
+      },
+      {
+       "text": "7 symbols",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp1-007",
+   "changes": {
+    "prompt": {
+     "from": "The data are 15, 20, 30, 35. Which key lets you show every number with whole symbols only?",
+     "to": "In a picture graph, each symbol stands for 5. Apples got 25 votes and pears got 35 votes. How many symbols are drawn in all for apples and pears?"
+    },
+    "answer": {
+     "from": "each symbol = 5",
+     "to": "12 symbols"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number must be a multiple of the key.",
+      "All the numbers are multiples of 5."
+     ],
+     "to": [
+      "Apples: 25 ÷ 5 = 5. Pears: 35 ÷ 5 = 7.",
+      "5 + 7 = 12 symbols."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_key_choice). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_symbols_for_two). Rewritten from a Support template (was mk_key_choice) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "each symbol = 5",
+       "correct": true
+      },
+      {
+       "text": "each symbol = 10",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 6",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 4",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "60 symbols",
+       "correct": false
+      },
+      {
+       "text": "5 symbols",
+       "correct": false
+      },
+      {
+       "text": "13 symbols",
+       "correct": false
+      },
+      {
+       "text": "12 symbols",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp1-009",
+   "changes": {
+    "prompt": {
+     "from": "In a picture graph, each symbol stands for 4. How many symbols should be drawn to show 26?",
+     "to": "In a picture graph, each symbol stands for 2. Apples got 14 votes and pears got 12 votes. How many symbols are drawn in all for apples and pears?"
+    },
+    "answer": {
+     "from": "6 1/2",
+     "to": "13 symbols"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide by the key: 26 ÷ 4.",
+      "6 1/2 symbols. The half symbol stands for 2."
+     ],
+     "to": [
+      "Apples: 14 ÷ 2 = 7. Pears: 12 ÷ 2 = 6.",
+      "7 + 6 = 13 symbols."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_symbols_for_two). Rewritten from a Support template (was mk_symbols) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp1-011",
+   "changes": {
+    "prompt": {
+     "from": "The data are 4, 16, 20, 36. Which key lets you show every number with whole symbols only?",
+     "to": "In a picture graph, each symbol stands for 10. Apples got 80 votes and pears got 70 votes. How many symbols are drawn in all for apples and pears?"
+    },
+    "answer": {
+     "from": "each symbol = 4",
+     "to": "15 symbols"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number must be a multiple of the key.",
+      "All the numbers are multiples of 4."
+     ],
+     "to": [
+      "Apples: 80 ÷ 10 = 8. Pears: 70 ÷ 10 = 7.",
+      "8 + 7 = 15 symbols."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_key_choice). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_symbols_for_two). Rewritten from a Support template (was mk_key_choice) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "each symbol = 4",
+       "correct": true
+      },
+      {
+       "text": "each symbol = 6",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 5",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 10",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "15 symbols",
+       "correct": true
+      },
+      {
+       "text": "150 symbols",
+       "correct": false
+      },
+      {
+       "text": "8 symbols",
+       "correct": false
+      },
+      {
+       "text": "16 symbols",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp1-013",
+   "changes": {
+    "prompt": {
+     "from": "In a picture graph, each symbol stands for 10. How many symbols should be drawn to show 75?",
+     "to": "In a picture graph, each symbol stands for 2. Apples got 12 votes and pears got 6 votes. How many symbols are drawn in all for apples and pears?"
+    },
+    "answer": {
+     "from": "7 1/2",
+     "to": "9 symbols"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide by the key: 75 ÷ 10.",
+      "7 1/2 symbols. The half symbol stands for 5."
+     ],
+     "to": [
+      "Apples: 12 ÷ 2 = 6. Pears: 6 ÷ 2 = 3.",
+      "6 + 3 = 9 symbols."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_symbols_for_two). Rewritten from a Support template (was mk_symbols) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "85",
+       "correct": false
+      },
+      {
+       "text": "7 1/2",
+       "correct": true
+      },
+      {
+       "text": "75",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9 symbols",
+       "correct": true
+      },
+      {
+       "text": "18 symbols",
+       "correct": false
+      },
+      {
+       "text": "6 symbols",
+       "correct": false
+      },
+      {
+       "text": "10 symbols",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "The data are 8, 16, 24, 36. Which key lets you show every number with whole symbols only?",
+     "to": "In a picture graph, each symbol stands for 5. Apples got 40 votes and pears got 15 votes. How many symbols are drawn in all for apples and pears?"
+    },
+    "answer": {
+     "from": "each symbol = 4",
+     "to": "11 symbols"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number must be a multiple of the key.",
+      "All the numbers are multiples of 4."
+     ],
+     "to": [
+      "Apples: 40 ÷ 5 = 8. Pears: 15 ÷ 5 = 3.",
+      "8 + 3 = 11 symbols."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_key_choice). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_symbols_for_two). Rewritten from a Support template (was mk_key_choice) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "each symbol = 3",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 4",
+       "correct": true
+      },
+      {
+       "text": "each symbol = 10",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 6",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "55 symbols",
+       "correct": false
+      },
+      {
+       "text": "8 symbols",
+       "correct": false
+      },
+      {
+       "text": "11 symbols",
+       "correct": true
+      },
+      {
+       "text": "12 symbols",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp1-017",
+   "changes": {
+    "prompt": {
+     "from": "In a picture graph, each symbol stands for 4. How many symbols should be drawn to show 24?",
+     "to": "In a picture graph, each symbol stands for 2. Apples got 8 votes and pears got 6 votes. How many symbols are drawn in all for apples and pears?"
+    },
+    "answer": {
+     "from": "6",
+     "to": "7 symbols"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide by the key: 24 ÷ 4.",
+      "6 symbols."
+     ],
+     "to": [
+      "Apples: 8 ÷ 2 = 4. Pears: 6 ÷ 2 = 3.",
+      "4 + 3 = 7 symbols."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_symbols_for_two). Rewritten from a Support template (was mk_symbols) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp1-019",
+   "changes": {
+    "prompt": {
+     "from": "In a picture graph, each symbol stands for 2. How many symbols should be drawn to show 5?",
+     "to": "In a picture graph, each symbol stands for 2. Apples got 12 votes and pears got 18 votes. How many symbols are drawn in all for apples and pears?"
+    },
+    "answer": {
+     "from": "2 1/2",
+     "to": "15 symbols"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide by the key: 5 ÷ 2.",
+      "2 1/2 symbols. The half symbol stands for 1."
+     ],
+     "to": [
+      "Apples: 12 ÷ 2 = 6. Pears: 18 ÷ 2 = 9.",
+      "6 + 9 = 15 symbols."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_symbols_for_two). Rewritten from a Support template (was mk_symbols) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp1-021",
+   "changes": {
+    "prompt": {
+     "from": "In a picture graph, each symbol stands for 4. How many symbols should be drawn to show 18?",
+     "to": "In a picture graph, each symbol stands for 10. Apples got 50 votes and pears got 30 votes. How many symbols are drawn in all for apples and pears?"
+    },
+    "answer": {
+     "from": "4 1/2",
+     "to": "8 symbols"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide by the key: 18 ÷ 4.",
+      "4 1/2 symbols. The half symbol stands for 2."
+     ],
+     "to": [
+      "Apples: 50 ÷ 10 = 5. Pears: 30 ÷ 10 = 3.",
+      "5 + 3 = 8 symbols."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_symbols_for_two). Rewritten from a Support template (was mk_symbols) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp1-024",
+   "changes": {
+    "prompt": {
+     "from": "In a picture graph, each symbol stands for 2. How many symbols should be drawn to show 17?",
+     "to": "In a picture graph, each symbol stands for 5. Apples got 45 votes and pears got 20 votes. How many symbols are drawn in all for apples and pears?"
+    },
+    "answer": {
+     "from": "8 1/2",
+     "to": "13 symbols"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide by the key: 17 ÷ 2.",
+      "8 1/2 symbols. The half symbol stands for 1."
+     ],
+     "to": [
+      "Apples: 45 ÷ 5 = 9. Pears: 20 ÷ 5 = 4.",
+      "9 + 4 = 13 symbols."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_symbols_for_two). Rewritten from a Support template (was mk_symbols) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Each symbol in a picture graph stands for 5. Select ALL the numbers you can show with whole symbols only."
+    },
+    "answer": {
+     "from": [
+      "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 10? → 2",
+      "In a picture graph, each symbol stands for 4. How many symbols should be drawn to show 34? → 8 1/2"
+     ],
+     "to": [
+      "40",
+      "20"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 25? → 6",
+       "correct": false
+      },
+      {
+       "text": "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 10? → 2",
+       "correct": true
+      },
+      {
+       "text": "In a picture graph, each symbol stands for 4. How many symbols should be drawn to show 34? → 8 1/2",
+       "correct": true
+      },
+      {
+       "text": "In a picture graph, each symbol stands for 2. How many symbols should be drawn to show 14? → 28",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "40",
+       "correct": true
+      },
+      {
+       "text": "20",
+       "correct": true
+      },
+      {
+       "text": "26",
+       "correct": false
+      },
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "27",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 25? → 6: not correct.",
+      "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 10? → 2: correct.",
+      "In a picture graph, each symbol stands for 4. How many symbols should be drawn to show 34? → 8 1/2: correct.",
+      "In a picture graph, each symbol stands for 2. How many symbols should be drawn to show 14? → 28: not correct."
+     ],
+     "to": [
+      "A number can be shown with whole symbols when it is a multiple of 5.",
+      "Correct choices: 40; 20. Not correct: 11; 26; 27."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_select_whole_symbols). 3rd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Library books read: Ana 35, Ben 20, Cruz 30. Make a picture graph where each symbol stands for 5 books."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 35?",
+       "answer": "7"
+      },
+      {
+       "prompt": "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 30?",
+       "answer": "6"
+      },
+      {
+       "prompt": "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 25?",
+       "answer": "5"
+      },
+      {
+       "prompt": "In a picture graph, each symbol stands for 2. How many symbols should be drawn to show 16?",
+       "answer": "8"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many symbols for Ana?",
+       "answer": "7"
+      },
+      {
+       "prompt": "How many symbols for Ben?",
+       "answer": "4"
+      },
+      {
+       "prompt": "How many symbols in all?",
+       "answer": "17"
+      },
+      {
+       "prompt": "Explain how you chose the number of symbols.",
+       "answer": "Sample answer: I divided each number by 5, because each symbol stands for 5 books."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 7; (b) 6; (c) 5; (d) 8",
+     "to": "(a) 7; (b) 4; (c) 17; (d) Sample answer: I divided each number by 5, because each symbol stands for 5 books."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Divide by the key: 35 ÷ 5. 7 symbols.",
+      "(b) Divide by the key: 30 ÷ 5. 6 symbols.",
+      "(c) Divide by the key: 25 ÷ 5. 5 symbols.",
+      "(d) Divide by the key: 16 ÷ 2. 8 symbols."
+     ],
+     "to": [
+      "(a) 35 ÷ 5.",
+      "(b) 20 ÷ 5.",
+      "(c) Add the symbols.",
+      "(d) Divide by the key."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_open_make_graph). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Each symbol in a picture graph stands for 2. Select ALL the numbers you can show with whole symbols only."
+    },
+    "answer": {
+     "from": [
+      "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 35? → 7",
+      "In a picture graph, each symbol stands for 10. How many symbols should be drawn to show 80? → 8"
+     ],
+     "to": [
+      "2",
+      "8",
+      "10"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 40? → 45",
+       "correct": false
+      },
+      {
+       "text": "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 35? → 7",
+       "correct": true
+      },
+      {
+       "text": "In a picture graph, each symbol stands for 10. How many symbols should be drawn to show 50? → 50",
+       "correct": false
+      },
+      {
+       "text": "In a picture graph, each symbol stands for 10. How many symbols should be drawn to show 80? → 8",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "2",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": true
+      },
+      {
+       "text": "10",
+       "correct": true
+      },
+      {
+       "text": "5",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 40? → 45: not correct.",
+      "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 35? → 7: correct.",
+      "In a picture graph, each symbol stands for 10. How many symbols should be drawn to show 50? → 50: not correct.",
+      "In a picture graph, each symbol stands for 10. How many symbols should be drawn to show 80? → 8: correct."
+     ],
+     "to": [
+      "A number can be shown with whole symbols when it is a multiple of 2.",
+      "Correct choices: 2; 8; 10. Not correct: 9; 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_select_whole_symbols). 3rd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Library books read: Ana 10, Ben 4, Cruz 8. Make a picture graph where each symbol stands for 2 books."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "In a picture graph, each symbol stands for 2. How many symbols should be drawn to show 6?",
+       "answer": "3"
+      },
+      {
+       "prompt": "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 40?",
+       "answer": "8"
+      },
+      {
+       "prompt": "In a picture graph, each symbol stands for 2. How many symbols should be drawn to show 4?",
+       "answer": "2"
+      },
+      {
+       "prompt": "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 35?",
+       "answer": "7"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many symbols for Ana?",
+       "answer": "5"
+      },
+      {
+       "prompt": "How many symbols for Ben?",
+       "answer": "2"
+      },
+      {
+       "prompt": "How many symbols in all?",
+       "answer": "11"
+      },
+      {
+       "prompt": "Explain how you chose the number of symbols.",
+       "answer": "Sample answer: I divided each number by 2, because each symbol stands for 2 books."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 3; (b) 8; (c) 2; (d) 7",
+     "to": "(a) 5; (b) 2; (c) 11; (d) Sample answer: I divided each number by 2, because each symbol stands for 2 books."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Divide by the key: 6 ÷ 2. 3 symbols.",
+      "(b) Divide by the key: 40 ÷ 5. 8 symbols.",
+      "(c) Divide by the key: 4 ÷ 2. 2 symbols.",
+      "(d) Divide by the key: 35 ÷ 5. 7 symbols."
+     ],
+     "to": [
+      "(a) 10 ÷ 2.",
+      "(b) 4 ÷ 2.",
+      "(c) Add the symbols.",
+      "(d) Divide by the key."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_open_make_graph). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-001",
+   "changes": {
+    "prompt": {
+     "from": "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 20?",
+     "to": "In a picture graph, each symbol stands for 10 books. Ana has 6 symbols and Ben has 3 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "4",
+     "to": "30 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide by the key: 20 ÷ 5.",
+      "4 symbols."
+     ],
+     "to": [
+      "6 − 3 = 3 more symbols.",
+      "3 × 10 = 30 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "The data are 12, 20, 32, 36. Which key lets you show every number with whole symbols only?",
+     "to": "In a picture graph, each symbol stands for 10 books. Ana has 6 symbols and Ben has 5 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "each symbol = 4",
+     "to": "10 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number must be a multiple of the key.",
+      "All the numbers are multiples of 4."
+     ],
+     "to": [
+      "6 − 5 = 1 more symbols.",
+      "1 × 10 = 10 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_key_choice). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "each symbol = 3",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 4",
+       "correct": true
+      },
+      {
+       "text": "each symbol = 10",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 6",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "1 book",
+       "correct": false
+      },
+      {
+       "text": "10 books",
+       "correct": true
+      },
+      {
+       "text": "60 books",
+       "correct": false
+      },
+      {
+       "text": "110 books",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "Each symbol = 4. Which row shows 10?",
+     "to": "In a picture graph, each symbol stands for 2 books. Ana has 6 symbols and Ben has 4 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "2 whole symbols and 1 half symbol",
+     "to": "4 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "10 ÷ 4 = 2 with 2 left over.",
+      "2 is half of 4, so draw a half symbol."
+     ],
+     "to": [
+      "6 − 4 = 2 more symbols.",
+      "2 × 2 = 4 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_row). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3 whole symbols",
+       "correct": false
+      },
+      {
+       "text": "10 whole symbols",
+       "correct": false
+      },
+      {
+       "text": "2 whole symbols and 1 half symbol",
+       "correct": true
+      },
+      {
+       "text": "2 whole symbols",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "2 books",
+       "correct": false
+      },
+      {
+       "text": "4 books",
+       "correct": true
+      },
+      {
+       "text": "12 books",
+       "correct": false
+      },
+      {
+       "text": "20 books",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-005",
+   "changes": {
+    "prompt": {
+     "from": "A bar graph's scale counts by 2s. How many grid spaces tall is the bar for 18?",
+     "to": "In a picture graph, each symbol stands for 2 books. Ana has 6 symbols and Ben has 5 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "9",
+     "to": "2 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each space is 2.",
+      "18 ÷ 2 = 9 spaces."
+     ],
+     "to": [
+      "6 − 5 = 1 more symbols.",
+      "1 × 2 = 2 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_bar_lines). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "In a picture graph, each symbol stands for 10. How many symbols should be drawn to show 45?",
+     "to": "In a picture graph, each symbol stands for 5 books. Ana has 8 symbols and Ben has 2 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "4 1/2",
+     "to": "30 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide by the key: 45 ÷ 10.",
+      "4 1/2 symbols. The half symbol stands for 5."
+     ],
+     "to": [
+      "8 − 2 = 6 more symbols.",
+      "6 × 5 = 30 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "5",
+       "correct": false
+      },
+      {
+       "text": "45",
+       "correct": false
+      },
+      {
+       "text": "4 1/2",
+       "correct": true
+      },
+      {
+       "text": "55",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6 books",
+       "correct": false
+      },
+      {
+       "text": "40 books",
+       "correct": false
+      },
+      {
+       "text": "30 books",
+       "correct": true
+      },
+      {
+       "text": "50 books",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-008",
+   "changes": {
+    "prompt": {
+     "from": "The data are 3, 9, 18, 21. Which key lets you show every number with whole symbols only?",
+     "to": "In a picture graph, each symbol stands for 2 books. Ana has 2 symbols and Ben has 8 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "each symbol = 3",
+     "to": "12 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number must be a multiple of the key.",
+      "All the numbers are multiples of 3."
+     ],
+     "to": [
+      "8 − 2 = 6 more symbols.",
+      "6 × 2 = 12 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_key_choice). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "each symbol = 4",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 10",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 5",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 3",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "6 books",
+       "correct": false
+      },
+      {
+       "text": "16 books",
+       "correct": false
+      },
+      {
+       "text": "20 books",
+       "correct": false
+      },
+      {
+       "text": "12 books",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "Each symbol = 6. Which row shows 15?",
+     "to": "In a picture graph, each symbol stands for 10 books. Ana has 6 symbols and Ben has 7 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "2 whole symbols and 1 half symbol",
+     "to": "10 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "15 ÷ 6 = 2 with 3 left over.",
+      "3 is half of 6, so draw a half symbol."
+     ],
+     "to": [
+      "7 − 6 = 1 more symbols.",
+      "1 × 10 = 10 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_row). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2 whole symbols and 1 half symbol",
+       "correct": true
+      },
+      {
+       "text": "2 whole symbols",
+       "correct": false
+      },
+      {
+       "text": "15 whole symbols",
+       "correct": false
+      },
+      {
+       "text": "3 whole symbols",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "1 book",
+       "correct": false
+      },
+      {
+       "text": "70 books",
+       "correct": false
+      },
+      {
+       "text": "10 books",
+       "correct": true
+      },
+      {
+       "text": "130 books",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "A bar graph's scale counts by 5s. How many grid spaces tall is the bar for 45?",
+     "to": "In a picture graph, each symbol stands for 2 books. Ana has 4 symbols and Ben has 2 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "9",
+     "to": "4 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each space is 5.",
+      "45 ÷ 5 = 9 spaces."
+     ],
+     "to": [
+      "4 − 2 = 2 more symbols.",
+      "2 × 2 = 4 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_bar_lines). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9",
+       "correct": true
+      },
+      {
+       "text": "10",
+       "correct": false
+      },
+      {
+       "text": "45",
+       "correct": false
+      },
+      {
+       "text": "225",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "2 books",
+       "correct": false
+      },
+      {
+       "text": "8 books",
+       "correct": false
+      },
+      {
+       "text": "4 books",
+       "correct": true
+      },
+      {
+       "text": "12 books",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-013",
+   "changes": {
+    "prompt": {
+     "from": "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 10?",
+     "to": "In a picture graph, each symbol stands for 10 books. Ana has 8 symbols and Ben has 4 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "2",
+     "to": "40 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide by the key: 10 ÷ 5.",
+      "2 symbols."
+     ],
+     "to": [
+      "8 − 4 = 4 more symbols.",
+      "4 × 10 = 40 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "The data are 4, 12, 32, 36. Which key lets you show every number with whole symbols only?",
+     "to": "In a picture graph, each symbol stands for 5 books. Ana has 7 symbols and Ben has 3 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "each symbol = 4",
+     "to": "20 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number must be a multiple of the key.",
+      "All the numbers are multiples of 4."
+     ],
+     "to": [
+      "7 − 3 = 4 more symbols.",
+      "4 × 5 = 20 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_key_choice). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "each symbol = 6",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 5",
+       "correct": false
+      },
+      {
+       "text": "each symbol = 4",
+       "correct": true
+      },
+      {
+       "text": "each symbol = 3",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4 books",
+       "correct": false
+      },
+      {
+       "text": "35 books",
+       "correct": false
+      },
+      {
+       "text": "20 books",
+       "correct": true
+      },
+      {
+       "text": "50 books",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-015",
+   "changes": {
+    "prompt": {
+     "from": "Each symbol = 6. Which row shows 33?",
+     "to": "In a picture graph, each symbol stands for 2 books. Ana has 4 symbols and Ben has 8 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "5 whole symbols and 1 half symbol",
+     "to": "8 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "33 ÷ 6 = 5 with 3 left over.",
+      "3 is half of 6, so draw a half symbol."
+     ],
+     "to": [
+      "8 − 4 = 4 more symbols.",
+      "4 × 2 = 8 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_row). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "33 whole symbols",
+       "correct": false
+      },
+      {
+       "text": "5 whole symbols",
+       "correct": false
+      },
+      {
+       "text": "5 whole symbols and 1 half symbol",
+       "correct": true
+      },
+      {
+       "text": "6 whole symbols",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4 books",
+       "correct": false
+      },
+      {
+       "text": "8 books",
+       "correct": true
+      },
+      {
+       "text": "16 books",
+       "correct": false
+      },
+      {
+       "text": "24 books",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-018",
+   "changes": {
+    "prompt": {
+     "from": "A bar graph's scale counts by 5s. How many grid spaces tall is the bar for 20?",
+     "to": "In a picture graph, each symbol stands for 5 books. Ana has 6 symbols and Ben has 2 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "4",
+     "to": "20 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each space is 5.",
+      "20 ÷ 5 = 4 spaces."
+     ],
+     "to": [
+      "6 − 2 = 4 more symbols.",
+      "4 × 5 = 20 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_bar_lines). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-019",
+   "changes": {
+    "prompt": {
+     "from": "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 30?",
+     "to": "In a picture graph, each symbol stands for 2 books. Ana has 3 symbols and Ben has 5 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "6",
+     "to": "4 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide by the key: 30 ÷ 5.",
+      "6 symbols."
+     ],
+     "to": [
+      "5 − 3 = 2 more symbols.",
+      "2 × 2 = 4 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "A bar graph's scale counts by 5s. How many grid spaces tall is the bar for 40?",
+     "to": "In a picture graph, each symbol stands for 5 books. Ana has 2 symbols and Ben has 6 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "8",
+     "to": "20 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each space is 5.",
+      "40 ÷ 5 = 8 spaces."
+     ],
+     "to": [
+      "6 − 2 = 4 more symbols.",
+      "4 × 5 = 20 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_bar_lines). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-022",
+   "changes": {
+    "prompt": {
+     "from": "In a picture graph, each symbol stands for 4. How many symbols should be drawn to show 16?",
+     "to": "In a picture graph, each symbol stands for 10 books. Ana has 2 symbols and Ben has 5 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "4",
+     "to": "30 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "Divide by the key: 16 ÷ 4.",
+      "4 symbols."
+     ],
+     "to": [
+      "5 − 2 = 3 more symbols.",
+      "3 × 10 = 30 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-024",
+   "changes": {
+    "prompt": {
+     "from": "A bar graph's scale counts by 2s. How many grid spaces tall is the bar for 12?",
+     "to": "In a picture graph, each symbol stands for 5 books. Ana has 7 symbols and Ben has 4 symbols. How many more books does the reader with more symbols have?"
+    },
+    "answer": {
+     "from": "6",
+     "to": "15 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each space is 2.",
+      "12 ÷ 2 = 6 spaces."
+     ],
+     "to": [
+      "7 − 4 = 3 more symbols.",
+      "3 × 5 = 15 books."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_bar_lines). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_more_from_symbols). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Each symbol in a picture graph stands for 10. Select ALL the numbers you can show with whole symbols only."
+    },
+    "answer": {
+     "from": [
+      "In a picture graph, each symbol stands for 10. How many symbols should be drawn to show 20? → 2",
+      "In a picture graph, each symbol stands for 10. How many symbols should be drawn to show 80? → 8"
+     ],
+     "to": [
+      "30",
+      "80",
+      "70",
+      "90"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "In a picture graph, each symbol stands for 2. How many symbols should be drawn to show 11? → 6",
+       "correct": false
+      },
+      {
+       "text": "In a picture graph, each symbol stands for 2. How many symbols should be drawn to show 10? → 6",
+       "correct": false
+      },
+      {
+       "text": "In a picture graph, each symbol stands for 10. How many symbols should be drawn to show 20? → 2",
+       "correct": true
+      },
+      {
+       "text": "In a picture graph, each symbol stands for 10. How many symbols should be drawn to show 80? → 8",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "35",
+       "correct": false
+      },
+      {
+       "text": "30",
+       "correct": true
+      },
+      {
+       "text": "80",
+       "correct": true
+      },
+      {
+       "text": "70",
+       "correct": true
+      },
+      {
+       "text": "90",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "In a picture graph, each symbol stands for 2. How many symbols should be drawn to show 11? → 6: not correct.",
+      "In a picture graph, each symbol stands for 2. How many symbols should be drawn to show 10? → 6: not correct.",
+      "In a picture graph, each symbol stands for 10. How many symbols should be drawn to show 20? → 2: correct.",
+      "In a picture graph, each symbol stands for 10. How many symbols should be drawn to show 80? → 8: correct."
+     ],
+     "to": [
+      "A number can be shown with whole symbols when it is a multiple of 10.",
+      "Correct choices: 30; 80; 70; 90. Not correct: 35."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_select_whole_symbols). 3rd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Library books read: Ana 80, Ben 60, Cruz 20. Make a picture graph where each symbol stands for 10 books."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 10?",
+       "answer": "2"
+      },
+      {
+       "prompt": "In a picture graph, each symbol stands for 2. How many symbols should be drawn to show 13?",
+       "answer": "6 1/2"
+      },
+      {
+       "prompt": "In a picture graph, each symbol stands for 4. How many symbols should be drawn to show 8?",
+       "answer": "2"
+      },
+      {
+       "prompt": "In a picture graph, each symbol stands for 5. How many symbols should be drawn to show 15?",
+       "answer": "3"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many symbols for Ana?",
+       "answer": "8"
+      },
+      {
+       "prompt": "How many symbols for Ben?",
+       "answer": "6"
+      },
+      {
+       "prompt": "How many symbols in all?",
+       "answer": "16"
+      },
+      {
+       "prompt": "Explain how you chose the number of symbols.",
+       "answer": "Sample answer: I divided each number by 10, because each symbol stands for 10 books."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 2; (b) 6 1/2; (c) 2; (d) 3",
+     "to": "(a) 8; (b) 6; (c) 16; (d) Sample answer: I divided each number by 10, because each symbol stands for 10 books."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Divide by the key: 10 ÷ 5. 2 symbols.",
+      "(b) Divide by the key: 13 ÷ 2. 6 1/2 symbols. The half symbol stands for 1.",
+      "(c) Divide by the key: 8 ÷ 4. 2 symbols.",
+      "(d) Divide by the key: 15 ÷ 5. 3 symbols."
+     ],
+     "to": [
+      "(a) 80 ÷ 10.",
+      "(b) 60 ÷ 10.",
+      "(c) Add the symbols.",
+      "(d) Divide by the key."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: mk_symbols_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd3_open_make_graph). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s04-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "Which mark is one quarter inch before 2 inches?",
+     "to": "One ribbon is 6 3/4 inches long. Another ribbon is 7 1/2 inches long. How many quarter inches longer is the second ribbon?"
+    },
+    "answer": {
+     "from": "1 3/4 inches",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each inch has marks for 1/4, 1/2 and 3/4.",
+      "The mark is at 1 3/4."
+     ],
+     "to": [
+      "7 1/2 − 6 3/4 = 3/4 inch.",
+      "3/4 inch is 3 quarter inches."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: me_halfway). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd4_quarter_inch_difference). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1 3/4 inches",
+       "correct": true
+      },
+      {
+       "text": "1 1/4 inches",
+       "correct": false
+      },
+      {
+       "text": "2 1/4 inches",
+       "correct": false
+      },
+      {
+       "text": "1 1/2 inches",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "3",
+       "correct": true
+      },
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "1",
+       "correct": false
+      },
+      {
+       "text": "6",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s04-honors-008",
+   "changes": {
+    "prompt": {
+     "from": "Which mark is one quarter inch past 0 inches?",
+     "to": "One ribbon is 5 1/2 inches long. Another ribbon is 6 1/4 inches long. How many quarter inches longer is the second ribbon?"
+    },
+    "answer": {
+     "from": "1/4 inch",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each inch has marks for 1/4, 1/2 and 3/4.",
+      "The mark is at 1/4."
+     ],
+     "to": [
+      "6 1/4 − 5 1/2 = 3/4 inch.",
+      "3/4 inch is 3 quarter inches."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: me_halfway). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd4_quarter_inch_difference). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3/4 inch",
+       "correct": false
+      },
+      {
+       "text": "1/4 inch",
+       "correct": true
+      },
+      {
+       "text": "1 1/4 inches",
+       "correct": false
+      },
+      {
+       "text": "1/2 inch",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": true
+      },
+      {
+       "text": "1",
+       "correct": false
+      },
+      {
+       "text": "6",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s04-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "Which mark is one quarter inch past 4 inches?",
+     "to": "One ribbon is 6 1/2 inches long. Another ribbon is 7 1/4 inches long. How many quarter inches longer is the second ribbon?"
+    },
+    "answer": {
+     "from": "4 1/4 inches",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each inch has marks for 1/4, 1/2 and 3/4.",
+      "The mark is at 4 1/4."
+     ],
+     "to": [
+      "7 1/4 − 6 1/2 = 3/4 inch.",
+      "3/4 inch is 3 quarter inches."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: me_halfway). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd4_quarter_inch_difference). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4 3/4 inches",
+       "correct": false
+      },
+      {
+       "text": "4 1/2 inches",
+       "correct": false
+      },
+      {
+       "text": "4 1/4 inches",
+       "correct": true
+      },
+      {
+       "text": "5 1/4 inches",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "1",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": true
+      },
+      {
+       "text": "6",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s05-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Plant heights in inches: 1, 1 1/2, 2, 2 1/2, 2, 3 1/2, 3. Make a line plot."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Ana measured some ribbons (in inches): 5, 3, 4, 3, 4 3/4, 4, 3 3/4, 4, 4 1/2, 3, 3 3/4. On a line plot, how many X marks belong above 3?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Omar measured some ribbons (in inches): 2 1/2, 3 3/4, 2 1/4, 3 3/4, 4, 3 1/4, 2, 2, 2, 3 3/4, 2 1/4. On a line plot, how many X marks belong above 4?",
+       "answer": "1"
+      },
+      {
+       "prompt": "Zoe measured some ribbons (in inches): 3 3/4, 3 1/4, 4 1/4, 3 3/4, 3, 4, 4 1/2, 3. On a line plot, how many X marks belong above 4?",
+       "answer": "1"
+      },
+      {
+       "prompt": "Cora measured some ribbons (in inches): 4, 3 1/4, 2 1/2, 3 1/2, 2, 2, 3 3/4, 2 1/2, 3 1/4. On a line plot, how many X marks belong above 3 1/4?",
+       "answer": "2"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many plants were measured?",
+       "answer": "7"
+      },
+      {
+       "prompt": "Which height has the most X marks?",
+       "answer": "2 inches"
+      },
+      {
+       "prompt": "How many X marks are at that height?",
+       "answer": "2"
+      },
+      {
+       "prompt": "Explain how you marked the scale of the line plot.",
+       "answer": "Sample answer: I marked whole and half inches, because some data are halves."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 3; (b) 1; (c) 1; (d) 2",
+     "to": "(a) 7; (b) 2 inches; (c) 2; (d) Sample answer: I marked whole and half inches, because some data are halves."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count how many times 3 appears in the list. 3 appears 3 times.",
+      "(b) Count how many times 4 appears in the list. 4 appears 1 time.",
+      "(c) Count how many times 4 appears in the list. 4 appears 1 time.",
+      "(d) Count how many times 3 1/4 appears in the list. 3 1/4 appears 2 times."
+     ],
+     "to": [
+      "(a) Count the data.",
+      "(b) Count each value.",
+      "(c) Count the X marks.",
+      "(d) The scale fits the data."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: lp_make_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd5_open_line_plot). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s05-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Plant heights in inches: 2, 2 1/2, 3, 3 1/2, 3, 4 1/2. Make a line plot."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Sam measured some ribbons (in inches): 2 1/2, 3, 3, 3, 3, 2 1/2, 2, 2 1/2. On a line plot, how many X marks belong above 2 1/2?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Kai measured some ribbons (in inches): 4 1/2, 4, 5, 3, 5, 3, 4, 5. On a line plot, how many X marks belong above 4?",
+       "answer": "2"
+      },
+      {
+       "prompt": "Pia measured some ribbons (in inches): 2, 3, 2, 2 1/2, 2 1/2, 4, 2 1/2, 3, 3. On a line plot, how many X marks belong above 4?",
+       "answer": "1"
+      },
+      {
+       "prompt": "Ana measured some ribbons (in inches): 2, 2 1/2, 3, 3 1/2, 2, 3 1/2. On a line plot, how many X marks belong above 2?",
+       "answer": "2"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many plants were measured?",
+       "answer": "6"
+      },
+      {
+       "prompt": "Which height has the most X marks?",
+       "answer": "3 inches"
+      },
+      {
+       "prompt": "How many X marks are at that height?",
+       "answer": "2"
+      },
+      {
+       "prompt": "Explain how you marked the scale of the line plot.",
+       "answer": "Sample answer: I marked whole and half inches, because some data are halves."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 3; (b) 2; (c) 1; (d) 2",
+     "to": "(a) 6; (b) 3 inches; (c) 2; (d) Sample answer: I marked whole and half inches, because some data are halves."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count how many times 2 1/2 appears in the list. 2 1/2 appears 3 times.",
+      "(b) Count how many times 4 appears in the list. 4 appears 2 times.",
+      "(c) Count how many times 4 appears in the list. 4 appears 1 time.",
+      "(d) Count how many times 2 appears in the list. 2 appears 2 times."
+     ],
+     "to": [
+      "(a) Count the data.",
+      "(b) Count each value.",
+      "(c) Count the X marks.",
+      "(d) The scale fits the data."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: lp_make_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd5_open_line_plot). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-gd-s05-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Plant heights in inches: 2, 2, 3, 3, 3, 3, 4. Make a line plot."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Cora measured some ribbons (in inches): 4 1/4, 5, 3 1/4, 3, 5, 4 1/4, 3, 3 1/2. On a line plot, how many X marks belong above 3 1/2?",
+       "answer": "1"
+      },
+      {
+       "prompt": "Eli measured some ribbons (in inches): 4 3/4, 4 3/4, 4, 3 1/2, 3 1/2, 3 3/4, 3 1/2, 3 1/2, 5, 4 1/4. On a line plot, how many X marks belong above 5?",
+       "answer": "1"
+      },
+      {
+       "prompt": "Ana measured some ribbons (in inches): 2 3/4, 2 1/2, 2 3/4, 3 1/2, 2 1/4, 4, 3 3/4, 3, 3 3/4, 3. On a line plot, how many X marks belong above 3 1/2?",
+       "answer": "1"
+      },
+      {
+       "prompt": "Mia measured some ribbons (in inches): 3 1/4, 4, 3, 4 1/2, 4, 4 3/4, 3, 3 3/4, 5, 3 1/2. On a line plot, how many X marks belong above 3?",
+       "answer": "2"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many plants were measured?",
+       "answer": "7"
+      },
+      {
+       "prompt": "Which height has the most X marks?",
+       "answer": "3 inches"
+      },
+      {
+       "prompt": "How many X marks are at that height?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Explain how you marked the scale of the line plot.",
+       "answer": "Sample answer: I marked whole inches, because all the data are whole numbers."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 1; (b) 1; (c) 1; (d) 2",
+     "to": "(a) 7; (b) 3 inches; (c) 4; (d) Sample answer: I marked whole inches, because all the data are whole numbers."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count how many times 3 1/2 appears in the list. 3 1/2 appears 1 time.",
+      "(b) Count how many times 5 appears in the list. 5 appears 1 time.",
+      "(c) Count how many times 3 1/2 appears in the list. 3 1/2 appears 1 time.",
+      "(d) Count how many times 3 appears in the list. 3 appears 2 times."
+     ],
+     "to": [
+      "(a) Count the data.",
+      "(b) Count each value.",
+      "(c) Count the X marks.",
+      "(d) The scale fits the data."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: lp_make_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: gd5_open_line_plot). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [
+  {
+   "id": "m3-gd-s01-cp2-o01",
+   "skillId": "graphs-measurement-data-skill-01",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "In a picture graph, each star stands for 2 votes. Dogs have 6 stars, cats have 4 stars and fish have 2 stars.",
+   "parts": [
+    {
+     "prompt": "How many votes do dogs have?",
+     "answer": "12 votes"
+    },
+    {
+     "prompt": "How many votes are there in all?",
+     "answer": "24 votes"
+    },
+    {
+     "prompt": "How many more votes does the top pet have than the bottom pet?",
+     "answer": "8 votes"
+    },
+    {
+     "prompt": "Explain how the key helps you read the graph.",
+     "answer": "Sample answer: Each star is 2 votes, so I multiply the number of stars by 2."
+    }
+   ],
+   "answer": "(a) 12 votes; (b) 24 votes; (c) 8 votes; (d) Sample answer: Each star is 2 votes, so I multiply the number of stars by 2.",
+   "solutionSteps": [
+    "(a) 6 × 2.",
+    "(b) 12 stars × 2.",
+    "(c) Compare stars, then multiply.",
+    "(d) Use the key."
+   ],
+   "standards": [
+    "3.MD.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd1_open_picture_graph). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m3-gd-s01-cp1-o01",
+   "skillId": "graphs-measurement-data-skill-01",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "In a picture graph, each star stands for 5 votes. Dogs have 3 stars, cats have 7 stars and fish have 6 stars.",
+   "parts": [
+    {
+     "prompt": "How many votes do dogs have?",
+     "answer": "15 votes"
+    },
+    {
+     "prompt": "How many votes are there in all?",
+     "answer": "80 votes"
+    },
+    {
+     "prompt": "How many more votes does the top pet have than the bottom pet?",
+     "answer": "20 votes"
+    },
+    {
+     "prompt": "Explain how the key helps you read the graph.",
+     "answer": "Sample answer: Each star is 5 votes, so I multiply the number of stars by 5."
+    }
+   ],
+   "answer": "(a) 15 votes; (b) 80 votes; (c) 20 votes; (d) Sample answer: Each star is 5 votes, so I multiply the number of stars by 5.",
+   "solutionSteps": [
+    "(a) 3 × 5.",
+    "(b) 16 stars × 5.",
+    "(c) Compare stars, then multiply.",
+    "(d) Use the key."
+   ],
+   "standards": [
+    "3.MD.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd1_open_picture_graph). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m3-gd-s01-honors-o01",
+   "skillId": "graphs-measurement-data-skill-01",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "In a picture graph, each star stands for 10 votes. Dogs have 7 stars, cats have 2 stars and fish have 5 stars.",
+   "parts": [
+    {
+     "prompt": "How many votes do dogs have?",
+     "answer": "70 votes"
+    },
+    {
+     "prompt": "How many votes are there in all?",
+     "answer": "140 votes"
+    },
+    {
+     "prompt": "How many more votes does the top pet have than the bottom pet?",
+     "answer": "50 votes"
+    },
+    {
+     "prompt": "Explain how the key helps you read the graph.",
+     "answer": "Sample answer: Each star is 10 votes, so I multiply the number of stars by 10."
+    }
+   ],
+   "answer": "(a) 70 votes; (b) 140 votes; (c) 50 votes; (d) Sample answer: Each star is 10 votes, so I multiply the number of stars by 10.",
+   "solutionSteps": [
+    "(a) 7 × 10.",
+    "(b) 14 stars × 10.",
+    "(c) Compare stars, then multiply.",
+    "(d) Use the key."
+   ],
+   "standards": [
+    "3.MD.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd1_open_picture_graph). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m3-gd-s02-cp2-o01",
+   "skillId": "graphs-measurement-data-skill-02",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A bar graph has a scale that counts by 2s. The bar for red ends at 8 and the bar for blue ends at 10.",
+   "parts": [
+    {
+     "prompt": "How many more votes does the taller bar show?",
+     "answer": "2 votes"
+    },
+    {
+     "prompt": "How many votes in all?",
+     "answer": "18 votes"
+    },
+    {
+     "prompt": "How many jumps of 2 does it take to count up to the end of the red bar?",
+     "answer": "4"
+    },
+    {
+     "prompt": "Explain why the scale counts by more than 1.",
+     "answer": "Sample answer: Counting by a bigger number keeps the bars short enough to fit and easy to read."
+    }
+   ],
+   "answer": "(a) 2 votes; (b) 18 votes; (c) 4; (d) Sample answer: Counting by a bigger number keeps the bars short enough to fit and easy to read.",
+   "solutionSteps": [
+    "(a) Subtract.",
+    "(b) Add.",
+    "(c) 8 ÷ 2.",
+    "(d) Scales fit the data."
+   ],
+   "standards": [
+    "3.MD.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd2_open_bar_graph). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m3-gd-s02-cp1-o01",
+   "skillId": "graphs-measurement-data-skill-02",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A bar graph has a scale that counts by 5s. The bar for red ends at 35 and the bar for blue ends at 10.",
+   "parts": [
+    {
+     "prompt": "How many more votes does the taller bar show?",
+     "answer": "25 votes"
+    },
+    {
+     "prompt": "How many votes in all?",
+     "answer": "45 votes"
+    },
+    {
+     "prompt": "How many jumps of 5 does it take to count up to the end of the red bar?",
+     "answer": "7"
+    },
+    {
+     "prompt": "Explain why the scale counts by more than 1.",
+     "answer": "Sample answer: Counting by a bigger number keeps the bars short enough to fit and easy to read."
+    }
+   ],
+   "answer": "(a) 25 votes; (b) 45 votes; (c) 7; (d) Sample answer: Counting by a bigger number keeps the bars short enough to fit and easy to read.",
+   "solutionSteps": [
+    "(a) Subtract.",
+    "(b) Add.",
+    "(c) 35 ÷ 5.",
+    "(d) Scales fit the data."
+   ],
+   "standards": [
+    "3.MD.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd2_open_bar_graph). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m3-gd-s02-honors-o01",
+   "skillId": "graphs-measurement-data-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A bar graph has a scale that counts by 10s. The bar for red ends at 80 and the bar for blue ends at 60.",
+   "parts": [
+    {
+     "prompt": "How many more votes does the taller bar show?",
+     "answer": "20 votes"
+    },
+    {
+     "prompt": "How many votes in all?",
+     "answer": "140 votes"
+    },
+    {
+     "prompt": "How many jumps of 10 does it take to count up to the end of the red bar?",
+     "answer": "8"
+    },
+    {
+     "prompt": "Explain why the scale counts by more than 1.",
+     "answer": "Sample answer: Counting by a bigger number keeps the bars short enough to fit and easy to read."
+    }
+   ],
+   "answer": "(a) 20 votes; (b) 140 votes; (c) 8; (d) Sample answer: Counting by a bigger number keeps the bars short enough to fit and easy to read.",
+   "solutionSteps": [
+    "(a) Subtract.",
+    "(b) Add.",
+    "(c) 80 ÷ 10.",
+    "(d) Scales fit the data."
+   ],
+   "standards": [
+    "3.MD.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd2_open_bar_graph). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m3-gd-s04-cp2-o01",
+   "skillId": "graphs-measurement-data-skill-04",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "A pencil is 6 1/2 inches long.",
+   "parts": [
+    {
+     "prompt": "Between which two whole inches is the end of the pencil?",
+     "answer": "6 and 7"
+    },
+    {
+     "prompt": "How many quarter inches past the whole inch is the end?",
+     "answer": "2"
+    },
+    {
+     "prompt": "How long would two of these pencils be end to end?",
+     "answer": "13 inches"
+    },
+    {
+     "prompt": "Explain how to measure to the nearest quarter inch.",
+     "answer": "Sample answer: Line up the end with 0, then find the closest quarter-inch mark to the other end."
+    }
+   ],
+   "answer": "(a) 6 and 7; (b) 2; (c) 13 inches; (d) Sample answer: Line up the end with 0, then find the closest quarter-inch mark to the other end.",
+   "solutionSteps": [
+    "(a) Look at the whole number.",
+    "(b) 1/2 = 2/4.",
+    "(c) Add the wholes and the parts.",
+    "(d) Start at 0."
+   ],
+   "standards": [
+    "3.MD.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd4_open_ruler). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m3-gd-s04-cp1-o01",
+   "skillId": "graphs-measurement-data-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A pencil is 6 1/4 inches long.",
+   "parts": [
+    {
+     "prompt": "Between which two whole inches is the end of the pencil?",
+     "answer": "6 and 7"
+    },
+    {
+     "prompt": "How many quarter inches past the whole inch is the end?",
+     "answer": "1"
+    },
+    {
+     "prompt": "How long would two of these pencils be end to end?",
+     "answer": "12 1/2 inches"
+    },
+    {
+     "prompt": "Explain how to measure to the nearest quarter inch.",
+     "answer": "Sample answer: Line up the end with 0, then find the closest quarter-inch mark to the other end."
+    }
+   ],
+   "answer": "(a) 6 and 7; (b) 1; (c) 12 1/2 inches; (d) Sample answer: Line up the end with 0, then find the closest quarter-inch mark to the other end.",
+   "solutionSteps": [
+    "(a) Look at the whole number.",
+    "(b) 1/4 = 1/4.",
+    "(c) Add the wholes and the parts.",
+    "(d) Start at 0."
+   ],
+   "standards": [
+    "3.MD.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd4_open_ruler). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m3-gd-s04-honors-o01",
+   "skillId": "graphs-measurement-data-skill-04",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A pencil is 3 3/4 inches long.",
+   "parts": [
+    {
+     "prompt": "Between which two whole inches is the end of the pencil?",
+     "answer": "3 and 4"
+    },
+    {
+     "prompt": "How many quarter inches past the whole inch is the end?",
+     "answer": "3"
+    },
+    {
+     "prompt": "How long would two of these pencils be end to end?",
+     "answer": "7 1/2 inches"
+    },
+    {
+     "prompt": "Explain how to measure to the nearest quarter inch.",
+     "answer": "Sample answer: Line up the end with 0, then find the closest quarter-inch mark to the other end."
+    }
+   ],
+   "answer": "(a) 3 and 4; (b) 3; (c) 7 1/2 inches; (d) Sample answer: Line up the end with 0, then find the closest quarter-inch mark to the other end.",
+   "solutionSteps": [
+    "(a) Look at the whole number.",
+    "(b) 3/4 = 3/4.",
+    "(c) Add the wholes and the parts.",
+    "(d) Start at 0."
+   ],
+   "standards": [
+    "3.MD.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: gd4_open_ruler). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+  }
+ ],
+ "meta": {
+  "m3-gd-s03-honors-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3 × 10 = 30 books.",
+   "distractors": {
+    "3 books": "a common mistake",
+    "60 books": "a common mistake",
+    "90 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "1 × 10 = 10 books.",
+   "distractors": {
+    "1 book": "a common mistake",
+    "60 books": "a common mistake",
+    "110 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "2 × 2 = 4 books.",
+   "distractors": {
+    "2 books": "a common mistake",
+    "12 books": "a common mistake",
+    "20 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "1 × 2 = 2 books.",
+   "distractors": {
+    "1 book": "a common mistake",
+    "12 books": "a common mistake",
+    "22 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 × 5 = 30 books.",
+   "distractors": {
+    "6 books": "a common mistake",
+    "40 books": "a common mistake",
+    "50 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 × 2 = 12 books.",
+   "distractors": {
+    "6 books": "a common mistake",
+    "16 books": "a common mistake",
+    "20 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "1 × 10 = 10 books.",
+   "distractors": {
+    "1 book": "a common mistake",
+    "70 books": "a common mistake",
+    "130 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "2 × 2 = 4 books.",
+   "distractors": {
+    "2 books": "a common mistake",
+    "8 books": "a common mistake",
+    "12 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 × 10 = 40 books.",
+   "distractors": {
+    "4 books": "a common mistake",
+    "80 books": "a common mistake",
+    "120 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 × 5 = 20 books.",
+   "distractors": {
+    "4 books": "a common mistake",
+    "35 books": "a common mistake",
+    "50 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 × 2 = 8 books.",
+   "distractors": {
+    "4 books": "a common mistake",
+    "16 books": "a common mistake",
+    "24 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 × 5 = 20 books.",
+   "distractors": {
+    "4 books": "a common mistake",
+    "30 books": "a common mistake",
+    "40 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "2 × 2 = 4 books.",
+   "distractors": {
+    "2 books": "a common mistake",
+    "10 books": "a common mistake",
+    "16 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 × 5 = 20 books.",
+   "distractors": {
+    "4 books": "a common mistake",
+    "30 books": "a common mistake",
+    "40 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3 × 10 = 30 books.",
+   "distractors": {
+    "3 books": "a common mistake",
+    "50 books": "a common mistake",
+    "70 books": "a common mistake"
+   }
+  },
+  "m3-gd-s03-honors-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3 × 5 = 15 books.",
+   "distractors": {
+    "3 books": "a common mistake",
+    "35 books": "a common mistake",
+    "55 books": "a common mistake"
+   }
+  },
+  "m3-gd-s04-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3/4 inch is 3 quarter inches.",
+   "distractors": {
+    "4": "a common mistake",
+    "1": "a common mistake",
+    "6": "a common mistake"
+   }
+  },
+  "m3-gd-s04-honors-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3/4 inch is 3 quarter inches.",
+   "distractors": {
+    "4": "a common mistake",
+    "1": "a common mistake",
+    "6": "a common mistake"
+   }
+  },
+  "m3-gd-s04-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "3/4 inch is 3 quarter inches.",
+   "distractors": {
+    "4": "a common mistake",
+    "1": "a common mistake",
+    "6": "a common mistake"
+   }
+  },
+  "m3-gd-s03-cp1-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "8 + 9 = 17 symbols.",
+   "distractors": {
+    "170 symbols": "a common mistake",
+    "8 symbols": "a common mistake",
+    "18 symbols": "a common mistake"
+   }
+  },
+  "m3-gd-s03-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "7 + 3 = 10 symbols.",
+   "distractors": {
+    "50 symbols": "a common mistake",
+    "7 symbols": "a common mistake",
+    "11 symbols": "a common mistake"
+   }
+  },
+  "m3-gd-s03-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 + 2 = 6 symbols.",
+   "distractors": {
+    "30 symbols": "a common mistake",
+    "4 symbols": "a common mistake",
+    "7 symbols": "a common mistake"
+   }
+  },
+  "m3-gd-s03-cp1-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 + 7 = 12 symbols.",
+   "distractors": {
+    "60 symbols": "a common mistake",
+    "5 symbols": "a common mistake",
+    "13 symbols": "a common mistake"
+   }
+  },
+  "m3-gd-s03-cp1-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "7 + 6 = 13 symbols.",
+   "distractors": {
+    "26 symbols": "a common mistake",
+    "7 symbols": "a common mistake",
+    "14 symbols": "a common mistake"
+   }
+  },
+  "m3-gd-s03-cp1-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "8 + 7 = 15 symbols.",
+   "distractors": {
+    "150 symbols": "a common mistake",
+    "8 symbols": "a common mistake",
+    "16 symbols": "a common mistake"
+   }
+  },
+  "m3-gd-s03-cp1-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 + 3 = 9 symbols.",
+   "distractors": {
+    "18 symbols": "a common mistake",
+    "6 symbols": "a common mistake",
+    "10 symbols": "a common mistake"
+   }
+  },
+  "m3-gd-s03-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "8 + 3 = 11 symbols.",
+   "distractors": {
+    "55 symbols": "a common mistake",
+    "8 symbols": "a common mistake",
+    "12 symbols": "a common mistake"
+   }
+  },
+  "m3-gd-s03-cp1-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 + 3 = 7 symbols.",
+   "distractors": {
+    "14 symbols": "a common mistake",
+    "4 symbols": "a common mistake",
+    "8 symbols": "a common mistake"
+   }
+  },
+  "m3-gd-s03-cp1-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 + 9 = 15 symbols.",
+   "distractors": {
+    "30 symbols": "a common mistake",
+    "6 symbols": "a common mistake",
+    "16 symbols": "a common mistake"
+   }
+  },
+  "m3-gd-s03-cp1-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 + 3 = 8 symbols.",
+   "distractors": {
+    "80 symbols": "a common mistake",
+    "5 symbols": "a common mistake",
+    "9 symbols": "a common mistake"
+   }
+  },
+  "m3-gd-s03-cp1-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "9 + 4 = 13 symbols.",
+   "distractors": {
+    "65 symbols": "a common mistake",
+    "9 symbols": "a common mistake",
+    "14 symbols": "a common mistake"
+   }
+  },
+  "m3-gd-s01-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare stars, then multiply."
+  },
+  "m3-gd-s01-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare stars, then multiply."
+  },
+  "m3-gd-s01-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare stars, then multiply."
+  },
+  "m3-gd-s02-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "8 ÷ 2."
+  },
+  "m3-gd-s02-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "35 ÷ 5."
+  },
+  "m3-gd-s02-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "80 ÷ 10."
+  },
+  "m3-gd-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add the symbols."
+  },
+  "m3-gd-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add the symbols."
+  },
+  "m3-gd-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add the symbols."
+  },
+  "m3-gd-s04-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add the wholes and the parts."
+  },
+  "m3-gd-s04-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add the wholes and the parts."
+  },
+  "m3-gd-s04-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add the wholes and the parts."
+  },
+  "m3-gd-s05-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Count the X marks."
+  },
+  "m3-gd-s05-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Count the X marks."
+  },
+  "m3-gd-s05-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Count the X marks."
+  },
+  "m3-gd-s03-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "A number can be shown with whole symbols when it is a multiple of 5."
+  },
+  "m3-gd-s03-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "A number can be shown with whole symbols when it is a multiple of 2."
+  },
+  "m3-gd-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "A number can be shown with whole symbols when it is a multiple of 10."
+  }
+ }
+}

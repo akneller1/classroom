@@ -137,6 +137,8 @@ jobs:
           node scripts/apply-kid-friendly.mjs
           node scripts/apply-grade4-audit.mjs _site
           node scripts/test-grade4-audit.cjs _site
+          node scripts/apply-grade3-audit.mjs _site
+          node scripts/test-grade3-audit.cjs _site
           node scripts/test-kid-friendly.cjs _site
           node scripts/test-read-aloud.cjs _site
           node scripts/test-kid-ui.cjs _site
