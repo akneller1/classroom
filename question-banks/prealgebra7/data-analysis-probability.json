@@ -1086,17 +1086,18 @@
    "skillId": "data-analysis-probability-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A frequency table shows the number of values in each interval: 1–5: 4; 6–10: 11; 11–15: 3; 16–20: 3. Which interval has the most values?",
-   "answer": "6–10",
+   "prompt": "A frequency table of reading minutes shows 0–9: 5, 10–19: 4, 20–29: 9, 30–39: 3, 40–49: 7. What percent of the students read at least 20 minutes, to the nearest whole percent?",
+   "answer": "68%",
    "solutionSteps": [
-    "Compare the frequencies.",
-    "The greatest frequency is 11, for 6–10."
+    "Total students: 28.",
+    "At least 20 minutes: 9 + 3 + 7 = 19.",
+    "19 ÷ 28 ≈ 68%."
    ],
    "standards": [
     "6.SP.B.4",
     "6.SP.B.5a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_freq_text). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A frequency table shows the number of values in each interval: 1–5: 4;”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s01-honors-004",
@@ -1234,35 +1235,36 @@
    "skillId": "data-analysis-probability-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A frequency table shows the number of values in each interval: 0–9: 5; 10–19: 6; 20–29: 11; 30–39: 7. Which interval has the most values?",
-   "answer": "20–29",
+   "prompt": "A frequency table of reading minutes shows 0–9: 9, 10–19: 3, 20–29: 8, 30–39: 9, 40–49: 4. What percent of the students read at least 20 minutes, to the nearest whole percent?",
+   "answer": "64%",
    "options": [
     {
-     "text": "30–39",
-     "correct": false
-    },
-    {
-     "text": "0–9",
-     "correct": false
-    },
-    {
-     "text": "10–19",
-     "correct": false
-    },
-    {
-     "text": "20–29",
+     "text": "64%",
      "correct": true
+    },
+    {
+     "text": "21%",
+     "correct": false
+    },
+    {
+     "text": "4%",
+     "correct": false
+    },
+    {
+     "text": "9%",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Compare the frequencies.",
-    "The greatest frequency is 11, for 20–29."
+    "Total students: 33.",
+    "At least 20 minutes: 8 + 9 + 4 = 21.",
+    "21 ÷ 33 ≈ 64%."
    ],
    "standards": [
     "6.SP.B.4",
     "6.SP.B.5a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_freq_text). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A frequency table shows the number of values in each interval: 0–9: 5;”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s01-honors-010",
@@ -1335,35 +1337,36 @@
    "skillId": "data-analysis-probability-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A frequency table shows the number of values in each interval: 50–59: 12; 60–69: 7; 70–79: 4; 80–89: 4; 90–99: 8. How many values are there in all?",
-   "answer": "35",
+   "prompt": "A frequency table of reading minutes shows 0–9: 3, 10–19: 2, 20–29: 4, 30–39: 5, 40–49: 6. What percent of the students read at least 20 minutes, to the nearest whole percent?",
+   "answer": "75%",
    "options": [
     {
-     "text": "5",
+     "text": "5%",
      "correct": false
     },
     {
-     "text": "27",
+     "text": "15%",
      "correct": false
     },
     {
-     "text": "35",
+     "text": "6%",
+     "correct": false
+    },
+    {
+     "text": "75%",
      "correct": true
-    },
-    {
-     "text": "12",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Add all the frequencies.",
-    "12 + 7 + 4 + 4 + 8 = 35."
+    "Total students: 20.",
+    "At least 20 minutes: 4 + 5 + 6 = 15.",
+    "15 ÷ 20 ≈ 75%."
    ],
    "standards": [
     "6.SP.B.4",
     "6.SP.B.5a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_freq_text). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A frequency table shows the number of values in each interval: 50–59: ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s01-honors-013",
@@ -2490,18 +2493,18 @@
    "skillId": "data-analysis-probability-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Data: 19, 28, 34, 41, 54, 57, 60. Find the lower quartile (Q1).",
-   "answer": "28",
+   "prompt": "Class A scores: 41, 54, 61, 63, 66, 67, 91, 93. Class B scores: 56, 66, 70, 75, 76, 79, 94, 99. Find each IQR. How much greater is the larger IQR?",
+   "answer": "3",
    "solutionSteps": [
-    "Order the data (already ordered).",
-    "Median = 41; Q1 = 28 (median of the lower half); Q3 = 57 (median of the upper half).",
-    "The lower quartile (Q1) is 28."
+    "Class A: Q1 = 57.5, Q3 = 79, IQR = 21.5.",
+    "Class B: Q1 = 68, Q3 = 86.5, IQR = 18.5.",
+    "Difference: 3."
    ],
    "standards": [
     "6.SP.B.4",
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_summary). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Data: 19, 28, 34, 41, 54, 57, 60. Find the lower quartile (Q1).”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s02-honors-002",
@@ -2594,36 +2597,36 @@
    "skillId": "data-analysis-probability-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Data: 10, 13, 25, 42, 43, 50, 59. Find the lower quartile (Q1).",
+   "prompt": "Class A scores: 44, 46, 64, 81, 84, 86, 95, 96. Class B scores: 52, 53, 57, 61, 76, 77, 78, 88. Find each IQR. How much greater is the larger IQR?",
    "answer": "13",
    "options": [
+    {
+     "text": "71/2",
+     "correct": false
+    },
+    {
+     "text": "45/2",
+     "correct": false
+    },
     {
      "text": "13",
      "correct": true
     },
     {
-     "text": "49",
-     "correct": false
-    },
-    {
-     "text": "42",
-     "correct": false
-    },
-    {
-     "text": "50",
+     "text": "155/2",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Order the data (already ordered).",
-    "Median = 42; Q1 = 13 (median of the lower half); Q3 = 50 (median of the upper half).",
-    "The lower quartile (Q1) is 13."
+    "Class A: Q1 = 55, Q3 = 90.5, IQR = 35.5.",
+    "Class B: Q1 = 55, Q3 = 77.5, IQR = 22.5.",
+    "Difference: 13."
    ],
    "standards": [
     "6.SP.B.4",
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_summary). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Data: 10, 13, 25, 42, 43, 50, 59. Find the lower quartile (Q1).”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s02-honors-005",
@@ -5151,36 +5154,36 @@
    "skillId": "data-analysis-probability-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A fair coin is tossed 3 times. What is P(exactly 1 head)? Write a fraction in simplest form.",
-   "answer": "3/8",
+   "prompt": "Diego has 3 shirts, 2 pairs of pants and 3 pairs of shoes. How many outfits are possible, and what is the probability that a random outfit uses one particular shirt? Give the number of outfits.",
+   "answer": "18",
    "options": [
     {
-     "text": "1/2",
+     "text": "2",
      "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": true
     },
     {
      "text": "1/3",
      "correct": false
-    },
-    {
-     "text": "1/8",
-     "correct": false
-    },
-    {
-     "text": "3/8",
-     "correct": true
     }
    ],
    "solutionSteps": [
-    "There are 2³ = 8 equally likely outcomes.",
-    "Outcomes with exactly 1 head: 3.",
-    "P = 3/8 = 3/8."
+    "Counting principle: 3 × 2 × 3.",
+    "= 18 outfits.",
+    "Each shirt appears in 6 outfits, so P = 6/18 = 1/3."
    ],
    "standards": [
     "7.SP.C.7a",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_prob). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A fair coin is tossed 3 times. What is P(exactly 1 head)? Write a frac”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s04-honors-003",
@@ -5222,18 +5225,18 @@
    "skillId": "data-analysis-probability-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Two number cubes are rolled. What is P(a sum of 12)? Write a fraction in simplest form.",
-   "answer": "1/36",
+   "prompt": "Owen has 3 shirts, 5 pairs of pants and 4 pairs of shoes. How many outfits are possible, and what is the probability that a random outfit uses one particular shirt? Give the number of outfits.",
+   "answer": "60",
    "solutionSteps": [
-    "There are 6 × 6 = 36 equally likely outcomes.",
-    "Count the outcomes with a sum of 12: 1.",
-    "P = 1/36 = 1/36."
+    "Counting principle: 3 × 5 × 4.",
+    "= 60 outfits.",
+    "Each shirt appears in 20 outfits, so P = 20/60 = 1/3."
    ],
    "standards": [
     "7.SP.C.7a",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_prob). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Two number cubes are rolled. What is P(a sum of 12)? Write a fraction ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s04-honors-005",
@@ -5328,18 +5331,18 @@
    "skillId": "data-analysis-probability-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A fair coin is tossed 3 times. What is P(at least one head)? Write a fraction in simplest form.",
-   "answer": "7/8",
+   "prompt": "Sam has 5 shirts, 5 pairs of pants and 4 pairs of shoes. How many outfits are possible, and what is the probability that a random outfit uses one particular shirt? Give the number of outfits.",
+   "answer": "100",
    "solutionSteps": [
-    "There are 2³ = 8 equally likely outcomes.",
-    "Outcomes with at least one head: 7.",
-    "P = 7/8 = 7/8."
+    "Counting principle: 5 × 5 × 4.",
+    "= 100 outfits.",
+    "Each shirt appears in 20 outfits, so P = 20/100 = 1/5."
    ],
    "standards": [
     "7.SP.C.7a",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_prob). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A fair coin is tossed 3 times. What is P(at least one head)? Write a f”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s04-honors-009",
@@ -5417,36 +5420,36 @@
    "skillId": "data-analysis-probability-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Two number cubes are rolled. What is P(a sum of 10)? Write a fraction in simplest form.",
-   "answer": "1/12",
+   "prompt": "Ana has 4 shirts, 4 pairs of pants and 4 pairs of shoes. How many outfits are possible, and what is the probability that a random outfit uses one particular shirt? Give the number of outfits.",
+   "answer": "64",
    "options": [
     {
-     "text": "1/12",
+     "text": "1/4",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "64",
      "correct": true
     },
     {
-     "text": "1/11",
-     "correct": false
-    },
-    {
-     "text": "1/2",
-     "correct": false
-    },
-    {
-     "text": "1/4",
+     "text": "16",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "There are 6 × 6 = 36 equally likely outcomes.",
-    "Count the outcomes with a sum of 10: 3.",
-    "P = 3/36 = 1/12."
+    "Counting principle: 4 × 4 × 4.",
+    "= 64 outfits.",
+    "Each shirt appears in 16 outfits, so P = 16/64 = 1/4."
    ],
    "standards": [
     "7.SP.C.7a",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_prob). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Two number cubes are rolled. What is P(a sum of 10)? Write a fraction ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s04-honors-013",
@@ -6464,36 +6467,36 @@
    "skillId": "data-analysis-probability-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A bag has 4 red and 3 blue marbles. You draw a marble, replace it, and draw again. What is P(red, then red)? Write a fraction in simplest form.",
-   "answer": "16/49",
+   "prompt": "A box has 3 green and 5 blue pens. Two pens are drawn. How much greater is P(green, green) when the first pen is replaced than when it is not? Write a fraction in simplest form.",
+   "answer": "15/448",
    "options": [
     {
-     "text": "15/14",
-     "correct": false
-    },
-    {
-     "text": "16/49",
+     "text": "15/448",
      "correct": true
     },
     {
-     "text": "4/7",
+     "text": "3/28",
      "correct": false
     },
     {
      "text": "2/7",
      "correct": false
+    },
+    {
+     "text": "9/64",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "P(first red) = 4/7.",
-    "P(second red) = 4/7.",
-    "P = 4/7 × 4/7 = 16/49."
+    "With replacement: (3/8)² = 9/64.",
+    "Without: 3/8 × 2/7 = 3/28.",
+    "Difference: 15/448."
    ],
    "standards": [
     "7.SP.C.8a",
     "S-CP.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_bag). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A bag has 4 red and 3 blue marbles. You draw a marble, replace it, and”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s05-honors-003",
@@ -6571,18 +6574,18 @@
    "skillId": "data-analysis-probability-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A bag has 6 red and 5 blue marbles. You draw a marble, do NOT replace it, and draw again. What is P(red, then red)? Write a fraction in simplest form.",
-   "answer": "3/11",
+   "prompt": "A box has 6 green and 5 blue pens. Two pens are drawn. How much greater is P(green, green) when the first pen is replaced than when it is not? Write a fraction in simplest form.",
+   "answer": "3/121",
    "solutionSteps": [
-    "P(first red) = 6/11.",
-    "After removing a red marble: 5/10.",
-    "P = 6/11 × 5/10 = 3/11."
+    "With replacement: (6/11)² = 36/121.",
+    "Without: 6/11 × 5/10 = 3/11.",
+    "Difference: 3/121."
    ],
    "standards": [
     "7.SP.C.8a",
     "S-CP.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_bag). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A bag has 6 red and 5 blue marbles. You draw a marble, do NOT replace ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s05-honors-006",
@@ -6642,18 +6645,18 @@
    "skillId": "data-analysis-probability-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A bag has 5 red and 3 blue marbles. You draw a marble, do NOT replace it, and draw again. What is P(red, then red)? Write a fraction in simplest form.",
-   "answer": "5/14",
+   "prompt": "A box has 5 green and 4 blue pens. Two pens are drawn. How much greater is P(green, green) when the first pen is replaced than when it is not? Write a fraction in simplest form.",
+   "answer": "5/162",
    "solutionSteps": [
-    "P(first red) = 5/8.",
-    "After removing a red marble: 4/7.",
-    "P = 5/8 × 4/7 = 5/14."
+    "With replacement: (5/9)² = 25/81.",
+    "Without: 5/9 × 4/8 = 5/18.",
+    "Difference: 5/162."
    ],
    "standards": [
     "7.SP.C.8a",
     "S-CP.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_bag). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A bag has 5 red and 3 blue marbles. You draw a marble, do NOT replace ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s05-honors-009",
@@ -6731,36 +6734,36 @@
    "skillId": "data-analysis-probability-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A bag has 7 red and 6 blue marbles. You draw a marble, do NOT replace it, and draw again. What is P(red, then red)? Write a fraction in simplest form.",
-   "answer": "7/26",
+   "prompt": "A box has 7 green and 4 blue pens. Two pens are drawn. How much greater is P(green, green) when the first pen is replaced than when it is not? Write a fraction in simplest form.",
+   "answer": "14/605",
    "solutionSteps": [
-    "P(first red) = 7/13.",
-    "After removing a red marble: 6/12.",
-    "P = 7/13 × 6/12 = 7/26."
+    "With replacement: (7/11)² = 49/121.",
+    "Without: 7/11 × 6/10 = 21/55.",
+    "Difference: 14/605."
    ],
    "standards": [
     "7.SP.C.8a",
     "S-CP.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_bag). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A bag has 7 red and 6 blue marbles. You draw a marble, do NOT replace ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s05-honors-012",
    "skillId": "data-analysis-probability-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A bag has 6 red and 7 blue marbles. You draw a marble, do NOT replace it, and draw again. What is P(red, then red)? Write a fraction in simplest form.",
-   "answer": "5/26",
+   "prompt": "A box has 4 green and 7 blue pens. Two pens are drawn. How much greater is P(green, green) when the first pen is replaced than when it is not? Write a fraction in simplest form.",
+   "answer": "14/605",
    "solutionSteps": [
-    "P(first red) = 6/13.",
-    "After removing a red marble: 5/12.",
-    "P = 6/13 × 5/12 = 5/26."
+    "With replacement: (4/11)² = 16/121.",
+    "Without: 4/11 × 3/10 = 6/55.",
+    "Difference: 14/605."
    ],
    "standards": [
     "7.SP.C.8a",
     "S-CP.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_bag). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A bag has 6 red and 7 blue marbles. You draw a marble, do NOT replace ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s05-honors-013",
@@ -7787,108 +7790,108 @@
    "skillId": "data-analysis-probability-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "How many different 4-person committees can be chosen from 4 people?",
-   "answer": "1",
+   "prompt": "10 students run for a club. First, 3 officers are chosen with different jobs (order matters). Separately, a 3-person committee is chosen (order does not matter). How many more ways are there to choose the officers than the committee?",
+   "answer": "600",
    "options": [
     {
-     "text": "1",
+     "text": "600",
      "correct": true
     },
     {
-     "text": "16",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "4",
+     "text": "120",
      "correct": false
     },
     {
-     "text": "24",
+     "text": "720",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Order does not matter, so this is a combination.",
-    "4C4 = (4 × 3 × 2 × 1) ÷ 4! = 24 ÷ 24.",
-    "= 1."
+    "Officers: 10P3 = 720.",
+    "Committee: 10C3 = 120.",
+    "Difference: 600."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “How many different 4-person committees can be chosen from 4 people?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s06-honors-003",
    "skillId": "data-analysis-probability-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "How many different 2-person committees can be chosen from 4 people?",
-   "answer": "6",
+   "prompt": "8 students run for a club. First, 3 officers are chosen with different jobs (order matters). Separately, a 3-person committee is chosen (order does not matter). How many more ways are there to choose the officers than the committee?",
+   "answer": "280",
    "solutionSteps": [
-    "Order does not matter, so this is a combination.",
-    "4C2 = (4 × 3) ÷ 2! = 12 ÷ 2.",
-    "= 6."
+    "Officers: 8P3 = 336.",
+    "Committee: 8C3 = 56.",
+    "Difference: 280."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “How many different 2-person committees can be chosen from 4 people?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s06-honors-004",
    "skillId": "data-analysis-probability-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "How many different 2-person committees can be chosen from 5 people?",
-   "answer": "10",
+   "prompt": "6 students run for a club. First, 2 officers are chosen with different jobs (order matters). Separately, a 2-person committee is chosen (order does not matter). How many more ways are there to choose the officers than the committee?",
+   "answer": "15",
    "solutionSteps": [
-    "Order does not matter, so this is a combination.",
-    "5C2 = (5 × 4) ÷ 2! = 20 ÷ 2.",
-    "= 10."
+    "Officers: 6P2 = 30.",
+    "Committee: 6C2 = 15.",
+    "Difference: 15."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “How many different 2-person committees can be chosen from 5 people?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s06-honors-005",
    "skillId": "data-analysis-probability-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "In how many ways can 1st, 2nd, and 3rd place be awarded among 9 runners?",
-   "answer": "504",
+   "prompt": "10 students run for a club. First, 2 officers are chosen with different jobs (order matters). Separately, a 2-person committee is chosen (order does not matter). How many more ways are there to choose the officers than the committee?",
+   "answer": "45",
    "options": [
     {
-     "text": "84",
+     "text": "2",
      "correct": false
     },
     {
-     "text": "504",
+     "text": "90",
+     "correct": false
+    },
+    {
+     "text": "45",
      "correct": true
     },
     {
-     "text": "27",
-     "correct": false
-    },
-    {
-     "text": "729",
+     "text": "10",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Order matters, so this is a permutation.",
-    "9P3 = 9 × 8 × 7.",
-    "= 504."
+    "Officers: 10P2 = 90.",
+    "Committee: 10C2 = 45.",
+    "Difference: 45."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In how many ways can 1st, 2nd, and 3rd place be awarded among 9 runner”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s06-honors-006",
@@ -7931,18 +7934,18 @@
    "skillId": "data-analysis-probability-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "How many different 2-person committees can be chosen from 6 people?",
-   "answer": "15",
+   "prompt": "9 students run for a club. First, 3 officers are chosen with different jobs (order matters). Separately, a 3-person committee is chosen (order does not matter). How many more ways are there to choose the officers than the committee?",
+   "answer": "420",
    "solutionSteps": [
-    "Order does not matter, so this is a combination.",
-    "6C2 = (6 × 5) ÷ 2! = 30 ÷ 2.",
-    "= 15."
+    "Officers: 9P3 = 504.",
+    "Committee: 9C3 = 84.",
+    "Difference: 420."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “How many different 2-person committees can be chosen from 6 people?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s06-honors-008",
@@ -9133,141 +9136,144 @@
    "skillId": "data-analysis-probability-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "In 60 trials, a seed sprouted 20 times. What is the experimental probability? Write a fraction in simplest form.",
-   "answer": "1/3",
+   "prompt": "A number cube was rolled 60 times and showed a 6 on 13 rolls. Find the experimental probability of a 6 and the theoretical probability. How many more (or fewer) 6s came up than the theoretical expected number? Give actual minus expected.",
+   "answer": "3",
    "solutionSteps": [
-    "Experimental probability = number of times the event happened ÷ number of trials.",
-    "20/60 = 1/3."
+    "Experimental: 13/60 = 13/60.",
+    "Theoretical: 1/6, so expected = 60 ÷ 6 = 10.",
+    "13 - 10 = 3."
    ],
    "standards": [
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In 60 trials, a seed sprouted 20 times. What is the experimental proba”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-honors-002",
    "skillId": "data-analysis-probability-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A fair coin is tossed 10 times and lands heads 9 times. Which statement about the experimental and theoretical probabilities is true?",
-   "answer": "Experimental probability gets closer to theoretical probability as the number of trials increases.",
+   "prompt": "A number cube was rolled 120 times and showed a 6 on 23 rolls. Find the experimental probability of a 6 and the theoretical probability. How many more (or fewer) 6s came up than the theoretical expected number? Give actual minus expected.",
+   "answer": "3",
    "options": [
     {
-     "text": "Theoretical probability changes after each trial.",
-     "correct": false
-    },
-    {
-     "text": "Experimental probability gets closer to theoretical probability as the number of trials increases.",
+     "text": "3",
      "correct": true
     },
     {
-     "text": "More trials make experimental probability less reliable.",
+     "text": "6",
      "correct": false
     },
     {
-     "text": "Experimental probability always equals theoretical probability.",
+     "text": "23",
+     "correct": false
+    },
+    {
+     "text": "20",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Theoretical P(heads) = 1/2; experimental = 9/10.",
-    "They often differ for small numbers of trials.",
-    "With many trials, the experimental probability tends to approach 1/2."
+    "Experimental: 23/120 = 23/120.",
+    "Theoretical: 1/6, so expected = 120 ÷ 6 = 20.",
+    "23 - 20 = 3."
    ],
    "standards": [
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A fair coin is tossed 10 times and lands heads 9 times. Which statemen”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-honors-003",
    "skillId": "data-analysis-probability-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "In 20 trials, a seed sprouted 16 times. What is the experimental probability? Write a fraction in simplest form.",
-   "answer": "4/5",
+   "prompt": "A number cube was rolled 80 times and showed a 6 on 16 rolls. Find the experimental probability of a 6 and the theoretical probability. How many more (or fewer) 6s came up than the theoretical expected number? Give actual minus expected.",
+   "answer": "3",
    "options": [
     {
-     "text": "1/5",
+     "text": "13",
      "correct": false
     },
     {
-     "text": "16/21",
+     "text": "6",
      "correct": false
     },
     {
-     "text": "4",
-     "correct": false
-    },
-    {
-     "text": "4/5",
+     "text": "3",
      "correct": true
+    },
+    {
+     "text": "16",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Experimental probability = number of times the event happened ÷ number of trials.",
-    "16/20 = 4/5."
+    "Experimental: 16/80 = 1/5.",
+    "Theoretical: 1/6, so expected = 80 ÷ 6 = 13.",
+    "16 - 13 = 3."
    ],
    "standards": [
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In 20 trials, a seed sprouted 16 times. What is the experimental proba”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-honors-004",
    "skillId": "data-analysis-probability-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A fair coin is tossed 20 times and lands heads 16 times. Which statement about the experimental and theoretical probabilities is true?",
-   "answer": "Experimental probability gets closer to theoretical probability as the number of trials increases.",
+   "prompt": "A number cube was rolled 120 times and showed a 6 on 26 rolls. Find the experimental probability of a 6 and the theoretical probability. How many more (or fewer) 6s came up than the theoretical expected number? Give actual minus expected.",
+   "answer": "6",
    "options": [
     {
-     "text": "Experimental probability gets closer to theoretical probability as the number of trials increases.",
+     "text": "120",
+     "correct": false
+    },
+    {
+     "text": "6",
      "correct": true
     },
     {
-     "text": "More trials make experimental probability less reliable.",
+     "text": "26",
      "correct": false
     },
     {
-     "text": "Theoretical probability changes after each trial.",
-     "correct": false
-    },
-    {
-     "text": "Experimental probability always equals theoretical probability.",
+     "text": "20",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Theoretical P(heads) = 1/2; experimental = 16/20.",
-    "They often differ for small numbers of trials.",
-    "With many trials, the experimental probability tends to approach 1/2."
+    "Experimental: 26/120 = 13/60.",
+    "Theoretical: 1/6, so expected = 120 ÷ 6 = 20.",
+    "26 - 20 = 6."
    ],
    "standards": [
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A fair coin is tossed 20 times and lands heads 16 times. Which stateme”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-honors-005",
    "skillId": "data-analysis-probability-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "In 25 trials, a seed sprouted 23 times. Predict how many times it will happen in 300 trials.",
-   "answer": "276",
+   "prompt": "A number cube was rolled 80 times and showed a 6 on 9 rolls. Find the experimental probability of a 6 and the theoretical probability. How many more (or fewer) 6s came up than the theoretical expected number? Give actual minus expected.",
+   "answer": "-4",
    "solutionSteps": [
-    "Experimental probability = 23/25.",
-    "23/25 × 300 = 276."
+    "Experimental: 9/80 = 9/80.",
+    "Theoretical: 1/6, so expected = 80 ÷ 6 = 13.",
+    "9 - 13 = -4."
    ],
    "standards": [
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In 25 trials, a seed sprouted 23 times. Predict how many times it will”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-honors-006",
@@ -10446,156 +10452,162 @@
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A school wants to know students' favorite lunch. Which sampling method is most likely to give a representative (unbiased) sample?",
-   "answer": "Choose 50 students at random from the full school roster.",
+   "prompt": "In a random sample of 60 students, 19 want a later start time. Predict how many of the school's 1200 students want a later start, then how many do not. Give the number who do not.",
+   "answer": "820",
    "options": [
     {
-     "text": "Choose 50 students at random from the full school roster.",
+     "text": "1200",
+     "correct": false
+    },
+    {
+     "text": "19/60",
+     "correct": false
+    },
+    {
+     "text": "820",
      "correct": true
     },
     {
-     "text": "Post an online poll that people can choose to answer.",
-     "correct": false
-    },
-    {
-     "text": "Survey only your friends.",
-     "correct": false
-    },
-    {
-     "text": "Ask the first 30 students who arrive at basketball practice.",
+     "text": "380",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A random sample gives every member of the population an equal chance to be chosen.",
-    "Convenience and voluntary samples are biased."
+    "Sample proportion: 19/60 = 19/60.",
+    "Predicted yes: 19/60 × 1200 = 380.",
+    "Predicted no: 1200 - 380 = 820."
    ],
    "standards": [
-    "7.SP.A.1"
+    "7.SP.A.2",
+    "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_bias). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A school wants to know students' favorite lunch. Which sampling method”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-002",
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "In a random sample of 20 students, 17 own a pet. Predict how many of the school's 400 students own a pet.",
-   "answer": "340",
+   "prompt": "In a random sample of 50 students, 29 want a later start time. Predict how many of the school's 600 students want a later start, then how many do not. Give the number who do not.",
+   "answer": "252",
    "solutionSteps": [
-    "Sample proportion: 17/20.",
-    "Proportion: 17/20 = x/400.",
-    "x = 17 × 400 ÷ 20 = 340."
+    "Sample proportion: 29/50 = 29/50.",
+    "Predicted yes: 29/50 × 600 = 348.",
+    "Predicted no: 600 - 348 = 252."
    ],
    "standards": [
     "7.SP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 20 students, 17 own a pet. Predict how many of t”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-003",
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A school wants to know students' favorite lunch. Which sampling method is most likely to give a representative (unbiased) sample?",
-   "answer": "Number every household and use a random number generator to pick 100.",
+   "prompt": "In a random sample of 60 students, 34 want a later start time. Predict how many of the school's 1200 students want a later start, then how many do not. Give the number who do not.",
+   "answer": "520",
    "options": [
     {
-     "text": "Ask the first 30 students who arrive at basketball practice.",
+     "text": "1200",
      "correct": false
     },
     {
-     "text": "Survey students in one honors class about homework load.",
+     "text": "680",
      "correct": false
     },
     {
-     "text": "Number every household and use a random number generator to pick 100.",
+     "text": "520",
      "correct": true
     },
     {
-     "text": "Post an online poll that people can choose to answer.",
+     "text": "17/30",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A random sample gives every member of the population an equal chance to be chosen.",
-    "Convenience and voluntary samples are biased."
+    "Sample proportion: 34/60 = 17/30.",
+    "Predicted yes: 17/30 × 1200 = 680.",
+    "Predicted no: 1200 - 680 = 520."
    ],
    "standards": [
-    "7.SP.A.1"
+    "7.SP.A.2",
+    "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_bias). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A school wants to know students' favorite lunch. Which sampling method”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-004",
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "In a random sample of 25 students, 23 walk to school. Predict how many of the school's 800 students walk to school.",
-   "answer": "736",
+   "prompt": "In a random sample of 60 students, 34 want a later start time. Predict how many of the school's 900 students want a later start, then how many do not. Give the number who do not.",
+   "answer": "390",
    "options": [
     {
-     "text": "736",
+     "text": "510",
+     "correct": false
+    },
+    {
+     "text": "900",
+     "correct": false
+    },
+    {
+     "text": "390",
      "correct": true
     },
     {
-     "text": "23",
-     "correct": false
-    },
-    {
-     "text": "64",
-     "correct": false
-    },
-    {
-     "text": "798",
+     "text": "17/30",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Sample proportion: 23/25.",
-    "Proportion: 23/25 = x/800.",
-    "x = 23 × 800 ÷ 25 = 736."
+    "Sample proportion: 34/60 = 17/30.",
+    "Predicted yes: 17/30 × 900 = 510.",
+    "Predicted no: 900 - 510 = 390."
    ],
    "standards": [
     "7.SP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 25 students, 23 walk to school. Predict how many”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-005",
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A school wants to know students' favorite lunch. Which sampling method is most likely to give a representative (unbiased) sample?",
-   "answer": "Choose 50 students at random from the full school roster.",
+   "prompt": "In a random sample of 40 students, 13 want a later start time. Predict how many of the school's 1200 students want a later start, then how many do not. Give the number who do not.",
+   "answer": "810",
    "options": [
     {
-     "text": "Choose 50 students at random from the full school roster.",
+     "text": "13/40",
+     "correct": false
+    },
+    {
+     "text": "1200",
+     "correct": false
+    },
+    {
+     "text": "390",
+     "correct": false
+    },
+    {
+     "text": "810",
      "correct": true
-    },
-    {
-     "text": "Survey students in one honors class about homework load.",
-     "correct": false
-    },
-    {
-     "text": "Ask the first 30 students who arrive at basketball practice.",
-     "correct": false
-    },
-    {
-     "text": "Ask people leaving a pizza shop about their favorite food.",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "A random sample gives every member of the population an equal chance to be chosen.",
-    "Convenience and voluntary samples are biased."
+    "Sample proportion: 13/40 = 13/40.",
+    "Predicted yes: 13/40 × 1200 = 390.",
+    "Predicted no: 1200 - 390 = 810."
    ],
    "standards": [
-    "7.SP.A.1"
+    "7.SP.A.2",
+    "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_bias). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A school wants to know students' favorite lunch. Which sampling method”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-006",

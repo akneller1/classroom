@@ -896,11 +896,13 @@ def distractors(ans, steps, rng):
 
 
 def rewrite(q, fn, rng, nm, fam, note, used):
-    used.discard(q['prompt'])
-    for _ in range(60):
+    """Rewrite q in place with a prompt not in used; leave it unchanged (return False) if none is found."""
+    for _ in range(80):
         prompt, ans, steps = (H.sup(x) if isinstance(x, str) else [H.sup(y) for y in x] for x in fn(rng, nm))
         if prompt not in used:
             break
+    else:
+        return False
     used.add(prompt)
     q['prompt'], q['answer'], q['solutionSteps'] = prompt, ans, steps
     for k in ('hint', 'diagram'):
@@ -912,6 +914,7 @@ def rewrite(q, fn, rng, nm, fam, note, used):
     else:
         q.pop('options', None)
     q['sourceNotes'] = lib.SOURCE.format(fam=fam) + note if hasattr(lib, 'SOURCE') else f'Original Claude-authored item (family: {fam}).' + note
+    return True
 
 
 def pinned():
@@ -934,26 +937,35 @@ def main():
     keep = pinned()
     NOTE = ' Rewritten in place: whole-site audit 2 #3 (2026-11-20), {lv} item that reused a {low} template (was: “{old}”); keys rechecked by verify_levels.py.'
     done = {'cp1': 0, 'honors': 0}
+    TAG = 'audit 2 #3'
+    ok = lambda q, lv: (q['level'] == lv and q['format'] in ('multiple-choice', 'short-answer') and not q.get('diagram')
+                        and q['id'] not in keep and not re.search(r'-(?:h|pc)\d\d$', q['id']) and 'Partner-check companion' not in q.get('sourceNotes', ''))
     for u in lib.UNITS:
         qs = banks[u]['questions']
         for sid in sorted({q['skillId'] for q in qs}):
             n = int(sid.rsplit('-', 1)[1]); a = lib.ABBR[u]
-            used = {q['prompt'] for q in qs}
-            for lv, lows, fn, fam in (('cp1', ('cp2',), T.get((u, n)), f'g7_cp1_added_step_{a}_s{n:02d}'),):
-                if not fn or (u, n) == ('algebraic-expressions-integers', 1) and lv == 'honors':
-                    continue
-                low = {SIG(q) for q in qs if q['skillId'] == sid and q['level'] in lows and 'audit 2 #3' not in q['sourceNotes']}
-                cand = [q for q in qs if q['skillId'] == sid and q['level'] == lv and q['format'] in ('multiple-choice', 'short-answer')
-                        and not q.get('diagram') and q['id'] not in keep and not re.search(r'-h\d\d$', q['id'])
-                        and (SIG(q) in low or 'audit 2 #3' in q['sourceNotes'])]
-                cand.sort(key=lambda q: ('audit 2 #3' not in q['sourceNotes'], q['id']))
-                for i, q in enumerate(cand[:CAP]):
+            sk = [q for q in qs if q['skillId'] == sid]
+            fn1, fnh = T.get((u, n)), (None if (u, n) == ('algebraic-expressions-integers', 1) else H.T.get((u, n)))
+            # Choose the items to rewrite from the bank as it was before any rewrite, so reruns choose the same ones:
+            # an item rewritten earlier carries the TAG note and stays chosen.
+            low1 = {SIG(q) for q in sk if q['level'] == 'cp2'}
+            c1 = sorted((q for q in sk if fn1 and ok(q, 'cp1') and (TAG in q['sourceNotes'] or SIG(q) in low1)), key=lambda q: (TAG not in q['sourceNotes'], q['id']))[:CAP]
+            ids1 = {q['id'] for q in c1}
+            lowh = low1 | {SIG(q) for q in sk if q['level'] == 'cp1' and q['id'] not in ids1}
+            ch = sorted((q for q in sk if fnh and ok(q, 'honors') and (TAG in q['sourceNotes'] or SIG(q) in lowh)), key=lambda q: (TAG not in q['sourceNotes'], q['id']))[:CAP]
+            chosen = ids1 | {q['id'] for q in ch}
+            used = {q['prompt'] for q in sk if q['id'] not in chosen}
+            for lv, cand, fn, fam in (('cp1', c1, fn1, f'g7_cp1_added_step_{a}_s{n:02d}'), ('honors', ch, fnh, f'g7_honors_multistep_{a}_s{n:02d}')):
+                for i, q in enumerate(cand):
                     rng = random.Random(f'g7-a2-3-{q["id"]}')
                     old = re.search(r'\(was: “(.*?)”\)', q['sourceNotes'])
                     old = old.group(1) if old else re.sub(r'\s+', ' ', q['prompt'])[:70]
-                    rewrite(q, fn, rng, N[(n * 5 + i * 3 + lib.UNITS.index(u)) % len(N)], fam,
-                            NOTE.format(lv='Standard' if lv == 'cp1' else 'Advanced', low='Support' if lv == 'cp1' else 'lower-level', old=old.replace('“', '"').replace('”', '"')), used)
-                    done[lv] += 1
+                    base = q['sourceNotes'].split(' Rewritten in place: whole-site audit 2 #3')[0]
+                    if TAG in q['sourceNotes']:
+                        q['sourceNotes'] = base
+                    if rewrite(q, fn, rng, N[sum(map(ord, q['id'])) % len(N)], fam,
+                               NOTE.format(lv='Standard' if lv == 'cp1' else 'Advanced', low='Support' if lv == 'cp1' else 'lower-level', old=old.replace('“', '"').replace('”', '"')), used):
+                        done[lv] += 1
     lib.save(banks)
     print('levels: rewrote', done['cp1'], 'Standard and', done['honors'], 'Advanced items')
 

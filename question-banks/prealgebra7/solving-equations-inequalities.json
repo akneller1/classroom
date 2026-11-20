@@ -540,7 +540,7 @@
    "skillId": "solving-equations-inequalities-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A taxi charges $4 plus $2 per mile. Kai also gave a $4 tip and paid $30 in all. How many miles was the ride?",
+   "prompt": "A taxi charges $4 plus $2 per mile. Sam also gave a $4 tip and paid $30 in all. How many miles was the ride?",
    "answer": "11",
    "solutionSteps": [
     "4 + 2m + 4 = 30.",
@@ -683,7 +683,7 @@
    "skillId": "solving-equations-inequalities-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A taxi charges $4 plus $2 per mile. Rosa also gave a $5 tip and paid $15 in all. How many miles was the ride?",
+   "prompt": "A taxi charges $4 plus $2 per mile. Nia also gave a $5 tip and paid $15 in all. How many miles was the ride?",
    "answer": "3",
    "options": [
     {
@@ -920,54 +920,52 @@
    "skillId": "solving-equations-inequalities-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Solve: m/7 - 3 = -6",
-   "answer": "m = -21",
+   "prompt": "A taxi charges $4 plus $3 per mile. Theo paid $36, which included a $5 tip. Write and solve an equation for the number of miles.",
+   "answer": "9",
    "options": [
     {
-     "text": "m = -39",
-     "correct": false
-    },
-    {
-     "text": "m = -3/7",
-     "correct": false
-    },
-    {
-     "text": "m = -63",
-     "correct": false
-    },
-    {
-     "text": "m = -21",
+     "text": "9",
      "correct": true
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "36",
+     "correct": false
+    },
+    {
+     "text": "27",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Add 3 on both sides.",
-    "Multiply both sides by 7.",
-    "m = -21.",
-    "Check by substituting."
+    "4 + 3m + 5 = 36.",
+    "3m = 27.",
+    "m = 9 miles."
    ],
    "standards": [
     "7.EE.B.4a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: m/7 - 3 = -6”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s01-honors-004",
    "skillId": "solving-equations-inequalities-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A taxi charges $26 plus $8 per mile. A ride cost $42. How many miles was the ride?",
-   "answer": "2",
+   "prompt": "A taxi charges $3 plus $2 per mile. Rosa paid $22, which included a $5 tip. Write and solve an equation for the number of miles.",
+   "answer": "7",
    "solutionSteps": [
-    "Equation: 8m + 26 = 42.",
-    "Subtract 26: 8m = 16.",
-    "Divide by 8: m = 2.",
-    "Check: 26 + 8(2) = 42."
+    "3 + 2m + 5 = 22.",
+    "2m = 14.",
+    "m = 7 miles."
    ],
    "standards": [
     "7.EE.B.4a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A taxi charges $26 plus $8 per mile. A ride cost $42. How many miles w”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s01-honors-005",
@@ -992,36 +990,35 @@
    "skillId": "solving-equations-inequalities-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A taxi charges $33 plus $4 per mile. A ride cost $65. How many miles was the ride?",
-   "answer": "8",
+   "prompt": "A taxi charges $4 plus $3 per mile. Maya paid $51, which included a $5 tip. Write and solve an equation for the number of miles.",
+   "answer": "14",
    "options": [
     {
-     "text": "8",
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "14",
      "correct": true
     },
     {
-     "text": "128",
+     "text": "42",
      "correct": false
     },
     {
-     "text": "9",
-     "correct": false
-    },
-    {
-     "text": "32",
+     "text": "51",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Equation: 4m + 33 = 65.",
-    "Subtract 33: 4m = 32.",
-    "Divide by 4: m = 8.",
-    "Check: 33 + 4(8) = 65."
+    "4 + 3m + 5 = 51.",
+    "3m = 42.",
+    "m = 14 miles."
    ],
    "standards": [
     "7.EE.B.4a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A taxi charges $33 plus $4 per mile. A ride cost $65. How many miles w”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s01-honors-007",
@@ -2263,37 +2260,36 @@
    "skillId": "solving-equations-inequalities-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A rectangle has length (4x + 5) cm and width x cm. Its perimeter is 130 cm. Find x.",
-   "answer": "x = 12",
+   "prompt": "A rectangle's length is 3 cm more than 2 times its width w. Its perimeter is 42 cm. Write and solve an equation for w, then find the area. Give the area in square centimeters.",
+   "answer": "90",
    "options": [
     {
-     "text": "x = 13",
+     "text": "42",
      "correct": false
     },
     {
-     "text": "x = 12",
+     "text": "90",
      "correct": true
     },
     {
-     "text": "x = 25",
+     "text": "15",
      "correct": false
     },
     {
-     "text": "x = 15",
+     "text": "6",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "2(4x + 5) + 2x = 130.",
-    "8x + 10 + 2x = 130.",
-    "10x = 120.",
-    "x = 12."
+    "2(2w + 3) + 2w = 42, so 6w + 6 = 42.",
+    "w = 6 cm, length = 15 cm.",
+    "Area = 6 × 15 = 90 cm²."
    ],
    "standards": [
     "7.EE.B.4a",
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangle has length (4x + 5) cm and width x cm. Its perimeter is 13”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s02-honors-003",
@@ -2337,19 +2333,18 @@
    "skillId": "solving-equations-inequalities-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A rectangle has length (4x + 5) cm and width x cm. Its perimeter is 80 cm. Find x.",
-   "answer": "x = 7",
+   "prompt": "A rectangle's length is 9 cm more than 3 times its width w. Its perimeter is 138 cm. Write and solve an equation for w, then find the area. Give the area in square centimeters.",
+   "answer": "810",
    "solutionSteps": [
-    "2(4x + 5) + 2x = 80.",
-    "8x + 10 + 2x = 80.",
-    "10x = 70.",
-    "x = 7."
+    "2(3w + 9) + 2w = 138, so 8w + 18 = 138.",
+    "w = 15 cm, length = 54 cm.",
+    "Area = 15 × 54 = 810 cm²."
    ],
    "standards": [
     "7.EE.B.4a",
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangle has length (4x + 5) cm and width x cm. Its perimeter is 80”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s02-honors-005",
@@ -2375,37 +2370,36 @@
    "skillId": "solving-equations-inequalities-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A rectangle has length (2x + 7) cm and width x cm. Its perimeter is 50 cm. Find x.",
-   "answer": "x = 6",
+   "prompt": "A rectangle's length is 3 cm more than 3 times its width w. Its perimeter is 94 cm. Write and solve an equation for w, then find the area. Give the area in square centimeters.",
+   "answer": "396",
    "options": [
     {
-     "text": "x = 9",
-     "correct": false
-    },
-    {
-     "text": "x = 25/3",
-     "correct": false
-    },
-    {
-     "text": "x = 43/3",
-     "correct": false
-    },
-    {
-     "text": "x = 6",
+     "text": "396",
      "correct": true
+    },
+    {
+     "text": "36",
+     "correct": false
+    },
+    {
+     "text": "11",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "2(2x + 7) + 2x = 50.",
-    "4x + 14 + 2x = 50.",
-    "6x = 36.",
-    "x = 6."
+    "2(3w + 3) + 2w = 94, so 8w + 6 = 94.",
+    "w = 11 cm, length = 36 cm.",
+    "Area = 11 × 36 = 396 cm²."
    ],
    "standards": [
     "7.EE.B.4a",
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangle has length (2x + 7) cm and width x cm. Its perimeter is 50”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s02-honors-007",
@@ -2449,19 +2443,18 @@
    "skillId": "solving-equations-inequalities-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A rectangle has length (2x + 6) cm and width x cm. Its perimeter is 102 cm. Find x.",
-   "answer": "x = 15",
+   "prompt": "A rectangle's length is 7 cm more than 4 times its width w. Its perimeter is 124 cm. Write and solve an equation for w, then find the area. Give the area in square centimeters.",
+   "answer": "561",
    "solutionSteps": [
-    "2(2x + 6) + 2x = 102.",
-    "4x + 12 + 2x = 102.",
-    "6x = 90.",
-    "x = 15."
+    "2(4w + 7) + 2w = 124, so 10w + 14 = 124.",
+    "w = 11 cm, length = 51 cm.",
+    "Area = 11 × 51 = 561 cm²."
    ],
    "standards": [
     "7.EE.B.4a",
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangle has length (2x + 6) cm and width x cm. Its perimeter is 10”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s02-honors-009",
@@ -2487,37 +2480,36 @@
    "skillId": "solving-equations-inequalities-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A rectangle has length (2x + 3) cm and width x cm. Its perimeter is 66 cm. Find x.",
-   "answer": "x = 10",
+   "prompt": "A rectangle's length is 5 cm more than 4 times its width w. Its perimeter is 100 cm. Write and solve an equation for w, then find the area. Give the area in square centimeters.",
+   "answer": "369",
    "options": [
     {
-     "text": "x = 11",
-     "correct": false
-    },
-    {
-     "text": "x = 15",
-     "correct": false
-    },
-    {
-     "text": "x = 10",
+     "text": "369",
      "correct": true
     },
     {
-     "text": "x = 21",
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "41",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "2(2x + 3) + 2x = 66.",
-    "4x + 6 + 2x = 66.",
-    "6x = 60.",
-    "x = 10."
+    "2(4w + 5) + 2w = 100, so 10w + 10 = 100.",
+    "w = 9 cm, length = 41 cm.",
+    "Area = 9 × 41 = 369 cm²."
    ],
    "standards": [
     "7.EE.B.4a",
     "8.EE.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangle has length (2x + 3) cm and width x cm. Its perimeter is 66”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s02-honors-011",
@@ -3637,19 +3629,18 @@
    "skillId": "solving-equations-inequalities-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve: (1/2)k + 4 = 14",
-   "answer": "k = 20",
+   "prompt": "A printing service charges $4.75 per order plus $0.15 per page. Theo's bill was $8.05. Write and solve an equation for the number of pages.",
+   "answer": "22",
    "solutionSteps": [
-    "Subtract 4: (1/2)k = 10.",
-    "Multiply by the reciprocal 2.",
-    "k = 20.",
-    "(Or multiply every term by the LCD to clear fractions first.)"
+    "0.15p + 4.75 = 8.05.",
+    "0.15p = 3.3.",
+    "p = 22 pages."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: (1/2)k + 4 = 14”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s03-honors-002",
@@ -3693,37 +3684,36 @@
    "skillId": "solving-equations-inequalities-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Solve: 2.6a + 3.9 = 18.2",
-   "answer": "a = 5 1/2",
+   "prompt": "A printing service charges $2.50 per order plus $0.25 per page. Eli's bill was $11.25. Write and solve an equation for the number of pages.",
+   "answer": "35",
    "options": [
     {
-     "text": "a = 37 9/50",
-     "correct": false
-    },
-    {
-     "text": "a = 3 1/10",
-     "correct": false
-    },
-    {
-     "text": "a = 8 1/2",
-     "correct": false
-    },
-    {
-     "text": "a = 5 1/2",
+     "text": "35",
      "correct": true
+    },
+    {
+     "text": "5/2",
+     "correct": false
+    },
+    {
+     "text": "35/4",
+     "correct": false
+    },
+    {
+     "text": "45/4",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Subtract 3.9: 2.6a = 14.3.",
-    "Divide by 2.6 (or multiply every term by 10 first).",
-    "a = 5.5.",
-    "Check by substituting."
+    "0.25p + 2.50 = 11.25.",
+    "0.25p = 8.75.",
+    "p = 35 pages."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: 2.6a + 3.9 = 18.2”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s03-honors-004",
@@ -3749,19 +3739,18 @@
    "skillId": "solving-equations-inequalities-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve: (1/2)x + 6 = 2",
-   "answer": "x = -8",
+   "prompt": "A printing service charges $4.75 per order plus $0.25 per page. Leo's bill was $10.75. Write and solve an equation for the number of pages.",
+   "answer": "24",
    "solutionSteps": [
-    "Subtract 6: (1/2)x = -4.",
-    "Multiply by the reciprocal 2.",
-    "x = -8.",
-    "(Or multiply every term by the LCD to clear fractions first.)"
+    "0.25p + 4.75 = 10.75.",
+    "0.25p = 6.",
+    "p = 24 pages."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: (1/2)x + 6 = 2”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s03-honors-006",
@@ -3880,37 +3869,36 @@
    "skillId": "solving-equations-inequalities-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Solve: (3/4)n + (2/6)n = 52",
-   "answer": "n = 48",
+   "prompt": "A printing service charges $2.50 per order plus $0.15 per page. Theo's bill was $6.10. Write and solve an equation for the number of pages.",
+   "answer": "24",
    "options": [
     {
-     "text": "n = 624",
+     "text": "61/10",
      "correct": false
     },
     {
-     "text": "n = 104",
-     "correct": false
-    },
-    {
-     "text": "n = 208",
-     "correct": false
-    },
-    {
-     "text": "n = 48",
+     "text": "24",
      "correct": true
+    },
+    {
+     "text": "5/2",
+     "correct": false
+    },
+    {
+     "text": "18/5",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Multiply every term by the LCD, 12.",
-    "9n + 4n = 624.",
-    "13n = 624.",
-    "n = 48."
+    "0.15p + 2.50 = 6.1.",
+    "0.15p = 3.6.",
+    "p = 24 pages."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_clear). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: (3/4)n + (2/6)n = 52”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s03-honors-011",
@@ -3954,19 +3942,18 @@
    "skillId": "solving-equations-inequalities-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve: (1/3)y + (3/5)y = 14",
-   "answer": "y = 15",
+   "prompt": "A printing service charges $2.50 per order plus $0.35 per page. Eli's bill was $11.95. Write and solve an equation for the number of pages.",
+   "answer": "27",
    "solutionSteps": [
-    "Multiply every term by the LCD, 15.",
-    "5y + 9y = 210.",
-    "14y = 210.",
-    "y = 15."
+    "0.35p + 2.50 = 11.95.",
+    "0.35p = 9.45.",
+    "p = 27 pages."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_clear). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: (1/3)y + (3/5)y = 14”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s03-honors-013",
@@ -4990,19 +4977,18 @@
    "skillId": "solving-equations-inequalities-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Twice a number increased by 17 is 31. Find the number.",
-   "answer": "7",
+   "prompt": "1 year ago, Rosa's mother was 3 times as old as Rosa. Rosa is 11 now. Write and solve an equation to find the mother's age now.",
+   "answer": "31",
    "solutionSteps": [
-    "Let n be the unknown.",
-    "Equation: 2n + 17 = 31.",
-    "Solve: n = 7.",
-    "Check the answer in the words of the problem."
+    "1 years ago Rosa was 10.",
+    "Mother then: m - 1 = 3(10) = 30.",
+    "m = 31."
    ],
    "standards": [
     "7.EE.B.4",
     "7.EE.B.4a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_word). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Twice a number increased by 17 is 31. Find the number.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s04-honors-002",
@@ -5044,72 +5030,72 @@
    "skillId": "solving-equations-inequalities-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Twice a number increased by 7 is 37. Find the number.",
-   "answer": "15",
+   "prompt": "1 year ago, Maya's mother was 3 times as old as Maya. Maya is 13 now. Write and solve an equation to find the mother's age now.",
+   "answer": "37",
    "options": [
     {
-     "text": "15",
+     "text": "37",
      "correct": true
     },
     {
-     "text": "30",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "22",
+     "text": "12",
      "correct": false
     },
     {
-     "text": "16",
+     "text": "36",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Let n be the unknown.",
-    "Equation: 2n + 7 = 37.",
-    "Solve: n = 15.",
-    "Check the answer in the words of the problem."
+    "1 years ago Maya was 12.",
+    "Mother then: m - 1 = 3(12) = 36.",
+    "m = 37."
    ],
    "standards": [
     "7.EE.B.4",
     "7.EE.B.4a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_word). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Twice a number increased by 7 is 37. Find the number.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s04-honors-004",
    "skillId": "solving-equations-inequalities-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which equation represents “7 less than 4 times a number is 73”?",
-   "answer": "4n - 7 = 73",
+   "prompt": "3 years ago, Leo's mother was 3 times as old as Leo. Leo is 13 now. Write and solve an equation to find the mother's age now.",
+   "answer": "33",
    "options": [
     {
-     "text": "4(n - 7) = 73",
-     "correct": false
-    },
-    {
-     "text": "7 - 4n = 73",
-     "correct": false
-    },
-    {
-     "text": "n - 28 = 73",
-     "correct": false
-    },
-    {
-     "text": "4n - 7 = 73",
+     "text": "33",
      "correct": true
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "30",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "“times a number” → an; “less than” subtracts from that product.",
-    "4n - 7 = 73."
+    "3 years ago Leo was 10.",
+    "Mother then: m - 3 = 3(10) = 30.",
+    "m = 33."
    ],
    "standards": [
     "7.EE.B.4",
     "7.EE.B.4a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_which_eq). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which equation represents \"7 less than 4 times a number is 73\"?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s04-honors-005",
@@ -5135,35 +5121,36 @@
    "skillId": "solving-equations-inequalities-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which equation represents “19 less than 6 times a number is 59”?",
-   "answer": "6n - 19 = 59",
+   "prompt": "1 year ago, Diego's mother was 3 times as old as Diego. Diego is 14 now. Write and solve an equation to find the mother's age now.",
+   "answer": "40",
    "options": [
     {
-     "text": "19 - 6n = 59",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "6n - 19 = 59",
+     "text": "40",
      "correct": true
     },
     {
-     "text": "n - 114 = 59",
+     "text": "39",
      "correct": false
     },
     {
-     "text": "6(n - 19) = 59",
+     "text": "13",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "“times a number” → an; “less than” subtracts from that product.",
-    "6n - 19 = 59."
+    "1 years ago Diego was 13.",
+    "Mother then: m - 1 = 3(13) = 39.",
+    "m = 40."
    ],
    "standards": [
     "7.EE.B.4",
     "7.EE.B.4a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_which_eq). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which equation represents \"19 less than 6 times a number is 59\"?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s04-honors-007",
@@ -5207,35 +5194,36 @@
    "skillId": "solving-equations-inequalities-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which equation represents “8 less than 8 times a number is 96”?",
-   "answer": "8n - 8 = 96",
+   "prompt": "1 year ago, Owen's mother was 3 times as old as Owen. Owen is 13 now. Write and solve an equation to find the mother's age now.",
+   "answer": "37",
    "options": [
     {
-     "text": "n - 64 = 96",
+     "text": "12",
      "correct": false
     },
     {
-     "text": "8n - 8 = 96",
+     "text": "37",
      "correct": true
     },
     {
-     "text": "8 - 8n = 96",
+     "text": "36",
      "correct": false
     },
     {
-     "text": "8(n - 8) = 96",
+     "text": "3",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "“times a number” → an; “less than” subtracts from that product.",
-    "8n - 8 = 96."
+    "1 years ago Owen was 12.",
+    "Mother then: m - 1 = 3(12) = 36.",
+    "m = 37."
    ],
    "standards": [
     "7.EE.B.4",
     "7.EE.B.4a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_which_eq). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which equation represents \"8 less than 8 times a number is 96\"?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s04-honors-009",
@@ -6379,37 +6367,36 @@
    "skillId": "solving-equations-inequalities-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve: 2(6n + 5) = 12n + 11. If there is no solution or infinitely many solutions, say so.",
-   "answer": "no solution",
+   "prompt": "Gym A charges $30 plus $5 per visit. Gym B charges $10 per visit with no fee. For how many visits do the gyms cost the same, and what is that cost? Give the number of visits.",
+   "answer": "6",
    "solutionSteps": [
-    "Distribute and collect the variable terms on one side.",
-    "If the variables cancel: a true statement means infinitely many solutions; a false statement means no solution.",
-    "Result: no solution."
+    "30 + 5v = 10v.",
+    "30 = 5v, so v = 6.",
+    "Both cost 60 dollars at 6 visits."
    ],
    "standards": [
-    "8.EE.C.7a",
+    "8.EE.C.7b",
     "8.EE.C.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_special). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: 2(6n + 5) = 12n + 11. If there is no solution or infinitely man”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s05-honors-003",
    "skillId": "solving-equations-inequalities-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Gym A charges $44 plus $3 per visit. Gym B charges $14 plus $5 per visit. After how many visits do the gyms cost the same?",
-   "answer": "15 visits",
+   "prompt": "Gym A charges $46 plus $6 per visit. Gym B charges $8 per visit with no fee. For how many visits do the gyms cost the same, and what is that cost? Give the number of visits.",
+   "answer": "23",
    "solutionSteps": [
-    "44 + 3v = 14 + 5v.",
-    "Subtract 3v: 44 = 14 + 2v.",
-    "Subtract 14: 30 = 2v.",
-    "v = 15."
+    "46 + 6v = 8v.",
+    "46 = 2v, so v = 23.",
+    "Both cost 184 dollars at 23 visits."
    ],
    "standards": [
     "8.EE.C.7b",
     "8.EE.C.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Gym A charges $44 plus $3 per visit. Gym B charges $14 plus $5 per vis”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s05-honors-004",
@@ -6472,37 +6459,36 @@
    "skillId": "solving-equations-inequalities-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Gym A charges $54 plus $2 per visit. Gym B charges $46 plus $4 per visit. After how many visits do the gyms cost the same?",
-   "answer": "4 visits",
+   "prompt": "Gym A charges $48 plus $6 per visit. Gym B charges $10 per visit with no fee. For how many visits do the gyms cost the same, and what is that cost? Give the number of visits.",
+   "answer": "12",
    "options": [
     {
-     "text": "27 visits",
+     "text": "4",
      "correct": false
     },
     {
-     "text": "5 visits",
+     "text": "10",
      "correct": false
     },
     {
-     "text": "4 visits",
+     "text": "12",
      "correct": true
     },
     {
-     "text": "8 visits",
+     "text": "120",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "54 + 2v = 46 + 4v.",
-    "Subtract 2v: 54 = 46 + 2v.",
-    "Subtract 46: 8 = 2v.",
-    "v = 4."
+    "48 + 6v = 10v.",
+    "48 = 4v, so v = 12.",
+    "Both cost 120 dollars at 12 visits."
    ],
    "standards": [
     "8.EE.C.7b",
     "8.EE.C.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Gym A charges $54 plus $2 per visit. Gym B charges $46 plus $4 per vis”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s05-honors-007",
@@ -6547,55 +6533,54 @@
    "skillId": "solving-equations-inequalities-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Solve: 2(5n + 6) = 12n + 28. If there is no solution or infinitely many solutions, say so.",
-   "answer": "n = -8",
+   "prompt": "Gym A charges $45 plus $4 per visit. Gym B charges $9 per visit with no fee. For how many visits do the gyms cost the same, and what is that cost? Give the number of visits.",
+   "answer": "9",
    "options": [
     {
-     "text": "infinitely many solutions",
+     "text": "4",
      "correct": false
     },
     {
-     "text": "n = 0",
+     "text": "5",
      "correct": false
     },
     {
-     "text": "no solution",
+     "text": "81",
      "correct": false
     },
     {
-     "text": "n = -8",
+     "text": "9",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Distribute and collect the variable terms on one side.",
-    "If the variables cancel: a true statement means infinitely many solutions; a false statement means no solution.",
-    "Result: n = -8."
+    "45 + 4v = 9v.",
+    "45 = 5v, so v = 9.",
+    "Both cost 81 dollars at 9 visits."
    ],
    "standards": [
-    "8.EE.C.7a",
+    "8.EE.C.7b",
     "8.EE.C.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_special). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: 2(5n + 6) = 12n + 28. If there is no solution or infinitely man”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s05-honors-009",
    "skillId": "solving-equations-inequalities-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Gym A charges $37 plus $3 per visit. Gym B charges $7 plus $6 per visit. After how many visits do the gyms cost the same?",
-   "answer": "10 visits",
+   "prompt": "Gym A charges $60 plus $4 per visit. Gym B charges $8 per visit with no fee. For how many visits do the gyms cost the same, and what is that cost? Give the number of visits.",
+   "answer": "15",
    "solutionSteps": [
-    "37 + 3v = 7 + 6v.",
-    "Subtract 3v: 37 = 7 + 3v.",
-    "Subtract 7: 30 = 3v.",
-    "v = 10."
+    "60 + 4v = 8v.",
+    "60 = 4v, so v = 15.",
+    "Both cost 120 dollars at 15 visits."
    ],
    "standards": [
     "8.EE.C.7b",
     "8.EE.C.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Gym A charges $37 plus $3 per visit. Gym B charges $7 plus $6 per visi”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s05-honors-010",
@@ -7857,18 +7842,17 @@
    "skillId": "solving-equations-inequalities-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Ben has $10 and earns $13 per hour. Ben wants at least $316. What is the least whole number of hours Ben must work?",
-   "answer": "24",
+   "prompt": "Ana has $77 and saves $15 each week. She needs at least $285. Write and solve an inequality for the number of weeks w, and give the least whole number of weeks.",
+   "answer": "14",
    "solutionSteps": [
-    "10 + 13h ≥ 316.",
-    "13h ≥ 306.",
-    "h ≥ 23 7/13.",
-    "The least whole number is 24."
+    "77 + 15w ≥ 285.",
+    "15w ≥ 208, so w ≥ 208/15.",
+    "The least whole number is 14."
    ],
    "standards": [
     "7.EE.B.4b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Ben has $10 and earns $13 per hour. Ben wants at least $316. What is t”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s06-honors-006",
@@ -8067,18 +8051,17 @@
    "skillId": "solving-equations-inequalities-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Yusuf has $26 and earns $19 per hour. Yusuf wants at least $365. What is the least whole number of hours Yusuf must work?",
-   "answer": "18",
+   "prompt": "Diego has $51 and saves $20 each week. He needs at least $288. Write and solve an inequality for the number of weeks w, and give the least whole number of weeks.",
+   "answer": "12",
    "solutionSteps": [
-    "26 + 19h ≥ 365.",
-    "19h ≥ 339.",
-    "h ≥ 17 16/19.",
-    "The least whole number is 18."
+    "51 + 20w ≥ 288.",
+    "20w ≥ 237, so w ≥ 237/20.",
+    "The least whole number is 12."
    ],
    "standards": [
     "7.EE.B.4b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Yusuf has $26 and earns $19 per hour. Yusuf wants at least $365. What ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s06-honors-014",
@@ -8719,7 +8702,7 @@
    "skillId": "solving-equations-inequalities-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use t = d/r: Sam drives 60 miles at 30 mph, then 80 miles at 40 mph. How many hours in all?",
+   "prompt": "Use t = d/r: Leo drives 60 miles at 30 mph, then 80 miles at 40 mph. How many hours in all?",
    "answer": "4 hours",
    "options": [
     {
@@ -8791,7 +8774,7 @@
    "skillId": "solving-equations-inequalities-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use t = d/r: Iris drives 150 miles at 30 mph, then 120 miles at 40 mph. How many hours in all?",
+   "prompt": "Use t = d/r: Diego drives 150 miles at 30 mph, then 120 miles at 40 mph. How many hours in all?",
    "answer": "8 hours",
    "solutionSteps": [
     "First: 150 ÷ 30 = 5 h.",
@@ -8899,7 +8882,7 @@
    "skillId": "solving-equations-inequalities-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use t = d/r: Eli drives 150 miles at 30 mph, then 200 miles at 40 mph. How many hours in all?",
+   "prompt": "Use t = d/r: Rosa drives 150 miles at 30 mph, then 200 miles at 40 mph. How many hours in all?",
    "answer": "10 hours",
    "solutionSteps": [
     "First: 150 ÷ 30 = 5 h.",
@@ -9030,36 +9013,36 @@
    "skillId": "solving-equations-inequalities-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Use w = A/l to find the width of a rectangle with area 34 square feet and length 17 feet.",
-   "answer": "2 feet",
+   "prompt": "Solve P = 2l + 2w for w. Then find the width of a rectangle with perimeter 150 m and length 14 m.",
+   "answer": "61",
    "options": [
     {
-     "text": "2 feet",
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "150",
+     "correct": false
+    },
+    {
+     "text": "28",
+     "correct": false
+    },
+    {
+     "text": "61",
      "correct": true
-    },
-    {
-     "text": "1/2 feet",
-     "correct": false
-    },
-    {
-     "text": "578 feet",
-     "correct": false
-    },
-    {
-     "text": "17 feet",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Substitute the known values.",
-    "Evaluate.",
-    "2 feet."
+    "P - 2l = 2w.",
+    "w = (P - 2l)/2.",
+    "w = (150 - 28)/2 = 61 m."
    ],
    "standards": [
     "A-CED.A.4",
     "7.EE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_use). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Use w = A/l to find the width of a rectangle with area 34 square feet ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s07-honors-003",
@@ -9102,90 +9085,90 @@
    "skillId": "solving-equations-inequalities-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use t = d/r to find the time to travel 177 miles at 59 miles per hour.",
-   "answer": "3 hours",
+   "prompt": "Solve P = 2l + 2w for w. Then find the width of a rectangle with perimeter 154 m and length 16 m.",
+   "answer": "61",
    "solutionSteps": [
-    "Substitute the known values.",
-    "Evaluate.",
-    "3 hours."
+    "P - 2l = 2w.",
+    "w = (P - 2l)/2.",
+    "w = (154 - 32)/2 = 61 m."
    ],
    "standards": [
     "A-CED.A.4",
     "7.EE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_use). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Use t = d/r to find the time to travel 177 miles at 59 miles per hour.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s07-honors-005",
    "skillId": "solving-equations-inequalities-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use l = (P - 2w)/2 to find the length of a rectangle with perimeter 54 m and width 10 m.",
-   "answer": "17 meters",
+   "prompt": "Solve P = 2l + 2w for w. Then find the width of a rectangle with perimeter 88 m and length 29 m.",
+   "answer": "15",
    "solutionSteps": [
-    "Substitute the known values.",
-    "Evaluate.",
-    "17 meters."
+    "P - 2l = 2w.",
+    "w = (P - 2l)/2.",
+    "w = (88 - 58)/2 = 15 m."
    ],
    "standards": [
     "A-CED.A.4",
     "7.EE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_use). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Use l = (P - 2w)/2 to find the length of a rectangle with perimeter 54”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s07-honors-006",
    "skillId": "solving-equations-inequalities-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Use l = (P - 2w)/2 to find the length of a rectangle with perimeter 36 m and width 7 m.",
-   "answer": "11 meters",
+   "prompt": "Solve P = 2l + 2w for w. Then find the width of a rectangle with perimeter 162 m and length 27 m.",
+   "answer": "54",
    "options": [
     {
-     "text": "22 meters",
+     "text": "2",
      "correct": false
     },
     {
-     "text": "18 meters",
-     "correct": false
-    },
-    {
-     "text": "11 meters",
+     "text": "54",
      "correct": true
     },
     {
-     "text": "25 meters",
+     "text": "55",
+     "correct": false
+    },
+    {
+     "text": "162",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Substitute the known values.",
-    "Evaluate.",
-    "11 meters."
+    "P - 2l = 2w.",
+    "w = (P - 2l)/2.",
+    "w = (162 - 54)/2 = 54 m."
    ],
    "standards": [
     "A-CED.A.4",
     "7.EE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_use). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Use l = (P - 2w)/2 to find the length of a rectangle with perimeter 36”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s07-honors-007",
    "skillId": "solving-equations-inequalities-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use l = (P - 2w)/2 to find the length of a rectangle with perimeter 46 m and width 14 m.",
-   "answer": "9 meters",
+   "prompt": "Solve P = 2l + 2w for w. Then find the width of a rectangle with perimeter 144 m and length 24 m.",
+   "answer": "48",
    "solutionSteps": [
-    "Substitute the known values.",
-    "Evaluate.",
-    "9 meters."
+    "P - 2l = 2w.",
+    "w = (P - 2l)/2.",
+    "w = (144 - 48)/2 = 48 m."
    ],
    "standards": [
     "A-CED.A.4",
     "7.EE.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_use). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Use l = (P - 2w)/2 to find the length of a rectangle with perimeter 46”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s07-honors-008",
@@ -9889,7 +9872,7 @@
    "skillId": "solving-equations-inequalities-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Rosa deposits $5,900 at 3.5% simple interest per year. What is the balance after 4 years?",
+   "prompt": "Theo deposits $5,900 at 3.5% simple interest per year. What is the balance after 4 years?",
    "answer": "$6,726.00",
    "solutionSteps": [
     "I = prt = 5,900 × 0.035 × 4 = $826.00.",
@@ -9905,7 +9888,7 @@
    "skillId": "solving-equations-inequalities-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Leo deposits $1,800 at 3.5% simple interest per year. What is the balance after 4 years?",
+   "prompt": "Rosa deposits $1,800 at 3.5% simple interest per year. What is the balance after 4 years?",
    "answer": "$2,052.00",
    "options": [
     {
@@ -9974,42 +9957,41 @@
    "skillId": "solving-equations-inequalities-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find the simple interest earned on $2,200 at 4.5% per year for 7 years.",
-   "answer": "$693.00",
+   "prompt": "Maya deposits $4,000 at 3.5% simple interest per year. What is the balance after 3 years?",
+   "answer": "$4,420.00",
    "options": [
     {
-     "text": "$69300.00",
+     "text": "$0.04",
      "correct": false
     },
     {
-     "text": "$2893.00",
+     "text": "$3.00",
      "correct": false
     },
     {
-     "text": "$693.00",
+     "text": "$4,420.00",
      "correct": true
     },
     {
-     "text": "$99.00",
+     "text": "$420.00",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "I = prt.",
-    "I = 2200 × 0.045 × 7.",
-    "I = $693.00."
+    "I = prt = 4,000 × 0.035 × 3 = $420.00.",
+    "Balance: $4,000 + $420.00 = $4,420.00."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_simple). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_sei_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find the simple interest earned on $2,200 at 4.5% per year for 7 years”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s08-cp1-005",
    "skillId": "solving-equations-inequalities-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Ana deposits $2,900 at 4% simple interest per year. What is the balance after 4 years?",
+   "prompt": "Leo deposits $2,900 at 4% simple interest per year. What is the balance after 4 years?",
    "answer": "$3,364.00",
    "solutionSteps": [
     "I = prt = 2,900 × 0.04 × 4 = $464.00.",
@@ -10060,23 +10042,24 @@
    "skillId": "solving-equations-inequalities-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Raj deposits $3,300 at 2.5% simple interest per year. What is the balance after 3 years?",
-   "answer": "$3,547.50",
+   "prompt": "Find the simple interest earned on $4,900 at 5% per year for 5 years.",
+   "answer": "$1225.00",
    "solutionSteps": [
-    "I = prt = 3,300 × 0.025 × 3 = $247.50.",
-    "Balance: $3,300 + $247.50 = $3,547.50."
+    "I = prt.",
+    "I = 4900 × 0.05 × 5.",
+    "I = $1225.00."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_sei_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find the simple interest earned on $4,900 at 5% per year for 5 years.”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s8_simple). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-sei-s08-cp1-008",
    "skillId": "solving-equations-inequalities-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Lena deposits $5,100 at 3.5% simple interest per year. What is the balance after 3 years?",
+   "prompt": "Ana deposits $5,100 at 3.5% simple interest per year. What is the balance after 3 years?",
    "answer": "$5,635.50",
    "solutionSteps": [
     "I = prt = 5,100 × 0.035 × 3 = $535.50.",
@@ -10289,88 +10272,87 @@
    "skillId": "solving-equations-inequalities-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the simple interest earned on $2,200 at 3.5% per year for 4 years.",
-   "answer": "$308.00",
+   "prompt": "Priya invests $2,000 at 5% for 3 years. How much more interest does compound interest (compounded once a year) earn than simple interest? Round to the nearest cent.",
+   "answer": "$15.25",
    "solutionSteps": [
-    "I = prt.",
-    "I = 2200 × 0.035 × 4.",
-    "I = $308.00."
+    "Simple: 2000 × 0.05 × 3 = $300.00.",
+    "Compound: 2000 × 1.05³ - 2000 = $315.25.",
+    "Difference: $15.25."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_simple). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the simple interest earned on $2,200 at 3.5% per year for 4 years”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s08-honors-002",
    "skillId": "solving-equations-inequalities-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "$2,300 is invested at 4% interest compounded annually. What is the balance after 4 years, to the nearest cent?",
-   "answer": "$2690.67",
+   "prompt": "Diego invests $1,500 at 3% for 3 years. How much more interest does compound interest (compounded once a year) earn than simple interest? Round to the nearest cent.",
+   "answer": "$4.09",
    "options": [
     {
-     "text": "$390.67",
+     "text": "$135",
      "correct": false
     },
     {
-     "text": "$2668.00",
+     "text": "$139.09",
      "correct": false
     },
     {
-     "text": "$368.00",
-     "correct": false
-    },
-    {
-     "text": "$2690.67",
+     "text": "$4.09",
      "correct": true
+    },
+    {
+     "text": "$1.03",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Balance = p(1 + r)ᵗ.",
-    "= 2300(1 + 0.04)⁴.",
-    "= 2300(1.04)⁴.",
-    "≈ $2690.67."
+    "Simple: 1500 × 0.03 × 3 = $135.00.",
+    "Compound: 1500 × 1.03³ - 1500 = $139.09.",
+    "Difference: $4.09."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_compound). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “$2,300 is invested at 4% interest compounded annually. What is the bal”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s08-honors-003",
    "skillId": "solving-equations-inequalities-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "$4,000 is invested for 8 years at 4% per year. Which earns more: simple interest or interest compounded annually?",
-   "answer": "Compound interest earns more.",
+   "prompt": "Ana invests $2,000 at 5% for 3 years. How much more interest does compound interest (compounded once a year) earn than simple interest? Round to the nearest cent.",
+   "answer": "$15.25",
    "options": [
     {
-     "text": "Simple interest earns more.",
+     "text": "$1.05",
      "correct": false
     },
     {
-     "text": "It depends on the bank.",
-     "correct": false
-    },
-    {
-     "text": "Compound interest earns more.",
+     "text": "$15.25",
      "correct": true
     },
     {
-     "text": "They earn the same amount.",
+     "text": "$315.25",
+     "correct": false
+    },
+    {
+     "text": "$300",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Simple: $1280.00.",
-    "Compound: about $1474.28.",
-    "Compound interest also earns interest on earlier interest."
+    "Simple: 2000 × 0.05 × 3 = $300.00.",
+    "Compound: 2000 × 1.05³ - 2000 = $315.25.",
+    "Difference: $15.25."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “$4,000 is invested for 8 years at 4% per year. Which earns more: simpl”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s08-honors-004",
@@ -10412,53 +10394,52 @@
    "skillId": "solving-equations-inequalities-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "$3,800 is invested at 2% interest compounded annually. What is the balance after 3 years, to the nearest cent?",
-   "answer": "$4032.59",
+   "prompt": "Nia invests $2,000 at 5% for 3 years. How much more interest does compound interest (compounded once a year) earn than simple interest? Round to the nearest cent.",
+   "answer": "$15.25",
    "solutionSteps": [
-    "Balance = p(1 + r)ᵗ.",
-    "= 3800(1 + 0.02)³.",
-    "= 3800(1.02)³.",
-    "≈ $4032.59."
+    "Simple: 2000 × 0.05 × 3 = $300.00.",
+    "Compound: 2000 × 1.05³ - 2000 = $315.25.",
+    "Difference: $15.25."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_compound). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “$3,800 is invested at 2% interest compounded annually. What is the bal”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s08-honors-006",
    "skillId": "solving-equations-inequalities-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "$4,700 is invested for 5 years at 6% per year. Which earns more: simple interest or interest compounded annually?",
-   "answer": "Compound interest earns more.",
+   "prompt": "Raj invests $1,000 at 5% for 2 years. How much more interest does compound interest (compounded once a year) earn than simple interest? Round to the nearest cent.",
+   "answer": "$2.50",
    "options": [
     {
-     "text": "They earn the same amount.",
+     "text": "$100",
      "correct": false
     },
     {
-     "text": "Compound interest earns more.",
+     "text": "$2.50",
      "correct": true
     },
     {
-     "text": "It depends on the bank.",
+     "text": "$102.5",
      "correct": false
     },
     {
-     "text": "Simple interest earns more.",
+     "text": "$1.05",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Simple: $1410.00.",
-    "Compound: about $1589.66.",
-    "Compound interest also earns interest on earlier interest."
+    "Simple: 1000 × 0.05 × 2 = $100.00.",
+    "Compound: 1000 × 1.05² - 1000 = $102.50.",
+    "Difference: $2.50."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_sei_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “$4,700 is invested for 5 years at 6% per year. Which earns more: simpl”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-sei-s08-honors-007",

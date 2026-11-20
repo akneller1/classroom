@@ -825,18 +825,18 @@
    "skillId": "spatial-thinking-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "There are 8 points, and no three of them lie on the same line. How many different segments can be drawn using two of the points?",
-   "answer": "28",
+   "prompt": "Point B is between A and C. AB = 4x + 8, BC = x - 8 and AC = 60. Find x, then find AB.",
+   "answer": "56",
    "solutionSteps": [
-    "Each pair of points determines one segment.",
-    "Each of the 8 points pairs with 7 others: 8 × 7 = 56.",
-    "Each segment was counted twice: 56 ÷ 2 = 28."
+    "AB + BC = AC: 4x + 8 + x - 8 = 60.",
+    "5x + 0 = 60, so x = 12.",
+    "AB = 4(12) + 8 = 56."
    ],
    "standards": [
     "G-CO.A.1",
     "4.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “There are 8 points, and no three of them lie on the same line. How man”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s01-honors-002",
@@ -914,36 +914,36 @@
    "skillId": "spatial-thinking-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "There are 12 points, and no three of them lie on the same line. How many different segments can be drawn using two of the points?",
-   "answer": "66",
+   "prompt": "Point B is between A and C. AB = 2x + 6, BC = 3x - 6 and AC = 30. Find x, then find AB.",
+   "answer": "18",
    "options": [
     {
-     "text": "11",
+     "text": "30",
      "correct": false
     },
     {
-     "text": "66",
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "18",
      "correct": true
     },
     {
-     "text": "12",
-     "correct": false
-    },
-    {
-     "text": "132",
+     "text": "5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Each pair of points determines one segment.",
-    "Each of the 12 points pairs with 11 others: 12 × 11 = 132.",
-    "Each segment was counted twice: 132 ÷ 2 = 66."
+    "AB + BC = AC: 2x + 6 + 3x - 6 = 30.",
+    "5x + 0 = 30, so x = 6.",
+    "AB = 2(6) + 6 = 18."
    ],
    "standards": [
     "G-CO.A.1",
     "4.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “There are 12 points, and no three of them lie on the same line. How ma”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s01-honors-005",
@@ -1003,18 +1003,18 @@
    "skillId": "spatial-thinking-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "There are 10 points, and no three of them lie on the same line. How many different lines can be drawn using two of the points?",
-   "answer": "45",
+   "prompt": "Point B is between A and C. AB = 2x + 1, BC = 2x - 3 and AC = 14. Find x, then find AB.",
+   "answer": "9",
    "solutionSteps": [
-    "Each pair of points determines one line.",
-    "Each of the 10 points pairs with 9 others: 10 × 9 = 90.",
-    "Each line was counted twice: 90 ÷ 2 = 45."
+    "AB + BC = AC: 2x + 1 + 2x - 3 = 14.",
+    "4x + -2 = 14, so x = 4.",
+    "AB = 2(4) + 1 = 9."
    ],
    "standards": [
     "G-CO.A.1",
     "4.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “There are 10 points, and no three of them lie on the same line. How ma”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s01-honors-008",
@@ -1040,70 +1040,72 @@
    "skillId": "spatial-thinking-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which term matches the description: “___ are not in the same plane and never intersect”?",
-   "answer": "Skew lines",
+   "prompt": "Point B is between A and C. AB = 4x + 9, BC = 2x - 4 and AC = 41. Find x, then find AB.",
+   "answer": "33",
    "options": [
     {
-     "text": "A plane",
+     "text": "41",
      "correct": false
     },
     {
-     "text": "A ray",
-     "correct": false
-    },
-    {
-     "text": "Skew lines",
+     "text": "33",
      "correct": true
     },
     {
-     "text": "Parallel lines",
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Skew lines are not in the same plane and never intersect."
+    "AB + BC = AC: 4x + 9 + 2x - 4 = 41.",
+    "6x + 5 = 41, so x = 6.",
+    "AB = 4(6) + 9 = 33."
    ],
    "standards": [
     "G-CO.A.1",
     "4.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which term matches the description: \"___ are not in the same plane and”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s01-honors-010",
    "skillId": "spatial-thinking-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "There are 10 points, and no three of them lie on the same line. How many different segments can be drawn using two of the points?",
-   "answer": "45",
+   "prompt": "Point B is between A and C. AB = 3x + 8, BC = x - 5 and AC = 35. Find x, then find AB.",
+   "answer": "32",
    "options": [
     {
-     "text": "90",
+     "text": "5",
      "correct": false
     },
     {
-     "text": "10",
+     "text": "35",
      "correct": false
     },
     {
-     "text": "9",
+     "text": "4",
      "correct": false
     },
     {
-     "text": "45",
+     "text": "32",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Each pair of points determines one segment.",
-    "Each of the 10 points pairs with 9 others: 10 × 9 = 90.",
-    "Each segment was counted twice: 90 ÷ 2 = 45."
+    "AB + BC = AC: 3x + 8 + x - 5 = 35.",
+    "4x + 3 = 35, so x = 8.",
+    "AB = 3(8) + 8 = 32."
    ],
    "standards": [
     "G-CO.A.1",
     "4.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “There are 10 points, and no three of them lie on the same line. How ma”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s01-honors-011",
@@ -2264,37 +2266,36 @@
    "skillId": "spatial-thinking-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Two supplementary angles measure (4x + 15)° and 137°. Find x.",
-   "answer": "x = 7",
+   "prompt": "Two angles form a linear pair. One measures (2x + 17)° and the other is 123°. Find x, then find the measure of the angle vertical to the (2x + 17)° angle.",
+   "answer": "57°",
    "options": [
     {
-     "text": "x = 7",
+     "text": "180°",
+     "correct": false
+    },
+    {
+     "text": "40°",
+     "correct": false
+    },
+    {
+     "text": "57°",
      "correct": true
     },
     {
-     "text": "x = 12",
-     "correct": false
-    },
-    {
-     "text": "x = 43",
-     "correct": false
-    },
-    {
-     "text": "x = -31/2",
+     "text": "20°",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "The angles add to 180°.",
-    "Equation: 4x + 15 + 137 = 180.",
-    "Solve: x = 7.",
-    "Check that each angle measure is positive."
+    "Linear pair: (2x + 17) + 123 = 180.",
+    "2x = 40, so x = 20.",
+    "The vertical angle has the same measure as (2x + 17)°: 57°."
    ],
    "standards": [
     "7.G.B.5",
     "7.EE.B.4a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Two supplementary angles measure (4x + 15)° and 137°. Find x.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s02-honors-003",
@@ -2376,19 +2377,18 @@
    "skillId": "spatial-thinking-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Two supplementary angles measure (3x + 1)° and 89°. Find x.",
-   "answer": "x = 30",
+   "prompt": "Two angles form a linear pair. One measures (4x + 19)° and the other is 105°. Find x, then find the measure of the angle vertical to the (4x + 19)° angle.",
+   "answer": "75°",
    "solutionSteps": [
-    "The angles add to 180°.",
-    "Equation: 3x + 1 + 89 = 180.",
-    "Solve: x = 30.",
-    "Check that each angle measure is positive."
+    "Linear pair: (4x + 19) + 105 = 180.",
+    "4x = 56, so x = 14.",
+    "The vertical angle has the same measure as (4x + 19)°: 75°."
    ],
    "standards": [
     "7.G.B.5",
     "7.EE.B.4a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Two supplementary angles measure (3x + 1)° and 89°. Find x.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s02-honors-006",
@@ -2436,35 +2436,36 @@
    "skillId": "spatial-thinking-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Two lines intersect. One angle measures 154°. What is the measure of its vertical angle?",
-   "answer": "154°",
+   "prompt": "Two angles form a linear pair. One measures (3x + 7)° and the other is 143°. Find x, then find the measure of the angle vertical to the (3x + 7)° angle.",
+   "answer": "37°",
    "solutionSteps": [
-    "Vertical angles are congruent.",
-    "The angle measures 154°."
+    "Linear pair: (3x + 7) + 143 = 180.",
+    "3x = 30, so x = 10.",
+    "The vertical angle has the same measure as (3x + 7)°: 37°."
    ],
    "standards": [
-    "7.G.B.5"
+    "7.G.B.5",
+    "7.EE.B.4a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_pair). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Two lines intersect. One angle measures 154°. What is the measure of i”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s02-honors-008",
    "skillId": "spatial-thinking-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Two supplementary angles measure (3x + 4)° and 143°. Find x.",
-   "answer": "x = 11",
+   "prompt": "Two angles form a linear pair. One measures (3x + 8)° and the other is 130°. Find x, then find the measure of the angle vertical to the (3x + 8)° angle.",
+   "answer": "50°",
    "solutionSteps": [
-    "The angles add to 180°.",
-    "Equation: 3x + 4 + 143 = 180.",
-    "Solve: x = 11.",
-    "Check that each angle measure is positive."
+    "Linear pair: (3x + 8) + 130 = 180.",
+    "3x = 42, so x = 14.",
+    "The vertical angle has the same measure as (3x + 8)°: 50°."
    ],
    "standards": [
     "7.G.B.5",
     "7.EE.B.4a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Two supplementary angles measure (3x + 4)° and 143°. Find x.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s02-honors-009",
@@ -2512,34 +2513,36 @@
    "skillId": "spatial-thinking-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Two parallel lines are cut by a transversal. One angle measures 134°. What is the measure of its corresponding angle?",
-   "answer": "134°",
+   "prompt": "Two angles form a linear pair. One measures (3x + 10)° and the other is 113°. Find x, then find the measure of the angle vertical to the (3x + 10)° angle.",
+   "answer": "67°",
    "options": [
     {
-     "text": "124°",
+     "text": "19°",
      "correct": false
     },
     {
-     "text": "46°",
+     "text": "57°",
      "correct": false
     },
     {
-     "text": "226°",
+     "text": "180°",
      "correct": false
     },
     {
-     "text": "134°",
+     "text": "67°",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Corresponding angles are congruent when lines are parallel.",
-    "The angle measures 134°."
+    "Linear pair: (3x + 10) + 113 = 180.",
+    "3x = 57, so x = 19.",
+    "The vertical angle has the same measure as (3x + 10)°: 67°."
    ],
    "standards": [
-    "8.G.A.5"
+    "7.G.B.5",
+    "7.EE.B.4a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_pair). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Two parallel lines are cut by a transversal. One angle measures 134°. ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s02-honors-011",
@@ -3763,52 +3766,54 @@
    "skillId": "spatial-thinking-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "What is the name of a polygon with 8 sides?",
-   "answer": "octagon",
+   "prompt": "A 5-sided polygon has angles 120, 123, 114, 124 degrees and one unknown angle. Find the sum of the interior angles, then the unknown angle.",
+   "answer": "59°",
    "options": [
     {
-     "text": "octagon",
+     "text": "540°",
+     "correct": false
+    },
+    {
+     "text": "481°",
+     "correct": false
+    },
+    {
+     "text": "180°",
+     "correct": false
+    },
+    {
+     "text": "59°",
      "correct": true
-    },
-    {
-     "text": "nonagon",
-     "correct": false
-    },
-    {
-     "text": "triangle",
-     "correct": false
-    },
-    {
-     "text": "hexagon",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "A polygon with 8 sides is a octagon."
+    "Sum = (5 - 2) × 180 = 540°.",
+    "Known angles add to 481°.",
+    "Unknown = 540 - 481 = 59°."
    ],
    "standards": [
     "8.G.A.5",
     "5.G.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “What is the name of a polygon with 8 sides?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s03-honors-003",
    "skillId": "spatial-thinking-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A triangle has angles 33°, 109°, and x°. Find x, then classify the triangle as acute, right, or obtuse.",
-   "answer": "x = 38, obtuse",
+   "prompt": "A 5-sided polygon has angles 124, 114, 124, 142 degrees and one unknown angle. Find the sum of the interior angles, then the unknown angle.",
+   "answer": "36°",
    "solutionSteps": [
-    "x = 180 - 33 - 109 = 38.",
-    "Acute: all angles less than 90°; right: one 90°; obtuse: one greater than 90°.",
-    "The triangle is obtuse."
+    "Sum = (5 - 2) × 180 = 540°.",
+    "Known angles add to 504°.",
+    "Unknown = 540 - 504 = 36°."
    ],
    "standards": [
     "8.G.A.5",
     "5.G.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_triangle). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A triangle has angles 33°, 109°, and x°. Find x, then classify the tri”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s03-honors-004",
@@ -3851,70 +3856,72 @@
    "skillId": "spatial-thinking-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "What is the name of a polygon with 4 sides?",
-   "answer": "quadrilateral",
+   "prompt": "A 6-sided polygon has angles 112, 105, 125, 103, 142 degrees and one unknown angle. Find the sum of the interior angles, then the unknown angle.",
+   "answer": "133°",
    "options": [
     {
-     "text": "quadrilateral",
+     "text": "720°",
+     "correct": false
+    },
+    {
+     "text": "587°",
+     "correct": false
+    },
+    {
+     "text": "133°",
      "correct": true
     },
     {
-     "text": "hexagon",
-     "correct": false
-    },
-    {
-     "text": "triangle",
-     "correct": false
-    },
-    {
-     "text": "nonagon",
+     "text": "180°",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A polygon with 4 sides is a quadrilateral."
+    "Sum = (6 - 2) × 180 = 720°.",
+    "Known angles add to 587°.",
+    "Unknown = 720 - 587 = 133°."
    ],
    "standards": [
     "8.G.A.5",
     "5.G.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “What is the name of a polygon with 4 sides?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s03-honors-006",
    "skillId": "spatial-thinking-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A triangle has angles 79°, 37°, and x°. Find x, then classify the triangle as acute, right, or obtuse.",
-   "answer": "x = 64, acute",
+   "prompt": "A 5-sided polygon has angles 103, 119, 119, 141 degrees and one unknown angle. Find the sum of the interior angles, then the unknown angle.",
+   "answer": "58°",
    "options": [
     {
-     "text": "x = 64, acute",
+     "text": "180°",
+     "correct": false
+    },
+    {
+     "text": "58°",
      "correct": true
     },
     {
-     "text": "x = 116, obtuse",
+     "text": "540°",
      "correct": false
     },
     {
-     "text": "x = 64, obtuse",
-     "correct": false
-    },
-    {
-     "text": "x = 244, obtuse",
+     "text": "482°",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "x = 180 - 79 - 37 = 64.",
-    "Acute: all angles less than 90°; right: one 90°; obtuse: one greater than 90°.",
-    "The triangle is acute."
+    "Sum = (5 - 2) × 180 = 540°.",
+    "Known angles add to 482°.",
+    "Unknown = 540 - 482 = 58°."
    ],
    "standards": [
     "8.G.A.5",
     "5.G.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_triangle). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A triangle has angles 79°, 37°, and x°. Find x, then classify the tria”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s03-honors-007",
@@ -3939,34 +3946,36 @@
    "skillId": "spatial-thinking-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "What is the name of a polygon with 10 sides?",
-   "answer": "decagon",
+   "prompt": "A 7-sided polygon has angles 108, 122, 136, 117, 106, 109 degrees and one unknown angle. Find the sum of the interior angles, then the unknown angle.",
+   "answer": "202°",
    "options": [
     {
-     "text": "octagon",
-     "correct": false
-    },
-    {
-     "text": "dodecagon",
-     "correct": false
-    },
-    {
-     "text": "decagon",
+     "text": "202°",
      "correct": true
     },
     {
-     "text": "hexagon",
+     "text": "698°",
+     "correct": false
+    },
+    {
+     "text": "900°",
+     "correct": false
+    },
+    {
+     "text": "180°",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A polygon with 10 sides is a decagon."
+    "Sum = (7 - 2) × 180 = 900°.",
+    "Known angles add to 698°.",
+    "Unknown = 900 - 698 = 202°."
    ],
    "standards": [
     "8.G.A.5",
     "5.G.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “What is the name of a polygon with 10 sides?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s03-honors-009",
@@ -5089,126 +5098,126 @@
    "skillId": "spatial-thinking-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A snail starts 5 ft up a wall. Each day it climbs 5 ft and each night slides back 3 ft. How high is it after 6 full days and nights?",
-   "answer": "17 feet",
+   "prompt": "A rectangular yard is 30 ft by 20 ft. Fence posts go at every corner and every 2 ft along the sides. Draw a diagram. How many posts are needed?",
+   "answer": "50",
    "solutionSteps": [
-    "Draw the wall and mark each day and night.",
-    "Net gain per day: 5 - 3 = 2 ft.",
-    "5 + 6 × 2 = 17 ft."
+    "Perimeter = 2(30 + 20) = 100 ft.",
+    "Around a closed loop, the number of posts equals the number of gaps: 100 ÷ 2.",
+    "= 50 posts."
    ],
    "standards": [
     "MP.1",
     "MP.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A snail starts 5 ft up a wall. Each day it climbs 5 ft and each night ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s04-honors-002",
    "skillId": "spatial-thinking-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Ana walks 6 blocks north, 3 blocks east, then 2 blocks south. How many blocks north of her start is she now?",
-   "answer": "4 blocks",
+   "prompt": "A rectangular yard is 40 ft by 20 ft. Fence posts go at every corner and every 2 ft along the sides. Draw a diagram. How many posts are needed?",
+   "answer": "60",
    "options": [
     {
-     "text": "8 blocks",
+     "text": "120",
      "correct": false
     },
     {
-     "text": "4 blocks",
+     "text": "60",
      "correct": true
     },
     {
-     "text": "7 blocks",
+     "text": "20",
      "correct": false
     },
     {
-     "text": "11 blocks",
+     "text": "40",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Draw a diagram with the moves.",
-    "East-west moves do not change the north-south distance.",
-    "6 - 2 = 4 blocks north."
+    "Perimeter = 2(40 + 20) = 120 ft.",
+    "Around a closed loop, the number of posts equals the number of gaps: 120 ÷ 2.",
+    "= 60 posts."
    ],
    "standards": [
     "MP.1",
     "MP.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_map). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Ana walks 6 blocks north, 3 blocks east, then 2 blocks south. How many”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s04-honors-003",
    "skillId": "spatial-thinking-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Trees are planted in a row, 6 meters apart. There are 10 trees. How far is it from the first tree to the last tree?",
-   "answer": "54 meters",
+   "prompt": "A rectangular yard is 24 ft by 20 ft. Fence posts go at every corner and every 2 ft along the sides. Draw a diagram. How many posts are needed?",
+   "answer": "44",
    "options": [
     {
-     "text": "54 meters",
+     "text": "24",
+     "correct": false
+    },
+    {
+     "text": "88",
+     "correct": false
+    },
+    {
+     "text": "44",
      "correct": true
     },
     {
-     "text": "66 meters",
-     "correct": false
-    },
-    {
-     "text": "60 meters",
-     "correct": false
-    },
-    {
-     "text": "16 meters",
+     "text": "20",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Draw the row of trees.",
-    "10 trees make 9 gaps.",
-    "Distance = 9 × 6 = 54 meters."
+    "Perimeter = 2(24 + 20) = 88 ft.",
+    "Around a closed loop, the number of posts equals the number of gaps: 88 ÷ 2.",
+    "= 44 posts."
    ],
    "standards": [
     "MP.1",
     "MP.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Trees are planted in a row, 6 meters apart. There are 10 trees. How fa”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s04-honors-004",
    "skillId": "spatial-thinking-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Ana walks 4 blocks north, 2 blocks east, then 2 blocks south. How many blocks north of her start is she now?",
-   "answer": "2 blocks",
+   "prompt": "A rectangular yard is 36 ft by 12 ft. Fence posts go at every corner and every 3 ft along the sides. Draw a diagram. How many posts are needed?",
+   "answer": "32",
    "solutionSteps": [
-    "Draw a diagram with the moves.",
-    "East-west moves do not change the north-south distance.",
-    "4 - 2 = 2 blocks north."
+    "Perimeter = 2(36 + 12) = 96 ft.",
+    "Around a closed loop, the number of posts equals the number of gaps: 96 ÷ 3.",
+    "= 32 posts."
    ],
    "standards": [
     "MP.1",
     "MP.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_map). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Ana walks 4 blocks north, 2 blocks east, then 2 blocks south. How many”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s04-honors-005",
    "skillId": "spatial-thinking-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Trees are planted in a row, 3 meters apart. There are 7 trees. How far is it from the first tree to the last tree?",
-   "answer": "18 meters",
+   "prompt": "A rectangular yard is 24 ft by 15 ft. Fence posts go at every corner and every 3 ft along the sides. Draw a diagram. How many posts are needed?",
+   "answer": "26",
    "solutionSteps": [
-    "Draw the row of trees.",
-    "7 trees make 6 gaps.",
-    "Distance = 6 × 3 = 18 meters."
+    "Perimeter = 2(24 + 15) = 78 ft.",
+    "Around a closed loop, the number of posts equals the number of gaps: 78 ÷ 3.",
+    "= 26 posts."
    ],
    "standards": [
     "MP.1",
     "MP.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Trees are planted in a row, 3 meters apart. There are 7 trees. How far”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s04-honors-006",
@@ -6504,36 +6513,36 @@
    "skillId": "spatial-thinking-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "△PQR ≅ △XYZ. PQ = 56 cm and XY = (5x - 4) cm. Find x.",
-   "answer": "x = 12",
+   "prompt": "△ABC ≅ △DEF. AB = 2x + 4, DE = 18 and the other sides of △DEF are 15 and 11. Find x, then find the perimeter of △ABC.",
+   "answer": "44",
    "options": [
     {
-     "text": "x = 12",
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "44",
      "correct": true
     },
     {
-     "text": "x = 52/5",
+     "text": "11",
      "correct": false
     },
     {
-     "text": "x = 56/5",
-     "correct": false
-    },
-    {
-     "text": "x = 56",
+     "text": "15",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Corresponding sides are equal: PQ = XY.",
-    "5x - 4 = 56.",
-    "x = 12."
+    "Corresponding sides are equal: 2x + 4 = 18, so x = 7.",
+    "△ABC has the same side lengths: 18, 15 and 11.",
+    "Perimeter = 44."
    ],
    "standards": [
     "8.G.A.2",
     "G-CO.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “△PQR ≅ △XYZ. PQ = 56 cm and XY = (5x - 4) cm. Find x.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s05-honors-003",
@@ -6575,18 +6584,18 @@
    "skillId": "spatial-thinking-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "△PQR ≅ △XYZ. PQ = 23 cm and XY = (3x - 1) cm. Find x.",
-   "answer": "x = 8",
+   "prompt": "△ABC ≅ △DEF. AB = 2x + 3, DE = 19 and the other sides of △DEF are 8 and 14. Find x, then find the perimeter of △ABC.",
+   "answer": "41",
    "solutionSteps": [
-    "Corresponding sides are equal: PQ = XY.",
-    "3x - 1 = 23.",
-    "x = 8."
+    "Corresponding sides are equal: 2x + 3 = 19, so x = 8.",
+    "△ABC has the same side lengths: 19, 8 and 14.",
+    "Perimeter = 41."
    ],
    "standards": [
     "8.G.A.2",
     "G-CO.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “△PQR ≅ △XYZ. PQ = 23 cm and XY = (3x - 1) cm. Find x.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s05-honors-005",
@@ -6610,36 +6619,36 @@
    "skillId": "spatial-thinking-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "△PQR ≅ △XYZ. PQ = 9 cm and XY = (4x - 3) cm. Find x.",
-   "answer": "x = 3",
+   "prompt": "△ABC ≅ △DEF. AB = 2x + 1, DE = 9 and the other sides of △DEF are 9 and 14. Find x, then find the perimeter of △ABC.",
+   "answer": "32",
    "options": [
     {
-     "text": "x = 9",
-     "correct": false
-    },
-    {
-     "text": "x = 3/2",
-     "correct": false
-    },
-    {
-     "text": "x = 9/4",
-     "correct": false
-    },
-    {
-     "text": "x = 3",
+     "text": "32",
      "correct": true
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "9",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Corresponding sides are equal: PQ = XY.",
-    "4x - 3 = 9.",
-    "x = 3."
+    "Corresponding sides are equal: 2x + 1 = 9, so x = 4.",
+    "△ABC has the same side lengths: 9, 9 and 14.",
+    "Perimeter = 32."
    ],
    "standards": [
     "8.G.A.2",
     "G-CO.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “△PQR ≅ △XYZ. PQ = 9 cm and XY = (4x - 3) cm. Find x.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s05-honors-007",
@@ -6681,18 +6690,18 @@
    "skillId": "spatial-thinking-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "△PQR ≅ △XYZ. PQ = 32 cm and XY = (3x - 1) cm. Find x.",
-   "answer": "x = 11",
+   "prompt": "△ABC ≅ △DEF. AB = 3x + 6, DE = 15 and the other sides of △DEF are 10 and 14. Find x, then find the perimeter of △ABC.",
+   "answer": "39",
    "solutionSteps": [
-    "Corresponding sides are equal: PQ = XY.",
-    "3x - 1 = 32.",
-    "x = 11."
+    "Corresponding sides are equal: 3x + 6 = 15, so x = 3.",
+    "△ABC has the same side lengths: 15, 10 and 14.",
+    "Perimeter = 39."
    ],
    "standards": [
     "8.G.A.2",
     "G-CO.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “△PQR ≅ △XYZ. PQ = 32 cm and XY = (3x - 1) cm. Find x.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s05-honors-009",
@@ -6716,36 +6725,36 @@
    "skillId": "spatial-thinking-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "△PQR ≅ △XYZ. PQ = 10 cm and XY = (2x + 6) cm. Find x.",
-   "answer": "x = 2",
+   "prompt": "△ABC ≅ △DEF. AB = 4x + 2, DE = 22 and the other sides of △DEF are 11 and 15. Find x, then find the perimeter of △ABC.",
+   "answer": "48",
    "options": [
     {
-     "text": "x = 2",
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "48",
      "correct": true
     },
     {
-     "text": "x = 8",
+     "text": "11",
      "correct": false
     },
     {
-     "text": "x = 10",
-     "correct": false
-    },
-    {
-     "text": "x = 5",
+     "text": "5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Corresponding sides are equal: PQ = XY.",
-    "2x + 6 = 10.",
-    "x = 2."
+    "Corresponding sides are equal: 4x + 2 = 22, so x = 5.",
+    "△ABC has the same side lengths: 22, 11 and 15.",
+    "Perimeter = 48."
    ],
    "standards": [
     "8.G.A.2",
     "G-CO.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “△PQR ≅ △XYZ. PQ = 10 cm and XY = (2x + 6) cm. Find x.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s05-honors-011",
@@ -7963,16 +7972,17 @@
    "skillId": "spatial-thinking-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Three central angles of a circle divide it completely. Two measure 115° and 82°. What is the third?",
-   "answer": "163°",
+   "prompt": "A bike wheel has a diameter of 26 in. Use 3.14 for π. About how many full turns does the wheel make in 1000 ft?",
+   "answer": "146",
    "solutionSteps": [
-    "The central angles around a point add to 360°.",
-    "360 - 115 - 82 = 163°."
+    "Circumference = πd ≈ 3.14 × 26 = 81.64 in.",
+    "1000 ft = 12000 in.",
+    "12000 ÷ 81.64 ≈ 147, so 146 full turns."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_central). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Three central angles of a circle divide it completely. Two measure 115”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s06-honors-004",
@@ -8031,34 +8041,35 @@
    "skillId": "spatial-thinking-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Three central angles of a circle divide it completely. Two measure 118° and 45°. What is the third?",
-   "answer": "197°",
+   "prompt": "A bike wheel has a diameter of 20 in. Use 3.14 for π. About how many full turns does the wheel make in 1000 ft?",
+   "answer": "191",
    "options": [
     {
-     "text": "187°",
+     "text": "1000",
      "correct": false
     },
     {
-     "text": "163°",
+     "text": "12000",
      "correct": false
     },
     {
-     "text": "17°",
+     "text": "1911/10",
      "correct": false
     },
     {
-     "text": "197°",
+     "text": "191",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "The central angles around a point add to 360°.",
-    "360 - 118 - 45 = 197°."
+    "Circumference = πd ≈ 3.14 × 20 = 62.8 in.",
+    "1000 ft = 12000 in.",
+    "12000 ÷ 62.8 ≈ 191.1, so 191 full turns."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_central). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Three central angles of a circle divide it completely. Two measure 118”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s06-honors-007",
@@ -8117,16 +8128,17 @@
    "skillId": "spatial-thinking-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Three central angles of a circle divide it completely. Two measure 87° and 113°. What is the third?",
-   "answer": "160°",
+   "prompt": "A bike wheel has a diameter of 28 in. Use 3.14 for π. About how many full turns does the wheel make in 1000 ft?",
+   "answer": "136",
    "solutionSteps": [
-    "The central angles around a point add to 360°.",
-    "360 - 87 - 113 = 160°."
+    "Circumference = πd ≈ 3.14 × 28 = 87.92 in.",
+    "1000 ft = 12000 in.",
+    "12000 ÷ 87.92 ≈ 136.5, so 136 full turns."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_central). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Three central angles of a circle divide it completely. Two measure 87°”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s06-honors-010",
@@ -8185,34 +8197,35 @@
    "skillId": "spatial-thinking-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Three central angles of a circle divide it completely. Two measure 69° and 119°. What is the third?",
-   "answer": "172°",
+   "prompt": "A bike wheel has a diameter of 26 in. Use 3.14 for π. About how many full turns does the wheel make in 1200 ft?",
+   "answer": "176",
    "options": [
     {
-     "text": "188°",
-     "correct": false
-    },
-    {
-     "text": "172°",
+     "text": "176",
      "correct": true
     },
     {
-     "text": "192°",
+     "text": "1200",
      "correct": false
     },
     {
-     "text": "162°",
+     "text": "14400",
+     "correct": false
+    },
+    {
+     "text": "882/5",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "The central angles around a point add to 360°.",
-    "360 - 69 - 119 = 172°."
+    "Circumference = πd ≈ 3.14 × 26 = 81.64 in.",
+    "1200 ft = 14400 in.",
+    "14400 ÷ 81.64 ≈ 176.4, so 176 full turns."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_central). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Three central angles of a circle divide it completely. Two measure 69°”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s06-honors-013",
@@ -9423,33 +9436,35 @@
    "skillId": "spatial-thinking-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Complete the statement: “___ is the same distance from both endpoints.”",
-   "answer": "Every point on the perpendicular bisector of a segment",
+   "prompt": "Raj has sticks of 9 cm and 11 cm and wants a third stick to make a triangle. The third stick is a whole number of centimeters. What are the shortest and longest possible lengths? Give the sum of the two.",
+   "answer": "22",
    "options": [
     {
-     "text": "A perpendicular bisector of a segment",
-     "correct": false
-    },
-    {
-     "text": "Every point on the perpendicular bisector of a segment",
+     "text": "22",
      "correct": true
     },
     {
-     "text": "A compass",
+     "text": "20",
      "correct": false
     },
     {
-     "text": "A straightedge",
+     "text": "19",
+     "correct": false
+    },
+    {
+     "text": "3",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Every point on the perpendicular bisector of a segment is the same distance from both endpoints."
+    "Triangle inequality: 2 < x < 20.",
+    "Shortest whole length 3 cm; longest 19 cm.",
+    "Sum: 3 + 19 = 22."
    ],
    "standards": [
     "G-CO.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_concept). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Complete the statement: \"___ is the same distance from both endpoints.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s07-honors-002",
@@ -9474,100 +9489,105 @@
    "skillId": "spatial-thinking-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Complete the statement: “___ passes through the midpoint and forms right angles with the segment.”",
-   "answer": "A perpendicular bisector of a segment",
+   "prompt": "Sam has sticks of 7 cm and 11 cm and wants a third stick to make a triangle. The third stick is a whole number of centimeters. What are the shortest and longest possible lengths? Give the sum of the two.",
+   "answer": "22",
    "options": [
     {
-     "text": "A straightedge",
-     "correct": false
-    },
-    {
-     "text": "An angle bisector",
-     "correct": false
-    },
-    {
-     "text": "A compass",
-     "correct": false
-    },
-    {
-     "text": "A perpendicular bisector of a segment",
+     "text": "22",
      "correct": true
+    },
+    {
+     "text": "17",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "A perpendicular bisector of a segment passes through the midpoint and forms right angles with the segment."
+    "Triangle inequality: 4 < x < 18.",
+    "Shortest whole length 5 cm; longest 17 cm.",
+    "Sum: 5 + 17 = 22."
    ],
    "standards": [
     "G-CO.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_concept). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Complete the statement: \"___ passes through the midpoint and forms rig”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s07-honors-004",
    "skillId": "spatial-thinking-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Point M lies on the perpendicular bisector of segment AB. MA = 19 cm. What is MB?",
-   "answer": "19 cm",
+   "prompt": "Lena has sticks of 12 cm and 8 cm and wants a third stick to make a triangle. The third stick is a whole number of centimeters. What are the shortest and longest possible lengths? Give the sum of the two.",
+   "answer": "24",
    "options": [
     {
-     "text": "90 cm",
+     "text": "19",
      "correct": false
     },
     {
-     "text": "38 cm",
+     "text": "5",
      "correct": false
     },
     {
-     "text": "9 1/2 cm",
+     "text": "20",
      "correct": false
     },
     {
-     "text": "19 cm",
+     "text": "24",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Every point on the perpendicular bisector is equidistant from A and B.",
-    "MB = MA = 19 cm."
+    "Triangle inequality: 4 < x < 20.",
+    "Shortest whole length 5 cm; longest 19 cm.",
+    "Sum: 5 + 19 = 24."
    ],
    "standards": [
     "G-CO.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_bisect). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Point M lies on the perpendicular bisector of segment AB. MA = 19 cm. ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s07-honors-005",
    "skillId": "spatial-thinking-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Complete the statement: “___ is used to draw straight segments, without measuring.”",
-   "answer": "A straightedge",
+   "prompt": "Kai has sticks of 11 cm and 16 cm and wants a third stick to make a triangle. The third stick is a whole number of centimeters. What are the shortest and longest possible lengths? Give the sum of the two.",
+   "answer": "32",
    "options": [
     {
-     "text": "A straightedge",
+     "text": "32",
      "correct": true
     },
     {
-     "text": "An angle bisector",
+     "text": "6",
      "correct": false
     },
     {
-     "text": "Every point on the perpendicular bisector of a segment",
+     "text": "27",
      "correct": false
     },
     {
-     "text": "A compass",
+     "text": "26",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A straightedge is used to draw straight segments, without measuring."
+    "Triangle inequality: 5 < x < 27.",
+    "Shortest whole length 6 cm; longest 26 cm.",
+    "Sum: 6 + 26 = 32."
    ],
    "standards": [
     "G-CO.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_concept). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Complete the statement: \"___ is used to draw straight segments, withou”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s07-honors-006",
@@ -9592,33 +9612,35 @@
    "skillId": "spatial-thinking-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Complete the statement: “___ divides an angle into two congruent angles.”",
-   "answer": "An angle bisector",
+   "prompt": "Theo has sticks of 9 cm and 13 cm and wants a third stick to make a triangle. The third stick is a whole number of centimeters. What are the shortest and longest possible lengths? Give the sum of the two.",
+   "answer": "26",
    "options": [
     {
-     "text": "A perpendicular bisector of a segment",
+     "text": "21",
      "correct": false
     },
     {
-     "text": "A straightedge",
+     "text": "22",
      "correct": false
     },
     {
-     "text": "A compass",
-     "correct": false
-    },
-    {
-     "text": "An angle bisector",
+     "text": "26",
      "correct": true
+    },
+    {
+     "text": "5",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "An angle bisector divides an angle into two congruent angles."
+    "Triangle inequality: 4 < x < 22.",
+    "Shortest whole length 5 cm; longest 21 cm.",
+    "Sum: 5 + 21 = 26."
    ],
    "standards": [
     "G-CO.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_concept). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Complete the statement: \"___ divides an angle into two congruent angle”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s07-honors-008",
@@ -10822,18 +10844,18 @@
    "skillId": "spatial-thinking-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Point P(0, 2) is translated by the rule (x, y) → (x - 6, y - 3). What are the coordinates of P′?",
-   "answer": "(-6, -1)",
+   "prompt": "Point P(3, 4) is translated 4 units right and then 3 units down. Then the image is translated back 4 units left. What are the final coordinates?",
+   "answer": "(3, 1)",
    "solutionSteps": [
-    "Add -6 to the x-coordinate: 0 - 6 = -6.",
-    "Add -3 to the y-coordinate: 2 - 3 = -1.",
-    "P′(-6, -1)."
+    "First image: (7, 1).",
+    "Moving back 4 units undoes the horizontal move.",
+    "Final: (3, 1)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Point P(0, 2) is translated by the rule (x, y) → (x - 6, y - 3). What ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s08-honors-002",
@@ -10901,36 +10923,36 @@
    "skillId": "spatial-thinking-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Point P(6, -5) is translated by the rule (x, y) → (x - 2, y + 5). What are the coordinates of P′?",
-   "answer": "(4, 0)",
+   "prompt": "Point P(1, -5) is translated 5 units left and then 6 units down. Then the image is translated back 5 units right. What are the final coordinates?",
+   "answer": "(1, -11)",
    "options": [
     {
-     "text": "(4, 0)",
+     "text": "(-11, 1)",
+     "correct": false
+    },
+    {
+     "text": "(-1, -11)",
+     "correct": false
+    },
+    {
+     "text": "(1, -11)",
      "correct": true
     },
     {
-     "text": "(8, -10)",
-     "correct": false
-    },
-    {
-     "text": "(4, -10)",
-     "correct": false
-    },
-    {
-     "text": "(11, -7)",
+     "text": "(1, 11)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Add -2 to the x-coordinate: 6 - 2 = 4.",
-    "Add 5 to the y-coordinate: -5 + 5 = 0.",
-    "P′(4, 0)."
+    "First image: (-4, -11).",
+    "Moving back 5 units undoes the horizontal move.",
+    "Final: (1, -11)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Point P(6, -5) is translated by the rule (x, y) → (x - 2, y + 5). What”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s08-honors-005",
@@ -11016,36 +11038,36 @@
    "skillId": "spatial-thinking-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A translation moves A(0, -3) to A′(-4, -1). Write the rule for the translation.",
-   "answer": "(x, y) → (x - 4, y + 2)",
+   "prompt": "Point P(-5, 1) is translated 4 units right and then 2 units up. Then the image is translated back 4 units left. What are the final coordinates?",
+   "answer": "(-5, 3)",
    "options": [
     {
-     "text": "(x, y) → (x - 4, y - 1)",
+     "text": "(3, -5)",
      "correct": false
     },
     {
-     "text": "(x, y) → (x + 2, y - 4)",
+     "text": "(-5, -3)",
      "correct": false
     },
     {
-     "text": "(x, y) → (x + 4, y - 2)",
-     "correct": false
-    },
-    {
-     "text": "(x, y) → (x - 4, y + 2)",
+     "text": "(-5, 3)",
      "correct": true
+    },
+    {
+     "text": "(5, 3)",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Horizontal change: -4 - (0) = -4.",
-    "Vertical change: -1 - (-3) = 2.",
-    "Rule: (x, y) → (x - 4, y + 2)."
+    "First image: (-1, 3).",
+    "Moving back 4 units undoes the horizontal move.",
+    "Final: (-5, 3)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_rule). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A translation moves A(0, -3) to A′(-4, -1). Write the rule for the tra”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s08-honors-009",
@@ -11174,18 +11196,18 @@
    "skillId": "spatial-thinking-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Point P(7, 0) is translated by the rule (x, y) → (x + 1, y - 4). What are the coordinates of P′?",
-   "answer": "(8, -4)",
+   "prompt": "Point P(-6, -6) is translated 4 units right and then 3 units down. Then the image is translated back 4 units left. What are the final coordinates?",
+   "answer": "(-6, -9)",
    "solutionSteps": [
-    "Add 1 to the x-coordinate: 7 + 1 = 8.",
-    "Add -4 to the y-coordinate: 0 - 4 = -4.",
-    "P′(8, -4)."
+    "First image: (-2, -9).",
+    "Moving back 4 units undoes the horizontal move.",
+    "Final: (-6, -9)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Point P(7, 0) is translated by the rule (x, y) → (x + 1, y - 4). What ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s08-honors-014",
@@ -12128,52 +12150,54 @@
    "skillId": "spatial-thinking-skill-09",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Does a rotation of 180° map a regular hexagon onto itself?",
-   "answer": "Yes",
+   "prompt": "A logo is a regular 10-sided polygon. What is the smallest rotation (in degrees) that maps it onto itself, and how many rotations less than 360° do so? Give the smallest angle.",
+   "answer": "36°",
    "solutionSteps": [
-    "The smallest rotation is 360° ÷ 6 = 60°.",
-    "180° is a multiple of 60°, so yes."
+    "A regular 10-gon has rotational symmetry of order 10.",
+    "Smallest angle = 360° ÷ 10 = 36°.",
+    "9 rotations between 0° and 360° map it onto itself."
    ],
    "standards": [
     "4.G.A.3",
     "G-CO.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_order). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Does a rotation of 180° map a regular hexagon onto itself?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s09-honors-002",
    "skillId": "spatial-thinking-skill-09",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which rotation maps a regular nonagon onto itself?",
-   "answer": "200°",
+   "prompt": "A logo is a regular 5-sided polygon. What is the smallest rotation (in degrees) that maps it onto itself, and how many rotations less than 360° do so? Give the smallest angle.",
+   "answer": "72°",
    "options": [
     {
-     "text": "330°",
+     "text": "4°",
      "correct": false
     },
     {
-     "text": "220°",
+     "text": "0°",
      "correct": false
     },
     {
-     "text": "115°",
-     "correct": false
-    },
-    {
-     "text": "200°",
+     "text": "72°",
      "correct": true
+    },
+    {
+     "text": "360°",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Rotations that work are multiples of 360° ÷ 9 = 40°.",
-    "200° = 5 × 40°."
+    "A regular 5-gon has rotational symmetry of order 5.",
+    "Smallest angle = 360° ÷ 5 = 72°.",
+    "4 rotations between 0° and 360° map it onto itself."
    ],
    "standards": [
     "4.G.A.3",
     "G-CO.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_angle_mc). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which rotation maps a regular nonagon onto itself?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s09-honors-003",
@@ -12198,35 +12222,36 @@
    "skillId": "spatial-thinking-skill-09",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which rotation maps a regular pentagon onto itself?",
-   "answer": "216°",
+   "prompt": "A logo is a regular 9-sided polygon. What is the smallest rotation (in degrees) that maps it onto itself, and how many rotations less than 360° do so? Give the smallest angle.",
+   "answer": "40°",
    "options": [
     {
-     "text": "320°",
+     "text": "360°",
      "correct": false
     },
     {
-     "text": "195°",
+     "text": "8°",
      "correct": false
     },
     {
-     "text": "216°",
+     "text": "40°",
      "correct": true
     },
     {
-     "text": "150°",
+     "text": "0°",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Rotations that work are multiples of 360° ÷ 5 = 72°.",
-    "216° = 3 × 72°."
+    "A regular 9-gon has rotational symmetry of order 9.",
+    "Smallest angle = 360° ÷ 9 = 40°.",
+    "8 rotations between 0° and 360° map it onto itself."
    ],
    "standards": [
     "4.G.A.3",
     "G-CO.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_angle_mc). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which rotation maps a regular pentagon onto itself?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s09-honors-005",
@@ -12250,35 +12275,36 @@
    "skillId": "spatial-thinking-skill-09",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which rotation maps a regular octagon onto itself?",
-   "answer": "45°",
+   "prompt": "A logo is a regular 12-sided polygon. What is the smallest rotation (in degrees) that maps it onto itself, and how many rotations less than 360° do so? Give the smallest angle.",
+   "answer": "30°",
    "options": [
     {
-     "text": "305°",
-     "correct": false
-    },
-    {
-     "text": "175°",
-     "correct": false
-    },
-    {
-     "text": "45°",
+     "text": "30°",
      "correct": true
     },
     {
-     "text": "30°",
+     "text": "0°",
+     "correct": false
+    },
+    {
+     "text": "360°",
+     "correct": false
+    },
+    {
+     "text": "11°",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Rotations that work are multiples of 360° ÷ 8 = 45°.",
-    "45° = 1 × 45°."
+    "A regular 12-gon has rotational symmetry of order 12.",
+    "Smallest angle = 360° ÷ 12 = 30°.",
+    "11 rotations between 0° and 360° map it onto itself."
    ],
    "standards": [
     "4.G.A.3",
     "G-CO.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_angle_mc). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which rotation maps a regular octagon onto itself?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s09-honors-007",
@@ -13391,52 +13417,54 @@
    "skillId": "spatial-thinking-skill-10",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Point A(-3, -7) is rotated 270° counterclockwise about the origin. What are the coordinates of A′?",
-   "answer": "(-7, 3)",
+   "prompt": "Point A(4, -8) is rotated 90° counterclockwise about the origin, and then the image is rotated another 90° counterclockwise. What are the final coordinates?",
+   "answer": "(-4, 8)",
    "solutionSteps": [
-    "270° counterclockwise: (x, y) → (y, -x).",
-    "A′(-7, 3)."
+    "90° counterclockwise: (x, y) → (-y, x), so A′ = (8, 4).",
+    "Again: (8, 4) → (-4, 8).",
+    "Two 90° turns make 180°: (-4, 8)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Point A(-3, -7) is rotated 270° counterclockwise about the origin. Wha”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s10-honors-002",
    "skillId": "spatial-thinking-skill-10",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A(-5, 1) is mapped to A′(-1, -5) by a counterclockwise rotation about the origin. What is the angle of rotation?",
-   "answer": "90°",
+   "prompt": "Point A(3, -1) is rotated 90° counterclockwise about the origin, and then the image is rotated another 90° counterclockwise. What are the final coordinates?",
+   "answer": "(-3, 1)",
    "options": [
     {
-     "text": "90°",
+     "text": "(3, 1)",
+     "correct": false
+    },
+    {
+     "text": "(-3, 1)",
      "correct": true
     },
     {
-     "text": "360°",
+     "text": "(-3, -1)",
      "correct": false
     },
     {
-     "text": "180°",
-     "correct": false
-    },
-    {
-     "text": "270°",
+     "text": "(1, -3)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Test the rules: 90° (x, y) → (-y, x); 180° (x, y) → (-x, -y); 270° (x, y) → (y, -x).",
-    "The 90° rule matches."
+    "90° counterclockwise: (x, y) → (-y, x), so A′ = (1, 3).",
+    "Again: (1, 3) → (-3, 1).",
+    "Two 90° turns make 180°: (-3, 1)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_describe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A(-5, 1) is mapped to A′(-1, -5) by a counterclockwise rotation about ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s10-honors-003",
@@ -13478,17 +13506,18 @@
    "skillId": "spatial-thinking-skill-10",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A(-4, 6) is mapped to A′(6, 4) by a counterclockwise rotation about the origin. What is the angle of rotation?",
-   "answer": "270°",
+   "prompt": "Point A(7, -6) is rotated 90° counterclockwise about the origin, and then the image is rotated another 90° counterclockwise. What are the final coordinates?",
+   "answer": "(-7, 6)",
    "solutionSteps": [
-    "Test the rules: 90° (x, y) → (-y, x); 180° (x, y) → (-x, -y); 270° (x, y) → (y, -x).",
-    "The 270° rule matches."
+    "90° counterclockwise: (x, y) → (-y, x), so A′ = (6, 7).",
+    "Again: (6, 7) → (-7, 6).",
+    "Two 90° turns make 180°: (-7, 6)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_describe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A(-4, 6) is mapped to A′(6, 4) by a counterclockwise rotation about th”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s10-honors-005",
@@ -13512,35 +13541,36 @@
    "skillId": "spatial-thinking-skill-10",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A(-3, 7) is mapped to A′(-7, -3) by a counterclockwise rotation about the origin. What is the angle of rotation?",
-   "answer": "90°",
+   "prompt": "Point A(2, -8) is rotated 90° counterclockwise about the origin, and then the image is rotated another 90° counterclockwise. What are the final coordinates?",
+   "answer": "(-2, 8)",
    "options": [
     {
-     "text": "360°",
-     "correct": false
-    },
-    {
-     "text": "180°",
-     "correct": false
-    },
-    {
-     "text": "90°",
+     "text": "(-2, 8)",
      "correct": true
     },
     {
-     "text": "270°",
+     "text": "(2, 8)",
+     "correct": false
+    },
+    {
+     "text": "(-2, -8)",
+     "correct": false
+    },
+    {
+     "text": "(8, -2)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Test the rules: 90° (x, y) → (-y, x); 180° (x, y) → (-x, -y); 270° (x, y) → (y, -x).",
-    "The 90° rule matches."
+    "90° counterclockwise: (x, y) → (-y, x), so A′ = (8, 2).",
+    "Again: (8, 2) → (-2, 8).",
+    "Two 90° turns make 180°: (-2, 8)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_describe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A(-3, 7) is mapped to A′(-7, -3) by a counterclockwise rotation about ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s10-honors-007",
@@ -13599,17 +13629,18 @@
    "skillId": "spatial-thinking-skill-10",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Point A(-8, -1) is rotated 90° counterclockwise about the origin. What are the coordinates of A′?",
-   "answer": "(1, -8)",
+   "prompt": "Point A(8, -8) is rotated 90° counterclockwise about the origin, and then the image is rotated another 90° counterclockwise. What are the final coordinates?",
+   "answer": "(-8, 8)",
    "solutionSteps": [
-    "90° counterclockwise: (x, y) → (-y, x).",
-    "A′(1, -8)."
+    "90° counterclockwise: (x, y) → (-y, x), so A′ = (8, 8).",
+    "Again: (8, 8) → (-8, 8).",
+    "Two 90° turns make 180°: (-8, 8)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_spt_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Point A(-8, -1) is rotated 90° counterclockwise about the origin. What”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s10-honors-010",

@@ -1085,36 +1085,36 @@
    "skillId": "decimals-equations-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Round 108.677 to the nearest hundredth.",
-   "answer": "108.68",
+   "prompt": "Ana buys items for $9.33, $11.45, $4.03. Estimate the total by rounding each price to the nearest dollar. How far is the estimate from the exact total? Give the difference in dollars.",
+   "answer": "$0.81",
    "options": [
     {
-     "text": "108.69",
+     "text": "$11.45",
      "correct": false
     },
     {
-     "text": "108.677",
+     "text": "$24.81",
      "correct": false
     },
     {
-     "text": "108.68",
+     "text": "$4.03",
+     "correct": false
+    },
+    {
+     "text": "$0.81",
      "correct": true
-    },
-    {
-     "text": "108.67",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Underline the hundredths digit.",
-    "Look at the digit to its right: 5 or more rounds up, less than 5 stays the same.",
-    "Rounded: 108.68."
+    "Rounded: 9 + 11 + 4 = 24.",
+    "Exact: 9.33 + 11.45 + 4.03 = $24.81.",
+    "Difference: $0.81."
    ],
    "standards": [
     "5.NBT.A.4",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_round). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Round 108.677 to the nearest hundredth.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s01-honors-011",
@@ -1728,18 +1728,17 @@
    "skillId": "decimals-equations-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Estimate 9.4 × 3.3 + 7.9 by rounding each number to the nearest whole number.",
-   "answer": "35",
+   "prompt": "Estimate 15.6 × 8.3 by rounding each factor to the nearest whole number.",
+   "answer": "128",
    "solutionSteps": [
-    "Round: 9, 3 and 8.",
-    "9 × 3 = 27.",
-    "27 + 8 = 35."
+    "15.6 ≈ 16 and 8.3 ≈ 8.",
+    "16 × 8 = 128."
    ],
    "standards": [
     "7.EE.B.3",
     "6.NS.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_deq_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Estimate 15.6 × 8.3 by rounding each factor to the nearest whole numbe”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s2_product). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-deq-s02-cp1-002",
@@ -1872,36 +1871,36 @@
    "skillId": "decimals-equations-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use compatible numbers to estimate 57.6 ÷ 3.1.",
-   "answer": "19",
+   "prompt": "Estimate 9.5 × 9.5 + 7.5 by rounding each number to the nearest whole number.",
+   "answer": "108",
    "options": [
     {
-     "text": "1.9",
+     "text": "8",
      "correct": false
     },
     {
-     "text": "22",
+     "text": "10",
      "correct": false
     },
     {
-     "text": "19",
+     "text": "100",
+     "correct": false
+    },
+    {
+     "text": "108",
      "correct": true
-    },
-    {
-     "text": "190",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Choose numbers that divide easily: 57 ÷ 3.",
-    "57 ÷ 3 = 19.",
-    "So 57.6 ÷ 3.1 ≈ 19."
+    "Round: 10, 10 and 8.",
+    "10 × 10 = 100.",
+    "100 + 8 = 108."
    ],
    "standards": [
     "7.EE.B.3",
     "6.NS.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_compat). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_deq_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Use compatible numbers to estimate 57.6 ÷ 3.1.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s02-cp1-007",
@@ -2142,71 +2141,72 @@
    "skillId": "decimals-equations-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Estimate 53.6 × 6.9 by rounding each factor to the nearest whole number.",
-   "answer": "378",
+   "prompt": "Apples cost $5.34 per pound. Owen buys 4.7 pounds. Estimate the cost by rounding both numbers to the nearest whole number, then find the exact cost to the nearest cent. Give the exact cost.",
+   "answer": "$25.10",
    "solutionSteps": [
-    "53.6 ≈ 54 and 6.9 ≈ 7.",
-    "54 × 7 = 378."
+    "Estimate: 5 × 5 = 25 dollars.",
+    "Exact: 5.34 × 4.7 = 25.098.",
+    "Rounded to the cent: $25.10."
    ],
    "standards": [
     "7.EE.B.3",
     "6.NS.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_product). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Estimate 53.6 × 6.9 by rounding each factor to the nearest whole numbe”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s02-honors-002",
    "skillId": "decimals-equations-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which is the best estimate of 30.5 ÷ 3.4?",
-   "answer": "9",
+   "prompt": "Apples cost $2.42 per pound. Nia buys 8.2 pounds. Estimate the cost by rounding both numbers to the nearest whole number, then find the exact cost to the nearest cent. Give the exact cost.",
+   "answer": "$19.84",
    "options": [
     {
-     "text": "0.09",
+     "text": "$2.42",
      "correct": false
     },
     {
-     "text": "9",
+     "text": "$8.2",
+     "correct": false
+    },
+    {
+     "text": "$19.84",
      "correct": true
     },
     {
-     "text": "90",
-     "correct": false
-    },
-    {
-     "text": "0.9",
+     "text": "$19.844",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Use compatible numbers near 30.5 and 3.4.",
-    "The quotient is about 9.",
-    "Check the size: the divisor goes into the dividend about that many times."
+    "Estimate: 2 × 8 = 16 dollars.",
+    "Exact: 2.42 × 8.2 = 19.844.",
+    "Rounded to the cent: $19.84."
    ],
    "standards": [
     "7.EE.B.3",
     "6.NS.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_best). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which is the best estimate of 30.5 ÷ 3.4?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s02-honors-003",
    "skillId": "decimals-equations-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use compatible numbers to estimate 315.2 ÷ 9.1.",
-   "answer": "35",
+   "prompt": "Apples cost $5.05 per pound. Raj buys 5.0 pounds. Estimate the cost by rounding both numbers to the nearest whole number, then find the exact cost to the nearest cent. Give the exact cost.",
+   "answer": "$25.25",
    "solutionSteps": [
-    "Choose numbers that divide easily: 315 ÷ 9.",
-    "315 ÷ 9 = 35.",
-    "So 315.2 ÷ 9.1 ≈ 35."
+    "Estimate: 5 × 5 = 25 dollars.",
+    "Exact: 5.05 × 5.0 = 25.25.",
+    "Rounded to the cent: $25.25."
    ],
    "standards": [
     "7.EE.B.3",
     "6.NS.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_compat). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Use compatible numbers to estimate 315.2 ÷ 9.1.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s02-honors-004",
@@ -2231,71 +2231,72 @@
    "skillId": "decimals-equations-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Estimate 13.6 × 10.5 by rounding each factor to the nearest whole number.",
-   "answer": "154",
+   "prompt": "Apples cost $5.24 per pound. Sam buys 3.9 pounds. Estimate the cost by rounding both numbers to the nearest whole number, then find the exact cost to the nearest cent. Give the exact cost.",
+   "answer": "$20.44",
    "options": [
     {
-     "text": "154",
+     "text": "$20.436",
+     "correct": false
+    },
+    {
+     "text": "$3.9",
+     "correct": false
+    },
+    {
+     "text": "$20.44",
      "correct": true
     },
     {
-     "text": "25",
-     "correct": false
-    },
-    {
-     "text": "142.8",
-     "correct": false
-    },
-    {
-     "text": "130",
+     "text": "$5.24",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "13.6 ≈ 14 and 10.5 ≈ 11.",
-    "14 × 11 = 154."
+    "Estimate: 5 × 4 = 20 dollars.",
+    "Exact: 5.24 × 3.9 = 20.436.",
+    "Rounded to the cent: $20.44."
    ],
    "standards": [
     "7.EE.B.3",
     "6.NS.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_product). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Estimate 13.6 × 10.5 by rounding each factor to the nearest whole numb”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s02-honors-006",
    "skillId": "decimals-equations-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which is the best estimate of 93.4 ÷ 8.5?",
-   "answer": "11",
+   "prompt": "Apples cost $4.97 per pound. Lena buys 6.1 pounds. Estimate the cost by rounding both numbers to the nearest whole number, then find the exact cost to the nearest cent. Give the exact cost.",
+   "answer": "$30.32",
    "options": [
     {
-     "text": "0.11",
-     "correct": false
-    },
-    {
-     "text": "110",
-     "correct": false
-    },
-    {
-     "text": "1.1",
-     "correct": false
-    },
-    {
-     "text": "11",
+     "text": "$30.32",
      "correct": true
+    },
+    {
+     "text": "$6.1",
+     "correct": false
+    },
+    {
+     "text": "$30.317",
+     "correct": false
+    },
+    {
+     "text": "$4.97",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Use compatible numbers near 93.4 and 8.5.",
-    "The quotient is about 11.",
-    "Check the size: the divisor goes into the dividend about that many times."
+    "Estimate: 5 × 6 = 30 dollars.",
+    "Exact: 4.97 × 6.1 = 30.317.",
+    "Rounded to the cent: $30.32."
    ],
    "standards": [
     "7.EE.B.3",
     "6.NS.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_best). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which is the best estimate of 93.4 ÷ 8.5?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s02-honors-007",
@@ -3358,18 +3359,18 @@
    "skillId": "decimals-equations-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: 4.3, 8.8, 4.6, 7.2, 6.6. How much greater is the mean than the median? (Use a negative number if the mean is less.)",
-   "answer": "-0.3",
+   "prompt": "Find the mode of the data: 1.4, 9.6, 5.8, 16.1, 12.8, 6.9, 6.9",
+   "answer": "6.9",
    "solutionSteps": [
-    "Mean: 31.5 ÷ 5 = 6.3.",
-    "Median (middle of 4.3, 4.6, 6.6, 7.2, 8.8): 6.6.",
-    "Difference: 6.3 - 6.6 = -0.3."
+    "Order the data: 1.4, 5.8, 6.9, 6.9, 9.6, 12.8, 16.1.",
+    "Find the value that occurs most often.",
+    "The mode is 6.9."
    ],
    "standards": [
     "6.SP.B.5c",
     "6.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_deq_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find the mode of the data: 1.4, 9.6, 5.8, 16.1, 12.8, 6.9, 6.9”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s3_stat). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-deq-s03-cp1-014",
@@ -3466,18 +3467,18 @@
    "skillId": "decimals-equations-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the range of the data: 61, 91, 75, 69, 41, 65",
-   "answer": "50",
+   "prompt": "Nia's first four quiz scores are 84, 98, 97, 75. What score on the fifth quiz makes the mean exactly 89?",
+   "answer": "91",
    "solutionSteps": [
-    "Order the data: 41, 61, 65, 69, 75, 91.",
-    "Subtract the least value from the greatest.",
-    "The range is 50."
+    "A mean of 89 for 5 quizzes means a total of 89 × 5 = 445.",
+    "The first four add to 354.",
+    "Fifth score = 445 - 354 = 91."
    ],
    "standards": [
     "6.SP.B.5c",
     "6.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_stat). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the range of the data: 61, 91, 75, 69, 41, 65”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s03-honors-002",
@@ -3557,36 +3558,36 @@
    "skillId": "decimals-equations-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the median of the data: 98, 96, 52, 70, 65, 52",
-   "answer": "67.5",
+   "prompt": "Sam's first four quiz scores are 90, 88, 90, 78. What score on the fifth quiz makes the mean exactly 87?",
+   "answer": "89",
    "options": [
     {
-     "text": "98",
+     "text": "5",
      "correct": false
     },
     {
-     "text": "70",
+     "text": "346",
      "correct": false
     },
     {
-     "text": "61",
+     "text": "435",
      "correct": false
     },
     {
-     "text": "67.5",
+     "text": "89",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Order the data: 52, 52, 65, 70, 96, 98.",
-    "Find the middle value (average the two middle values if there is an even count).",
-    "The median is 67.5."
+    "A mean of 87 for 5 quizzes means a total of 87 × 5 = 435.",
+    "The first four add to 346.",
+    "Fifth score = 435 - 346 = 89."
    ],
    "standards": [
     "6.SP.B.5c",
     "6.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_stat). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the median of the data: 98, 96, 52, 70, 65, 52”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s03-honors-005",
@@ -3648,18 +3649,18 @@
    "skillId": "decimals-equations-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the range of the data: 91, 58, 47, 82, 81, 56",
-   "answer": "44",
+   "prompt": "Iris's first four quiz scores are 86, 83, 98, 73. What score on the fifth quiz makes the mean exactly 84?",
+   "answer": "80",
    "solutionSteps": [
-    "Order the data: 47, 56, 58, 81, 82, 91.",
-    "Subtract the least value from the greatest.",
-    "The range is 44."
+    "A mean of 84 for 5 quizzes means a total of 84 × 5 = 420.",
+    "The first four add to 340.",
+    "Fifth score = 420 - 340 = 80."
    ],
    "standards": [
     "6.SP.B.5c",
     "6.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_stat). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the range of the data: 91, 58, 47, 82, 81, 56”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s03-honors-008",
@@ -3776,18 +3777,18 @@
    "skillId": "decimals-equations-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the range of the data: 46, 81, 47, 83, 49, 60, 63, 89",
-   "answer": "43",
+   "prompt": "Zoe's first four quiz scores are 85, 78, 87, 86. What score on the fifth quiz makes the mean exactly 92?",
+   "answer": "124",
    "solutionSteps": [
-    "Order the data: 46, 47, 49, 60, 63, 81, 83, 89.",
-    "Subtract the least value from the greatest.",
-    "The range is 43."
+    "A mean of 92 for 5 quizzes means a total of 92 × 5 = 460.",
+    "The first four add to 336.",
+    "Fifth score = 460 - 336 = 124."
    ],
    "standards": [
     "6.SP.B.5c",
     "6.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_stat). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the range of the data: 46, 81, 47, 83, 49, 60, 63, 89”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s03-honors-013",
@@ -4553,36 +4554,37 @@
    "skillId": "decimals-equations-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Nia drives 30 miles per hour for 4 hours and then 35 miles per hour for 5 hours. Use d = rt for each part to find the total distance in miles.",
-   "answer": "295",
+   "prompt": "Use P = 2l + 2w to find the perimeter of a rectangle with l = 3 cm and w = 2 cm.",
+   "answer": "10 cm",
    "options": [
     {
-     "text": "175",
+     "text": "8 cm",
      "correct": false
     },
     {
-     "text": "5",
+     "text": "6 cm",
      "correct": false
     },
     {
-     "text": "295",
+     "text": "5 cm",
+     "correct": false
+    },
+    {
+     "text": "10 cm",
      "correct": true
-    },
-    {
-     "text": "35",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "First part: 30 × 4 = 120 miles.",
-    "Second part: 35 × 5 = 175 miles.",
-    "Total: 295 miles."
+    "Write the formula.",
+    "Substitute the given values.",
+    "Evaluate using the order of operations.",
+    "Answer: 10 cm."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.A.2c"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_deq_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Use P = 2l + 2w to find the perimeter of a rectangle with l = 3 cm and”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s4_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-deq-s04-cp1-008",
@@ -4662,7 +4664,7 @@
    "skillId": "decimals-equations-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Sam drives 63 miles per hour for 3 hours and then 50 miles per hour for 5 hours. Use d = rt for each part to find the total distance in miles.",
+   "prompt": "Diego drives 63 miles per hour for 3 hours and then 50 miles per hour for 5 hours. Use d = rt for each part to find the total distance in miles.",
    "answer": "439",
    "options": [
     {
@@ -4716,7 +4718,7 @@
    "skillId": "decimals-equations-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Iris drives 63 miles per hour for 5 hours and then 50 miles per hour for 3 hours. Use d = rt for each part to find the total distance in miles.",
+   "prompt": "Owen drives 63 miles per hour for 5 hours and then 50 miles per hour for 3 hours. Use d = rt for each part to find the total distance in miles.",
    "answer": "465",
    "solutionSteps": [
     "First part: 63 × 5 = 315 miles.",
@@ -4868,147 +4870,144 @@
    "skillId": "decimals-equations-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Use d = rt to find the distance traveled at 66 miles per hour for 4 hours.",
-   "answer": "264 miles",
+   "prompt": "Sam drives 1.5 hours at 54 mi/h and then 1.5 hours at 34 mi/h. Use d = rt for each part to find the total distance in miles.",
+   "answer": "132",
    "options": [
     {
-     "text": "70 miles",
+     "text": "34",
      "correct": false
     },
     {
-     "text": "264 miles",
+     "text": "132",
      "correct": true
     },
     {
-     "text": "33/2 miles",
+     "text": "2",
      "correct": false
     },
     {
-     "text": "528 miles",
+     "text": "51",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Write the formula.",
-    "Substitute the given values.",
-    "Evaluate using the order of operations.",
-    "Answer: 264 miles."
+    "Part 1: 54 × 1.5 = 81 miles.",
+    "Part 2: 34 × 1.5 = 51 miles.",
+    "Total = 132 miles."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.A.2c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Use d = rt to find the distance traveled at 66 miles per hour for 4 ho”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s04-honors-004",
    "skillId": "decimals-equations-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A train travels 145 miles in 5 hours. Use d = rt to find its rate in miles per hour.",
-   "answer": "29 miles per hour",
+   "prompt": "Lena drives 1.5 hours at 46 mi/h and then 1 hour at 43 mi/h. Use d = rt for each part to find the total distance in miles.",
+   "answer": "112",
    "solutionSteps": [
-    "145 = r × 5.",
-    "Divide both sides by 5.",
-    "r = 29."
+    "Part 1: 46 × 1.5 = 69 miles.",
+    "Part 2: 43 × 1 = 43 miles.",
+    "Total = 112 miles."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.A.2c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve_formula). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A train travels 145 miles in 5 hours. Use d = rt to find its rate in m”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s04-honors-005",
    "skillId": "decimals-equations-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Use A = (1/2)bh to find the area of a triangle with b = 17 in. and h = 4 in.",
-   "answer": "34 square inches",
+   "prompt": "Kai drives 2 hours at 64 mi/h and then 0.5 hours at 27 mi/h. Use d = rt for each part to find the total distance in miles.",
+   "answer": "141.5",
    "solutionSteps": [
-    "Write the formula.",
-    "Substitute the given values.",
-    "Evaluate using the order of operations.",
-    "Answer: 34 square inches."
+    "Part 1: 64 × 2 = 128 miles.",
+    "Part 2: 27 × 0.5 = 13.5 miles.",
+    "Total = 141.5 miles."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.A.2c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Use A = (1/2)bh to find the area of a triangle with b = 17 in. and h =”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s04-honors-006",
    "skillId": "decimals-equations-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A train travels 170 miles in 5 hours. Use d = rt to find its rate in miles per hour.",
-   "answer": "34 miles per hour",
+   "prompt": "Iris drives 2 hours at 43 mi/h and then 1 hour at 31 mi/h. Use d = rt for each part to find the total distance in miles.",
+   "answer": "117",
    "options": [
     {
-     "text": "850 miles per hour",
+     "text": "31",
      "correct": false
     },
     {
-     "text": "1/34 miles per hour",
-     "correct": false
-    },
-    {
-     "text": "34 miles per hour",
+     "text": "117",
      "correct": true
     },
     {
-     "text": "165 miles per hour",
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "86",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "170 = r × 5.",
-    "Divide both sides by 5.",
-    "r = 34."
+    "Part 1: 43 × 2 = 86 miles.",
+    "Part 2: 31 × 1 = 31 miles.",
+    "Total = 117 miles."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.A.2c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_solve_formula). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A train travels 170 miles in 5 hours. Use d = rt to find its rate in m”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s04-honors-007",
    "skillId": "decimals-equations-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Use A = (1/2)bh to find the area of a triangle with b = 12 in. and h = 14 in.",
-   "answer": "84 square inches",
+   "prompt": "Theo drives 1.5 hours at 47 mi/h and then 1.5 hours at 39 mi/h. Use d = rt for each part to find the total distance in miles.",
+   "answer": "129",
    "options": [
     {
-     "text": "26 square inches",
-     "correct": false
-    },
-    {
-     "text": "168 square inches",
-     "correct": false
-    },
-    {
-     "text": "84 square inches",
+     "text": "129",
      "correct": true
     },
     {
-     "text": "13 square inches",
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "117/2",
+     "correct": false
+    },
+    {
+     "text": "39",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Write the formula.",
-    "Substitute the given values.",
-    "Evaluate using the order of operations.",
-    "Answer: 84 square inches."
+    "Part 1: 47 × 1.5 = 70.5 miles.",
+    "Part 2: 39 × 1.5 = 58.5 miles.",
+    "Total = 129 miles."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.A.2c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Use A = (1/2)bh to find the area of a triangle with b = 12 in. and h =”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s04-honors-008",
@@ -6174,19 +6173,18 @@
    "skillId": "decimals-equations-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve: m - 24.23 = 9.18",
-   "answer": "m = 33.41",
+   "prompt": "Zoe's account had $28.52. She deposited $32.54, spent $13.83 and paid a $14.14 fee. Write an equation for the final balance x and solve it.",
+   "answer": "$33.09",
    "solutionSteps": [
-    "Use the inverse operation on both sides.",
-    "Line up decimal points when adding or subtracting.",
-    "m = 33.41.",
-    "Check by substituting into the original equation."
+    "x = 28.52 + 32.54 - 13.83 - 14.14.",
+    "28.52 + 32.54 = 61.06; subtract 13.83 and 14.14.",
+    "x = $33.09."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: m - 24.23 = 9.18”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s05-honors-002",
@@ -6229,37 +6227,36 @@
    "skillId": "decimals-equations-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Solve: x + 28.43 = 46.96",
-   "answer": "x = 18.53",
+   "prompt": "Lena's account had $79.36. She deposited $33.85, spent $37.13 and paid a $10.75 fee. Write an equation for the final balance x and solve it.",
+   "answer": "$65.33",
    "options": [
     {
-     "text": "x = 75.39",
+     "text": "$10.75",
      "correct": false
     },
     {
-     "text": "x = 18.53",
+     "text": "$65.33",
      "correct": true
     },
     {
-     "text": "x = -18.53",
+     "text": "$37.13",
      "correct": false
     },
     {
-     "text": "x = 46.96",
+     "text": "$113.21",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Use the inverse operation on both sides.",
-    "Line up decimal points when adding or subtracting.",
-    "x = 18.53.",
-    "Check by substituting into the original equation."
+    "x = 79.36 + 33.85 - 37.13 - 10.75.",
+    "79.36 + 33.85 = 113.21; subtract 37.13 and 10.75.",
+    "x = $65.33."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: x + 28.43 = 46.96”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s05-honors-004",
@@ -6284,55 +6281,54 @@
    "skillId": "decimals-equations-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve: x + 10.49 = 12.86",
-   "answer": "x = 2.37",
+   "prompt": "Iris's account had $54.59. She deposited $7.19, spent $13.72 and paid a $4.49 fee. Write an equation for the final balance x and solve it.",
+   "answer": "$43.57",
    "solutionSteps": [
-    "Use the inverse operation on both sides.",
-    "Line up decimal points when adding or subtracting.",
-    "x = 2.37.",
-    "Check by substituting into the original equation."
+    "x = 54.59 + 7.19 - 13.72 - 4.49.",
+    "54.59 + 7.19 = 61.78; subtract 13.72 and 4.49.",
+    "x = $43.57."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: x + 10.49 = 12.86”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s05-honors-006",
    "skillId": "decimals-equations-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A plant grew 31.31 cm and is now 34.36 cm tall. Solve h + 31.31 = 34.36 to find h, its original height.",
-   "answer": "h = 3.05",
+   "prompt": "Theo's account had $34.90. He deposited $29.51, spent $13.05 and paid a $6.87 fee. Write an equation for the final balance x and solve it.",
+   "answer": "$44.49",
    "options": [
     {
-     "text": "h = 34.36",
+     "text": "$64.41",
      "correct": false
     },
     {
-     "text": "h = 30.5",
-     "correct": false
-    },
-    {
-     "text": "h = 3.05",
+     "text": "$44.49",
      "correct": true
     },
     {
-     "text": "h = 59.57",
+     "text": "$13.05",
+     "correct": false
+    },
+    {
+     "text": "$6.87",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Use the inverse operation.",
-    "h = 3.05.",
-    "Check by substituting."
+    "x = 34.90 + 29.51 - 13.05 - 6.87.",
+    "34.90 + 29.51 = 64.41; subtract 13.05 and 6.87.",
+    "x = $44.49."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A plant grew 31.31 cm and is now 34.36 cm tall. Solve h + 31.31 = 34.3”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s05-honors-007",
@@ -6376,18 +6372,18 @@
    "skillId": "decimals-equations-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A plant grew 24.94 cm and is now 31.78 cm tall. Solve h + 24.94 = 31.78 to find h, its original height.",
-   "answer": "h = 6.84",
+   "prompt": "Eli's account had $48.55. He deposited $13.93, spent $24.73 and paid a $6.60 fee. Write an equation for the final balance x and solve it.",
+   "answer": "$31.15",
    "solutionSteps": [
-    "Use the inverse operation.",
-    "h = 6.84.",
-    "Check by substituting."
+    "x = 48.55 + 13.93 - 24.73 - 6.60.",
+    "48.55 + 13.93 = 62.48; subtract 24.73 and 6.60.",
+    "x = $31.15."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A plant grew 24.94 cm and is now 31.78 cm tall. Solve h + 24.94 = 31.7”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s05-honors-009",
@@ -7196,7 +7192,7 @@
    "skillId": "decimals-equations-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Gas costs $4.4 per gallon. Maya used a $3 coupon and paid $24.28. Solve 4.4g - 3 = 24.28 to find g, the number of gallons.",
+   "prompt": "Gas costs $4.4 per gallon. Zoe used a $3 coupon and paid $24.28. Solve 4.4g - 3 = 24.28 to find g, the number of gallons.",
    "answer": "g = 6.2",
    "solutionSteps": [
     "Add 3: 4.4g = 27.28.",
@@ -7248,7 +7244,7 @@
    "skillId": "decimals-equations-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Gas costs $3.7 per gallon. Diego used a $2 coupon and paid $26.12. Solve 3.7g - 2 = 26.12 to find g, the number of gallons.",
+   "prompt": "Gas costs $3.7 per gallon. Lena used a $2 coupon and paid $26.12. Solve 3.7g - 2 = 26.12 to find g, the number of gallons.",
    "answer": "g = 7.6",
    "options": [
     {
@@ -7283,7 +7279,7 @@
    "skillId": "decimals-equations-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Gas costs $3.8 per gallon. Nia used a $4 coupon and paid $29.06. Solve 3.8g - 4 = 29.06 to find g, the number of gallons.",
+   "prompt": "Gas costs $3.8 per gallon. Kai used a $4 coupon and paid $29.06. Solve 3.8g - 4 = 29.06 to find g, the number of gallons.",
    "answer": "g = 8.7",
    "solutionSteps": [
     "Add 4: 3.8g = 33.06.",
@@ -7319,7 +7315,7 @@
    "skillId": "decimals-equations-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Gas costs $3.7 per gallon. Sam used a $4 coupon and paid $21.53. Solve 3.7g - 4 = 21.53 to find g, the number of gallons.",
+   "prompt": "Gas costs $3.7 per gallon. Ana used a $4 coupon and paid $21.53. Solve 3.7g - 4 = 21.53 to find g, the number of gallons.",
    "answer": "g = 6.9",
    "options": [
     {
@@ -7354,7 +7350,7 @@
    "skillId": "decimals-equations-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Gas costs $3.3 per gallon. Iris used a $4 coupon and paid $7.22. Solve 3.3g - 4 = 7.22 to find g, the number of gallons.",
+   "prompt": "Gas costs $3.3 per gallon. Owen used a $4 coupon and paid $7.22. Solve 3.3g - 4 = 7.22 to find g, the number of gallons.",
    "answer": "g = 3.4",
    "options": [
     {
@@ -7681,37 +7677,36 @@
    "skillId": "decimals-equations-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Solve: 2.79y = 66.9879",
-   "answer": "y = 24.01",
+   "prompt": "A 12-ounce box of cereal costs $4.46 and a 28-ounce box costs $6.31. Solve 12u = 4.46 and 28v = 6.31 to find each price per ounce. How much less per ounce, in cents rounded to the nearest tenth, is the better buy?",
+   "answer": "14.6",
    "options": [
     {
-     "text": "y = 24.01",
+     "text": "28",
+     "correct": false
+    },
+    {
+     "text": "0.2254",
+     "correct": false
+    },
+    {
+     "text": "6.31",
+     "correct": false
+    },
+    {
+     "text": "14.6",
      "correct": true
-    },
-    {
-     "text": "y = 240.1",
-     "correct": false
-    },
-    {
-     "text": "y = 64.1979",
-     "correct": false
-    },
-    {
-     "text": "y = 186.896241",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Divide both sides by 2.79.",
-    "Move the decimal point to divide by a whole number.",
-    "y = 24.01.",
-    "Check by substituting into the original equation."
+    "u = 4.46 ÷ 12 ≈ $0.3717 per ounce.",
+    "v = 6.31 ÷ 28 ≈ $0.2254 per ounce.",
+    "The 28 oz box is cheaper by about 14.6 cents per ounce."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: 2.79y = 66.9879”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s06-honors-008",
@@ -7735,19 +7730,18 @@
    "skillId": "decimals-equations-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve: 4.21m = 46.4784",
-   "answer": "m = 11.04",
+   "prompt": "A 12-ounce box of cereal costs $4.51 and a 32-ounce box costs $6.66. Solve 12u = 4.51 and 32v = 6.66 to find each price per ounce. How much less per ounce, in cents rounded to the nearest tenth, is the better buy?",
+   "answer": "16.8",
    "solutionSteps": [
-    "Divide both sides by 4.21.",
-    "Move the decimal point to divide by a whole number.",
-    "m = 11.04.",
-    "Check by substituting into the original equation."
+    "u = 4.51 ÷ 12 ≈ $0.3758 per ounce.",
+    "v = 6.66 ÷ 32 ≈ $0.2081 per ounce.",
+    "The 32 oz box is cheaper by about 16.8 cents per ounce."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: 4.21m = 46.4784”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s06-honors-010",
@@ -8865,35 +8859,36 @@
    "skillId": "decimals-equations-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which metric unit is most reasonable for the mass of a car?",
-   "answer": "kilograms",
+   "prompt": "Kai has 2.4 L of juice and pours it into 250 mL cups. How many full cups can he pour, and how many milliliters are left over? Give the number left over.",
+   "answer": "150",
    "options": [
     {
-     "text": "kilograms",
+     "text": "250",
+     "correct": false
+    },
+    {
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "2400",
+     "correct": false
+    },
+    {
+     "text": "150",
      "correct": true
-    },
-    {
-     "text": "centimeters",
-     "correct": false
-    },
-    {
-     "text": "milligrams",
-     "correct": false
-    },
-    {
-     "text": "grams",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Compare the size of the object with the size of each unit.",
-    "The best unit is kilograms."
+    "2.4 L = 2400 mL.",
+    "2400 ÷ 250 = 9 full cups with a remainder.",
+    "Left over: 2400 - 9 × 250 = 150 mL."
    ],
    "standards": [
     "5.MD.A.1",
     "6.RP.A.3d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_unit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which metric unit is most reasonable for the mass of a car?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s07-honors-003",
@@ -8990,35 +8985,36 @@
    "skillId": "decimals-equations-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which metric unit is most reasonable for the amount of medicine in a dropper?",
-   "answer": "milliliters",
+   "prompt": "Eli has 1.5 L of juice and pours it into 350 mL cups. How many full cups can he pour, and how many milliliters are left over? Give the number left over.",
+   "answer": "100",
    "options": [
     {
-     "text": "liters",
-     "correct": false
-    },
-    {
-     "text": "milliliters",
+     "text": "100",
      "correct": true
     },
     {
-     "text": "milligrams",
+     "text": "1500",
      "correct": false
     },
     {
-     "text": "meters",
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "350",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Compare the size of the object with the size of each unit.",
-    "The best unit is milliliters."
+    "1.5 L = 1500 mL.",
+    "1500 ÷ 350 = 4 full cups with a remainder.",
+    "Left over: 1500 - 4 × 350 = 100 mL."
    ],
    "standards": [
     "5.MD.A.1",
     "6.RP.A.3d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_unit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which metric unit is most reasonable for the amount of medicine in a d”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s07-honors-007",
@@ -9061,53 +9057,54 @@
    "skillId": "decimals-equations-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Convert 739.602 kilograms to grams.",
-   "answer": "739,602 grams",
+   "prompt": "Priya has 2.4 L of juice and pours it into 250 mL cups. How many full cups can she pour, and how many milliliters are left over? Give the number left over.",
+   "answer": "150",
    "solutionSteps": [
-    "1 kilogram = 1,000 grams.",
-    "Multiply by 1,000.",
-    "739.602 kilograms = 739,602 grams."
+    "2.4 L = 2400 mL.",
+    "2400 ÷ 250 = 9 full cups with a remainder.",
+    "Left over: 2400 - 9 × 250 = 150 mL."
    ],
    "standards": [
     "5.MD.A.1",
     "6.RP.A.3d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Convert 739.602 kilograms to grams.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s07-honors-010",
    "skillId": "decimals-equations-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which metric unit is most reasonable for the amount of medicine in a dropper?",
-   "answer": "milliliters",
+   "prompt": "Lena has 2.4 L of juice and pours it into 350 mL cups. How many full cups can she pour, and how many milliliters are left over? Give the number left over.",
+   "answer": "300",
    "options": [
     {
-     "text": "grams",
+     "text": "6",
      "correct": false
     },
     {
-     "text": "liters",
-     "correct": false
-    },
-    {
-     "text": "meters",
-     "correct": false
-    },
-    {
-     "text": "milliliters",
+     "text": "300",
      "correct": true
+    },
+    {
+     "text": "350",
+     "correct": false
+    },
+    {
+     "text": "2400",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Compare the size of the object with the size of each unit.",
-    "The best unit is milliliters."
+    "2.4 L = 2400 mL.",
+    "2400 ÷ 350 = 6 full cups with a remainder.",
+    "Left over: 2400 - 6 × 350 = 300 mL."
    ],
    "standards": [
     "5.MD.A.1",
     "6.RP.A.3d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_unit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_deq_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which metric unit is most reasonable for the amount of medicine in a d”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-deq-s07-honors-011",
@@ -9348,36 +9345,34 @@
    "skillId": "decimals-equations-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Eli drives 41 miles per hour for 2 hours and then 35 miles per hour for 4 hours. Use d = rt for each part to find the total distance in miles.",
-   "answer": "222",
+   "prompt": "Use P = 2l + 2w to find the perimeter of a rectangle with l = 20 cm and w = 11 cm.",
+   "answer": "62 cm",
    "solutionSteps": [
-    "First part: 41 × 2 = 82 miles.",
-    "Second part: 35 × 4 = 140 miles.",
-    "Total: 222 miles."
+    "P = 2(20) + 2(11).",
+    "= 40 + 22 = 62 cm."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.A.2c"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_deq_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Use P = 2l + 2w to find the perimeter of a rectangle with l = 20 cm an”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Partner-check companion to pa7-deq-s04-cp1-009 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-deq-s04-cp1-pc02",
    "skillId": "decimals-equations-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Priya drives 59 miles per hour for 2 hours and then 54 miles per hour for 5 hours. Use d = rt for each part to find the total distance in miles.",
-   "answer": "388",
+   "prompt": "Use d = rt to find the distance traveled at 86 miles per hour for 2.5 hours.",
+   "answer": "215 miles",
    "solutionSteps": [
-    "First part: 59 × 2 = 118 miles.",
-    "Second part: 54 × 5 = 270 miles.",
-    "Total: 388 miles."
+    "d = 86 × 2.5.",
+    "= 215 miles."
    ],
    "standards": [
     "7.EE.B.4",
     "6.EE.A.2c"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_deq_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Use d = rt to find the distance traveled at 86 miles per hour for 2.5 ”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Partner-check companion to pa7-deq-s04-cp1-001 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-deq-s05-cp1-pc01",
@@ -9418,18 +9413,17 @@
    "skillId": "decimals-equations-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Data: 1.9, 9.9, 4.8, 4.7, 8.6. How much greater is the mean than the median? (Use a negative number if the mean is less.)",
-   "answer": "1.18",
+   "prompt": "Find the median of the data: 3.2, 6.9, 12.4, 5.1, 8.8",
+   "answer": "6.9",
    "solutionSteps": [
-    "Mean: 29.9 ÷ 5 = 5.98.",
-    "Median (middle of 1.9, 4.7, 4.8, 8.6, 9.9): 4.8.",
-    "Difference: 5.98 - 4.8 = 1.18."
+    "Order: 3.2, 5.1, 6.9, 8.8, 12.4.",
+    "The middle value is 6.9."
    ],
    "standards": [
     "6.SP.B.5c",
     "6.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_deq_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find the median of the data: 3.2, 6.9, 12.4, 5.1, 8.8”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Partner-check companion to pa7-deq-s03-cp1-013 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-deq-s01-cp1-pc01",

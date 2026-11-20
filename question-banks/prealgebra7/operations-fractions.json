@@ -854,18 +854,18 @@
    "skillId": "operations-fractions-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Compare using <, >, or =: 1/3 ___ 9/10",
-   "answer": "<",
+   "prompt": "Five changes in a stock price (in dollars) were -3/4, -1/6, 5/8, 2/5, -1/3. Which change was closest to 0? Write it as a fraction.",
+   "answer": "-1/6",
    "solutionSteps": [
-    "Use a common denominator of 30.",
-    "1/3 = 10/30 and 9/10 = 27/30.",
-    "So 1/3 < 9/10."
+    "Compare absolute values: |-3/4| = 3/4, |-1/6| = 1/6, |5/8| = 5/8, |2/5| = 2/5, |-1/3| = 1/3.",
+    "Write them with a common denominator or as decimals to compare.",
+    "The smallest absolute value belongs to -1/6."
    ],
    "standards": [
     "7.NS.A.2d",
     "6.NS.C.7a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Compare using <, >, or =: 1/3 ___ 9/10”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s01-honors-002",
@@ -2117,17 +2117,17 @@
    "skillId": "operations-fractions-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write 19/12 as a decimal. If it repeats, show the repeating digits.",
-   "answer": "1.583333… (3 repeats)",
+   "prompt": "Maya ate 3/5 of one pizza and 0.15 of another pizza of the same size. Write the total amount eaten as a decimal.",
+   "answer": "0.75",
    "solutionSteps": [
-    "Divide 19 by 12.",
-    "19 ÷ 12 = 1.583333… (3 repeats).",
-    "The division repeats."
+    "3/5 = 0.6.",
+    "0.6 + 0.15 = 0.75.",
+    "Total: 0.75 of a pizza."
    ],
    "standards": [
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_to_decimal). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Write 19/12 as a decimal. If it repeats, show the repeating digits.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s02-honors-002",
@@ -2169,69 +2169,70 @@
    "skillId": "operations-fractions-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which fraction is equal to a terminating decimal?",
-   "answer": "9/20",
+   "prompt": "Priya ate 3/8 of one pizza and 0.4 of another pizza of the same size. Write the total amount eaten as a decimal.",
+   "answer": "0.775",
    "options": [
     {
-     "text": "5/3",
+     "text": "0.375",
      "correct": false
     },
     {
-     "text": "1/15",
+     "text": "1.775",
      "correct": false
     },
     {
-     "text": "5/9",
+     "text": "0.4",
      "correct": false
     },
     {
-     "text": "9/20",
+     "text": "0.775",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "A fraction in simplest form terminates only if its denominator has no prime factors other than 2 and 5.",
-    "9/20 = 0.45."
+    "3/8 = 0.375.",
+    "0.375 + 0.4 = 0.775.",
+    "Total: 0.775 of a pizza."
    ],
    "standards": [
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_terminates). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which fraction is equal to a terminating decimal?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s02-honors-004",
    "skillId": "operations-fractions-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Write 9/7 as a decimal. If it repeats, show the repeating digits.",
-   "answer": "1.285714285714… (285714 repeats)",
+   "prompt": "Diego ate 3/5 of one pizza and 0.15 of another pizza of the same size. Write the total amount eaten as a decimal.",
+   "answer": "0.75",
    "options": [
     {
-     "text": "12.857142857142… (857142 repeats)",
+     "text": "0.6",
      "correct": false
     },
     {
-     "text": "0.7777… (7 repeats)",
+     "text": "1.75",
      "correct": false
     },
     {
-     "text": "9.7",
-     "correct": false
-    },
-    {
-     "text": "1.285714285714… (285714 repeats)",
+     "text": "0.75",
      "correct": true
+    },
+    {
+     "text": "0.15",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Divide 9 by 7.",
-    "9 ÷ 7 = 1.285714285714… (285714 repeats).",
-    "The division repeats."
+    "3/5 = 0.6.",
+    "0.6 + 0.15 = 0.75.",
+    "Total: 0.75 of a pizza."
    ],
    "standards": [
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_to_decimal). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Write 9/7 as a decimal. If it repeats, show the repeating digits.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s02-honors-005",
@@ -2255,51 +2256,52 @@
    "skillId": "operations-fractions-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which fraction is equal to a terminating decimal?",
-   "answer": "9/20",
+   "prompt": "Owen ate 1/4 of one pizza and 0.35 of another pizza of the same size. Write the total amount eaten as a decimal.",
+   "answer": "0.6",
    "options": [
     {
-     "text": "4/9",
+     "text": "0.25",
      "correct": false
     },
     {
-     "text": "9/20",
+     "text": "1.6",
+     "correct": false
+    },
+    {
+     "text": "0.35",
+     "correct": false
+    },
+    {
+     "text": "0.6",
      "correct": true
-    },
-    {
-     "text": "5/11",
-     "correct": false
-    },
-    {
-     "text": "1/9",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "A fraction in simplest form terminates only if its denominator has no prime factors other than 2 and 5.",
-    "9/20 = 0.45."
+    "1/4 = 0.25.",
+    "0.25 + 0.35 = 0.6.",
+    "Total: 0.6 of a pizza."
    ],
    "standards": [
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_terminates). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which fraction is equal to a terminating decimal?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s02-honors-007",
    "skillId": "operations-fractions-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write 5/3 as a decimal. If it repeats, show the repeating digits.",
-   "answer": "1.6666… (6 repeats)",
+   "prompt": "Nia ate 3/5 of one pizza and 0.15 of another pizza of the same size. Write the total amount eaten as a decimal.",
+   "answer": "0.75",
    "solutionSteps": [
-    "Divide 25 by 15.",
-    "25 ÷ 15 = 1.6666… (6 repeats).",
-    "The division repeats."
+    "3/5 = 0.6.",
+    "0.6 + 0.15 = 0.75.",
+    "Total: 0.75 of a pizza."
    ],
    "standards": [
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_to_decimal). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Write 5/3 as a decimal. If it repeats, show the repeating digits.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s02-honors-008",
@@ -4868,36 +4870,36 @@
    "skillId": "operations-fractions-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Without calculating, is 5/8 × 22 greater than, less than, or equal to 22?",
-   "answer": "less than 22",
+   "prompt": "Each batch of muffins uses 3/4 cup of milk. Ana has 7 1/4 cups. How many full batches can she make, and how much milk is left? Give the milk left as a fraction of a cup.",
+   "answer": "1/2",
    "options": [
     {
-     "text": "cannot be determined",
+     "text": "6",
      "correct": false
     },
     {
-     "text": "less than 22",
+     "text": "1/2",
      "correct": true
     },
     {
-     "text": "greater than 22",
+     "text": "9",
      "correct": false
     },
     {
-     "text": "equal to 22",
+     "text": "2/3",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "5/8 is less than 1.",
-    "Multiplying a positive number by a number less than 1 gives a smaller product.",
-    "(5/8 × 22 = 13 3/4)"
+    "7 1/4 ÷ 3/4 = 29/4 × 4/3 = 9 2/3.",
+    "So 9 full batches use 6 3/4 cups.",
+    "Left: 7 1/4 - 6 3/4 = 1/2 cup."
    ],
    "standards": [
     "6.NS.A.1",
     "7.NS.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_estimate). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Without calculating, is 5/8 × 22 greater than, less than, or equal to ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s04-honors-004",
@@ -4960,36 +4962,36 @@
    "skillId": "operations-fractions-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Without calculating, is 3/10 × 39 greater than, less than, or equal to 39?",
-   "answer": "less than 39",
+   "prompt": "Each batch of muffins uses 3/4 cup of milk. Raj has 5 3/4 cups. How many full batches can he make, and how much milk is left? Give the milk left as a fraction of a cup.",
+   "answer": "1/2",
    "options": [
     {
-     "text": "cannot be determined",
-     "correct": false
-    },
-    {
-     "text": "greater than 39",
-     "correct": false
-    },
-    {
-     "text": "equal to 39",
-     "correct": false
-    },
-    {
-     "text": "less than 39",
+     "text": "1/2",
      "correct": true
+    },
+    {
+     "text": "1/4",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "2/3",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "3/10 is less than 1.",
-    "Multiplying a positive number by a number less than 1 gives a smaller product.",
-    "(3/10 × 39 = 11 7/10)"
+    "5 3/4 ÷ 3/4 = 23/4 × 4/3 = 7 2/3.",
+    "So 7 full batches use 5 1/4 cups.",
+    "Left: 5 3/4 - 5 1/4 = 1/2 cup."
    ],
    "standards": [
     "6.NS.A.1",
     "7.NS.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_estimate). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Without calculating, is 3/10 × 39 greater than, less than, or equal to”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s04-honors-007",
@@ -5034,36 +5036,36 @@
    "skillId": "operations-fractions-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Without calculating, is 7/8 × 35 greater than, less than, or equal to 35?",
-   "answer": "less than 35",
+   "prompt": "Each batch of muffins uses 3/4 cup of milk. Lena has 4 3/4 cups. How many full batches can she make, and how much milk is left? Give the milk left as a fraction of a cup.",
+   "answer": "1/4",
    "options": [
     {
-     "text": "cannot be determined",
+     "text": "1/3",
      "correct": false
     },
     {
-     "text": "greater than 35",
-     "correct": false
-    },
-    {
-     "text": "equal to 35",
-     "correct": false
-    },
-    {
-     "text": "less than 35",
+     "text": "1/4",
      "correct": true
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "1/2",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "7/8 is less than 1.",
-    "Multiplying a positive number by a number less than 1 gives a smaller product.",
-    "(7/8 × 35 = 30 5/8)"
+    "4 3/4 ÷ 3/4 = 19/4 × 4/3 = 6 1/3.",
+    "So 6 full batches use 4 1/2 cups.",
+    "Left: 4 3/4 - 4 1/2 = 1/4 cup."
    ],
    "standards": [
     "6.NS.A.1",
     "7.NS.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_estimate). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Without calculating, is 7/8 × 35 greater than, less than, or equal to ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s04-honors-010",
@@ -6193,18 +6195,18 @@
    "skillId": "operations-fractions-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Compare using <, >, or =: 9 feet ___ 121 inches",
-   "answer": "<",
+   "prompt": "A ribbon is 14 ft 3 in. long. Ana cuts it into 3 equal pieces. How long is each piece, in inches?",
+   "answer": "57 in.",
    "solutionSteps": [
-    "9 feet = 9 × 12 = 108 inches.",
-    "Compare 108 inches and 121 inches.",
-    "9 feet < 121 inches."
+    "14 ft 3 in. = 14 × 12 + 3 = 171 in.",
+    "171 ÷ 3.",
+    "= 57 in."
    ],
    "standards": [
     "5.MD.A.1",
     "6.RP.A.3d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Compare using <, >, or =: 9 feet ___ 121 inches”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s05-honors-003",
@@ -6265,18 +6267,18 @@
    "skillId": "operations-fractions-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Compare using <, >, or =: 5 feet ___ 75 inches",
-   "answer": "<",
+   "prompt": "A ribbon is 17 ft 8 in. long. Raj cuts it into 3 equal pieces. How long is each piece, in inches?",
+   "answer": "70 2/3 in.",
    "solutionSteps": [
-    "5 feet = 5 × 12 = 60 inches.",
-    "Compare 60 inches and 75 inches.",
-    "5 feet < 75 inches."
+    "17 ft 8 in. = 17 × 12 + 8 = 212 in.",
+    "212 ÷ 3.",
+    "= 70 2/3 in."
    ],
    "standards": [
     "5.MD.A.1",
     "6.RP.A.3d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Compare using <, >, or =: 5 feet ___ 75 inches”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s05-honors-006",
@@ -6301,54 +6303,54 @@
    "skillId": "operations-fractions-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Convert 1 1/4 pounds to ounces.",
-   "answer": "20 ounces",
+   "prompt": "A ribbon is 18 ft 6 in. long. Sam cuts it into 4 equal pieces. How long is each piece, in inches?",
+   "answer": "55 1/2 in.",
    "options": [
     {
-     "text": "21 ounces",
+     "text": "1/2 1/2 in.",
      "correct": false
     },
     {
-     "text": "1 1/4 ounces",
+     "text": "4 1/2 in.",
      "correct": false
     },
     {
-     "text": "20 ounces",
+     "text": "222 1/2 in.",
+     "correct": false
+    },
+    {
+     "text": "55 1/2 in.",
      "correct": true
-    },
-    {
-     "text": "5/64 ounces",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "1 pound = 16 ounces.",
-    "Multiply: 1 1/4 × 16.",
-    "= 20 ounces."
+    "18 ft 6 in. = 18 × 12 + 6 = 222 in.",
+    "222 ÷ 4.",
+    "= 55 1/2 in."
    ],
    "standards": [
     "5.MD.A.1",
     "6.RP.A.3d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Convert 1 1/4 pounds to ounces.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s05-honors-008",
    "skillId": "operations-fractions-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Compare using <, >, or =: 9 feet ___ 118 inches",
-   "answer": "<",
+   "prompt": "A ribbon is 17 ft 3 in. long. Lena cuts it into 3 equal pieces. How long is each piece, in inches?",
+   "answer": "69 in.",
    "solutionSteps": [
-    "9 feet = 9 × 12 = 108 inches.",
-    "Compare 108 inches and 118 inches.",
-    "9 feet < 118 inches."
+    "17 ft 3 in. = 17 × 12 + 3 = 207 in.",
+    "207 ÷ 3.",
+    "= 69 in."
    ],
    "standards": [
     "5.MD.A.1",
     "6.RP.A.3d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Compare using <, >, or =: 9 feet ___ 118 inches”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s05-honors-009",
@@ -6445,36 +6447,36 @@
    "skillId": "operations-fractions-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Convert 9 1/4 feet to yards.",
-   "answer": "3 1/12 yards",
+   "prompt": "A ribbon is 15 ft 6 in. long. Owen cuts it into 4 equal pieces. How long is each piece, in inches?",
+   "answer": "46 1/2 in.",
    "options": [
     {
-     "text": "27 3/4 yards",
-     "correct": false
-    },
-    {
-     "text": "4 1/12 yards",
-     "correct": false
-    },
-    {
-     "text": "3 1/12 yards",
+     "text": "46 1/2 in.",
      "correct": true
     },
     {
-     "text": "9 1/4 yards",
+     "text": "186 1/2 in.",
+     "correct": false
+    },
+    {
+     "text": "4 1/2 in.",
+     "correct": false
+    },
+    {
+     "text": "1/2 1/2 in.",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "1 yard = 3 feet.",
-    "Divide: 9 1/4 ÷ 3.",
-    "= 3 1/12 yards."
+    "15 ft 6 in. = 15 × 12 + 6 = 186 in.",
+    "186 ÷ 4.",
+    "= 46 1/2 in."
    ],
    "standards": [
     "5.MD.A.1",
     "6.RP.A.3d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Convert 9 1/4 feet to yards.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s05-honors-013",
@@ -7519,19 +7521,18 @@
    "skillId": "operations-fractions-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve: n + 1/2 = 23/10",
-   "answer": "n = 1 4/5",
+   "prompt": "A puppy gained 2 3/4 lb this month and now weighs 7 7/8 lb. Write and solve an equation for its weight w last month. Write a mixed number.",
+   "answer": "w = 5 1/8",
    "solutionSteps": [
-    "Subtract 1/2 on both sides.",
-    "Use a common denominator.",
-    "n = 1 4/5.",
-    "Check by substituting."
+    "w + 2 3/4 = 7 7/8.",
+    "Subtract 2 3/4 from both sides, using a common denominator of 8.",
+    "w = 5 1/8 lb."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.NS.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: n + 1/2 = 23/10”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s06-honors-002",
@@ -7575,37 +7576,36 @@
    "skillId": "operations-fractions-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Solve: k + 1/4 = 15/4",
-   "answer": "k = 3 1/2",
+   "prompt": "A puppy gained 1 1/4 lb this month and now weighs 7 1/8 lb. Write and solve an equation for its weight w last month. Write a mixed number.",
+   "answer": "w = 5 7/8",
    "options": [
     {
-     "text": "k = 4",
+     "text": "w = 7/8 7/8",
      "correct": false
     },
     {
-     "text": "k = 3 1/2",
+     "text": "w = 1/8 7/8",
+     "correct": false
+    },
+    {
+     "text": "w = 5 7/8",
      "correct": true
     },
     {
-     "text": "k = 3 3/4",
-     "correct": false
-    },
-    {
-     "text": "k = -3 1/2",
+     "text": "w = 8 7/8",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Subtract 1/4 on both sides.",
-    "Use a common denominator.",
-    "k = 3 1/2.",
-    "Check by substituting."
+    "w + 1 1/4 = 7 1/8.",
+    "Subtract 1 1/4 from both sides, using a common denominator of 8.",
+    "w = 5 7/8 lb."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.NS.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: k + 1/4 = 15/4”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s06-honors-004",
@@ -7650,93 +7650,92 @@
    "skillId": "operations-fractions-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Lena's puppy gained 2 5/8 pounds this month and now weighs 5 1/8 pounds. Solve w + 2 5/8 = 5 1/8 to find w, its weight last month.",
-   "answer": "w = 2 1/2",
+   "prompt": "A puppy gained 3 3/4 lb this month and now weighs 7 5/8 lb. Write and solve an equation for its weight w last month. Write a mixed number.",
+   "answer": "w = 3 7/8",
    "options": [
     {
-     "text": "w = 2 3/4",
+     "text": "w = 7/8 7/8",
      "correct": false
     },
     {
-     "text": "w = 5 1/8",
-     "correct": false
-    },
-    {
-     "text": "w = 2 1/2",
+     "text": "w = 3 7/8",
      "correct": true
     },
     {
-     "text": "w = 7 3/4",
+     "text": "w = 8 7/8",
+     "correct": false
+    },
+    {
+     "text": "w = 5/8 7/8",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Subtract 2 5/8 from both sides.",
-    "w = 5 1/8 - 2 5/8.",
-    "w = 2 1/2."
+    "w + 3 3/4 = 7 5/8.",
+    "Subtract 3 3/4 from both sides, using a common denominator of 8.",
+    "w = 3 7/8 lb."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.NS.A.1",
     "7.NS.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Lena's puppy gained 2 5/8 pounds this month and now weighs 5 1/8 pound”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s06-honors-007",
    "skillId": "operations-fractions-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Solve: m + 1/3 = 23/6",
-   "answer": "m = 3 1/2",
+   "prompt": "A puppy gained 3 3/4 lb this month and now weighs 8 1/8 lb. Write and solve an equation for its weight w last month. Write a mixed number.",
+   "answer": "w = 4 3/8",
    "options": [
     {
-     "text": "m = 4 1/6",
+     "text": "w = 1/8 3/8",
      "correct": false
     },
     {
-     "text": "m = 3 5/6",
+     "text": "w = 8 3/8",
      "correct": false
     },
     {
-     "text": "m = 3 1/2",
+     "text": "w = 4 3/8",
      "correct": true
     },
     {
-     "text": "m = -3 1/2",
+     "text": "w = 3/8 3/8",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Subtract 1/3 on both sides.",
-    "Use a common denominator.",
-    "m = 3 1/2.",
-    "Check by substituting."
+    "w + 3 3/4 = 8 1/8.",
+    "Subtract 3 3/4 from both sides, using a common denominator of 8.",
+    "w = 4 3/8 lb."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.NS.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: m + 1/3 = 23/6”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s06-honors-008",
    "skillId": "operations-fractions-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Lena's puppy gained 1 1/8 pounds this month and now weighs 4 5/8 pounds. Solve w + 1 1/8 = 4 5/8 to find w, its weight last month.",
-   "answer": "w = 3 1/2",
+   "prompt": "A puppy gained 3 3/4 lb this month and now weighs 7 1/8 lb. Write and solve an equation for its weight w last month. Write a mixed number.",
+   "answer": "w = 3 3/8",
    "solutionSteps": [
-    "Subtract 1 1/8 from both sides.",
-    "w = 4 5/8 - 1 1/8.",
-    "w = 3 1/2."
+    "w + 3 3/4 = 7 1/8.",
+    "Subtract 3 3/4 from both sides, using a common denominator of 8.",
+    "w = 3 3/8 lb."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.NS.A.1",
     "7.NS.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Lena's puppy gained 1 1/8 pounds this month and now weighs 4 5/8 pound”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s06-honors-009",
@@ -8679,7 +8678,7 @@
    "skillId": "operations-fractions-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Raj has read 1/2 of a book and has 15 pages left. Solve to find p, the total number of pages.",
+   "prompt": "Maya has read 1/2 of a book and has 15 pages left. Solve to find p, the total number of pages.",
    "answer": "p = 30",
    "solutionSteps": [
     "Pages left are 1/2 of the book: (1/2)p = 15.",
@@ -8888,19 +8887,19 @@
    "skillId": "operations-fractions-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Tariq has read 1/3 of a book, which is 12 pages. Solve (1/3)p = 12 to find p, the total number of pages.",
-   "answer": "p = 36",
+   "prompt": "Nia has saved 2/3 of the cost of a bike, which is $120. Write and solve an equation for the cost of the bike. If she then spends 1/4 of the savings on a helmet, how much savings are left? Give the savings left.",
+   "answer": "90",
    "solutionSteps": [
-    "Multiply both sides by 3.",
-    "p = 12 × 3.",
-    "p = 36."
+    "(2/3)c = 120, so c = 120 × 3/2 = 180 dollars.",
+    "Helmet: 1/4 × 120 = 30.",
+    "Left: 120 - 30 = 90 dollars."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.NS.A.2",
     "7.NS.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Tariq has read 1/3 of a book, which is 12 pages. Solve (1/3)p = 12 to ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s07-honors-003",
@@ -8944,56 +8943,55 @@
    "skillId": "operations-fractions-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Marco has read 1/4 of a book, which is 8 pages. Solve (1/4)p = 8 to find p, the total number of pages.",
-   "answer": "p = 32",
+   "prompt": "Zoe has saved 2/3 of the cost of a bike, which is $80. Write and solve an equation for the cost of the bike. If she then spends 1/4 of the savings on a helmet, how much savings are left? Give the savings left.",
+   "answer": "60",
    "solutionSteps": [
-    "Multiply both sides by 4.",
-    "p = 8 × 4.",
-    "p = 32."
+    "(2/3)c = 80, so c = 80 × 3/2 = 120 dollars.",
+    "Helmet: 1/4 × 80 = 20.",
+    "Left: 80 - 20 = 60 dollars."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.NS.A.2",
     "7.NS.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Marco has read 1/4 of a book, which is 8 pages. Solve (1/4)p = 8 to fi”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s07-honors-005",
    "skillId": "operations-fractions-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Solve: (1/6)m = 13/60",
-   "answer": "m = 1 3/10",
+   "prompt": "Sam has saved 3/4 of the cost of a bike, which is $225. Write and solve an equation for the cost of the bike. If he then spends 1/4 of the savings on a helmet, how much savings are left? Give the savings left.",
+   "answer": "675/4",
    "options": [
     {
-     "text": "m = 13/360",
+     "text": "300",
      "correct": false
     },
     {
-     "text": "m = 1/20",
+     "text": "225/4",
      "correct": false
     },
     {
-     "text": "m = -1 3/10",
-     "correct": false
-    },
-    {
-     "text": "m = 1 3/10",
+     "text": "675/4",
      "correct": true
+    },
+    {
+     "text": "1/4",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Multiply both sides by the reciprocal of 1/6, which is 6.",
-    "m = 13/60 × 6.",
-    "m = 1 3/10.",
-    "Check by substituting."
+    "(3/4)c = 225, so c = 225 × 4/3 = 300 dollars.",
+    "Helmet: 1/4 × 225 = 225/4.",
+    "Left: 225 - 225/4 = 675/4 dollars."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.NS.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve: (1/6)m = 13/60”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s07-honors-006",
@@ -9056,37 +9054,37 @@
    "skillId": "operations-fractions-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Grace has read 3/8 of a book, which is 36 pages. Solve (3/8)p = 36 to find p, the total number of pages.",
-   "answer": "p = 96",
+   "prompt": "Iris has saved 2/3 of the cost of a bike, which is $160. Write and solve an equation for the cost of the bike. If she then spends 1/4 of the savings on a helmet, how much savings are left? Give the savings left.",
+   "answer": "120",
    "options": [
     {
-     "text": "p = 96",
+     "text": "40",
+     "correct": false
+    },
+    {
+     "text": "120",
      "correct": true
     },
     {
-     "text": "p = 288",
+     "text": "1/4",
      "correct": false
     },
     {
-     "text": "p = 35 5/8",
-     "correct": false
-    },
-    {
-     "text": "p = 13 1/2",
+     "text": "240",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Multiply both sides by 8/3.",
-    "p = 36 × 8/3.",
-    "p = 96."
+    "(2/3)c = 160, so c = 160 × 3/2 = 240 dollars.",
+    "Helmet: 1/4 × 160 = 40.",
+    "Left: 160 - 40 = 120 dollars."
    ],
    "standards": [
     "7.EE.B.4a",
     "7.NS.A.2",
     "7.NS.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Grace has read 3/8 of a book, which is 36 pages. Solve (3/8)p = 36 to ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s07-honors-009",
@@ -10235,17 +10233,17 @@
    "skillId": "operations-fractions-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A square has side length 3/4 meter. What is its area?",
-   "answer": "9/16 square meters",
+   "prompt": "Evaluate (3/4)³ × (4/3)² by first using the power rules.",
+   "answer": "3/4",
    "solutionSteps": [
-    "Area = s².",
-    "(3/4)² = 9/16.",
-    "= 9/16 square meters."
+    "(4/3)² = 1 ÷ (3/4)², so the product is (3/4)¹.",
+    "(3/4)¹ = 3/4.",
+    "= 3/4."
    ],
    "standards": [
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A square has side length 3/4 meter. What is its area?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s08-honors-004",
@@ -10286,35 +10284,35 @@
    "skillId": "operations-fractions-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A square has side length 1/2 meter. What is its area?",
-   "answer": "1/4 square meters",
+   "prompt": "Evaluate (3/2)³ × (2/3)² by first using the power rules.",
+   "answer": "3/2",
    "options": [
     {
-     "text": "1 square meters",
+     "text": "5/2",
      "correct": false
     },
     {
-     "text": "2 square meters",
+     "text": "1",
      "correct": false
     },
     {
-     "text": "1/4 square meters",
+     "text": "2/3",
+     "correct": false
+    },
+    {
+     "text": "3/2",
      "correct": true
-    },
-    {
-     "text": "1/2 square meters",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Area = s².",
-    "(1/2)² = 1/4.",
-    "= 1/4 square meters."
+    "(2/3)² = 1 ÷ (3/2)², so the product is (3/2)¹.",
+    "(3/2)¹ = 3/2.",
+    "= 3/2."
    ],
    "standards": [
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A square has side length 1/2 meter. What is its area?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s08-honors-007",
@@ -10355,35 +10353,35 @@
    "skillId": "operations-fractions-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A square has side length 1/5 meter. What is its area?",
-   "answer": "1/25 square meters",
+   "prompt": "Evaluate (3/2)² × (2/3)³ by first using the power rules.",
+   "answer": "2/3",
    "options": [
     {
-     "text": "4/5 square meters",
+     "text": "-1",
      "correct": false
     },
     {
-     "text": "1/25 square meters",
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "2/3",
      "correct": true
     },
     {
-     "text": "2/5 square meters",
-     "correct": false
-    },
-    {
-     "text": "1/5 square meters",
+     "text": "3/2",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Area = s².",
-    "(1/5)² = 1/25.",
-    "= 1/25 square meters."
+    "(2/3)³ = 1 ÷ (3/2)³, so the product is (3/2)^-1.",
+    "(3/2)^-1 = 2/3.",
+    "= 2/3."
    ],
    "standards": [
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A square has side length 1/5 meter. What is its area?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s08-honors-010",
@@ -10442,35 +10440,35 @@
    "skillId": "operations-fractions-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A square has side length 3/5 meter. What is its area?",
-   "answer": "9/25 square meters",
+   "prompt": "Evaluate (3/2)⁴ × (2/3)² by first using the power rules.",
+   "answer": "9/4",
    "options": [
     {
-     "text": "9/25 square meters",
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "2/3",
+     "correct": false
+    },
+    {
+     "text": "3/2",
+     "correct": false
+    },
+    {
+     "text": "9/4",
      "correct": true
-    },
-    {
-     "text": "9/5 square meters",
-     "correct": false
-    },
-    {
-     "text": "6/5 square meters",
-     "correct": false
-    },
-    {
-     "text": "12/5 square meters",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Area = s².",
-    "(3/5)² = 9/25.",
-    "= 9/25 square meters."
+    "(2/3)² = 1 ÷ (3/2)², so the product is (3/2)².",
+    "(3/2)² = 9/4.",
+    "= 9/4."
    ],
    "standards": [
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_opf_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A square has side length 3/5 meter. What is its area?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-opf-s08-honors-013",

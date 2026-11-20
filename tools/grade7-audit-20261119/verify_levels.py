@@ -169,8 +169,8 @@ def main():
     banks = lib.load()
     errors, n_ = [], 0
     for u, q in lib.items(banks):
-        if 'audit 2 #3' not in q.get('sourceNotes', ''):
-            continue
+        if 'audit 2 #3' not in q.get('sourceNotes', '') or q['level'] != 'cp1':
+            continue   # Advanced rewrites come from honors.py, the generators of the Advanced h-items
         n_ += 1
         P = q['prompt'].replace('−', '-')
         hits = [(rx, fn) for rx, fn in RULES if re.search(rx, P)]
