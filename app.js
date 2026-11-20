@@ -536,7 +536,9 @@
     if (isNew(a)) tags.push('<li class="tag tag-new">New</li>');
     toArr(a.type).concat(toArr(a.level)).forEach(function (t) { tags.push('<li class="tag">' + esc(t) + '</li>'); });
     var topics = toArr(a.topics);
-    return '<li class="card" data-color="' + esc(it.c.color || '') + '" data-course="' + esc(it.c.id) + '" data-path="' + esc(a.path) + '">' +
+    /* Site UX audit (2026-11-20): one "Report a problem" link per page (see render) instead of one on every card;
+       the card keeps its report address so the chooser can offer it. */
+    return '<li class="card" data-color="' + esc(it.c.color || '') + '" data-course="' + esc(it.c.id) + '" data-path="' + esc(a.path) + '" data-report="' + esc(reportUrl(a)) + '" data-report-title="' + esc(a.title) + '">' +
       '<a class="thumb" href="' + esc(activityUrl(a)) + '" tabindex="-1" aria-hidden="true">' +
         (gameBoardThumbnail(a, it) ? '<img src="' + esc(gameBoardThumbnail(a, it)) + '" alt="" loading="lazy">' : '') + '</a>' +
       '<div class="card-body">' +
@@ -549,7 +551,6 @@
           (activityFormat(a) === 'interactive-math' ? '<a class="btn btn-ghost" href="' + esc(presentationUrl(a)) + '" aria-label="Present ' + esc(a.title) + ' to the class">▣ Present</a>' : '') +
           
           saveBtnHtml(a.path) + (/practice-test\.html#unit=([a-z0-9-]+)/i.test(a.path || '') ? '<button type="button" class="btn btn-ghost readiness-activity-share" data-readiness-unit="' + esc(/#unit=([a-z0-9-]+)/i.exec(a.path)[1]) + '">Copy student link</button>' : '') + '</div>' +
-        '<a class="report-problem" href="' + esc(reportUrl(a)) + '">Report a problem<span class="sr"> with ' + esc(a.title) + ' — choose an email application</span></a>' +
       '</div></li>';
   }
 
@@ -812,6 +813,12 @@
     return '<nav class="unit-pager" data-color="' + esc(c.color || '') + '" data-course="' + esc(c.id) + '" aria-label="Unit navigation">' +
       link(list[i - 1], 'prev') + link(list[i + 1], 'next') + '</nav>';
   }
+  var PRINTABLE_FORMATS = ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus'];
+  function isPrintable(a) {
+    if (toArr(a.type).indexOf('Game') >= 0) return false;
+    var f = activityFormat(a);
+    return PRINTABLE_FORMATS.indexOf(f) >= 0 || (f === 'printable-generator' && /[#&?]kind=/.test(a.path || ''));
+  }
   function algebraUnitView(c, u) {
     var items = u.artifacts.map(function (a) { return { a: a, c: c, u: u }; });
     var gameFormats = RESOURCE_GROUPS.filter(function (g) { return g.id === 'games'; })[0].formats;
@@ -826,7 +833,7 @@
       if(unitMap[u.id]) items.push({a:{title:'Interactive Practice Test',path:'worksheet-generator/practice-test.html#unit='+unitMap[u.id],thumb:'thumbs/practice-test.svg',description:'Online practice assessment with worked solutions and targeted skill review.',type:'Study Guide'},c:c,u:u});
     }
     function category(id, title, formats) {
-      var matches = items.filter(function (it) { return formats.indexOf(activityFormat(it.a)) >= 0; });
+      var matches = items.filter(function (it) { return typeof formats === 'function' ? formats(it.a) : formats.indexOf(activityFormat(it.a)) >= 0; });
       // Include the practice test deterministically in each supported Algebra 1 unit.
       // Use the same card renderer and thumbnail as the other study guides.
       if (id === 'study-guides') {
@@ -850,6 +857,9 @@
         generatorLinks(c, u, true) +
         category('games', 'Games', gameFormats) +
         category('study-guides', 'Study Guides', guideFormats) +
+        /* Site UX audit (2026-11-20): the unit's printables (ready-made PDFs and the printable generators, one card per
+           kind) get their own section instead of living only behind the Mazes & Puzzles shortcut. */
+        category('printables', 'Printables', isPrintable) +
         category('interactive', 'Interactive Math', interactiveFormats) +
         category('practice', 'Practice Activities', practiceFormats) +
         category('projects', 'Projects', ['projects']) +
@@ -1102,9 +1112,47 @@
       .replace(/\bunit\s*(\d+)\b/g, 'unit$1u')
       .replace(/[^a-z0-9]+/g, ' ').trim().split(' ').map(searchStem).join(' ');
   }
+  /* Site UX audit (2026-11-20): one search for everything. Besides activity cards it finds pages: pacing guides,
+     standards ("8.G.B.7" or words from a standard) and skills, each linked to its unit, from standards-index.js (loaded
+     on the first search). A grade filter narrows cards and pages alike. */
+  var searchBand = '', stdIndexState = '';
+  function courseBand(id) { return /^grade[1-5]$/.test(id) ? 'K-5' : /^(math6|prealgebra7|prealgebra)$/.test(id) ? '6-8' : '9-12'; }
+  function stdIndex() {
+    if (window.MK_STANDARDS_INDEX) return window.MK_STANDARDS_INDEX;
+    if (!stdIndexState) {
+      stdIndexState = 'loading';
+      var sc = document.createElement('script'); sc.src = 'standards-index.js?v=20261120';
+      sc.onload = function () { stdIndexState = 'ready'; if (query) render(true); };
+      sc.onerror = function () { stdIndexState = 'failed'; };
+      document.head.appendChild(sc);
+    }
+    return null;
+  }
+  function pageHits(text, terms) {
+    var I = stdIndex(), out = { std: [], skills: [] };
+    if (!I) return out;
+    var code = /^\s*([0-9]{1,2}|[A-Z]{1,3})[.-][A-Z]{1,4}[.-]?[A-Z]?[.-]?[0-9]*[a-z]?\s*$/i.test(text) ? text.trim().toUpperCase().replace(/\.([A-Z])$/, '$1') : '';
+    var inBand = function (k) { return !searchBand || courseBand(k.split('.')[0]) === searchBand; };
+    Object.keys(I.std).forEach(function (c) {
+      var list = I.std[c].filter(function (x) { return inBand(x[0]); });
+      if (!list.length) return;
+      var C = c.toUpperCase();
+      var hit = code ? C.indexOf(code.replace(/[.-]$/, '')) === 0 : terms.length && terms.every(function (t) { return searchWords((I.desc[c] || '') + ' ' + c).indexOf(t) >= 0; });
+      if (hit) out.std.push(c);
+    });
+    var seen = {};
+    Object.keys(I.std).forEach(function (c) { I.std[c].forEach(function (x) {
+      var key = x[0] + '|' + x[1]; if (seen[key] || !inBand(x[0]) || !terms.length) return;
+      if (terms.every(function (t) { return searchWords(x[1]).indexOf(t) >= 0; })) { seen[key] = 1; out.skills.push(x); }
+    }); });
+    out.std.sort(); out.skills = out.skills.slice(0, 12);
+    return out;
+  }
+  function unitHref(key) { var p = key.split('.'); return href(p[0] + '.' + p[1]); }
   function searchView(text) {
     var terms = searchWords(text).split(/\s+/).filter(Boolean);
     var items = everything().filter(function (it) {
+      if (searchBand && courseBand(it.c.id) !== searchBand) return false;
       var format = ACTIVITY_FORMATS.filter(function (f) { return f.id === activityFormat(it.a); })[0];
       var hay = searchWords([it.a.title, it.a.description, it.u.name, 'unit ' + unitNum(it.c, it.u), it.c.name, format ? format.name : '']
         .concat(toArr(it.a.type), toArr(it.a.level), toArr(it.a.topics)).join(' '));
@@ -1115,25 +1163,37 @@
       return score(b) - score(a);
     });
     var pacingHits = /\b(pacing|scope|sequence|year plan|calendar|curriculum map|planning)\b/i.test(text) ? L.courses.filter(function (c) {
-      if (!PACING_PAGES[c.id]) return false;
+      if (!PACING_PAGES[c.id] || (searchBand && courseBand(c.id) !== searchBand)) return false;
       var others = terms.filter(function (t) { return !/^(pacing|guide|scope|sequence|year|plan|calendar|curriculum|map|planning|and|for|the)$/.test(t); });
       var hay = searchWords(c.name + ' ' + c.id);
       return others.every(function (t) { return hay.indexOf(t) >= 0; });
     }) : [];
-    var pacingHtml = pacingHits.length ? '<section class="search-pages"><h2>Pacing guides</h2><ul>' + pacingHits.map(function (c) {
-      return '<li><a href="' + PACING_PAGES[c.id] + '">' + esc(c.name) + ' pacing guide</a></li>'; }).join('') + '</ul></section>' : '';
+    var I = stdIndex(), hits = pageHits(text, terms), pages = '';
+    if (pacingHits.length) pages += '<h3>Pacing guides</h3><ul>' + pacingHits.map(function (c) {
+      return '<li><a href="' + PACING_PAGES[c.id] + '">' + esc(c.name) + ' pacing guide</a></li>'; }).join('') + '</ul>';
+    if (hits.std.length) pages += '<h3>Standards</h3><ul>' + hits.std.slice(0, 8).map(function (c) {
+      return '<li><a href="standards.html#' + encodeURIComponent(c) + '">' + esc(c) + '</a> ' + esc(I.desc[c] || '') + '</li>'; }).join('') +
+      (hits.std.length > 8 ? '<li><a href="standards.html#q=' + encodeURIComponent(text) + '">All ' + hits.std.length + ' standards in the standards finder</a></li>' : '') + '</ul>';
+    if (hits.skills.length) pages += '<h3>Skills</h3><ul>' + hits.skills.map(function (x) {
+      var u = I.units[x[0]], c = L.courses.filter(function (cc) { return cc.id === x[0].split('.')[0]; })[0];
+      return '<li><a href="' + unitHref(x[0]) + '">' + esc(x[1]) + '</a> <span class="where">' + esc((c ? c.name : '') + (u ? ', ' + u[2] : '')) + '</span></li>'; }).join('') + '</ul>';
+    var pagesHtml = pages ? '<section class="search-pages"><h2>Pages</h2>' + pages + '</section>' : '';
+    var bands = [['', 'All grades'], ['K-5', 'Grades 1–5'], ['6-8', 'Grades 6–8'], ['9-12', 'High school']];
+    var bandChips = '<div class="chips search-bands" role="group" aria-label="Grade">' + bands.map(function (b) {
+      return '<button type="button" class="chip" data-search-band="' + b[0] + '" aria-pressed="' + (searchBand === b[0]) + '">' + b[1] + '</button>'; }).join('') + '</div>';
     var inner = crumbs([['Home', '#'], ['Search', null]]) +
       '<h1 tabindex="-1">Results for “' + esc(text) + '”</h1><p class="band-meta" role="status">' +
-      acts(applyFilters(items).length) + '</p>';
+      acts(applyFilters(items).length) + (hits.std.length + hits.skills.length + pacingHits.length ? ' · ' + (hits.std.length + hits.skills.length + pacingHits.length) + ((hits.std.length + hits.skills.length + pacingHits.length) === 1 ? ' page' : ' pages') : '') + '</p>';
     return {
       title: 'Search: ' + text,
       html: bandHtml(null, inner) +
-        '<section class="section"><div class="wrap"><button class="btn clear-search" type="button" id="clear-search">Clear search</button>' +
-        pacingHtml + (items.length ? chipsHtml(items) + cardsHtml(items, true) : pacingHtml ? '' :
-          '<div class="empty"><h2>No matches</h2><p>Try a topic such as slope, an activity type such as flashcards, or a subject such as Algebra 1.</p><p><a href="#activities">Browse with subject, unit, and activity filters</a></p></div>') +
+        '<section class="section"><div class="wrap"><button class="btn clear-search" type="button" id="clear-search">Clear search</button>' + bandChips +
+        pagesHtml + (items.length ? chipsHtml(items) + cardsHtml(items, true) : pagesHtml ? '' :
+          '<div class="empty"><h2>No matches</h2><p>Try a topic such as slope, an activity type such as flashcards, a standard such as 8.G.B.7, or a subject such as Algebra 1.</p><p><a href="#activities">Browse with subject, unit, and activity filters</a> or use the <a href="standards.html">standards finder</a>.</p></div>') +
         '</div></section>'
     };
   }
+
 
   function soonView(c) {
     return {
@@ -1301,6 +1361,11 @@
     if (backBtn) backBtn.hidden = !query && r && r.name === 'home';
   }
 
+  document.addEventListener('click', function (e) {
+    var b = e.target && e.target.closest && e.target.closest('[data-search-band]');
+    if (!b) return;
+    searchBand = b.getAttribute('data-search-band'); render(true);
+  });
   function render(keepFocus) {
     var r = resolve(token);
     var view;
@@ -1314,6 +1379,9 @@
     else if (r.name === 'soon') view = soonView(r.c);
     else view = notFoundView();
 
+    if (/class="card"/.test(view.html)) view.html += '<section class="section report-page"><div class="wrap"><p><a class="report-problem" data-report-choices="1" href="' +
+      esc('mailto:akneller@gmail.com?subject=' + encodeURIComponent('Mr. K\'s Classroom — Resource problem') + '&body=' + encodeURIComponent('Page: ' + (view.title || '') + '\nLink: ' + location.href)) +
+      '">Report a problem with this page or one of its activities</a></p></div></section>';
     app.innerHTML = view.html;
     try { document.title = (!query && r.name === 'home' && HOME_TITLE) ? HOME_TITLE : view.title === L.title ? L.title : view.title + ' | ' + L.title; } catch (e) {}
     updateNav(query ? null : r);

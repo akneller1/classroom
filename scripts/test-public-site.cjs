@@ -35,8 +35,8 @@ assert(count>=91,'Previously published unit pages must remain available');
 // Legacy course URLs stay reachable but are not listed: /u/<course>/ is canonical.
 const expectedStandalone=['geometry-pacing/','algebra-1-pacing/','algebra-2-pacing/','precalculus-pacing/','calculus-pacing/','discrete-math-pacing/','statistics-pacing/','grade-7-pacing/','8th-grade-math-pacing/','grade-6-pacing/'];   // Geometry pacing guide and standards coverage (2026-11-17)
 for(const page of ['courses/grade5.html','financial-algebra/'])assert(!sitemap.includes('<loc>https://mrksclassroom.com/'+page+'</loc>'),'Legacy course URL must not be in the sitemap: '+page);
-assert.equal((sitemap.match(/<loc>/g)||[]).length,count+courses.length+hubs.length+7+expectedStandalone.length,'Unexpected sitemap entry count after course integration');
-for (const page of ["about.html", "guide.html", "privacy.html", "skills.html", "backup.html", "courses/"]) {
+assert.equal((sitemap.match(/<loc>/g)||[]).length,count+courses.length+hubs.length+8+expectedStandalone.length,'Unexpected sitemap entry count after course integration');
+for (const page of ["about.html", "guide.html", "privacy.html", "skills.html", "backup.html", "standards.html", "courses/"]) {
  assert(sitemap.includes('<loc>https://mrksclassroom.com/'+page+'</loc>'), 'Missing sitemap entry: '+page);
 }
 
@@ -170,7 +170,7 @@ assert(home.includes('mailto:akneller@gmail.com?subject=')&&home.includes('Feedb
 assert(!home.includes('github.com/akneller1/classroom/issues/new'),'Footer feedback must not send visitors to GitHub');
 assert(home.includes('data-feedback-chooser'),'Footer feedback must open the email client chooser');
 assert(home.includes('id="feedbackChooser"') && home.includes('id="feedbackGmail"') && home.includes('id="feedbackOutlook"') && home.includes('id="feedbackDefault"'),'Feedback dialog must offer Gmail, Outlook and default mail');
-assert(home.includes('src="feedback.js?v=privacy-20261114"'),'Feedback chooser script missing from homepage');
+assert(home.includes('src="feedback.js?v=report-20261120"'),'Feedback chooser script missing from homepage');
 const feedbackScript=fs.readFileSync(path.join(out,'feedback.js'),'utf8');
 new (require('node:vm').Script)(feedbackScript,{filename:'feedback.js'});
 for(const required of ['mail.google.com/mail/u/0/','outlook.live.com/mail/0/deeplink/compose','a.report-problem','dialog.showModal()','gmailUrl.searchParams.set(\'body\', body)','outlookUrl.searchParams.set(\'body\', body)','nativeMail.href = links.native']){

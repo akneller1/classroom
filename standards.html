@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Standards Finder | Mr. K's Classroom</title>
+<meta name="description" content="Pick a Common Core math standard and see every skill, generator, game and Interactive Math tool that practices it, from Grade 1 to Calculus.">
+<link rel="canonical" href="https://mrksclassroom.com/standards.html"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website"><meta property="og:title" content="Standards Finder | Mr. K's Classroom"><meta property="og:url" content="https://mrksclassroom.com/standards.html">
+<style>
+:root{color-scheme:light dark}*{box-sizing:border-box}body{margin:0;font:17px/1.55 system-ui,-apple-system,sans-serif;background:#f6f8fc;color:#182335}
+header,footer{background:#142943;color:#fff;padding:1.1rem max(1rem,calc((100vw - 1040px)/2))}header a,footer a{color:#fff;margin-right:1rem}
+main{max-width:1040px;margin:auto;padding:2rem 1rem 4rem}a{color:#175aab}h1{font-size:clamp(2rem,4vw,3rem);line-height:1.15;margin:.2rem 0 .4rem}
+.lead{font-size:1.1rem;margin:0 0 1.2rem}.bar{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin:0 0 10px}
+input,select{font:inherit;padding:.65rem .8rem;border:1px solid #71819a;border-radius:10px;width:100%;background:#fff;color:inherit}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 16px}.chip{font:inherit;font-size:15px;padding:.35rem .9rem;border:1.5px solid #71819a;border-radius:999px;background:#fff;color:inherit;cursor:pointer}
+.chip[aria-pressed=true]{background:#142943;color:#fff;border-color:#142943}
+.grid{display:grid;grid-template-columns:minmax(260px,1fr) 2fr;gap:18px;align-items:start}
+.list{list-style:none;margin:0;padding:0;max-height:70vh;overflow:auto;border:1px solid #d9e2ef;border-radius:14px;background:#fff}
+.list li{border-bottom:1px solid #e7ecf5}.list button{all:unset;display:block;width:100%;padding:.6rem .8rem;cursor:pointer;box-sizing:border-box}
+.list button:hover,.list button[aria-current=true]{background:#e8f0fd}.list b{display:block}.list small{color:#4a5873}
+.code{font-weight:800;font-variant-numeric:tabular-nums}.panel{background:#fff;border:1px solid #d9e2ef;border-radius:14px;padding:1rem 1.3rem}
+.unit{border-top:1px solid #e7ecf5;padding:.7rem 0}.unit h3{margin:.2rem 0;font-size:1.05rem}.skills{margin:.2rem 0 .4rem 1.1rem;padding:0}
+.res{display:flex;flex-wrap:wrap;gap:6px;margin:.3rem 0}.res a{font-size:14px;border:1px solid #c9d5e8;border-radius:999px;padding:.15rem .6rem;text-decoration:none;background:#f3f7fd}
+.res span{font-size:13px;color:#4a5873;align-self:center;margin-right:2px}.muted{color:#4a5873}
+@media(max-width:760px){.grid,.bar{grid-template-columns:1fr}}
+@media(prefers-color-scheme:dark){body{background:#111b2a;color:#f3f5fb}.list,.panel,input,select,.chip{background:#1c2d43;border-color:#42536a}a{color:#9bcaff}.list button:hover,.list button[aria-current=true]{background:#24406a}.res a{background:#22344e;border-color:#42536a}.list small,.muted,.res span{color:#b9c6da}}
+</style>
+<link rel="stylesheet" href="/assets/site-pages.css?v=20261113">
+</head><body>
+<header><nav aria-label="Site"><a href="/">Mr. K's Classroom</a><a href="/courses/">Courses</a><a href="/skills.html">Browse by skill</a><a href="/guide.html">Teacher guide</a></nav></header>
+<main>
+<h1>Standards Finder</h1>
+<p class="lead">Pick a standard to see every skill that practices it, in every grade, with the unit's generators, games and Interactive Math tools.</p>
+<div class="bar">
+  <label>Standard or words<input id="q" type="search" placeholder="8.G.B.7, A-REI.B.4, or “area of a circle”" autocomplete="off"></label>
+  <label>Course<select id="course"><option value="">All courses</option></select></label>
+</div>
+<div class="chips" role="group" aria-label="Grade" id="bands"></div>
+<p id="status" class="muted" role="status">Loading standards…</p>
+<div class="grid"><ul class="list" id="list" aria-label="Matching standards"></ul><section class="panel" id="detail" aria-live="polite"><p class="muted">Choose a standard on the left.</p></section></div>
+</main>
+<footer><a href="/">← Back to Mr. K's Classroom</a><a href="/privacy.html">Privacy</a></footer>
+<script src="standards-index.js?v=20261120"></script>
+<script>
+(function () {
+  'use strict';
+  /* Standards finder (site UX audit, 2026-11-20). Data: standards-index.js, built at deploy by scripts/build-standards-index.mjs. */
+  var I = window.MK_STANDARDS_INDEX, $ = function (id) { return document.getElementById(id); };
+  var status = $('status'), list = $('list'), detail = $('detail'), q = $('q'), courseSel = $('course'), band = '', current = '';
+  if (!I) { status.textContent = 'The standards list could not load. Reload the page to try again.'; return; }
+  var esc = function (s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); };
+  var courseName = {}, courseBand = {};
+  I.courses.forEach(function (c) { courseName[c[0]] = c[1]; courseBand[c[0]] = c[2]; var o = document.createElement('option'); o.value = c[0]; o.textContent = c[1]; courseSel.appendChild(o); });
+  [['', 'All grades'], ['K-5', 'Grades 1–5'], ['6-8', 'Grades 6–8'], ['9-12', 'High school']].forEach(function (b) {
+    var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'chip'; btn.textContent = b[1]; btn.dataset.band = b[0];
+    btn.setAttribute('aria-pressed', String(b[0] === band)); btn.onclick = function () { band = b[0]; draw(); }; $('bands').appendChild(btn);
+  });
+  var words = function (s) { return String(s).toLowerCase().replace(/[^a-z0-9.\- ]+/g, ' ').split(/\s+/).filter(Boolean); };
+  // Grade 1 first, then by grade number; high-school domains (A-, F-, G-, N-, S-) after the grades
+  var rank = function (c) { var m = /^(\d+)\./.exec(c); return m ? +m[1] : 20; };
+  var codes = Object.keys(I.std).sort(function (a, b) { return rank(a) - rank(b) || a.localeCompare(b, 'en', { numeric: true }); });
+  function rows(code) {
+    return I.std[code].filter(function (x) { var c = x[0].split('.')[0]; return (!band || courseBand[c] === band) && (!courseSel.value || courseSel.value === c); });
+  }
+  function draw() {
+    document.querySelectorAll('#bands .chip').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.band === band)); });
+    var text = q.value.trim(), up = text.toUpperCase(), isCode = /^([0-9]{1,2}|[A-Z]{1,3})[.-]/.test(up), ws = words(text);
+    var hits = codes.filter(function (c) {
+      if (!rows(c).length) return false;
+      if (!text) return true;
+      if (isCode) return c.toUpperCase().indexOf(up) === 0;
+      var hay = (c + ' ' + (I.desc[c] || '') + ' ' + I.std[c].map(function (x) { return x[1]; }).join(' ')).toLowerCase();
+      return ws.every(function (w) { return hay.indexOf(w) >= 0; });
+    });
+    status.textContent = hits.length + ' standard' + (hits.length === 1 ? '' : 's') + (text ? ' match “' + text + '”' : '') + '.';
+    list.innerHTML = hits.slice(0, 400).map(function (c) {
+      var n = rows(c).length;
+      return '<li><button type="button" data-code="' + esc(c) + '" aria-current="' + (c === current) + '"><b class="code">' + esc(c) + '</b><small>' + esc(I.desc[c] || '') + ' · ' + n + ' skill' + (n === 1 ? '' : 's') + '</small></button></li>';
+    }).join('');
+    if (hits.length === 1 && current !== hits[0]) show(hits[0]); else if (current && hits.indexOf(current) < 0 && hits.length) show(hits[0]);
+  }
+  function show(code) {
+    current = code;
+    if (location.hash !== '#' + encodeURIComponent(code)) history.replaceState(null, '', '#' + encodeURIComponent(code));
+    list.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-current', String(b.dataset.code === code)); });
+    var byUnit = {};
+    rows(code).forEach(function (x) { (byUnit[x[0]] = byUnit[x[0]] || []).push(x[1]); });
+    var keys = Object.keys(byUnit);
+    detail.innerHTML = '<h2 class="code">' + esc(code) + '</h2><p>' + esc(I.desc[code] || '') + '</p><p class="muted">Practiced in ' + keys.length + ' unit' + (keys.length === 1 ? '' : 's') + '.</p>' +
+      keys.map(function (k) {
+        var u = I.units[k] || [k.split('.')[0], k.split('.')[1], k.split('.')[1], []], res = u[3];
+        var group = function (kind, label) { var r = res.filter(function (x) { return x[0] === kind; }); return r.length ? '<div class="res"><span>' + label + '</span>' + r.map(function (x) { return '<a href="' + esc(x[2]) + '">' + esc(x[1]) + '</a>'; }).join('') + '</div>' : ''; };
+        return '<div class="unit"><h3><a href="/#' + esc(u[0] + '.' + u[1]) + '">' + esc(courseName[u[0]] || u[0]) + ' · ' + esc(u[2]) + '</a></h3><ul class="skills">' +
+          byUnit[k].map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ul>' + group('Make', 'Make') + group('Play', 'Play') + group('Explore', 'Explore') + '</div>';
+      }).join('');
+  }
+  list.addEventListener('click', function (e) { var b = e.target.closest('button[data-code]'); if (b) show(b.dataset.code); });
+  q.addEventListener('input', draw); courseSel.addEventListener('change', draw);
+  var h = decodeURIComponent(location.hash.slice(1));
+  if (/^q=/.test(h)) q.value = h.slice(2); else if (h && I.std[h]) { q.value = h; }
+  draw();
+  if (h && I.std[h]) show(h);
+})();
+</script>
+<script src="feedback.js?v=report-20261120"></script>
+</body></html>
