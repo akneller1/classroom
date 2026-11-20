@@ -86,6 +86,18 @@ if (SITE && fs.existsSync(SITE)) {
     .flatMap((c) => fs.readdirSync(path.join(SITE, 'question-banks', c)).filter((f) => f.endsWith('.json')).map((f) => fs.readFileSync(path.join(SITE, 'question-banks', c, f), 'utf8'))).join('\n');
   ok(!/(?<![\d.])\b1 (?:feet|inches|apples|cups|years)\b/.test(all.replace(/[-+=−×] 1 /g, '')) && !/\bthe the\b/.test(all), 'plural after 1 and doubled words');
   
+  /* #20 picture descriptions no longer state the answer */
+  let giveaways = 0;
+  for (const c of fs.readdirSync(path.join(SITE, 'question-banks'))) {
+    const dir = path.join(SITE, 'question-banks', c); if (!fs.statSync(dir).isDirectory()) continue;
+    for (const f of fs.readdirSync(dir).filter((x) => x.endsWith('.json'))) for (const q of JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')).questions || []) {
+      const alt = (q.diagram && q.diagram.spec && q.diagram.spec.alt) || '', a = typeof q.answer === 'string' ? q.answer.trim().toLowerCase().replace(/\.$/, '') : '';
+      if (!alt || a.length < 2) continue;
+      if (/\bname\b|what shape is this|which name matches|which equation matches the graph|solution of the system|solution to the system/i.test(q.prompt) && alt.toLowerCase().replace(/square (corners|faces)|rectangle faces/g, '').includes(a)) { giveaways++; if (giveaways < 4) console.log('  alt still gives the answer:', q.id, alt.slice(0, 80)); }
+      if (/(which shape|is the shape) (is )?cut into (halves|fourths)/i.test(q.prompt) && /(un)?equal parts/.test(alt)) giveaways++;
+    }
+  }
+  ok(giveaways === 0, giveaways + ' picture descriptions still state the answer');
   const si = path.join(SITE, 'standards-index.js');
   if (fs.existsSync(si)) {
     const sw = {}; sw.window = sw; vm.createContext(sw); vm.runInContext(fs.readFileSync(si, 'utf8'), sw); const SI = sw.MK_STANDARDS_INDEX;
