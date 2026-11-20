@@ -135,6 +135,8 @@ for (const c of ['financial-algebra', 'statistics']) for (const f of fs.readdirS
   ok(/<label for="in-x">/.test(fs.readFileSync(path.join(ROOT, 'artifacts/geometry-shipwreck-salvage/script.js'), 'utf8')), '#18 Shipwreck Salvage inputs are labelled');
   ok(/relevel\(s\.blurb\)/.test(fs.readFileSync(path.join(ROOT, 'worksheet-generator/menu/app.js'), 'utf8')), '#14 skill hints use Support/Standard/Advanced');
   ok(!/NS\.LEVELS\[id\]\.name;\}$/m.test(fs.readFileSync(path.join(ROOT, 'worksheet-generator/menu/match-game.js'), 'utf8')), '#14 card-sort header uses public level names');
+  const labCss = fs.readFileSync(path.join(ROOT, 'artifacts/interactive-math/lab.css'), 'utf8');
+  ok(/--orange:#ad4a00;/.test(labCss) && /--green:#0a7550;/.test(labCss) && /--red:#c8203f;/.test(labCss), '#16 Interactive Math text colors reach 4.5:1');
   if (SITE) {
     const gh = [];
     (function walk(d) { for (const f of fs.readdirSync(d)) { const p = path.join(d, f); if (fs.statSync(p).isDirectory()) { if (!/^(vendor|node_modules)$/.test(f)) walk(p); } else if (f.endsWith('.html') && fs.readFileSync(p, 'utf8').includes('github.com/akneller1/classroom/issues')) gh.push(path.relative(SITE, p)); } })(SITE);
