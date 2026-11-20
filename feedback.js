@@ -61,8 +61,10 @@
     var links;
     try { links = composeLinks(mailto); } catch (_) { return; }
     if (!links) return;
-    activeMail = mailto; activeBody = new URL(mailto, document.baseURI).searchParams.get('body') || ('Page: ' + document.title + '\nLink: ' + location.href);
-    page.value = activeBody; details.value = ''; kind.value = 'Other';
+    activeMail = mailto; activeBody = new URL(mailto, document.baseURI).searchParams.get('body') || '';
+    /* A generic link (footer, home page) carries only a template: name the page the visitor is on (site audit 2, 2026-11-20). */
+    if (!/https?:\/\//.test(activeBody)) activeBody = 'Page: ' + document.title + '\nLink: ' + location.href;
+    page.value = activeBody.replace(/\n+/g, ' · '); details.value = ''; kind.value = 'Other';
     /* A page-level link (one per page, 2026-11-20) asks which activity the problem is with. */
     var pick = document.getElementById('feedbackActivity');
     if (pick) pick.parentNode.parentNode.removeChild(pick.parentNode);

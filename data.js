@@ -647,7 +647,7 @@ window.LIBRARY = {
               "title": "Night at the Number Museum",
               "path": "artifacts/foundations-algebra-escape-room/index.html",
               "thumb": "thumbs/foundations-algebra-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five galleries with a cipher, hidden clues, property plaques, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five galleries with a cipher, hidden clues, property plaques, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Order of operations",
@@ -861,7 +861,7 @@ window.LIBRARY = {
               "title": "The Great Rigged Bake-Off",
               "path": "artifacts/expressions-equations-escape-room/index.html",
               "thumb": "thumbs/expressions-equations-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Combining like terms",
@@ -1156,7 +1156,7 @@ window.LIBRARY = {
               "title": "Code Red: Station Nimbus",
               "path": "artifacts/inequalities-escape-room/index.html",
               "thumb": "thumbs/inequalities-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Compound inequalities",
@@ -1527,7 +1527,7 @@ window.LIBRARY = {
               "title": "Escape the Function Factory",
               "path": "artifacts/relations-functions-escape-room/index.html",
               "thumb": "thumbs/relations-functions-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with a function machine, a cipher with a hidden shift, a function-or-not sorting belt, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with a function machine, a cipher with a hidden shift, a function-or-not sorting belt, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Domain and range",
@@ -1760,7 +1760,7 @@ window.LIBRARY = {
               "title": "Avalanche Patrol: Race to the Lodge",
               "path": "artifacts/linear-equations-slope-escape-room/index.html",
               "thumb": "thumbs/linear-equations-slope-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Slope from points, tables, and graphs",
@@ -2050,7 +2050,7 @@ window.LIBRARY = {
               "title": "Locked In: Night at the Museum",
               "path": "artifacts/systems-of-equations-escape-room/index.html",
               "thumb": "thumbs/systems-of-equations-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Checking and graphing solutions",
@@ -2105,7 +2105,7 @@ window.LIBRARY = {
               "title": "Treasure Island: The Feasible Region",
               "path": "artifacts/graphing-inequalities-escape-room/index.html",
               "thumb": "thumbs/graphing-inequalities-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Solid and dashed boundary lines",
@@ -2463,7 +2463,7 @@ window.LIBRARY = {
               "title": "Escape the Rocket Lab",
               "path": "artifacts/exponents-scientific-notation-escape-room/index.html",
               "thumb": "thumbs/exponents-scientific-notation-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with fuel gauges, a cipher with a hidden shift, a true-or-false airlock, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with fuel gauges, a cipher with a hidden shift, a true-or-false airlock, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Exponent rules",
@@ -2697,7 +2697,7 @@ window.LIBRARY = {
               "title": "Dr. Petri’s Growth Lab",
               "path": "artifacts/exponents-exponential-functions-escape-room/index.html",
               "thumb": "thumbs/exponents-exponential-functions-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Exponent rules",
@@ -3064,7 +3064,7 @@ window.LIBRARY = {
               "title": "Escape the Toy Workshop",
               "path": "artifacts/polynomials-escape-room/index.html",
               "thumb": "thumbs/polynomials-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with a block machine, a cipher with a hidden shift, monomial-binomial-trinomial sorting bins, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with a block machine, a cipher with a hidden shift, monomial-binomial-trinomial sorting bins, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Classifying polynomials",
@@ -3270,7 +3270,7 @@ window.LIBRARY = {
               "title": "The Wizard’s Spell Library",
               "path": "artifacts/polynomials-factoring-escape-room/index.html",
               "thumb": "thumbs/polynomials-factoring-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Adding, subtracting and multiplying polynomials",
@@ -3561,7 +3561,7 @@ window.LIBRARY = {
               "title": "Thunder Bolt: Launch Gone Wrong",
               "path": "artifacts/quadratics-escape-room/index.html",
               "thumb": "thumbs/quadratics-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Solving quadratic equations",
@@ -3929,7 +3929,7 @@ window.LIBRARY = {
               "title": "Escape the Stats Lab",
               "path": "artifacts/statistics-data-modeling-escape-room/index.html",
               "thumb": "thumbs/statistics-data-modeling-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with a data wall, a cipher with a hidden shift, a correlation sorting room, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with a data wall, a cipher with a hidden shift, a correlation sorting room, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Measures of center and spread",
@@ -4087,7 +4087,7 @@ window.LIBRARY = {
               "title": "Mirror Maze Mayhem",
               "path": "artifacts/functions-transformations-escape-room/index.html",
               "thumb": "thumbs/functions-transformations-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with a cipher, graph-reading locks, a combination-safe dial puzzle, a logic order lock, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with a cipher, graph-reading locks, a combination-safe dial puzzle, a logic order lock, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Transformations of graphs",
@@ -4210,7 +4210,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Function Operations & Evaluation",
               "path": "artifacts/algebra2-functions-transformations-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-functions-transformations-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4222,7 +4222,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Transformations of Functions",
               "path": "artifacts/algebra2-functions-transformations-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-functions-transformations-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4353,7 +4353,7 @@ window.LIBRARY = {
               "title": "Blizzard at Summit Lodge",
               "path": "artifacts/linear-functions-systems-escape-room/index.html",
               "thumb": "thumbs/linear-functions-systems-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with a cipher, a scatter-plot trend line, a feasible-region check, a combination-vault dial puzzle (3 by 3 system), a linear programming order lock, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with a cipher, a scatter-plot trend line, a feasible-region check, a combination-vault dial puzzle (3 by 3 system), a linear programming order lock, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Linear functions",
@@ -4476,7 +4476,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Linear Equations & Graphs",
               "path": "artifacts/algebra2-linear-functions-systems-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-linear-functions-systems-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4488,7 +4488,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Systems of Equations & Inequalities",
               "path": "artifacts/algebra2-linear-functions-systems-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-linear-functions-systems-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4619,7 +4619,7 @@ window.LIBRARY = {
               "title": "Lockdown at Fountain Park",
               "path": "artifacts/quadratic-functions-complex-numbers-escape-room/index.html",
               "thumb": "thumbs/quadratic-functions-complex-numbers-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with a cipher, a parabola graph to write in vertex form, a graphs-and-discriminants true/false panel, a valve-vault dial puzzle (discriminant, vertex, powers of i), a complex-solutions order lock, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with a cipher, a parabola graph to write in vertex form, a graphs-and-discriminants true/false panel, a valve-vault dial puzzle (discriminant, vertex, powers of i), a complex-solutions order lock, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Quadratic functions",
@@ -4742,7 +4742,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Solving Quadratic Equations",
               "path": "artifacts/algebra2-quadratic-functions-complex-numbers-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-quadratic-functions-complex-numbers-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4754,7 +4754,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Complex Numbers & Parabolas",
               "path": "artifacts/algebra2-quadratic-functions-complex-numbers-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-quadratic-functions-complex-numbers-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4884,7 +4884,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Polynomial Operations & Graphs",
               "path": "artifacts/algebra2-polynomial-functions-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-polynomial-functions-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4896,7 +4896,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Zeros, Factoring & Inequalities",
               "path": "artifacts/algebra2-polynomial-functions-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-polynomial-functions-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -5058,7 +5058,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Simplifying Radicals & Exponents",
               "path": "artifacts/algebra2-radicals-rational-exponents-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-radicals-rational-exponents-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -5070,7 +5070,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Radical Equations & Functions",
               "path": "artifacts/algebra2-radicals-rational-exponents-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-radicals-rational-exponents-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -5217,7 +5217,7 @@ window.LIBRARY = {
               "title": "Pressure Drop: Escape the Deep",
               "path": "artifacts/exponential-logarithmic-functions-escape-room/index.html",
               "thumb": "thumbs/exponential-logarithmic-functions-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Exponential decay and half-life",
@@ -5356,7 +5356,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Exponential & Log Basics",
               "path": "artifacts/algebra2-exponential-logarithmic-functions-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-exponential-logarithmic-functions-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -5368,7 +5368,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Exp & Log Equations and Graphs",
               "path": "artifacts/algebra2-exponential-logarithmic-functions-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-exponential-logarithmic-functions-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -5498,7 +5498,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Rational Expressions & Equations",
               "path": "artifacts/algebra2-rational-functions-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-rational-functions-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -5510,7 +5510,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Graphs of Rational Functions",
               "path": "artifacts/algebra2-rational-functions-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-rational-functions-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -5672,7 +5672,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Arithmetic & Geometric Sequences",
               "path": "artifacts/algebra2-sequences-series-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-sequences-series-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -5684,7 +5684,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Series, Binomials & Applications",
               "path": "artifacts/algebra2-sequences-series-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-sequences-series-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -5846,7 +5846,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Circles & Parabolas",
               "path": "artifacts/algebra2-conic-sections-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-conic-sections-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -5858,7 +5858,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Ellipses & Hyperbolas",
               "path": "artifacts/algebra2-conic-sections-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-conic-sections-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -6020,7 +6020,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Radians, Unit Circle & Right-Triangle Trig",
               "path": "artifacts/algebra2-trigonometric-functions-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-trigonometric-functions-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -6032,7 +6032,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Graphs of Trig Functions & Trig Equations",
               "path": "artifacts/algebra2-trigonometric-functions-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-trigonometric-functions-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -6181,7 +6181,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Counting & Probability",
               "path": "artifacts/algebra2-probability-statistics-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-probability-statistics-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -6193,7 +6193,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Statistics & Normal Distributions",
               "path": "artifacts/algebra2-probability-statistics-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-probability-statistics-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included (see the Teacher Guide).",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -6403,7 +6403,7 @@ window.LIBRARY = {
               "title": "Temple of Logic: Jungle Escape",
               "path": "artifacts/basics-reasoning-escape-room/index.html",
               "thumb": "thumbs/basics-reasoning-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Segment addition and midpoints",
@@ -6667,7 +6667,7 @@ window.LIBRARY = {
               "title": "Crossing Tracks: Rail Yard Escape",
               "path": "artifacts/angles-parallel-lines-escape-room/index.html",
               "thumb": "thumbs/angles-parallel-lines-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Vertical angles and linear pairs",
@@ -6931,7 +6931,7 @@ window.LIBRARY = {
               "title": "Glitch World: Trapped in the Game",
               "path": "artifacts/coordinate-geometry-transformations-escape-room/index.html",
               "thumb": "thumbs/coordinate-geometry-transformations-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Distance, midpoint and slope",
@@ -7181,7 +7181,7 @@ window.LIBRARY = {
               "title": "Lockdown at the Robot Factory",
               "path": "artifacts/triangles-congruence-escape-room/index.html",
               "thumb": "thumbs/triangles-congruence-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Triangle inequality and angle sums",
@@ -7330,7 +7330,7 @@ window.LIBRARY = {
               "title": "Starlight Observatory: Locked Under the Stars",
               "path": "artifacts/triangle-relationships-escape-room/index.html",
               "thumb": "thumbs/triangle-relationships-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key (code 205).",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Triangle relationships",
@@ -7681,7 +7681,7 @@ window.LIBRARY = {
               "title": "The Shrink-Ray Workshop",
               "path": "artifacts/similarity-escape-room/index.html",
               "thumb": "thumbs/similarity-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Ratios and proportions",
@@ -7948,7 +7948,7 @@ window.LIBRARY = {
               "title": "Rotor Rescue: Summit Mission",
               "path": "artifacts/right-triangles-trigonometry-escape-room/index.html",
               "thumb": "thumbs/right-triangles-trigonometry-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Pythagorean Theorem and its converse",
@@ -8081,7 +8081,7 @@ window.LIBRARY = {
               "title": "Lockdown at the Tile Factory",
               "path": "artifacts/quadrilaterals-polygons-escape-room/index.html",
               "thumb": "thumbs/quadrilaterals-polygons-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key (code 205).",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Quadrilaterals and polygons",
@@ -8448,7 +8448,7 @@ window.LIBRARY = {
               "title": "Carnival After Dark: Locked In the Midway",
               "path": "artifacts/circles-escape-room/index.html",
               "thumb": "thumbs/circles-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Circumference, area, arcs and sectors",
@@ -8746,7 +8746,7 @@ window.LIBRARY = {
               "title": "The Pharaoh’s Pyramid: Sealed Inside",
               "path": "artifacts/area-surface-area-volume-escape-room/index.html",
               "thumb": "thumbs/area-surface-area-volume-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Teacher answer key included (see the Teacher Guide).",
               "type": "Game",
               "topics": [
                 "Area of polygons and composite figures",

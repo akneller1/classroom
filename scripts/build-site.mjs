@@ -22,6 +22,12 @@ import { courseJsonLd, unitJsonLd, unitStandards } from "./structured-data.mjs";
 import { geoUnitGuide, geoPacingMain, planningPage, planningCourses } from "./geo-planning.mjs";
 import { unitPageTitle, coursePageTitle, unitDescription, courseDescription, unitBody, courseBody, itemHtml as itemHtmlCopy, EXTRA_CSS } from "./page-copy.mjs";
 
+// Footer feedback uses the same email-draft dialog as the home page (feedback.js), never a GitHub form (site audit 2 #9).
+const FEEDBACK_HREF = (fs.readFileSync(new URL("../index.html", import.meta.url), "utf8").match(/data-feedback-chooser href="([^"]+)"/) || [])[1];
+if (!FEEDBACK_HREF) throw Error("index.html has no data-feedback-chooser link");
+const feedbackLink = (depth) => `<a data-feedback-chooser href="${FEEDBACK_HREF}">Send feedback</a><script src="${"../".repeat(depth)}feedback.js?v=report-20261120b" defer></script>`;
+
+
 const ROOT = process.cwd();
 const OUT = path.join(ROOT, "_site");
 const SITE_URL = (process.env.SITE_URL || "https://mrksclassroom.com/").replace(/\/?$/, "/");
@@ -373,7 +379,7 @@ ${c.units.map((u) => `<li><a href="${htmlEsc(u.slug)}/">${htmlEsc(u.title)}</a> 
 ${planningCourses.includes(c.id) ? `<h2>Planning</h2>\n<ul class="mk-skills"><li><a href="../../${planningPage(c.id)}">${htmlEsc(c.id === "algebra" ? "Algebra 1" : c.title)} pacing guide and standards coverage</a>: full-year and block plans, and which skills practice each ${c.id === "discrete" ? "standard" : "Common Core standard"}</li></ul>` : ""}
 <a class="open-app" href="../../#${encodeURIComponent(c.id)}">Open ${htmlEsc(c.title)} in the full classroom site</a>
 </main>
-<footer>© 2026 ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>
+<footer>© 2026 ${htmlEsc(SITE_NAME)} · ${feedbackLink(courseDepth)}</footer>
 </div>
 </body>
 </html>
@@ -409,7 +415,7 @@ ${u.skills.map(skill => `<li>${htmlEsc(skill)}</li>`).join("\n")}
 ${planningCourses.includes(c.id) ? geoUnitGuide(u.title, c.id) : ""}
 <a class="open-app" href="${appLink}">Open this unit in the full classroom site</a>
 </main>
-<footer>© 2026 ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>
+<footer>© 2026 ${htmlEsc(SITE_NAME)} · ${feedbackLink(depth)}</footer>
 </div>
 </body>
 </html>
@@ -435,7 +441,7 @@ ${headTags({ title: cName + " Pacing Guide and Standards Coverage | " + SITE_NAM
 <main>
 ${geoPacingMain(c.id, (t) => { const uu = c.units.find((x) => x.title === t); return "../" + (uu ? unitUrl(c, uu) : courseUrl(c)); })}
 </main>
-<footer>© 2026 ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>
+<footer>© 2026 ${htmlEsc(SITE_NAME)} · ${feedbackLink(1)}</footer>
 </div>
 </body>
 </html>
@@ -475,7 +481,7 @@ ${geoPacingMain(c.id, (t) => { const uu = c.units.find((x) => x.title === t); re
     const n = [...byDomain.values()].reduce((a, l) => a + l.length, 0);
     if (n) {
       const url = SITE_URL + "u/grade7/";
-      const title = "7th Grade Math Worksheets, Games & Activities | " + SITE_NAME;
+      const title = "7th Grade Math by Standard: Skills for Every Grade 7 Standard | " + SITE_NAME;  // distinct from the course page (site audit 2 #12)
       const description = "Free 7th grade math worksheets, games and lesson plans for every Grade 7 standard: ratios, integers, expressions, equations, geometry and probability.";
       const sections = DOMAINS.filter(([k]) => byDomain.get(k).length).map(([k, label]) => `<h2>${htmlEsc(label)} (7.${k})</h2>
 <ul class="mk-items">
@@ -485,20 +491,20 @@ ${byDomain.get(k).map((x) => `<li><a href="../prealgebra7/${htmlEsc(x.unit.slug)
 <html lang="en">
 <head>
 ${headTags({ title, description, url, depth: 2, fontsHref: GOOGLE_FONTS_HOME })}
-${courseJsonLd({ siteUrl: SITE_URL, courseName: "7th Grade Math", courseUrl: url, description })}
+${courseJsonLd({ siteUrl: SITE_URL, courseName: "7th Grade Math by Standard", courseUrl: url, description })}
 <style>${PAGE_CSS}</style>
 </head>
 <body>
 <div class="wrap">
-<p class="crumbs"><a href="../../">${htmlEsc(SITE_NAME)}</a> / 7th Grade Math</p>
+<p class="crumbs"><a href="../../">${htmlEsc(SITE_NAME)}</a> / 7th Grade Math by Standard</p>
 <main>
-<h1>7th Grade Math Worksheets, Games &amp; Lessons</h1>
+<h1>7th Grade Math by Standard</h1>
 <p class="lede">${htmlEsc(description)}</p>
 <p>Every Grade 7 standard is taught in the <a href="../prealgebra7/">7th Grade Math</a> course, the accelerated 7th-grade path that also covers most of Grade 8. If your class follows the standard path, use the skills below: each one links to its unit page with worksheets, games, lesson plans and practice tests at the Support, Standard and Advanced levels. For the next year, see <a href="../prealgebra/">8th Grade Math</a>; for review, see <a href="../math6/">6th Grade Math</a>.</p>
 ${sections}
 <a class="open-app" href="../prealgebra7/">See the full 7th Grade Math course</a>
 </main>
-<footer>© 2026 ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>
+<footer>© 2026 ${htmlEsc(SITE_NAME)} · ${feedbackLink(2)}</footer>
 </div>
 </body>
 </html>

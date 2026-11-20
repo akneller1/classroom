@@ -73,3 +73,10 @@ h2 { margin-top: 0; border-bottom: 2px solid #7f8c8d; padding-bottom: 10px; font
 .error { background: rgba(231, 76, 60, 0.2); color: #e74c3c; border: 1px solid #e74c3c; }
 
 .perimeter-input { width: 120px; font-size: 1.2rem; padding: 5px; text-align: center; font-family: 'Cambria Math', 'Times New Roman', serif; border-radius: 4px; border: 2px solid #bdc3c7; }
+
+/* Phones (site audit 2 #17): stack the panels so nothing runs off the screen. */
+@media (max-width: 700px) {
+    body { padding: 10px; }
+    .game-container { flex-direction: column; }
+    .game-container > .panel { width: 100%; min-width: 0; box-sizing: border-box; overflow-x: auto; }
+}

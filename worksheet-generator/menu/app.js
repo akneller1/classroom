@@ -4,6 +4,8 @@
    All state lives in this browser (autosaved to localStorage) and can be exported as a file. */
 (function (G) {
   'use strict';
+  /* Skill hints name levels with the public words (site audit 2 #14): (CP2) → Support, (CP1) → Standard, (Honors) → Advanced. */
+  function relevel(t) { return String(t || '').replace(/\(CP2\)/g, '(Support)').replace(/\(CP1\)/g, '(Standard)').replace(/\(Honors\)/g, '(Advanced)'); }
   var NS = G.MKMENU, WS = G.MKWS, doc = G.document;
   var $ = function (s, r) { return (r || doc).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || doc).querySelectorAll(s)); };
@@ -130,7 +132,7 @@
         return '<label class="mm-level' + (c.level === k ? ' on' : '') + '"><input type="radio" name="mmLevel" value="' + k + '"' + (c.level === k ? ' checked' : '') + '><b>' + esc(NS.courseLevelName(c.unitId,k)) + '</b><small>' + esc(/^grade[1-5]-/.test(c.unitId) ? {cp2:'More support, clear wording and foundational practice.',cp1:'Grade-level skills and applications.',honors:'Deeper reasoning, extensions and multi-part challenges.'}[k] : /^statistics-/.test(c.unitId) ? {cp2:'Scaffolded statistical concepts, clear wording, and guided calculations.',cp1:'Standard statistical calculations, study design, and interpretation.',honors:'Deeper reasoning, multi-part investigations, and interpretation of assumptions.'}[k] : L.about) + '</small><small class="mm-tiers">Difficulty by section: ' + L.tiers.map(function (t) { return t + ' ' + NS.DIFF_NAMES[t]; }).join(' → ') + '</small></label>';
       }).join('') + '</div>' +
       '<label class="field"><span class="lbl">Answers</span><select id="mmAnswers">' +
-      (set.authoredBank ? [['auto', 'Use the answer forms and rounding stated in each question']] : [['auto', 'Match the level (whole numbers for CP2/CP1, fractions allowed for Honors)'], ['integers', 'Whole-number answers only'], ['fractions', 'Allow fraction answers']]).map(function (o) { return '<option value="' + o[0] + '"' + (c.answers === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></label></section>';
+      (set.authoredBank ? [['auto', 'Use the answer forms and rounding stated in each question']] : [['auto', 'Match the level (whole numbers for Support and Standard, fractions allowed for Advanced)'], ['integers', 'Whole-number answers only'], ['fractions', 'Allow fraction answers']]).map(function (o) { return '<option value="' + o[0] + '"' + (c.answers === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></label></section>';
     // 3
     if (NS.isTest(c)) h += testPartsHtml(c, rules); else
     h += '<section class="card mm-card" id="mmMenu"><h2><span class="step">3</span>Menu sections and rules</h2>' +
@@ -159,7 +161,7 @@
       Object.keys(set.tags).map(function (t) {
         var list = set.skills.filter(function (s) { return s.tag === t; });
         return '<fieldset class="mm-skillgrp"><legend><span class="mm-chip">' + esc(t) + '</span> ' + esc(set.tags[t]) + '</legend>' + list.map(function (s) {
-          return '<label class="chk"><input type="checkbox" class="mmSkill" value="' + s.id + '"' + (c.skills[s.id] ? ' checked' : '') + (NS.skillLevelAllowed(c, s) ? '' : ' disabled') + '><span>' + esc(s.name) + '<small>' + esc(s.blurb) + (NS.skillLevelAllowed(c, s) ? '' : ' (' + ((s.levels || [])[0] === 'cp1' ? 'Standard and Advanced only' : 'Advanced only') + ')') + '</small></span><button type="button" class="link mmSample" data-skill="' + s.id + '">Sample</button></label>';
+          return '<label class="chk"><input type="checkbox" class="mmSkill" value="' + s.id + '"' + (c.skills[s.id] ? ' checked' : '') + (NS.skillLevelAllowed(c, s) ? '' : ' disabled') + '><span>' + esc(s.name) + '<small>' + esc(relevel(s.blurb)) + (NS.skillLevelAllowed(c, s) ? '' : ' (' + ((s.levels || [])[0] === 'cp1' ? 'Standard and Advanced only' : 'Advanced only') + ')') + '</small></span><button type="button" class="link mmSample" data-skill="' + s.id + '">Sample</button></label>';
         }).join('') + '</fieldset>';
       }).join('') +
       '<div class="mm-gaps">' + (set.authoredBank ? '<b>Question coverage:</b> all listed topics are available from approved question banks.' : !(set.gaps || []).length ? '<b>Question coverage:</b> every topic listed above is generated and checked by the verifier.' : '<b>Not generated yet in this unit:</b><ul>' + set.gaps.map(function (g) { return '<li>' + esc(g) + '</li>'; }).join('') + '</ul>') + '</div></section>';

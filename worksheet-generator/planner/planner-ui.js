@@ -492,7 +492,7 @@
   }
   function curNotes() { return ui.notes || (ui.plan ? ui.plan.notesMode : 'fill'); }
   function controls() {
-    var lv = ['cp2', 'cp1', 'honors'].map(function (id) { var L = NS.LEVELS[id]; return '<label class="pl-lv' + (ui.level === id ? ' on' : '') + '"><input type="radio" name="plLevel" value="' + id + '"' + (ui.level === id ? ' checked' : '') + '> <span><b>' + L.name + '</b> <small>' + esc(L.long.split('·')[1] || '') + '</small></span></label>'; }).join('');
+    var lv = ['cp2', 'cp1', 'honors'].map(function (id) { var L = NS.LEVELS[id]; return '<label class="pl-lv' + (ui.level === id ? ' on' : '') + '"><input type="radio" name="plLevel" value="' + id + '"' + (ui.level === id ? ' checked' : '') + '> <span><b>' + ({ cp2: 'Support', cp1: 'Standard', honors: 'Advanced' }[id] + (/^(CP|Hon)/.test(L.name) ? ' (' + L.name + ')' : '')) + '</b> <small>' + esc(L.long.split('·')[1] || '') + '</small></span></label>'; }).join('');
     return '<fieldset class="pl-levels"><legend class="pl-lab">Class level</legend>' + lv + '</fieldset>' +
       '<fieldset class="pl-levels"><legend class="pl-lab">Student notes</legend>' + [['filled', 'Completed notes', 'Explanations, diagram labels, steps and example answers printed'], ['fill', 'Guided notes', 'Key words, labels, step results and answers left blank; diagrams stay readable']].map(function (o) {
         return '<label class="pl-lv' + (curNotes() === o[0] ? ' on' : '') + '"><input type="radio" name="plNotes" value="' + o[0] + '"' + (curNotes() === o[0] ? ' checked' : '') + '> <span><b>' + o[1] + '</b> <small>' + o[2] + '</small></span></label>';

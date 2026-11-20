@@ -94,7 +94,7 @@
     });
     return out;
   }
-  function levelName(unit,id){return /^(prealgebra7?|math6|grade[1-5])-/.test(unit)?{cp2:'Support',cp1:'Standard',honors:'Advanced'}[id]:NS.LEVELS[id].name;}
+  function levelName(unit,id){return {cp2:'Support',cp1:'Standard',honors:'Advanced'}[id]||NS.LEVELS[id].name;}  /* public level names in every course (site audit 2 #14) */
   function unitName(id) { var u = null; NS.CATALOG.forEach(function (g) { g.units.forEach(function (x) { if (x[0] === id) u = x[1]; }); }); if (!u) Object.keys(MK.kinds).forEach(function (kk) { var un = MK.kinds[kk].units[id]; if (un && un.name) u = un.name; }); return u || id; }
   function parseHash() {
     var o = {}; String(G.location.hash || '').replace(/^#/, '').split('&').forEach(function (kv) { var i = kv.indexOf('='); if (i > 0) o[decodeURIComponent(kv.slice(0, i))] = decodeURIComponent(kv.slice(i + 1)); });

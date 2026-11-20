@@ -145,3 +145,10 @@ input:focus { background: rgba(0, 100, 0, 0.5); box-shadow: 0 0 12px var(--neon-
 #feedback { margin-top: 10px; text-align: center; font-weight: bold; font-size: 0.95rem; min-height: 20px; letter-spacing: 1px; }
 .error { color: var(--error-color); text-shadow: 0 0 8px var(--error-color); }
 .success { color: var(--neon-green); text-shadow: 0 0 8px var(--neon-green); }
+
+/* Phones (site audit 2 #17): stack the panels so nothing runs off the screen. */
+@media (max-width: 700px) {
+    .main-panel { flex-direction: column; }
+    .main-panel > * { width: 100%; min-width: 0; box-sizing: border-box; }
+    .chart-container { min-height: 260px; }
+}
