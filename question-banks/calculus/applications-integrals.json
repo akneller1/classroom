@@ -6455,19 +6455,19 @@
    "skillId": "applications-integrals-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A particle moves with velocity v(t) = t³ - t ft/s. Find the total distance traveled from t = 0 to t = 2.",
-   "answer": "5/2 ft",
+   "prompt": "A particle moves with velocity v(t) = t² - 1 ft/s. Find the total distance traveled from t = 0 to t = 3.",
+   "answer": "22/3 ft",
    "solutionSteps": [
     "v(t) = 0 at t = 1, so the particle changes direction there.",
-    "Antiderivative: s(t) = t⁴/4 - t²/2.",
-    "From t = 0 to t = 1: s(1) − s(0) = -1/4.",
-    "From t = 1 to t = 2: s(2) − s(1) = 9/4.",
-    "Total distance = 1/4 + 9/4 = 5/2 ft."
+    "Antiderivative: s(t) = t³/3 - t.",
+    "From t = 0 to t = 1: s(1) − s(0) = -2/3.",
+    "From t = 1 to t = 3: s(3) − s(1) = 20/3.",
+    "Total distance = 2/3 + 20/3 = 22/3 ft."
    ],
    "standards": [
     "AP CHA-4.C"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_total_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-aoi-s05-honors-008",
