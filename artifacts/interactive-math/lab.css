@@ -3,8 +3,10 @@
    Type: Bricolage Grotesque (display), Atkinson Hyperlegible (reading). */
 :root{
   --paper:#f4f5fb; --card:#ffffff; --wash:#e6e9f8; --ink:#14173a; --ink-soft:#4a4f78; --line:#cfd3ea; --grid:#e3e6f4; --axis:#14173a;
-  --blue:#3547f5; --blue-tint:#e2e6ff; --orange:#ff8a1f; --orange-tint:#ffe8d0; --green:#14a873; --green-tint:#d6f5e8;
-  --purple:#7448ff; --purple-tint:#ebe3ff; --red:#e0334f; --red-tint:#fde2e7; --sun:#ffd23f; --ghost:#9aa0c8;
+  /* Text in these colors must read on white and on the wash, also on projectors and dim Chromebook screens (whole-site
+     audit 2 #16): orange, green, purple and red are the darker shades that reach 4.5:1 (light theme only). */
+  --blue:#3547f5; --blue-tint:#e2e6ff; --orange:#ad4a00; --orange-tint:#ffe8d0; --green:#0a7550; --green-tint:#d6f5e8;
+  --purple:#6236e8; --purple-tint:#ebe3ff; --red:#c8203f; --red-tint:#fde2e7; --sun:#ffd23f; --ghost:#9aa0c8;
   --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
   --body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
 }

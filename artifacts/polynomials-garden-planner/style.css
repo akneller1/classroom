@@ -80,3 +80,9 @@ h2 { margin-top: 0; border-bottom: 2px solid #7f8c8d; padding-bottom: 10px; font
     .game-container { flex-direction: column; }
     .game-container > .panel { width: 100%; min-width: 0; box-sizing: border-box; overflow-x: auto; }
 }
+
+/* Readable colors (whole-site audit 2 #16): text and the buttons behind white text reach 4.5:1. */
+body { background-color: #1d6b40; }
+.action-btn, .plot-1 { background-color: #b45309; }
+.action-btn:hover { background-color: #92400e; }
+.plot-x { background-color: #1e7d47; }

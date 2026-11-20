@@ -159,6 +159,7 @@ jobs:
           node scripts/apply-site-audit.mjs _site
           node scripts/apply-fa-steps.mjs _site
           node scripts/apply-site-audit2.mjs _site
+          node scripts/build-planner-calendar.mjs _site
           node scripts/build-standards-index.mjs _site
           node scripts/test-site-audit.cjs _site
           node scripts/test-kid-friendly.cjs _site

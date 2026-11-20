@@ -11866,6 +11866,940 @@
     "S-CP.A.4"
    ],
    "sourceNotes": "Original Claude-authored select-all item (family: sa_mutex). Every choice re-decided from the printed problem by tools/precalculus-audit-20261118/gaps/verify.py. Teacher reviewed 2026-11-18."
+  },
+  {
+   "id": "pc-prb-s01-cp2-x001",
+   "skillId": "probability-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "X is the number showing when a fair 10-sided die (faces 1 to 10) is rolled. Find the expected value E(X).",
+   "answer": "5.5",
+   "solutionSteps": [
+    "Each face has probability 1/10.",
+    "E(X) = (1 + 2 + … + 10)/10 = (10·11/2)/10.",
+    "E(X) = 5.5."
+   ],
+   "standards": [
+    "S-MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_die). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp2-x002",
+   "skillId": "probability-skill-01",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "X is the number showing when a fair 12-sided die (faces 1 to 12) is rolled. Find the expected value E(X).",
+   "answer": "6.5",
+   "options": [
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "6.5",
+     "correct": true
+    },
+    {
+     "text": "7.5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Each face has probability 1/12.",
+    "E(X) = (1 + 2 + … + 12)/12 = (12·13/2)/12.",
+    "E(X) = 6.5."
+   ],
+   "standards": [
+    "S-MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_die). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp2-x003",
+   "skillId": "probability-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "X is the number of heads when 5 fair coins are tossed. Find the expected value E(X).",
+   "answer": "5/2",
+   "solutionSteps": [
+    "Each coin lands heads with probability 1/2.",
+    "For a binomial random variable, E(X) = np = 5 · 1/2.",
+    "E(X) = 5/2."
+   ],
+   "standards": [
+    "S-MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_coins). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp2-x004",
+   "skillId": "probability-skill-01",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "X is the number showing when a fair 20-sided die (faces 1 to 20) is rolled. Find the expected value E(X).",
+   "answer": "10.5",
+   "options": [
+    {
+     "text": "20",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "11.5",
+     "correct": false
+    },
+    {
+     "text": "10.5",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Each face has probability 1/20.",
+    "E(X) = (1 + 2 + … + 20)/20 = (20·21/2)/20.",
+    "E(X) = 10.5."
+   ],
+   "standards": [
+    "S-MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_die). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp1-x001",
+   "skillId": "probability-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "X is the number showing when a fair 6-sided die (faces 1 to 6) is rolled. Find the expected value E(X).",
+   "answer": "3.5",
+   "solutionSteps": [
+    "Each face has probability 1/6.",
+    "E(X) = (1 + 2 + … + 6)/6 = (6·7/2)/6.",
+    "E(X) = 3.5."
+   ],
+   "standards": [
+    "S-MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_die). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp1-x002",
+   "skillId": "probability-skill-01",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X is the number of heads when 6 fair coins are tossed. Find the expected value E(X).",
+   "answer": "3",
+   "options": [
+    {
+     "text": "1/2",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
+    },
+    {
+     "text": "3/2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Each coin lands heads with probability 1/2.",
+    "For a binomial random variable, E(X) = np = 6 · 1/2.",
+    "E(X) = 3."
+   ],
+   "standards": [
+    "S-MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_coins). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp1-x003",
+   "skillId": "probability-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "X is the number of heads when 2 fair coins are tossed. Find the expected value E(X).",
+   "answer": "1",
+   "solutionSteps": [
+    "Each coin lands heads with probability 1/2.",
+    "For a binomial random variable, E(X) = np = 2 · 1/2.",
+    "E(X) = 1."
+   ],
+   "standards": [
+    "S-MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_coins). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp1-x004",
+   "skillId": "probability-skill-01",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A bag holds 4 red and 8 blue marbles. A marble is drawn, its color is recorded, and it is put back; this is done 3 times. X is the number of red marbles recorded. Find E(X).",
+   "answer": "1",
+   "options": [
+    {
+     "text": "1",
+     "correct": true
+    },
+    {
+     "text": "3/2",
+     "correct": false
+    },
+    {
+     "text": "1/3",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(red) = 4/12 on every draw (the marble is replaced).",
+    "E(X) = np = 3 · 4/12.",
+    "E(X) = 1."
+   ],
+   "standards": [
+    "S-MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_draws). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-honors-x001",
+   "skillId": "probability-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "X is the number of heads when 11 fair coins are tossed. Find the expected value E(X).",
+   "answer": "11/2",
+   "solutionSteps": [
+    "Each coin lands heads with probability 1/2.",
+    "For a binomial random variable, E(X) = np = 11 · 1/2.",
+    "E(X) = 11/2."
+   ],
+   "standards": [
+    "S-MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_coins). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-honors-x002",
+   "skillId": "probability-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "X is the number showing when a fair 8-sided die (faces 1 to 8) is rolled. Find the expected value E(X).",
+   "answer": "4.5",
+   "options": [
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "5.5",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "4.5",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Each face has probability 1/8.",
+    "E(X) = (1 + 2 + … + 8)/8 = (8·9/2)/8.",
+    "E(X) = 4.5."
+   ],
+   "standards": [
+    "S-MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_die). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-honors-x003",
+   "skillId": "probability-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A bag holds 4 red and 2 blue marbles. A marble is drawn, its color is recorded, and it is put back; this is done 2 times. X is the number of red marbles recorded. Find E(X).",
+   "answer": "4/3",
+   "solutionSteps": [
+    "P(red) = 4/6 on every draw (the marble is replaced).",
+    "E(X) = np = 2 · 4/6.",
+    "E(X) = 4/3."
+   ],
+   "standards": [
+    "S-MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_draws). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-honors-x004",
+   "skillId": "probability-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "X is the number showing when a fair 4-sided die (faces 1 to 4) is rolled. Find the expected value E(X).",
+   "answer": "2.5",
+   "options": [
+    {
+     "text": "3.5",
+     "correct": false
+    },
+    {
+     "text": "2.5",
+     "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Each face has probability 1/4.",
+    "E(X) = (1 + 2 + … + 4)/4 = (4·5/2)/4.",
+    "E(X) = 2.5."
+   ],
+   "standards": [
+    "S-MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_die). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp2-y001",
+   "skillId": "probability-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A survey of 25 library visitors recorded the number of books borrowed for each visitor: 0 books borrowed: 4, 1 book borrowed: 11, 2 books borrowed: 8, 3 books borrowed: 2. Use these results as probabilities. Find the exact expected number of books borrowed per visitor.",
+   "answer": "1.32",
+   "solutionSteps": [
+    "P(X = x) = count/25.",
+    "E(X) = Σ x · P(x) = (0·4 + 1·11 + 2·8 + 3·2)/25.",
+    "E(X) = 1.32."
+   ],
+   "standards": [
+    "S-MD.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_emp_ev). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp2-y002",
+   "skillId": "probability-skill-01",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A survey of 50 students recorded the number of siblings for each student: 0 siblings: 5, 1 sibling: 13, 2 siblings: 16, 3 siblings: 16. Use these results as probabilities. Find the exact expected number of siblings per student.",
+   "answer": "1.86",
+   "options": [
+    {
+     "text": "1.5",
+     "correct": false
+    },
+    {
+     "text": "12.5",
+     "correct": false
+    },
+    {
+     "text": "1.86",
+     "correct": true
+    },
+    {
+     "text": "93",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(X = x) = count/50.",
+    "E(X) = Σ x · P(x) = (0·5 + 1·13 + 2·16 + 3·16)/50.",
+    "E(X) = 1.86."
+   ],
+   "standards": [
+    "S-MD.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_emp_ev). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp2-y003",
+   "skillId": "probability-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A survey of 25 families recorded the number of pets for each family: 0 pets: 13, 1 pet: 6, 2 pets: 3, 3 pets: 3. Use these results as probabilities. Find the exact expected number of pets per family.",
+   "answer": "0.84",
+   "solutionSteps": [
+    "P(X = x) = count/25.",
+    "E(X) = Σ x · P(x) = (0·13 + 1·6 + 2·3 + 3·3)/25.",
+    "E(X) = 0.84."
+   ],
+   "standards": [
+    "S-MD.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_emp_ev). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp2-y004",
+   "skillId": "probability-skill-01",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A survey of 50 students recorded the number of siblings for each student: 0 siblings: 10, 1 sibling: 19, 2 siblings: 17, 3 siblings: 4. Use these results as probabilities. Find the exact expected number of siblings per student.",
+   "answer": "1.3",
+   "options": [
+    {
+     "text": "1.5",
+     "correct": false
+    },
+    {
+     "text": "12.5",
+     "correct": false
+    },
+    {
+     "text": "1.3",
+     "correct": true
+    },
+    {
+     "text": "65",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(X = x) = count/50.",
+    "E(X) = Σ x · P(x) = (0·10 + 1·19 + 2·17 + 3·4)/50.",
+    "E(X) = 1.3."
+   ],
+   "standards": [
+    "S-MD.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_emp_ev). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp1-y001",
+   "skillId": "probability-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A survey of 100 apartments recorded the number of TVs for each apartment: 0 TVs: 5, 1 TV: 23, 2 TVs: 20, 3 TVs: 52. Use these results as probabilities. Find the exact expected number of TVs per apartment.",
+   "answer": "2.19",
+   "solutionSteps": [
+    "P(X = x) = count/100.",
+    "E(X) = Σ x · P(x) = (0·5 + 1·23 + 2·20 + 3·52)/100.",
+    "E(X) = 2.19."
+   ],
+   "standards": [
+    "S-MD.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_emp_ev). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp1-y002",
+   "skillId": "probability-skill-01",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A survey of 50 library visitors recorded the number of books borrowed for each visitor: 0 books borrowed: 12, 1 book borrowed: 2, 2 books borrowed: 12, 3 books borrowed: 24. Use these results as probabilities. Find the exact expected number of books borrowed per visitor.",
+   "answer": "1.96",
+   "options": [
+    {
+     "text": "98",
+     "correct": false
+    },
+    {
+     "text": "1.96",
+     "correct": true
+    },
+    {
+     "text": "1.5",
+     "correct": false
+    },
+    {
+     "text": "24.5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(X = x) = count/50.",
+    "E(X) = Σ x · P(x) = (0·12 + 1·2 + 2·12 + 3·24)/50.",
+    "E(X) = 1.96."
+   ],
+   "standards": [
+    "S-MD.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_emp_ev). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp1-y003",
+   "skillId": "probability-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A survey of 80 library visitors recorded the number of books borrowed for each visitor: 0 books borrowed: 17, 1 book borrowed: 9, 2 books borrowed: 47, 3 books borrowed: 7. Use these results as probabilities. Find the exact expected number of books borrowed per visitor.",
+   "answer": "1.55",
+   "solutionSteps": [
+    "P(X = x) = count/80.",
+    "E(X) = Σ x · P(x) = (0·17 + 1·9 + 2·47 + 3·7)/80.",
+    "E(X) = 1.55."
+   ],
+   "standards": [
+    "S-MD.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_emp_ev). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-cp1-y004",
+   "skillId": "probability-skill-01",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A survey of 200 apartments recorded the number of TVs for each apartment: 0 TVs: 94, 1 TV: 12, 2 TVs: 87, 3 TVs: 7. Use these results as probabilities. Find the exact expected number of TVs per apartment.",
+   "answer": "1.035",
+   "options": [
+    {
+     "text": "207",
+     "correct": false
+    },
+    {
+     "text": "1.035",
+     "correct": true
+    },
+    {
+     "text": "51.75",
+     "correct": false
+    },
+    {
+     "text": "1.5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(X = x) = count/200.",
+    "E(X) = Σ x · P(x) = (0·94 + 1·12 + 2·87 + 3·7)/200.",
+    "E(X) = 1.035."
+   ],
+   "standards": [
+    "S-MD.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_emp_ev). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-honors-y001",
+   "skillId": "probability-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A survey of 200 apartments recorded the number of TVs for each apartment: 0 TVs: 49, 1 TV: 45, 2 TVs: 4, 3 TVs: 27, 4 TVs: 75. Use these results as probabilities. Find the exact expected number of TVs per apartment.",
+   "answer": "2.17",
+   "solutionSteps": [
+    "P(X = x) = count/200.",
+    "E(X) = Σ x · P(x) = (0·49 + 1·45 + 2·4 + 3·27 + 4·75)/200.",
+    "E(X) = 2.17."
+   ],
+   "standards": [
+    "S-MD.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_emp_ev). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-honors-y002",
+   "skillId": "probability-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A survey of 80 apartments recorded the number of TVs for each apartment: 0 TVs: 8, 1 TV: 55, 2 TVs: 9, 3 TVs: 2, 4 TVs: 6. Use these results as probabilities. Find the exact expected number of TVs per apartment.",
+   "answer": "1.2875",
+   "options": [
+    {
+     "text": "20.6",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "1.2875",
+     "correct": true
+    },
+    {
+     "text": "103",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(X = x) = count/80.",
+    "E(X) = Σ x · P(x) = (0·8 + 1·55 + 2·9 + 3·2 + 4·6)/80.",
+    "E(X) = 1.2875."
+   ],
+   "standards": [
+    "S-MD.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_emp_ev). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-honors-y003",
+   "skillId": "probability-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A survey of 50 library visitors recorded the number of books borrowed for each visitor: 0 books borrowed: 4, 1 book borrowed: 5, 2 books borrowed: 22, 3 books borrowed: 7, 4 books borrowed: 12. Use these results as probabilities. In a group of 500 library visitors like these, how many would you expect to have at least 2 books borrowed?",
+   "answer": "410",
+   "solutionSteps": [
+    "P(X ≥ 2) = (22 + 7 + 12)/50 = 41/50.",
+    "Expected number = 500 · 41/50 = 410."
+   ],
+   "standards": [
+    "S-MD.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_emp_count). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s01-honors-y004",
+   "skillId": "probability-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A survey of 20 students recorded the number of siblings for each student: 0 siblings: 6, 1 sibling: 4, 2 siblings: 6, 3 siblings: 1, 4 siblings: 3. Use these results as probabilities. In a group of 400 students like these, how many would you expect to have at least 2 siblings?",
+   "answer": "200",
+   "options": [
+    {
+     "text": "200",
+     "correct": true
+    },
+    {
+     "text": "120",
+     "correct": false
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "280",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(X ≥ 2) = (6 + 1 + 3)/20 = 1/2.",
+    "Expected number = 400 · 1/2 = 200."
+   ],
+   "standards": [
+    "S-MD.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_emp_count). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s05-cp2-x001",
+   "skillId": "probability-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "4 friends choose who picks first. A random number generator gives a whole number from 1 to 15, each equally likely. To keep the choice fair, every friend gets the same number of values, as many as possible, and any other value means generate again. How many values does each friend get?",
+   "answer": "3",
+   "solutionSteps": [
+    "15 ÷ 4 = 3 remainder 3.",
+    "Each friend gets 3 values (12 values in all), so each has probability 3/12 = 1/4.",
+    "The other 3 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s05-cp2-x002",
+   "skillId": "probability-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "7 students share one prize. A random number generator gives a whole number from 1 to 12, each equally likely. To keep the choice fair, every student gets the same number of values, as many as possible, and any other value means generate again. How many values does each student get?",
+   "answer": "1",
+   "options": [
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": true
+    },
+    {
+     "text": "5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "12 ÷ 7 = 1 remainder 5.",
+    "Each student gets 1 values (7 values in all), so each has probability 1/7 = 1/7.",
+    "The other 5 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s05-cp2-x003",
+   "skillId": "probability-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "4 friends choose who picks first. A random number generator gives a whole number from 1 to 25, each equally likely. To keep the choice fair, every friend gets the same number of values, as many as possible, and any other value means generate again. How many values does each friend get?",
+   "answer": "6",
+   "solutionSteps": [
+    "25 ÷ 4 = 6 remainder 1.",
+    "Each friend gets 6 values (24 values in all), so each has probability 6/24 = 1/4.",
+    "The other 1 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s05-cp2-x004",
+   "skillId": "probability-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "3 students share one prize. A random number generator gives a whole number from 1 to 100, each equally likely. To keep the choice fair, every student gets the same number of values, as many as possible, and any other value means generate again. How many values does each student get?",
+   "answer": "33",
+   "options": [
+    {
+     "text": "97",
+     "correct": false
+    },
+    {
+     "text": "34",
+     "correct": false
+    },
+    {
+     "text": "33",
+     "correct": true
+    },
+    {
+     "text": "1",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "100 ÷ 3 = 33 remainder 1.",
+    "Each student gets 33 values (99 values in all), so each has probability 33/99 = 1/3.",
+    "The other 1 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s05-cp1-x001",
+   "skillId": "probability-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "7 students share one prize. A random number generator gives a whole number from 1 to 30, each equally likely. To keep the choice fair, every student gets the same number of values, as many as possible, and any other value means generate again. How many values does each student get?",
+   "answer": "4",
+   "solutionSteps": [
+    "30 ÷ 7 = 4 remainder 2.",
+    "Each student gets 4 values (28 values in all), so each has probability 4/28 = 1/7.",
+    "The other 2 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s05-cp1-x002",
+   "skillId": "probability-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Nia and Ava roll two fair dice to decide who goes first. Nia goes first if the sum is 6 or less; otherwise Ava goes first. What is the probability that Nia goes first?",
+   "answer": "5/12",
+   "options": [
+    {
+     "text": "5/11",
+     "correct": false
+    },
+    {
+     "text": "5/12",
+     "correct": true
+    },
+    {
+     "text": "7/18",
+     "correct": false
+    },
+    {
+     "text": "7/12",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "There are 36 equally likely outcomes.",
+    "15 of them have a sum of 6 or less.",
+    "P = 15/36 = 5/12. The method is fair only if this is 1/2."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_dice). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s05-cp1-x003",
+   "skillId": "probability-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Ben and Jada roll two fair dice to decide who goes first. Ben goes first if the sum is 5 or less; otherwise Jada goes first. What is the probability that Ben goes first?",
+   "answer": "5/18",
+   "solutionSteps": [
+    "There are 36 equally likely outcomes.",
+    "10 of them have a sum of 5 or less.",
+    "P = 10/36 = 5/18. The method is fair only if this is 1/2."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_dice). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s05-cp1-x004",
+   "skillId": "probability-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Kenji and Chloe roll two fair dice to decide who goes first. Kenji goes first if the sum is 6 or less; otherwise Chloe goes first. What is the probability that Kenji goes first?",
+   "answer": "5/12",
+   "options": [
+    {
+     "text": "5/12",
+     "correct": true
+    },
+    {
+     "text": "7/18",
+     "correct": false
+    },
+    {
+     "text": "7/12",
+     "correct": false
+    },
+    {
+     "text": "5/11",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "There are 36 equally likely outcomes.",
+    "15 of them have a sum of 6 or less.",
+    "P = 15/36 = 5/12. The method is fair only if this is 1/2."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_dice). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s05-honors-x001",
+   "skillId": "probability-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "4 students share one prize. A random number generator gives a whole number from 1 to 30, each equally likely. To keep the choice fair, every student gets the same number of values, as many as possible, and any other value means generate again. How many of the values mean generate again?",
+   "answer": "2",
+   "solutionSteps": [
+    "30 ÷ 4 = 7 remainder 2.",
+    "Each student gets 7 values (28 values in all), so each has probability 7/28 = 1/4.",
+    "The other 2 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s05-honors-x002",
+   "skillId": "probability-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "5 teams need to choose who presents first. A random number generator gives a whole number from 1 to 12, each equally likely. To keep the choice fair, every team gets the same number of values, as many as possible, and any other value means generate again. How many values does each team get?",
+   "answer": "2",
+   "options": [
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "12 ÷ 5 = 2 remainder 2.",
+    "Each team gets 2 values (10 values in all), so each has probability 2/10 = 1/5.",
+    "The other 2 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s05-honors-x003",
+   "skillId": "probability-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "7 teams need to choose who presents first. A random number generator gives a whole number from 1 to 12, each equally likely. To keep the choice fair, every team gets the same number of values, as many as possible, and any other value means generate again. How many of the values mean generate again?",
+   "answer": "5",
+   "solutionSteps": [
+    "12 ÷ 7 = 1 remainder 5.",
+    "Each team gets 1 values (7 values in all), so each has probability 1/7 = 1/7.",
+    "The other 5 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
+  },
+  {
+   "id": "pc-prb-s05-honors-x004",
+   "skillId": "probability-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "7 friends choose who picks first. A random number generator gives a whole number from 1 to 30, each equally likely. To keep the choice fair, every friend gets the same number of values, as many as possible, and any other value means generate again. How many of the values mean generate again?",
+   "answer": "2",
+   "options": [
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "23",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
+    },
+    {
+     "text": "4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "30 ÷ 7 = 4 remainder 2.",
+    "Each friend gets 4 values (28 values in all), so each has probability 4/28 = 1/7.",
+    "The other 2 values mean generate again, so the choice stays fair."
+   ],
+   "standards": [
+    "S-MD.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: md_fair_split). Answer and every option re-checked from the printed problem by tools/site-audit-20261120/honors_standards/verify.py."
   }
  ]
 }

@@ -6222,17 +6222,17 @@
    "skillId": "limits-continuity-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Evaluate lim (x → ∞) ln(x)/x.",
+   "prompt": "Evaluate lim (x → ∞) ln(x)/√x.",
    "answer": "0",
    "solutionSteps": [
     "Look at how the top and bottom grow as x moves away from 0.",
-    "ln(x) grows more slowly than x (L’Hôpital: (1/x)/1 → 0).",
+    "ln(x) grows more slowly than √x (L’Hôpital: (1/x)/(1/(2√x)) = 2/√x → 0).",
     "The limit is 0."
    ],
    "standards": [
     "AP LIM-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_infty_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_infty_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-lim-s05-honors-010",
@@ -6274,16 +6274,16 @@
    "skillId": "limits-continuity-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Evaluate lim (x → ∞) (5x - sin(x))/x.",
-   "answer": "5",
+   "prompt": "Evaluate lim (x → ∞) (3x + cos(x))/x.",
+   "answer": "3",
    "options": [
     {
-     "text": "5",
-     "correct": true
+     "text": "4",
+     "correct": false
     },
     {
-     "text": "1",
-     "correct": false
+     "text": "3",
+     "correct": true
     },
     {
      "text": "0",
@@ -6296,13 +6296,13 @@
    ],
    "solutionSteps": [
     "Look at how the top and bottom grow as x moves away from 0.",
-    "Split: 5 - sin(x)/x, and -1/x ≤ sin(x)/x ≤ 1/x → 0 by the Squeeze Theorem.",
-    "The limit is 5."
+    "Split: 3 + cos(x)/x, and -1/x ≤ cos(x)/x ≤ 1/x → 0 by the Squeeze Theorem.",
+    "The limit is 3."
    ],
    "standards": [
     "AP LIM-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_infty_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_infty_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-lim-s05-honors-012",
@@ -6326,17 +6326,17 @@
    "skillId": "limits-continuity-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Evaluate lim (x → ∞) (2x² - x)/e^x.",
+   "prompt": "Evaluate lim (x → ∞) (x³ + 1)/e^x.",
    "answer": "0",
    "solutionSteps": [
     "Look at how the top and bottom grow as x moves away from 0.",
-    "e^x grows faster than any polynomial (L’Hôpital twice gives 4/e^x → 0).",
+    "e^x grows faster than any polynomial (L’Hôpital three times gives 6/e^x → 0).",
     "The limit is 0."
    ],
    "standards": [
     "AP LIM-2.D"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_infty_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py."
+   "sourceNotes": "Original Claude-authored item (family: s5_infty_h). Calculus audit 2026-11-18; answer computed with exact arithmetic in tools/calculus-audit-20261118 and re-checked by verify_keys.py. Rewritten 2026-11-20 (whole-site audit 2 #5) to replace a repeated question; answer recomputed by tools/site-audit-20261120/calculus_duplicates.py."
   },
   {
    "id": "cal-lim-s05-honors-014",
