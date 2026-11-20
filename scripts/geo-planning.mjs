@@ -306,32 +306,40 @@ ${C.mcas ? '<div style="overflow-x:auto">' : ""}<table><thead><tr><th>Unit</th><
   return h;
 }
 
-/* 4th Grade Math (2026-11-19, 4th Grade Math audit #6). Grade 4 comes from a pinned FinancialAlgebra release and is
-   assembled into the site at deploy, so its pacing page is written then, from the assembled site (siteDir): the course
-   catalog bridge (grade4-main-catalog.js, which also carries the Grade 4 standards map) and the teaching notes. The
-   ten units come first, so every Grade 4 standard is taught before the spring Grade 4 MCAS; extra practice days go to
-   the longest units, six review days and the two testing sessions follow, and the weeks after the test are Grade 5
-   previews, the Grade 4 projects and the final review. Returns null when Grade 4 is not in the site. */
-const ALL_GRADE4 = "4.OA.A.1 4.OA.A.2 4.OA.A.3 4.OA.B.4 4.OA.C.5 4.NBT.A.1 4.NBT.A.2 4.NBT.A.3 4.NBT.B.4 4.NBT.B.5 4.NBT.B.6 4.NF.A.1 4.NF.A.2 4.NF.B.3.a 4.NF.B.3.b 4.NF.B.3.c 4.NF.B.3.d 4.NF.B.4.a 4.NF.B.4.b 4.NF.B.4.c 4.NF.C.5 4.NF.C.6 4.NF.C.7 4.MD.A.1 4.MD.A.2 4.MD.A.3 4.MD.B.4 4.MD.C.5.a 4.MD.C.5.b 4.MD.C.6 4.MD.C.7 4.G.A.1 4.G.A.2 4.G.A.3".split(" ").map((c) => [c]);
-export function grade4Pacing(siteDir) {
-  if (!fs.existsSync(path.join(siteDir, "grade4-main-catalog.js"))) return null;
+/* Elementary pacing pages (4th Grade Math audit #6 and 3rd Grade Math audit #6, 2026-11-19). Grades 3 and 4 come from
+   pinned FinancialAlgebra releases and are assembled into the site at deploy, so their pacing pages are written then,
+   from the assembled site (siteDir): the course catalog bridge (grade<N>-main-catalog.js, which also carries the
+   standards map the audit adds) and the teaching notes. All units come first, so every standard is taught before the
+   spring MCAS; extra practice days go to the longest units, six review days and the two testing sessions follow, and
+   the weeks after the test preview the next grade, then the projects and the final review. Returns null when the
+   course is not in the site. */
+const ELEMENTARY = {
+  4: { name: "4th Grade Math", units: 10, all: "4.OA.A.1 4.OA.A.2 4.OA.A.3 4.OA.B.4 4.OA.C.5 4.NBT.A.1 4.NBT.A.2 4.NBT.A.3 4.NBT.B.4 4.NBT.B.5 4.NBT.B.6 4.NF.A.1 4.NF.A.2 4.NF.B.3.a 4.NF.B.3.b 4.NF.B.3.c 4.NF.B.3.d 4.NF.B.4.a 4.NF.B.4.b 4.NF.B.4.c 4.NF.C.5 4.NF.C.6 4.NF.C.7 4.MD.A.1 4.MD.A.2 4.MD.A.3 4.MD.B.4 4.MD.C.5.a 4.MD.C.5.b 4.MD.C.6 4.MD.C.7 4.G.A.1 4.G.A.2 4.G.A.3",
+    titles: ["Mixed practice: place value and operations", "Mixed practice: fractions and decimals", "Mixed practice: measurement and geometry", "Multi-step word problems", "Open response practice", "Targeted reteach"],
+    post: ["Grade 5 preview: multiplying larger numbers", "Grade 5 preview: fractions with unlike denominators", "Grade 5 preview: decimals to thousandths", "Grade 4 project", "Fluency and spiral review"], next: "Grade 5" },
+  3: { name: "3rd Grade Math", units: 11, all: "3.OA.A.1 3.OA.A.2 3.OA.A.3 3.OA.A.4 3.OA.B.5 3.OA.B.6 3.OA.C.7 3.OA.D.8 3.OA.D.9 3.NBT.A.1 3.NBT.A.2 3.NBT.A.3 3.NF.A.1 3.NF.A.2.a 3.NF.A.2.b 3.NF.A.3.a 3.NF.A.3.b 3.NF.A.3.c 3.NF.A.3.d 3.MD.A.1 3.MD.A.2 3.MD.B.3 3.MD.B.4 3.MD.C.5.a 3.MD.C.5.b 3.MD.C.6 3.MD.C.7.a 3.MD.C.7.b 3.MD.C.7.c 3.MD.C.7.d 3.MD.D.8 3.G.A.1 3.G.A.2",
+    titles: ["Mixed practice: multiplication and division facts", "Mixed practice: add and subtract within 1,000", "Mixed practice: fractions", "Mixed practice: measurement, area and perimeter", "Two-step word problems and open response", "Targeted reteach"],
+    post: ["Grade 4 preview: multi-digit multiplication", "Grade 4 preview: equivalent fractions and decimals", "Grade 4 preview: angles and lines", "Grade 3 project", "Fact fluency and spiral review"], next: "Grade 4" }
+};
+export function elementaryPacing(grade, siteDir) {
+  const E = ELEMENTARY[grade], id = "grade" + grade;
+  if (!E || !fs.existsSync(path.join(siteDir, id + "-main-catalog.js"))) return null;
   const saved = BASE;
   BASE = siteDir;
   try {
-    COURSES.grade4 = { name: "4th Grade Math", sets: /^grade4-/, page: "grade-4-pacing/", framework: "Common Core Grade 4", bank: true, mcas: 4, mcasUnit: 10, all: ALL_GRADE4,
-      load: () => bankScope("grade4", "G4", { extra: ["grade4-main-catalog.js", "grade4/grade4-native-notes.js"], mcas: { grade: 4, afterUnit: 10, review: 6, testing: 2,
-        titles: ["Mixed practice: place value and operations", "Mixed practice: fractions and decimals", "Mixed practice: measurement and geometry", "Multi-step word problems", "Open response practice", "Targeted reteach"],
-        post: { days: 18, titles: ["Grade 5 preview: multiplying larger numbers", "Grade 5 preview: fractions with unlike denominators", "Grade 5 preview: decimals to thousandths", "Grade 4 project", "Fluency and spiral review"] } } }),
+    COURSES[id] = { name: E.name, sets: new RegExp("^" + id + "-"), page: `grade-${grade}-pacing/`, framework: "Common Core Grade " + grade, bank: true, mcas: grade, mcasUnit: E.units, all: E.all.split(" ").map((c) => [c]),
+      load: () => bankScope(id, "G" + grade, { extra: [id + "-main-catalog.js", `${id}/${id}-native-notes.js`], mcas: { grade, afterUnit: E.units, review: 6, testing: 2, titles: E.titles, post: { days: 18, titles: E.post } } }),
       intro: (scope) => {
-        const t = scope.days.filter((d) => /^MCAS Grade 4/.test(d.title));
-        return `The year is built around the spring Grade 4 MCAS. All ten units come first, so every Grade 4 standard is taught before the test; six review days of mixed practice come next, then the two testing sessions (about days ${t[0] ? t[0].day : ""}–${t.length ? t[t.length - 1].day : ""}; check your district’s testing window). The weeks after the test are Grade 5 previews, the Grade 4 projects and the final review.`;
+        const t = scope.days.filter((d) => new RegExp("^MCAS Grade " + grade).test(d.title));
+        return `The year is built around the spring Grade ${grade} MCAS. All ${E.units === 10 ? "ten" : "eleven"} units come first, so every Grade ${grade} standard is taught before the test; six review days of mixed practice come next, then the two testing sessions (about days ${t[0] ? t[0].day : ""}–${t.length ? t[t.length - 1].day : ""}; check your district’s testing window). The weeks after the test are ${E.next} previews, the Grade ${grade} projects and the final review.`;
       } };
-    const bridge = fs.readFileSync(path.join(siteDir, "grade4-main-catalog.js"), "utf8").match(/var course=(\{.*?\}),skills=/s);
+    const bridge = fs.readFileSync(path.join(siteDir, id + "-main-catalog.js"), "utf8").match(/var course=(\{.*?\}),skills=/s);
     const ids = Object.fromEntries(JSON.parse(bridge[1]).units.map((u) => [u.name, u.id]));
-    return geoPacingMain("grade4", (title) => "../u/grade4/" + (ids[title] || "") + "/");
+    return geoPacingMain(id, (title) => `../u/${id}/` + (ids[title] || "") + "/");
   } finally {
     BASE = saved;
-    delete COURSES.grade4;
-    delete cache.grade4;
+    delete COURSES[id];
+    delete cache[id];
   }
 }
+export const grade4Pacing = (siteDir) => elementaryPacing(4, siteDir);

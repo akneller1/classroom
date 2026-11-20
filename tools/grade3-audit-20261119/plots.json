@@ -1,0 +1,548 @@
+[
+ {
+  "id": "m3-ec-s01-cp2-p001",
+  "unit": "equivalent-comparing-fractions",
+  "skillId": "equivalent-comparing-fractions-skill-01",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into fourths. Drag the dot to the fraction in fourths that equals 1/2.",
+  "answer": "2/4",
+  "solutionSteps": [
+   "Each 1/2 is 2 fourths.",
+   "1/2 = 2/4."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ec1_plot_equivalent). 3rd Grade Math audit 2026-11-19 (#13, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade3-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/4",
+    "labelEvery": 4,
+    "snap": "1/4"
+   },
+   "target": {
+    "values": [
+     "2/4"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "2/4"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "3/4"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m3-ec-s01-cp2-p001.png",
+    "alt": "Number line from 0 to 1 in fourths; a dot at 2/4."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m3-ec-s01-cp1-p001",
+  "unit": "equivalent-comparing-fractions",
+  "skillId": "equivalent-comparing-fractions-skill-01",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into eighths. Drag the dot to the fraction in eighths that equals 1/4.",
+  "answer": "2/8",
+  "solutionSteps": [
+   "Each 1/4 is 2 eighths.",
+   "1/4 = 2/8."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ec1_plot_equivalent). 3rd Grade Math audit 2026-11-19 (#13, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade3-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/8",
+    "labelEvery": 8,
+    "snap": "1/8"
+   },
+   "target": {
+    "values": [
+     "2/8"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "2/8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "3/8"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m3-ec-s01-cp1-p001.png",
+    "alt": "Number line from 0 to 1 in eighths; a dot at 2/8."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m3-ec-s01-honors-p001",
+  "unit": "equivalent-comparing-fractions",
+  "skillId": "equivalent-comparing-fractions-skill-01",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into eighths. Drag the dot to the fraction in eighths that equals 3/4.",
+  "answer": "6/8",
+  "solutionSteps": [
+   "Each 1/4 is 2 eighths.",
+   "3/4 = 6/8."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ec1_plot_equivalent). 3rd Grade Math audit 2026-11-19 (#13, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade3-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/8",
+    "labelEvery": 8,
+    "snap": "1/8"
+   },
+   "target": {
+    "values": [
+     "6/8"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "6/8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "7/8"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m3-ec-s01-honors-p001.png",
+    "alt": "Number line from 0 to 1 in eighths; a dot at 6/8."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m3-ec-s03-cp2-p001",
+  "unit": "equivalent-comparing-fractions",
+  "skillId": "equivalent-comparing-fractions-skill-03",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "The number line from 0 to 3 is split into halves. Drag the dot to 2/2.",
+  "answer": "2/2",
+  "solutionSteps": [
+   "2/2 is 2 halves.",
+   "2 halves = 1 whole."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ec3_plot_whole). 3rd Grade Math audit 2026-11-19 (#13, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade3-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 3,
+    "tick": "1/2",
+    "labelEvery": 2,
+    "snap": "1/2"
+   },
+   "target": {
+    "values": [
+     "2/2"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "2/2"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "3/2"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m3-ec-s03-cp2-p001.png",
+    "alt": "Number line from 0 to 3 in halves; a dot at 2/2."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m3-ec-s03-cp1-p001",
+  "unit": "equivalent-comparing-fractions",
+  "skillId": "equivalent-comparing-fractions-skill-03",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "The number line from 0 to 3 is split into fourths. Drag the dot to 8/4.",
+  "answer": "8/4",
+  "solutionSteps": [
+   "8/4 is 8 fourths.",
+   "8 fourths = 2 wholes."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ec3_plot_whole). 3rd Grade Math audit 2026-11-19 (#13, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade3-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 3,
+    "tick": "1/4",
+    "labelEvery": 4,
+    "snap": "1/4"
+   },
+   "target": {
+    "values": [
+     "8/4"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "8/4"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "9/4"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m3-ec-s03-cp1-p001.png",
+    "alt": "Number line from 0 to 3 in fourths; a dot at 8/4."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m3-ec-s03-honors-p001",
+  "unit": "equivalent-comparing-fractions",
+  "skillId": "equivalent-comparing-fractions-skill-03",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "The number line from 0 to 3 is split into fourths. Drag the dot to 12/4.",
+  "answer": "12/4",
+  "solutionSteps": [
+   "12/4 is 12 fourths.",
+   "12 fourths = 3 wholes."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ec3_plot_whole). 3rd Grade Math audit 2026-11-19 (#13, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade3-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 3,
+    "tick": "1/4",
+    "labelEvery": 4,
+    "snap": "1/4"
+   },
+   "target": {
+    "values": [
+     "12/4"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "12/4"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "11/4"
+       ]
+      },
+      "expectCode": "position"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m3-ec-s03-honors-p001.png",
+    "alt": "Number line from 0 to 3 in fourths; a dot at 12/4."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m3-ec-s04-cp2-p001",
+  "unit": "equivalent-comparing-fractions",
+  "skillId": "equivalent-comparing-fractions-skill-04",
+  "level": "cp2",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into fourths. Place a dot at 1/4 and a dot at 3/4. The dot farther to the right is the greater fraction.",
+  "answer": "1/4, 3/4",
+  "solutionSteps": [
+   "Count 1 and 3 fourths from 0.",
+   "3/4 is farther right, so 3/4 > 1/4."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ec4_plot_compare). 3rd Grade Math audit 2026-11-19 (#13, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade3-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/4",
+    "labelEvery": 4,
+    "snap": "1/4"
+   },
+   "target": {
+    "values": [
+     "1/4",
+     "3/4"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "1/4",
+      "3/4"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "2/4",
+        "4/4"
+       ]
+      },
+      "expectCode": "position"
+     },
+     {
+      "response": {
+       "values": [
+        "3/4"
+       ]
+      },
+      "expectCode": "count"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m3-ec-s04-cp2-p001.png",
+    "alt": "Number line from 0 to 1 in fourths; dots at 1/4 and 3/4."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m3-ec-s04-cp1-p001",
+  "unit": "equivalent-comparing-fractions",
+  "skillId": "equivalent-comparing-fractions-skill-04",
+  "level": "cp1",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into eighths. Place a dot at 5/8 and a dot at 2/8. The dot farther to the right is the greater fraction.",
+  "answer": "2/8, 5/8",
+  "solutionSteps": [
+   "Count 5 and 2 eighths from 0.",
+   "5/8 is farther right, so 5/8 > 2/8."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ec4_plot_compare). 3rd Grade Math audit 2026-11-19 (#13, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade3-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/8",
+    "labelEvery": 8,
+    "snap": "1/8"
+   },
+   "target": {
+    "values": [
+     "2/8",
+     "5/8"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "2/8",
+      "5/8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "3/8",
+        "6/8"
+       ]
+      },
+      "expectCode": "position"
+     },
+     {
+      "response": {
+       "values": [
+        "5/8"
+       ]
+      },
+      "expectCode": "count"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m3-ec-s04-cp1-p001.png",
+    "alt": "Number line from 0 to 1 in eighths; dots at 2/8 and 5/8."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ },
+ {
+  "id": "m3-ec-s04-honors-p001",
+  "unit": "equivalent-comparing-fractions",
+  "skillId": "equivalent-comparing-fractions-skill-04",
+  "level": "honors",
+  "format": "plot",
+  "prompt": "The number line from 0 to 1 is split into eighths. Place a dot at 7/8 and a dot at 3/8. The dot farther to the right is the greater fraction.",
+  "answer": "3/8, 7/8",
+  "solutionSteps": [
+   "Count 7 and 3 eighths from 0.",
+   "7/8 is farther right, so 7/8 > 3/8."
+  ],
+  "sourceNotes": "Original Claude-authored item (family: ec4_plot_compare). 3rd Grade Math audit 2026-11-19 (#13, Graphing Practice); target and feedback vectors checked against core/plot.js by tools/grade3-audit-20261119/plots.cjs.",
+  "plot": {
+   "tool": "number-line-point",
+   "numberLine": {
+    "min": 0,
+    "max": 1,
+    "tick": "1/8",
+    "labelEvery": 8,
+    "snap": "1/8"
+   },
+   "target": {
+    "values": [
+     "3/8",
+     "7/8"
+    ]
+   },
+   "feedback": {
+    "position": "Not quite. Count the equal parts from 0 and try again.",
+    "count": "Check how many points you need to place."
+   },
+   "testVectors": {
+    "correct": {
+     "values": [
+      "3/8",
+      "7/8"
+     ]
+    },
+    "wrong": [
+     {
+      "response": {
+       "values": [
+        "4/8",
+        "8/8"
+       ]
+      },
+      "expectCode": "position"
+     },
+     {
+      "response": {
+       "values": [
+        "7/8"
+       ]
+      },
+      "expectCode": "count"
+     }
+    ]
+   },
+   "answerKey": {
+    "src": "question-banks/assets/plot-keys/m3-ec-s04-honors-p001.png",
+    "alt": "Number line from 0 to 1 in eighths; dots at 3/8 and 7/8."
+   },
+   "check": {
+    "type": "exact-after-snap"
+   }
+  }
+ }
+]

@@ -1,0 +1,4043 @@
+{
+ "unit": "multiplication-meaning",
+ "edits": [
+  {
+   "id": "m3-mm-s01-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "What does 3 × 7 mean?",
+     "to": "There are 5 jars with 9 marbles in each. Isla adds 8 more marbles. How many marbles are there now?"
+    },
+    "answer": {
+     "from": "3 groups with 7 in each group",
+     "to": "53 marbles"
+    },
+    "solutionSteps": {
+     "from": [
+      "In 3 × 7, the first factor 3 is the number of groups.",
+      "The second factor 7 is the number in each group."
+     ],
+     "to": [
+      "5 groups of 9: 5 × 9 = 45.",
+      "45 + 8 = 53 marbles."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_meaning). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_groups_plus_more). Rewritten from a Support template (was eg_meaning) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3 groups with 10 in each group",
+       "correct": false
+      },
+      {
+       "text": "3 groups with 3 in each group",
+       "correct": false
+      },
+      {
+       "text": "3 groups with 7 in each group",
+       "correct": true
+      },
+      {
+       "text": "7 more than 3",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "45 marbles",
+       "correct": false
+      },
+      {
+       "text": "53 marbles",
+       "correct": true
+      },
+      {
+       "text": "22 marbles",
+       "correct": false
+      },
+      {
+       "text": "85 marbles",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "Find the total. Write it as a multiplication equation in your head first: 4 + 4 + 4 = ?",
+     "to": "There are 8 trays with 7 muffins in each. Kai adds 4 more muffins. How many muffins are there now?"
+    },
+    "answer": {
+     "from": "12",
+     "to": "60 muffins"
+    },
+    "solutionSteps": {
+     "from": [
+      "There are 3 addends of 4, so this is 3 × 4.",
+      "3 × 4 = 12."
+     ],
+     "to": [
+      "8 groups of 7: 8 × 7 = 56.",
+      "56 + 4 = 60 muffins."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_repeated). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_groups_plus_more). Rewritten from a Support template (was eg_repeated) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "What does 4 × 8 mean?",
+     "to": "There are 6 packs with 4 cards in each. Zoe adds 8 more cards. How many cards are there now?"
+    },
+    "answer": {
+     "from": "4 groups with 8 in each group",
+     "to": "32 cards"
+    },
+    "solutionSteps": {
+     "from": [
+      "In 4 × 8, the first factor 4 is the number of groups.",
+      "The second factor 8 is the number in each group."
+     ],
+     "to": [
+      "6 groups of 4: 6 × 4 = 24.",
+      "24 + 8 = 32 cards."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_meaning). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_groups_plus_more). Rewritten from a Support template (was eg_meaning) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4 groups with 4 in each group",
+       "correct": false
+      },
+      {
+       "text": "4 groups with 8 in each group",
+       "correct": true
+      },
+      {
+       "text": "4 groups with 12 in each group",
+       "correct": false
+      },
+      {
+       "text": "8 more than 4",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "24 cards",
+       "correct": false
+      },
+      {
+       "text": "18 cards",
+       "correct": false
+      },
+      {
+       "text": "72 cards",
+       "correct": false
+      },
+      {
+       "text": "32 cards",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-cp1-016",
+   "changes": {
+    "prompt": {
+     "from": "Find the total. Write it as a multiplication equation in your head first: 8 + 8 + 8 + 8 + 8 = ?",
+     "to": "There are 9 plates with 6 cookies in each. Sam adds 4 more cookies. How many cookies are there now?"
+    },
+    "answer": {
+     "from": "40",
+     "to": "58 cookies"
+    },
+    "solutionSteps": {
+     "from": [
+      "There are 5 addends of 8, so this is 5 × 8.",
+      "5 × 8 = 40."
+     ],
+     "to": [
+      "9 groups of 6: 9 × 6 = 54.",
+      "54 + 4 = 58 cookies."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_repeated). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_groups_plus_more). Rewritten from a Support template (was eg_repeated) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-cp1-017",
+   "changes": {
+    "prompt": {
+     "from": "Find the total. Write it as a multiplication equation in your head first: 7 + 7 + 7 + 7 + 7 = ?",
+     "to": "There are 8 packs with 4 cards in each. Lena adds 6 more cards. How many cards are there now?"
+    },
+    "answer": {
+     "from": "35",
+     "to": "38 cards"
+    },
+    "solutionSteps": {
+     "from": [
+      "There are 5 addends of 7, so this is 5 × 7.",
+      "5 × 7 = 35."
+     ],
+     "to": [
+      "8 groups of 4: 8 × 4 = 32.",
+      "32 + 6 = 38 cards."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_repeated). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_groups_plus_more). Rewritten from a Support template (was eg_repeated) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-cp1-019",
+   "changes": {
+    "prompt": {
+     "from": "Find the total. Write it as a multiplication equation in your head first: 4 + 4 + 4 + 4 = ?",
+     "to": "There are 8 jars with 4 marbles in each. Sam adds 2 more marbles. How many marbles are there now?"
+    },
+    "answer": {
+     "from": "16",
+     "to": "34 marbles"
+    },
+    "solutionSteps": {
+     "from": [
+      "There are 4 addends of 4, so this is 4 × 4.",
+      "4 × 4 = 16."
+     ],
+     "to": [
+      "8 groups of 4: 8 × 4 = 32.",
+      "32 + 2 = 34 marbles."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_repeated). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_groups_plus_more). Rewritten from a Support template (was eg_repeated) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-cp1-021",
+   "changes": {
+    "prompt": {
+     "from": "Find the total. Write it as a multiplication equation in your head first: 7 + 7 + 7 + 7 = ?",
+     "to": "There are 5 vases with 4 flowers in each. Nia adds 5 more flowers. How many flowers are there now?"
+    },
+    "answer": {
+     "from": "28",
+     "to": "25 flowers"
+    },
+    "solutionSteps": {
+     "from": [
+      "There are 4 addends of 7, so this is 4 × 7.",
+      "4 × 7 = 28."
+     ],
+     "to": [
+      "5 groups of 4: 5 × 4 = 20.",
+      "20 + 5 = 25 flowers."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_repeated). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_groups_plus_more). Rewritten from a Support template (was eg_repeated) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that show 36 as equal groups."
+    },
+    "answer": {
+     "from": [
+      "Complete the equation: 5 + 5 + 5 = ___ × 5 → 3",
+      "Complete the equation: 5 + 5 + 5 + 5 + 5 + 5 = ___ × 5 → 6"
+     ],
+     "to": [
+      "9 × 4",
+      "4 groups of 9"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Complete the equation: 5 + 5 + 5 + 5 + 5 + 5 = ___ × 5 → 7",
+       "correct": false
+      },
+      {
+       "text": "Complete the equation: 7 + 7 + 7 + 7 = ___ × 7 → 5",
+       "correct": false
+      },
+      {
+       "text": "Complete the equation: 5 + 5 + 5 = ___ × 5 → 3",
+       "correct": true
+      },
+      {
+       "text": "Complete the equation: 5 + 5 + 5 + 5 + 5 + 5 = ___ × 5 → 6",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "9 × 4",
+       "correct": true
+      },
+      {
+       "text": "4 + 4 + 4 + 4 + 4 + 4 + 4 + 4",
+       "correct": false
+      },
+      {
+       "text": "4 groups of 9",
+       "correct": true
+      },
+      {
+       "text": "36 groups of 9",
+       "correct": false
+      },
+      {
+       "text": "9 groups of 5",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Count the equal addends in each expression, then compare the number with the factor shown.",
+      "Complete the equation: 5 + 5 + 5 + 5 + 5 + 5 = ___ × 5 → 7: not correct.",
+      "Complete the equation: 7 + 7 + 7 + 7 = ___ × 7 → 5: not correct.",
+      "Complete the equation: 5 + 5 + 5 = ___ × 5 → 3: correct.",
+      "Complete the equation: 5 + 5 + 5 + 5 + 5 + 5 = ___ × 5 → 6: correct."
+     ],
+     "to": [
+      "4 groups of 9 is 4 × 9 = 36.",
+      "Correct choices: 9 × 4; 4 groups of 9. Not correct: 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4; 36 groups of 9; 9 groups of 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_repeated_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_select_same_total). 3rd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A farm stand has 4 baskets. Each basket has 4 peaches."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Find the total. Write it as a multiplication equation in your head first: 5 + 5 + 5 + 5 + 5 + 5 = ?",
+       "answer": "30"
+      },
+      {
+       "prompt": "Complete the equation: 3 + 3 + 3 + 3 = ___ × 3",
+       "answer": "4"
+      },
+      {
+       "prompt": "Complete the equation: 6 + 6 + 6 + 6 + 6 + 6 = ___ × 6",
+       "answer": "6"
+      },
+      {
+       "prompt": "Complete the equation: 6 + 6 + 6 = ___ × 6",
+       "answer": "3"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many groups are there, and how many peaches are in each group?",
+       "answer": "4 groups of 4"
+      },
+      {
+       "prompt": "Write a multiplication equation for the total.",
+       "answer": "Sample answer: 4 × 4 = 16"
+      },
+      {
+       "prompt": "How many peaches are there in all?",
+       "answer": "16 peaches"
+      },
+      {
+       "prompt": "Explain how you could check your answer with addition.",
+       "answer": "Sample answer: Add 4 a total of 4 times; the sum is 16."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 30; (b) 4; (c) 6; (d) 3",
+     "to": "(a) 4 groups of 4; (b) Sample answer: 4 × 4 = 16; (c) 16 peaches; (d) Sample answer: Add 4 a total of 4 times; the sum is 16."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) There are 6 addends of 5, so this is 6 × 5. 6 × 5 = 30.",
+      "(b) Count the addends: there are 4 addends of 3. 3 + 3 + 3 + 3 = 4 × 3.",
+      "(c) Count the addends: there are 6 addends of 6. 6 + 6 + 6 + 6 + 6 + 6 = 6 × 6.",
+      "(d) Count the addends: there are 3 addends of 6. 6 + 6 + 6 = 3 × 6."
+     ],
+     "to": [
+      "(a) Each basket is one group.",
+      "(b) 4 groups of 4 is 4 × 4.",
+      "(c) 4 × 4 = 16.",
+      "(d) Multiplication is repeated addition of equal groups."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_repeated_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_open_baskets). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that show 24 as equal groups."
+    },
+    "answer": {
+     "from": [
+      "Complete the equation: 4 + 4 + 4 = ___ × 4 → 3",
+      "Complete the equation: 5 + 5 + 5 = ___ × 5 → 3"
+     ],
+     "to": [
+      "4 × 6",
+      "6 groups of 4",
+      "4 + 4 + 4 + 4 + 4 + 4"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Complete the equation: 4 + 4 + 4 = ___ × 4 → 3",
+       "correct": true
+      },
+      {
+       "text": "Complete the equation: 3 + 3 + 3 + 3 + 3 = ___ × 3 → 4",
+       "correct": false
+      },
+      {
+       "text": "Complete the equation: 5 + 5 + 5 = ___ × 5 → 3",
+       "correct": true
+      },
+      {
+       "text": "Complete the equation: 3 + 3 = ___ × 3 → 1",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4 × 6",
+       "correct": true
+      },
+      {
+       "text": "6 groups of 4",
+       "correct": true
+      },
+      {
+       "text": "4 groups of 7",
+       "correct": false
+      },
+      {
+       "text": "4 + 4 + 4 + 4 + 4 + 4",
+       "correct": true
+      },
+      {
+       "text": "6 groups of 5",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Count the equal addends in each expression, then compare the number with the factor shown.",
+      "Complete the equation: 4 + 4 + 4 = ___ × 4 → 3: correct.",
+      "Complete the equation: 3 + 3 + 3 + 3 + 3 = ___ × 3 → 4: not correct.",
+      "Complete the equation: 5 + 5 + 5 = ___ × 5 → 3: correct.",
+      "Complete the equation: 3 + 3 = ___ × 3 → 1: not correct."
+     ],
+     "to": [
+      "6 groups of 4 is 6 × 4 = 24.",
+      "Correct choices: 4 × 6; 6 groups of 4; 4 + 4 + 4 + 4 + 4 + 4. Not correct: 4 groups of 7; 6 groups of 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_repeated_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_select_same_total). 3rd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A farm stand has 2 baskets. Each basket has 4 peaches."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Find the total. Write it as a multiplication equation in your head first: 5 + 5 + 5 + 5 + 5 = ?",
+       "answer": "25"
+      },
+      {
+       "prompt": "Find the total. Write it as a multiplication equation in your head first: 2 + 2 + 2 + 2 = ?",
+       "answer": "8"
+      },
+      {
+       "prompt": "Find the total. Write it as a multiplication equation in your head first: 5 + 5 + 5 = ?",
+       "answer": "15"
+      },
+      {
+       "prompt": "Find the total. Write it as a multiplication equation in your head first: 2 + 2 + 2 = ?",
+       "answer": "6"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many groups are there, and how many peaches are in each group?",
+       "answer": "2 groups of 4"
+      },
+      {
+       "prompt": "Write a multiplication equation for the total.",
+       "answer": "Sample answer: 2 × 4 = 8"
+      },
+      {
+       "prompt": "How many peaches are there in all?",
+       "answer": "8 peaches"
+      },
+      {
+       "prompt": "Explain how you could check your answer with addition.",
+       "answer": "Sample answer: Add 4 a total of 2 times; the sum is 8."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 25; (b) 8; (c) 15; (d) 6",
+     "to": "(a) 2 groups of 4; (b) Sample answer: 2 × 4 = 8; (c) 8 peaches; (d) Sample answer: Add 4 a total of 2 times; the sum is 8."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) There are 5 addends of 5, so this is 5 × 5. 5 × 5 = 25.",
+      "(b) There are 4 addends of 2, so this is 4 × 2. 4 × 2 = 8.",
+      "(c) There are 3 addends of 5, so this is 3 × 5. 3 × 5 = 15.",
+      "(d) There are 3 addends of 2, so this is 3 × 2. 3 × 2 = 6."
+     ],
+     "to": [
+      "(a) Each basket is one group.",
+      "(b) 2 groups of 4 is 2 × 4.",
+      "(c) 2 × 4 = 8.",
+      "(d) Multiplication is repeated addition of equal groups."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_repeated_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_open_baskets). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "What does 5 × 9 mean?",
+     "to": "Kai has 6 shelves of 5 books. Kai has 4 shelves of 5 books. How many books do they have in all?"
+    },
+    "answer": {
+     "from": "5 groups with 9 in each group",
+     "to": "50 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "In 5 × 9, the first factor 5 is the number of groups.",
+      "The second factor 9 is the number in each group."
+     ],
+     "to": [
+      "6 × 5 = 30 and 4 × 5 = 20.",
+      "30 + 20 = 50, the same as (6 + 4) × 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_meaning). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_two_sets_of_groups). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9 more than 5",
+       "correct": false
+      },
+      {
+       "text": "5 groups with 14 in each group",
+       "correct": false
+      },
+      {
+       "text": "5 groups with 9 in each group",
+       "correct": true
+      },
+      {
+       "text": "5 groups with 5 in each group",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "30 books",
+       "correct": false
+      },
+      {
+       "text": "15 books",
+       "correct": false
+      },
+      {
+       "text": "50 books",
+       "correct": true
+      },
+      {
+       "text": "10 books",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-honors-006",
+   "changes": {
+    "prompt": {
+     "from": "Which situation can be solved with 7 × 4?",
+     "to": "Hugo has 4 shelves of 8 books. Dev has 6 shelves of 8 books. How many books do they have in all?"
+    },
+    "answer": {
+     "from": "7 trays with 4 muffins in each",
+     "to": "80 books"
+    },
+    "solutionSteps": {
+     "from": [
+      "7 × 4 means 7 equal groups with 4 in each group.",
+      "“7 trays with 4 muffins in each” is 7 groups of 4."
+     ],
+     "to": [
+      "4 × 8 = 32 and 6 × 8 = 48.",
+      "32 + 48 = 80, the same as (4 + 6) × 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_which_story). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_two_sets_of_groups). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "7 muffins and 4 more muffins",
+       "correct": false
+      },
+      {
+       "text": "28 muffins shared among 7 trays",
+       "correct": false
+      },
+      {
+       "text": "7 trays with 4 muffins in each",
+       "correct": true
+      },
+      {
+       "text": "4 trays with 4 muffins in each",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "32 books",
+       "correct": false
+      },
+      {
+       "text": "18 books",
+       "correct": false
+      },
+      {
+       "text": "80 books",
+       "correct": true
+      },
+      {
+       "text": "16 books",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-honors-010",
+   "changes": {
+    "prompt": {
+     "from": "What does 8 × 4 mean?",
+     "to": "Raj has 4 packs of 9 cards. Ava has 2 packs of 9 cards. How many cards do they have in all?"
+    },
+    "answer": {
+     "from": "8 groups with 4 in each group",
+     "to": "54 cards"
+    },
+    "solutionSteps": {
+     "from": [
+      "In 8 × 4, the first factor 8 is the number of groups.",
+      "The second factor 4 is the number in each group."
+     ],
+     "to": [
+      "4 × 9 = 36 and 2 × 9 = 18.",
+      "36 + 18 = 54, the same as (4 + 2) × 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_meaning). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_two_sets_of_groups). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "8 groups with 12 in each group",
+       "correct": false
+      },
+      {
+       "text": "8 groups with 4 in each group",
+       "correct": true
+      },
+      {
+       "text": "4 more than 8",
+       "correct": false
+      },
+      {
+       "text": "8 groups with 8 in each group",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "36 cards",
+       "correct": false
+      },
+      {
+       "text": "15 cards",
+       "correct": false
+      },
+      {
+       "text": "18 cards",
+       "correct": false
+      },
+      {
+       "text": "54 cards",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "Dev has 4 packs. There are 6 stickers in each of the packs. Which expression shows how many stickers Dev has?",
+     "to": "Lena has 5 boxes of 6 crayons. Ben has 3 boxes of 6 crayons. How many crayons do they have in all?"
+    },
+    "answer": {
+     "from": "4 × 6",
+     "to": "48 crayons"
+    },
+    "solutionSteps": {
+     "from": [
+      "There are 4 equal groups (packs) with 6 stickers in each group.",
+      "4 groups of 6 is 4 × 6."
+     ],
+     "to": [
+      "5 × 6 = 30 and 3 × 6 = 18.",
+      "30 + 18 = 48, the same as (5 + 3) × 6."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_story_expr). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_two_sets_of_groups). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4 × 4",
+       "correct": false
+      },
+      {
+       "text": "6 + 6",
+       "correct": false
+      },
+      {
+       "text": "4 × 6",
+       "correct": true
+      },
+      {
+       "text": "4 + 6",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "30 crayons",
+       "correct": false
+      },
+      {
+       "text": "48 crayons",
+       "correct": true
+      },
+      {
+       "text": "14 crayons",
+       "correct": false
+      },
+      {
+       "text": "12 crayons",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "Which situation can be solved with 4 × 8?",
+     "to": "Isla has 6 boxes of 4 crayons. Uma has 3 boxes of 4 crayons. How many crayons do they have in all?"
+    },
+    "answer": {
+     "from": "4 plates with 8 cookies in each",
+     "to": "36 crayons"
+    },
+    "solutionSteps": {
+     "from": [
+      "4 × 8 means 4 equal groups with 8 in each group.",
+      "“4 plates with 8 cookies in each” is 4 groups of 8."
+     ],
+     "to": [
+      "6 × 4 = 24 and 3 × 4 = 12.",
+      "24 + 12 = 36, the same as (6 + 3) × 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_which_story). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_two_sets_of_groups). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "32 cookies shared among 4 plates",
+       "correct": false
+      },
+      {
+       "text": "8 plates with 8 cookies in each",
+       "correct": false
+      },
+      {
+       "text": "4 cookies and 8 more cookies",
+       "correct": false
+      },
+      {
+       "text": "4 plates with 8 cookies in each",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "24 crayons",
+       "correct": false
+      },
+      {
+       "text": "13 crayons",
+       "correct": false
+      },
+      {
+       "text": "12 crayons",
+       "correct": false
+      },
+      {
+       "text": "36 crayons",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-honors-020",
+   "changes": {
+    "prompt": {
+     "from": "Complete the equation: 5 + 5 + 5 + 5 + 5 + 5 = ___ × 5",
+     "to": "Hugo has 5 boxes of 3 crayons. Ben has 6 boxes of 3 crayons. How many crayons do they have in all?"
+    },
+    "answer": {
+     "from": "6",
+     "to": "33 crayons"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count the addends: there are 6 addends of 5.",
+      "5 + 5 + 5 + 5 + 5 + 5 = 6 × 5."
+     ],
+     "to": [
+      "5 × 3 = 15 and 6 × 3 = 18.",
+      "15 + 18 = 33, the same as (5 + 6) × 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_repeated). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_two_sets_of_groups). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that show 12 as equal groups."
+    },
+    "answer": {
+     "from": [
+      "Complete the equation: 6 + 6 + 6 + 6 + 6 + 6 + 6 = ___ × 6 → 7",
+      "Complete the equation: 9 + 9 + 9 + 9 = ___ × 9 → 4"
+     ],
+     "to": [
+      "4 + 4 + 4",
+      "4 × 3",
+      "3 × 4",
+      "3 groups of 4"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Complete the equation: 6 + 6 + 6 + 6 + 6 + 6 + 6 = ___ × 6 → 7",
+       "correct": true
+      },
+      {
+       "text": "Complete the equation: 9 + 9 + 9 + 9 = ___ × 9 → 36",
+       "correct": false
+      },
+      {
+       "text": "Complete the equation: 9 + 9 + 9 + 9 = ___ × 9 → 4",
+       "correct": true
+      },
+      {
+       "text": "Complete the equation: 7 + 7 + 7 + 7 + 7 + 7 + 7 = ___ × 7 → 8",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4 + 4 + 4",
+       "correct": true
+      },
+      {
+       "text": "4 × 3",
+       "correct": true
+      },
+      {
+       "text": "3 × 4",
+       "correct": true
+      },
+      {
+       "text": "3 groups of 5",
+       "correct": false
+      },
+      {
+       "text": "3 groups of 4",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Count the equal addends in each expression, then compare the number with the factor shown.",
+      "Complete the equation: 6 + 6 + 6 + 6 + 6 + 6 + 6 = ___ × 6 → 7: correct.",
+      "Complete the equation: 9 + 9 + 9 + 9 = ___ × 9 → 36: not correct.",
+      "Complete the equation: 9 + 9 + 9 + 9 = ___ × 9 → 4: correct.",
+      "Complete the equation: 7 + 7 + 7 + 7 + 7 + 7 + 7 = ___ × 7 → 8: not correct."
+     ],
+     "to": [
+      "3 groups of 4 is 3 × 4 = 12.",
+      "Correct choices: 4 + 4 + 4; 4 × 3; 3 × 4; 3 groups of 4. Not correct: 3 groups of 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_repeated_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_select_same_total). 3rd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A farm stand has 8 baskets. Each basket has 8 peaches."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Complete the equation: 7 + 7 + 7 + 7 + 7 + 7 + 7 = ___ × 7",
+       "answer": "7"
+      },
+      {
+       "prompt": "Find the total. Write it as a multiplication equation in your head first: 9 + 9 + 9 + 9 + 9 + 9 + 9 = ?",
+       "answer": "63"
+      },
+      {
+       "prompt": "Find the total. Write it as a multiplication equation in your head first: 7 + 7 + 7 + 7 + 7 + 7 + 7 = ?",
+       "answer": "49"
+      },
+      {
+       "prompt": "Complete the equation: 4 + 4 + 4 + 4 = ___ × 4",
+       "answer": "4"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many groups are there, and how many peaches are in each group?",
+       "answer": "8 groups of 8"
+      },
+      {
+       "prompt": "Write a multiplication equation for the total.",
+       "answer": "Sample answer: 8 × 8 = 64"
+      },
+      {
+       "prompt": "How many peaches are there in all?",
+       "answer": "64 peaches"
+      },
+      {
+       "prompt": "Explain how you could check your answer with addition.",
+       "answer": "Sample answer: Add 8 a total of 8 times; the sum is 64."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 7; (b) 63; (c) 49; (d) 4",
+     "to": "(a) 8 groups of 8; (b) Sample answer: 8 × 8 = 64; (c) 64 peaches; (d) Sample answer: Add 8 a total of 8 times; the sum is 64."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count the addends: there are 7 addends of 7. 7 + 7 + 7 + 7 + 7 + 7 + 7 = 7 × 7.",
+      "(b) There are 7 addends of 9, so this is 7 × 9. 7 × 9 = 63.",
+      "(c) There are 7 addends of 7, so this is 7 × 7. 7 × 7 = 49.",
+      "(d) Count the addends: there are 4 addends of 4. 4 + 4 + 4 + 4 = 4 × 4."
+     ],
+     "to": [
+      "(a) Each basket is one group.",
+      "(b) 8 groups of 8 is 8 × 8.",
+      "(c) 8 × 8 = 64.",
+      "(d) Multiplication is repeated addition of equal groups."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: eg_repeated_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm1_open_baskets). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s02-cp1-004",
+   "changes": {
+    "prompt": {
+     "from": "A sheet of stamps has 6 rows of 9 stamps. How many stamps are on the sheet?",
+     "to": "An array has 3 rows of 7 tiles. 1 more row of 7 is added. How many tiles are in the array now?"
+    },
+    "answer": {
+     "from": "54 stamps",
+     "to": "28 tiles"
+    },
+    "solutionSteps": {
+     "from": [
+      "An array with 6 rows of 9.",
+      "6 × 9 = 54 stamps."
+     ],
+     "to": [
+      "There are 3 + 1 = 4 rows.",
+      "4 × 7 = 28 tiles."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_story). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm2_array_add_rows). Rewritten from a Support template (was ar_story) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s02-cp1-008",
+   "changes": {
+    "prompt": {
+     "from": "The class lines up in 5 rows with 6 students in each row. How many students are there?",
+     "to": "An array has 8 rows of 4 tiles. 2 more rows of 4 are added. How many tiles are in the array now?"
+    },
+    "answer": {
+     "from": "30 students",
+     "to": "40 tiles"
+    },
+    "solutionSteps": {
+     "from": [
+      "An array with 5 rows of 6.",
+      "5 × 6 = 30 students."
+     ],
+     "to": [
+      "There are 8 + 2 = 10 rows.",
+      "10 × 4 = 40 tiles."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_story). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm2_array_add_rows). Rewritten from a Support template (was ar_story) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "30 students",
+       "correct": true
+      },
+      {
+       "text": "24 students",
+       "correct": false
+      },
+      {
+       "text": "35 students",
+       "correct": false
+      },
+      {
+       "text": "11 students",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "32 tiles",
+       "correct": false
+      },
+      {
+       "text": "40 tiles",
+       "correct": true
+      },
+      {
+       "text": "34 tiles",
+       "correct": false
+      },
+      {
+       "text": "60 tiles",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s02-cp1-021",
+   "changes": {
+    "prompt": {
+     "from": "A sheet of stamps has 6 rows of 3 stamps. How many stamps are on the sheet?",
+     "to": "An array has 4 rows of 4 tiles. 1 more row of 4 is added. How many tiles are in the array now?"
+    },
+    "answer": {
+     "from": "18 stamps",
+     "to": "20 tiles"
+    },
+    "solutionSteps": {
+     "from": [
+      "An array with 6 rows of 3.",
+      "6 × 3 = 18 stamps."
+     ],
+     "to": [
+      "There are 4 + 1 = 5 rows.",
+      "5 × 4 = 20 tiles."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_story). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm2_array_add_rows). Rewritten from a Support template (was ar_story) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s02-cp1-024",
+   "changes": {
+    "prompt": {
+     "from": "A sheet of stamps has 6 rows of 5 stamps. How many stamps are on the sheet?",
+     "to": "An array has 3 rows of 8 tiles. 3 more rows of 8 are added. How many tiles are in the array now?"
+    },
+    "answer": {
+     "from": "30 stamps",
+     "to": "48 tiles"
+    },
+    "solutionSteps": {
+     "from": [
+      "An array with 6 rows of 5.",
+      "6 × 5 = 30 stamps."
+     ],
+     "to": [
+      "There are 3 + 3 = 6 rows.",
+      "6 × 8 = 48 tiles."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_story). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm2_array_add_rows). Rewritten from a Support template (was ar_story) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s02-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the arrays that have 16 tiles."
+    },
+    "answer": {
+     "from": [
+      "Noah puts 15 chairs in an array. There are 5 chairs in each row. How many rows are there? → 3",
+      "Gabi puts 42 chairs in an array. There are 6 rows. How many chairs are in each row? → 7"
+     ],
+     "to": [
+      "4 rows of 4",
+      "2 rows of 8"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Hugo puts 36 chairs in an array. There are 9 chairs in each row. How many rows are there? → 36",
+       "correct": false
+      },
+      {
+       "text": "Noah puts 15 chairs in an array. There are 5 chairs in each row. How many rows are there? → 3",
+       "correct": true
+      },
+      {
+       "text": "Gabi puts 42 chairs in an array. There are 6 rows. How many chairs are in each row? → 7",
+       "correct": true
+      },
+      {
+       "text": "Rosa puts 15 chairs in an array. There are 3 chairs in each row. How many rows are there? → 8",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "5 rows of 4",
+       "correct": false
+      },
+      {
+       "text": "3 rows of 5",
+       "correct": false
+      },
+      {
+       "text": "4 rows of 4",
+       "correct": true
+      },
+      {
+       "text": "6 rows of 3",
+       "correct": false
+      },
+      {
+       "text": "2 rows of 8",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Hugo puts 36 chairs in an array. There are 9 chairs in each row. How many rows are there? → 36: not correct.",
+      "Noah puts 15 chairs in an array. There are 5 chairs in each row. How many rows are there? → 3: correct.",
+      "Gabi puts 42 chairs in an array. There are 6 rows. How many chairs are in each row? → 7: correct.",
+      "Rosa puts 15 chairs in an array. There are 3 chairs in each row. How many rows are there? → 8: not correct."
+     ],
+     "to": [
+      "Multiply rows by the number in each row.",
+      "Correct choices: 4 rows of 4; 2 rows of 8. Not correct: 5 rows of 4; 3 rows of 5; 6 rows of 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_rows_missing_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm2_select_array_total). 3rd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s02-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A garden has 4 rows of plants with 4 plants in each row."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Jada puts 24 chairs in an array. There are 6 chairs in each row. How many rows are there?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Ana puts 48 chairs in an array. There are 8 chairs in each row. How many rows are there?",
+       "answer": "6"
+      },
+      {
+       "prompt": "Tess puts 42 chairs in an array. There are 7 chairs in each row. How many rows are there?",
+       "answer": "6"
+      },
+      {
+       "prompt": "Jada puts 30 chairs in an array. There are 5 chairs in each row. How many rows are there?",
+       "answer": "6"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many plants are in the garden?",
+       "answer": "16 plants"
+      },
+      {
+       "prompt": "If 3 more rows of 4 are planted, how many plants will there be?",
+       "answer": "28 plants"
+      },
+      {
+       "prompt": "How many plants would be in one column?",
+       "answer": "4 plants"
+      },
+      {
+       "prompt": "Explain why turning the array on its side does not change the total.",
+       "answer": "Sample answer: The same plants are there, so 4 × 4 = 4 × 4."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 4; (b) 6; (c) 6; (d) 6",
+     "to": "(a) 16 plants; (b) 28 plants; (c) 4 plants; (d) Sample answer: The same plants are there, so 4 × 4 = 4 × 4."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Think: 4 × 6 = 24. The answer is 4.",
+      "(b) Think: 6 × 8 = 48. The answer is 6.",
+      "(c) Think: 6 × 7 = 42. The answer is 6.",
+      "(d) Think: 6 × 5 = 30. The answer is 6."
+     ],
+     "to": [
+      "(a) 4 × 4 = 16.",
+      "(b) 7 × 4 = 28.",
+      "(c) Each column has one plant from each of the 4 rows.",
+      "(d) The commutative property."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_rows_missing_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm2_open_garden_array). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s02-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the arrays that have 12 tiles."
+    },
+    "answer": {
+     "from": [
+      "Ana puts 12 chairs in an array. There are 4 chairs in each row. How many rows are there? → 3",
+      "Uma puts 12 chairs in an array. There are 3 rows. How many chairs are in each row? → 4"
+     ],
+     "to": [
+      "4 rows of 3",
+      "6 rows of 2",
+      "2 rows of 6"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Pia puts 12 chairs in an array. There are 3 chairs in each row. How many rows are there? → 12",
+       "correct": false
+      },
+      {
+       "text": "Rosa puts 6 chairs in an array. There are 3 rows. How many chairs are in each row? → 6",
+       "correct": false
+      },
+      {
+       "text": "Ana puts 12 chairs in an array. There are 4 chairs in each row. How many rows are there? → 3",
+       "correct": true
+      },
+      {
+       "text": "Uma puts 12 chairs in an array. There are 3 rows. How many chairs are in each row? → 4",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "4 rows of 2",
+       "correct": false
+      },
+      {
+       "text": "4 rows of 3",
+       "correct": true
+      },
+      {
+       "text": "6 rows of 2",
+       "correct": true
+      },
+      {
+       "text": "3 rows of 5",
+       "correct": false
+      },
+      {
+       "text": "2 rows of 6",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Pia puts 12 chairs in an array. There are 3 chairs in each row. How many rows are there? → 12: not correct.",
+      "Rosa puts 6 chairs in an array. There are 3 rows. How many chairs are in each row? → 6: not correct.",
+      "Ana puts 12 chairs in an array. There are 4 chairs in each row. How many rows are there? → 3: correct.",
+      "Uma puts 12 chairs in an array. There are 3 rows. How many chairs are in each row? → 4: correct."
+     ],
+     "to": [
+      "Multiply rows by the number in each row.",
+      "Correct choices: 4 rows of 3; 6 rows of 2; 2 rows of 6. Not correct: 3 rows of 5; 4 rows of 2."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_rows_missing_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm2_select_array_total). 3rd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s02-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A garden has 3 rows of plants with 9 plants in each row."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Tess puts 12 chairs in an array. There are 2 rows. How many chairs are in each row?",
+       "answer": "6"
+      },
+      {
+       "prompt": "Hugo puts 15 chairs in an array. There are 3 rows. How many chairs are in each row?",
+       "answer": "5"
+      },
+      {
+       "prompt": "Theo puts 8 chairs in an array. There are 2 chairs in each row. How many rows are there?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Eli puts 8 chairs in an array. There are 4 rows. How many chairs are in each row?",
+       "answer": "2"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many plants are in the garden?",
+       "answer": "27 plants"
+      },
+      {
+       "prompt": "If 3 more rows of 9 are planted, how many plants will there be?",
+       "answer": "54 plants"
+      },
+      {
+       "prompt": "How many plants would be in one column?",
+       "answer": "3 plants"
+      },
+      {
+       "prompt": "Explain why turning the array on its side does not change the total.",
+       "answer": "Sample answer: The same plants are there, so 3 × 9 = 9 × 3."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 6; (b) 5; (c) 4; (d) 2",
+     "to": "(a) 27 plants; (b) 54 plants; (c) 3 plants; (d) Sample answer: The same plants are there, so 3 × 9 = 9 × 3."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Think: 2 × 6 = 12. The answer is 6.",
+      "(b) Think: 3 × 5 = 15. The answer is 5.",
+      "(c) Think: 4 × 2 = 8. The answer is 4.",
+      "(d) Think: 4 × 2 = 8. The answer is 2."
+     ],
+     "to": [
+      "(a) 3 × 9 = 27.",
+      "(b) 6 × 9 = 54.",
+      "(c) Each column has one plant from each of the 3 rows.",
+      "(d) The commutative property."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_rows_missing_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm2_open_garden_array). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s02-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the arrays that have 12 tiles."
+    },
+    "answer": {
+     "from": [
+      "Ella puts 45 chairs in an array. There are 5 rows. How many chairs are in each row? → 9",
+      "Finn puts 42 chairs in an array. There are 6 rows. How many chairs are in each row? → 7"
+     ],
+     "to": [
+      "4 rows of 3",
+      "6 rows of 2",
+      "3 rows of 4",
+      "2 rows of 6"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Ana puts 32 chairs in an array. There are 4 rows. How many chairs are in each row? → 12",
+       "correct": false
+      },
+      {
+       "text": "Mia puts 63 chairs in an array. There are 9 chairs in each row. How many rows are there? → 8",
+       "correct": false
+      },
+      {
+       "text": "Ella puts 45 chairs in an array. There are 5 rows. How many chairs are in each row? → 9",
+       "correct": true
+      },
+      {
+       "text": "Finn puts 42 chairs in an array. There are 6 rows. How many chairs are in each row? → 7",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "2 rows of 4",
+       "correct": false
+      },
+      {
+       "text": "4 rows of 3",
+       "correct": true
+      },
+      {
+       "text": "6 rows of 2",
+       "correct": true
+      },
+      {
+       "text": "3 rows of 4",
+       "correct": true
+      },
+      {
+       "text": "2 rows of 6",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Ana puts 32 chairs in an array. There are 4 rows. How many chairs are in each row? → 12: not correct.",
+      "Mia puts 63 chairs in an array. There are 9 chairs in each row. How many rows are there? → 8: not correct.",
+      "Ella puts 45 chairs in an array. There are 5 rows. How many chairs are in each row? → 9: correct.",
+      "Finn puts 42 chairs in an array. There are 6 rows. How many chairs are in each row? → 7: correct."
+     ],
+     "to": [
+      "Multiply rows by the number in each row.",
+      "Correct choices: 4 rows of 3; 6 rows of 2; 3 rows of 4; 2 rows of 6. Not correct: 2 rows of 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_rows_missing_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm2_select_array_total). 3rd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s02-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A garden has 7 rows of plants with 8 plants in each row."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Nia puts 50 chairs in an array. There are 10 chairs in each row. How many rows are there?",
+       "answer": "5"
+      },
+      {
+       "prompt": "Sam puts 28 chairs in an array. There are 4 rows. How many chairs are in each row?",
+       "answer": "7"
+      },
+      {
+       "prompt": "Max puts 42 chairs in an array. There are 6 chairs in each row. How many rows are there?",
+       "answer": "7"
+      },
+      {
+       "prompt": "Nia puts 56 chairs in an array. There are 8 rows. How many chairs are in each row?",
+       "answer": "7"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many plants are in the garden?",
+       "answer": "56 plants"
+      },
+      {
+       "prompt": "If 1 more row of 8 is planted, how many plants will there be?",
+       "answer": "64 plants"
+      },
+      {
+       "prompt": "How many plants would be in one column?",
+       "answer": "7 plants"
+      },
+      {
+       "prompt": "Explain why turning the array on its side does not change the total.",
+       "answer": "Sample answer: The same plants are there, so 7 × 8 = 8 × 7."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 5; (b) 7; (c) 7; (d) 7",
+     "to": "(a) 56 plants; (b) 64 plants; (c) 7 plants; (d) Sample answer: The same plants are there, so 7 × 8 = 8 × 7."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Think: 5 × 10 = 50. The answer is 5.",
+      "(b) Think: 4 × 7 = 28. The answer is 7.",
+      "(c) Think: 7 × 6 = 42. The answer is 7.",
+      "(d) Think: 8 × 7 = 56. The answer is 7."
+     ],
+     "to": [
+      "(a) 7 × 8 = 56.",
+      "(b) 8 × 8 = 64.",
+      "(c) Each column has one plant from each of the 7 rows.",
+      "(d) The commutative property."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: ar_rows_missing_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm2_open_garden_array). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-cp1-001",
+   "changes": {
+    "prompt": {
+     "from": "Multiply: 10 × 10",
+     "to": "Find 7 × 10 and 4 × 10. What is the sum of the two products?"
+    },
+    "answer": {
+     "from": "100",
+     "to": "110"
+    },
+    "solutionSteps": {
+     "from": [
+      "Skip count by 10s 10 times.",
+      "10 × 10 = 100."
+     ],
+     "to": [
+      "7 × 10 = 70 and 4 × 10 = 40.",
+      "70 + 40 = 110."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_two_products_sum). Rewritten from a Support template (was f_fact) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "Look at these products of 10: 10, 20, 30. What pattern is true for every product of 10?",
+     "to": "Find 7 × 10 and 7 × 10. What is the sum of the two products?"
+    },
+    "answer": {
+     "from": "They end in 0.",
+     "to": "140"
+    },
+    "solutionSteps": {
+     "from": [
+      "Skip count by 10s and look at the ones digits.",
+      "They end in 0."
+     ],
+     "to": [
+      "7 × 10 = 70 and 7 × 10 = 70.",
+      "70 + 70 = 140."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_pattern). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_two_products_sum). Rewritten from a Support template (was f_pattern) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "They end in 1.",
+       "correct": false
+      },
+      {
+       "text": "They end in 0.",
+       "correct": true
+      },
+      {
+       "text": "They are all odd.",
+       "correct": false
+      },
+      {
+       "text": "They end in 5.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "70",
+       "correct": false
+      },
+      {
+       "text": "140",
+       "correct": true
+      },
+      {
+       "text": "24",
+       "correct": false
+      },
+      {
+       "text": "490",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-cp1-006",
+   "changes": {
+    "prompt": {
+     "from": "Multiply: 5 × 7",
+     "to": "Find 4 × 5 and 8 × 5. What is the sum of the two products?"
+    },
+    "answer": {
+     "from": "35",
+     "to": "60"
+    },
+    "solutionSteps": {
+     "from": [
+      "Skip count by 5s 7 times.",
+      "5 × 7 = 35."
+     ],
+     "to": [
+      "4 × 5 = 20 and 8 × 5 = 40.",
+      "20 + 40 = 60."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_two_products_sum). Rewritten from a Support template (was f_fact) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "12",
+       "correct": false
+      },
+      {
+       "text": "35",
+       "correct": true
+      },
+      {
+       "text": "30",
+       "correct": false
+      },
+      {
+       "text": "40",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "20",
+       "correct": false
+      },
+      {
+       "text": "17",
+       "correct": false
+      },
+      {
+       "text": "160",
+       "correct": false
+      },
+      {
+       "text": "60",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "Look at these products of 2: 2, 4, 6, 8. What pattern is true for every product of 2?",
+     "to": "Find 6 × 5 and 7 × 5. What is the sum of the two products?"
+    },
+    "answer": {
+     "from": "They are all even.",
+     "to": "65"
+    },
+    "solutionSteps": {
+     "from": [
+      "Skip count by 2s and look at the ones digits.",
+      "They are all even."
+     ],
+     "to": [
+      "6 × 5 = 30 and 7 × 5 = 35.",
+      "30 + 35 = 65."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_pattern). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_two_products_sum). Rewritten from a Support template (was f_pattern) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "They end in 0 or 5.",
+       "correct": false
+      },
+      {
+       "text": "They are all odd.",
+       "correct": false
+      },
+      {
+       "text": "They are all even.",
+       "correct": true
+      },
+      {
+       "text": "They end in 5.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "30",
+       "correct": false
+      },
+      {
+       "text": "65",
+       "correct": true
+      },
+      {
+       "text": "18",
+       "correct": false
+      },
+      {
+       "text": "210",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-cp1-014",
+   "changes": {
+    "prompt": {
+     "from": "Multiply: 10 × 8",
+     "to": "Find 6 × 2 and 8 × 2. What is the sum of the two products?"
+    },
+    "answer": {
+     "from": "80",
+     "to": "28"
+    },
+    "solutionSteps": {
+     "from": [
+      "Skip count by 10s 8 times.",
+      "10 × 8 = 80."
+     ],
+     "to": [
+      "6 × 2 = 12 and 8 × 2 = 16.",
+      "12 + 16 = 28."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_two_products_sum). Rewritten from a Support template (was f_fact) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-cp1-016",
+   "changes": {
+    "prompt": {
+     "from": "Skip count by 10s: 10, 20, 30, 40, ?. What number goes where the ? is?",
+     "to": "Find 2 × 2 and 9 × 2. What is the sum of the two products?"
+    },
+    "answer": {
+     "from": "50",
+     "to": "22"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 10 more than the one before.",
+      "The missing number is 50 = 5 × 10."
+     ],
+     "to": [
+      "2 × 2 = 4 and 9 × 2 = 18.",
+      "4 + 18 = 22."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_skip_line). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_two_products_sum). Rewritten from a Support template (was f_skip_line) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "60",
+       "correct": false
+      },
+      {
+       "text": "51",
+       "correct": false
+      },
+      {
+       "text": "50",
+       "correct": true
+      },
+      {
+       "text": "49",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "22",
+       "correct": true
+      },
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "13",
+       "correct": false
+      },
+      {
+       "text": "36",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-cp1-019",
+   "changes": {
+    "prompt": {
+     "from": "Multiply: 7 × 2",
+     "to": "Find 3 × 10 and 2 × 10. What is the sum of the two products?"
+    },
+    "answer": {
+     "from": "14",
+     "to": "50"
+    },
+    "solutionSteps": {
+     "from": [
+      "Skip count by 2s 7 times.",
+      "7 × 2 = 14."
+     ],
+     "to": [
+      "3 × 10 = 30 and 2 × 10 = 20.",
+      "30 + 20 = 50."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_two_products_sum). Rewritten from a Support template (was f_fact) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "16",
+       "correct": false
+      },
+      {
+       "text": "12",
+       "correct": false
+      },
+      {
+       "text": "14",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "30",
+       "correct": false
+      },
+      {
+       "text": "15",
+       "correct": false
+      },
+      {
+       "text": "50",
+       "correct": true
+      },
+      {
+       "text": "60",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-cp1-024",
+   "changes": {
+    "prompt": {
+     "from": "Multiply: 2 × 10",
+     "to": "Find 8 × 2 and 4 × 2. What is the sum of the two products?"
+    },
+    "answer": {
+     "from": "20",
+     "to": "24"
+    },
+    "solutionSteps": {
+     "from": [
+      "Skip count by 10s 2 times.",
+      "2 × 10 = 20."
+     ],
+     "to": [
+      "8 × 2 = 16 and 4 × 2 = 8.",
+      "16 + 8 = 24."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_two_products_sum). Rewritten from a Support template (was f_fact) as a Standard item with an added step: 3rd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers that are products of 5 (that is, 5 × a whole number)."
+    },
+    "answer": {
+     "from": [
+      "8 × 10 → 80",
+      "5 × 5 → 25"
+     ],
+     "to": [
+      "25",
+      "35"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "8 × 10 → 80",
+       "correct": true
+      },
+      {
+       "text": "2 × 5 → 20",
+       "correct": false
+      },
+      {
+       "text": "8 × 5 → 45",
+       "correct": false
+      },
+      {
+       "text": "5 × 5 → 25",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "25",
+       "correct": true
+      },
+      {
+       "text": "36",
+       "correct": false
+      },
+      {
+       "text": "23",
+       "correct": false
+      },
+      {
+       "text": "18",
+       "correct": false
+      },
+      {
+       "text": "35",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "8 × 10 → 80: correct.",
+      "2 × 5 → 20: not correct.",
+      "8 × 5 → 45: not correct.",
+      "5 × 5 → 25: correct."
+     ],
+     "to": [
+      "Products of 5 end in 0 or 5.",
+      "Correct choices: 25; 35. Not correct: 23; 36; 18."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_fact_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_select_products_of). 3rd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A class buys packs of 5 pencils. Team A gets 9 packs and Team B gets 7 packs."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Multiply: 8 × 2",
+       "answer": "16"
+      },
+      {
+       "prompt": "Multiply: 10 × 8",
+       "answer": "80"
+      },
+      {
+       "prompt": "Multiply: 10 × 5",
+       "answer": "50"
+      },
+      {
+       "prompt": "Multiply: 7 × 10",
+       "answer": "70"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many items does Team A get?",
+       "answer": "45"
+      },
+      {
+       "prompt": "How many items does Team B get?",
+       "answer": "35"
+      },
+      {
+       "prompt": "How many items do the teams get in all?",
+       "answer": "80"
+      },
+      {
+       "prompt": "Explain a pattern you see when you multiply by 5.",
+       "answer": "Sample answer: Products of 5 end in 0 or 5."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 16; (b) 80; (c) 50; (d) 70",
+     "to": "(a) 45; (b) 35; (c) 80; (d) Sample answer: Products of 5 end in 0 or 5."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Skip count by 2s 8 times. 8 × 2 = 16.",
+      "(b) Skip count by 10s 8 times. 10 × 8 = 80.",
+      "(c) Skip count by 5s 10 times. 10 × 5 = 50.",
+      "(d) Skip count by 10s 7 times. 7 × 10 = 70."
+     ],
+     "to": [
+      "(a) 9 × 5 = 45.",
+      "(b) 7 × 5 = 35.",
+      "(c) 45 + 35 = 80.",
+      "(d) Look at the ones digits."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_fact_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_open_packs). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers that are products of 2 (that is, 2 × a whole number)."
+    },
+    "answer": {
+     "from": [
+      "5 × 2 → 10",
+      "10 × 2 → 20"
+     ],
+     "to": [
+      "18",
+      "20",
+      "4"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "5 × 2 → 10",
+       "correct": true
+      },
+      {
+       "text": "10 × 2 → 20",
+       "correct": true
+      },
+      {
+       "text": "4 × 5 → 200",
+       "correct": false
+      },
+      {
+       "text": "2 × 3 → 5",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "18",
+       "correct": true
+      },
+      {
+       "text": "20",
+       "correct": true
+      },
+      {
+       "text": "5",
+       "correct": false
+      },
+      {
+       "text": "11",
+       "correct": false
+      },
+      {
+       "text": "4",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "5 × 2 → 10: correct.",
+      "10 × 2 → 20: correct.",
+      "4 × 5 → 200: not correct.",
+      "2 × 3 → 5: not correct."
+     ],
+     "to": [
+      "Products of 2 are even.",
+      "Correct choices: 18; 20; 4. Not correct: 11; 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_fact_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_select_products_of). 3rd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A class buys packs of 2 juice boxes. Team A gets 7 packs and Team B gets 5 packs."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Multiply: 10 × 4",
+       "answer": "40"
+      },
+      {
+       "prompt": "Multiply: 10 × 3",
+       "answer": "30"
+      },
+      {
+       "prompt": "Multiply: 3 × 2",
+       "answer": "6"
+      },
+      {
+       "prompt": "Multiply: 1 × 5",
+       "answer": "5"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many items does Team A get?",
+       "answer": "14"
+      },
+      {
+       "prompt": "How many items does Team B get?",
+       "answer": "10"
+      },
+      {
+       "prompt": "How many items do the teams get in all?",
+       "answer": "24"
+      },
+      {
+       "prompt": "Explain a pattern you see when you multiply by 2.",
+       "answer": "Sample answer: Products of 2 are always even."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 40; (b) 30; (c) 6; (d) 5",
+     "to": "(a) 14; (b) 10; (c) 24; (d) Sample answer: Products of 2 are always even."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Skip count by 10s 4 times. 10 × 4 = 40.",
+      "(b) Skip count by 10s 3 times. 10 × 3 = 30.",
+      "(c) Skip count by 2s 3 times. 3 × 2 = 6.",
+      "(d) Skip count by 5s 1 time. 1 × 5 = 5."
+     ],
+     "to": [
+      "(a) 7 × 2 = 14.",
+      "(b) 5 × 2 = 10.",
+      "(c) 14 + 10 = 24.",
+      "(d) Look at the ones digits."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_fact_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_open_packs). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-honors-001",
+   "changes": {
+    "prompt": {
+     "from": "Multiply: 5 × 10",
+     "to": "Hugo has 7 dimes and 5 nickels. A dime is 10 cents and a nickel is 5 cents. How many cents is that in all?"
+    },
+    "answer": {
+     "from": "50",
+     "to": "95 cents"
+    },
+    "solutionSteps": {
+     "from": [
+      "Skip count by 5s 10 times.",
+      "5 × 10 = 50."
+     ],
+     "to": [
+      "Dimes: 7 × 10 = 70 cents. Nickels: 5 × 5 = 25 cents.",
+      "70 + 25 = 95 cents."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_coins_total). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "Skip count by 2s: 2, 4, 6, 8, 10, ?. What number goes where the ? is?",
+     "to": "Zoe has 4 dimes and 4 nickels. A dime is 10 cents and a nickel is 5 cents. How many cents is that in all?"
+    },
+    "answer": {
+     "from": "12",
+     "to": "60 cents"
+    },
+    "solutionSteps": {
+     "from": [
+      "Each number is 2 more than the one before.",
+      "The missing number is 12 = 6 × 2."
+     ],
+     "to": [
+      "Dimes: 4 × 10 = 40 cents. Nickels: 4 × 5 = 20 cents.",
+      "40 + 20 = 60 cents."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_skip_line). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_coins_total). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "There are 6 bikes. How many wheels are there? (Each has 2.)",
+     "to": "Pia has 3 dimes and 2 nickels. A dime is 10 cents and a nickel is 5 cents. How many cents is that in all?"
+    },
+    "answer": {
+     "from": "12 wheels",
+     "to": "40 cents"
+    },
+    "solutionSteps": {
+     "from": [
+      "6 groups of 2.",
+      "6 × 2 = 12 wheels."
+     ],
+     "to": [
+      "Dimes: 3 × 10 = 30 cents. Nickels: 2 × 5 = 10 cents.",
+      "30 + 10 = 40 cents."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_hands). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_coins_total). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "Look at these products of 2: 2, 4, 6, 8, 10, 12. What pattern is true for every product of 2?",
+     "to": "Pia has 3 dimes and 9 nickels. A dime is 10 cents and a nickel is 5 cents. How many cents is that in all?"
+    },
+    "answer": {
+     "from": "They are all even.",
+     "to": "75 cents"
+    },
+    "solutionSteps": {
+     "from": [
+      "Skip count by 2s and look at the ones digits.",
+      "They are all even."
+     ],
+     "to": [
+      "Dimes: 3 × 10 = 30 cents. Nickels: 9 × 5 = 45 cents.",
+      "30 + 45 = 75 cents."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_pattern). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_coins_total). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "They end in 0 or 5.",
+       "correct": false
+      },
+      {
+       "text": "They are all even.",
+       "correct": true
+      },
+      {
+       "text": "They end in 5.",
+       "correct": false
+      },
+      {
+       "text": "They are all odd.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "120 cents",
+       "correct": false
+      },
+      {
+       "text": "60 cents",
+       "correct": false
+      },
+      {
+       "text": "12 cents",
+       "correct": false
+      },
+      {
+       "text": "75 cents",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "There are 8 hands. How many fingers are there? (Each has 5.)",
+     "to": "Cora has 2 dimes and 6 nickels. A dime is 10 cents and a nickel is 5 cents. How many cents is that in all?"
+    },
+    "answer": {
+     "from": "40 fingers",
+     "to": "50 cents"
+    },
+    "solutionSteps": {
+     "from": [
+      "8 groups of 5.",
+      "8 × 5 = 40 fingers."
+     ],
+     "to": [
+      "Dimes: 2 × 10 = 20 cents. Nickels: 6 × 5 = 30 cents.",
+      "20 + 30 = 50 cents."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_hands). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_coins_total). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "13 fingers",
+       "correct": false
+      },
+      {
+       "text": "45 fingers",
+       "correct": false
+      },
+      {
+       "text": "35 fingers",
+       "correct": false
+      },
+      {
+       "text": "40 fingers",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "80 cents",
+       "correct": false
+      },
+      {
+       "text": "50 cents",
+       "correct": true
+      },
+      {
+       "text": "40 cents",
+       "correct": false
+      },
+      {
+       "text": "8 cents",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-honors-013",
+   "changes": {
+    "prompt": {
+     "from": "Multiply: 10 × 4",
+     "to": "Nia has 5 dimes and 2 nickels. A dime is 10 cents and a nickel is 5 cents. How many cents is that in all?"
+    },
+    "answer": {
+     "from": "40",
+     "to": "60 cents"
+    },
+    "solutionSteps": {
+     "from": [
+      "Skip count by 10s 4 times.",
+      "10 × 4 = 40."
+     ],
+     "to": [
+      "Dimes: 5 × 10 = 50 cents. Nickels: 2 × 5 = 10 cents.",
+      "50 + 10 = 60 cents."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_coins_total). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "40",
+       "correct": true
+      },
+      {
+       "text": "14",
+       "correct": false
+      },
+      {
+       "text": "50",
+       "correct": false
+      },
+      {
+       "text": "30",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "70 cents",
+       "correct": false
+      },
+      {
+       "text": "35 cents",
+       "correct": false
+      },
+      {
+       "text": "7 cents",
+       "correct": false
+      },
+      {
+       "text": "60 cents",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "Look at these products of 2: 2, 4, 6. What pattern is true for every product of 2?",
+     "to": "Lena has 6 dimes and 4 nickels. A dime is 10 cents and a nickel is 5 cents. How many cents is that in all?"
+    },
+    "answer": {
+     "from": "They are all even.",
+     "to": "80 cents"
+    },
+    "solutionSteps": {
+     "from": [
+      "Skip count by 2s and look at the ones digits.",
+      "They are all even."
+     ],
+     "to": [
+      "Dimes: 6 × 10 = 60 cents. Nickels: 4 × 5 = 20 cents.",
+      "60 + 20 = 80 cents."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_pattern). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_coins_total). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "They end in 5.",
+       "correct": false
+      },
+      {
+       "text": "They end in 0 or 5.",
+       "correct": false
+      },
+      {
+       "text": "They are all even.",
+       "correct": true
+      },
+      {
+       "text": "They are all odd.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "100 cents",
+       "correct": false
+      },
+      {
+       "text": "50 cents",
+       "correct": false
+      },
+      {
+       "text": "80 cents",
+       "correct": true
+      },
+      {
+       "text": "10 cents",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-honors-020",
+   "changes": {
+    "prompt": {
+     "from": "Multiply: 5 × 8",
+     "to": "Hugo has 3 dimes and 9 nickels. A dime is 10 cents and a nickel is 5 cents. How many cents is that in all?"
+    },
+    "answer": {
+     "from": "40",
+     "to": "75 cents"
+    },
+    "solutionSteps": {
+     "from": [
+      "Skip count by 5s 8 times.",
+      "5 × 8 = 40."
+     ],
+     "to": [
+      "Dimes: 3 × 10 = 30 cents. Nickels: 9 × 5 = 45 cents.",
+      "30 + 45 = 75 cents."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_fact). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_coins_total). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "Look at these products of 5: 5, 10, 15, 20. What pattern is true for every product of 5?",
+     "to": "Dev has 4 dimes and 6 nickels. A dime is 10 cents and a nickel is 5 cents. How many cents is that in all?"
+    },
+    "answer": {
+     "from": "They end in 0 or 5.",
+     "to": "70 cents"
+    },
+    "solutionSteps": {
+     "from": [
+      "Skip count by 5s and look at the ones digits.",
+      "They end in 0 or 5."
+     ],
+     "to": [
+      "Dimes: 4 × 10 = 40 cents. Nickels: 6 × 5 = 30 cents.",
+      "40 + 30 = 70 cents."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_pattern). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_coins_total). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "They end in 0 or 5.",
+       "correct": true
+      },
+      {
+       "text": "They end in 0.",
+       "correct": false
+      },
+      {
+       "text": "They are all odd.",
+       "correct": false
+      },
+      {
+       "text": "They are all even.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "100 cents",
+       "correct": false
+      },
+      {
+       "text": "50 cents",
+       "correct": false
+      },
+      {
+       "text": "10 cents",
+       "correct": false
+      },
+      {
+       "text": "70 cents",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-honors-023",
+   "changes": {
+    "prompt": {
+     "from": "There are 9 hands. How many fingers are there? (Each has 5.)",
+     "to": "Kai has 2 dimes and 7 nickels. A dime is 10 cents and a nickel is 5 cents. How many cents is that in all?"
+    },
+    "answer": {
+     "from": "45 fingers",
+     "to": "55 cents"
+    },
+    "solutionSteps": {
+     "from": [
+      "9 groups of 5.",
+      "9 × 5 = 45 fingers."
+     ],
+     "to": [
+      "Dimes: 2 × 10 = 20 cents. Nickels: 7 × 5 = 35 cents.",
+      "20 + 35 = 55 cents."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_hands). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_coins_total). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers that are products of 5 (that is, 5 × a whole number)."
+    },
+    "answer": {
+     "from": [
+      "2 × 5 → 10",
+      "6 × 2 → 12"
+     ],
+     "to": [
+      "45",
+      "15",
+      "40",
+      "30"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2 × 5 → 10",
+       "correct": true
+      },
+      {
+       "text": "10 × 8 → 90",
+       "correct": false
+      },
+      {
+       "text": "6 × 2 → 12",
+       "correct": true
+      },
+      {
+       "text": "2 × 4 → 18",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "45",
+       "correct": true
+      },
+      {
+       "text": "15",
+       "correct": true
+      },
+      {
+       "text": "40",
+       "correct": true
+      },
+      {
+       "text": "43",
+       "correct": false
+      },
+      {
+       "text": "30",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "2 × 5 → 10: correct.",
+      "10 × 8 → 90: not correct.",
+      "6 × 2 → 12: correct.",
+      "2 × 4 → 18: not correct."
+     ],
+     "to": [
+      "Products of 5 end in 0 or 5.",
+      "Correct choices: 45; 15; 40; 30. Not correct: 43."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_fact_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_select_products_of). 3rd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A class buys packs of 10 stickers. Team A gets 2 packs and Team B gets 9 packs."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Multiply: 4 × 10",
+       "answer": "40"
+      },
+      {
+       "prompt": "Multiply: 3 × 2",
+       "answer": "6"
+      },
+      {
+       "prompt": "Multiply: 5 × 9",
+       "answer": "45"
+      },
+      {
+       "prompt": "Multiply: 2 × 7",
+       "answer": "14"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many items does Team A get?",
+       "answer": "20"
+      },
+      {
+       "prompt": "How many items does Team B get?",
+       "answer": "90"
+      },
+      {
+       "prompt": "How many items do the teams get in all?",
+       "answer": "110"
+      },
+      {
+       "prompt": "Explain a pattern you see when you multiply by 10.",
+       "answer": "Sample answer: Products of 10 end in 0."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 40; (b) 6; (c) 45; (d) 14",
+     "to": "(a) 20; (b) 90; (c) 110; (d) Sample answer: Products of 10 end in 0."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Skip count by 10s 4 times. 4 × 10 = 40.",
+      "(b) Skip count by 2s 3 times. 3 × 2 = 6.",
+      "(c) Skip count by 5s 9 times. 5 × 9 = 45.",
+      "(d) Skip count by 2s 7 times. 2 × 7 = 14."
+     ],
+     "to": [
+      "(a) 2 × 10 = 20.",
+      "(b) 9 × 10 = 90.",
+      "(c) 20 + 90 = 110.",
+      "(d) Look at the ones digits."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: f_fact_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm3_open_packs). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s04-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the orders that have 40 crayons in all."
+    },
+    "answer": {
+     "from": [
+      "Each ribbon is 8 feet long. Jada has 3 ribbons. How many feet of ribbon is that? → 24 feet",
+      "Tess plants 5 rows of seeds with 3 seeds in each row. How many seeds does Tess plant? → 15 seeds"
+     ],
+     "to": [
+      "5 boxes of 8 crayons",
+      "4 boxes of 10 crayons"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Each tray holds 3 muffins. How many muffins fit on 3 trays? → 12 muffins",
+       "correct": false
+      },
+      {
+       "text": "Jada plants 8 rows of seeds with 7 seeds in each row. How many seeds does Jada plant? → 49 seeds",
+       "correct": false
+      },
+      {
+       "text": "Each ribbon is 8 feet long. Jada has 3 ribbons. How many feet of ribbon is that? → 24 feet",
+       "correct": true
+      },
+      {
+       "text": "Tess plants 5 rows of seeds with 3 seeds in each row. How many seeds does Tess plant? → 15 seeds",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "5 boxes of 8 crayons",
+       "correct": true
+      },
+      {
+       "text": "4 boxes of 10 crayons",
+       "correct": true
+      },
+      {
+       "text": "6 boxes of 7 crayons",
+       "correct": false
+      },
+      {
+       "text": "6 boxes of 6 crayons",
+       "correct": false
+      },
+      {
+       "text": "7 boxes of 6 crayons",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Each tray holds 3 muffins. How many muffins fit on 3 trays? → 12 muffins: not correct.",
+      "Jada plants 8 rows of seeds with 7 seeds in each row. How many seeds does Jada plant? → 49 seeds: not correct.",
+      "Each ribbon is 8 feet long. Jada has 3 ribbons. How many feet of ribbon is that? → 24 feet: correct.",
+      "Tess plants 5 rows of seeds with 3 seeds in each row. How many seeds does Tess plant? → 15 seeds: correct."
+     ],
+     "to": [
+      "Multiply the boxes by the crayons in each box.",
+      "Correct choices: 5 boxes of 8 crayons; 4 boxes of 10 crayons. Not correct: 7 boxes of 6 crayons; 6 boxes of 7 crayons; 6 boxes of 6 crayons."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: w_basic_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm4_select_total_crayons). 3rd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s04-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A school sends 5 vans on a trip. Each van carries 4 students."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "There are 5 tables in the art room. Each table has 6 chairs. How many chairs are there?",
+       "answer": "30 chairs"
+      },
+      {
+       "prompt": "Ava reads 5 pages every day for 8 days. How many pages does Ava read?",
+       "answer": "40 pages"
+      },
+      {
+       "prompt": "Zoe reads 3 pages every day for 5 days. How many pages does Zoe read?",
+       "answer": "15 pages"
+      },
+      {
+       "prompt": "Each tray holds 8 muffins. How many muffins fit on 8 trays?",
+       "answer": "64 muffins"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many students go on the trip?",
+       "answer": "20 students"
+      },
+      {
+       "prompt": "3 teachers also go. How many people go in all?",
+       "answer": "23 people"
+      },
+      {
+       "prompt": "If one more van of students went, how many students would go?",
+       "answer": "24 students"
+      },
+      {
+       "prompt": "Explain how you knew to multiply.",
+       "answer": "Sample answer: There are 5 equal groups of 4, so I multiplied."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 30 chairs; (b) 40 pages; (c) 15 pages; (d) 64 muffins",
+     "to": "(a) 20 students; (b) 23 people; (c) 24 students; (d) Sample answer: There are 5 equal groups of 4, so I multiplied."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) There are 5 equal groups of 6. 5 × 6 = 30 chairs.",
+      "(b) There are 8 equal groups of 5. 8 × 5 = 40 pages.",
+      "(c) There are 5 equal groups of 3. 5 × 3 = 15 pages.",
+      "(d) There are 8 equal groups of 8. 8 × 8 = 64 muffins."
+     ],
+     "to": [
+      "(a) 5 × 4 = 20.",
+      "(b) 20 + 3 = 23.",
+      "(c) 20 + 4 = 24.",
+      "(d) Equal groups mean multiplication."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: w_basic_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm4_open_bus). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s04-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the orders that have 36 crayons in all."
+    },
+    "answer": {
+     "from": [
+      "A spider has 8 legs. How many legs are on 3 spiders? → 24 legs",
+      "Each team has 2 players. How many players are on 3 teams? → 6 players"
+     ],
+     "to": [
+      "4 boxes of 9 crayons",
+      "6 boxes of 6 crayons",
+      "3 boxes of 12 crayons"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Each tray holds 3 muffins. How many muffins fit on 4 trays? → 15 muffins",
+       "correct": false
+      },
+      {
+       "text": "A spider has 8 legs. How many legs are on 3 spiders? → 24 legs",
+       "correct": true
+      },
+      {
+       "text": "Pia reads 5 pages every day for 2 days. How many pages does Pia read? → 15 pages",
+       "correct": false
+      },
+      {
+       "text": "Each team has 2 players. How many players are on 3 teams? → 6 players",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "8 boxes of 5 crayons",
+       "correct": false
+      },
+      {
+       "text": "4 boxes of 9 crayons",
+       "correct": true
+      },
+      {
+       "text": "6 boxes of 6 crayons",
+       "correct": true
+      },
+      {
+       "text": "3 boxes of 12 crayons",
+       "correct": true
+      },
+      {
+       "text": "5 boxes of 7 crayons",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Each tray holds 3 muffins. How many muffins fit on 4 trays? → 15 muffins: not correct.",
+      "A spider has 8 legs. How many legs are on 3 spiders? → 24 legs: correct.",
+      "Pia reads 5 pages every day for 2 days. How many pages does Pia read? → 15 pages: not correct.",
+      "Each team has 2 players. How many players are on 3 teams? → 6 players: correct."
+     ],
+     "to": [
+      "Multiply the boxes by the crayons in each box.",
+      "Correct choices: 4 boxes of 9 crayons; 6 boxes of 6 crayons; 3 boxes of 12 crayons. Not correct: 8 boxes of 5 crayons; 5 boxes of 7 crayons."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: w_basic_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm4_select_total_crayons). 3rd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s04-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A school sends 4 vans on a trip. Each van carries 7 students."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A spider has 8 legs. How many legs are on 5 spiders?",
+       "answer": "40 legs"
+      },
+      {
+       "prompt": "A bus ride costs 4 dollars. What is the cost of 4 bus rides?",
+       "answer": "16 dollars"
+      },
+      {
+       "prompt": "Kai plants 5 rows of seeds with 4 seeds in each row. How many seeds does Kai plant?",
+       "answer": "20 seeds"
+      },
+      {
+       "prompt": "Each team has 3 players. How many players are on 4 teams?",
+       "answer": "12 players"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many students go on the trip?",
+       "answer": "28 students"
+      },
+      {
+       "prompt": "4 teachers also go. How many people go in all?",
+       "answer": "32 people"
+      },
+      {
+       "prompt": "If one more van of students went, how many students would go?",
+       "answer": "35 students"
+      },
+      {
+       "prompt": "Explain how you knew to multiply.",
+       "answer": "Sample answer: There are 4 equal groups of 7, so I multiplied."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 40 legs; (b) 16 dollars; (c) 20 seeds; (d) 12 players",
+     "to": "(a) 28 students; (b) 32 people; (c) 35 students; (d) Sample answer: There are 4 equal groups of 7, so I multiplied."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) There are 5 equal groups of 8. 5 × 8 = 40 legs.",
+      "(b) There are 4 equal groups of 4. 4 × 4 = 16 dollars.",
+      "(c) There are 5 equal groups of 4. 5 × 4 = 20 seeds.",
+      "(d) There are 4 equal groups of 3. 4 × 3 = 12 players."
+     ],
+     "to": [
+      "(a) 4 × 7 = 28.",
+      "(b) 28 + 4 = 32.",
+      "(c) 28 + 7 = 35.",
+      "(d) Equal groups mean multiplication."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: w_basic_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm4_open_bus). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s04-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "A jug holds 6 liters. How many liters can 6 full jugs hold?",
+     "to": "A jug holds 9 liters. A tank holds as much as 6 jugs. A pool holds as much as 4 tanks. How many liters does the pool hold?"
+    },
+    "answer": {
+     "from": "36 liters",
+     "to": "216 liters"
+    },
+    "solutionSteps": {
+     "from": [
+      "There are 6 equal groups of 6.",
+      "6 × 6 = 36 liters."
+     ],
+     "to": [
+      "Tank: 6 × 9 = 54 liters.",
+      "Pool: 4 × 54 = 216 liters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: w_measure). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm4_more_than_twice). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s04-honors-020",
+   "changes": {
+    "prompt": {
+     "from": "A jug holds 6 liters. How many liters can 7 full jugs hold?",
+     "to": "A jug holds 4 liters. A tank holds as much as 7 jugs. A pool holds as much as 5 tanks. How many liters does the pool hold?"
+    },
+    "answer": {
+     "from": "42 liters",
+     "to": "140 liters"
+    },
+    "solutionSteps": {
+     "from": [
+      "There are 7 equal groups of 6.",
+      "7 × 6 = 42 liters."
+     ],
+     "to": [
+      "Tank: 7 × 4 = 28 liters.",
+      "Pool: 5 × 28 = 140 liters."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: w_measure). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm4_more_than_twice). 3rd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade3-audit-20261119/fams.py and recomputed by scripts/test-grade3-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "6 liters",
+       "correct": false
+      },
+      {
+       "text": "42 liters",
+       "correct": true
+      },
+      {
+       "text": "48 liters",
+       "correct": false
+      },
+      {
+       "text": "13 liters",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "140 liters",
+       "correct": true
+      },
+      {
+       "text": "28 liters",
+       "correct": false
+      },
+      {
+       "text": "16 liters",
+       "correct": false
+      },
+      {
+       "text": "33 liters",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s04-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the orders that have 36 crayons in all."
+    },
+    "answer": {
+     "from": [
+      "A board is cut into 7 pieces. Each piece is 6 inches long. How long was the board? → 42 inches",
+      "A board is cut into 9 pieces. Each piece is 9 inches long. How long was the board? → 81 inches"
+     ],
+     "to": [
+      "4 boxes of 9 crayons",
+      "3 boxes of 12 crayons",
+      "9 boxes of 4 crayons",
+      "6 boxes of 6 crayons"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A jug holds 8 liters. How many liters can 9 full jugs hold? → 17 liters",
+       "correct": false
+      },
+      {
+       "text": "A board is cut into 8 pieces. Each piece is 3 inches long. How long was the board? → 3 inches",
+       "correct": false
+      },
+      {
+       "text": "A board is cut into 7 pieces. Each piece is 6 inches long. How long was the board? → 42 inches",
+       "correct": true
+      },
+      {
+       "text": "A board is cut into 9 pieces. Each piece is 9 inches long. How long was the board? → 81 inches",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "4 boxes of 9 crayons",
+       "correct": true
+      },
+      {
+       "text": "3 boxes of 12 crayons",
+       "correct": true
+      },
+      {
+       "text": "9 boxes of 4 crayons",
+       "correct": true
+      },
+      {
+       "text": "6 boxes of 6 crayons",
+       "correct": true
+      },
+      {
+       "text": "5 boxes of 8 crayons",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A jug holds 8 liters. How many liters can 9 full jugs hold? → 17 liters: not correct.",
+      "A board is cut into 8 pieces. Each piece is 3 inches long. How long was the board? → 3 inches: not correct.",
+      "A board is cut into 7 pieces. Each piece is 6 inches long. How long was the board? → 42 inches: correct.",
+      "A board is cut into 9 pieces. Each piece is 9 inches long. How long was the board? → 81 inches: correct."
+     ],
+     "to": [
+      "Multiply the boxes by the crayons in each box.",
+      "Correct choices: 4 boxes of 9 crayons; 3 boxes of 12 crayons; 9 boxes of 4 crayons; 6 boxes of 6 crayons. Not correct: 5 boxes of 8 crayons."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: w_measure_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm4_select_total_crayons). 3rd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade3-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m3-mm-s04-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "A school sends 8 vans on a trip. Each van carries 9 students."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A board is cut into 3 pieces. Each piece is 4 inches long. How long was the board?",
+       "answer": "12 inches"
+      },
+      {
+       "prompt": "A board is cut into 4 pieces. Each piece is 7 inches long. How long was the board?",
+       "answer": "28 inches"
+      },
+      {
+       "prompt": "A board is cut into 9 pieces. Each piece is 8 inches long. How long was the board?",
+       "answer": "72 inches"
+      },
+      {
+       "prompt": "A jug holds 3 liters. How many liters can 8 full jugs hold?",
+       "answer": "24 liters"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many students go on the trip?",
+       "answer": "72 students"
+      },
+      {
+       "prompt": "6 teachers also go. How many people go in all?",
+       "answer": "78 people"
+      },
+      {
+       "prompt": "If one more van of students went, how many students would go?",
+       "answer": "81 students"
+      },
+      {
+       "prompt": "Explain how you knew to multiply.",
+       "answer": "Sample answer: There are 8 equal groups of 9, so I multiplied."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 12 inches; (b) 28 inches; (c) 72 inches; (d) 24 liters",
+     "to": "(a) 72 students; (b) 78 people; (c) 81 students; (d) Sample answer: There are 8 equal groups of 9, so I multiplied."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) There are 3 equal groups of 4. 3 × 4 = 12 inches.",
+      "(b) There are 4 equal groups of 7. 4 × 7 = 28 inches.",
+      "(c) There are 9 equal groups of 8. 9 × 8 = 72 inches.",
+      "(d) There are 8 equal groups of 3. 8 × 3 = 24 liters."
+     ],
+     "to": [
+      "(a) 8 × 9 = 72.",
+      "(b) 72 + 6 = 78.",
+      "(c) 72 + 9 = 81.",
+      "(d) Equal groups mean multiplication."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 3 item (family: w_measure_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade3-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: mm4_open_bus). 3rd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade3-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [],
+ "meta": {
+  "m3-mm-s01-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "30 + 20 = 50, the same as (6 + 4) × 5.",
+   "distractors": {
+    "30 books": "a common mistake",
+    "15 books": "a common mistake",
+    "10 books": "a common mistake"
+   }
+  },
+  "m3-mm-s01-honors-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "32 + 48 = 80, the same as (4 + 6) × 8.",
+   "distractors": {
+    "32 books": "a common mistake",
+    "18 books": "a common mistake",
+    "16 books": "a common mistake"
+   }
+  },
+  "m3-mm-s01-honors-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "36 + 18 = 54, the same as (4 + 2) × 9.",
+   "distractors": {
+    "36 cards": "a common mistake",
+    "15 cards": "a common mistake",
+    "18 cards": "a common mistake"
+   }
+  },
+  "m3-mm-s01-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "30 + 18 = 48, the same as (5 + 3) × 6.",
+   "distractors": {
+    "30 crayons": "a common mistake",
+    "14 crayons": "a common mistake",
+    "12 crayons": "a common mistake"
+   }
+  },
+  "m3-mm-s01-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "24 + 12 = 36, the same as (6 + 3) × 4.",
+   "distractors": {
+    "24 crayons": "a common mistake",
+    "13 crayons": "a common mistake",
+    "12 crayons": "a common mistake"
+   }
+  },
+  "m3-mm-s01-honors-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "15 + 18 = 33, the same as (5 + 6) × 3.",
+   "distractors": {
+    "15 crayons": "a common mistake",
+    "14 crayons": "a common mistake",
+    "3 crayons": "a common mistake"
+   }
+  },
+  "m3-mm-s03-honors-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "70 + 25 = 95 cents.",
+   "distractors": {
+    "120 cents": "a common mistake",
+    "60 cents": "a common mistake",
+    "12 cents": "a common mistake"
+   }
+  },
+  "m3-mm-s03-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "40 + 20 = 60 cents.",
+   "distractors": {
+    "80 cents": "a common mistake",
+    "40 cents": "a common mistake",
+    "8 cents": "a common mistake"
+   }
+  },
+  "m3-mm-s03-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "30 + 10 = 40 cents.",
+   "distractors": {
+    "50 cents": "a common mistake",
+    "25 cents": "a common mistake",
+    "5 cents": "a common mistake"
+   }
+  },
+  "m3-mm-s03-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "30 + 45 = 75 cents.",
+   "distractors": {
+    "120 cents": "a common mistake",
+    "60 cents": "a common mistake",
+    "12 cents": "a common mistake"
+   }
+  },
+  "m3-mm-s03-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "20 + 30 = 50 cents.",
+   "distractors": {
+    "80 cents": "a common mistake",
+    "40 cents": "a common mistake",
+    "8 cents": "a common mistake"
+   }
+  },
+  "m3-mm-s03-honors-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "50 + 10 = 60 cents.",
+   "distractors": {
+    "70 cents": "a common mistake",
+    "35 cents": "a common mistake",
+    "7 cents": "a common mistake"
+   }
+  },
+  "m3-mm-s03-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "60 + 20 = 80 cents.",
+   "distractors": {
+    "100 cents": "a common mistake",
+    "50 cents": "a common mistake",
+    "10 cents": "a common mistake"
+   }
+  },
+  "m3-mm-s03-honors-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "30 + 45 = 75 cents.",
+   "distractors": {
+    "120 cents": "a common mistake",
+    "60 cents": "a common mistake",
+    "12 cents": "a common mistake"
+   }
+  },
+  "m3-mm-s03-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "40 + 30 = 70 cents.",
+   "distractors": {
+    "100 cents": "a common mistake",
+    "50 cents": "a common mistake",
+    "10 cents": "a common mistake"
+   }
+  },
+  "m3-mm-s03-honors-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "20 + 35 = 55 cents.",
+   "distractors": {
+    "90 cents": "a common mistake",
+    "45 cents": "a common mistake",
+    "9 cents": "a common mistake"
+   }
+  },
+  "m3-mm-s04-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Pool: 4 × 54 = 216 liters.",
+   "distractors": {
+    "54 liters": "a common mistake",
+    "19 liters": "a common mistake",
+    "58 liters": "a common mistake"
+   }
+  },
+  "m3-mm-s04-honors-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Pool: 5 × 28 = 140 liters.",
+   "distractors": {
+    "28 liters": "a common mistake",
+    "16 liters": "a common mistake",
+    "33 liters": "a common mistake"
+   }
+  },
+  "m3-mm-s01-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "45 + 8 = 53 marbles.",
+   "distractors": {
+    "45 marbles": "a common mistake",
+    "22 marbles": "a common mistake",
+    "85 marbles": "a common mistake"
+   }
+  },
+  "m3-mm-s01-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "56 + 4 = 60 muffins.",
+   "distractors": {
+    "56 muffins": "a common mistake",
+    "19 muffins": "a common mistake",
+    "88 muffins": "a common mistake"
+   }
+  },
+  "m3-mm-s01-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "24 + 8 = 32 cards.",
+   "distractors": {
+    "24 cards": "a common mistake",
+    "18 cards": "a common mistake",
+    "72 cards": "a common mistake"
+   }
+  },
+  "m3-mm-s01-cp1-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "54 + 4 = 58 cookies.",
+   "distractors": {
+    "54 cookies": "a common mistake",
+    "19 cookies": "a common mistake",
+    "90 cookies": "a common mistake"
+   }
+  },
+  "m3-mm-s01-cp1-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "32 + 6 = 38 cards.",
+   "distractors": {
+    "32 cards": "a common mistake",
+    "18 cards": "a common mistake",
+    "80 cards": "a common mistake"
+   }
+  },
+  "m3-mm-s01-cp1-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "32 + 2 = 34 marbles.",
+   "distractors": {
+    "32 marbles": "a common mistake",
+    "14 marbles": "a common mistake",
+    "48 marbles": "a common mistake"
+   }
+  },
+  "m3-mm-s01-cp1-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "20 + 5 = 25 flowers.",
+   "distractors": {
+    "20 flowers": "a common mistake",
+    "14 flowers": "a common mistake",
+    "45 flowers": "a common mistake"
+   }
+  },
+  "m3-mm-s02-cp1-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 × 7 = 28 tiles.",
+   "distractors": {
+    "21 tiles": "a common mistake",
+    "22 tiles": "a common mistake",
+    "32 tiles": "a common mistake"
+   }
+  },
+  "m3-mm-s02-cp1-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "10 × 4 = 40 tiles.",
+   "distractors": {
+    "32 tiles": "a common mistake",
+    "34 tiles": "a common mistake",
+    "60 tiles": "a common mistake"
+   }
+  },
+  "m3-mm-s02-cp1-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 × 4 = 20 tiles.",
+   "distractors": {
+    "16 tiles": "a common mistake",
+    "17 tiles": "a common mistake",
+    "25 tiles": "a common mistake"
+   }
+  },
+  "m3-mm-s02-cp1-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 × 8 = 48 tiles.",
+   "distractors": {
+    "24 tiles": "a common mistake",
+    "27 tiles": "a common mistake",
+    "66 tiles": "a common mistake"
+   }
+  },
+  "m3-mm-s03-cp1-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "70 + 40 = 110.",
+   "distractors": {
+    "70": "a common mistake",
+    "21": "a common mistake",
+    "280": "a common mistake"
+   }
+  },
+  "m3-mm-s03-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "70 + 70 = 140.",
+   "distractors": {
+    "70": "a common mistake",
+    "24": "a common mistake",
+    "490": "a common mistake"
+   }
+  },
+  "m3-mm-s03-cp1-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "20 + 40 = 60.",
+   "distractors": {
+    "20": "a common mistake",
+    "17": "a common mistake",
+    "160": "a common mistake"
+   }
+  },
+  "m3-mm-s03-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "30 + 35 = 65.",
+   "distractors": {
+    "30": "a common mistake",
+    "18": "a common mistake",
+    "210": "a common mistake"
+   }
+  },
+  "m3-mm-s03-cp1-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12 + 16 = 28.",
+   "distractors": {
+    "12": "a common mistake",
+    "16": "a common mistake",
+    "96": "a common mistake"
+   }
+  },
+  "m3-mm-s03-cp1-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 + 18 = 22.",
+   "distractors": {
+    "4": "a common mistake",
+    "13": "a common mistake",
+    "36": "a common mistake"
+   }
+  },
+  "m3-mm-s03-cp1-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "30 + 20 = 50.",
+   "distractors": {
+    "30": "a common mistake",
+    "15": "a common mistake",
+    "60": "a common mistake"
+   }
+  },
+  "m3-mm-s03-cp1-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "16 + 8 = 24.",
+   "distractors": {
+    "16": "a common mistake",
+    "14": "a common mistake",
+    "64": "a common mistake"
+   }
+  },
+  "m3-mm-s01-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "2 × 4 = 8."
+  },
+  "m3-mm-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "4 × 4 = 16."
+  },
+  "m3-mm-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "8 × 8 = 64."
+  },
+  "m3-mm-s02-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Each column has one plant from each of the 3 rows."
+  },
+  "m3-mm-s02-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Each column has one plant from each of the 4 rows."
+  },
+  "m3-mm-s02-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Each column has one plant from each of the 7 rows."
+  },
+  "m3-mm-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "14 + 10 = 24."
+  },
+  "m3-mm-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "45 + 35 = 80."
+  },
+  "m3-mm-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "20 + 90 = 110."
+  },
+  "m3-mm-s04-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "28 + 7 = 35."
+  },
+  "m3-mm-s04-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "20 + 4 = 24."
+  },
+  "m3-mm-s04-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "72 + 9 = 81."
+  },
+  "m3-mm-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "4 groups of 9 is 4 × 9 = 36."
+  },
+  "m3-mm-s01-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "6 groups of 4 is 6 × 4 = 24."
+  },
+  "m3-mm-s01-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "3 groups of 4 is 3 × 4 = 12."
+  },
+  "m3-mm-s02-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Multiply rows by the number in each row."
+  },
+  "m3-mm-s02-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Multiply rows by the number in each row."
+  },
+  "m3-mm-s02-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Multiply rows by the number in each row."
+  },
+  "m3-mm-s03-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Products of 5 end in 0 or 5."
+  },
+  "m3-mm-s03-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Products of 2 are even."
+  },
+  "m3-mm-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Products of 5 end in 0 or 5."
+  },
+  "m3-mm-s04-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Multiply the boxes by the crayons in each box."
+  },
+  "m3-mm-s04-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Multiply the boxes by the crayons in each box."
+  },
+  "m3-mm-s04-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Multiply the boxes by the crayons in each box."
+  }
+ }
+}
