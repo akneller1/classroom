@@ -1,0 +1,3428 @@
+{
+ "unit": "telling-time",
+ "edits": [
+  {
+   "id": "m1-tt-s01-cp1-009",
+   "changes": {
+    "prompt": {
+     "from": "At 5 o'clock, where does the short hour hand point?",
+     "to": "It is 7:00. What time will it be in 1 hour?"
+    },
+    "answer": {
+     "from": "At the 5",
+     "to": "8:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "At o'clock times the hour hand points right at the hour.",
+      "At the 5"
+     ],
+     "to": [
+      "Count 1 hour on from 7:00.",
+      "It will be 8:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_hand). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt1_hours_later). Rewritten from a Support template (was h_hand) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "At the 5",
+       "correct": true
+      },
+      {
+       "text": "At the 6",
+       "correct": false
+      },
+      {
+       "text": "Between the 5 and the 6",
+       "correct": false
+      },
+      {
+       "text": "At the 12",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "7:00",
+       "correct": false
+      },
+      {
+       "text": "9:00",
+       "correct": false
+      },
+      {
+       "text": "8:00",
+       "correct": true
+      },
+      {
+       "text": "7:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s01-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "The party starts at 6 o'clock. Write the time like a digital clock.",
+     "to": "It is 5:00. What time will it be in 1 hour?"
+    },
+    "solutionSteps": {
+     "from": [
+      "6 o'clock means 6 hours and 0 minutes.",
+      "It is written 6:00."
+     ],
+     "to": [
+      "Count 1 hour on from 5:00.",
+      "It will be 6:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_story). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt1_hours_later). Rewritten from a Support template (was h_story) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s01-cp1-022",
+   "changes": {
+    "prompt": {
+     "from": "Story time starts at 12 o'clock. Write the time like a digital clock.",
+     "to": "It is 2:00. What time will it be in 2 hours?"
+    },
+    "answer": {
+     "from": "12:00",
+     "to": "4:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "12 o'clock means 12 hours and 0 minutes.",
+      "It is written 12:00."
+     ],
+     "to": [
+      "Count 2 hours on from 2:00.",
+      "It will be 4:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_story). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt1_hours_later). Rewritten from a Support template (was h_story) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that show 7 o'clock."
+    },
+    "answer": {
+     "from": [
+      "Story time starts at 1 o'clock. Write the time like a digital clock. → 1:00",
+      "The game starts at 9 o'clock. Write the time like a digital clock. → 9:00"
+     ],
+     "to": [
+      "7 o'clock",
+      "7:00"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "The game starts at 9 o'clock. Write the time like a digital clock. → 12:45",
+       "correct": false
+      },
+      {
+       "text": "Story time starts at 1 o'clock. Write the time like a digital clock. → 1:00",
+       "correct": true
+      },
+      {
+       "text": "The game starts at 9 o'clock. Write the time like a digital clock. → 9:00",
+       "correct": true
+      },
+      {
+       "text": "Swim class starts at 9 o'clock. Write the time like a digital clock. → 10:00",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "7:12",
+       "correct": false
+      },
+      {
+       "text": "half past 7",
+       "correct": false
+      },
+      {
+       "text": "7 o'clock",
+       "correct": true
+      },
+      {
+       "text": "7:30",
+       "correct": false
+      },
+      {
+       "text": "7:00",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "The game starts at 9 o'clock. Write the time like a digital clock. → 12:45: not correct.",
+      "Story time starts at 1 o'clock. Write the time like a digital clock. → 1:00: correct.",
+      "The game starts at 9 o'clock. Write the time like a digital clock. → 9:00: correct.",
+      "Swim class starts at 9 o'clock. Write the time like a digital clock. → 10:00: not correct."
+     ],
+     "to": [
+      "At o'clock the long hand points to 12.",
+      "Correct choices: 7 o'clock; 7:00. Not correct: 7:30; 7:12; half past 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_story_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt1_select_hour). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Lunch is at 4 o'clock."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Swim class starts at 4 o'clock. Write the time like a digital clock.",
+       "answer": "4:00"
+      },
+      {
+       "prompt": "The race starts at 1 o'clock. Write the time like a digital clock.",
+       "answer": "1:00"
+      },
+      {
+       "prompt": "Story time starts at 7 o'clock. Write the time like a digital clock.",
+       "answer": "7:00"
+      },
+      {
+       "prompt": "The party starts at 5 o'clock. Write the time like a digital clock.",
+       "answer": "5:00"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Write the time with numbers.",
+       "answer": "4:00"
+      },
+      {
+       "prompt": "Where does the short hand point?",
+       "answer": "at the 4"
+      },
+      {
+       "prompt": "What time is it one hour later?",
+       "answer": "5:00"
+      },
+      {
+       "prompt": "Tell where the long hand points at any o'clock time.",
+       "answer": "Sample answer: It points to the 12."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 4:00; (b) 1:00; (c) 7:00; (d) 5:00",
+     "to": "(a) 4:00; (b) at the 4; (c) 5:00; (d) Sample answer: It points to the 12."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 4 o'clock means 4 hours and 0 minutes. It is written 4:00.",
+      "(b) 1 o'clock means 1 hour and 0 minutes. It is written 1:00.",
+      "(c) 7 o'clock means 7 hours and 0 minutes. It is written 7:00.",
+      "(d) 5 o'clock means 5 hours and 0 minutes. It is written 5:00."
+     ],
+     "to": [
+      "(a) 4 o'clock.",
+      "(b) The hour hand.",
+      "(c) Add 1 hour.",
+      "(d) Minute hand at 12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_story_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt1_open_hour). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s01-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that show 10 o'clock."
+    },
+    "answer": {
+     "from": [
+      "Swim class starts at 10 o'clock. Write the time like a digital clock. → 10:00",
+      "The game starts at 11 o'clock. Write the time like a digital clock. → 11:00"
+     ],
+     "to": [
+      "the short hand points to 10, the long hand to 12",
+      "10:00",
+      "10 o'clock"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "The game starts at 12 o'clock. Write the time like a digital clock. → 3:00",
+       "correct": false
+      },
+      {
+       "text": "The movie starts at 8 o'clock. Write the time like a digital clock. → 12:40",
+       "correct": false
+      },
+      {
+       "text": "Swim class starts at 10 o'clock. Write the time like a digital clock. → 10:00",
+       "correct": true
+      },
+      {
+       "text": "The game starts at 11 o'clock. Write the time like a digital clock. → 11:00",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "the short hand points to 10, the long hand to 12",
+       "correct": true
+      },
+      {
+       "text": "10:00",
+       "correct": true
+      },
+      {
+       "text": "10 o'clock",
+       "correct": true
+      },
+      {
+       "text": "half past 10",
+       "correct": false
+      },
+      {
+       "text": "10:12",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "The game starts at 12 o'clock. Write the time like a digital clock. → 3:00: not correct.",
+      "The movie starts at 8 o'clock. Write the time like a digital clock. → 12:40: not correct.",
+      "Swim class starts at 10 o'clock. Write the time like a digital clock. → 10:00: correct.",
+      "The game starts at 11 o'clock. Write the time like a digital clock. → 11:00: correct."
+     ],
+     "to": [
+      "At o'clock the long hand points to 12.",
+      "Correct choices: the short hand points to 10, the long hand to 12; 10:00; 10 o'clock. Not correct: half past 10; 10:12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_story_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt1_select_hour). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s01-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Lunch is at 2 o'clock."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "The puppet show starts at 10 o'clock. Write the time like a digital clock.",
+       "answer": "10:00"
+      },
+      {
+       "prompt": "The game starts at 9 o'clock. Write the time like a digital clock.",
+       "answer": "9:00"
+      },
+      {
+       "prompt": "The movie starts at 8 o'clock. Write the time like a digital clock.",
+       "answer": "8:00"
+      },
+      {
+       "prompt": "The game starts at 7 o'clock. Write the time like a digital clock.",
+       "answer": "7:00"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Write the time with numbers.",
+       "answer": "2:00"
+      },
+      {
+       "prompt": "Where does the short hand point?",
+       "answer": "at the 2"
+      },
+      {
+       "prompt": "What time is it one hour later?",
+       "answer": "3:00"
+      },
+      {
+       "prompt": "Tell where the long hand points at any o'clock time.",
+       "answer": "Sample answer: It points to the 12."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 10:00; (b) 9:00; (c) 8:00; (d) 7:00",
+     "to": "(a) 2:00; (b) at the 2; (c) 3:00; (d) Sample answer: It points to the 12."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 10 o'clock means 10 hours and 0 minutes. It is written 10:00.",
+      "(b) 9 o'clock means 9 hours and 0 minutes. It is written 9:00.",
+      "(c) 8 o'clock means 8 hours and 0 minutes. It is written 8:00.",
+      "(d) 7 o'clock means 7 hours and 0 minutes. It is written 7:00."
+     ],
+     "to": [
+      "(a) 2 o'clock.",
+      "(b) The hour hand.",
+      "(c) Add 1 hour.",
+      "(d) Minute hand at 12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_story_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt1_open_hour). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s01-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "At 12 o'clock, where does the short hour hand point?",
+     "to": "A clock shows 7:00. What time was it 1 hour ago?"
+    },
+    "answer": {
+     "from": "At the 12",
+     "to": "6:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "At o'clock times the hour hand points right at the hour.",
+      "At the 12"
+     ],
+     "to": [
+      "Count back 1 from 7.",
+      "It was 6:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_hand). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt1_hours_before). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "At the 6",
+       "correct": false
+      },
+      {
+       "text": "At the 12",
+       "correct": true
+      },
+      {
+       "text": "At the 1",
+       "correct": false
+      },
+      {
+       "text": "Between the 12 and the 1",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "8:00",
+       "correct": false
+      },
+      {
+       "text": "6:00",
+       "correct": true
+      },
+      {
+       "text": "7:00",
+       "correct": false
+      },
+      {
+       "text": "6:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s01-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "At 6 o'clock, where does the short hour hand point?",
+     "to": "A clock shows 5:00. What time was it 1 hour ago?"
+    },
+    "answer": {
+     "from": "At the 6",
+     "to": "4:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "At o'clock times the hour hand points right at the hour.",
+      "At the 6"
+     ],
+     "to": [
+      "Count back 1 from 5.",
+      "It was 4:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_hand). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt1_hours_before). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "At the 7",
+       "correct": false
+      },
+      {
+       "text": "Between the 6 and the 7",
+       "correct": false
+      },
+      {
+       "text": "At the 6",
+       "correct": true
+      },
+      {
+       "text": "At the 12",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4:00",
+       "correct": true
+      },
+      {
+       "text": "6:00",
+       "correct": false
+      },
+      {
+       "text": "5:00",
+       "correct": false
+      },
+      {
+       "text": "4:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s01-honors-013",
+   "changes": {
+    "prompt": {
+     "from": "At 9 o'clock, where does the long minute hand point?",
+     "to": "A clock shows 2:00. What time was it 2 hours ago?"
+    },
+    "answer": {
+     "from": "At the 12",
+     "to": "12:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "At o'clock times the minute hand points to the 12.",
+      "At the 12"
+     ],
+     "to": [
+      "Count back 2 from 2.",
+      "It was 12:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_hand). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt1_hours_before). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "At the 12",
+       "correct": true
+      },
+      {
+       "text": "At the 6",
+       "correct": false
+      },
+      {
+       "text": "At the 10",
+       "correct": false
+      },
+      {
+       "text": "At the 9",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "12:00",
+       "correct": true
+      },
+      {
+       "text": "4:00",
+       "correct": false
+      },
+      {
+       "text": "2:00",
+       "correct": false
+      },
+      {
+       "text": "12:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "At 7 o'clock, where does the long minute hand point?",
+     "to": "A clock shows 9:00. What time was it 2 hours ago?"
+    },
+    "answer": {
+     "from": "At the 12",
+     "to": "7:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "At o'clock times the minute hand points to the 12.",
+      "At the 12"
+     ],
+     "to": [
+      "Count back 2 from 9.",
+      "It was 7:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_hand). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt1_hours_before). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "At the 8",
+       "correct": false
+      },
+      {
+       "text": "At the 6",
+       "correct": false
+      },
+      {
+       "text": "At the 7",
+       "correct": false
+      },
+      {
+       "text": "At the 12",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "11:00",
+       "correct": false
+      },
+      {
+       "text": "7:00",
+       "correct": true
+      },
+      {
+       "text": "9:00",
+       "correct": false
+      },
+      {
+       "text": "7:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Lunch is at 11 o'clock."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "The puppet show starts at 11 o'clock. It lasts 1 hour. What time does it end? Write it like a digital clock.",
+       "answer": "12:00"
+      },
+      {
+       "prompt": "The puppet show starts at 3 o'clock. It lasts 1 hour. What time does it end? Write it like a digital clock.",
+       "answer": "4:00"
+      },
+      {
+       "prompt": "The game starts at 12 o'clock. It lasts 1 hour. What time does it end? Write it like a digital clock.",
+       "answer": "1:00"
+      },
+      {
+       "prompt": "The party starts at 7 o'clock. It lasts 1 hour. What time does it end? Write it like a digital clock.",
+       "answer": "8:00"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Write the time with numbers.",
+       "answer": "11:00"
+      },
+      {
+       "prompt": "Where does the short hand point?",
+       "answer": "at the 11"
+      },
+      {
+       "prompt": "What time is it one hour later?",
+       "answer": "12:00"
+      },
+      {
+       "prompt": "Tell where the long hand points at any o'clock time.",
+       "answer": "Sample answer: It points to the 12."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 12:00; (b) 4:00; (c) 1:00; (d) 8:00",
+     "to": "(a) 11:00; (b) at the 11; (c) 12:00; (d) Sample answer: It points to the 12."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 1 hour after 11 o'clock is 12 o'clock. It ends at 12:00.",
+      "(b) 1 hour after 3 o'clock is 4 o'clock. It ends at 4:00.",
+      "(c) 1 hour after 12 o'clock is 1 o'clock. It ends at 1:00.",
+      "(d) 1 hour after 7 o'clock is 8 o'clock. It ends at 8:00."
+     ],
+     "to": [
+      "(a) 11 o'clock.",
+      "(b) The hour hand.",
+      "(c) Add 1 hour.",
+      "(d) Minute hand at 12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_story_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt1_open_hour). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s02-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "At half past 5, where does the long minute hand point?",
+     "to": "It is 8:00. What time will it be in half an hour? Then in one more half hour?"
+    },
+    "answer": {
+     "from": "At the 6",
+     "to": "8:30; 9:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "Half past means 30 minutes; the minute hand points to 6.",
+      "At the 6"
+     ],
+     "to": [
+      "8:00 + 30 minutes = 8:30.",
+      "8:30 + 30 minutes = 9:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: hh_hand). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt2_half_hour_later). Rewritten from a Support template (was hh_hand) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "At the 12",
+       "correct": false
+      },
+      {
+       "text": "At the 6",
+       "correct": true
+      },
+      {
+       "text": "At the 3",
+       "correct": false
+      },
+      {
+       "text": "At the 5",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "8:30; 8:00",
+       "correct": false
+      },
+      {
+       "text": "9:00; 9:30",
+       "correct": false
+      },
+      {
+       "text": "8:30; 9:30",
+       "correct": false
+      },
+      {
+       "text": "8:30; 9:00",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s02-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "Which digital time means half past 3?",
+     "to": "It is 6:00. What time will it be in half an hour? Then in one more half hour?"
+    },
+    "answer": {
+     "from": "3:30",
+     "to": "6:30; 7:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "Half past 3 is 30 minutes after 3.",
+      "It is 3:30."
+     ],
+     "to": [
+      "6:00 + 30 minutes = 6:30.",
+      "6:30 + 30 minutes = 7:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: hh_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt2_half_hour_later). Rewritten from a Support template (was hh_which) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3:00",
+       "correct": false
+      },
+      {
+       "text": "4:30",
+       "correct": false
+      },
+      {
+       "text": "3:03",
+       "correct": false
+      },
+      {
+       "text": "3:30",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "6:30; 7:00",
+       "correct": true
+      },
+      {
+       "text": "6:30; 6:00",
+       "correct": false
+      },
+      {
+       "text": "7:00; 7:30",
+       "correct": false
+      },
+      {
+       "text": "6:30; 7:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s02-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "Which digital time means half past 2?",
+     "to": "It is 1:00. What time will it be in half an hour? Then in one more half hour?"
+    },
+    "answer": {
+     "from": "2:30",
+     "to": "1:30; 2:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "Half past 2 is 30 minutes after 2.",
+      "It is 2:30."
+     ],
+     "to": [
+      "1:00 + 30 minutes = 1:30.",
+      "1:30 + 30 minutes = 2:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: hh_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt2_half_hour_later). Rewritten from a Support template (was hh_which) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2:03",
+       "correct": false
+      },
+      {
+       "text": "3:30",
+       "correct": false
+      },
+      {
+       "text": "2:00",
+       "correct": false
+      },
+      {
+       "text": "2:30",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "1:30; 1:00",
+       "correct": false
+      },
+      {
+       "text": "2:00; 2:30",
+       "correct": false
+      },
+      {
+       "text": "1:30; 2:30",
+       "correct": false
+      },
+      {
+       "text": "1:30; 2:00",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s02-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "Which digital time means half past 10?",
+     "to": "It is 11:00. What time will it be in half an hour? Then in one more half hour?"
+    },
+    "answer": {
+     "from": "10:30",
+     "to": "11:30; 12:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "Half past 10 is 30 minutes after 10.",
+      "It is 10:30."
+     ],
+     "to": [
+      "11:00 + 30 minutes = 11:30.",
+      "11:30 + 30 minutes = 12:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: hh_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt2_half_hour_later). Rewritten from a Support template (was hh_which) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "10:03",
+       "correct": false
+      },
+      {
+       "text": "10:30",
+       "correct": true
+      },
+      {
+       "text": "11:30",
+       "correct": false
+      },
+      {
+       "text": "10:00",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "11:30; 11:00",
+       "correct": false
+      },
+      {
+       "text": "12:00; 12:30",
+       "correct": false
+      },
+      {
+       "text": "11:30; 12:00",
+       "correct": true
+      },
+      {
+       "text": "11:30; 12:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s02-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Which digital time means half past 5?",
+     "to": "It is 2:00. What time will it be in half an hour? Then in one more half hour?"
+    },
+    "answer": {
+     "from": "5:30",
+     "to": "2:30; 3:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "Half past 5 is 30 minutes after 5.",
+      "It is 5:30."
+     ],
+     "to": [
+      "2:00 + 30 minutes = 2:30.",
+      "2:30 + 30 minutes = 3:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: hh_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt2_half_hour_later). Rewritten from a Support template (was hh_which) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "5:30",
+       "correct": true
+      },
+      {
+       "text": "5:03",
+       "correct": false
+      },
+      {
+       "text": "6:30",
+       "correct": false
+      },
+      {
+       "text": "5:00",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "2:30; 2:00",
+       "correct": false
+      },
+      {
+       "text": "3:00; 3:30",
+       "correct": false
+      },
+      {
+       "text": "2:30; 3:30",
+       "correct": false
+      },
+      {
+       "text": "2:30; 3:00",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s02-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "At half past 4, where does the long minute hand point?",
+     "to": "A clock shows 11:00. What time was it half an hour ago?"
+    },
+    "answer": {
+     "from": "At the 6",
+     "to": "10:30"
+    },
+    "solutionSteps": {
+     "from": [
+      "Half past means 30 minutes; the minute hand points to 6.",
+      "At the 6"
+     ],
+     "to": [
+      "Half an hour before 11:00 is half past 10.",
+      "That is 10:30."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: hh_hand). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt2_half_hour_before). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "At the 4",
+       "correct": false
+      },
+      {
+       "text": "At the 6",
+       "correct": true
+      },
+      {
+       "text": "At the 3",
+       "correct": false
+      },
+      {
+       "text": "At the 12",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "11:30",
+       "correct": false
+      },
+      {
+       "text": "10:00",
+       "correct": false
+      },
+      {
+       "text": "9:30",
+       "correct": false
+      },
+      {
+       "text": "10:30",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s02-honors-006",
+   "changes": {
+    "prompt": {
+     "from": "Which digital time means half past 7?",
+     "to": "A clock shows 6:00. What time was it half an hour ago?"
+    },
+    "answer": {
+     "from": "7:30",
+     "to": "5:30"
+    },
+    "solutionSteps": {
+     "from": [
+      "Half past 7 is 30 minutes after 7.",
+      "It is 7:30."
+     ],
+     "to": [
+      "Half an hour before 6:00 is half past 5.",
+      "That is 5:30."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: hh_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt2_half_hour_before). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "8:30",
+       "correct": false
+      },
+      {
+       "text": "7:00",
+       "correct": false
+      },
+      {
+       "text": "7:30",
+       "correct": true
+      },
+      {
+       "text": "7:03",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "5:30",
+       "correct": true
+      },
+      {
+       "text": "6:30",
+       "correct": false
+      },
+      {
+       "text": "5:00",
+       "correct": false
+      },
+      {
+       "text": "4:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s02-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "At half past 9, where does the short hour hand point?",
+     "to": "A clock shows 4:00. What time was it half an hour ago?"
+    },
+    "answer": {
+     "from": "Between the 9 and the 10",
+     "to": "3:30"
+    },
+    "solutionSteps": {
+     "from": [
+      "At half past, the hour hand is halfway to the next hour.",
+      "Between the 9 and the 10"
+     ],
+     "to": [
+      "Half an hour before 4:00 is half past 3.",
+      "That is 3:30."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: hh_hand). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt2_half_hour_before). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Between the 8 and the 9",
+       "correct": false
+      },
+      {
+       "text": "At the 9",
+       "correct": false
+      },
+      {
+       "text": "Between the 9 and the 10",
+       "correct": true
+      },
+      {
+       "text": "At the 10",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4:30",
+       "correct": false
+      },
+      {
+       "text": "3:00",
+       "correct": false
+      },
+      {
+       "text": "2:30",
+       "correct": false
+      },
+      {
+       "text": "3:30",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s02-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "Which digital time means half past 9?",
+     "to": "A clock shows 9:00. What time was it half an hour ago?"
+    },
+    "answer": {
+     "from": "9:30",
+     "to": "8:30"
+    },
+    "solutionSteps": {
+     "from": [
+      "Half past 9 is 30 minutes after 9.",
+      "It is 9:30."
+     ],
+     "to": [
+      "Half an hour before 9:00 is half past 8.",
+      "That is 8:30."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: hh_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt2_half_hour_before). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9:03",
+       "correct": false
+      },
+      {
+       "text": "9:00",
+       "correct": false
+      },
+      {
+       "text": "9:30",
+       "correct": true
+      },
+      {
+       "text": "10:30",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9:30",
+       "correct": false
+      },
+      {
+       "text": "8:30",
+       "correct": true
+      },
+      {
+       "text": "8:00",
+       "correct": false
+      },
+      {
+       "text": "7:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s02-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "At half past 2, where does the long minute hand point?",
+     "to": "A clock shows 8:00. What time was it half an hour ago?"
+    },
+    "answer": {
+     "from": "At the 6",
+     "to": "7:30"
+    },
+    "solutionSteps": {
+     "from": [
+      "Half past means 30 minutes; the minute hand points to 6.",
+      "At the 6"
+     ],
+     "to": [
+      "Half an hour before 8:00 is half past 7.",
+      "That is 7:30."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: hh_hand). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt2_half_hour_before). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "At the 6",
+       "correct": true
+      },
+      {
+       "text": "At the 2",
+       "correct": false
+      },
+      {
+       "text": "At the 12",
+       "correct": false
+      },
+      {
+       "text": "At the 3",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "8:30",
+       "correct": false
+      },
+      {
+       "text": "7:30",
+       "correct": true
+      },
+      {
+       "text": "7:00",
+       "correct": false
+      },
+      {
+       "text": "6:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s02-honors-017",
+   "changes": {
+    "prompt": {
+     "from": "Which digital time means half past 4?",
+     "to": "A clock shows 5:00. What time was it half an hour ago?"
+    },
+    "solutionSteps": {
+     "from": [
+      "Half past 4 is 30 minutes after 4.",
+      "It is 4:30."
+     ],
+     "to": [
+      "Half an hour before 5:00 is half past 4.",
+      "That is 4:30."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: hh_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt2_half_hour_before). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4:00",
+       "correct": false
+      },
+      {
+       "text": "5:30",
+       "correct": false
+      },
+      {
+       "text": "4:03",
+       "correct": false
+      },
+      {
+       "text": "4:30",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "5:30",
+       "correct": false
+      },
+      {
+       "text": "4:00",
+       "correct": false
+      },
+      {
+       "text": "3:30",
+       "correct": false
+      },
+      {
+       "text": "4:30",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s02-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "At half past 2, where does the short hour hand point?",
+     "to": "A clock shows 7:00. What time was it half an hour ago?"
+    },
+    "answer": {
+     "from": "Between the 2 and the 3",
+     "to": "6:30"
+    },
+    "solutionSteps": {
+     "from": [
+      "At half past, the hour hand is halfway to the next hour.",
+      "Between the 2 and the 3"
+     ],
+     "to": [
+      "Half an hour before 7:00 is half past 6.",
+      "That is 6:30."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: hh_hand). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt2_half_hour_before). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Between the 1 and the 2",
+       "correct": false
+      },
+      {
+       "text": "At the 3",
+       "correct": false
+      },
+      {
+       "text": "At the 2",
+       "correct": false
+      },
+      {
+       "text": "Between the 2 and the 3",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "7:30",
+       "correct": false
+      },
+      {
+       "text": "6:00",
+       "correct": false
+      },
+      {
+       "text": "6:30",
+       "correct": true
+      },
+      {
+       "text": "5:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s02-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Which digital time means half past 11?",
+     "to": "A clock shows 2:00. What time was it half an hour ago?"
+    },
+    "answer": {
+     "from": "11:30",
+     "to": "1:30"
+    },
+    "solutionSteps": {
+     "from": [
+      "Half past 11 is 30 minutes after 11.",
+      "It is 11:30."
+     ],
+     "to": [
+      "Half an hour before 2:00 is half past 1.",
+      "That is 1:30."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: hh_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt2_half_hour_before). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "11:03",
+       "correct": false
+      },
+      {
+       "text": "12:30",
+       "correct": false
+      },
+      {
+       "text": "11:30",
+       "correct": true
+      },
+      {
+       "text": "11:00",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "2:30",
+       "correct": false
+      },
+      {
+       "text": "1:00",
+       "correct": false
+      },
+      {
+       "text": "1:30",
+       "correct": true
+      },
+      {
+       "text": "12:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp1-002",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    },
+    "level": {
+     "from": "honors",
+     "to": "cp1"
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "Which words mean the same as 2:00?",
+     "to": "Write 1 o'clock with numbers. Then what time is it one hour later?"
+    },
+    "answer": {
+     "from": "2 o'clock",
+     "to": "1:00; 2:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "2:00 is 2 hours and 0 minutes.",
+      "It is 2 o'clock."
+     ],
+     "to": [
+      "1 o'clock is 1:00.",
+      "One hour later is 2:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: u_same). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt3_words_then_later). Rewritten from a Support template (was u_same) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2 o'clock",
+       "correct": true
+      },
+      {
+       "text": "1 o'clock",
+       "correct": false
+      },
+      {
+       "text": "half past 2",
+       "correct": false
+      },
+      {
+       "text": "3 o'clock",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "1:00; 2:00",
+       "correct": true
+      },
+      {
+       "text": "1:00; 1:30",
+       "correct": false
+      },
+      {
+       "text": "2:00; 2:00",
+       "correct": false
+      },
+      {
+       "text": "1:30; 2:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp1-007",
+   "changes": {
+    "prompt": {
+     "from": "It is 4:00. What time is it 1 hour later?",
+     "to": "Write half past 3 with numbers. Then what time is it one hour later?"
+    },
+    "answer": {
+     "from": "5:00",
+     "to": "3:30; 4:30"
+    },
+    "solutionSteps": {
+     "from": [
+      "Start at 4:00 and move ahead 1 hour.",
+      "The time will be 5:00."
+     ],
+     "to": [
+      "half past 3 is 3:30.",
+      "One hour later is 4:30."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: u_later). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py). Wording shortened for young readers 2026-11-15 (Claude, rule hour-later); numbers and answer unchanged.",
+     "to": "Original Claude-authored item (family: tt3_words_then_later). Rewritten from a Support template (was u_later) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "5:30",
+       "correct": false
+      },
+      {
+       "text": "4:00",
+       "correct": false
+      },
+      {
+       "text": "4:30",
+       "correct": false
+      },
+      {
+       "text": "5:00",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "3:30; 3:00",
+       "correct": false
+      },
+      {
+       "text": "4:30; 4:30",
+       "correct": false
+      },
+      {
+       "text": "3:00; 4:00",
+       "correct": false
+      },
+      {
+       "text": "3:30; 4:30",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "Which words mean the same as 6:30?",
+     "to": "Write half past 2 with numbers. Then what time is it one hour later?"
+    },
+    "answer": {
+     "from": "half past 6",
+     "to": "2:30; 3:30"
+    },
+    "solutionSteps": {
+     "from": [
+      "6:30 is 6 hours and 30 minutes.",
+      "It is half past 6."
+     ],
+     "to": [
+      "half past 2 is 2:30.",
+      "One hour later is 3:30."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: u_same). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt3_words_then_later). Rewritten from a Support template (was u_same) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "6 o'clock",
+       "correct": false
+      },
+      {
+       "text": "half past 5",
+       "correct": false
+      },
+      {
+       "text": "half past 7",
+       "correct": false
+      },
+      {
+       "text": "half past 6",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "2:30; 2:00",
+       "correct": false
+      },
+      {
+       "text": "3:30; 3:30",
+       "correct": false
+      },
+      {
+       "text": "2:30; 3:30",
+       "correct": true
+      },
+      {
+       "text": "2:00; 3:00",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "Which words mean the same as 9:30?",
+     "to": "Write 8 o'clock with numbers. Then what time is it one hour later?"
+    },
+    "answer": {
+     "from": "half past 9",
+     "to": "8:00; 9:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "9:30 is 9 hours and 30 minutes.",
+      "It is half past 9."
+     ],
+     "to": [
+      "8 o'clock is 8:00.",
+      "One hour later is 9:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: u_same). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt3_words_then_later). Rewritten from a Support template (was u_same) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "half past 9",
+       "correct": true
+      },
+      {
+       "text": "9 o'clock",
+       "correct": false
+      },
+      {
+       "text": "half past 10",
+       "correct": false
+      },
+      {
+       "text": "half past 8",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "8:00; 8:30",
+       "correct": false
+      },
+      {
+       "text": "8:00; 9:00",
+       "correct": true
+      },
+      {
+       "text": "9:00; 9:00",
+       "correct": false
+      },
+      {
+       "text": "8:30; 9:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp1-017",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    },
+    "level": {
+     "from": "honors",
+     "to": "cp1"
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp1-021",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp1-022",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp1-023",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp1-025",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp1-028",
+   "changes": {
+    "prompt": {
+     "from": "It is 2:00. What time will it be in 1 hour? Write it like a digital clock. Is the answer 3:00?",
+     "to": "Write 6 o'clock with numbers. Then what time is it one hour later?"
+    },
+    "answer": {
+     "from": "Yes. The time will be 3:00.",
+     "to": "6:00; 7:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "Start at 2:00 and move ahead 1 hour.",
+      "The time will be 3:00.",
+      "The answer 3:00 is correct."
+     ],
+     "to": [
+      "6 o'clock is 6:00.",
+      "One hour later is 7:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: u_later_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt3_words_then_later). Rewritten from a Support template (was u_later_tf) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Yes. The time will be 3:00.",
+       "correct": true
+      },
+      {
+       "text": "No. The answer is 3:30.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 2:30.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 2:00.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6:00; 6:30",
+       "correct": false
+      },
+      {
+       "text": "7:00; 7:00",
+       "correct": false
+      },
+      {
+       "text": "6:00; 7:00",
+       "correct": true
+      },
+      {
+       "text": "6:30; 7:30",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that mean the same time as 6:30."
+    },
+    "answer": {
+     "from": [
+      "It is 12:00. What time will it be in half an hour? Write it like a digital clock. → 12:30",
+      "It is 9:00. What time will it be in 1 hour? Write it like a digital clock. → 10:00"
+     ],
+     "to": [
+      "6:30",
+      "30 minutes before 7:00",
+      "30 minutes after 6:00",
+      "half past 6"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "It is 6:00. What time will it be in half an hour? Write it like a digital clock. → 7:00",
+       "correct": false
+      },
+      {
+       "text": "It is 3:30. What time will it be in half an hour? Write it like a digital clock. → 3:30",
+       "correct": false
+      },
+      {
+       "text": "It is 12:00. What time will it be in half an hour? Write it like a digital clock. → 12:30",
+       "correct": true
+      },
+      {
+       "text": "It is 9:00. What time will it be in 1 hour? Write it like a digital clock. → 10:00",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "6:30",
+       "correct": true
+      },
+      {
+       "text": "30 minutes before 7:00",
+       "correct": true
+      },
+      {
+       "text": "30 minutes after 6:00",
+       "correct": true
+      },
+      {
+       "text": "6:00",
+       "correct": false
+      },
+      {
+       "text": "half past 6",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "It is 6:00. What time will it be in half an hour? Write it like a digital clock. → 7:00: not correct.",
+      "It is 3:30. What time will it be in half an hour? Write it like a digital clock. → 3:30: not correct.",
+      "It is 12:00. What time will it be in half an hour? Write it like a digital clock. → 12:30: correct.",
+      "It is 9:00. What time will it be in 1 hour? Write it like a digital clock. → 10:00: correct."
+     ],
+     "to": [
+      "6:30 is half past 6.",
+      "Correct choices: 6:30; 30 minutes before 7:00; 30 minutes after 6:00; half past 6. Not correct: 6:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: u_later_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt3_select_half_past). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Art starts at 5:00 and music starts at 5:30."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "It is 3:00. What time will it be in 1 hour? Write it like a digital clock.",
+       "answer": "4:00"
+      },
+      {
+       "prompt": "It is 9:00. What time will it be in half an hour? Write it like a digital clock.",
+       "answer": "9:30"
+      },
+      {
+       "prompt": "It is 10:30. What time will it be in half an hour? Write it like a digital clock.",
+       "answer": "11:00"
+      },
+      {
+       "prompt": "It is 8:00. What time will it be in 1 hour? Write it like a digital clock.",
+       "answer": "9:00"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which starts first?",
+       "answer": "art"
+      },
+      {
+       "prompt": "Write the music time in words.",
+       "answer": "Sample answer: half past 5"
+      },
+      {
+       "prompt": "What time is half an hour after music starts?",
+       "answer": "6:00"
+      },
+      {
+       "prompt": "Tell how you know which time is earlier.",
+       "answer": "Sample answer: 5:00 comes before 5:30 on the clock."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 4:00; (b) 9:30; (c) 11:00; (d) 9:00",
+     "to": "(a) art; (b) Sample answer: half past 5; (c) 6:00; (d) Sample answer: 5:00 comes before 5:30 on the clock."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Start at 3:00 and move ahead 1 hour. The time will be 4:00.",
+      "(b) Start at 9:00 and move ahead half an hour. The time will be 9:30.",
+      "(c) Start at 10:30 and move ahead half an hour. The time will be 11:00.",
+      "(d) Start at 8:00 and move ahead 1 hour. The time will be 9:00."
+     ],
+     "to": [
+      "(a) The earlier time.",
+      "(b) Half past.",
+      "(c) Add 30 minutes.",
+      "(d) Compare."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: u_later_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt3_open_schedule). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that mean the same time as 4:30."
+    },
+    "answer": {
+     "from": [
+      "It is 7:00. What time will it be in 1 hour? Write it like a digital clock. → 8:00",
+      "It is 9:00. What time will it be in 1 hour? Write it like a digital clock. → 10:00"
+     ],
+     "to": [
+      "30 minutes after 4:00",
+      "30 minutes before 5:00"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "It is 7:00. What time will it be in 1 hour? Write it like a digital clock. → 8:00",
+       "correct": true
+      },
+      {
+       "text": "It is 4:00. What time will it be in 1 hour? Write it like a digital clock. → 4:00",
+       "correct": false
+      },
+      {
+       "text": "It is 9:00. What time will it be in 1 hour? Write it like a digital clock. → 10:00",
+       "correct": true
+      },
+      {
+       "text": "It is 3:00. What time will it be in 1 hour? Write it like a digital clock. → 3:30",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4:06",
+       "correct": false
+      },
+      {
+       "text": "30 minutes after 4:00",
+       "correct": true
+      },
+      {
+       "text": "30 minutes before 5:00",
+       "correct": true
+      },
+      {
+       "text": "5:30",
+       "correct": false
+      },
+      {
+       "text": "4:00",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "It is 7:00. What time will it be in 1 hour? Write it like a digital clock. → 8:00: correct.",
+      "It is 4:00. What time will it be in 1 hour? Write it like a digital clock. → 4:00: not correct.",
+      "It is 9:00. What time will it be in 1 hour? Write it like a digital clock. → 10:00: correct.",
+      "It is 3:00. What time will it be in 1 hour? Write it like a digital clock. → 3:30: not correct."
+     ],
+     "to": [
+      "4:30 is half past 4.",
+      "Correct choices: 30 minutes after 4:00; 30 minutes before 5:00. Not correct: 4:00; 5:30; 4:06."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: u_later_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt3_select_half_past). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Art starts at 2:00 and music starts at 2:30."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "It is 5:00. What time will it be in 1 hour? Write it like a digital clock.",
+       "answer": "6:00"
+      },
+      {
+       "prompt": "It is 9:00. What time will it be in 1 hour? Write it like a digital clock.",
+       "answer": "10:00"
+      },
+      {
+       "prompt": "It is 12:00. What time will it be in 1 hour? Write it like a digital clock.",
+       "answer": "1:00"
+      },
+      {
+       "prompt": "It is 11:00. What time will it be in 1 hour? Write it like a digital clock.",
+       "answer": "12:00"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which starts first?",
+       "answer": "art"
+      },
+      {
+       "prompt": "Write the music time in words.",
+       "answer": "Sample answer: half past 2"
+      },
+      {
+       "prompt": "What time is half an hour after music starts?",
+       "answer": "3:00"
+      },
+      {
+       "prompt": "Tell how you know which time is earlier.",
+       "answer": "Sample answer: 2:00 comes before 2:30 on the clock."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 6:00; (b) 10:00; (c) 1:00; (d) 12:00",
+     "to": "(a) art; (b) Sample answer: half past 2; (c) 3:00; (d) Sample answer: 2:00 comes before 2:30 on the clock."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Start at 5:00 and move ahead 1 hour. The time will be 6:00.",
+      "(b) Start at 9:00 and move ahead 1 hour. The time will be 10:00.",
+      "(c) Start at 12:00 and move ahead 1 hour. The time will be 1:00.",
+      "(d) Start at 11:00 and move ahead 1 hour. The time will be 12:00."
+     ],
+     "to": [
+      "(a) The earlier time.",
+      "(b) Half past.",
+      "(c) Add 30 minutes.",
+      "(d) Compare."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: u_later_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt3_open_schedule). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-003",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-006",
+   "changes": {
+    "prompt": {
+     "from": "Which words mean the same as 10:30?",
+     "to": "Ava eats lunch at 10:30. Hugo eats lunch at 11:00. Who eats lunch first?"
+    },
+    "answer": {
+     "from": "half past 10",
+     "to": "Ava"
+    },
+    "solutionSteps": {
+     "from": [
+      "10:30 is 10 hours and 30 minutes.",
+      "It is half past 10."
+     ],
+     "to": [
+      "10:30 and 11:00.",
+      "The earlier time is Ava's."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: u_same). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt3_who_first). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "10 o'clock",
+       "correct": false
+      },
+      {
+       "text": "half past 11",
+       "correct": false
+      },
+      {
+       "text": "half past 10",
+       "correct": true
+      },
+      {
+       "text": "half past 9",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "Hugo",
+       "correct": false
+      },
+      {
+       "text": "Ava",
+       "correct": true
+      },
+      {
+       "text": "They eat at the same time",
+       "correct": false
+      },
+      {
+       "text": "You cannot tell",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-008",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "Which words mean the same as 3:00?",
+     "to": "Isla eats lunch at 9:00. Eli eats lunch at 9:30. Who eats lunch first?"
+    },
+    "answer": {
+     "from": "3 o'clock",
+     "to": "Isla"
+    },
+    "solutionSteps": {
+     "from": [
+      "3:00 is 3 hours and 0 minutes.",
+      "It is 3 o'clock."
+     ],
+     "to": [
+      "9:00 and 9:30.",
+      "The earlier time is Isla's."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: u_same). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt3_who_first). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "half past 3",
+       "correct": false
+      },
+      {
+       "text": "4 o'clock",
+       "correct": false
+      },
+      {
+       "text": "3 o'clock",
+       "correct": true
+      },
+      {
+       "text": "2 o'clock",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "Eli",
+       "correct": false
+      },
+      {
+       "text": "They eat at the same time",
+       "correct": false
+      },
+      {
+       "text": "You cannot tell",
+       "correct": false
+      },
+      {
+       "text": "Isla",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-013",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-016",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-017",
+   "changes": {
+    "prompt": {
+     "from": "Which words mean the same as 7:00?",
+     "to": "Ben eats lunch at 1:00. Tess eats lunch at 1:30. Who eats lunch first?"
+    },
+    "answer": {
+     "from": "7 o'clock",
+     "to": "Ben"
+    },
+    "solutionSteps": {
+     "from": [
+      "7:00 is 7 hours and 0 minutes.",
+      "It is 7 o'clock."
+     ],
+     "to": [
+      "1:00 and 1:30.",
+      "The earlier time is Ben's."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: u_same). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt3_who_first). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "half past 7",
+       "correct": false
+      },
+      {
+       "text": "8 o'clock",
+       "correct": false
+      },
+      {
+       "text": "7 o'clock",
+       "correct": true
+      },
+      {
+       "text": "6 o'clock",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "Ben",
+       "correct": true
+      },
+      {
+       "text": "Tess",
+       "correct": false
+      },
+      {
+       "text": "They eat at the same time",
+       "correct": false
+      },
+      {
+       "text": "You cannot tell",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-018",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-019",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-020",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-022",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-024",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-025",
+   "changes": {
+    "standards": {
+     "from": [
+      "1.MD.B.3",
+      "3.MD.A.1"
+     ],
+     "to": [
+      "1.MD.B.3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that mean the same time as 6:30."
+    },
+    "answer": {
+     "from": [
+      "It is 4:00. What time will it be in 1 hour? Write it like a digital clock. → 5:00",
+      "It is 12:30. What time will it be in 1 hour and one half? Write it like a digital clock. → 2:00"
+     ],
+     "to": [
+      "half past 6",
+      "6:30",
+      "30 minutes after 6:00"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "It is 7:30. What time will it be in 1 hour and one half? Write it like a digital clock. → 9:30",
+       "correct": false
+      },
+      {
+       "text": "It is 12:30. What time will it be in 1 hour and one half? Write it like a digital clock. → 2:30",
+       "correct": false
+      },
+      {
+       "text": "It is 4:00. What time will it be in 1 hour? Write it like a digital clock. → 5:00",
+       "correct": true
+      },
+      {
+       "text": "It is 12:30. What time will it be in 1 hour and one half? Write it like a digital clock. → 2:00",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "half past 6",
+       "correct": true
+      },
+      {
+       "text": "6:00",
+       "correct": false
+      },
+      {
+       "text": "6:30",
+       "correct": true
+      },
+      {
+       "text": "30 minutes after 6:00",
+       "correct": true
+      },
+      {
+       "text": "30 minutes before 6:00",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "It is 7:30. What time will it be in 1 hour and one half? Write it like a digital clock. → 9:30: not correct.",
+      "It is 12:30. What time will it be in 1 hour and one half? Write it like a digital clock. → 2:30: not correct.",
+      "It is 4:00. What time will it be in 1 hour? Write it like a digital clock. → 5:00: correct.",
+      "It is 12:30. What time will it be in 1 hour and one half? Write it like a digital clock. → 2:00: correct."
+     ],
+     "to": [
+      "6:30 is half past 6.",
+      "Correct choices: half past 6; 6:30; 30 minutes after 6:00. Not correct: 30 minutes before 6:00; 6:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: u_later_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt3_select_half_past). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-tt-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Art starts at 10:00 and music starts at 10:30."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "It is 11:00. What time will it be in 1 hour? Write it like a digital clock.",
+       "answer": "12:00"
+      },
+      {
+       "prompt": "It is 10:00. What time will it be in 1 hour? Write it like a digital clock.",
+       "answer": "11:00"
+      },
+      {
+       "prompt": "It is 3:30. What time will it be in half an hour? Write it like a digital clock.",
+       "answer": "4:00"
+      },
+      {
+       "prompt": "It is 3:00. What time will it be in 1 hour and one half? Write it like a digital clock.",
+       "answer": "4:30"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which starts first?",
+       "answer": "art"
+      },
+      {
+       "prompt": "Write the music time in words.",
+       "answer": "Sample answer: half past 10"
+      },
+      {
+       "prompt": "What time is half an hour after music starts?",
+       "answer": "11:00"
+      },
+      {
+       "prompt": "Tell how you know which time is earlier.",
+       "answer": "Sample answer: 10:00 comes before 10:30 on the clock."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 12:00; (b) 11:00; (c) 4:00; (d) 4:30",
+     "to": "(a) art; (b) Sample answer: half past 10; (c) 11:00; (d) Sample answer: 10:00 comes before 10:30 on the clock."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Start at 11:00 and move ahead 1 hour. The time will be 12:00.",
+      "(b) Start at 10:00 and move ahead 1 hour. The time will be 11:00.",
+      "(c) Start at 3:30 and move ahead half an hour. The time will be 4:00.",
+      "(d) Start at 3:00 and move ahead 1 hour and one half. The time will be 4:30."
+     ],
+     "to": [
+      "(a) The earlier time.",
+      "(b) Half past.",
+      "(c) Add 30 minutes.",
+      "(d) Compare."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: u_later_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tt3_open_schedule). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [
+  {
+   "id": "m1-tt-s02-cp2-o01",
+   "skillId": "telling-time-skill-02",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Recess is at half past 3.",
+   "parts": [
+    {
+     "prompt": "Write the time with numbers.",
+     "answer": "3:30"
+    },
+    {
+     "prompt": "Where does the long hand point?",
+     "answer": "at the 6"
+    },
+    {
+     "prompt": "What time is it half an hour later?",
+     "answer": "4:00"
+    },
+    {
+     "prompt": "Tell where the short hand points at half past.",
+     "answer": "Sample answer: Halfway between the 3 and the 4."
+    }
+   ],
+   "answer": "(a) 3:30; (b) at the 6; (c) 4:00; (d) Sample answer: Halfway between the 3 and the 4.",
+   "solutionSteps": [
+    "(a) Half past.",
+    "(b) Half past.",
+    "(c) Add 30 minutes.",
+    "(d) Between the numbers."
+   ],
+   "standards": [
+    "1.MD.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tt2_open_half_hour). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m1-tt-s02-cp1-o01",
+   "skillId": "telling-time-skill-02",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Recess is at half past 4.",
+   "parts": [
+    {
+     "prompt": "Write the time with numbers.",
+     "answer": "4:30"
+    },
+    {
+     "prompt": "Where does the long hand point?",
+     "answer": "at the 6"
+    },
+    {
+     "prompt": "What time is it half an hour later?",
+     "answer": "5:00"
+    },
+    {
+     "prompt": "Tell where the short hand points at half past.",
+     "answer": "Sample answer: Halfway between the 4 and the 5."
+    }
+   ],
+   "answer": "(a) 4:30; (b) at the 6; (c) 5:00; (d) Sample answer: Halfway between the 4 and the 5.",
+   "solutionSteps": [
+    "(a) Half past.",
+    "(b) Half past.",
+    "(c) Add 30 minutes.",
+    "(d) Between the numbers."
+   ],
+   "standards": [
+    "1.MD.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tt2_open_half_hour). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m1-tt-s02-honors-o01",
+   "skillId": "telling-time-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Recess is at half past 9.",
+   "parts": [
+    {
+     "prompt": "Write the time with numbers.",
+     "answer": "9:30"
+    },
+    {
+     "prompt": "Where does the long hand point?",
+     "answer": "at the 6"
+    },
+    {
+     "prompt": "What time is it half an hour later?",
+     "answer": "10:00"
+    },
+    {
+     "prompt": "Tell where the short hand points at half past.",
+     "answer": "Sample answer: Halfway between the 9 and the 10."
+    }
+   ],
+   "answer": "(a) 9:30; (b) at the 6; (c) 10:00; (d) Sample answer: Halfway between the 9 and the 10.",
+   "solutionSteps": [
+    "(a) Half past.",
+    "(b) Half past.",
+    "(c) Add 30 minutes.",
+    "(d) Between the numbers."
+   ],
+   "standards": [
+    "1.MD.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tt2_open_half_hour). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+  }
+ ],
+ "meta": {
+  "m1-tt-s01-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It was 6:00.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "8:00": "a common mistake",
+    "7:00": "a common mistake",
+    "6:30": "a common mistake"
+   }
+  },
+  "m1-tt-s01-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It was 4:00.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "6:00": "a common mistake",
+    "5:00": "a common mistake",
+    "4:30": "a common mistake"
+   }
+  },
+  "m1-tt-s01-honors-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It was 12:00.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "4:00": "a common mistake",
+    "2:00": "a common mistake",
+    "12:30": "a common mistake"
+   }
+  },
+  "m1-tt-s01-honors-029": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It was 7:00.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "11:00": "a common mistake",
+    "9:00": "a common mistake",
+    "7:30": "a common mistake"
+   }
+  },
+  "m1-tt-s02-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 10:30.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "11:30": "a common mistake",
+    "10:00": "a common mistake",
+    "9:30": "a common mistake"
+   }
+  },
+  "m1-tt-s02-honors-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 5:30.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "6:30": "a common mistake",
+    "5:00": "a common mistake",
+    "4:30": "a common mistake"
+   }
+  },
+  "m1-tt-s02-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 3:30.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "4:30": "a common mistake",
+    "3:00": "a common mistake",
+    "2:30": "a common mistake"
+   }
+  },
+  "m1-tt-s02-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 8:30.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "9:30": "a common mistake",
+    "8:00": "a common mistake",
+    "7:30": "a common mistake"
+   }
+  },
+  "m1-tt-s02-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 7:30.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "8:30": "a common mistake",
+    "7:00": "a common mistake",
+    "6:30": "a common mistake"
+   }
+  },
+  "m1-tt-s02-honors-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 4:30.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "5:30": "a common mistake",
+    "4:00": "a common mistake",
+    "3:30": "a common mistake"
+   }
+  },
+  "m1-tt-s02-honors-029": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 6:30.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "7:30": "a common mistake",
+    "6:00": "a common mistake",
+    "5:30": "a common mistake"
+   }
+  },
+  "m1-tt-s02-honors-030": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "That is 1:30.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "2:30": "a common mistake",
+    "1:00": "a common mistake",
+    "12:30": "a common mistake"
+   }
+  },
+  "m1-tt-s03-honors-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The earlier time is Ava's.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "Hugo": "a common mistake",
+    "They eat at the same time": "a common mistake",
+    "You cannot tell": "a common mistake"
+   }
+  },
+  "m1-tt-s03-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The earlier time is Isla's.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "Eli": "a common mistake",
+    "They eat at the same time": "a common mistake",
+    "You cannot tell": "a common mistake"
+   }
+  },
+  "m1-tt-s03-honors-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The earlier time is Ben's.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "Tess": "a common mistake",
+    "They eat at the same time": "a common mistake",
+    "You cannot tell": "a common mistake"
+   }
+  },
+  "m1-tt-s01-cp1-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It will be 8:00.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "7:00": "a common mistake",
+    "9:00": "a common mistake",
+    "7:30": "a common mistake"
+   }
+  },
+  "m1-tt-s01-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It will be 6:00.",
+   "distractors": {
+    "5:00": "a common mistake",
+    "7:00": "a common mistake",
+    "5:30": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-tt-s01-cp1-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It will be 4:00.",
+   "distractors": {
+    "2:00": "a common mistake",
+    "5:00": "a common mistake",
+    "2:30": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-tt-s02-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "8:30 + 30 minutes = 9:00.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "8:30; 8:00": "a common mistake",
+    "9:00; 9:30": "a common mistake",
+    "8:30; 9:30": "a common mistake"
+   }
+  },
+  "m1-tt-s02-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6:30 + 30 minutes = 7:00.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "6:30; 6:00": "a common mistake",
+    "7:00; 7:30": "a common mistake",
+    "6:30; 7:30": "a common mistake"
+   }
+  },
+  "m1-tt-s02-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "1:30 + 30 minutes = 2:00.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "1:30; 1:00": "a common mistake",
+    "2:00; 2:30": "a common mistake",
+    "1:30; 2:30": "a common mistake"
+   }
+  },
+  "m1-tt-s02-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "11:30 + 30 minutes = 12:00.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "11:30; 11:00": "a common mistake",
+    "12:00; 12:30": "a common mistake",
+    "11:30; 12:30": "a common mistake"
+   }
+  },
+  "m1-tt-s02-cp1-030": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "2:30 + 30 minutes = 3:00.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "2:30; 2:00": "a common mistake",
+    "3:00; 3:30": "a common mistake",
+    "2:30; 3:30": "a common mistake"
+   }
+  },
+  "m1-tt-s03-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "One hour later is 2:00.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "1:00; 1:30": "a common mistake",
+    "2:00; 2:00": "a common mistake",
+    "1:30; 2:30": "a common mistake"
+   }
+  },
+  "m1-tt-s03-cp1-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "One hour later is 4:30.",
+   "distractors": {
+    "3:30; 3:00": "a common mistake",
+    "4:30; 4:30": "a common mistake",
+    "3:00; 4:00": "a common mistake"
+   },
+   "game": {
+    "textMC": true,
+    "numeric": false
+   }
+  },
+  "m1-tt-s03-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "One hour later is 3:30.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "2:30; 2:00": "a common mistake",
+    "3:30; 3:30": "a common mistake",
+    "2:00; 3:00": "a common mistake"
+   }
+  },
+  "m1-tt-s03-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "One hour later is 9:00.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "8:00; 8:30": "a common mistake",
+    "9:00; 9:00": "a common mistake",
+    "8:30; 9:30": "a common mistake"
+   }
+  },
+  "m1-tt-s03-cp1-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "One hour later is 7:00.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   },
+   "distractors": {
+    "6:00; 6:30": "a common mistake",
+    "7:00; 7:00": "a common mistake",
+    "6:30; 7:30": "a common mistake"
+   }
+  },
+  "m1-tt-s01-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 1 hour.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-tt-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 1 hour.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-tt-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 1 hour.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-tt-s02-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 30 minutes."
+  },
+  "m1-tt-s02-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 30 minutes."
+  },
+  "m1-tt-s02-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 30 minutes."
+  },
+  "m1-tt-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 30 minutes.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-tt-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 30 minutes.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-tt-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 30 minutes.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-tt-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "At o'clock the long hand points to 12.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-tt-s01-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "At o'clock the long hand points to 12.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-tt-s03-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "6:30 is half past 6.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-tt-s03-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "4:30 is half past 4.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-tt-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "6:30 is half past 6.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  }
+ }
+}

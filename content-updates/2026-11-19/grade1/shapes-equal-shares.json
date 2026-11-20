@@ -1,0 +1,2951 @@
+{
+ "unit": "shapes-equal-shares",
+ "edits": [
+  {
+   "id": "m1-sh-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that are true of every square."
+    },
+    "answer": {
+     "from": [
+      "Max wants to draw a trapezoid. How many straight sides must the drawing have? → 4",
+      "Ted wants to draw a triangle. How many straight sides must the drawing have? → 3"
+     ],
+     "to": [
+      "4 straight sides",
+      "a closed shape",
+      "sides that are all the same length"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Uma wants to draw a triangle. How many straight sides must the drawing have? → 2",
+       "correct": false
+      },
+      {
+       "text": "Max wants to draw a trapezoid. How many straight sides must the drawing have? → 4",
+       "correct": true
+      },
+      {
+       "text": "Ted wants to draw a triangle. How many straight sides must the drawing have? → 3",
+       "correct": true
+      },
+      {
+       "text": "Sam wants to draw a trapezoid. How many straight sides must the drawing have? → 5",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4 straight sides",
+       "correct": true
+      },
+      {
+       "text": "3 sides",
+       "correct": false
+      },
+      {
+       "text": "a curved side",
+       "correct": false
+      },
+      {
+       "text": "a closed shape",
+       "correct": true
+      },
+      {
+       "text": "sides that are all the same length",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Uma wants to draw a triangle. How many straight sides must the drawing have? → 2: not correct.",
+      "Max wants to draw a trapezoid. How many straight sides must the drawing have? → 4: correct.",
+      "Ted wants to draw a triangle. How many straight sides must the drawing have? → 3: correct.",
+      "Sam wants to draw a trapezoid. How many straight sides must the drawing have? → 5: not correct."
+     ],
+     "to": [
+      "Color and size do not matter; sides and corners do.",
+      "Correct choices: 4 straight sides; a closed shape; sides that are all the same length. Not correct: 3 sides; a curved side."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_draw_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_select_square). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Draw a square."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Liz wants to draw a square. How many straight corners must the drawing have?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Dev wants to draw a triangle. How many straight corners must the drawing have?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Kim wants to draw a square. How many straight corners must the drawing have?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Max wants to draw a rectangle. How many straight corners must the drawing have?",
+       "answer": "4"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many sides?",
+       "answer": "4"
+      },
+      {
+       "prompt": "How many corners?",
+       "answer": "4"
+      },
+      {
+       "prompt": "How many sides do 2 of them have?",
+       "answer": "8"
+      },
+      {
+       "prompt": "Tell what makes the shape a square.",
+       "answer": "Sample answer: It is closed and has 4 straight sides."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 4; (b) 3; (c) 4; (d) 4",
+     "to": "(a) 4; (b) 4; (c) 8; (d) Sample answer: It is closed and has 4 straight sides."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) A square has 4 corners. So the drawing needs 4 corners.",
+      "(b) A triangle has 3 corners. So the drawing needs 3 corners.",
+      "(c) A square has 4 corners. So the drawing needs 4 corners.",
+      "(d) A rectangle has 4 corners. So the drawing needs 4 corners."
+     ],
+     "to": [
+      "(a) A square has 4 sides.",
+      "(b) Same as the sides.",
+      "(c) Double.",
+      "(d) Defining attributes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_draw_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_open_shape). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s01-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "What makes a shape a square?",
+     "to": "How many corners do 3 hexagons have in all?"
+    },
+    "answer": {
+     "from": "It is closed and has 4 equal straight sides and 4 square corners.",
+     "to": "18"
+    },
+    "solutionSteps": {
+     "from": [
+      "Color, size, and which way a shape is turned do not change its name.",
+      "It is closed and has 4 equal straight sides and 4 square corners."
+     ],
+     "to": [
+      "A hexagon has 6 corners.",
+      "6 + 6 + 6 = 18."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_defining). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_corners_many). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "It is yellow.",
+       "correct": false
+      },
+      {
+       "text": "It is turned.",
+       "correct": false
+      },
+      {
+       "text": "It is large.",
+       "correct": false
+      },
+      {
+       "text": "It is closed and has 4 equal straight sides and 4 square corners.",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "18",
+       "correct": true
+      },
+      {
+       "text": "19",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s01-honors-008",
+   "changes": {
+    "prompt": {
+     "from": "What makes a shape a hexagon?",
+     "to": "How many corners do 2 squares have in all?"
+    },
+    "answer": {
+     "from": "It is closed and has 6 straight sides.",
+     "to": "8"
+    },
+    "solutionSteps": {
+     "from": [
+      "Color, size, and which way a shape is turned do not change its name.",
+      "It is closed and has 6 straight sides."
+     ],
+     "to": [
+      "A square has 4 corners.",
+      "4 + 4 = 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_defining). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_corners_many). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "It is yellow.",
+       "correct": false
+      },
+      {
+       "text": "It points up.",
+       "correct": false
+      },
+      {
+       "text": "It is closed and has 6 straight sides.",
+       "correct": true
+      },
+      {
+       "text": "It is tiny.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s01-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "What makes a shape a square?",
+     "to": "How many corners do 2 rectangles have in all?"
+    },
+    "answer": {
+     "from": "It is closed and has 4 equal straight sides and 4 square corners.",
+     "to": "8"
+    },
+    "solutionSteps": {
+     "from": [
+      "Color, size, and which way a shape is turned do not change its name.",
+      "It is closed and has 4 equal straight sides and 4 square corners."
+     ],
+     "to": [
+      "A rectangle has 4 corners.",
+      "4 + 4 = 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_defining). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_corners_many). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "It is blue.",
+       "correct": false
+      },
+      {
+       "text": "It is large.",
+       "correct": false
+      },
+      {
+       "text": "It is closed and has 4 equal straight sides and 4 square corners.",
+       "correct": true
+      },
+      {
+       "text": "It is on the left.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that are true of every square."
+    },
+    "answer": {
+     "from": [
+      "Mia wants to draw a rectangle. How many straight sides must the drawing have? → 4",
+      "Tess wants to draw a triangle. How many straight sides must the drawing have? → 3"
+     ],
+     "to": [
+      "4 square corners",
+      "a closed shape",
+      "4 straight sides",
+      "sides that are all the same length"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Mia wants to draw a rectangle. How many straight sides must the drawing have? → 4",
+       "correct": true
+      },
+      {
+       "text": "Tess wants to draw a triangle. How many straight sides must the drawing have? → 3",
+       "correct": true
+      },
+      {
+       "text": "Ana wants to draw a triangle. How many straight corners must the drawing have? → 4",
+       "correct": false
+      },
+      {
+       "text": "Tess wants to draw a trapezoid. How many straight corners must the drawing have? → 3",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4 square corners",
+       "correct": true
+      },
+      {
+       "text": "a closed shape",
+       "correct": true
+      },
+      {
+       "text": "4 straight sides",
+       "correct": true
+      },
+      {
+       "text": "3 sides",
+       "correct": false
+      },
+      {
+       "text": "sides that are all the same length",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Mia wants to draw a rectangle. How many straight sides must the drawing have? → 4: correct.",
+      "Tess wants to draw a triangle. How many straight sides must the drawing have? → 3: correct.",
+      "Ana wants to draw a triangle. How many straight corners must the drawing have? → 4: not correct.",
+      "Tess wants to draw a trapezoid. How many straight corners must the drawing have? → 3: not correct."
+     ],
+     "to": [
+      "Color and size do not matter; sides and corners do.",
+      "Correct choices: 4 square corners; a closed shape; 4 straight sides; sides that are all the same length. Not correct: 3 sides."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_draw_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_select_square). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Draw a hexagon."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Ben wants to draw a rectangle. How many straight corners must the drawing have?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Dan wants to draw a rectangle. How many straight sides must the drawing have?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Dev wants to draw a triangle. How many straight sides must the drawing have?",
+       "answer": "3"
+      },
+      {
+       "prompt": "Sam wants to draw a hexagon. How many straight sides must the drawing have?",
+       "answer": "6"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many sides?",
+       "answer": "6"
+      },
+      {
+       "prompt": "How many corners?",
+       "answer": "6"
+      },
+      {
+       "prompt": "How many sides do 2 of them have?",
+       "answer": "12"
+      },
+      {
+       "prompt": "Tell what makes the shape a hexagon.",
+       "answer": "Sample answer: It is closed and has 6 straight sides."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 4; (b) 4; (c) 3; (d) 6",
+     "to": "(a) 6; (b) 6; (c) 12; (d) Sample answer: It is closed and has 6 straight sides."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) A rectangle has 4 corners. So the drawing needs 4 corners.",
+      "(b) A rectangle has 4 sides. So the drawing needs 4 sides.",
+      "(c) A triangle has 3 sides. So the drawing needs 3 sides.",
+      "(d) A hexagon has 6 sides. So the drawing needs 6 sides."
+     ],
+     "to": [
+      "(a) A hexagon has 6 sides.",
+      "(b) Same as the sides.",
+      "(c) Double.",
+      "(d) Defining attributes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: a_draw_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh1_open_shape). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s02-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the shapes that are three-dimensional (solid)."
+    },
+    "answer": {
+     "from": [
+      "I am round and have no corners. I am flat. What shape am I? → circle",
+      "I am a solid. I have 6 flat faces that are all squares. What am I? → cube"
+     ],
+     "to": [
+      "cone",
+      "rectangular prism"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "I am a circle cut in half. I have one straight side and one curved side. What shape am I? → circle",
+       "correct": false
+      },
+      {
+       "text": "I am a solid like a box. My faces are rectangles. What am I? → circle",
+       "correct": false
+      },
+      {
+       "text": "I am round and have no corners. I am flat. What shape am I? → circle",
+       "correct": true
+      },
+      {
+       "text": "I am a solid. I have 6 flat faces that are all squares. What am I? → cube",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "triangle",
+       "correct": false
+      },
+      {
+       "text": "square",
+       "correct": false
+      },
+      {
+       "text": "cone",
+       "correct": true
+      },
+      {
+       "text": "rectangular prism",
+       "correct": true
+      },
+      {
+       "text": "hexagon",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "I am a circle cut in half. I have one straight side and one curved side. What shape am I? → circle: not correct.",
+      "I am a solid like a box. My faces are rectangles. What am I? → circle: not correct.",
+      "I am round and have no corners. I am flat. What shape am I? → circle: correct.",
+      "I am a solid. I have 6 flat faces that are all squares. What am I? → cube: correct."
+     ],
+     "to": [
+      "Solid shapes take up space; flat shapes do not.",
+      "Correct choices: cone; rectangular prism. Not correct: hexagon; triangle; square."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: n_riddle_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_select_3d). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s02-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Look at a cone."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "I have 4 straight sides that are all the same length and 4 square corners. What shape am I?",
+       "answer": "square"
+      },
+      {
+       "prompt": "I have 3 straight sides and 3 corners. What shape am I?",
+       "answer": "triangle"
+      },
+      {
+       "prompt": "I have 4 straight sides and 4 square corners. Two of my sides are longer than the other two. What shape am I?",
+       "answer": "rectangle"
+      },
+      {
+       "prompt": "I am a solid like a box. My faces are rectangles. What am I?",
+       "answer": "rectangular prism"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many flat faces does it have?",
+       "answer": "1"
+      },
+      {
+       "prompt": "Can it roll? (yes or no)",
+       "answer": "yes"
+      },
+      {
+       "prompt": "What shape is a flat face?",
+       "answer": "circle"
+      },
+      {
+       "prompt": "Tell an object in the classroom with this shape.",
+       "answer": "Sample answer: a party hat"
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) square; (b) triangle; (c) rectangle; (d) rectangular prism",
+     "to": "(a) 1; (b) yes; (c) circle; (d) Sample answer: a party hat"
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Use the clues about sides, corners, faces, and curves. The answer is a square.",
+      "(b) Use the clues about sides, corners, faces, and curves. The answer is a triangle.",
+      "(c) Use the clues about sides, corners, faces, and curves. The answer is a rectangle.",
+      "(d) Use the clues about sides, corners, faces, and curves. The answer is a rectangular prism."
+     ],
+     "to": [
+      "(a) Count the flat faces.",
+      "(b) A curved surface can roll.",
+      "(c) Trace a face.",
+      "(d) Real objects."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: n_riddle_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_open_solid). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s02-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the shapes that are three-dimensional (solid)."
+    },
+    "answer": {
+     "from": [
+      "I am a solid. I have 6 flat faces that are all squares. What am I? → cube",
+      "I am round and have no corners. I am flat. What shape am I? → circle"
+     ],
+     "to": [
+      "cone",
+      "cube",
+      "rectangular prism"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "I am a solid. I have 6 flat faces that are all squares. What am I? → cube",
+       "correct": true
+      },
+      {
+       "text": "I have 4 straight sides that are all the same length and 4 square corners. What shape am I? → rectangle",
+       "correct": false
+      },
+      {
+       "text": "I am round and have no corners. I am flat. What shape am I? → circle",
+       "correct": true
+      },
+      {
+       "text": "I have 4 straight sides that are all the same length and 4 square corners. What shape am I? → circle",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "cone",
+       "correct": true
+      },
+      {
+       "text": "hexagon",
+       "correct": false
+      },
+      {
+       "text": "cube",
+       "correct": true
+      },
+      {
+       "text": "circle",
+       "correct": false
+      },
+      {
+       "text": "rectangular prism",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "I am a solid. I have 6 flat faces that are all squares. What am I? → cube: correct.",
+      "I have 4 straight sides that are all the same length and 4 square corners. What shape am I? → rectangle: not correct.",
+      "I am round and have no corners. I am flat. What shape am I? → circle: correct.",
+      "I have 4 straight sides that are all the same length and 4 square corners. What shape am I? → circle: not correct."
+     ],
+     "to": [
+      "Solid shapes take up space; flat shapes do not.",
+      "Correct choices: cone; cube; rectangular prism. Not correct: hexagon; circle."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: n_riddle_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_select_3d). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s02-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Look at a cube."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "I am a solid. I have 1 flat circle face and one point at the top. What am I?",
+       "answer": "cone"
+      },
+      {
+       "prompt": "I am a solid. I have 2 flat circle faces and one curved side. What am I?",
+       "answer": "cylinder"
+      },
+      {
+       "prompt": "I have 6 straight sides and 6 corners. What shape am I?",
+       "answer": "hexagon"
+      },
+      {
+       "prompt": "I am a solid. I have 6 flat faces that are all squares. What am I?",
+       "answer": "cube"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many flat faces does it have?",
+       "answer": "6"
+      },
+      {
+       "prompt": "Can it roll? (yes or no)",
+       "answer": "no"
+      },
+      {
+       "prompt": "What shape is a flat face?",
+       "answer": "square"
+      },
+      {
+       "prompt": "Tell an object in the classroom with this shape.",
+       "answer": "Sample answer: a block"
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) cone; (b) cylinder; (c) hexagon; (d) cube",
+     "to": "(a) 6; (b) no; (c) square; (d) Sample answer: a block"
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Use the clues about sides, corners, faces, and curves. The answer is a cone.",
+      "(b) Use the clues about sides, corners, faces, and curves. The answer is a cylinder.",
+      "(c) Use the clues about sides, corners, faces, and curves. The answer is a hexagon.",
+      "(d) Use the clues about sides, corners, faces, and curves. The answer is a cube."
+     ],
+     "to": [
+      "(a) Count the flat faces.",
+      "(b) A curved surface can roll.",
+      "(c) Trace a face.",
+      "(d) Real objects."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: n_riddle_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_open_solid). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s02-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "I have 6 straight sides and 6 corners. What shape am I?",
+     "to": "How many sides do a rectangle and a triangle have together?"
+    },
+    "answer": {
+     "from": "hexagon",
+     "to": "7"
+    },
+    "solutionSteps": {
+     "from": [
+      "Use the clues about sides, corners, faces, and curves.",
+      "The answer is a hexagon."
+     ],
+     "to": [
+      "A rectangle has 4 sides and a triangle has 3.",
+      "4 + 3 = 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: n_riddle). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_sides_two_shapes). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s02-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the shapes that are three-dimensional (solid)."
+    },
+    "answer": {
+     "from": [
+      "I am a solid. I have 1 flat circle face and one point at the top. What am I? → cone",
+      "I am a circle cut in half. I have one straight side and one curved side. What shape am I? → half‑circle"
+     ],
+     "to": [
+      "rectangular prism",
+      "cone",
+      "cube",
+      "cylinder"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "I am a solid. I have 1 flat circle face and one point at the top. What am I? → cone",
+       "correct": true
+      },
+      {
+       "text": "I am a solid. I have 1 flat circle face and one point at the top. What am I? → square",
+       "correct": false
+      },
+      {
+       "text": "I am a circle cut in half. I have one straight side and one curved side. What shape am I? → half‑circle",
+       "correct": true
+      },
+      {
+       "text": "I am a solid. I have 2 flat circle faces and one curved side. What am I? → circle",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "hexagon",
+       "correct": false
+      },
+      {
+       "text": "rectangular prism",
+       "correct": true
+      },
+      {
+       "text": "cone",
+       "correct": true
+      },
+      {
+       "text": "cube",
+       "correct": true
+      },
+      {
+       "text": "cylinder",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "I am a solid. I have 1 flat circle face and one point at the top. What am I? → cone: correct.",
+      "I am a solid. I have 1 flat circle face and one point at the top. What am I? → square: not correct.",
+      "I am a circle cut in half. I have one straight side and one curved side. What shape am I? → half‑circle: correct.",
+      "I am a solid. I have 2 flat circle faces and one curved side. What am I? → circle: not correct."
+     ],
+     "to": [
+      "Solid shapes take up space; flat shapes do not.",
+      "Correct choices: rectangular prism; cone; cube; cylinder. Not correct: hexagon."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: n_riddle_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_select_3d). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s02-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Look at a cylinder."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "I have 4 straight sides. Only two of my sides go the same way. I look like a pattern block. What shape am I?",
+       "answer": "trapezoid"
+      },
+      {
+       "prompt": "I have 4 straight sides that are all the same length and 4 square corners. What shape am I?",
+       "answer": "square"
+      },
+      {
+       "prompt": "I am a solid that is round all over, like a ball. What am I?",
+       "answer": "sphere"
+      },
+      {
+       "prompt": "I have 3 straight sides and 3 corners. What shape am I?",
+       "answer": "triangle"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many flat faces does it have?",
+       "answer": "2"
+      },
+      {
+       "prompt": "Can it roll? (yes or no)",
+       "answer": "yes"
+      },
+      {
+       "prompt": "What shape is a flat face?",
+       "answer": "circle"
+      },
+      {
+       "prompt": "Tell an object in the classroom with this shape.",
+       "answer": "Sample answer: a can"
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) trapezoid; (b) square; (c) sphere; (d) triangle",
+     "to": "(a) 2; (b) yes; (c) circle; (d) Sample answer: a can"
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Use the clues about sides, corners, faces, and curves. The answer is a trapezoid.",
+      "(b) Use the clues about sides, corners, faces, and curves. The answer is a square.",
+      "(c) Use the clues about sides, corners, faces, and curves. The answer is a sphere.",
+      "(d) Use the clues about sides, corners, faces, and curves. The answer is a triangle."
+     ],
+     "to": [
+      "(a) Count the flat faces.",
+      "(b) A curved surface can roll.",
+      "(c) Trace a face.",
+      "(d) Real objects."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: n_riddle_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh2_open_solid). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s03-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the ways that put shapes together correctly."
+    },
+    "answer": {
+     "from": [
+      "Dev puts together 2 squares side by side. What shape does Dev make? → rectangle",
+      "Ana puts together 3 squares in a row. What shape does Ana make? → rectangle"
+     ],
+     "to": [
+      "four squares make a bigger square",
+      "two triangles make a square"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Rosa puts together 4 quarter‑circles with their corners together. What shape does Rosa make? → triangle",
+       "correct": false
+      },
+      {
+       "text": "Ben puts together 4 same‑size squares in 2 rows of 2. What shape does Ben make? → triangle",
+       "correct": false
+      },
+      {
+       "text": "Dev puts together 2 squares side by side. What shape does Dev make? → rectangle",
+       "correct": true
+      },
+      {
+       "text": "Ana puts together 3 squares in a row. What shape does Ana make? → rectangle",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "four squares make a bigger square",
+       "correct": true
+      },
+      {
+       "text": "one triangle makes a square",
+       "correct": false
+      },
+      {
+       "text": "two triangles make a square",
+       "correct": true
+      },
+      {
+       "text": "two triangles make a circle",
+       "correct": false
+      },
+      {
+       "text": "a circle and a square make a triangle",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Rosa puts together 4 quarter‑circles with their corners together. What shape does Rosa make? → triangle: not correct.",
+      "Ben puts together 4 same‑size squares in 2 rows of 2. What shape does Ben make? → triangle: not correct.",
+      "Dev puts together 2 squares side by side. What shape does Dev make? → rectangle: correct.",
+      "Ana puts together 3 squares in a row. What shape does Ana make? → rectangle: correct."
+     ],
+     "to": [
+      "Fit the shapes edge to edge with no gaps.",
+      "Correct choices: four squares make a bigger square; two triangles make a square. Not correct: a circle and a square make a triangle; two triangles make a circle; one triangle makes a square."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_put_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_select_compose). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Two triangles make one square. Kai wants to make 3 squares."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Finn makes a tower with 9 cubes. Finn makes 2 towers just like it. How many cubes does Finn use in all?",
+       "answer": "18 cubes"
+      },
+      {
+       "prompt": "Raj makes a tower with 4 cubes. Raj makes 2 towers just like it. How many cubes does Raj use in all?",
+       "answer": "8 cubes"
+      },
+      {
+       "prompt": "Eli makes a tower with 5 cubes. Eli makes 2 towers just like it. How many cubes does Eli use in all?",
+       "answer": "10 cubes"
+      },
+      {
+       "prompt": "Kai makes a tower with 8 cubes. Kai makes 2 towers just like it. How many cubes does Kai use in all?",
+       "answer": "16 cubes"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many triangles are needed?",
+       "answer": "6"
+      },
+      {
+       "prompt": "How many squares can 10 triangles make?",
+       "answer": "5"
+      },
+      {
+       "prompt": "How many sides does one square have?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Tell how the triangles fit together.",
+       "answer": "Sample answer: Their long sides line up to make a square."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 18 cubes; (b) 8 cubes; (c) 10 cubes; (d) 16 cubes",
+     "to": "(a) 6; (b) 5; (c) 4; (d) Sample answer: Their long sides line up to make a square."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Each tower has 9. 9 + 9 = 18.",
+      "(b) Each tower has 4. 4 + 4 = 8.",
+      "(c) Each tower has 5. 5 + 5 = 10.",
+      "(d) Each tower has 8. 8 + 8 = 16."
+     ],
+     "to": [
+      "(a) 3 squares × 2.",
+      "(b) 10 is 5 pairs.",
+      "(c) A square has 4 sides.",
+      "(d) Put shapes together."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_tower_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_open_compose). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s03-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the ways that put shapes together correctly."
+    },
+    "answer": {
+     "from": [
+      "Pam stacks 4 cubes to make a tower. Then Pam adds 1 more. How many cubes are in the tower now? → 5 cubes",
+      "Raj stacks 2 cubes to make a tower. Then Raj adds 1 more. How many cubes are in the tower now? → 3 cubes"
+     ],
+     "to": [
+      "two triangles make a square",
+      "two half-circles make a circle",
+      "two squares make a rectangle"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Pam stacks 5 cubes to make a tower. Then Pam adds 1 more. How many cubes are in the tower now? → 5 cubes",
+       "correct": false
+      },
+      {
+       "text": "Pam stacks 4 cubes to make a tower. Then Pam adds 1 more. How many cubes are in the tower now? → 5 cubes",
+       "correct": true
+      },
+      {
+       "text": "Raj stacks 2 cubes to make a tower. Then Raj adds 1 more. How many cubes are in the tower now? → 3 cubes",
+       "correct": true
+      },
+      {
+       "text": "Ben stacks 5 cubes to make a tower. Then Ben adds 1 more. How many cubes are in the tower now? → 7 cubes",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "two triangles make a square",
+       "correct": true
+      },
+      {
+       "text": "one triangle makes a square",
+       "correct": false
+      },
+      {
+       "text": "two circles make a square",
+       "correct": false
+      },
+      {
+       "text": "two half-circles make a circle",
+       "correct": true
+      },
+      {
+       "text": "two squares make a rectangle",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Pam stacks 5 cubes to make a tower. Then Pam adds 1 more. How many cubes are in the tower now? → 5 cubes: not correct.",
+      "Pam stacks 4 cubes to make a tower. Then Pam adds 1 more. How many cubes are in the tower now? → 5 cubes: correct.",
+      "Raj stacks 2 cubes to make a tower. Then Raj adds 1 more. How many cubes are in the tower now? → 3 cubes: correct.",
+      "Ben stacks 5 cubes to make a tower. Then Ben adds 1 more. How many cubes are in the tower now? → 7 cubes: not correct."
+     ],
+     "to": [
+      "Fit the shapes edge to edge with no gaps.",
+      "Correct choices: two triangles make a square; two half-circles make a circle; two squares make a rectangle. Not correct: two circles make a square; one triangle makes a square."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_tower_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_select_compose). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Two triangles make one square. Omar wants to make 2 squares."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Dev stacks 4 rectangular prisms to make a tower. Then Dev adds 1 more. How many rectangular prisms are in the tower now?",
+       "answer": "5 rectangular prisms"
+      },
+      {
+       "prompt": "Ben stacks 2 rectangular prisms to make a tower. Then Ben adds 1 more. How many rectangular prisms are in the tower now?",
+       "answer": "3 rectangular prisms"
+      },
+      {
+       "prompt": "Ben stacks 4 rectangular prisms to make a tower. Then Ben adds 1 more. How many rectangular prisms are in the tower now?",
+       "answer": "5 rectangular prisms"
+      },
+      {
+       "prompt": "Zoe stacks 2 cubes to make a tower. Then Zoe adds 1 more. How many cubes are in the tower now?",
+       "answer": "3 cubes"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many triangles are needed?",
+       "answer": "4"
+      },
+      {
+       "prompt": "How many squares can 10 triangles make?",
+       "answer": "5"
+      },
+      {
+       "prompt": "How many sides does one square have?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Tell how the triangles fit together.",
+       "answer": "Sample answer: Their long sides line up to make a square."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 5 rectangular prisms; (b) 3 rectangular prisms; (c) 5 rectangular prisms; (d) 3 cubes",
+     "to": "(a) 4; (b) 5; (c) 4; (d) Sample answer: Their long sides line up to make a square."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 4 and 1 more. 4 + 1 = 5.",
+      "(b) 2 and 1 more. 2 + 1 = 3.",
+      "(c) 4 and 1 more. 4 + 1 = 5.",
+      "(d) 2 and 1 more. 2 + 1 = 3."
+     ],
+     "to": [
+      "(a) 2 squares × 2.",
+      "(b) 10 is 5 pairs.",
+      "(c) A square has 4 sides.",
+      "(d) Put shapes together."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_tower_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_open_compose). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s03-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "Which pieces can be put together to make a square?",
+     "to": "Two triangles can make one square. How many triangles do you need to make 3 squares?"
+    },
+    "answer": {
+     "from": "Two triangles",
+     "to": "6"
+    },
+    "solutionSteps": {
+     "from": [
+      "Think about pattern blocks.",
+      "Two triangles can make a square."
+     ],
+     "to": [
+      "Each square uses 2 triangles.",
+      "2 + 2 + 2 = 6."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_which_pieces). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_triangles_to_squares). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Two triangles",
+       "correct": true
+      },
+      {
+       "text": "Six triangles",
+       "correct": false
+      },
+      {
+       "text": "Two half‑circles",
+       "correct": false
+      },
+      {
+       "text": "Three triangles",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "3",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "6",
+       "correct": true
+      },
+      {
+       "text": "5",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s03-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "Which pieces can be put together to make a hexagon?",
+     "to": "Two triangles can make one square. How many triangles do you need to make 4 squares?"
+    },
+    "answer": {
+     "from": "Two trapezoids",
+     "to": "8"
+    },
+    "solutionSteps": {
+     "from": [
+      "Think about pattern blocks.",
+      "Two trapezoids can make a hexagon."
+     ],
+     "to": [
+      "Each square uses 2 triangles.",
+      "2 + 2 + 2 + 2 = 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_which_pieces). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_triangles_to_squares). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Three triangles",
+       "correct": false
+      },
+      {
+       "text": "Two triangles",
+       "correct": false
+      },
+      {
+       "text": "Two trapezoids",
+       "correct": true
+      },
+      {
+       "text": "Four quarter‑circles",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "6",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the ways that put shapes together correctly."
+    },
+    "answer": {
+     "from": [
+      "Raj puts together 3 squares in a row. What shape does Raj make? → rectangle",
+      "Mei puts together 4 same‑size squares in 2 rows of 2. What shape does Mei make? → square"
+     ],
+     "to": [
+      "two squares make a rectangle",
+      "two triangles make a square",
+      "four squares make a bigger square",
+      "two half-circles make a circle"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Raj puts together 3 squares in a row. What shape does Raj make? → rectangle",
+       "correct": true
+      },
+      {
+       "text": "Tom puts together 2 half‑circles with their straight sides together. What shape does Tom make? → oval",
+       "correct": false
+      },
+      {
+       "text": "Ted puts together 6 pattern‑block triangles around one point. What shape does Ted make? → triangle",
+       "correct": false
+      },
+      {
+       "text": "Mei puts together 4 same‑size squares in 2 rows of 2. What shape does Mei make? → square",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "a circle and a square make a triangle",
+       "correct": false
+      },
+      {
+       "text": "two squares make a rectangle",
+       "correct": true
+      },
+      {
+       "text": "two triangles make a square",
+       "correct": true
+      },
+      {
+       "text": "four squares make a bigger square",
+       "correct": true
+      },
+      {
+       "text": "two half-circles make a circle",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Raj puts together 3 squares in a row. What shape does Raj make? → rectangle: correct.",
+      "Tom puts together 2 half‑circles with their straight sides together. What shape does Tom make? → oval: not correct.",
+      "Ted puts together 6 pattern‑block triangles around one point. What shape does Ted make? → triangle: not correct.",
+      "Mei puts together 4 same‑size squares in 2 rows of 2. What shape does Mei make? → square: correct."
+     ],
+     "to": [
+      "Fit the shapes edge to edge with no gaps.",
+      "Correct choices: two squares make a rectangle; two triangles make a square; four squares make a bigger square; two half-circles make a circle. Not correct: a circle and a square make a triangle."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_put_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_select_compose). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Two triangles make one square. Kai wants to make 4 squares."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Jay makes a tower with 8 rectangular prisms. Jay makes 2 towers just like it. How many rectangular prisms does Jay use in all?",
+       "answer": "16 rectangular prisms"
+      },
+      {
+       "prompt": "Rosa makes a tower with 6 cubes. Rosa makes 2 towers just like it. How many cubes does Rosa use in all?",
+       "answer": "12 cubes"
+      },
+      {
+       "prompt": "Cam makes a tower with 7 cubes. Cam makes 2 towers just like it. How many cubes does Cam use in all?",
+       "answer": "14 cubes"
+      },
+      {
+       "prompt": "Max makes a tower with 6 cubes. Max makes 2 towers just like it. How many cubes does Max use in all?",
+       "answer": "12 cubes"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many triangles are needed?",
+       "answer": "8"
+      },
+      {
+       "prompt": "How many squares can 10 triangles make?",
+       "answer": "5"
+      },
+      {
+       "prompt": "How many sides does one square have?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Tell how the triangles fit together.",
+       "answer": "Sample answer: Their long sides line up to make a square."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 16 rectangular prisms; (b) 12 cubes; (c) 14 cubes; (d) 12 cubes",
+     "to": "(a) 8; (b) 5; (c) 4; (d) Sample answer: Their long sides line up to make a square."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Each tower has 8. 8 + 8 = 16.",
+      "(b) Each tower has 6. 6 + 6 = 12.",
+      "(c) Each tower has 7. 7 + 7 = 14.",
+      "(d) Each tower has 6. 6 + 6 = 12."
+     ],
+     "to": [
+      "(a) 4 squares × 2.",
+      "(b) 10 is 5 pairs.",
+      "(c) A square has 4 sides.",
+      "(d) Put shapes together."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_tower_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh3_open_compose). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s04-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "Raj cuts a cookie into 4 equal shares. What is one share called? Write half or fourth.",
+     "to": "A sandwich is cut into fourths. 3 shares are eaten. How many shares are left?"
+    },
+    "answer": {
+     "from": "fourth",
+     "to": "1"
+    },
+    "solutionSteps": {
+     "from": [
+      "4 equal shares are fourths.",
+      "One share is one fourth of the cookie."
+     ],
+     "to": [
+      "Fourths make 4 equal shares.",
+      "4 − 3 = 1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_word). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_shares_left). Rewritten from a Support template (was h_word) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s04-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "Uma cuts a pancake into 2 equal shares. What is one share called? Write half or fourth. → half",
+      "Tom cuts a sandwich into 2 equal shares. What is one share called? Write half or fourth. → half"
+     ],
+     "to": [
+      "2 equal shares are halves",
+      "4 equal shares are fourths"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Uma cuts a pancake into 2 equal shares. What is one share called? Write half or fourth. → half",
+       "correct": true
+      },
+      {
+       "text": "Gus cuts a tortilla into 4 equal shares. What is one share called? Write half or fourth. → half",
+       "correct": false
+      },
+      {
+       "text": "Tom cuts a sandwich into 2 equal shares. What is one share called? Write half or fourth. → half",
+       "correct": true
+      },
+      {
+       "text": "Uma cuts a cracker into 4 equal shares. What is one share called? Write half or fourth. → whole",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "one of 4 equal shares is one half",
+       "correct": false
+      },
+      {
+       "text": "3 equal shares are fourths",
+       "correct": false
+      },
+      {
+       "text": "4 equal shares are halves",
+       "correct": false
+      },
+      {
+       "text": "2 equal shares are halves",
+       "correct": true
+      },
+      {
+       "text": "4 equal shares are fourths",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Uma cuts a pancake into 2 equal shares. What is one share called? Write half or fourth. → half: correct.",
+      "Gus cuts a tortilla into 4 equal shares. What is one share called? Write half or fourth. → half: not correct.",
+      "Tom cuts a sandwich into 2 equal shares. What is one share called? Write half or fourth. → half: correct.",
+      "Uma cuts a cracker into 4 equal shares. What is one share called? Write half or fourth. → whole: not correct."
+     ],
+     "to": [
+      "Halves are 2 equal shares; fourths are 4 equal shares.",
+      "Correct choices: 2 equal shares are halves; 4 equal shares are fourths. Not correct: one of 4 equal shares is one half; 3 equal shares are fourths; 4 equal shares are halves."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_word_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_select_shares). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s04-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A cookie is cut into fourths."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Dev cuts a cookie into 2 equal shares. What is one share called? Write half or fourth.",
+       "answer": "half"
+      },
+      {
+       "prompt": "Ava cuts a brownie into 2 equal shares. What is one share called? Write half or fourth.",
+       "answer": "half"
+      },
+      {
+       "prompt": "Mei cuts a sandwich into 4 equal shares. What is one share called? Write half or fourth.",
+       "answer": "fourth"
+      },
+      {
+       "prompt": "Jay cuts a cracker into 4 equal shares. What is one share called? Write half or fourth.",
+       "answer": "fourth"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many equal shares?",
+       "answer": "4"
+      },
+      {
+       "prompt": "If 1 share is eaten, how many are left?",
+       "answer": "3"
+      },
+      {
+       "prompt": "How many shares make the whole cookie?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Tell why the shares must be equal.",
+       "answer": "Sample answer: Halves and fourths are equal shares."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) half; (b) half; (c) fourth; (d) fourth",
+     "to": "(a) 4; (b) 3; (c) 4; (d) Sample answer: Halves and fourths are equal shares."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 2 equal shares are halves. One share is one half of the cookie.",
+      "(b) 2 equal shares are halves. One share is one half of the brownie.",
+      "(c) 4 equal shares are fourths. One share is one fourth of the sandwich.",
+      "(d) 4 equal shares are fourths. One share is one fourth of the cracker."
+     ],
+     "to": [
+      "(a) Fourths.",
+      "(b) Take away 1.",
+      "(c) All the shares.",
+      "(d) Equal shares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_word_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_open_cookie). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s04-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "Ivy cuts a cracker into 4 equal shares. What is one share called? Write half or fourth. → fourth",
+      "Ana cuts a tortilla into 2 equal shares. What is one share called? Write half or fourth. → half"
+     ],
+     "to": [
+      "one of 2 equal shares is one half",
+      "one of 4 equal shares is one fourth",
+      "2 equal shares are halves"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Dan cuts a brownie into 2 equal shares. What is one share called? Write half or fourth. → fourth",
+       "correct": false
+      },
+      {
+       "text": "Ivy cuts a cracker into 4 equal shares. What is one share called? Write half or fourth. → fourth",
+       "correct": true
+      },
+      {
+       "text": "Dan cuts a cracker into 4 equal shares. What is one share called? Write half or fourth. → whole",
+       "correct": false
+      },
+      {
+       "text": "Ana cuts a tortilla into 2 equal shares. What is one share called? Write half or fourth. → half",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "one of 2 equal shares is one half",
+       "correct": true
+      },
+      {
+       "text": "one of 4 equal shares is one fourth",
+       "correct": true
+      },
+      {
+       "text": "shares can be different sizes",
+       "correct": false
+      },
+      {
+       "text": "2 equal shares are halves",
+       "correct": true
+      },
+      {
+       "text": "3 equal shares are fourths",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Dan cuts a brownie into 2 equal shares. What is one share called? Write half or fourth. → fourth: not correct.",
+      "Ivy cuts a cracker into 4 equal shares. What is one share called? Write half or fourth. → fourth: correct.",
+      "Dan cuts a cracker into 4 equal shares. What is one share called? Write half or fourth. → whole: not correct.",
+      "Ana cuts a tortilla into 2 equal shares. What is one share called? Write half or fourth. → half: correct."
+     ],
+     "to": [
+      "Halves are 2 equal shares; fourths are 4 equal shares.",
+      "Correct choices: one of 2 equal shares is one half; one of 4 equal shares is one fourth; 2 equal shares are halves. Not correct: 3 equal shares are fourths; shares can be different sizes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_word_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_select_shares). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s04-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A cookie is cut into halves."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Kai cuts a cracker into 2 equal shares. What is one share called? Write half or fourth.",
+       "answer": "half"
+      },
+      {
+       "prompt": "Ben cuts a brownie into 2 equal shares. What is one share called? Write half or fourth.",
+       "answer": "half"
+      },
+      {
+       "prompt": "Mei cuts a pizza into 4 equal shares. What is one share called? Write half or fourth.",
+       "answer": "fourth"
+      },
+      {
+       "prompt": "Jay cuts a tortilla into 2 equal shares. What is one share called? Write half or fourth.",
+       "answer": "half"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many equal shares?",
+       "answer": "2"
+      },
+      {
+       "prompt": "If 1 share is eaten, how many are left?",
+       "answer": "1"
+      },
+      {
+       "prompt": "How many shares make the whole cookie?",
+       "answer": "2"
+      },
+      {
+       "prompt": "Tell why the shares must be equal.",
+       "answer": "Sample answer: Halves and fourths are equal shares."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) half; (b) half; (c) fourth; (d) half",
+     "to": "(a) 2; (b) 1; (c) 2; (d) Sample answer: Halves and fourths are equal shares."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 2 equal shares are halves. One share is one half of the cracker.",
+      "(b) 2 equal shares are halves. One share is one half of the brownie.",
+      "(c) 4 equal shares are fourths. One share is one fourth of the pizza.",
+      "(d) 2 equal shares are halves. One share is one half of the tortilla."
+     ],
+     "to": [
+      "(a) Halves.",
+      "(b) Take away 1.",
+      "(c) All the shares.",
+      "(d) Equal shares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_word_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_open_cookie). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s04-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "Liz cuts a cracker into 2 equal shares. What is one share called? Write half or fourth. → half",
+      "Liz cuts a pizza into 4 equal shares. What is one share called? Write half or fourth. → fourth"
+     ],
+     "to": [
+      "one of 4 equal shares is one fourth",
+      "one of 2 equal shares is one half",
+      "2 equal shares are halves",
+      "4 equal shares are fourths"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Cam cuts a cookie into 2 equal shares. What is one share called? Write half or fourth. → whole",
+       "correct": false
+      },
+      {
+       "text": "Liz cuts a cracker into 2 equal shares. What is one share called? Write half or fourth. → half",
+       "correct": true
+      },
+      {
+       "text": "Tess cuts a cookie into 2 equal shares. What is one share called? Write half or fourth. → whole",
+       "correct": false
+      },
+      {
+       "text": "Liz cuts a pizza into 4 equal shares. What is one share called? Write half or fourth. → fourth",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "one of 4 equal shares is one fourth",
+       "correct": true
+      },
+      {
+       "text": "one of 2 equal shares is one half",
+       "correct": true
+      },
+      {
+       "text": "2 equal shares are fourths",
+       "correct": false
+      },
+      {
+       "text": "2 equal shares are halves",
+       "correct": true
+      },
+      {
+       "text": "4 equal shares are fourths",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Cam cuts a cookie into 2 equal shares. What is one share called? Write half or fourth. → whole: not correct.",
+      "Liz cuts a cracker into 2 equal shares. What is one share called? Write half or fourth. → half: correct.",
+      "Tess cuts a cookie into 2 equal shares. What is one share called? Write half or fourth. → whole: not correct.",
+      "Liz cuts a pizza into 4 equal shares. What is one share called? Write half or fourth. → fourth: correct."
+     ],
+     "to": [
+      "Halves are 2 equal shares; fourths are 4 equal shares.",
+      "Correct choices: one of 4 equal shares is one fourth; one of 2 equal shares is one half; 2 equal shares are halves; 4 equal shares are fourths. Not correct: 2 equal shares are fourths."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_word_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_select_shares). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s04-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A cookie is cut into fourths."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Liz cuts a cookie into 4 equal shares. What is one share called? Write half or fourth.",
+       "answer": "fourth"
+      },
+      {
+       "prompt": "Jay cuts a pancake into 2 equal shares. What is one share called? Write half or fourth.",
+       "answer": "half"
+      },
+      {
+       "prompt": "Ava cuts a brownie into 2 equal shares. What is one share called? Write half or fourth.",
+       "answer": "half"
+      },
+      {
+       "prompt": "Leo cuts a brownie into 4 equal shares. What is one share called? Write half or fourth.",
+       "answer": "fourth"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many equal shares?",
+       "answer": "4"
+      },
+      {
+       "prompt": "If 1 share is eaten, how many are left?",
+       "answer": "3"
+      },
+      {
+       "prompt": "How many shares make the whole cookie?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Tell why the shares must be equal.",
+       "answer": "Sample answer: Halves and fourths are equal shares."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) fourth; (b) half; (c) half; (d) fourth",
+     "to": "(a) 4; (b) 3; (c) 4; (d) Sample answer: Halves and fourths are equal shares."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) 4 equal shares are fourths. One share is one fourth of the cookie.",
+      "(b) 2 equal shares are halves. One share is one half of the pancake.",
+      "(c) 2 equal shares are halves. One share is one half of the brownie.",
+      "(d) 4 equal shares are fourths. One share is one fourth of the brownie."
+     ],
+     "to": [
+      "(a) Fourths.",
+      "(b) Take away 1.",
+      "(c) All the shares.",
+      "(d) Equal shares."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: h_word_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh4_open_cookie). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s05-cp1-020",
+   "changes": {
+    "prompt": {
+     "from": "A pie is cut into fourths. Sam eats 1 of the shares. How many shares are left?",
+     "to": "2 pizzas are each cut into fourths. How many shares are there in all?"
+    },
+    "answer": {
+     "from": "3",
+     "to": "8"
+    },
+    "solutionSteps": {
+     "from": [
+      "There are 4 fourths in all.",
+      "4 − 1 = 3 shares are left."
+     ],
+     "to": [
+      "Each pizza has 4 shares.",
+      "4 + 4 = 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: m_left). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh5_shares_many). Rewritten from a Support template (was m_left) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s05-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "A pizza is cut into halves. Kai eats 1 of the shares. How many shares are left? → 1",
+      "A sandwich is cut into halves. Abe eats 1 of the shares. How many shares are left? → 1"
+     ],
+     "to": [
+      "four fourths make a whole",
+      "one half is bigger than one fourth of the same pie"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A cake is cut into fourths. Zoe eats 3 of the shares. How many shares are left? → 3",
+       "correct": false
+      },
+      {
+       "text": "A pizza is cut into halves. Kai eats 1 of the shares. How many shares are left? → 1",
+       "correct": true
+      },
+      {
+       "text": "A sandwich is cut into halves. Abe eats 1 of the shares. How many shares are left? → 1",
+       "correct": true
+      },
+      {
+       "text": "A cake is cut into fourths. Raj eats 1 of the shares. How many shares are left? → 4",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "two fourths make a whole",
+       "correct": false
+      },
+      {
+       "text": "one fourth is bigger than one half of the same pie",
+       "correct": false
+      },
+      {
+       "text": "three halves make a whole",
+       "correct": false
+      },
+      {
+       "text": "four fourths make a whole",
+       "correct": true
+      },
+      {
+       "text": "one half is bigger than one fourth of the same pie",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A cake is cut into fourths. Zoe eats 3 of the shares. How many shares are left? → 3: not correct.",
+      "A pizza is cut into halves. Kai eats 1 of the shares. How many shares are left? → 1: correct.",
+      "A sandwich is cut into halves. Abe eats 1 of the shares. How many shares are left? → 1: correct.",
+      "A cake is cut into fourths. Raj eats 1 of the shares. How many shares are left? → 4: not correct."
+     ],
+     "to": [
+      "Cutting the same whole into more shares makes each share smaller.",
+      "Correct choices: four fourths make a whole; one half is bigger than one fourth of the same pie. Not correct: one fourth is bigger than one half of the same pie; three halves make a whole; two fourths make a whole."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: m_left_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh5_select_bigger_share). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s05-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Two same-size pies: one is cut into halves and one into fourths."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A sandwich is cut into halves. Zoe eats 1 of the shares. How many shares are left?",
+       "answer": "1"
+      },
+      {
+       "prompt": "A waffle is cut into halves. Mia eats 1 of the shares. How many shares are left?",
+       "answer": "1"
+      },
+      {
+       "prompt": "A pie is cut into fourths. Tom eats 2 of the shares. How many shares are left?",
+       "answer": "2"
+      },
+      {
+       "prompt": "A pie is cut into halves. Jay eats 1 of the shares. How many shares are left?",
+       "answer": "1"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which pie has more shares?",
+       "answer": "fourths"
+      },
+      {
+       "prompt": "Which pie has bigger shares?",
+       "answer": "halves"
+      },
+      {
+       "prompt": "How many fourths make one half?",
+       "answer": "2"
+      },
+      {
+       "prompt": "Tell why more shares are smaller.",
+       "answer": "Sample answer: The same pie is cut into more pieces, so each piece is smaller."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 1; (b) 1; (c) 2; (d) 1",
+     "to": "(a) fourths; (b) halves; (c) 2; (d) Sample answer: The same pie is cut into more pieces, so each piece is smaller."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) There are 2 halves in all. 2 − 1 = 1 share are left.",
+      "(b) There are 2 halves in all. 2 − 1 = 1 share are left.",
+      "(c) There are 4 fourths in all. 4 − 2 = 2 shares are left.",
+      "(d) There are 2 halves in all. 2 − 1 = 1 share are left."
+     ],
+     "to": [
+      "(a) Count the shares.",
+      "(b) Fewer shares are bigger.",
+      "(c) Two fourths fill a half.",
+      "(d) Same whole."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: m_left_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh5_open_two_pies). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s05-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "A waffle is cut into fourths. Cam eats 3 of the shares. How many shares are left? → 1",
+      "A pizza is cut into fourths. Max eats 3 of the shares. How many shares are left? → 1"
+     ],
+     "to": [
+      "four fourths make a whole",
+      "one half is bigger than one fourth of the same pie",
+      "two fourths make one half"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A pizza is cut into fourths. Dan eats 3 of the shares. How many shares are left? → 2",
+       "correct": false
+      },
+      {
+       "text": "A waffle is cut into fourths. Cam eats 3 of the shares. How many shares are left? → 1",
+       "correct": true
+      },
+      {
+       "text": "A cake is cut into fourths. Raj eats 3 of the shares. How many shares are left? → 2",
+       "correct": false
+      },
+      {
+       "text": "A pizza is cut into fourths. Max eats 3 of the shares. How many shares are left? → 1",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "four fourths make a whole",
+       "correct": true
+      },
+      {
+       "text": "one half is bigger than one fourth of the same pie",
+       "correct": true
+      },
+      {
+       "text": "two fourths make a whole",
+       "correct": false
+      },
+      {
+       "text": "three halves make a whole",
+       "correct": false
+      },
+      {
+       "text": "two fourths make one half",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A pizza is cut into fourths. Dan eats 3 of the shares. How many shares are left? → 2: not correct.",
+      "A waffle is cut into fourths. Cam eats 3 of the shares. How many shares are left? → 1: correct.",
+      "A cake is cut into fourths. Raj eats 3 of the shares. How many shares are left? → 2: not correct.",
+      "A pizza is cut into fourths. Max eats 3 of the shares. How many shares are left? → 1: correct."
+     ],
+     "to": [
+      "Cutting the same whole into more shares makes each share smaller.",
+      "Correct choices: four fourths make a whole; one half is bigger than one fourth of the same pie; two fourths make one half. Not correct: two fourths make a whole; three halves make a whole."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: m_left_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh5_select_bigger_share). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s05-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Two same-size pies: one is cut into halves and one into fourths."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A pie is cut into fourths. Tess eats 3 of the shares. How many shares are left?",
+       "answer": "1"
+      },
+      {
+       "prompt": "A waffle is cut into fourths. Mei eats 1 of the shares. How many shares are left?",
+       "answer": "3"
+      },
+      {
+       "prompt": "A sandwich is cut into fourths. Ana eats 3 of the shares. How many shares are left?",
+       "answer": "1"
+      },
+      {
+       "prompt": "A sandwich is cut into fourths. Abe eats 2 of the shares. How many shares are left?",
+       "answer": "2"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which pie has more shares?",
+       "answer": "fourths"
+      },
+      {
+       "prompt": "Which pie has bigger shares?",
+       "answer": "halves"
+      },
+      {
+       "prompt": "How many fourths make one half?",
+       "answer": "2"
+      },
+      {
+       "prompt": "Tell why more shares are smaller.",
+       "answer": "Sample answer: The same pie is cut into more pieces, so each piece is smaller."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 1; (b) 3; (c) 1; (d) 2",
+     "to": "(a) fourths; (b) halves; (c) 2; (d) Sample answer: The same pie is cut into more pieces, so each piece is smaller."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) There are 4 fourths in all. 4 − 3 = 1 share are left.",
+      "(b) There are 4 fourths in all. 4 − 1 = 3 shares are left.",
+      "(c) There are 4 fourths in all. 4 − 3 = 1 share are left.",
+      "(d) There are 4 fourths in all. 4 − 2 = 2 shares are left."
+     ],
+     "to": [
+      "(a) Count the shares.",
+      "(b) Fewer shares are bigger.",
+      "(c) Two fourths fill a half.",
+      "(d) Same whole."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: m_left_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh5_open_two_pies). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s05-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "A waffle is cut into halves. Zoe eats 1 of the shares. How many shares are left? → 1",
+      "A sandwich is cut into halves. Ben eats 1 of the shares. How many shares are left? → 1"
+     ],
+     "to": [
+      "two fourths make one half",
+      "two halves make a whole",
+      "one half is bigger than one fourth of the same pie",
+      "four fourths make a whole"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A waffle is cut into fourths. Tess eats 3 of the shares. How many shares are left? → 7",
+       "correct": false
+      },
+      {
+       "text": "A waffle is cut into halves. Zoe eats 1 of the shares. How many shares are left? → 1",
+       "correct": true
+      },
+      {
+       "text": "A sandwich is cut into halves. Ben eats 1 of the shares. How many shares are left? → 1",
+       "correct": true
+      },
+      {
+       "text": "A pizza is cut into halves. Mia eats 1 of the shares. How many shares are left? → 3",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "one fourth is bigger than one half of the same pie",
+       "correct": false
+      },
+      {
+       "text": "two fourths make one half",
+       "correct": true
+      },
+      {
+       "text": "two halves make a whole",
+       "correct": true
+      },
+      {
+       "text": "one half is bigger than one fourth of the same pie",
+       "correct": true
+      },
+      {
+       "text": "four fourths make a whole",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A waffle is cut into fourths. Tess eats 3 of the shares. How many shares are left? → 7: not correct.",
+      "A waffle is cut into halves. Zoe eats 1 of the shares. How many shares are left? → 1: correct.",
+      "A sandwich is cut into halves. Ben eats 1 of the shares. How many shares are left? → 1: correct.",
+      "A pizza is cut into halves. Mia eats 1 of the shares. How many shares are left? → 3: not correct."
+     ],
+     "to": [
+      "Cutting the same whole into more shares makes each share smaller.",
+      "Correct choices: two fourths make one half; two halves make a whole; one half is bigger than one fourth of the same pie; four fourths make a whole. Not correct: one fourth is bigger than one half of the same pie."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: m_left_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh5_select_bigger_share). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-sh-s05-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Two same-size pies: one is cut into halves and one into fourths."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A sandwich is cut into halves. Eli eats 1 of the shares. How many shares are left?",
+       "answer": "1"
+      },
+      {
+       "prompt": "A cake is cut into fourths. Liz eats 1 of the shares. How many shares are left?",
+       "answer": "3"
+      },
+      {
+       "prompt": "A waffle is cut into halves. Pam eats 1 of the shares. How many shares are left?",
+       "answer": "1"
+      },
+      {
+       "prompt": "A sandwich is cut into fourths. Mia eats 1 of the shares. How many shares are left?",
+       "answer": "3"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which pie has more shares?",
+       "answer": "fourths"
+      },
+      {
+       "prompt": "Which pie has bigger shares?",
+       "answer": "halves"
+      },
+      {
+       "prompt": "How many fourths make one half?",
+       "answer": "2"
+      },
+      {
+       "prompt": "Tell why more shares are smaller.",
+       "answer": "Sample answer: The same pie is cut into more pieces, so each piece is smaller."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 1; (b) 3; (c) 1; (d) 3",
+     "to": "(a) fourths; (b) halves; (c) 2; (d) Sample answer: The same pie is cut into more pieces, so each piece is smaller."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) There are 2 halves in all. 2 − 1 = 1 share are left.",
+      "(b) There are 4 fourths in all. 4 − 1 = 3 shares are left.",
+      "(c) There are 2 halves in all. 2 − 1 = 1 share are left.",
+      "(d) There are 4 fourths in all. 4 − 1 = 3 shares are left."
+     ],
+     "to": [
+      "(a) Count the shares.",
+      "(b) Fewer shares are bigger.",
+      "(c) Two fourths fill a half.",
+      "(d) Same whole."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: m_left_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: sh5_open_two_pies). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [
+  {
+   "id": "m1-sh-s01-cp2-o01",
+   "skillId": "shapes-equal-shares-skill-01",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Draw a triangle.",
+   "parts": [
+    {
+     "prompt": "How many sides?",
+     "answer": "3"
+    },
+    {
+     "prompt": "How many corners?",
+     "answer": "3"
+    },
+    {
+     "prompt": "How many sides do 2 of them have?",
+     "answer": "6"
+    },
+    {
+     "prompt": "Tell what makes the shape a triangle.",
+     "answer": "Sample answer: It is closed and has 3 straight sides."
+    }
+   ],
+   "answer": "(a) 3; (b) 3; (c) 6; (d) Sample answer: It is closed and has 3 straight sides.",
+   "solutionSteps": [
+    "(a) A triangle has 3 sides.",
+    "(b) Same as the sides.",
+    "(c) Double.",
+    "(d) Defining attributes."
+   ],
+   "standards": [
+    "1.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: sh1_open_shape). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+  }
+ ],
+ "meta": {
+  "m1-sh-s01-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "6 + 6 + 6 = 18.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   },
+   "distractors": {
+    "6": "a common mistake",
+    "9": "a common mistake",
+    "19": "a common mistake"
+   }
+  },
+  "m1-sh-s01-honors-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 + 4 = 8.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   },
+   "distractors": {
+    "4": "a common mistake",
+    "6": "a common mistake",
+    "9": "a common mistake"
+   }
+  },
+  "m1-sh-s01-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 + 4 = 8.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   },
+   "distractors": {
+    "4": "a common mistake",
+    "6": "a common mistake",
+    "9": "a common mistake"
+   }
+  },
+  "m1-sh-s02-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 + 3 = 7.",
+   "distractors": {
+    "4": "a common mistake",
+    "8": "a common mistake",
+    "1": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s03-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "2 + 2 + 2 = 6.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "3": "a common mistake",
+    "7": "a common mistake",
+    "5": "a common mistake"
+   }
+  },
+  "m1-sh-s03-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "2 + 2 + 2 + 2 = 8.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "4": "a common mistake",
+    "9": "a common mistake",
+    "6": "a common mistake"
+   }
+  },
+  "m1-sh-s04-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 − 3 = 1.",
+   "distractors": {
+    "4": "a common mistake",
+    "3": "a common mistake",
+    "7": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s05-cp1-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "4 + 4 = 8.",
+   "distractors": {
+    "4": "a common mistake",
+    "6": "a common mistake",
+    "9": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-sh-s01-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Double."
+  },
+  "m1-sh-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Double.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Double.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s02-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Trace a face.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s02-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Trace a face.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s02-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Trace a face.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "A square has 4 sides.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "A square has 4 sides.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "A square has 4 sides.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s04-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "All the shares.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s04-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "All the shares.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s04-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "All the shares.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s05-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Two fourths fill a half.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s05-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Two fourths fill a half.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s05-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Two fourths fill a half.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Color and size do not matter; sides and corners do.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s01-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Color and size do not matter; sides and corners do.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s02-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Solid shapes take up space; flat shapes do not.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s02-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Solid shapes take up space; flat shapes do not.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s02-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Solid shapes take up space; flat shapes do not.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s03-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Fit the shapes edge to edge with no gaps.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s03-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Fit the shapes edge to edge with no gaps.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Fit the shapes edge to edge with no gaps.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s04-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Halves are 2 equal shares; fourths are 4 equal shares.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s04-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Halves are 2 equal shares; fourths are 4 equal shares.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s04-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Halves are 2 equal shares; fourths are 4 equal shares.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s05-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Cutting the same whole into more shares makes each share smaller.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s05-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Cutting the same whole into more shares makes each share smaller.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-sh-s05-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Cutting the same whole into more shares makes each share smaller.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  }
+ }
+}

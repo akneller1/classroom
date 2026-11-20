@@ -1,0 +1,5082 @@
+{
+ "unit": "compare-numbers",
+ "edits": [
+  {
+   "id": "m1-cm-s01-cp1-001",
+   "changes": {
+    "prompt": {
+     "from": "Write the number that is greater: 72 or 93.",
+     "to": "Which is greater, 75 or 69? Then add 4 to it."
+    },
+    "answer": {
+     "from": "93",
+     "to": "79"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens: 7 and 9.",
+      "93 is greater."
+     ],
+     "to": [
+      "75 is greater.",
+      "75 + 4 = 79."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_greater_then_more). Rewritten from a Support template (was c_pick) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp1-002",
+   "changes": {
+    "prompt": {
+     "from": "Which is greater: 40 or 52?",
+     "to": "Which is greater, 79 or 67? Then add 1 to it."
+    },
+    "answer": {
+     "from": "52",
+     "to": "80"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "52 is greater."
+     ],
+     "to": [
+      "79 is greater.",
+      "79 + 1 = 80."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick_mc). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_greater_then_more). Rewritten from a Support template (was c_pick_mc) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "40",
+       "correct": false
+      },
+      {
+       "text": "They are equal.",
+       "correct": false
+      },
+      {
+       "text": "25",
+       "correct": false
+      },
+      {
+       "text": "52",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "68",
+       "correct": false
+      },
+      {
+       "text": "80",
+       "correct": true
+      },
+      {
+       "text": "79",
+       "correct": false
+      },
+      {
+       "text": "81",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp1-004",
+   "changes": {
+    "prompt": {
+     "from": "Why is 72 greater than 44?",
+     "to": "Which is greater, 64 or 15? Then add 7 to it."
+    },
+    "answer": {
+     "from": "72 has more tens than 44.",
+     "to": "71"
+    },
+    "solutionSteps": {
+     "from": [
+      "72 has 7 tens and 44 has 4 tens.",
+      "72 has more tens than 44."
+     ],
+     "to": [
+      "64 is greater.",
+      "64 + 7 = 71."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_why). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_greater_then_more). Rewritten from a Support template (was c_why) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "72 has more ones than 44.",
+       "correct": false
+      },
+      {
+       "text": "72 is written first.",
+       "correct": false
+      },
+      {
+       "text": "44 has fewer digits than 72.",
+       "correct": false
+      },
+      {
+       "text": "72 has more tens than 44.",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "22",
+       "correct": false
+      },
+      {
+       "text": "64",
+       "correct": false
+      },
+      {
+       "text": "71",
+       "correct": true
+      },
+      {
+       "text": "72",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp1-006",
+   "changes": {
+    "prompt": {
+     "from": "Which number is less, 35 or 18?",
+     "to": "Which is greater, 64 or 89? Then add 8 to it."
+    },
+    "answer": {
+     "from": "18",
+     "to": "97"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens: 3 and 1.",
+      "18 is less."
+     ],
+     "to": [
+      "89 is greater.",
+      "89 + 8 = 97."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_greater_then_more). Rewritten from a Support template (was c_pick) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp1-008",
+   "changes": {
+    "prompt": {
+     "from": "Which is greater: 48 or 58?",
+     "to": "Which is greater, 66 or 35? Then add 2 to it."
+    },
+    "answer": {
+     "from": "58",
+     "to": "68"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "58 is greater."
+     ],
+     "to": [
+      "66 is greater.",
+      "66 + 2 = 68."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick_mc). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_greater_then_more). Rewritten from a Support template (was c_pick_mc) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "58",
+       "correct": true
+      },
+      {
+       "text": "They are equal.",
+       "correct": false
+      },
+      {
+       "text": "48",
+       "correct": false
+      },
+      {
+       "text": "85",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "37",
+       "correct": false
+      },
+      {
+       "text": "66",
+       "correct": false
+      },
+      {
+       "text": "68",
+       "correct": true
+      },
+      {
+       "text": "69",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp1-009",
+   "changes": {
+    "prompt": {
+     "from": "Why is 64 greater than 38?",
+     "to": "Which is greater, 60 or 72? Then add 3 to it."
+    },
+    "answer": {
+     "from": "64 has more tens than 38.",
+     "to": "75"
+    },
+    "solutionSteps": {
+     "from": [
+      "64 has 6 tens and 38 has 3 tens.",
+      "64 has more tens than 38."
+     ],
+     "to": [
+      "72 is greater.",
+      "72 + 3 = 75."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_why). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_greater_then_more). Rewritten from a Support template (was c_why) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "64 has more ones than 38.",
+       "correct": false
+      },
+      {
+       "text": "64 has more tens than 38.",
+       "correct": true
+      },
+      {
+       "text": "38 has fewer digits than 64.",
+       "correct": false
+      },
+      {
+       "text": "64 is written first.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "63",
+       "correct": false
+      },
+      {
+       "text": "75",
+       "correct": true
+      },
+      {
+       "text": "72",
+       "correct": false
+      },
+      {
+       "text": "76",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp1-011",
+   "changes": {
+    "prompt": {
+     "from": "Write the number that is less: 86 or 97.",
+     "to": "Which is greater, 39 or 50? Then add 7 to it."
+    },
+    "answer": {
+     "from": "86",
+     "to": "57"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens: 8 and 9.",
+      "86 is less."
+     ],
+     "to": [
+      "50 is greater.",
+      "50 + 7 = 57."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_greater_then_more). Rewritten from a Support template (was c_pick) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp1-014",
+   "changes": {
+    "prompt": {
+     "from": "Why is 66 greater than 56?",
+     "to": "Which is greater, 94 or 50? Then add 2 to it."
+    },
+    "answer": {
+     "from": "66 has more tens than 56.",
+     "to": "96"
+    },
+    "solutionSteps": {
+     "from": [
+      "66 has 6 tens and 56 has 5 tens.",
+      "66 has more tens than 56."
+     ],
+     "to": [
+      "94 is greater.",
+      "94 + 2 = 96."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_why). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_greater_then_more). Rewritten from a Support template (was c_why) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "66 has more ones than 56.",
+       "correct": false
+      },
+      {
+       "text": "56 has fewer digits than 66.",
+       "correct": false
+      },
+      {
+       "text": "66 is written first.",
+       "correct": false
+      },
+      {
+       "text": "66 has more tens than 56.",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "52",
+       "correct": false
+      },
+      {
+       "text": "94",
+       "correct": false
+      },
+      {
+       "text": "96",
+       "correct": true
+      },
+      {
+       "text": "97",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp1-016",
+   "changes": {
+    "prompt": {
+     "from": "Write the number that is less: 25 or 35.",
+     "to": "Which is greater, 30 or 91? Then add 8 to it."
+    },
+    "answer": {
+     "from": "25",
+     "to": "99"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens: 2 and 3.",
+      "25 is less."
+     ],
+     "to": [
+      "91 is greater.",
+      "91 + 8 = 99."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_greater_then_more). Rewritten from a Support template (was c_pick) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp1-019",
+   "changes": {
+    "prompt": {
+     "from": "Why is 40 greater than 19?",
+     "to": "Which is greater, 70 or 36? Then add 3 to it."
+    },
+    "answer": {
+     "from": "40 has more tens than 19.",
+     "to": "73"
+    },
+    "solutionSteps": {
+     "from": [
+      "40 has 4 tens and 19 has 1 ten.",
+      "40 has more tens than 19."
+     ],
+     "to": [
+      "70 is greater.",
+      "70 + 3 = 73."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_why). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_greater_then_more). Rewritten from a Support template (was c_why) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "40 is written first.",
+       "correct": false
+      },
+      {
+       "text": "40 has more tens than 19.",
+       "correct": true
+      },
+      {
+       "text": "40 has more ones than 19.",
+       "correct": false
+      },
+      {
+       "text": "19 has fewer digits than 40.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "39",
+       "correct": false
+      },
+      {
+       "text": "70",
+       "correct": false
+      },
+      {
+       "text": "74",
+       "correct": false
+      },
+      {
+       "text": "73",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp1-022",
+   "changes": {
+    "prompt": {
+     "from": "Write the number that is less: 39 or 38.",
+     "to": "Which is greater, 60 or 62? Then add 2 to it."
+    },
+    "answer": {
+     "from": "38",
+     "to": "64"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens: 3 and 3. They are the same, so compare the ones.",
+      "38 is less."
+     ],
+     "to": [
+      "62 is greater.",
+      "62 + 2 = 64."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_greater_then_more). Rewritten from a Support template (was c_pick) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp1-023",
+   "changes": {
+    "prompt": {
+     "from": "Which number is less, 76 or 37?",
+     "to": "Which is greater, 40 or 33? Then add 4 to it."
+    },
+    "answer": {
+     "from": "37",
+     "to": "44"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens: 7 and 3.",
+      "37 is less."
+     ],
+     "to": [
+      "40 is greater.",
+      "40 + 4 = 44."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_greater_then_more). Rewritten from a Support template (was c_pick) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp1-028",
+   "changes": {
+    "prompt": {
+     "from": "Which is less: 77 or 50?",
+     "to": "Which is greater, 39 or 78? Then add 8 to it."
+    },
+    "answer": {
+     "from": "50",
+     "to": "86"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "50 is less."
+     ],
+     "to": [
+      "78 is greater.",
+      "78 + 8 = 86."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick_mc). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_greater_then_more). Rewritten from a Support template (was c_pick_mc) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "50",
+       "correct": true
+      },
+      {
+       "text": "60",
+       "correct": false
+      },
+      {
+       "text": "77",
+       "correct": false
+      },
+      {
+       "text": "They are equal.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "47",
+       "correct": false
+      },
+      {
+       "text": "78",
+       "correct": false
+      },
+      {
+       "text": "86",
+       "correct": true
+      },
+      {
+       "text": "87",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers greater than 29."
+    },
+    "answer": {
+     "from": [
+      "Which number is less, 93 or 70? → 70",
+      "Write the number that is less: 15 or 20. → 15"
+     ],
+     "to": [
+      "40",
+      "38"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Which number is less, 94 or 63? → 94",
+       "correct": false
+      },
+      {
+       "text": "Write the number that is less: 38 or 42. → 42",
+       "correct": false
+      },
+      {
+       "text": "Which number is less, 93 or 70? → 70",
+       "correct": true
+      },
+      {
+       "text": "Write the number that is less: 15 or 20. → 15",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "14",
+       "correct": false
+      },
+      {
+       "text": "28",
+       "correct": false
+      },
+      {
+       "text": "20",
+       "correct": false
+      },
+      {
+       "text": "40",
+       "correct": true
+      },
+      {
+       "text": "38",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Which number is less, 94 or 63? → 94: not correct.",
+      "Write the number that is less: 38 or 42. → 42: not correct.",
+      "Which number is less, 93 or 70? → 70: correct.",
+      "Write the number that is less: 15 or 20. → 15: correct."
+     ],
+     "to": [
+      "Compare the tens first, then the ones.",
+      "Correct choices: 40; 38. Not correct: 20; 28; 14."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_select_greater). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Jar A has 31 beans. Jar B has 41 beans."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Write the number that is greater: 85 or 54.",
+       "answer": "85"
+      },
+      {
+       "prompt": "Which number is greater, 44 or 25?",
+       "answer": "44"
+      },
+      {
+       "prompt": "Write the number that is greater: 31 or 28.",
+       "answer": "31"
+      },
+      {
+       "prompt": "Write the number that is less: 27 or 45.",
+       "answer": "27"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which jar has more beans?",
+       "answer": "B"
+      },
+      {
+       "prompt": "How many tens are in jar A?",
+       "answer": "3"
+      },
+      {
+       "prompt": "How many tens are in jar B?",
+       "answer": "4"
+      },
+      {
+       "prompt": "Tell how you compared.",
+       "answer": "Sample answer: I compared the tens first; if they were the same I compared the ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 85; (b) 44; (c) 31; (d) 27",
+     "to": "(a) B; (b) 3; (c) 4; (d) Sample answer: I compared the tens first; if they were the same I compared the ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare the tens: 8 and 5. 85 is greater.",
+      "(b) Compare the tens: 4 and 2. 44 is greater.",
+      "(c) Compare the tens: 3 and 2. 31 is greater.",
+      "(d) Compare the tens: 2 and 4. 27 is less."
+     ],
+     "to": [
+      "(a) Compare tens, then ones.",
+      "(b) The first digit.",
+      "(c) The first digit.",
+      "(d) Tens first."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_open_jars). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers greater than 30."
+    },
+    "answer": {
+     "from": [
+      "Which number is less, 32 or 57? → 32",
+      "Write the number that is greater: 52 or 15. → 52"
+     ],
+     "to": [
+      "41",
+      "45",
+      "32"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Write the number that is greater: 26 or 30. → 26",
+       "correct": false
+      },
+      {
+       "text": "Which number is greater, 29 or 12? → 12",
+       "correct": false
+      },
+      {
+       "text": "Which number is less, 32 or 57? → 32",
+       "correct": true
+      },
+      {
+       "text": "Write the number that is greater: 52 or 15. → 52",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "20",
+       "correct": false
+      },
+      {
+       "text": "15",
+       "correct": false
+      },
+      {
+       "text": "41",
+       "correct": true
+      },
+      {
+       "text": "45",
+       "correct": true
+      },
+      {
+       "text": "32",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Write the number that is greater: 26 or 30. → 26: not correct.",
+      "Which number is greater, 29 or 12? → 12: not correct.",
+      "Which number is less, 32 or 57? → 32: correct.",
+      "Write the number that is greater: 52 or 15. → 52: correct."
+     ],
+     "to": [
+      "Compare the tens first, then the ones.",
+      "Correct choices: 41; 45; 32. Not correct: 20; 15."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_select_greater). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Jar A has 45 beans. Jar B has 58 beans."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Which number is less, 47 or 53?",
+       "answer": "47"
+      },
+      {
+       "prompt": "Write the number that is less: 55 or 31.",
+       "answer": "31"
+      },
+      {
+       "prompt": "Which number is greater, 30 or 22?",
+       "answer": "30"
+      },
+      {
+       "prompt": "Write the number that is greater: 41 or 13.",
+       "answer": "41"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which jar has more beans?",
+       "answer": "B"
+      },
+      {
+       "prompt": "How many tens are in jar A?",
+       "answer": "4"
+      },
+      {
+       "prompt": "How many tens are in jar B?",
+       "answer": "5"
+      },
+      {
+       "prompt": "Tell how you compared.",
+       "answer": "Sample answer: I compared the tens first; if they were the same I compared the ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 47; (b) 31; (c) 30; (d) 41",
+     "to": "(a) B; (b) 4; (c) 5; (d) Sample answer: I compared the tens first; if they were the same I compared the ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare the tens: 4 and 5. 47 is less.",
+      "(b) Compare the tens: 5 and 3. 31 is less.",
+      "(c) Compare the tens: 3 and 2. 30 is greater.",
+      "(d) Compare the tens: 4 and 1. 41 is greater."
+     ],
+     "to": [
+      "(a) Compare tens, then ones.",
+      "(b) The first digit.",
+      "(c) The first digit.",
+      "(d) Tens first."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_open_jars). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "Which is less: 28 or 82?",
+     "to": "Write the numbers from least to greatest: 51, 52, 40"
+    },
+    "answer": {
+     "from": "28",
+     "to": "40, 51, 52"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "28 is less."
+     ],
+     "to": [
+      "Compare the tens first, then the ones.",
+      "40, 51, 52."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick_mc). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_order_three). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "82",
+       "correct": false
+      },
+      {
+       "text": "28",
+       "correct": true
+      },
+      {
+       "text": "They are equal.",
+       "correct": false
+      },
+      {
+       "text": "38",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "52, 51, 40",
+       "correct": false
+      },
+      {
+       "text": "51, 52, 40",
+       "correct": false
+      },
+      {
+       "text": "40, 51, 52",
+       "correct": true
+      },
+      {
+       "text": "51, 40, 52",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "Why is 65 greater than 56?",
+     "to": "Write the numbers from least to greatest: 55, 59, 29"
+    },
+    "answer": {
+     "from": "65 has more tens than 56.",
+     "to": "29, 55, 59"
+    },
+    "solutionSteps": {
+     "from": [
+      "65 has 6 tens and 56 has 5 tens.",
+      "65 has more tens than 56."
+     ],
+     "to": [
+      "Compare the tens first, then the ones.",
+      "29, 55, 59."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_why). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_order_three). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "56 has fewer digits than 65.",
+       "correct": false
+      },
+      {
+       "text": "65 has more tens than 56.",
+       "correct": true
+      },
+      {
+       "text": "65 has more ones than 56.",
+       "correct": false
+      },
+      {
+       "text": "65 is written first.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "59, 55, 29",
+       "correct": false
+      },
+      {
+       "text": "29, 55, 59",
+       "correct": true
+      },
+      {
+       "text": "55, 59, 29",
+       "correct": false
+      },
+      {
+       "text": "55, 29, 59",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-honors-008",
+   "changes": {
+    "prompt": {
+     "from": "Look at the tens first. Which number is less, 41 or 43?",
+     "to": "Write the numbers from least to greatest: 87, 39, 66"
+    },
+    "answer": {
+     "from": "41",
+     "to": "39, 66, 87"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "41 is less."
+     ],
+     "to": [
+      "Compare the tens first, then the ones.",
+      "39, 66, 87."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick_mc). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_order_three). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "43",
+       "correct": false
+      },
+      {
+       "text": "They are equal.",
+       "correct": false
+      },
+      {
+       "text": "14",
+       "correct": false
+      },
+      {
+       "text": "41",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "87, 66, 39",
+       "correct": false
+      },
+      {
+       "text": "87, 39, 66",
+       "correct": false
+      },
+      {
+       "text": "39, 66, 87",
+       "correct": true
+      },
+      {
+       "text": "66, 39, 87",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "Why is 43 greater than 34?",
+     "to": "Write the numbers from least to greatest: 33, 75, 47"
+    },
+    "answer": {
+     "from": "43 has more tens than 34.",
+     "to": "33, 47, 75"
+    },
+    "solutionSteps": {
+     "from": [
+      "43 has 4 tens and 34 has 3 tens.",
+      "43 has more tens than 34."
+     ],
+     "to": [
+      "Compare the tens first, then the ones.",
+      "33, 47, 75."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_why). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_order_three). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "34 has fewer digits than 43.",
+       "correct": false
+      },
+      {
+       "text": "43 has more tens than 34.",
+       "correct": true
+      },
+      {
+       "text": "43 is written first.",
+       "correct": false
+      },
+      {
+       "text": "43 has more ones than 34.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "75, 47, 33",
+       "correct": false
+      },
+      {
+       "text": "33, 47, 75",
+       "correct": true
+      },
+      {
+       "text": "33, 75, 47",
+       "correct": false
+      },
+      {
+       "text": "47, 33, 75",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "Look at the tens first. Which number is greater, 28 or 82?",
+     "to": "Write the numbers from least to greatest: 84, 38, 51"
+    },
+    "answer": {
+     "from": "82",
+     "to": "38, 51, 84"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "82 is greater."
+     ],
+     "to": [
+      "Compare the tens first, then the ones.",
+      "38, 51, 84."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick_mc). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_order_three). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "82",
+       "correct": true
+      },
+      {
+       "text": "92",
+       "correct": false
+      },
+      {
+       "text": "28",
+       "correct": false
+      },
+      {
+       "text": "They are equal.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "84, 51, 38",
+       "correct": false
+      },
+      {
+       "text": "84, 38, 51",
+       "correct": false
+      },
+      {
+       "text": "38, 51, 84",
+       "correct": true
+      },
+      {
+       "text": "51, 38, 84",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-honors-017",
+   "changes": {
+    "prompt": {
+     "from": "Why is 87 greater than 78?",
+     "to": "Write the numbers from least to greatest: 41, 75, 22"
+    },
+    "answer": {
+     "from": "87 has more tens than 78.",
+     "to": "22, 41, 75"
+    },
+    "solutionSteps": {
+     "from": [
+      "87 has 8 tens and 78 has 7 tens.",
+      "87 has more tens than 78."
+     ],
+     "to": [
+      "Compare the tens first, then the ones.",
+      "22, 41, 75."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_why). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_order_three). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "87 has more tens than 78.",
+       "correct": true
+      },
+      {
+       "text": "87 has more ones than 78.",
+       "correct": false
+      },
+      {
+       "text": "87 is written first.",
+       "correct": false
+      },
+      {
+       "text": "78 has fewer digits than 87.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "75, 41, 22",
+       "correct": false
+      },
+      {
+       "text": "41, 75, 22",
+       "correct": false
+      },
+      {
+       "text": "41, 22, 75",
+       "correct": false
+      },
+      {
+       "text": "22, 41, 75",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-honors-020",
+   "changes": {
+    "prompt": {
+     "from": "Which is greater: 68 or 86?",
+     "to": "Write the numbers from least to greatest: 58, 16, 25"
+    },
+    "answer": {
+     "from": "86",
+     "to": "16, 25, 58"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "86 is greater."
+     ],
+     "to": [
+      "Compare the tens first, then the ones.",
+      "16, 25, 58."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick_mc). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_order_three). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "They are equal.",
+       "correct": false
+      },
+      {
+       "text": "68",
+       "correct": false
+      },
+      {
+       "text": "96",
+       "correct": false
+      },
+      {
+       "text": "86",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "58, 25, 16",
+       "correct": false
+      },
+      {
+       "text": "58, 16, 25",
+       "correct": false
+      },
+      {
+       "text": "16, 25, 58",
+       "correct": true
+      },
+      {
+       "text": "25, 16, 58",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-honors-023",
+   "changes": {
+    "prompt": {
+     "from": "Why is 85 greater than 58?",
+     "to": "Write the numbers from least to greatest: 26, 68, 38"
+    },
+    "answer": {
+     "from": "85 has more tens than 58.",
+     "to": "26, 38, 68"
+    },
+    "solutionSteps": {
+     "from": [
+      "85 has 8 tens and 58 has 5 tens.",
+      "85 has more tens than 58."
+     ],
+     "to": [
+      "Compare the tens first, then the ones.",
+      "26, 38, 68."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_why). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_order_three). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "85 has more tens than 58.",
+       "correct": true
+      },
+      {
+       "text": "58 has fewer digits than 85.",
+       "correct": false
+      },
+      {
+       "text": "85 has more ones than 58.",
+       "correct": false
+      },
+      {
+       "text": "85 is written first.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "68, 38, 26",
+       "correct": false
+      },
+      {
+       "text": "26, 38, 68",
+       "correct": true
+      },
+      {
+       "text": "26, 68, 38",
+       "correct": false
+      },
+      {
+       "text": "38, 26, 68",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers greater than 68."
+    },
+    "answer": {
+     "from": [
+      "Which number is greater, 88 or 83? → 88",
+      "Which number is less, 66 or 64? → 64"
+     ],
+     "to": [
+      "69",
+      "70",
+      "78",
+      "79"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Which number is greater, 88 or 83? → 88",
+       "correct": true
+      },
+      {
+       "text": "Write the number that is less: 78 or 87. → 87",
+       "correct": false
+      },
+      {
+       "text": "Which number is less, 66 or 64? → 64",
+       "correct": true
+      },
+      {
+       "text": "Which number is greater, 64 or 46? → 46",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "53",
+       "correct": false
+      },
+      {
+       "text": "69",
+       "correct": true
+      },
+      {
+       "text": "70",
+       "correct": true
+      },
+      {
+       "text": "78",
+       "correct": true
+      },
+      {
+       "text": "79",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Which number is greater, 88 or 83? → 88: correct.",
+      "Write the number that is less: 78 or 87. → 87: not correct.",
+      "Which number is less, 66 or 64? → 64: correct.",
+      "Which number is greater, 64 or 46? → 46: not correct."
+     ],
+     "to": [
+      "Compare the tens first, then the ones.",
+      "Correct choices: 69; 70; 78; 79. Not correct: 53."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_select_greater). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Jar A has 81 beans. Jar B has 63 beans."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Write the number that is greater: 81 or 83.",
+       "answer": "83"
+      },
+      {
+       "prompt": "Write the number that is less: 45 or 43.",
+       "answer": "43"
+      },
+      {
+       "prompt": "Write the number that is greater: 78 or 87.",
+       "answer": "87"
+      },
+      {
+       "prompt": "Write the number that is greater: 39 or 93.",
+       "answer": "93"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which jar has more beans?",
+       "answer": "A"
+      },
+      {
+       "prompt": "How many tens are in jar A?",
+       "answer": "8"
+      },
+      {
+       "prompt": "How many tens are in jar B?",
+       "answer": "6"
+      },
+      {
+       "prompt": "Tell how you compared.",
+       "answer": "Sample answer: I compared the tens first; if they were the same I compared the ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 83; (b) 43; (c) 87; (d) 93",
+     "to": "(a) A; (b) 8; (c) 6; (d) Sample answer: I compared the tens first; if they were the same I compared the ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare the tens: 8 and 8. They are the same, so compare the ones. 83 is greater.",
+      "(b) Compare the tens: 4 and 4. They are the same, so compare the ones. 43 is less.",
+      "(c) Compare the tens: 7 and 8. 87 is greater.",
+      "(d) Compare the tens: 3 and 9. 93 is greater."
+     ],
+     "to": [
+      "(a) Compare tens, then ones.",
+      "(b) The first digit.",
+      "(c) The first digit.",
+      "(d) Tens first."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: c_pick_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm1_open_jars). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-cp1-001",
+   "changes": {
+    "prompt": {
+     "from": "Which symbol goes in the blank: >, <, or =? 99 ___ 97",
+     "to": "Write >, =, or <: 17 + 1 ___ 46"
+    },
+    "answer": {
+     "from": ">",
+     "to": "<"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare 99 and 97.",
+      "99 > 97."
+     ],
+     "to": [
+      "17 + 1 = 18.",
+      "Compare 18 and 46."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_symbol). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_symbol_after_change). Rewritten from a Support template (was s_symbol) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "Compare 46 and 66. Write 46, then >, <, or =, then 66.",
+     "to": "Write >, =, or <: 73 + 10 ___ 21"
+    },
+    "answer": {
+     "from": "46 < 66",
+     "to": ">"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens, then the ones.",
+      "46 < 66."
+     ],
+     "to": [
+      "73 + 10 = 83.",
+      "Compare 83 and 21."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_write). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_symbol_after_change). Rewritten from a Support template (was s_write) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-cp1-006",
+   "changes": {
+    "prompt": {
+     "from": "Which symbol goes in the blank: >, <, or =? 88 ___ 71",
+     "to": "Write >, =, or <: 11 + 1 ___ 17"
+    },
+    "answer": {
+     "from": ">",
+     "to": "<"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare 88 and 71.",
+      "88 > 71."
+     ],
+     "to": [
+      "11 + 1 = 12.",
+      "Compare 12 and 17."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_symbol). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_symbol_after_change). Rewritten from a Support template (was s_symbol) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "Compare 73 and 34. Write 73, then >, <, or =, then 34.",
+     "to": "Write >, =, or <: 88 + 1 ___ 75"
+    },
+    "answer": {
+     "from": "73 > 34",
+     "to": ">"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens, then the ones.",
+      "73 > 34."
+     ],
+     "to": [
+      "88 + 1 = 89.",
+      "Compare 89 and 75."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_write). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_symbol_after_change). Rewritten from a Support template (was s_write) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-cp1-011",
+   "changes": {
+    "prompt": {
+     "from": "Which symbol goes in the blank: >, <, or =? 61 ___ 99",
+     "to": "Write >, =, or <: 47 + 10 ___ 75"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare 61 and 99.",
+      "61 < 99."
+     ],
+     "to": [
+      "47 + 10 = 57.",
+      "Compare 57 and 75."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_symbol). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_symbol_after_change). Rewritten from a Support template (was s_symbol) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "Compare 59 and 70. Write 59, then >, <, or =, then 70.",
+     "to": "Write >, =, or <: 58 + 1 ___ 50"
+    },
+    "answer": {
+     "from": "59 < 70",
+     "to": ">"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens, then the ones.",
+      "59 < 70."
+     ],
+     "to": [
+      "58 + 1 = 59.",
+      "Compare 59 and 50."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_write). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_symbol_after_change). Rewritten from a Support template (was s_write) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-cp1-016",
+   "changes": {
+    "prompt": {
+     "from": "Write >, <, or =. 73 ___ 59",
+     "to": "Write >, =, or <: 90 + 1 ___ 73"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare 73 and 59.",
+      "73 > 59."
+     ],
+     "to": [
+      "90 + 1 = 91.",
+      "Compare 91 and 73."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_symbol). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_symbol_after_change). Rewritten from a Support template (was s_symbol) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-cp1-020",
+   "changes": {
+    "prompt": {
+     "from": "Compare 71 and 60. Write 71, then >, <, or =, then 60.",
+     "to": "Write >, =, or <: 71 + 10 ___ 39"
+    },
+    "answer": {
+     "from": "71 > 60",
+     "to": ">"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens, then the ones.",
+      "71 > 60."
+     ],
+     "to": [
+      "71 + 10 = 81.",
+      "Compare 81 and 39."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_write). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_symbol_after_change). Rewritten from a Support template (was s_write) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the comparisons that are true."
+    },
+    "answer": {
+     "from": [
+      "Write >, <, or =. 59 ___ 52 → >",
+      "Write >, <, or =. 88 ___ 84 → >"
+     ],
+     "to": [
+      "87 > 45",
+      "80 > 60"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Write >, <, or =. 88 ___ 97 → >",
+       "correct": false
+      },
+      {
+       "text": "Write >, <, or =. 52 ___ 66 → >",
+       "correct": false
+      },
+      {
+       "text": "Write >, <, or =. 59 ___ 52 → >",
+       "correct": true
+      },
+      {
+       "text": "Write >, <, or =. 88 ___ 84 → >",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "87 > 45",
+       "correct": true
+      },
+      {
+       "text": "80 > 60",
+       "correct": true
+      },
+      {
+       "text": "30 < 25",
+       "correct": false
+      },
+      {
+       "text": "25 < 17",
+       "correct": false
+      },
+      {
+       "text": "97 < 66",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Write >, <, or =. 88 ___ 97 → >: not correct.",
+      "Write >, <, or =. 52 ___ 66 → >: not correct.",
+      "Write >, <, or =. 59 ___ 52 → >: correct.",
+      "Write >, <, or =. 88 ___ 84 → >: correct."
+     ],
+     "to": [
+      "The open side faces the greater number.",
+      "Correct choices: 87 > 45; 80 > 60. Not correct: 30 < 25; 25 < 17; 97 < 66."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_symbol_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_select_true_compare). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Compare 75 and 52."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Write >, <, or =. 43 ___ 25",
+       "answer": ">"
+      },
+      {
+       "prompt": "Write >, <, or =. 61 ___ 62",
+       "answer": "<"
+      },
+      {
+       "prompt": "Write >, <, or =. 62 ___ 85",
+       "answer": "<"
+      },
+      {
+       "prompt": "Write >, <, or =. 63 ___ 64",
+       "answer": "<"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Write >, = or <: 75 ___ 52",
+       "answer": ">"
+      },
+      {
+       "prompt": "Write >, = or <: 52 ___ 75",
+       "answer": "<"
+      },
+      {
+       "prompt": "Which number is greater?",
+       "answer": "75"
+      },
+      {
+       "prompt": "Tell how you remember which symbol to use.",
+       "answer": "Sample answer: The open side faces the greater number."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) >; (b) <; (c) <; (d) <",
+     "to": "(a) >; (b) <; (c) 75; (d) Sample answer: The open side faces the greater number."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare 43 and 25. 43 > 25.",
+      "(b) Compare 61 and 62. 61 < 62.",
+      "(c) Compare 62 and 85. 62 < 85.",
+      "(d) Compare 63 and 64. 63 < 64."
+     ],
+     "to": [
+      "(a) Compare.",
+      "(b) Switch the order.",
+      "(c) Compare.",
+      "(d) Open side."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_symbol_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_open_symbols). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the comparisons that are true."
+    },
+    "answer": {
+     "from": [
+      "Which symbol goes in the blank: >, <, or =? 15 ___ 48 → <",
+      "Write >, <, or =. 23 ___ 54 → <"
+     ],
+     "to": [
+      "32 < 54",
+      "84 > 75",
+      "92 > 78"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Which symbol goes in the blank: >, <, or =? 48 ___ 25 → <",
+       "correct": false
+      },
+      {
+       "text": "Write >, <, or =. 20 ___ 31 → >",
+       "correct": false
+      },
+      {
+       "text": "Which symbol goes in the blank: >, <, or =? 15 ___ 48 → <",
+       "correct": true
+      },
+      {
+       "text": "Write >, <, or =. 23 ___ 54 → <",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "11 > 57",
+       "correct": false
+      },
+      {
+       "text": "32 < 54",
+       "correct": true
+      },
+      {
+       "text": "77 < 11",
+       "correct": false
+      },
+      {
+       "text": "84 > 75",
+       "correct": true
+      },
+      {
+       "text": "92 > 78",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Which symbol goes in the blank: >, <, or =? 48 ___ 25 → <: not correct.",
+      "Write >, <, or =. 20 ___ 31 → >: not correct.",
+      "Which symbol goes in the blank: >, <, or =? 15 ___ 48 → <: correct.",
+      "Write >, <, or =. 23 ___ 54 → <: correct."
+     ],
+     "to": [
+      "The open side faces the greater number.",
+      "Correct choices: 32 < 54; 84 > 75; 92 > 78. Not correct: 11 > 57; 77 < 11."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_symbol_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_select_true_compare). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Compare 43 and 32."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Which symbol goes in the blank: >, <, or =? 50 ___ 16",
+       "answer": ">"
+      },
+      {
+       "prompt": "Which symbol goes in the blank: >, <, or =? 44 ___ 28",
+       "answer": ">"
+      },
+      {
+       "prompt": "Write >, <, or =. 56 ___ 26",
+       "answer": ">"
+      },
+      {
+       "prompt": "Write >, <, or =. 34 ___ 47",
+       "answer": "<"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Write >, = or <: 43 ___ 32",
+       "answer": ">"
+      },
+      {
+       "prompt": "Write >, = or <: 32 ___ 43",
+       "answer": "<"
+      },
+      {
+       "prompt": "Which number is greater?",
+       "answer": "43"
+      },
+      {
+       "prompt": "Tell how you remember which symbol to use.",
+       "answer": "Sample answer: The open side faces the greater number."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) >; (b) >; (c) >; (d) <",
+     "to": "(a) >; (b) <; (c) 43; (d) Sample answer: The open side faces the greater number."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare 50 and 16. 50 > 16.",
+      "(b) Compare 44 and 28. 44 > 28.",
+      "(c) Compare 56 and 26. 56 > 26.",
+      "(d) Compare 34 and 47. 34 < 47."
+     ],
+     "to": [
+      "(a) Compare.",
+      "(b) Switch the order.",
+      "(c) Compare.",
+      "(d) Open side."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_symbol_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_open_symbols). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "Compare 15 and 51. Write 15, then >, <, or =, then 51.",
+     "to": "Write >, =, or <: 7 tens and 5 ones ___ 2 tens and 4 ones"
+    },
+    "answer": {
+     "from": "15 < 51",
+     "to": ">"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens, then the ones.",
+      "15 < 51."
+     ],
+     "to": [
+      "7 tens and 5 ones = 75; 2 tens and 4 ones = 24.",
+      "75 > 24."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_write). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_tens_ones_compare). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "Write >, <, or =. 49 ___ 40",
+     "to": "Write >, =, or <: 2 tens and 4 ones ___ 2 tens and 6 ones"
+    },
+    "answer": {
+     "from": ">",
+     "to": "<"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare 49 and 40.",
+      "49 > 40."
+     ],
+     "to": [
+      "2 tens and 4 ones = 24; 2 tens and 6 ones = 26.",
+      "24 < 26."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_symbol). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_tens_ones_compare). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "Write >, <, or =. 75 ___ 57",
+     "to": "Write >, =, or <: 3 tens and 6 ones ___ 8 tens and 0 ones"
+    },
+    "answer": {
+     "from": ">",
+     "to": "<"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare 75 and 57.",
+      "75 > 57."
+     ],
+     "to": [
+      "3 tens and 6 ones = 36; 8 tens and 0 ones = 80.",
+      "36 < 80."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_symbol). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_tens_ones_compare). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "Compare 23 and 22. Write 23, then >, <, or =, then 22.",
+     "to": "Write >, =, or <: 6 tens and 9 ones ___ 8 tens and 1 ones"
+    },
+    "answer": {
+     "from": "23 > 22",
+     "to": "<"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens, then the ones.",
+      "23 > 22."
+     ],
+     "to": [
+      "6 tens and 9 ones = 69; 8 tens and 1 ones = 81.",
+      "69 < 81."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_write). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_tens_ones_compare). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "Which symbol goes in the blank: >, <, or =? 61 ___ 16",
+     "to": "Write >, =, or <: 5 tens and 3 ones ___ 6 tens and 0 ones"
+    },
+    "answer": {
+     "from": ">",
+     "to": "<"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare 61 and 16.",
+      "61 > 16."
+     ],
+     "to": [
+      "5 tens and 3 ones = 53; 6 tens and 0 ones = 60.",
+      "53 < 60."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_symbol). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_tens_ones_compare). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-honors-015",
+   "changes": {
+    "prompt": {
+     "from": "Compare 51 and 53. Write 51, then >, <, or =, then 53.",
+     "to": "Write >, =, or <: 8 tens and 1 ones ___ 2 tens and 4 ones"
+    },
+    "answer": {
+     "from": "51 < 53",
+     "to": ">"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens, then the ones.",
+      "51 < 53."
+     ],
+     "to": [
+      "8 tens and 1 ones = 81; 2 tens and 4 ones = 24.",
+      "81 > 24."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_write). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_tens_ones_compare). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "Which symbol goes in the blank: >, <, or =? 12 ___ 21",
+     "to": "Write >, =, or <: 7 tens and 0 ones ___ 6 tens and 1 ones"
+    },
+    "answer": {
+     "from": "<",
+     "to": ">"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare 12 and 21.",
+      "12 < 21."
+     ],
+     "to": [
+      "7 tens and 0 ones = 70; 6 tens and 1 ones = 61.",
+      "70 > 61."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_symbol). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_tens_ones_compare). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-honors-020",
+   "changes": {
+    "prompt": {
+     "from": "Compare 69 and 96. Write 69, then >, <, or =, then 96.",
+     "to": "Write >, =, or <: 2 tens and 5 ones ___ 7 tens and 9 ones"
+    },
+    "answer": {
+     "from": "69 < 96",
+     "to": "<"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens, then the ones.",
+      "69 < 96."
+     ],
+     "to": [
+      "2 tens and 5 ones = 25; 7 tens and 9 ones = 79.",
+      "25 < 79."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_write). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_tens_ones_compare). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the comparisons that are true."
+    },
+    "answer": {
+     "from": [
+      "Write >, <, or =. 12 ___ 12 → =",
+      "Write >, <, or =. 46 ___ 64 → <"
+     ],
+     "to": [
+      "64 > 35",
+      "57 < 71",
+      "38 > 23",
+      "51 < 93"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Write >, <, or =. 12 ___ 12 → =",
+       "correct": true
+      },
+      {
+       "text": "Write >, <, or =. 46 ___ 64 → <",
+       "correct": true
+      },
+      {
+       "text": "Write >, <, or =. 94 ___ 95 → =",
+       "correct": false
+      },
+      {
+       "text": "Which symbol goes in the blank: >, <, or =? 83 ___ 88 → =",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "85 > 86",
+       "correct": false
+      },
+      {
+       "text": "64 > 35",
+       "correct": true
+      },
+      {
+       "text": "57 < 71",
+       "correct": true
+      },
+      {
+       "text": "38 > 23",
+       "correct": true
+      },
+      {
+       "text": "51 < 93",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Write >, <, or =. 12 ___ 12 → =: correct.",
+      "Write >, <, or =. 46 ___ 64 → <: correct.",
+      "Write >, <, or =. 94 ___ 95 → =: not correct.",
+      "Which symbol goes in the blank: >, <, or =? 83 ___ 88 → =: not correct."
+     ],
+     "to": [
+      "The open side faces the greater number.",
+      "Correct choices: 64 > 35; 57 < 71; 38 > 23; 51 < 93. Not correct: 85 > 86."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_symbol_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_select_true_compare). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s02-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Compare 70 and 61."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Write >, <, or =. 39 ___ 93",
+       "answer": "<"
+      },
+      {
+       "prompt": "Which symbol goes in the blank: >, <, or =? 69 ___ 96",
+       "answer": "<"
+      },
+      {
+       "prompt": "Which symbol goes in the blank: >, <, or =? 37 ___ 37",
+       "answer": "="
+      },
+      {
+       "prompt": "Which symbol goes in the blank: >, <, or =? 52 ___ 25",
+       "answer": ">"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Write >, = or <: 70 ___ 61",
+       "answer": ">"
+      },
+      {
+       "prompt": "Write >, = or <: 61 ___ 70",
+       "answer": "<"
+      },
+      {
+       "prompt": "Which number is greater?",
+       "answer": "70"
+      },
+      {
+       "prompt": "Tell how you remember which symbol to use.",
+       "answer": "Sample answer: The open side faces the greater number."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) <; (b) <; (c) =; (d) >",
+     "to": "(a) >; (b) <; (c) 70; (d) Sample answer: The open side faces the greater number."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare 39 and 93. 39 < 93.",
+      "(b) Compare 69 and 96. 69 < 96.",
+      "(c) Compare 37 and 37. 37 = 37.",
+      "(d) Compare 52 and 25. 52 > 25."
+     ],
+     "to": [
+      "(a) Compare.",
+      "(b) Switch the order.",
+      "(c) Compare.",
+      "(d) Open side."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: s_symbol_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm2_open_symbols). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-001",
+   "changes": {
+    "prompt": {
+     "from": "Which digit can replace the ? to make this true? 3? > 36",
+     "to": "Which is the greatest digit that makes this true? 5? < 57"
+    },
+    "answer": {
+     "from": "9",
+     "to": "6"
+    },
+    "solutionSteps": {
+     "from": [
+      "The tens are the same, so the ones must be more than 6.",
+      "39 > 36."
+     ],
+     "to": [
+      "Both numbers have 5 tens.",
+      "The ones digit must be less than 7, so the greatest is 6."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_digit). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_digit) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3",
+       "correct": false
+      },
+      {
+       "text": "2",
+       "correct": false
+      },
+      {
+       "text": "1",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "6",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-002",
+   "changes": {
+    "prompt": {
+     "from": "Which number makes this true? ___ > 38",
+     "to": "Which is the greatest digit that makes this true? 8? < 83"
+    },
+    "answer": {
+     "from": "41",
+     "to": "2"
+    },
+    "solutionSteps": {
+     "from": [
+      "The number must be greater than 38.",
+      "41 > 38."
+     ],
+     "to": [
+      "Both numbers have 8 tens.",
+      "The ones digit must be less than 3, so the greatest is 2."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_pick). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_pick) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "37",
+       "correct": false
+      },
+      {
+       "text": "41",
+       "correct": true
+      },
+      {
+       "text": "28",
+       "correct": false
+      },
+      {
+       "text": "35",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "3",
+       "correct": false
+      },
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      },
+      {
+       "text": "2",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "Write a number that is greater than 75 and less than 80.",
+     "to": "Which is the greatest digit that makes this true? 2? < 24"
+    },
+    "answer": {
+     "from": "76",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count on from 75: 76, 77, 78, 79.",
+      "Any of these works, such as 76."
+     ],
+     "to": [
+      "Both numbers have 2 tens.",
+      "The ones digit must be less than 4, so the greatest is 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_between) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-005",
+   "changes": {
+    "prompt": {
+     "from": "Write the numbers in order from least to greatest: 45, 31, 52",
+     "to": "Which is the greatest digit that makes this true? 2? < 21"
+    },
+    "answer": {
+     "from": "31, 45, 52",
+     "to": "0"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "In order: 31, 45, 52."
+     ],
+     "to": [
+      "Both numbers have 2 tens.",
+      "The ones digit must be less than 1, so the greatest is 0."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_order). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_order) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-006",
+   "changes": {
+    "prompt": {
+     "from": "Which digit can replace the ? to make this true? 5? > 53",
+     "to": "Which is the greatest digit that makes this true? 3? < 37"
+    },
+    "answer": {
+     "from": "9",
+     "to": "6"
+    },
+    "solutionSteps": {
+     "from": [
+      "The tens are the same, so the ones must be more than 3.",
+      "59 > 53."
+     ],
+     "to": [
+      "Both numbers have 3 tens.",
+      "The ones digit must be less than 7, so the greatest is 6."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_digit). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_digit) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3",
+       "correct": false
+      },
+      {
+       "text": "0",
+       "correct": false
+      },
+      {
+       "text": "1",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "6",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-007",
+   "changes": {
+    "prompt": {
+     "from": "Which number makes this true? ___ > 59",
+     "to": "Which is the greatest digit that makes this true? 5? < 52"
+    },
+    "answer": {
+     "from": "62",
+     "to": "1"
+    },
+    "solutionSteps": {
+     "from": [
+      "The number must be greater than 59.",
+      "62 > 59."
+     ],
+     "to": [
+      "Both numbers have 5 tens.",
+      "The ones digit must be less than 2, so the greatest is 1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_pick). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_pick) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "56",
+       "correct": false
+      },
+      {
+       "text": "62",
+       "correct": true
+      },
+      {
+       "text": "58",
+       "correct": false
+      },
+      {
+       "text": "49",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "2",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": false
+      },
+      {
+       "text": "1",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-008",
+   "changes": {
+    "prompt": {
+     "from": "Write a number that is greater than 27 and less than 30.",
+     "to": "Which is the greatest digit that makes this true? 5? < 53"
+    },
+    "answer": {
+     "from": "28",
+     "to": "2"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count on from 27: 28, 29.",
+      "Any of these works, such as 28."
+     ],
+     "to": [
+      "Both numbers have 5 tens.",
+      "The ones digit must be less than 3, so the greatest is 2."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_between) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "Write the numbers in order from least to greatest: 83, 68, 94",
+     "to": "Which is the greatest digit that makes this true? 8? < 81"
+    },
+    "answer": {
+     "from": "68, 83, 94",
+     "to": "0"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "In order: 68, 83, 94."
+     ],
+     "to": [
+      "Both numbers have 8 tens.",
+      "The ones digit must be less than 1, so the greatest is 0."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_order). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_order) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-011",
+   "changes": {
+    "prompt": {
+     "from": "Which digit can replace the ? to make this true? 5? < 54",
+     "to": "Which is the greatest digit that makes this true? 4? < 43"
+    },
+    "answer": {
+     "from": "3",
+     "to": "2"
+    },
+    "solutionSteps": {
+     "from": [
+      "The tens are the same, so the ones must be less than 4.",
+      "53 < 54."
+     ],
+     "to": [
+      "Both numbers have 4 tens.",
+      "The ones digit must be less than 3, so the greatest is 2."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_digit). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_digit) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "8",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": true
+      },
+      {
+       "text": "5",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "3",
+       "correct": false
+      },
+      {
+       "text": "4",
+       "correct": false
+      },
+      {
+       "text": "2",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-012",
+   "changes": {
+    "prompt": {
+     "from": "Which number makes this true? ___ < 38",
+     "to": "Which is the greatest digit that makes this true? 6? < 65"
+    },
+    "answer": {
+     "from": "35",
+     "to": "4"
+    },
+    "solutionSteps": {
+     "from": [
+      "The number must be less than 38.",
+      "35 < 38."
+     ],
+     "to": [
+      "Both numbers have 6 tens.",
+      "The ones digit must be less than 5, so the greatest is 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_pick). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_pick) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "35",
+       "correct": true
+      },
+      {
+       "text": "39",
+       "correct": false
+      },
+      {
+       "text": "48",
+       "correct": false
+      },
+      {
+       "text": "41",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "5",
+       "correct": false
+      },
+      {
+       "text": "4",
+       "correct": true
+      },
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-013",
+   "changes": {
+    "prompt": {
+     "from": "Write a number that is greater than 86 and less than 91.",
+     "to": "Which is the greatest digit that makes this true? 6? < 61"
+    },
+    "answer": {
+     "from": "87",
+     "to": "0"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count on from 86: 87, 88, 89, 90.",
+      "Any of these works, such as 87."
+     ],
+     "to": [
+      "Both numbers have 6 tens.",
+      "The ones digit must be less than 1, so the greatest is 0."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_between) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-014",
+   "changes": {
+    "prompt": {
+     "from": "Jay says 46 > 51 because 6 > 1. Is Jay right?",
+     "to": "Which is the greatest digit that makes this true? 3? < 32"
+    },
+    "answer": {
+     "from": "No. 51 has more tens, so 51 is greater.",
+     "to": "1"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first: 4 tens and 5 tens.",
+      "No. 51 has more tens, so 51 is greater."
+     ],
+     "to": [
+      "Both numbers have 3 tens.",
+      "The ones digit must be less than 2, so the greatest is 1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_claim). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_claim) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Yes. 46 has more ones.",
+       "correct": false
+      },
+      {
+       "text": "No. 51 has more tens, so 51 is greater.",
+       "correct": true
+      },
+      {
+       "text": "No. The numbers are equal.",
+       "correct": false
+      },
+      {
+       "text": "Yes. 6 is greater than 1.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "1",
+       "correct": true
+      },
+      {
+       "text": "2",
+       "correct": false
+      },
+      {
+       "text": "3",
+       "correct": false
+      },
+      {
+       "text": "9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-015",
+   "changes": {
+    "prompt": {
+     "from": "Write the numbers in order from greatest to least: 91, 59, 98",
+     "to": "Which is the greatest digit that makes this true? 5? < 54"
+    },
+    "answer": {
+     "from": "98, 91, 59",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "In order: 98, 91, 59."
+     ],
+     "to": [
+      "Both numbers have 5 tens.",
+      "The ones digit must be less than 4, so the greatest is 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_order). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_order) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-016",
+   "changes": {
+    "prompt": {
+     "from": "Which digit can replace the ? to make this true? 8? > 82",
+     "to": "Which is the greatest digit that makes this true? 3? < 36"
+    },
+    "answer": {
+     "from": "6",
+     "to": "5"
+    },
+    "solutionSteps": {
+     "from": [
+      "The tens are the same, so the ones must be more than 2.",
+      "86 > 82."
+     ],
+     "to": [
+      "Both numbers have 3 tens.",
+      "The ones digit must be less than 6, so the greatest is 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_digit). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_digit) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1",
+       "correct": false
+      },
+      {
+       "text": "0",
+       "correct": false
+      },
+      {
+       "text": "2",
+       "correct": false
+      },
+      {
+       "text": "6",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "6",
+       "correct": false
+      },
+      {
+       "text": "7",
+       "correct": false
+      },
+      {
+       "text": "5",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-017",
+   "changes": {
+    "prompt": {
+     "from": "Which number makes this true? ___ > 34",
+     "to": "Which is the greatest digit that makes this true? 7? < 71"
+    },
+    "answer": {
+     "from": "37",
+     "to": "0"
+    },
+    "solutionSteps": {
+     "from": [
+      "The number must be greater than 34.",
+      "37 > 34."
+     ],
+     "to": [
+      "Both numbers have 7 tens.",
+      "The ones digit must be less than 1, so the greatest is 0."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_pick). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_pick) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "31",
+       "correct": false
+      },
+      {
+       "text": "33",
+       "correct": false
+      },
+      {
+       "text": "24",
+       "correct": false
+      },
+      {
+       "text": "37",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "1",
+       "correct": false
+      },
+      {
+       "text": "2",
+       "correct": false
+      },
+      {
+       "text": "0",
+       "correct": true
+      },
+      {
+       "text": "9",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-018",
+   "changes": {
+    "prompt": {
+     "from": "Write a number that is greater than 84 and less than 87.",
+     "to": "Which is the greatest digit that makes this true? 2? < 26"
+    },
+    "answer": {
+     "from": "85",
+     "to": "5"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count on from 84: 85, 86.",
+      "Any of these works, such as 85."
+     ],
+     "to": [
+      "Both numbers have 2 tens.",
+      "The ones digit must be less than 6, so the greatest is 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_between) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-020",
+   "changes": {
+    "prompt": {
+     "from": "Write the numbers in order from least to greatest: 53, 50, 72",
+     "to": "Which is the greatest digit that makes this true? 6? < 64"
+    },
+    "answer": {
+     "from": "50, 53, 72",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "In order: 50, 53, 72."
+     ],
+     "to": [
+      "Both numbers have 6 tens.",
+      "The ones digit must be less than 4, so the greatest is 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_order). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_order) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-021",
+   "changes": {
+    "prompt": {
+     "from": "Write a number that is greater than 81 and less than 85.",
+     "to": "Which is the greatest digit that makes this true? 9? < 97"
+    },
+    "answer": {
+     "from": "82",
+     "to": "6"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count on from 81: 82, 83, 84.",
+      "Any of these works, such as 82."
+     ],
+     "to": [
+      "Both numbers have 9 tens.",
+      "The ones digit must be less than 7, so the greatest is 6."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_between) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-022",
+   "changes": {
+    "prompt": {
+     "from": "Write the numbers in order from least to greatest: 79, 96, 64",
+     "to": "Which is the greatest digit that makes this true? 3? < 34"
+    },
+    "answer": {
+     "from": "64, 79, 96",
+     "to": "3"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "In order: 64, 79, 96."
+     ],
+     "to": [
+      "Both numbers have 3 tens.",
+      "The ones digit must be less than 4, so the greatest is 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_order). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_order) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-023",
+   "changes": {
+    "prompt": {
+     "from": "Write the numbers in order from greatest to least: 30, 18, 41",
+     "to": "Which is the greatest digit that makes this true? 4? < 47"
+    },
+    "answer": {
+     "from": "41, 30, 18",
+     "to": "6"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "In order: 41, 30, 18."
+     ],
+     "to": [
+      "Both numbers have 4 tens.",
+      "The ones digit must be less than 7, so the greatest is 6."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_order). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_digit_to_make_greater). Rewritten from a Support template (was r_order) as a Standard item with an added step: 1st Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers that are greater than 36."
+    },
+    "answer": {
+     "from": [
+      "Write a number that is greater than 59 and less than 62. → 60",
+      "Write a number that is greater than 84 and less than 88. → 85"
+     ],
+     "to": [
+      "37",
+      "39"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Write a number that is greater than 48 and less than 52. → 48",
+       "correct": false
+      },
+      {
+       "text": "Write a number that is greater than 59 and less than 62. → 60",
+       "correct": true
+      },
+      {
+       "text": "Write a number that is greater than 28 and less than 33. → 27",
+       "correct": false
+      },
+      {
+       "text": "Write a number that is greater than 84 and less than 88. → 85",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "37",
+       "correct": true
+      },
+      {
+       "text": "35",
+       "correct": false
+      },
+      {
+       "text": "39",
+       "correct": true
+      },
+      {
+       "text": "33",
+       "correct": false
+      },
+      {
+       "text": "32",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Write a number that is greater than 48 and less than 52. → 48: not correct.",
+      "Write a number that is greater than 59 and less than 62. → 60: correct.",
+      "Write a number that is greater than 28 and less than 33. → 27: not correct.",
+      "Write a number that is greater than 84 and less than 88. → 85: correct."
+     ],
+     "to": [
+      "The tens are the same, so the ones must be more than 6.",
+      "Correct choices: 37; 39. Not correct: 33; 32; 35."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_select_digit_greater). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Find a digit for ? so that 5? > 52."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Write a number that is greater than 69 and less than 74.",
+       "answer": "70"
+      },
+      {
+       "prompt": "Write a number that is greater than 49 and less than 55.",
+       "answer": "50"
+      },
+      {
+       "prompt": "Write a number that is greater than 53 and less than 58.",
+       "answer": "54"
+      },
+      {
+       "prompt": "Write a number that is greater than 60 and less than 63.",
+       "answer": "61"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the smallest digit that works?",
+       "answer": "3"
+      },
+      {
+       "prompt": "What is the greatest digit that works?",
+       "answer": "9"
+      },
+      {
+       "prompt": "How many digits work?",
+       "answer": "7"
+      },
+      {
+       "prompt": "Tell how you found the digits.",
+       "answer": "Sample answer: The tens are the same, so I compared the ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 70; (b) 50; (c) 54; (d) 61",
+     "to": "(a) 3; (b) 9; (c) 7; (d) Sample answer: The tens are the same, so I compared the ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count on from 69: 70, 71, 72, 73. Any of these works, such as 70.",
+      "(b) Count on from 49: 50, 51, 52, 53, 54. Any of these works, such as 50.",
+      "(c) Count on from 53: 54, 55, 56, 57. Any of these works, such as 54.",
+      "(d) Count on from 60: 61, 62. Any of these works, such as 61."
+     ],
+     "to": [
+      "(a) The ones must be more than 2.",
+      "(b) The largest digit.",
+      "(c) 3 through 9.",
+      "(d) Compare ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_open_digit). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers that are greater than 25."
+    },
+    "answer": {
+     "from": [
+      "Write a number that is greater than 40 and less than 46. → 41",
+      "Write a number that is greater than 20 and less than 23. → 21"
+     ],
+     "to": [
+      "29",
+      "26",
+      "28"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Write a number that is greater than 17 and less than 20. → 17",
+       "correct": false
+      },
+      {
+       "text": "Write a number that is greater than 39 and less than 43. → 39",
+       "correct": false
+      },
+      {
+       "text": "Write a number that is greater than 40 and less than 46. → 41",
+       "correct": true
+      },
+      {
+       "text": "Write a number that is greater than 20 and less than 23. → 21",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "25",
+       "correct": false
+      },
+      {
+       "text": "29",
+       "correct": true
+      },
+      {
+       "text": "26",
+       "correct": true
+      },
+      {
+       "text": "28",
+       "correct": true
+      },
+      {
+       "text": "23",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Write a number that is greater than 17 and less than 20. → 17: not correct.",
+      "Write a number that is greater than 39 and less than 43. → 39: not correct.",
+      "Write a number that is greater than 40 and less than 46. → 41: correct.",
+      "Write a number that is greater than 20 and less than 23. → 21: correct."
+     ],
+     "to": [
+      "The tens are the same, so the ones must be more than 5.",
+      "Correct choices: 29; 26; 28. Not correct: 23; 25."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_select_digit_greater). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Find a digit for ? so that 3? > 32."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Write a number that is greater than 36 and less than 42.",
+       "answer": "37"
+      },
+      {
+       "prompt": "Write a number that is greater than 40 and less than 43.",
+       "answer": "41"
+      },
+      {
+       "prompt": "Write a number that is greater than 31 and less than 35.",
+       "answer": "32"
+      },
+      {
+       "prompt": "Write a number that is greater than 15 and less than 18.",
+       "answer": "16"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the smallest digit that works?",
+       "answer": "3"
+      },
+      {
+       "prompt": "What is the greatest digit that works?",
+       "answer": "9"
+      },
+      {
+       "prompt": "How many digits work?",
+       "answer": "7"
+      },
+      {
+       "prompt": "Tell how you found the digits.",
+       "answer": "Sample answer: The tens are the same, so I compared the ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 37; (b) 41; (c) 32; (d) 16",
+     "to": "(a) 3; (b) 9; (c) 7; (d) Sample answer: The tens are the same, so I compared the ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count on from 36: 37, 38, 39, 40, 41. Any of these works, such as 37.",
+      "(b) Count on from 40: 41, 42. Any of these works, such as 41.",
+      "(c) Count on from 31: 32, 33, 34. Any of these works, such as 32.",
+      "(d) Count on from 15: 16, 17. Any of these works, such as 16."
+     ],
+     "to": [
+      "(a) The ones must be more than 2.",
+      "(b) The largest digit.",
+      "(c) 3 through 9.",
+      "(d) Compare ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_open_digit). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-honors-003",
+   "changes": {
+    "prompt": {
+     "from": "Write a number that is greater than 74 and less than 79.",
+     "to": "How many whole numbers are greater than 41 and less than 46?"
+    },
+    "answer": {
+     "from": "75",
+     "to": "4"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count on from 74: 75, 76, 77, 78.",
+      "Any of these works, such as 75."
+     ],
+     "to": [
+      "They are 42 to 45.",
+      "45 − 42 + 1 = 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_count_between). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "Write the numbers in order from greatest to least: 66, 67, 22",
+     "to": "How many whole numbers are greater than 51 and less than 62?"
+    },
+    "answer": {
+     "from": "67, 66, 22",
+     "to": "10"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "In order: 67, 66, 22."
+     ],
+     "to": [
+      "They are 52 to 61.",
+      "61 − 52 + 1 = 10."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_order). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_count_between). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "Write a number that is greater than 24 and less than 29.",
+     "to": "How many whole numbers are greater than 74 and less than 80?"
+    },
+    "answer": {
+     "from": "25",
+     "to": "5"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count on from 24: 25, 26, 27, 28.",
+      "Any of these works, such as 25."
+     ],
+     "to": [
+      "They are 75 to 79.",
+      "79 − 75 + 1 = 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_count_between). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-honors-010",
+   "changes": {
+    "prompt": {
+     "from": "Write the numbers in order from greatest to least: 73, 79, 46",
+     "to": "How many whole numbers are greater than 34 and less than 39?"
+    },
+    "answer": {
+     "from": "79, 73, 46",
+     "to": "4"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "In order: 79, 73, 46."
+     ],
+     "to": [
+      "They are 35 to 38.",
+      "38 − 35 + 1 = 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_order). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_count_between). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-honors-015",
+   "changes": {
+    "prompt": {
+     "from": "Write a number that is greater than 73 and less than 77.",
+     "to": "How many whole numbers are greater than 53 and less than 65?"
+    },
+    "answer": {
+     "from": "74",
+     "to": "11"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count on from 73: 74, 75, 76.",
+      "Any of these works, such as 74."
+     ],
+     "to": [
+      "They are 54 to 64.",
+      "64 − 54 + 1 = 11."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_count_between). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "Write the numbers in order from least to greatest: 29, 92, 73",
+     "to": "How many whole numbers are greater than 43 and less than 56?"
+    },
+    "answer": {
+     "from": "29, 73, 92",
+     "to": "12"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "In order: 29, 73, 92."
+     ],
+     "to": [
+      "They are 44 to 55.",
+      "55 − 44 + 1 = 12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_order). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_count_between). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "Write a number that is greater than 30 and less than 33.",
+     "to": "How many whole numbers are greater than 30 and less than 40?"
+    },
+    "answer": {
+     "from": "31",
+     "to": "9"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count on from 30: 31, 32.",
+      "Any of these works, such as 31."
+     ],
+     "to": [
+      "They are 31 to 39.",
+      "39 − 31 + 1 = 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_count_between). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-honors-024",
+   "changes": {
+    "prompt": {
+     "from": "Write the numbers in order from least to greatest: 18, 12, 14",
+     "to": "How many whole numbers are greater than 25 and less than 34?"
+    },
+    "answer": {
+     "from": "12, 14, 18",
+     "to": "8"
+    },
+    "solutionSteps": {
+     "from": [
+      "Compare the tens first, then the ones.",
+      "In order: 12, 14, 18."
+     ],
+     "to": [
+      "They are 26 to 33.",
+      "33 − 26 + 1 = 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_order). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_count_between). 1st Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade1-audit-20261119/fams.py and recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the numbers that are greater than 23."
+    },
+    "answer": {
+     "from": [
+      "Write a number that is greater than 79 and less than 84. → 80",
+      "Write a number that is greater than 26 and less than 29. → 27"
+     ],
+     "to": [
+      "29",
+      "28",
+      "26",
+      "24"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Write a number that is greater than 73 and less than 79. → 72",
+       "correct": false
+      },
+      {
+       "text": "Write a number that is greater than 79 and less than 84. → 80",
+       "correct": true
+      },
+      {
+       "text": "Write a number that is greater than 21 and less than 25. → 25",
+       "correct": false
+      },
+      {
+       "text": "Write a number that is greater than 26 and less than 29. → 27",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "23",
+       "correct": false
+      },
+      {
+       "text": "29",
+       "correct": true
+      },
+      {
+       "text": "28",
+       "correct": true
+      },
+      {
+       "text": "26",
+       "correct": true
+      },
+      {
+       "text": "24",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Write a number that is greater than 73 and less than 79. → 72: not correct.",
+      "Write a number that is greater than 79 and less than 84. → 80: correct.",
+      "Write a number that is greater than 21 and less than 25. → 25: not correct.",
+      "Write a number that is greater than 26 and less than 29. → 27: correct."
+     ],
+     "to": [
+      "The tens are the same, so the ones must be more than 3.",
+      "Correct choices: 29; 28; 26; 24. Not correct: 23."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_select_digit_greater). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-cm-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Find a digit for ? so that 7? > 74."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Write a number that is greater than 67 and less than 71.",
+       "answer": "68"
+      },
+      {
+       "prompt": "Write a number that is greater than 77 and less than 81.",
+       "answer": "78"
+      },
+      {
+       "prompt": "Write a number that is greater than 43 and less than 49.",
+       "answer": "44"
+      },
+      {
+       "prompt": "Write a number that is greater than 52 and less than 57.",
+       "answer": "53"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What is the smallest digit that works?",
+       "answer": "5"
+      },
+      {
+       "prompt": "What is the greatest digit that works?",
+       "answer": "9"
+      },
+      {
+       "prompt": "How many digits work?",
+       "answer": "5"
+      },
+      {
+       "prompt": "Tell how you found the digits.",
+       "answer": "Sample answer: The tens are the same, so I compared the ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 68; (b) 78; (c) 44; (d) 53",
+     "to": "(a) 5; (b) 9; (c) 5; (d) Sample answer: The tens are the same, so I compared the ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count on from 67: 68, 69, 70. Any of these works, such as 68.",
+      "(b) Count on from 77: 78, 79, 80. Any of these works, such as 78.",
+      "(c) Count on from 43: 44, 45, 46, 47, 48. Any of these works, such as 44.",
+      "(d) Count on from 52: 53, 54, 55, 56. Any of these works, such as 53."
+     ],
+     "to": [
+      "(a) The ones must be more than 4.",
+      "(b) The largest digit.",
+      "(c) 5 through 9.",
+      "(d) Compare ones."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: r_between_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: cm3_open_digit). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [],
+ "meta": {
+  "m1-cm-s01-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "40, 51, 52.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "52, 51, 40": "a common mistake",
+    "51, 52, 40": "a common mistake",
+    "51, 40, 52": "a common mistake"
+   }
+  },
+  "m1-cm-s01-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "29, 55, 59.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "59, 55, 29": "a common mistake",
+    "55, 59, 29": "a common mistake",
+    "55, 29, 59": "a common mistake"
+   }
+  },
+  "m1-cm-s01-honors-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "39, 66, 87.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "87, 66, 39": "a common mistake",
+    "87, 39, 66": "a common mistake",
+    "66, 39, 87": "a common mistake"
+   }
+  },
+  "m1-cm-s01-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "33, 47, 75.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "75, 47, 33": "a common mistake",
+    "33, 75, 47": "a common mistake",
+    "47, 33, 75": "a common mistake"
+   }
+  },
+  "m1-cm-s01-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "38, 51, 84.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "84, 51, 38": "a common mistake",
+    "84, 38, 51": "a common mistake",
+    "51, 38, 84": "a common mistake"
+   }
+  },
+  "m1-cm-s01-honors-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "22, 41, 75.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "75, 41, 22": "a common mistake",
+    "41, 75, 22": "a common mistake",
+    "41, 22, 75": "a common mistake"
+   }
+  },
+  "m1-cm-s01-honors-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "16, 25, 58.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "58, 25, 16": "a common mistake",
+    "58, 16, 25": "a common mistake",
+    "25, 16, 58": "a common mistake"
+   }
+  },
+  "m1-cm-s01-honors-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "26, 38, 68.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "68, 38, 26": "a common mistake",
+    "26, 68, 38": "a common mistake",
+    "38, 26, 68": "a common mistake"
+   }
+  },
+  "m1-cm-s02-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "75 > 24.",
+   "distractors": {
+    "<": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "24 < 26.",
+   "distractors": {
+    ">": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "36 < 80.",
+   "distractors": {
+    ">": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "69 < 81.",
+   "distractors": {
+    ">": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "53 < 60.",
+   "distractors": {
+    ">": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-honors-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "81 > 24.",
+   "distractors": {
+    "<": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "70 > 61.",
+   "distractors": {
+    "<": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-honors-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "25 < 79.",
+   "distractors": {
+    ">": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-honors-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "45 − 42 + 1 = 4.",
+   "distractors": {
+    "5": "a common mistake",
+    "3": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s03-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "61 − 52 + 1 = 10.",
+   "distractors": {
+    "11": "a common mistake",
+    "9": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "79 − 75 + 1 = 5.",
+   "distractors": {
+    "6": "a common mistake",
+    "4": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s03-honors-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "38 − 35 + 1 = 4.",
+   "distractors": {
+    "5": "a common mistake",
+    "3": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-honors-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "64 − 54 + 1 = 11.",
+   "distractors": {
+    "12": "a common mistake",
+    "10": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s03-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "55 − 44 + 1 = 12.",
+   "distractors": {
+    "13": "a common mistake",
+    "11": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "39 − 31 + 1 = 9.",
+   "distractors": {
+    "10": "a common mistake",
+    "8": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s03-honors-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "33 − 26 + 1 = 8.",
+   "distractors": {
+    "9": "a common mistake",
+    "7": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s01-cp1-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "75 + 4 = 79.",
+   "distractors": {
+    "73": "a common mistake",
+    "75": "a common mistake",
+    "80": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s01-cp1-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "79 + 1 = 80.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "68": "a common mistake",
+    "79": "a common mistake",
+    "81": "a common mistake"
+   }
+  },
+  "m1-cm-s01-cp1-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "64 + 7 = 71.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "22": "a common mistake",
+    "64": "a common mistake",
+    "72": "a common mistake"
+   }
+  },
+  "m1-cm-s01-cp1-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "89 + 8 = 97.",
+   "distractors": {
+    "72": "a common mistake",
+    "89": "a common mistake",
+    "98": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s01-cp1-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "66 + 2 = 68.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "37": "a common mistake",
+    "66": "a common mistake",
+    "69": "a common mistake"
+   }
+  },
+  "m1-cm-s01-cp1-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "72 + 3 = 75.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "63": "a common mistake",
+    "72": "a common mistake",
+    "76": "a common mistake"
+   }
+  },
+  "m1-cm-s01-cp1-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "50 + 7 = 57.",
+   "distractors": {
+    "46": "a common mistake",
+    "50": "a common mistake",
+    "58": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s01-cp1-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "94 + 2 = 96.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "52": "a common mistake",
+    "94": "a common mistake",
+    "97": "a common mistake"
+   }
+  },
+  "m1-cm-s01-cp1-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "91 + 8 = 99.",
+   "distractors": {
+    "38": "a common mistake",
+    "91": "a common mistake",
+    "100": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s01-cp1-019": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "70 + 3 = 73.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "39": "a common mistake",
+    "70": "a common mistake",
+    "74": "a common mistake"
+   }
+  },
+  "m1-cm-s01-cp1-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "62 + 2 = 64.",
+   "distractors": {
+    "62": "a common mistake",
+    "65": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s01-cp1-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "40 + 4 = 44.",
+   "distractors": {
+    "37": "a common mistake",
+    "40": "a common mistake",
+    "45": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s01-cp1-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "78 + 8 = 86.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "47": "a common mistake",
+    "78": "a common mistake",
+    "87": "a common mistake"
+   }
+  },
+  "m1-cm-s02-cp1-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Compare 18 and 46.",
+   "distractors": {
+    ">": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Compare 83 and 21.",
+   "distractors": {
+    "<": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-cp1-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Compare 12 and 17.",
+   "distractors": {
+    ">": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Compare 89 and 75.",
+   "distractors": {
+    "<": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-cp1-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Compare 57 and 75.",
+   "distractors": {
+    ">": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Compare 59 and 50.",
+   "distractors": {
+    "<": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-cp1-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Compare 91 and 73.",
+   "distractors": {
+    "<": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-cp1-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "Compare 81 and 39.",
+   "distractors": {
+    "<": "a common mistake",
+    "=": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-cp1-001": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 7, so the greatest is 6.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "7": "a common mistake",
+    "8": "a common mistake",
+    "9": "a common mistake"
+   }
+  },
+  "m1-cm-s03-cp1-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 3, so the greatest is 2.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "3": "a common mistake",
+    "4": "a common mistake",
+    "9": "a common mistake"
+   }
+  },
+  "m1-cm-s03-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 4, so the greatest is 3.",
+   "distractors": {
+    "4": "a common mistake",
+    "5": "a common mistake",
+    "9": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s03-cp1-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 1, so the greatest is 0.",
+   "distractors": {
+    "1": "a common mistake",
+    "2": "a common mistake",
+    "9": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-cp1-006": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 7, so the greatest is 6.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "7": "a common mistake",
+    "8": "a common mistake",
+    "9": "a common mistake"
+   }
+  },
+  "m1-cm-s03-cp1-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 2, so the greatest is 1.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "2": "a common mistake",
+    "3": "a common mistake",
+    "9": "a common mistake"
+   }
+  },
+  "m1-cm-s03-cp1-008": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 3, so the greatest is 2.",
+   "distractors": {
+    "3": "a common mistake",
+    "4": "a common mistake",
+    "9": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s03-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 1, so the greatest is 0.",
+   "distractors": {
+    "1": "a common mistake",
+    "2": "a common mistake",
+    "9": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-cp1-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 3, so the greatest is 2.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "3": "a common mistake",
+    "4": "a common mistake",
+    "9": "a common mistake"
+   }
+  },
+  "m1-cm-s03-cp1-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 5, so the greatest is 4.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "5": "a common mistake",
+    "6": "a common mistake",
+    "9": "a common mistake"
+   }
+  },
+  "m1-cm-s03-cp1-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 1, so the greatest is 0.",
+   "distractors": {
+    "1": "a common mistake",
+    "2": "a common mistake",
+    "9": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s03-cp1-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 2, so the greatest is 1.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   },
+   "distractors": {
+    "2": "a common mistake",
+    "3": "a common mistake",
+    "9": "a common mistake"
+   }
+  },
+  "m1-cm-s03-cp1-015": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 4, so the greatest is 3.",
+   "distractors": {
+    "4": "a common mistake",
+    "5": "a common mistake",
+    "9": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-cp1-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 6, so the greatest is 5.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "6": "a common mistake",
+    "7": "a common mistake",
+    "9": "a common mistake"
+   }
+  },
+  "m1-cm-s03-cp1-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 1, so the greatest is 0.",
+   "game": {
+    "textMC": true,
+    "numeric": false
+   },
+   "distractors": {
+    "1": "a common mistake",
+    "2": "a common mistake",
+    "9": "a common mistake"
+   }
+  },
+  "m1-cm-s03-cp1-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 6, so the greatest is 5.",
+   "distractors": {
+    "6": "a common mistake",
+    "7": "a common mistake",
+    "9": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s03-cp1-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 4, so the greatest is 3.",
+   "distractors": {
+    "4": "a common mistake",
+    "5": "a common mistake",
+    "9": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-cp1-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 7, so the greatest is 6.",
+   "distractors": {
+    "7": "a common mistake",
+    "8": "a common mistake",
+    "9": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": true
+   }
+  },
+  "m1-cm-s03-cp1-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 4, so the greatest is 3.",
+   "distractors": {
+    "4": "a common mistake",
+    "5": "a common mistake",
+    "9": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-cp1-023": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "The ones digit must be less than 7, so the greatest is 6.",
+   "distractors": {
+    "7": "a common mistake",
+    "8": "a common mistake",
+    "9": "a common mistake"
+   },
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s01-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "The first digit.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "The first digit.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "The first digit.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Compare.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "3 through 9.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "3 through 9.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "5 through 9.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Compare the tens first, then the ones.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s01-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Compare the tens first, then the ones.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s01-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Compare the tens first, then the ones.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The open side faces the greater number.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The open side faces the greater number.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s02-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The open side faces the greater number.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The tens are the same, so the ones must be more than 6.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The tens are the same, so the ones must be more than 5.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-cm-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "The tens are the same, so the ones must be more than 3.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  }
+ }
+}

@@ -1,0 +1,1398 @@
+{
+ "unit": "measuring-length",
+ "edits": [
+  {
+   "id": "m1-ml-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A pencil is 6 cubes long. Select ALL the lengths that are longer than the pencil."
+    },
+    "answer": {
+     "from": [
+      "The ruler is longer than the pencil. The ruler is longer than the marker. Which is the longest? → Ruler",
+      "The ruler is longer than the rope. The ruler is longer than the snake. Which is the longest? → Ruler"
+     ],
+     "to": [
+      "7 cubes",
+      "10 cubes"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "The ruler is longer than the pencil. The ruler is longer than the marker. Which is the longest? → Ruler",
+       "correct": true
+      },
+      {
+       "text": "The ruler is longer than the ribbon. The ruler is longer than the snake. Which is the longest? → Ribbon",
+       "correct": false
+      },
+      {
+       "text": "The brush is longer than the spoon. The brush is longer than the ribbon. Which is the longest? → Spoon",
+       "correct": false
+      },
+      {
+       "text": "The ruler is longer than the rope. The ruler is longer than the snake. Which is the longest? → Ruler",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "2 cubes",
+       "correct": false
+      },
+      {
+       "text": "7 cubes",
+       "correct": true
+      },
+      {
+       "text": "3 cubes",
+       "correct": false
+      },
+      {
+       "text": "10 cubes",
+       "correct": true
+      },
+      {
+       "text": "5 cubes",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "The ruler is longer than the pencil. The ruler is longer than the marker. Which is the longest? → Ruler: correct.",
+      "The ruler is longer than the ribbon. The ruler is longer than the snake. Which is the longest? → Ribbon: not correct.",
+      "The brush is longer than the spoon. The brush is longer than the ribbon. Which is the longest? → Spoon: not correct.",
+      "The ruler is longer than the rope. The ruler is longer than the snake. Which is the longest? → Ruler: correct."
+     ],
+     "to": [
+      "Longer means more than 6 cubes.",
+      "Correct choices: 7 cubes; 10 cubes. Not correct: 3 cubes; 5 cubes; 2 cubes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: lo_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml1_select_longer). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-ml-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A red ribbon is 4 cubes long, a blue ribbon is 11 cubes long and a green ribbon is 13 cubes long."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "The snake is longer than the spoon. The snake is longer than the marker. Which is the longest?",
+       "answer": "Snake"
+      },
+      {
+       "prompt": "The ruler is longer than the spoon. The ruler is longer than the crayon. Which is the longest?",
+       "answer": "Ruler"
+      },
+      {
+       "prompt": "The spoon is longer than the straw. The spoon is longer than the brush. Which is the longest?",
+       "answer": "Spoon"
+      },
+      {
+       "prompt": "The pencil is longer than the stick. The pencil is longer than the marker. Which is the longest?",
+       "answer": "Pencil"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which ribbon is longest?",
+       "answer": "green"
+      },
+      {
+       "prompt": "Which ribbon is shortest?",
+       "answer": "red"
+      },
+      {
+       "prompt": "How many cubes longer is the longest than the shortest?",
+       "answer": "9 cubes"
+      },
+      {
+       "prompt": "Tell how you put them in order.",
+       "answer": "Sample answer: I compared the number of cubes from fewest to most."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) Snake; (b) Ruler; (c) Spoon; (d) Pencil",
+     "to": "(a) green; (b) red; (c) 9 cubes; (d) Sample answer: I compared the number of cubes from fewest to most."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Use the clues to order the objects. The snake is the longest.",
+      "(b) Use the clues to order the objects. The ruler is the longest.",
+      "(c) Use the clues to order the objects. The spoon is the longest.",
+      "(d) Use the clues to order the objects. The pencil is the longest."
+     ],
+     "to": [
+      "(a) The most cubes.",
+      "(b) The fewest cubes.",
+      "(c) Subtract.",
+      "(d) Compare."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: lo_text_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml1_open_ribbons). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-ml-s01-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A pencil is 9 cubes long. Select ALL the lengths that are longer than the pencil."
+    },
+    "answer": {
+     "from": [
+      "The rope is longer than the spoon. Which is shorter? → Spoon",
+      "The yarn is longer than the crayon. Which is longer? → Yarn"
+     ],
+     "to": [
+      "12 cubes",
+      "10 cubes",
+      "14 cubes"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "The rope is longer than the spoon. Which is shorter? → Spoon",
+       "correct": true
+      },
+      {
+       "text": "The pencil is longer than the marker. Which is shorter? → Pencil",
+       "correct": false
+      },
+      {
+       "text": "The pencil is longer than the crayon. Which is longer? → Crayon",
+       "correct": false
+      },
+      {
+       "text": "The yarn is longer than the crayon. Which is longer? → Yarn",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "12 cubes",
+       "correct": true
+      },
+      {
+       "text": "9 cubes",
+       "correct": false
+      },
+      {
+       "text": "6 cubes",
+       "correct": false
+      },
+      {
+       "text": "10 cubes",
+       "correct": true
+      },
+      {
+       "text": "14 cubes",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "The rope is longer than the spoon. Which is shorter? → Spoon: correct.",
+      "The pencil is longer than the marker. Which is shorter? → Pencil: not correct.",
+      "The pencil is longer than the crayon. Which is longer? → Crayon: not correct.",
+      "The yarn is longer than the crayon. Which is longer? → Yarn: correct."
+     ],
+     "to": [
+      "Longer means more than 9 cubes.",
+      "Correct choices: 12 cubes; 10 cubes; 14 cubes. Not correct: 6 cubes; 9 cubes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: lo_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml1_select_longer). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-ml-s01-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A red ribbon is 9 cubes long, a blue ribbon is 10 cubes long and a green ribbon is 7 cubes long."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "The yarn is longer than the ruler. Which is shorter?",
+       "answer": "Ruler"
+      },
+      {
+       "prompt": "The ribbon is longer than the marker. Which is shorter?",
+       "answer": "Marker"
+      },
+      {
+       "prompt": "The crayon is longer than the rope. Which is shorter?",
+       "answer": "Rope"
+      },
+      {
+       "prompt": "The crayon is longer than the rope. Which is longer?",
+       "answer": "Crayon"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which ribbon is longest?",
+       "answer": "blue"
+      },
+      {
+       "prompt": "Which ribbon is shortest?",
+       "answer": "green"
+      },
+      {
+       "prompt": "How many cubes longer is the longest than the shortest?",
+       "answer": "3 cubes"
+      },
+      {
+       "prompt": "Tell how you put them in order.",
+       "answer": "Sample answer: I compared the number of cubes from fewest to most."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) Ruler; (b) Marker; (c) Rope; (d) Crayon",
+     "to": "(a) blue; (b) green; (c) 3 cubes; (d) Sample answer: I compared the number of cubes from fewest to most."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The yarn is longer. So the ruler is shorter.",
+      "(b) The ribbon is longer. So the marker is shorter.",
+      "(c) The crayon is longer. So the rope is shorter.",
+      "(d) The crayon is longer. So the rope is shorter."
+     ],
+     "to": [
+      "(a) The most cubes.",
+      "(b) The fewest cubes.",
+      "(c) Subtract.",
+      "(d) Compare."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: lo_text_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml1_open_ribbons). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-ml-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A pencil is 11 cubes long. Select ALL the lengths that are longer than the pencil."
+    },
+    "answer": {
+     "from": [
+      "The rope is longer than the brush. The ruler is longer than the rope. Which is the longest? → Ruler",
+      "The snake is longer than the spoon. The ruler is longer than the snake. Which is the longest? → Ruler"
+     ],
+     "to": [
+      "13 cubes",
+      "12 cubes",
+      "14 cubes",
+      "18 cubes"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "The rope is longer than the brush. The ruler is longer than the rope. Which is the longest? → Ruler",
+       "correct": true
+      },
+      {
+       "text": "The snake is longer than the spoon. The ruler is longer than the snake. Which is the longest? → Ruler",
+       "correct": true
+      },
+      {
+       "text": "The rope is longer than the marker. The spoon is longer than the rope. Which is the shortest? → Spoon",
+       "correct": false
+      },
+      {
+       "text": "The stick is longer than the yarn. The ruler is longer than the stick. Which is the shortest? → Stick",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "13 cubes",
+       "correct": true
+      },
+      {
+       "text": "12 cubes",
+       "correct": true
+      },
+      {
+       "text": "14 cubes",
+       "correct": true
+      },
+      {
+       "text": "3 cubes",
+       "correct": false
+      },
+      {
+       "text": "18 cubes",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "The rope is longer than the brush. The ruler is longer than the rope. Which is the longest? → Ruler: correct.",
+      "The snake is longer than the spoon. The ruler is longer than the snake. Which is the longest? → Ruler: correct.",
+      "The rope is longer than the marker. The spoon is longer than the rope. Which is the shortest? → Spoon: not correct.",
+      "The stick is longer than the yarn. The ruler is longer than the stick. Which is the shortest? → Stick: not correct."
+     ],
+     "to": [
+      "Longer means more than 11 cubes.",
+      "Correct choices: 13 cubes; 12 cubes; 14 cubes; 18 cubes. Not correct: 3 cubes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: lo_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml1_select_longer). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-ml-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A red ribbon is 14 cubes long, a blue ribbon is 10 cubes long and a green ribbon is 15 cubes long."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "The yarn is longer than the pencil. The ribbon is longer than the yarn. Which is the shortest?",
+       "answer": "Pencil"
+      },
+      {
+       "prompt": "The ruler is longer than the crayon. The brush is longer than the ruler. Which is the shortest?",
+       "answer": "Crayon"
+      },
+      {
+       "prompt": "The ribbon is longer than the straw. The yarn is longer than the ribbon. Which is the longest?",
+       "answer": "Yarn"
+      },
+      {
+       "prompt": "The straw is longer than the snake. The stick is longer than the straw. Which is the longest?",
+       "answer": "Stick"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which ribbon is longest?",
+       "answer": "green"
+      },
+      {
+       "prompt": "Which ribbon is shortest?",
+       "answer": "blue"
+      },
+      {
+       "prompt": "How many cubes longer is the longest than the shortest?",
+       "answer": "5 cubes"
+      },
+      {
+       "prompt": "Tell how you put them in order.",
+       "answer": "Sample answer: I compared the number of cubes from fewest to most."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) Pencil; (b) Crayon; (c) Yarn; (d) Stick",
+     "to": "(a) green; (b) blue; (c) 5 cubes; (d) Sample answer: I compared the number of cubes from fewest to most."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Use the clues to order the objects. The pencil is the shortest.",
+      "(b) Use the clues to order the objects. The crayon is the shortest.",
+      "(c) Use the clues to order the objects. The yarn is the longest.",
+      "(d) Use the clues to order the objects. The stick is the longest."
+     ],
+     "to": [
+      "(a) The most cubes.",
+      "(b) The fewest cubes.",
+      "(c) Subtract.",
+      "(d) Compare."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: lo_text_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml1_open_ribbons). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-ml-s02-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A pencil is shorter than a marker, and the marker is shorter than a ruler. Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "Ben's worm is longer than Zoe's. Sam's worm is longer than Ben's. Whose worm is the shortest? → Zoe",
+      "Ben's train is longer than Zoe's. Sam's train is longer than Ben's. Whose train is the longest? → Sam"
+     ],
+     "to": [
+      "the ruler is longer than the pencil",
+      "the marker is longer than the pencil"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Ben's worm is longer than Zoe's. Sam's worm is longer than Ben's. Whose worm is the shortest? → Zoe",
+       "correct": true
+      },
+      {
+       "text": "Sam's train is longer than Zoe's. Ben's train is longer than Sam's. Whose train is the longest? → Sam",
+       "correct": false
+      },
+      {
+       "text": "Zoe's train is longer than Kim's. Mia's train is longer than Zoe's. Whose train is the longest? → Zoe",
+       "correct": false
+      },
+      {
+       "text": "Ben's train is longer than Zoe's. Sam's train is longer than Ben's. Whose train is the longest? → Sam",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "the ruler is longer than the pencil",
+       "correct": true
+      },
+      {
+       "text": "the pencil is longer than the ruler",
+       "correct": false
+      },
+      {
+       "text": "the marker is longer than the pencil",
+       "correct": true
+      },
+      {
+       "text": "the ruler is shorter than the marker",
+       "correct": false
+      },
+      {
+       "text": "the ruler is shorter than the pencil",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Ben's worm is longer than Zoe's. Sam's worm is longer than Ben's. Whose worm is the shortest? → Zoe: correct.",
+      "Sam's train is longer than Zoe's. Ben's train is longer than Sam's. Whose train is the longest? → Sam: not correct.",
+      "Zoe's train is longer than Kim's. Mia's train is longer than Zoe's. Whose train is the longest? → Zoe: not correct.",
+      "Ben's train is longer than Zoe's. Sam's train is longer than Ben's. Whose train is the longest? → Sam: correct."
+     ],
+     "to": [
+      "Pencil < marker < ruler.",
+      "Correct choices: the ruler is longer than the pencil; the marker is longer than the pencil. Not correct: the pencil is longer than the ruler; the ruler is shorter than the pencil; the ruler is shorter than the marker."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: in_extreme_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml2_select_indirect). 1st Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-ml-s02-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A pencil is shorter than a marker. The marker is shorter than a ruler."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "The room is shorter than the rope. The hall is longer than the rope. Which is longer, the room or the hall?",
+       "answer": "hall"
+      },
+      {
+       "prompt": "The bed is shorter than the rope. The door is longer than the rope. Which is longer, the bed or the door?",
+       "answer": "door"
+      },
+      {
+       "prompt": "The bench is shorter than the rope. The slide is longer than the rope. Which is longer, the bench or the slide?",
+       "answer": "slide"
+      },
+      {
+       "prompt": "A stick is shorter than the snake. The stick is longer than the worm. Which is longer, the snake or the worm?",
+       "answer": "snake"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which is longest?",
+       "answer": "ruler"
+      },
+      {
+       "prompt": "Which is shortest?",
+       "answer": "pencil"
+      },
+      {
+       "prompt": "Is the pencil shorter than the ruler? (yes or no)",
+       "answer": "yes"
+      },
+      {
+       "prompt": "Tell how you knew without putting the pencil next to the ruler.",
+       "answer": "Sample answer: The pencil is shorter than the marker, and the marker is shorter than the ruler."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) hall; (b) door; (c) slide; (d) snake",
+     "to": "(a) ruler; (b) pencil; (c) yes; (d) Sample answer: The pencil is shorter than the marker, and the marker is shorter than the ruler."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The hall is longer than the rope, and the rope is longer than the room. So the hall is longer than the room.",
+      "(b) The door is longer than the rope, and the rope is longer than the bed. So the door is longer than the bed.",
+      "(c) The slide is longer than the rope, and the rope is longer than the bench. So the slide is longer than the bench.",
+      "(d) The snake is longer than the stick, and the stick is longer than the worm. So the snake is longer than the worm."
+     ],
+     "to": [
+      "(a) The ruler is longer than the marker.",
+      "(b) The pencil is shorter than the marker.",
+      "(c) Shorter than something shorter.",
+      "(d) Compare through the marker."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: in_cmp_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml2_open_indirect). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-ml-s02-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A pencil is shorter than a marker, and the marker is shorter than a ruler. Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "Ana's train is longer than Ben's. Ben's train is longer than Mia's. Whose train is the longest? → Ana",
+      "Kim's train is longer than Tom's. Tom's train is longer than Ana's. Whose train is the longest? → Kim"
+     ],
+     "to": [
+      "the pencil is shorter than the ruler",
+      "the ruler is longer than the marker",
+      "the marker is longer than the pencil"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Ana's train is longer than Ben's. Ben's train is longer than Mia's. Whose train is the longest? → Ana",
+       "correct": true
+      },
+      {
+       "text": "Sam's snake is longer than Zoe's. Zoe's snake is longer than Max's. Whose snake is the longest? → Max",
+       "correct": false
+      },
+      {
+       "text": "Ben's worm is longer than Tom's. Tom's worm is longer than Zoe's. Whose worm is the longest? → Tom",
+       "correct": false
+      },
+      {
+       "text": "Kim's train is longer than Tom's. Tom's train is longer than Ana's. Whose train is the longest? → Kim",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "the pencil is shorter than the ruler",
+       "correct": true
+      },
+      {
+       "text": "the ruler is longer than the marker",
+       "correct": true
+      },
+      {
+       "text": "the marker is longer than the pencil",
+       "correct": true
+      },
+      {
+       "text": "the marker is longer than the ruler",
+       "correct": false
+      },
+      {
+       "text": "the ruler is shorter than the marker",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Ana's train is longer than Ben's. Ben's train is longer than Mia's. Whose train is the longest? → Ana: correct.",
+      "Sam's snake is longer than Zoe's. Zoe's snake is longer than Max's. Whose snake is the longest? → Max: not correct.",
+      "Ben's worm is longer than Tom's. Tom's worm is longer than Zoe's. Whose worm is the longest? → Tom: not correct.",
+      "Kim's train is longer than Tom's. Tom's train is longer than Ana's. Whose train is the longest? → Kim: correct."
+     ],
+     "to": [
+      "Pencil < marker < ruler.",
+      "Correct choices: the pencil is shorter than the ruler; the ruler is longer than the marker; the marker is longer than the pencil. Not correct: the ruler is shorter than the marker; the marker is longer than the ruler."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: in_extreme_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml2_select_indirect). 1st Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-ml-s02-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A pencil is shorter than a marker. The marker is shorter than a ruler."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "The hall is longer than the rope. The rope is longer than the room. Is the hall longer or shorter than the room?",
+       "answer": "longer"
+      },
+      {
+       "prompt": "The train is longer than the bus. The bus is longer than the van. Is the train longer or shorter than the van?",
+       "answer": "longer"
+      },
+      {
+       "prompt": "The table is longer than the tape. The tape is longer than the box. Is the table longer or shorter than the box?",
+       "answer": "longer"
+      },
+      {
+       "prompt": "The couch is longer than the yarn. The yarn is longer than the chair. Is the couch longer or shorter than the chair?",
+       "answer": "longer"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which is longest?",
+       "answer": "ruler"
+      },
+      {
+       "prompt": "Which is shortest?",
+       "answer": "pencil"
+      },
+      {
+       "prompt": "Is the pencil shorter than the ruler? (yes or no)",
+       "answer": "yes"
+      },
+      {
+       "prompt": "Tell how you knew without putting the pencil next to the ruler.",
+       "answer": "Sample answer: The pencil is shorter than the marker, and the marker is shorter than the ruler."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) longer; (b) longer; (c) longer; (d) longer",
+     "to": "(a) ruler; (b) pencil; (c) yes; (d) Sample answer: The pencil is shorter than the marker, and the marker is shorter than the ruler."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The hall is longer than the rope, and the rope is longer than the room. So the hall is longer than the room.",
+      "(b) The train is longer than the bus, and the bus is longer than the van. So the train is longer than the van.",
+      "(c) The table is longer than the tape, and the tape is longer than the box. So the table is longer than the box.",
+      "(d) The couch is longer than the yarn, and the yarn is longer than the chair. So the couch is longer than the chair."
+     ],
+     "to": [
+      "(a) The ruler is longer than the marker.",
+      "(b) The pencil is shorter than the marker.",
+      "(c) Shorter than something shorter.",
+      "(d) Compare through the marker."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: in_cmp_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml2_open_indirect). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-ml-s02-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "A pencil is shorter than a marker, and the marker is shorter than a ruler. Select ALL that are true."
+    },
+    "answer": {
+     "from": [
+      "Max's worm is shorter than Zoe's. Zoe's worm is shorter than Sam's. Whose worm is the shortest? → Max",
+      "Tom's worm is shorter than Mia's. Mia's worm is shorter than Ana's. Whose worm is the shortest? → Tom"
+     ],
+     "to": [
+      "the ruler is longer than the marker",
+      "the pencil is shorter than the ruler",
+      "the ruler is longer than the pencil",
+      "the marker is longer than the pencil"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Tom's worm is shorter than Zoe's. Zoe's worm is shorter than Max's. Whose worm is the shortest? → Max",
+       "correct": false
+      },
+      {
+       "text": "Max's worm is shorter than Zoe's. Zoe's worm is shorter than Sam's. Whose worm is the shortest? → Max",
+       "correct": true
+      },
+      {
+       "text": "Tom's worm is shorter than Mia's. Mia's worm is shorter than Ana's. Whose worm is the shortest? → Tom",
+       "correct": true
+      },
+      {
+       "text": "Ben's worm is shorter than Tom's. Tom's worm is shorter than Mia's. Whose worm is the shortest? → Mia",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "the ruler is longer than the marker",
+       "correct": true
+      },
+      {
+       "text": "the pencil is shorter than the ruler",
+       "correct": true
+      },
+      {
+       "text": "the marker is longer than the ruler",
+       "correct": false
+      },
+      {
+       "text": "the ruler is longer than the pencil",
+       "correct": true
+      },
+      {
+       "text": "the marker is longer than the pencil",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Tom's worm is shorter than Zoe's. Zoe's worm is shorter than Max's. Whose worm is the shortest? → Max: not correct.",
+      "Max's worm is shorter than Zoe's. Zoe's worm is shorter than Sam's. Whose worm is the shortest? → Max: correct.",
+      "Tom's worm is shorter than Mia's. Mia's worm is shorter than Ana's. Whose worm is the shortest? → Tom: correct.",
+      "Ben's worm is shorter than Tom's. Tom's worm is shorter than Mia's. Whose worm is the shortest? → Mia: not correct."
+     ],
+     "to": [
+      "Pencil < marker < ruler.",
+      "Correct choices: the ruler is longer than the marker; the pencil is shorter than the ruler; the ruler is longer than the pencil; the marker is longer than the pencil. Not correct: the marker is longer than the ruler."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: in_extreme_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml2_select_indirect). 1st Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade1-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m1-ml-s02-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A pencil is shorter than a marker. The marker is shorter than a ruler."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "The chair is shorter than the yarn. The couch is longer than the yarn. Which is longer, the chair or the couch?",
+       "answer": "couch"
+      },
+      {
+       "prompt": "A rope is shorter than the hall. The rope is longer than the room. Which is longer, the hall or the room?",
+       "answer": "hall"
+      },
+      {
+       "prompt": "The bench is shorter than the rope. The slide is longer than the rope. Which is longer, the bench or the slide?",
+       "answer": "slide"
+      },
+      {
+       "prompt": "A yarn is shorter than the couch. The yarn is longer than the chair. Which is longer, the couch or the chair?",
+       "answer": "couch"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Which is longest?",
+       "answer": "ruler"
+      },
+      {
+       "prompt": "Which is shortest?",
+       "answer": "pencil"
+      },
+      {
+       "prompt": "Is the pencil shorter than the ruler? (yes or no)",
+       "answer": "yes"
+      },
+      {
+       "prompt": "Tell how you knew without putting the pencil next to the ruler.",
+       "answer": "Sample answer: The pencil is shorter than the marker, and the marker is shorter than the ruler."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) couch; (b) hall; (c) slide; (d) couch",
+     "to": "(a) ruler; (b) pencil; (c) yes; (d) Sample answer: The pencil is shorter than the marker, and the marker is shorter than the ruler."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) The couch is longer than the yarn, and the yarn is longer than the chair. So the couch is longer than the chair.",
+      "(b) The hall is longer than the rope, and the rope is longer than the room. So the hall is longer than the room.",
+      "(c) The slide is longer than the rope, and the rope is longer than the bench. So the slide is longer than the bench.",
+      "(d) The couch is longer than the yarn, and the yarn is longer than the chair. So the couch is longer than the chair."
+     ],
+     "to": [
+      "(a) The ruler is longer than the marker.",
+      "(b) The pencil is shorter than the marker.",
+      "(c) Shorter than something shorter.",
+      "(d) Compare through the marker."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: in_cmp_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml2_open_indirect). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-ml-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A book is 7 paper clips long."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "The marker is 8 cubes long. The snake is 7 cubes long. How much longer is the marker than the snake?",
+       "answer": "1 cube"
+      },
+      {
+       "prompt": "The marker is 10 cubes long. The snake is 5 cubes long. How much longer is the marker than the snake?",
+       "answer": "5 cubes"
+      },
+      {
+       "prompt": "The spoon is 9 cubes long. The straw is 7 cubes long. How much longer is the spoon than the straw?",
+       "answer": "2 cubes"
+      },
+      {
+       "prompt": "The ruler is 6 cubes long. The rope is 8 cubes long. How much longer is the rope than the ruler?",
+       "answer": "2 cubes"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How long is the book in paper clips?",
+       "answer": "7 paper clips"
+      },
+      {
+       "prompt": "How long are 2 books end to end?",
+       "answer": "14 paper clips"
+      },
+      {
+       "prompt": "A pencil is 3 paper clips shorter than the book. How long is the pencil?",
+       "answer": "4 paper clips"
+      },
+      {
+       "prompt": "Tell how to measure with paper clips.",
+       "answer": "Sample answer: Put the clips end to end with no gaps or overlaps and count them."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 1 cube; (b) 5 cubes; (c) 2 cubes; (d) 2 cubes",
+     "to": "(a) 7 paper clips; (b) 14 paper clips; (c) 4 paper clips; (d) Sample answer: Put the clips end to end with no gaps or overlaps and count them."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare: 8 − 7. The marker is 1 cube longer.",
+      "(b) Compare: 10 − 5. The marker is 5 cubes longer.",
+      "(c) Compare: 9 − 7. The spoon is 2 cubes longer.",
+      "(d) Compare: 8 − 6. The rope is 2 cubes longer."
+     ],
+     "to": [
+      "(a) Count the clips.",
+      "(b) Double.",
+      "(c) Subtract 3.",
+      "(d) No gaps."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: mu_diff_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml3_open_clips). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-ml-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A book is 3 paper clips long."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "The brush is 3 cubes long. The ribbon is 5 cubes long. How much longer is the ribbon than the brush?",
+       "answer": "2 cubes"
+      },
+      {
+       "prompt": "The snake is 3 cubes long. The marker is 5 cubes long. How much longer is the marker than the snake?",
+       "answer": "2 cubes"
+      },
+      {
+       "prompt": "The brush is 4 cubes long. The snake is 6 cubes long. How much longer is the snake than the brush?",
+       "answer": "2 cubes"
+      },
+      {
+       "prompt": "The crayon is 5 cubes long. The brush is 4 cubes long. How much longer is the crayon than the brush?",
+       "answer": "1 cube"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How long is the book in paper clips?",
+       "answer": "3 paper clips"
+      },
+      {
+       "prompt": "How long are 2 books end to end?",
+       "answer": "6 paper clips"
+      },
+      {
+       "prompt": "A pencil is 3 paper clips shorter than the book. How long is the pencil?",
+       "answer": "0 paper clips"
+      },
+      {
+       "prompt": "Tell how to measure with paper clips.",
+       "answer": "Sample answer: Put the clips end to end with no gaps or overlaps and count them."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 2 cubes; (b) 2 cubes; (c) 2 cubes; (d) 1 cube",
+     "to": "(a) 3 paper clips; (b) 6 paper clips; (c) 0 paper clips; (d) Sample answer: Put the clips end to end with no gaps or overlaps and count them."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare: 5 − 3. The ribbon is 2 cubes longer.",
+      "(b) Compare: 5 − 3. The marker is 2 cubes longer.",
+      "(c) Compare: 6 − 4. The snake is 2 cubes longer.",
+      "(d) Compare: 5 − 4. The crayon is 1 cube longer."
+     ],
+     "to": [
+      "(a) Count the clips.",
+      "(b) Double.",
+      "(c) Subtract 3.",
+      "(d) No gaps."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: mu_diff_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml3_open_clips). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m1-ml-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A book is 15 paper clips long."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "The rope is 5 cubes long. The brush is 12 cubes long. How much longer is the brush than the rope?",
+       "answer": "7 cubes"
+      },
+      {
+       "prompt": "The straw is 12 cubes long. The crayon is 11 cubes long. How much longer is the straw than the crayon?",
+       "answer": "1 cube"
+      },
+      {
+       "prompt": "The rope is 7 cubes long. The straw is 8 cubes long. How much longer is the straw than the rope?",
+       "answer": "1 cube"
+      },
+      {
+       "prompt": "The rope is 4 cubes long. The yarn is 7 cubes long. How much longer is the yarn than the rope?",
+       "answer": "3 cubes"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How long is the book in paper clips?",
+       "answer": "15 paper clips"
+      },
+      {
+       "prompt": "How long are 2 books end to end?",
+       "answer": "30 paper clips"
+      },
+      {
+       "prompt": "A pencil is 3 paper clips shorter than the book. How long is the pencil?",
+       "answer": "12 paper clips"
+      },
+      {
+       "prompt": "Tell how to measure with paper clips.",
+       "answer": "Sample answer: Put the clips end to end with no gaps or overlaps and count them."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 7 cubes; (b) 1 cube; (c) 1 cube; (d) 3 cubes",
+     "to": "(a) 15 paper clips; (b) 30 paper clips; (c) 12 paper clips; (d) Sample answer: Put the clips end to end with no gaps or overlaps and count them."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Compare: 12 − 5. The brush is 7 cubes longer.",
+      "(b) Compare: 12 − 11. The straw is 1 cube longer.",
+      "(c) Compare: 8 − 7. The straw is 1 cube longer.",
+      "(d) Compare: 7 − 4. The yarn is 3 cubes longer."
+     ],
+     "to": [
+      "(a) Count the clips.",
+      "(b) Double.",
+      "(c) Subtract 3.",
+      "(d) No gaps."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 1 item (family: mu_diff_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade1-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: ml3_open_clips). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [
+  {
+   "id": "m1-ml-s04-cp2-o01",
+   "skillId": "measuring-length-skill-04",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Kim measured a shoe with cubes but left 2 cube-sized gaps. She counted 5 cubes.",
+   "parts": [
+    {
+     "prompt": "Is the shoe longer or shorter than she counted?",
+     "answer": "longer"
+    },
+    {
+     "prompt": "How many cubes long is the shoe really?",
+     "answer": "7 cubes"
+    },
+    {
+     "prompt": "How many cubes did she miss?",
+     "answer": "2 cubes"
+    },
+    {
+     "prompt": "Tell how to measure correctly.",
+     "answer": "Sample answer: Put the cubes end to end with no gaps or overlaps."
+    }
+   ],
+   "answer": "(a) longer; (b) 7 cubes; (c) 2 cubes; (d) Sample answer: Put the cubes end to end with no gaps or overlaps.",
+   "solutionSteps": [
+    "(a) The gaps also take up space.",
+    "(b) 5 + 2.",
+    "(c) The gaps.",
+    "(d) No gaps or overlaps."
+   ],
+   "standards": [
+    "1.MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ml4_open_mistake). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m1-ml-s04-cp1-o01",
+   "skillId": "measuring-length-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Kim measured a shoe with cubes but left 2 cube-sized gaps. She counted 7 cubes.",
+   "parts": [
+    {
+     "prompt": "Is the shoe longer or shorter than she counted?",
+     "answer": "longer"
+    },
+    {
+     "prompt": "How many cubes long is the shoe really?",
+     "answer": "9 cubes"
+    },
+    {
+     "prompt": "How many cubes did she miss?",
+     "answer": "2 cubes"
+    },
+    {
+     "prompt": "Tell how to measure correctly.",
+     "answer": "Sample answer: Put the cubes end to end with no gaps or overlaps."
+    }
+   ],
+   "answer": "(a) longer; (b) 9 cubes; (c) 2 cubes; (d) Sample answer: Put the cubes end to end with no gaps or overlaps.",
+   "solutionSteps": [
+    "(a) The gaps also take up space.",
+    "(b) 7 + 2.",
+    "(c) The gaps.",
+    "(d) No gaps or overlaps."
+   ],
+   "standards": [
+    "1.MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ml4_open_mistake). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+  },
+  {
+   "id": "m1-ml-s04-honors-o01",
+   "skillId": "measuring-length-skill-04",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Kim measured a shoe with cubes but left 3 cube-sized gaps. She counted 12 cubes.",
+   "parts": [
+    {
+     "prompt": "Is the shoe longer or shorter than she counted?",
+     "answer": "longer"
+    },
+    {
+     "prompt": "How many cubes long is the shoe really?",
+     "answer": "15 cubes"
+    },
+    {
+     "prompt": "How many cubes did she miss?",
+     "answer": "3 cubes"
+    },
+    {
+     "prompt": "Tell how to measure correctly.",
+     "answer": "Sample answer: Put the cubes end to end with no gaps or overlaps."
+    }
+   ],
+   "answer": "(a) longer; (b) 15 cubes; (c) 3 cubes; (d) Sample answer: Put the cubes end to end with no gaps or overlaps.",
+   "solutionSteps": [
+    "(a) The gaps also take up space.",
+    "(b) 12 + 3.",
+    "(c) The gaps.",
+    "(d) No gaps or overlaps."
+   ],
+   "standards": [
+    "1.MD.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ml4_open_mistake). 1st Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade1-audit.cjs; the explanation part is self-checked."
+  }
+ ],
+ "meta": {
+  "m1-ml-s01-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-ml-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-ml-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-ml-s02-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Shorter than something shorter.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-ml-s02-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Shorter than something shorter.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-ml-s02-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Shorter than something shorter.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-ml-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract 3.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-ml-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract 3.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-ml-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract 3.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-ml-s04-cp2-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "The gaps."
+  },
+  "m1-ml-s04-cp1-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "The gaps."
+  },
+  "m1-ml-s04-honors-o01": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "The gaps."
+  },
+  "m1-ml-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Longer means more than 6 cubes.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-ml-s01-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Longer means more than 9 cubes.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-ml-s01-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Longer means more than 11 cubes.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-ml-s02-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Pencil < marker < ruler.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-ml-s02-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Pencil < marker < ruler.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  },
+  "m1-ml-s02-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Pencil < marker < ruler.",
+   "game": {
+    "textMC": false,
+    "numeric": false
+   }
+  }
+ }
+}
