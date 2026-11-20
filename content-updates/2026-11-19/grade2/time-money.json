@@ -1,0 +1,4836 @@
+{
+ "unit": "time-money",
+ "edits": [
+  {
+   "id": "m2-tm-s01-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "Write the time that is 5 minutes after 8.",
+     "to": "The minute hand points to the 8. How many minutes after the hour is it? How many minutes after the hour will it be 15 minutes later?"
+    },
+    "answer": {
+     "from": "8:05",
+     "to": "40 minutes; 55 minutes"
+    },
+    "solutionSteps": {
+     "from": [
+      "5 minutes after 8 means 5 minutes after 8:00.",
+      "The time is 8:05."
+     ],
+     "to": [
+      "8 × 5 = 40 minutes.",
+      "40 + 15 = 55 minutes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_words). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_minute_hand_later). Rewritten from a Support template (was tm_words) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "8:01",
+       "correct": false
+      },
+      {
+       "text": "8:05",
+       "correct": true
+      },
+      {
+       "text": "8:50",
+       "correct": false
+      },
+      {
+       "text": "7:05",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "8 minutes; 23 minutes",
+       "correct": false
+      },
+      {
+       "text": "40 minutes; 55 minutes",
+       "correct": true
+      },
+      {
+       "text": "40 minutes; 45 minutes",
+       "correct": false
+      },
+      {
+       "text": "80 minutes; 95 minutes",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-cp1-018",
+   "changes": {
+    "prompt": {
+     "from": "The minute hand points to the 5. How many minutes after the hour is it?",
+     "to": "The minute hand points to the 3. How many minutes after the hour is it? How many minutes after the hour will it be 10 minutes later?"
+    },
+    "answer": {
+     "from": "25 minutes",
+     "to": "15 minutes; 25 minutes"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count by 5s from the 12 to the 5.",
+      "5 jumps of 5 is 25 minutes."
+     ],
+     "to": [
+      "3 × 5 = 15 minutes.",
+      "15 + 10 = 25 minutes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_minutes). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_minute_hand_later). Rewritten from a Support template (was tm_minutes) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "5 minutes",
+       "correct": false
+      },
+      {
+       "text": "50 minutes",
+       "correct": false
+      },
+      {
+       "text": "30 minutes",
+       "correct": false
+      },
+      {
+       "text": "25 minutes",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "3 minutes; 13 minutes",
+       "correct": false
+      },
+      {
+       "text": "15 minutes; 25 minutes",
+       "correct": true
+      },
+      {
+       "text": "15 minutes; 20 minutes",
+       "correct": false
+      },
+      {
+       "text": "30 minutes; 40 minutes",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-cp1-028",
+   "changes": {
+    "prompt": {
+     "from": "Minutes after the hour when the minute hand points to the 9. Is the answer 9 minutes?",
+     "to": "The minute hand points to the 1. How many minutes after the hour is it? How many minutes after the hour will it be 15 minutes later?"
+    },
+    "answer": {
+     "from": "No. The answer is 45 minutes.",
+     "to": "5 minutes; 20 minutes"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count by 5s from the 12 to the 9.",
+      "9 jumps of 5 is 45 minutes.",
+      "The answer 9 minutes is not correct; it should be 45 minutes."
+     ],
+     "to": [
+      "1 × 5 = 5 minutes.",
+      "5 + 15 = 20 minutes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_minutes_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_minute_hand_later). Rewritten from a Support template (was tm_minutes_tf) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The answer is 45 minutes.",
+       "correct": true
+      },
+      {
+       "text": "No. The answer is 50 minutes.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 90 minutes.",
+       "correct": false
+      },
+      {
+       "text": "Yes. 9 minutes is the correct answer.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "5 minutes; 20 minutes",
+       "correct": true
+      },
+      {
+       "text": "1 minutes; 16 minutes",
+       "correct": false
+      },
+      {
+       "text": "5 minutes; 10 minutes",
+       "correct": false
+      },
+      {
+       "text": "10 minutes; 25 minutes",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "It is 11:15. Select ALL the times that are later but less than 30 minutes away."
+    },
+    "answer": {
+     "from": [
+      "Minutes after the hour when the minute hand points to the 5 → 25 minutes",
+      "Minutes after the hour when the minute hand points to the 6 → 30 minutes"
+     ],
+     "to": [
+      "11:35",
+      "11:40",
+      "11:20"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Minutes after the hour when the minute hand points to the 3 → 30 minutes",
+       "correct": false
+      },
+      {
+       "text": "Minutes after the hour when the minute hand points to the 8 → 45 minutes",
+       "correct": false
+      },
+      {
+       "text": "Minutes after the hour when the minute hand points to the 5 → 25 minutes",
+       "correct": true
+      },
+      {
+       "text": "Minutes after the hour when the minute hand points to the 6 → 30 minutes",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "11:35",
+       "correct": true
+      },
+      {
+       "text": "11:40",
+       "correct": true
+      },
+      {
+       "text": "11:50",
+       "correct": false
+      },
+      {
+       "text": "11:00",
+       "correct": false
+      },
+      {
+       "text": "11:20",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Minutes after the hour when the minute hand points to the 3 → 30 minutes: not correct.",
+      "Minutes after the hour when the minute hand points to the 8 → 45 minutes: not correct.",
+      "Minutes after the hour when the minute hand points to the 5 → 25 minutes: correct.",
+      "Minutes after the hour when the minute hand points to the 6 → 30 minutes: correct."
+     ],
+     "to": [
+      "Count on by 5s from the time shown.",
+      "Correct choices: 11:35; 11:40; 11:20. Not correct: 11:00; 11:50."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_minutes_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_select_within_half_hour). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "The hour hand is just past the 3 and the minute hand points to the 6."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "The minute hand points to the 4. How many minutes after the hour is it?",
+       "answer": "20 minutes"
+      },
+      {
+       "prompt": "The minute hand points to the 1. How many minutes after the hour is it?",
+       "answer": "5 minutes"
+      },
+      {
+       "prompt": "The minute hand points to the 10. How many minutes after the hour is it?",
+       "answer": "50 minutes"
+      },
+      {
+       "prompt": "The minute hand points to the 6. How many minutes after the hour is it?",
+       "answer": "30 minutes"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What time is it?",
+       "answer": "3:30"
+      },
+      {
+       "prompt": "What time will it be in 15 minutes?",
+       "answer": "3:45"
+      },
+      {
+       "prompt": "How many minutes until the next hour?",
+       "answer": "30 minutes"
+      },
+      {
+       "prompt": "Explain how you read the minute hand.",
+       "answer": "Sample answer: I count by 5s for each number on the clock."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 20 minutes; (b) 5 minutes; (c) 50 minutes; (d) 30 minutes",
+     "to": "(a) 3:30; (b) 3:45; (c) 30 minutes; (d) Sample answer: I count by 5s for each number on the clock."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count by 5s from the 12 to the 4. 4 jumps of 5 is 20 minutes.",
+      "(b) Count by 5s from the 12 to the 1. 1 jumps of 5 is 5 minutes.",
+      "(c) Count by 5s from the 12 to the 10. 10 jumps of 5 is 50 minutes.",
+      "(d) Count by 5s from the 12 to the 6. 6 jumps of 5 is 30 minutes."
+     ],
+     "to": [
+      "(a) 6 × 5 = 30 minutes.",
+      "(b) Count on by 5s.",
+      "(c) 60 minus the minutes.",
+      "(d) Count by 5s."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_minutes_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_open_clock). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "It is 6:15. Select ALL the times that are later but less than 30 minutes away."
+    },
+    "answer": {
+     "from": [
+      "Minutes after the hour when the minute hand points to the 9 → 45 minutes",
+      "Minutes after the hour when the minute hand points to the 3 → 15 minutes"
+     ],
+     "to": [
+      "6:35",
+      "6:40",
+      "6:25",
+      "6:30"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Minutes after the hour when the minute hand points to the 9 → 45 minutes",
+       "correct": true
+      },
+      {
+       "text": "Minutes after the hour when the minute hand points to the 3 → 15 minutes",
+       "correct": true
+      },
+      {
+       "text": "Minutes after the hour when the minute hand points to the 8 → 45 minutes",
+       "correct": false
+      },
+      {
+       "text": "Minutes after the hour when the minute hand points to the 6 → 60 minutes",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6:05",
+       "correct": false
+      },
+      {
+       "text": "6:35",
+       "correct": true
+      },
+      {
+       "text": "6:40",
+       "correct": true
+      },
+      {
+       "text": "6:25",
+       "correct": true
+      },
+      {
+       "text": "6:30",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Minutes after the hour when the minute hand points to the 9 → 45 minutes: correct.",
+      "Minutes after the hour when the minute hand points to the 3 → 15 minutes: correct.",
+      "Minutes after the hour when the minute hand points to the 8 → 45 minutes: not correct.",
+      "Minutes after the hour when the minute hand points to the 6 → 60 minutes: not correct."
+     ],
+     "to": [
+      "Count on by 5s from the time shown.",
+      "Correct choices: 6:35; 6:40; 6:25; 6:30. Not correct: 6:05."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_minutes_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_select_within_half_hour). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "The hour hand is just past the 4 and the minute hand points to the 2."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "The minute hand points to the 5. How many minutes after the hour is it?",
+       "answer": "25 minutes"
+      },
+      {
+       "prompt": "The minute hand points to the 7. How many minutes after the hour is it?",
+       "answer": "35 minutes"
+      },
+      {
+       "prompt": "The minute hand points to the 8. How many minutes after the hour is it?",
+       "answer": "40 minutes"
+      },
+      {
+       "prompt": "The minute hand points to the 1. How many minutes after the hour is it?",
+       "answer": "5 minutes"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What time is it?",
+       "answer": "4:10"
+      },
+      {
+       "prompt": "What time will it be in 15 minutes?",
+       "answer": "4:25"
+      },
+      {
+       "prompt": "How many minutes until the next hour?",
+       "answer": "50 minutes"
+      },
+      {
+       "prompt": "Explain how you read the minute hand.",
+       "answer": "Sample answer: I count by 5s for each number on the clock."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 25 minutes; (b) 35 minutes; (c) 40 minutes; (d) 5 minutes",
+     "to": "(a) 4:10; (b) 4:25; (c) 50 minutes; (d) Sample answer: I count by 5s for each number on the clock."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count by 5s from the 12 to the 5. 5 jumps of 5 is 25 minutes.",
+      "(b) Count by 5s from the 12 to the 7. 7 jumps of 5 is 35 minutes.",
+      "(c) Count by 5s from the 12 to the 8. 8 jumps of 5 is 40 minutes.",
+      "(d) Count by 5s from the 12 to the 1. 1 jumps of 5 is 5 minutes."
+     ],
+     "to": [
+      "(a) 2 × 5 = 10 minutes.",
+      "(b) Count on by 5s.",
+      "(c) 60 minus the minutes.",
+      "(d) Count by 5s."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_minutes_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_open_clock). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "The minute hand points to the 7. How many minutes after the hour is it?",
+     "to": "A clock shows 8:30. What time will it show 15 minutes later?"
+    },
+    "answer": {
+     "from": "35 minutes",
+     "to": "8:45"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count by 5s from the 12 to the 7.",
+      "7 jumps of 5 is 35 minutes."
+     ],
+     "to": [
+      "Count on by 5s from 8:30.",
+      "15 minutes later is 8:45."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_minutes). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_time_later). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-honors-005",
+   "changes": {
+    "prompt": {
+     "from": "Write the time that is 10 minutes after 9.",
+     "to": "A clock shows 11:15. What time will it show 35 minutes later?"
+    },
+    "answer": {
+     "from": "9:10",
+     "to": "11:50"
+    },
+    "solutionSteps": {
+     "from": [
+      "10 minutes after 9 means 10 minutes after 9:00.",
+      "The time is 9:10."
+     ],
+     "to": [
+      "Count on by 5s from 11:15.",
+      "35 minutes later is 11:50."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_words). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_time_later). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-honors-013",
+   "changes": {
+    "prompt": {
+     "from": "Write the time that is 10 minutes after 3.",
+     "to": "A clock shows 6:20. What time will it show 35 minutes later?"
+    },
+    "answer": {
+     "from": "3:10",
+     "to": "6:55"
+    },
+    "solutionSteps": {
+     "from": [
+      "10 minutes after 3 means 10 minutes after 3:00.",
+      "The time is 3:10."
+     ],
+     "to": [
+      "Count on by 5s from 6:20.",
+      "35 minutes later is 6:55."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_words). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_time_later). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3:10",
+       "correct": true
+      },
+      {
+       "text": "3:50",
+       "correct": false
+      },
+      {
+       "text": "2:10",
+       "correct": false
+      },
+      {
+       "text": "3:02",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "6:55",
+       "correct": true
+      },
+      {
+       "text": "6:50",
+       "correct": false
+      },
+      {
+       "text": "7:05",
+       "correct": false
+      },
+      {
+       "text": "5:45",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "The minute hand points to the 6. How many minutes after the hour is it?",
+     "to": "A clock shows 5:45. What time will it show 15 minutes later?"
+    },
+    "answer": {
+     "from": "30 minutes",
+     "to": "6:00"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count by 5s from the 12 to the 6.",
+      "6 jumps of 5 is 30 minutes."
+     ],
+     "to": [
+      "Count on by 5s from 5:45.",
+      "15 minutes later is 6:00."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_minutes). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_time_later). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "6 minutes",
+       "correct": false
+      },
+      {
+       "text": "30 minutes",
+       "correct": true
+      },
+      {
+       "text": "60 minutes",
+       "correct": false
+      },
+      {
+       "text": "35 minutes",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "5:55",
+       "correct": false
+      },
+      {
+       "text": "6:10",
+       "correct": false
+      },
+      {
+       "text": "5:30",
+       "correct": false
+      },
+      {
+       "text": "6:00",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-honors-020",
+   "changes": {
+    "prompt": {
+     "from": "Write the time that is 25 minutes after 4.",
+     "to": "A clock shows 1:20. What time will it show 30 minutes later?"
+    },
+    "answer": {
+     "from": "4:25",
+     "to": "1:50"
+    },
+    "solutionSteps": {
+     "from": [
+      "25 minutes after 4 means 25 minutes after 4:00.",
+      "The time is 4:25."
+     ],
+     "to": [
+      "Count on by 5s from 1:20.",
+      "30 minutes later is 1:50."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_words). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_time_later). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-honors-024",
+   "changes": {
+    "prompt": {
+     "from": "Write the time that is 10 minutes after 10.",
+     "to": "A clock shows 4:45. What time will it show 25 minutes later?"
+    },
+    "answer": {
+     "from": "10:10",
+     "to": "5:10"
+    },
+    "solutionSteps": {
+     "from": [
+      "10 minutes after 10 means 10 minutes after 10:00.",
+      "The time is 10:10."
+     ],
+     "to": [
+      "Count on by 5s from 4:45.",
+      "25 minutes later is 5:10."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_words). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_time_later). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-honors-028",
+   "changes": {
+    "prompt": {
+     "from": "Minutes after the hour when the minute hand points to the 6. Is the answer 6 minutes?",
+     "to": "A clock shows 8:45. What time will it show 20 minutes later?"
+    },
+    "answer": {
+     "from": "No. The answer is 30 minutes.",
+     "to": "9:05"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count by 5s from the 12 to the 6.",
+      "6 jumps of 5 is 30 minutes.",
+      "The answer 6 minutes is not correct; it should be 30 minutes."
+     ],
+     "to": [
+      "Count on by 5s from 8:45.",
+      "20 minutes later is 9:05."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_minutes_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_time_later). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "No. The answer is 30 minutes.",
+       "correct": true
+      },
+      {
+       "text": "No. The answer is 60 minutes.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 35 minutes.",
+       "correct": false
+      },
+      {
+       "text": "Yes. 6 minutes is the correct answer.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9:00",
+       "correct": false
+      },
+      {
+       "text": "9:15",
+       "correct": false
+      },
+      {
+       "text": "9:05",
+       "correct": true
+      },
+      {
+       "text": "8:25",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "It is 10:10. Select ALL the times that are later but less than 30 minutes away."
+    },
+    "answer": {
+     "from": [
+      "Minutes after the hour when the minute hand points to the 3 → 15 minutes",
+      "Minutes after the hour when the minute hand points to the 8 → 40 minutes"
+     ],
+     "to": [
+      "10:30",
+      "10:15"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Minutes after the hour when the minute hand points to the 1 → 1 minute",
+       "correct": false
+      },
+      {
+       "text": "Minutes after the hour when the minute hand points to the 6 → 35 minutes",
+       "correct": false
+      },
+      {
+       "text": "Minutes after the hour when the minute hand points to the 3 → 15 minutes",
+       "correct": true
+      },
+      {
+       "text": "Minutes after the hour when the minute hand points to the 8 → 40 minutes",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "10:30",
+       "correct": true
+      },
+      {
+       "text": "10:15",
+       "correct": true
+      },
+      {
+       "text": "10:55",
+       "correct": false
+      },
+      {
+       "text": "10:45",
+       "correct": false
+      },
+      {
+       "text": "9:55",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Minutes after the hour when the minute hand points to the 1 → 1 minute: not correct.",
+      "Minutes after the hour when the minute hand points to the 6 → 35 minutes: not correct.",
+      "Minutes after the hour when the minute hand points to the 3 → 15 minutes: correct.",
+      "Minutes after the hour when the minute hand points to the 8 → 40 minutes: correct."
+     ],
+     "to": [
+      "Count on by 5s from the time shown.",
+      "Correct choices: 10:30; 10:15. Not correct: 9:55; 10:45; 10:55."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_minutes_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_select_within_half_hour). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s01-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "The hour hand is just past the 11 and the minute hand points to the 7."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "The minute hand points to the 10. How many minutes after the hour is it?",
+       "answer": "50 minutes"
+      },
+      {
+       "prompt": "The minute hand points to the 8. How many minutes after the hour is it?",
+       "answer": "40 minutes"
+      },
+      {
+       "prompt": "The minute hand points to the 1. How many minutes after the hour is it?",
+       "answer": "5 minutes"
+      },
+      {
+       "prompt": "The minute hand points to the 5. How many minutes after the hour is it?",
+       "answer": "25 minutes"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "What time is it?",
+       "answer": "11:35"
+      },
+      {
+       "prompt": "What time will it be in 15 minutes?",
+       "answer": "11:50"
+      },
+      {
+       "prompt": "How many minutes until the next hour?",
+       "answer": "25 minutes"
+      },
+      {
+       "prompt": "Explain how you read the minute hand.",
+       "answer": "Sample answer: I count by 5s for each number on the clock."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 50 minutes; (b) 40 minutes; (c) 5 minutes; (d) 25 minutes",
+     "to": "(a) 11:35; (b) 11:50; (c) 25 minutes; (d) Sample answer: I count by 5s for each number on the clock."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Count by 5s from the 12 to the 10. 10 jumps of 5 is 50 minutes.",
+      "(b) Count by 5s from the 12 to the 8. 8 jumps of 5 is 40 minutes.",
+      "(c) Count by 5s from the 12 to the 1. 1 jumps of 5 is 5 minutes.",
+      "(d) Count by 5s from the 12 to the 5. 5 jumps of 5 is 25 minutes."
+     ],
+     "to": [
+      "(a) 7 × 5 = 35 minutes.",
+      "(b) Count on by 5s.",
+      "(c) 60 minus the minutes.",
+      "(d) Count by 5s."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: tm_minutes_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm1_open_clock). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-cp1-002",
+   "changes": {
+    "prompt": {
+     "from": "Which time makes the most sense? A child wakes up.",
+     "to": "School starts at 9:20 AM. Lunch is 3 hours later. What time is lunch?"
+    },
+    "answer": {
+     "from": "7:00 AM",
+     "to": "12:20 PM"
+    },
+    "solutionSteps": {
+     "from": [
+      "Think about the time of day for this event.",
+      "7:00 AM fits."
+     ],
+     "to": [
+      "9:20 + 3 hours.",
+      "It is 12:20 PM; after 12:00 noon it is PM."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_hours_later). Rewritten from a Support template (was ap_which) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "7:00 PM",
+       "correct": false
+      },
+      {
+       "text": "7:00 AM",
+       "correct": true
+      },
+      {
+       "text": "1:00 PM",
+       "correct": false
+      },
+      {
+       "text": "1:00 AM",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "12:20 AM",
+       "correct": false
+      },
+      {
+       "text": "9:20 AM",
+       "correct": false
+      },
+      {
+       "text": "12:20 PM",
+       "correct": true
+      },
+      {
+       "text": "1:20 PM",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-cp1-004",
+   "changes": {
+    "prompt": {
+     "from": "Both times are on the same day. Which time comes first: 8:05 PM or 3:50 PM?",
+     "to": "School starts at 11:20 AM. Lunch is 1 hour later. What time is lunch?"
+    },
+    "answer": {
+     "from": "3:50 PM",
+     "to": "12:20 PM"
+    },
+    "solutionSteps": {
+     "from": [
+      "AM times come before PM times on the same day.",
+      "3:50 PM comes first."
+     ],
+     "to": [
+      "11:20 + 1 hour.",
+      "It is 12:20 PM; after 12:00 noon it is PM."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_first). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_hours_later). Rewritten from a Support template (was ap_first) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "They happen at the same time.",
+       "correct": false
+      },
+      {
+       "text": "You cannot tell.",
+       "correct": false
+      },
+      {
+       "text": "8:05 PM",
+       "correct": false
+      },
+      {
+       "text": "3:50 PM",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "12:20 AM",
+       "correct": false
+      },
+      {
+       "text": "11:20 AM",
+       "correct": false
+      },
+      {
+       "text": "1:20 PM",
+       "correct": false
+      },
+      {
+       "text": "12:20 PM",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-cp1-010",
+   "changes": {
+    "prompt": {
+     "from": "Both times are on the same day. Which time comes first: 1:50 AM or 10:45 PM?",
+     "to": "School starts at 8:35 AM. Lunch is 1 hour later. What time is lunch?"
+    },
+    "answer": {
+     "from": "1:50 AM",
+     "to": "9:35 AM"
+    },
+    "solutionSteps": {
+     "from": [
+      "AM times come before PM times on the same day.",
+      "1:50 AM comes first."
+     ],
+     "to": [
+      "8:35 + 1 hour.",
+      "It is 9:35 AM; after 12:00 noon it is PM."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_first). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_hours_later). Rewritten from a Support template (was ap_first) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "10:45 PM",
+       "correct": false
+      },
+      {
+       "text": "They happen at the same time.",
+       "correct": false
+      },
+      {
+       "text": "1:50 AM",
+       "correct": true
+      },
+      {
+       "text": "You cannot tell.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9:35 PM",
+       "correct": false
+      },
+      {
+       "text": "9:35 AM",
+       "correct": true
+      },
+      {
+       "text": "8:35 AM",
+       "correct": false
+      },
+      {
+       "text": "10:35 AM",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-cp1-020",
+   "changes": {
+    "prompt": {
+     "from": "Which time makes the most sense? A child eats breakfast.",
+     "to": "School starts at 8:30 AM. Lunch is 1 hour later. What time is lunch?"
+    },
+    "answer": {
+     "from": "8:40 AM",
+     "to": "9:30 AM"
+    },
+    "solutionSteps": {
+     "from": [
+      "Think about the time of day for this event.",
+      "8:40 AM fits."
+     ],
+     "to": [
+      "8:30 + 1 hour.",
+      "It is 9:30 AM; after 12:00 noon it is PM."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_hours_later). Rewritten from a Support template (was ap_which) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "8:40 PM",
+       "correct": false
+      },
+      {
+       "text": "8:40 AM",
+       "correct": true
+      },
+      {
+       "text": "2:40 PM",
+       "correct": false
+      },
+      {
+       "text": "2:40 AM",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "9:30 PM",
+       "correct": false
+      },
+      {
+       "text": "9:30 AM",
+       "correct": true
+      },
+      {
+       "text": "8:30 AM",
+       "correct": false
+      },
+      {
+       "text": "10:30 AM",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-cp1-022",
+   "changes": {
+    "prompt": {
+     "from": "Both times are on the same day. Which time comes first: 8:40 AM or 3:20 PM?",
+     "to": "School starts at 8:35 AM. Lunch is 3 hours later. What time is lunch?"
+    },
+    "answer": {
+     "from": "8:40 AM",
+     "to": "11:35 AM"
+    },
+    "solutionSteps": {
+     "from": [
+      "AM times come before PM times on the same day.",
+      "8:40 AM comes first."
+     ],
+     "to": [
+      "8:35 + 3 hours.",
+      "It is 11:35 AM; after 12:00 noon it is PM."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_first). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_hours_later). Rewritten from a Support template (was ap_first) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3:20 PM",
+       "correct": false
+      },
+      {
+       "text": "You cannot tell.",
+       "correct": false
+      },
+      {
+       "text": "They happen at the same time.",
+       "correct": false
+      },
+      {
+       "text": "8:40 AM",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "11:35 AM",
+       "correct": true
+      },
+      {
+       "text": "11:35 PM",
+       "correct": false
+      },
+      {
+       "text": "8:35 AM",
+       "correct": false
+      },
+      {
+       "text": "12:35 AM",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the things that usually happen in the AM."
+    },
+    "answer": {
+     "from": [
+      "Cam watches the sunset at 7:15. Is that AM or PM? → PM",
+      "Ted eats breakfast at 6:10. Is that AM or PM? → AM"
+     ],
+     "to": [
+      "waking up for school",
+      "eating breakfast",
+      "morning recess"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Sam wakes up at 7:15. Is that AM or PM? → PM",
+       "correct": false
+      },
+      {
+       "text": "Omar eats breakfast at 7:35. Is that AM or PM? → PM",
+       "correct": false
+      },
+      {
+       "text": "Cam watches the sunset at 7:15. Is that AM or PM? → PM",
+       "correct": true
+      },
+      {
+       "text": "Ted eats breakfast at 6:10. Is that AM or PM? → AM",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "reading a bedtime story",
+       "correct": false
+      },
+      {
+       "text": "waking up for school",
+       "correct": true
+      },
+      {
+       "text": "eating dinner",
+       "correct": false
+      },
+      {
+       "text": "eating breakfast",
+       "correct": true
+      },
+      {
+       "text": "morning recess",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Sam wakes up at 7:15. Is that AM or PM? → PM: not correct.",
+      "Omar eats breakfast at 7:35. Is that AM or PM? → PM: not correct.",
+      "Cam watches the sunset at 7:15. Is that AM or PM? → PM: correct.",
+      "Ted eats breakfast at 6:10. Is that AM or PM? → AM: correct."
+     ],
+     "to": [
+      "AM is from midnight to noon: the morning.",
+      "Correct choices: waking up for school; eating breakfast; morning recess. Not correct: eating dinner; reading a bedtime story."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_event_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_select_am). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Kai wakes up at 8:00 AM and goes to soccer at 6:00 PM."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Raj goes to bed at 9:20. Is that AM or PM?",
+       "answer": "PM"
+      },
+      {
+       "prompt": "Nia eats breakfast at 8:20. Is that AM or PM?",
+       "answer": "AM"
+      },
+      {
+       "prompt": "Noah has a morning recess at 10:05. Is that AM or PM?",
+       "answer": "AM"
+      },
+      {
+       "prompt": "Hana watches the sunset at 5:50. Is that AM or PM?",
+       "answer": "PM"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Is waking up in the morning AM or PM?",
+       "answer": "AM"
+      },
+      {
+       "prompt": "How many hours from waking up to noon?",
+       "answer": "4 hours"
+      },
+      {
+       "prompt": "How many hours from noon to soccer?",
+       "answer": "6 hours"
+      },
+      {
+       "prompt": "Explain the difference between AM and PM.",
+       "answer": "Sample answer: AM is from midnight to noon; PM is from noon to midnight."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) PM; (b) AM; (c) AM; (d) PM",
+     "to": "(a) AM; (b) 4 hours; (c) 6 hours; (d) Sample answer: AM is from midnight to noon; PM is from noon to midnight."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) AM is from midnight to noon (morning). PM is from noon to midnight (afternoon and night). Raj goes to bed in the afternoon or evening, so it is PM.",
+      "(b) AM is from midnight to noon (morning). PM is from noon to midnight (afternoon and night). Nia eats breakfast in the morning, so it is AM.",
+      "(c) AM is from midnight to noon (morning). PM is from noon to midnight (afternoon and night). Noah has a morning recess in the morning, so it is AM.",
+      "(d) AM is from midnight to noon (morning). PM is from noon to midnight (afternoon and night). Hana watches the sunset in the afternoon or evening, so it is PM."
+     ],
+     "to": [
+      "(a) Morning is AM.",
+      "(b) 12 − 8.",
+      "(c) 6:00 PM is 6 hours after noon.",
+      "(d) Before and after noon."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_event_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_open_day). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the things that usually happen in the AM."
+    },
+    "answer": {
+     "from": [
+      "Lena wakes up at 5:40. Is that AM or PM? → AM",
+      "Noah goes to bed at 8:45. Is that AM or PM? → PM"
+     ],
+     "to": [
+      "brushing teeth before school",
+      "morning recess",
+      "the morning bus ride",
+      "eating breakfast"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Lena wakes up at 5:40. Is that AM or PM? → AM",
+       "correct": true
+      },
+      {
+       "text": "Noah goes to bed at 8:45. Is that AM or PM? → PM",
+       "correct": true
+      },
+      {
+       "text": "Noah has a morning recess at 10:10. Is that AM or PM? → PM",
+       "correct": false
+      },
+      {
+       "text": "Leo watches the sunset at 7:00. Is that AM or PM? → AM",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "brushing teeth before school",
+       "correct": true
+      },
+      {
+       "text": "morning recess",
+       "correct": true
+      },
+      {
+       "text": "the morning bus ride",
+       "correct": true
+      },
+      {
+       "text": "after-school soccer",
+       "correct": false
+      },
+      {
+       "text": "eating breakfast",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Lena wakes up at 5:40. Is that AM or PM? → AM: correct.",
+      "Noah goes to bed at 8:45. Is that AM or PM? → PM: correct.",
+      "Noah has a morning recess at 10:10. Is that AM or PM? → PM: not correct.",
+      "Leo watches the sunset at 7:00. Is that AM or PM? → AM: not correct."
+     ],
+     "to": [
+      "AM is from midnight to noon: the morning.",
+      "Correct choices: brushing teeth before school; morning recess; the morning bus ride; eating breakfast. Not correct: after-school soccer."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_event_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_select_am). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Kai wakes up at 7:00 AM and goes to soccer at 3:00 PM."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Hana rides the bus to school at 8:10. Is that AM or PM?",
+       "answer": "AM"
+      },
+      {
+       "prompt": "Gus eats breakfast at 6:25. Is that AM or PM?",
+       "answer": "AM"
+      },
+      {
+       "prompt": "Gus eats dinner at 6:50. Is that AM or PM?",
+       "answer": "PM"
+      },
+      {
+       "prompt": "Dev goes to bed at 8:50. Is that AM or PM?",
+       "answer": "PM"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Is waking up in the morning AM or PM?",
+       "answer": "AM"
+      },
+      {
+       "prompt": "How many hours from waking up to noon?",
+       "answer": "5 hours"
+      },
+      {
+       "prompt": "How many hours from noon to soccer?",
+       "answer": "3 hours"
+      },
+      {
+       "prompt": "Explain the difference between AM and PM.",
+       "answer": "Sample answer: AM is from midnight to noon; PM is from noon to midnight."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) AM; (b) AM; (c) PM; (d) PM",
+     "to": "(a) AM; (b) 5 hours; (c) 3 hours; (d) Sample answer: AM is from midnight to noon; PM is from noon to midnight."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) AM is from midnight to noon (morning). PM is from noon to midnight (afternoon and night). Hana rides the bus to school in the morning, so it is AM.",
+      "(b) AM is from midnight to noon (morning). PM is from noon to midnight (afternoon and night). Gus eats breakfast in the morning, so it is AM.",
+      "(c) AM is from midnight to noon (morning). PM is from noon to midnight (afternoon and night). Gus eats dinner in the afternoon or evening, so it is PM.",
+      "(d) AM is from midnight to noon (morning). PM is from noon to midnight (afternoon and night). Dev goes to bed in the afternoon or evening, so it is PM."
+     ],
+     "to": [
+      "(a) Morning is AM.",
+      "(b) 12 − 7.",
+      "(c) 3:00 PM is 3 hours after noon.",
+      "(d) Before and after noon."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_event_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_open_day). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-honors-002",
+   "changes": {
+    "prompt": {
+     "from": "Which time makes the most sense? A child eats lunch at school.",
+     "to": "Ana wakes up at 7:00 AM and eats dinner at 7:00 PM the same day. How many hours apart are those times?"
+    },
+    "answer": {
+     "from": "12:35 PM",
+     "to": "12 hours"
+    },
+    "solutionSteps": {
+     "from": [
+      "Think about the time of day for this event.",
+      "12:35 PM fits."
+     ],
+     "to": [
+      "7:00 AM to 12:00 noon is 5 hours.",
+      "12:00 noon to 7:00 PM is 7 hours: 5 + 7 = 12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_to_pm_hours). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "6:35 PM",
+       "correct": false
+      },
+      {
+       "text": "6:35 AM",
+       "correct": false
+      },
+      {
+       "text": "12:35 PM",
+       "correct": true
+      },
+      {
+       "text": "12:35 AM",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "12 hours",
+       "correct": true
+      },
+      {
+       "text": "0 hours",
+       "correct": false
+      },
+      {
+       "text": "14 hours",
+       "correct": false
+      },
+      {
+       "text": "13 hours",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-honors-004",
+   "changes": {
+    "prompt": {
+     "from": "Both times are on the same day. Which time comes first: 10:35 AM or 6:35 AM?",
+     "to": "Ana wakes up at 11:00 AM and eats dinner at 4:00 PM the same day. How many hours apart are those times?"
+    },
+    "answer": {
+     "from": "6:35 AM",
+     "to": "5 hours"
+    },
+    "solutionSteps": {
+     "from": [
+      "AM times come before PM times on the same day.",
+      "6:35 AM comes first."
+     ],
+     "to": [
+      "11:00 AM to 12:00 noon is 1 hours.",
+      "12:00 noon to 4:00 PM is 4 hours: 1 + 4 = 5."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_first). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_to_pm_hours). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "You cannot tell.",
+       "correct": false
+      },
+      {
+       "text": "10:35 AM",
+       "correct": false
+      },
+      {
+       "text": "They happen at the same time.",
+       "correct": false
+      },
+      {
+       "text": "6:35 AM",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "7 hours",
+       "correct": false
+      },
+      {
+       "text": "15 hours",
+       "correct": false
+      },
+      {
+       "text": "6 hours",
+       "correct": false
+      },
+      {
+       "text": "5 hours",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-honors-005",
+   "changes": {
+    "prompt": {
+     "from": "Raj starts a hike at 10:20 AM and hikes for 2 hours. What time does the hike end? Write AM or PM",
+     "to": "Ana wakes up at 9:00 AM and eats dinner at 6:00 PM the same day. How many hours apart are those times?"
+    },
+    "answer": {
+     "from": "12:20 PM",
+     "to": "9 hours"
+    },
+    "solutionSteps": {
+     "from": [
+      "Count on 2 hours from 10:20.",
+      "Noon is passed, so the end time is 12:20 PM."
+     ],
+     "to": [
+      "9:00 AM to 12:00 noon is 3 hours.",
+      "12:00 noon to 6:00 PM is 6 hours: 3 + 6 = 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_after). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_to_pm_hours). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-honors-007",
+   "changes": {
+    "prompt": {
+     "from": "Is 7:05 PM in the morning, the afternoon, or at night?",
+     "to": "Ana wakes up at 6:00 AM and eats dinner at 6:00 PM the same day. How many hours apart are those times?"
+    },
+    "answer": {
+     "from": "night",
+     "to": "12 hours"
+    },
+    "solutionSteps": {
+     "from": [
+      "AM times are after midnight and before noon. PM times are after noon.",
+      "7:05 PM is at night."
+     ],
+     "to": [
+      "6:00 AM to 12:00 noon is 6 hours.",
+      "12:00 noon to 6:00 PM is 6 hours: 6 + 6 = 12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_part). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_to_pm_hours). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-honors-009",
+   "changes": {
+    "prompt": {
+     "from": "Which time makes the most sense? A child has a morning recess.",
+     "to": "Ana wakes up at 9:00 AM and eats dinner at 4:00 PM the same day. How many hours apart are those times?"
+    },
+    "answer": {
+     "from": "10:45 AM",
+     "to": "7 hours"
+    },
+    "solutionSteps": {
+     "from": [
+      "Think about the time of day for this event.",
+      "10:45 AM fits."
+     ],
+     "to": [
+      "9:00 AM to 12:00 noon is 3 hours.",
+      "12:00 noon to 4:00 PM is 4 hours: 3 + 4 = 7."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_to_pm_hours). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "4:45 PM",
+       "correct": false
+      },
+      {
+       "text": "10:45 PM",
+       "correct": false
+      },
+      {
+       "text": "10:45 AM",
+       "correct": true
+      },
+      {
+       "text": "4:45 AM",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "7 hours",
+       "correct": true
+      },
+      {
+       "text": "5 hours",
+       "correct": false
+      },
+      {
+       "text": "13 hours",
+       "correct": false
+      },
+      {
+       "text": "8 hours",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "Both times are on the same day. Which time comes first: 12:15 AM or 11:45 AM?",
+     "to": "Ana wakes up at 7:00 AM and eats dinner at 4:00 PM the same day. How many hours apart are those times?"
+    },
+    "answer": {
+     "from": "12:15 AM",
+     "to": "9 hours"
+    },
+    "solutionSteps": {
+     "from": [
+      "AM times come before PM times on the same day.",
+      "12:15 AM comes first."
+     ],
+     "to": [
+      "7:00 AM to 12:00 noon is 5 hours.",
+      "12:00 noon to 4:00 PM is 4 hours: 5 + 4 = 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_first). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_to_pm_hours). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "They happen at the same time.",
+       "correct": false
+      },
+      {
+       "text": "12:15 AM",
+       "correct": true
+      },
+      {
+       "text": "11:45 AM",
+       "correct": false
+      },
+      {
+       "text": "You cannot tell.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "3 hours",
+       "correct": false
+      },
+      {
+       "text": "11 hours",
+       "correct": false
+      },
+      {
+       "text": "10 hours",
+       "correct": false
+      },
+      {
+       "text": "9 hours",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-honors-014",
+   "changes": {
+    "prompt": {
+     "from": "Is 7:30 AM in the morning, the afternoon, or at night?",
+     "to": "Ana wakes up at 11:00 AM and eats dinner at 8:00 PM the same day. How many hours apart are those times?"
+    },
+    "answer": {
+     "from": "morning",
+     "to": "9 hours"
+    },
+    "solutionSteps": {
+     "from": [
+      "AM times are after midnight and before noon. PM times are after noon.",
+      "7:30 AM is in the morning."
+     ],
+     "to": [
+      "11:00 AM to 12:00 noon is 1 hours.",
+      "12:00 noon to 8:00 PM is 8 hours: 1 + 8 = 9."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_part). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_to_pm_hours). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-honors-016",
+   "changes": {
+    "prompt": {
+     "from": "Which time makes the most sense? A child plays after school.",
+     "to": "Ana wakes up at 11:00 AM and eats dinner at 3:00 PM the same day. How many hours apart are those times?"
+    },
+    "answer": {
+     "from": "3:30 PM",
+     "to": "4 hours"
+    },
+    "solutionSteps": {
+     "from": [
+      "Think about the time of day for this event.",
+      "3:30 PM fits."
+     ],
+     "to": [
+      "11:00 AM to 12:00 noon is 1 hours.",
+      "12:00 noon to 3:00 PM is 3 hours: 1 + 3 = 4."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_to_pm_hours). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "9:30 AM",
+       "correct": false
+      },
+      {
+       "text": "3:30 AM",
+       "correct": false
+      },
+      {
+       "text": "9:30 PM",
+       "correct": false
+      },
+      {
+       "text": "3:30 PM",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "4 hours",
+       "correct": true
+      },
+      {
+       "text": "8 hours",
+       "correct": false
+      },
+      {
+       "text": "14 hours",
+       "correct": false
+      },
+      {
+       "text": "5 hours",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-honors-020",
+   "changes": {
+    "prompt": {
+     "from": "Is 2:15 PM in the morning, the afternoon, or at night?",
+     "to": "Ana wakes up at 9:00 AM and eats dinner at 5:00 PM the same day. How many hours apart are those times?"
+    },
+    "answer": {
+     "from": "afternoon",
+     "to": "8 hours"
+    },
+    "solutionSteps": {
+     "from": [
+      "AM times are after midnight and before noon. PM times are after noon.",
+      "2:15 PM is in the afternoon."
+     ],
+     "to": [
+      "9:00 AM to 12:00 noon is 3 hours.",
+      "12:00 noon to 5:00 PM is 5 hours: 3 + 5 = 8."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_part). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_to_pm_hours). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "Which time makes the most sense? A child wakes up.",
+     "to": "Ana wakes up at 11:00 AM and eats dinner at 2:00 PM the same day. How many hours apart are those times?"
+    },
+    "answer": {
+     "from": "7:05 AM",
+     "to": "3 hours"
+    },
+    "solutionSteps": {
+     "from": [
+      "Think about the time of day for this event.",
+      "7:05 AM fits."
+     ],
+     "to": [
+      "11:00 AM to 12:00 noon is 1 hours.",
+      "12:00 noon to 2:00 PM is 2 hours: 1 + 2 = 3."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_to_pm_hours). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1:05 AM",
+       "correct": false
+      },
+      {
+       "text": "1:05 PM",
+       "correct": false
+      },
+      {
+       "text": "7:05 PM",
+       "correct": false
+      },
+      {
+       "text": "7:05 AM",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "9 hours",
+       "correct": false
+      },
+      {
+       "text": "3 hours",
+       "correct": true
+      },
+      {
+       "text": "13 hours",
+       "correct": false
+      },
+      {
+       "text": "4 hours",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-honors-024",
+   "changes": {
+    "prompt": {
+     "from": "Which time makes the most sense? A child wakes up.",
+     "to": "Ana wakes up at 9:00 AM and eats dinner at 9:00 PM the same day. How many hours apart are those times?"
+    },
+    "answer": {
+     "from": "6:05 AM",
+     "to": "12 hours"
+    },
+    "solutionSteps": {
+     "from": [
+      "Think about the time of day for this event.",
+      "6:05 AM fits."
+     ],
+     "to": [
+      "9:00 AM to 12:00 noon is 3 hours.",
+      "12:00 noon to 9:00 PM is 9 hours: 3 + 9 = 12."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_which). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_am_to_pm_hours). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "12:05 AM",
+       "correct": false
+      },
+      {
+       "text": "12:05 PM",
+       "correct": false
+      },
+      {
+       "text": "6:05 AM",
+       "correct": true
+      },
+      {
+       "text": "6:05 PM",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "0 hours",
+       "correct": false
+      },
+      {
+       "text": "18 hours",
+       "correct": false
+      },
+      {
+       "text": "12 hours",
+       "correct": true
+      },
+      {
+       "text": "13 hours",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the things that usually happen in the AM."
+    },
+    "answer": {
+     "from": [
+      "Pia has a morning recess at 9:05. Is that AM or PM? → AM",
+      "Luis eats dinner at 7:40. Is that AM or PM? → PM"
+     ],
+     "to": [
+      "brushing teeth before school",
+      "morning recess"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Omar eats dinner at 5:20. Is that AM or PM? → AM",
+       "correct": false
+      },
+      {
+       "text": "Pia has a morning recess at 9:05. Is that AM or PM? → AM",
+       "correct": true
+      },
+      {
+       "text": "Ava rides the bus to school at 7:00. Is that AM or PM? → PM",
+       "correct": false
+      },
+      {
+       "text": "Luis eats dinner at 7:40. Is that AM or PM? → PM",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "brushing teeth before school",
+       "correct": true
+      },
+      {
+       "text": "reading a bedtime story",
+       "correct": false
+      },
+      {
+       "text": "after-school soccer",
+       "correct": false
+      },
+      {
+       "text": "morning recess",
+       "correct": true
+      },
+      {
+       "text": "going to bed",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "Omar eats dinner at 5:20. Is that AM or PM? → AM: not correct.",
+      "Pia has a morning recess at 9:05. Is that AM or PM? → AM: correct.",
+      "Ava rides the bus to school at 7:00. Is that AM or PM? → PM: not correct.",
+      "Luis eats dinner at 7:40. Is that AM or PM? → PM: correct."
+     ],
+     "to": [
+      "AM is from midnight to noon: the morning.",
+      "Correct choices: brushing teeth before school; morning recess. Not correct: going to bed; reading a bedtime story; after-school soccer."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_event_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_select_am). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s02-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Kai wakes up at 8:00 AM and goes to soccer at 3:00 PM."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Nia plays after school at 3:30. Is that AM or PM?",
+       "answer": "PM"
+      },
+      {
+       "prompt": "Finn watches the sunset at 5:45. Is that AM or PM?",
+       "answer": "PM"
+      },
+      {
+       "prompt": "Mei plays after school at 5:45. Is that AM or PM?",
+       "answer": "PM"
+      },
+      {
+       "prompt": "Mia watches the sunset at 7:45. Is that AM or PM?",
+       "answer": "PM"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "Is waking up in the morning AM or PM?",
+       "answer": "AM"
+      },
+      {
+       "prompt": "How many hours from waking up to noon?",
+       "answer": "4 hours"
+      },
+      {
+       "prompt": "How many hours from noon to soccer?",
+       "answer": "3 hours"
+      },
+      {
+       "prompt": "Explain the difference between AM and PM.",
+       "answer": "Sample answer: AM is from midnight to noon; PM is from noon to midnight."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) PM; (b) PM; (c) PM; (d) PM",
+     "to": "(a) AM; (b) 4 hours; (c) 3 hours; (d) Sample answer: AM is from midnight to noon; PM is from noon to midnight."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) AM is from midnight to noon (morning). PM is from noon to midnight (afternoon and night). Nia plays after school in the afternoon or evening, so it is PM.",
+      "(b) AM is from midnight to noon (morning). PM is from noon to midnight (afternoon and night). Finn watches the sunset in the afternoon or evening, so it is PM.",
+      "(c) AM is from midnight to noon (morning). PM is from noon to midnight (afternoon and night). Mei plays after school in the afternoon or evening, so it is PM.",
+      "(d) AM is from midnight to noon (morning). PM is from noon to midnight (afternoon and night). Mia watches the sunset in the afternoon or evening, so it is PM."
+     ],
+     "to": [
+      "(a) Morning is AM.",
+      "(b) 12 − 8.",
+      "(c) 3:00 PM is 3 hours after noon.",
+      "(d) Before and after noon."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: ap_event_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm2_open_day). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-cp1-003",
+   "changes": {
+    "prompt": {
+     "from": "Which group of coins is worth 52¢?",
+     "to": "Pia has 2 dimes, 1 nickel, 3 pennies. Then finds 7¢ more. How much money is that now?"
+    },
+    "answer": {
+     "from": "1 quarter, 2 dimes, 1 nickel and 2 pennies",
+     "to": "35¢"
+    },
+    "solutionSteps": {
+     "from": [
+      "Find the value of each group.",
+      "1 quarter, 2 dimes, 1 nickel and 2 pennies = 52¢."
+     ],
+     "to": [
+      "The coins are 28¢.",
+      "28¢ + 7¢ = 35¢."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_make). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_count_then_add). Rewritten from a Support template (was cc_make) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1 quarter, 3 dimes and 1 penny",
+       "correct": false
+      },
+      {
+       "text": "2 quarters, 2 dimes, 2 nickels and 1 penny",
+       "correct": false
+      },
+      {
+       "text": "1 quarter, 2 dimes, 1 nickel and 2 pennies",
+       "correct": true
+      },
+      {
+       "text": "2 quarters, 1 dime, 1 nickel and 3 pennies",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "28¢",
+       "correct": false
+      },
+      {
+       "text": "40¢",
+       "correct": false
+      },
+      {
+       "text": "35¢",
+       "correct": true
+      },
+      {
+       "text": "13¢",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-cp1-004",
+   "changes": {
+    "prompt": {
+     "from": "Which coin is worth 1¢?",
+     "to": "Gabi has 1 quarter, 3 dimes, 2 nickels, 2 pennies. Then finds 14¢ more. How much money is that now?"
+    },
+    "answer": {
+     "from": "penny",
+     "to": "81¢"
+    },
+    "solutionSteps": {
+     "from": [
+      "1¢ is a penny.",
+      "penny"
+     ],
+     "to": [
+      "The coins are 67¢.",
+      "67¢ + 14¢ = 81¢."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_which_coin). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_count_then_add). Rewritten from a Support template (was cc_which_coin) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "dime",
+       "correct": false
+      },
+      {
+       "text": "quarter",
+       "correct": false
+      },
+      {
+       "text": "nickel",
+       "correct": false
+      },
+      {
+       "text": "penny",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "81¢",
+       "correct": true
+      },
+      {
+       "text": "67¢",
+       "correct": false
+      },
+      {
+       "text": "86¢",
+       "correct": false
+      },
+      {
+       "text": "22¢",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-cp1-009",
+   "changes": {
+    "prompt": {
+     "from": "Which group of coins is worth 41¢?",
+     "to": "Ava has 2 dimes, 2 nickels, 2 pennies. Then finds 15¢ more. How much money is that now?"
+    },
+    "answer": {
+     "from": "1 quarter, 1 dime, 1 nickel and 1 penny",
+     "to": "47¢"
+    },
+    "solutionSteps": {
+     "from": [
+      "Find the value of each group.",
+      "1 quarter, 1 dime, 1 nickel and 1 penny = 41¢."
+     ],
+     "to": [
+      "The coins are 32¢.",
+      "32¢ + 15¢ = 47¢."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_make). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_count_then_add). Rewritten from a Support template (was cc_make) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1 quarter, 1 dime, 1 nickel and 1 penny",
+       "correct": true
+      },
+      {
+       "text": "1 quarter, 2 dimes, 2 nickels and 1 penny",
+       "correct": false
+      },
+      {
+       "text": "3 dimes and 2 nickels",
+       "correct": false
+      },
+      {
+       "text": "1 quarter, 2 dimes and 1 nickel",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "32¢",
+       "correct": false
+      },
+      {
+       "text": "52¢",
+       "correct": false
+      },
+      {
+       "text": "21¢",
+       "correct": false
+      },
+      {
+       "text": "47¢",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-cp1-016",
+   "changes": {
+    "prompt": {
+     "from": "Which group of coins is worth 28¢?",
+     "to": "Zoe has 2 quarters, 1 dime, 3 nickels, 2 pennies. Then finds 19¢ more. How much money is that now?"
+    },
+    "answer": {
+     "from": "1 dime, 3 nickels and 3 pennies",
+     "to": "96¢"
+    },
+    "solutionSteps": {
+     "from": [
+      "Find the value of each group.",
+      "1 dime, 3 nickels and 3 pennies = 28¢."
+     ],
+     "to": [
+      "The coins are 77¢.",
+      "77¢ + 19¢ = 96¢."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_make). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_count_then_add). Rewritten from a Support template (was cc_make) as a Standard item with an added step: 2nd Grade Math audit 2026-11-19 (#7, Standard); answer recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3 dimes and 1 penny",
+       "correct": false
+      },
+      {
+       "text": "1 dime, 2 nickels and 1 penny",
+       "correct": false
+      },
+      {
+       "text": "1 quarter, 1 dime, 2 nickels and 1 penny",
+       "correct": false
+      },
+      {
+       "text": "1 dime, 3 nickels and 3 pennies",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "96¢",
+       "correct": true
+      },
+      {
+       "text": "77¢",
+       "correct": false
+      },
+      {
+       "text": "101¢",
+       "correct": false
+      },
+      {
+       "text": "27¢",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the groups of coins that make 50¢."
+    },
+    "answer": {
+     "from": [
+      "3 quarters, 1 dime, 1 nickel and 2 pennies → 92¢",
+      "1 quarter, 2 dimes, 2 nickels and 1 penny → 56¢"
+     ],
+     "to": [
+      "4 dimes, 2 nickels",
+      "2 quarters",
+      "1 quarter, 2 dimes, 1 nickel"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "3 quarters, 1 dime, 1 nickel and 2 pennies → 92¢",
+       "correct": true
+      },
+      {
+       "text": "1 quarter, 1 dime and 2 nickels → 50¢",
+       "correct": false
+      },
+      {
+       "text": "2 quarters, 2 dimes and 1 nickel → 74¢",
+       "correct": false
+      },
+      {
+       "text": "1 quarter, 2 dimes, 2 nickels and 1 penny → 56¢",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "4 dimes, 2 nickels",
+       "correct": true
+      },
+      {
+       "text": "2 quarters",
+       "correct": true
+      },
+      {
+       "text": "2 dimes, 3 nickels",
+       "correct": false
+      },
+      {
+       "text": "1 quarter, 2 nickels",
+       "correct": false
+      },
+      {
+       "text": "1 quarter, 2 dimes, 1 nickel",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "3 quarters, 1 dime, 1 nickel and 2 pennies → 92¢: correct.",
+      "1 quarter, 1 dime and 2 nickels → 50¢: not correct.",
+      "2 quarters, 2 dimes and 1 nickel → 74¢: not correct.",
+      "1 quarter, 2 dimes, 2 nickels and 1 penny → 56¢: correct."
+     ],
+     "to": [
+      "Quarters are 25¢, dimes 10¢ and nickels 5¢. Count each group.",
+      "Correct choices: 4 dimes, 2 nickels; 2 quarters; 1 quarter, 2 dimes, 1 nickel. Not correct: 2 dimes, 3 nickels; 1 quarter, 2 nickels."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_select_coins_make). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Zoe has 1 quarters, 2 dimes, 0 nickels and 3 pennies."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Cam has 1 quarter, 3 dimes, 1 nickel and 1 penny. How much money does Cam have?",
+       "answer": "61¢"
+      },
+      {
+       "prompt": "Ava has 1 quarter, 2 dimes and 1 penny. How much money does Ava have?",
+       "answer": "46¢"
+      },
+      {
+       "prompt": "Ben has 3 dimes and 1 penny. How much money does Ben have?",
+       "answer": "31¢"
+      },
+      {
+       "prompt": "Ted has 2 quarters, 3 dimes, 1 nickel and 1 penny. How much money does Ted have?",
+       "answer": "86¢"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How much money does Zoe have?",
+       "answer": "48¢"
+      },
+      {
+       "prompt": "How much more does she need to have $1?",
+       "answer": "52¢"
+      },
+      {
+       "prompt": "How much would she have with one more dime?",
+       "answer": "58¢"
+      },
+      {
+       "prompt": "Explain the order you counted the coins in.",
+       "answer": "Sample answer: I counted the coins worth the most first, then counted on."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 61¢; (b) 46¢; (c) 31¢; (d) 86¢",
+     "to": "(a) 48¢; (b) 52¢; (c) 58¢; (d) Sample answer: I counted the coins worth the most first, then counted on."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Values: quarter 25¢, dime 10¢, nickel 5¢, penny 1¢. 25 + 10 + 10 + 10 + 5 + 1 = 61¢.",
+      "(b) Values: quarter 25¢, dime 10¢, nickel 5¢, penny 1¢. 25 + 10 + 10 + 1 = 46¢.",
+      "(c) Values: quarter 25¢, dime 10¢, nickel 5¢, penny 1¢. 10 + 10 + 10 + 1 = 31¢.",
+      "(d) Values: quarter 25¢, dime 10¢, nickel 5¢, penny 1¢. 25 + 25 + 10 + 10 + 10 + 5 + 1 = 86¢."
+     ],
+     "to": [
+      "(a) 25 + 20 + 0 + 3.",
+      "(b) 100 − 48.",
+      "(c) Add 10.",
+      "(d) Biggest first."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_text_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_open_coins). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the groups of coins that make 75¢."
+    },
+    "answer": {
+     "from": [
+      "1 dime, 1 nickel and 1 penny → 16¢",
+      "2 dimes, 2 nickels and 1 penny → 31¢"
+     ],
+     "to": [
+      "1 quarter, 5 dimes",
+      "2 quarters, 1 dime, 3 nickels",
+      "3 quarters",
+      "2 quarters, 2 dimes, 1 nickel"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1 nickel and 2 pennies → 6¢",
+       "correct": false
+      },
+      {
+       "text": "1 dime and 2 nickels → 19¢",
+       "correct": false
+      },
+      {
+       "text": "1 dime, 1 nickel and 1 penny → 16¢",
+       "correct": true
+      },
+      {
+       "text": "2 dimes, 2 nickels and 1 penny → 31¢",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "1 quarter, 5 dimes",
+       "correct": true
+      },
+      {
+       "text": "6 dimes",
+       "correct": false
+      },
+      {
+       "text": "2 quarters, 1 dime, 3 nickels",
+       "correct": true
+      },
+      {
+       "text": "3 quarters",
+       "correct": true
+      },
+      {
+       "text": "2 quarters, 2 dimes, 1 nickel",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "1 nickel and 2 pennies → 6¢: not correct.",
+      "1 dime and 2 nickels → 19¢: not correct.",
+      "1 dime, 1 nickel and 1 penny → 16¢: correct.",
+      "2 dimes, 2 nickels and 1 penny → 31¢: correct."
+     ],
+     "to": [
+      "Quarters are 25¢, dimes 10¢ and nickels 5¢. Count each group.",
+      "Correct choices: 1 quarter, 5 dimes; 2 quarters, 1 dime, 3 nickels; 3 quarters; 2 quarters, 2 dimes, 1 nickel. Not correct: 6 dimes."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_select_coins_make). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Zoe has 2 quarters, 2 dimes, 2 nickels and 1 pennies."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Lena has 1 nickel and 2 pennies. How much money does Lena have?",
+       "answer": "7¢"
+      },
+      {
+       "prompt": "Leo has 2 dimes and 3 pennies. How much money does Leo have?",
+       "answer": "23¢"
+      },
+      {
+       "prompt": "Mei has 1 dime, 1 nickel and 2 pennies. How much money does Mei have?",
+       "answer": "17¢"
+      },
+      {
+       "prompt": "Ben has 2 dimes, 2 nickels and 1 penny. How much money does Ben have?",
+       "answer": "31¢"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How much money does Zoe have?",
+       "answer": "81¢"
+      },
+      {
+       "prompt": "How much more does she need to have $1?",
+       "answer": "19¢"
+      },
+      {
+       "prompt": "How much would she have with one more dime?",
+       "answer": "91¢"
+      },
+      {
+       "prompt": "Explain the order you counted the coins in.",
+       "answer": "Sample answer: I counted the coins worth the most first, then counted on."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 7¢; (b) 23¢; (c) 17¢; (d) 31¢",
+     "to": "(a) 81¢; (b) 19¢; (c) 91¢; (d) Sample answer: I counted the coins worth the most first, then counted on."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Values: quarter 25¢, dime 10¢, nickel 5¢, penny 1¢. 5 + 1 + 1 = 7¢.",
+      "(b) Values: quarter 25¢, dime 10¢, nickel 5¢, penny 1¢. 10 + 10 + 1 + 1 + 1 = 23¢.",
+      "(c) Values: quarter 25¢, dime 10¢, nickel 5¢, penny 1¢. 10 + 5 + 1 + 1 = 17¢.",
+      "(d) Values: quarter 25¢, dime 10¢, nickel 5¢, penny 1¢. 10 + 10 + 5 + 5 + 1 = 31¢."
+     ],
+     "to": [
+      "(a) 50 + 20 + 10 + 1.",
+      "(b) 100 − 81.",
+      "(c) Add 10.",
+      "(d) Biggest first."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_text_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_open_coins). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-honors-005",
+   "changes": {
+    "prompt": {
+     "from": "Which group of coins is worth 77¢?",
+     "to": "Max has 1 quarter, 2 dimes, 4 pennies. How many more cents are needed to make $1?"
+    },
+    "answer": {
+     "from": "2 quarters, 2 dimes, 1 nickel and 2 pennies",
+     "to": "51¢"
+    },
+    "solutionSteps": {
+     "from": [
+      "Find the value of each group.",
+      "2 quarters, 2 dimes, 1 nickel and 2 pennies = 77¢."
+     ],
+     "to": [
+      "The coins are 49¢.",
+      "100¢ − 49¢ = 51¢."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_make). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_more_to_dollar). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1 quarter, 1 dime, 2 nickels and 1 penny",
+       "correct": false
+      },
+      {
+       "text": "2 quarters, 1 dime, 1 nickel and 1 penny",
+       "correct": false
+      },
+      {
+       "text": "1 dime, 1 nickel and 3 pennies",
+       "correct": false
+      },
+      {
+       "text": "2 quarters, 2 dimes, 1 nickel and 2 pennies",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "49¢",
+       "correct": false
+      },
+      {
+       "text": "51¢",
+       "correct": true
+      },
+      {
+       "text": "61¢",
+       "correct": false
+      },
+      {
+       "text": "50¢",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-honors-011",
+   "changes": {
+    "prompt": {
+     "from": "Which group of coins is worth 22¢?",
+     "to": "Uma has 2 quarters, 1 dime, 1 penny. How many more cents are needed to make $1?"
+    },
+    "answer": {
+     "from": "2 dimes and 2 pennies",
+     "to": "39¢"
+    },
+    "solutionSteps": {
+     "from": [
+      "Find the value of each group.",
+      "2 dimes and 2 pennies = 22¢."
+     ],
+     "to": [
+      "The coins are 61¢.",
+      "100¢ − 61¢ = 39¢."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_make). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_more_to_dollar). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1 quarter, 2 dimes, 2 nickels and 1 penny",
+       "correct": false
+      },
+      {
+       "text": "3 dimes and 3 pennies",
+       "correct": false
+      },
+      {
+       "text": "2 dimes and 2 pennies",
+       "correct": true
+      },
+      {
+       "text": "2 quarters, 2 dimes and 3 nickels",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "39¢",
+       "correct": true
+      },
+      {
+       "text": "61¢",
+       "correct": false
+      },
+      {
+       "text": "49¢",
+       "correct": false
+      },
+      {
+       "text": "38¢",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-honors-012",
+   "changes": {
+    "prompt": {
+     "from": "Which coin is worth 5¢?",
+     "to": "Lena has 1 quarter, 1 dime, 1 penny. How many more cents are needed to make $1?"
+    },
+    "answer": {
+     "from": "nickel",
+     "to": "64¢"
+    },
+    "solutionSteps": {
+     "from": [
+      "5¢ is a nickel.",
+      "nickel"
+     ],
+     "to": [
+      "The coins are 36¢.",
+      "100¢ − 36¢ = 64¢."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_which_coin). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_more_to_dollar). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "dime",
+       "correct": false
+      },
+      {
+       "text": "penny",
+       "correct": false
+      },
+      {
+       "text": "quarter",
+       "correct": false
+      },
+      {
+       "text": "nickel",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "36¢",
+       "correct": false
+      },
+      {
+       "text": "74¢",
+       "correct": false
+      },
+      {
+       "text": "63¢",
+       "correct": false
+      },
+      {
+       "text": "64¢",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-honors-017",
+   "changes": {
+    "prompt": {
+     "from": "Which group of coins is worth 45¢?",
+     "to": "Eli has 1 quarter, 2 dimes, 4 pennies. How many more cents are needed to make $1?"
+    },
+    "answer": {
+     "from": "1 quarter, 1 dime and 2 nickels",
+     "to": "51¢"
+    },
+    "solutionSteps": {
+     "from": [
+      "Find the value of each group.",
+      "1 quarter, 1 dime and 2 nickels = 45¢."
+     ],
+     "to": [
+      "The coins are 49¢.",
+      "100¢ − 49¢ = 51¢."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_make). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_more_to_dollar). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1 dime, 1 nickel and 2 pennies",
+       "correct": false
+      },
+      {
+       "text": "1 quarter, 1 dime and 2 nickels",
+       "correct": true
+      },
+      {
+       "text": "3 quarters, 1 dime and 1 nickel",
+       "correct": false
+      },
+      {
+       "text": "2 dimes, 2 nickels and 1 penny",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "51¢",
+       "correct": true
+      },
+      {
+       "text": "49¢",
+       "correct": false
+      },
+      {
+       "text": "61¢",
+       "correct": false
+      },
+      {
+       "text": "50¢",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-honors-021",
+   "changes": {
+    "prompt": {
+     "from": "Which group of coins is worth 68¢?",
+     "to": "Sam has 2 quarters, 1 dime, 3 pennies. How many more cents are needed to make $1?"
+    },
+    "answer": {
+     "from": "2 quarters, 1 dime, 1 nickel and 3 pennies",
+     "to": "37¢"
+    },
+    "solutionSteps": {
+     "from": [
+      "Find the value of each group.",
+      "2 quarters, 1 dime, 1 nickel and 3 pennies = 68¢."
+     ],
+     "to": [
+      "The coins are 63¢.",
+      "100¢ − 63¢ = 37¢."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_make). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_more_to_dollar). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1 dime, 1 nickel and 2 pennies",
+       "correct": false
+      },
+      {
+       "text": "1 quarter, 2 dimes, 1 nickel and 1 penny",
+       "correct": false
+      },
+      {
+       "text": "2 quarters, 1 dime, 1 nickel and 3 pennies",
+       "correct": true
+      },
+      {
+       "text": "2 quarters and 3 pennies",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "63¢",
+       "correct": false
+      },
+      {
+       "text": "37¢",
+       "correct": true
+      },
+      {
+       "text": "47¢",
+       "correct": false
+      },
+      {
+       "text": "36¢",
+       "correct": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the groups of coins that make 35¢."
+    },
+    "answer": {
+     "from": [
+      "2 quarters, 3 dimes, 1 nickel and 1 penny → 86¢",
+      "1 quarter, 2 nickels and 3 pennies → 38¢"
+     ],
+     "to": [
+      "1 quarter, 2 nickels",
+      "1 quarter, 1 dime"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2 dimes, 2 nickels and 1 penny → 5¢",
+       "correct": false
+      },
+      {
+       "text": "2 quarters, 3 dimes, 1 nickel and 1 penny → 86¢",
+       "correct": true
+      },
+      {
+       "text": "2 quarters, 2 dimes and 3 pennies → 72¢",
+       "correct": false
+      },
+      {
+       "text": "1 quarter, 2 nickels and 3 pennies → 38¢",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "3 dimes, 3 nickels",
+       "correct": false
+      },
+      {
+       "text": "1 quarter, 2 nickels",
+       "correct": true
+      },
+      {
+       "text": "1 dime, 3 nickels",
+       "correct": false
+      },
+      {
+       "text": "1 quarter, 1 nickel",
+       "correct": false
+      },
+      {
+       "text": "1 quarter, 1 dime",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "2 dimes, 2 nickels and 1 penny → 5¢: not correct.",
+      "2 quarters, 3 dimes, 1 nickel and 1 penny → 86¢: correct.",
+      "2 quarters, 2 dimes and 3 pennies → 72¢: not correct.",
+      "1 quarter, 2 nickels and 3 pennies → 38¢: correct."
+     ],
+     "to": [
+      "Quarters are 25¢, dimes 10¢ and nickels 5¢. Count each group.",
+      "Correct choices: 1 quarter, 2 nickels; 1 quarter, 1 dime. Not correct: 1 dime, 3 nickels; 3 dimes, 3 nickels; 1 quarter, 1 nickel."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_select_coins_make). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s03-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Match each problem with its answer. Write the answer next to each letter.",
+     "to": "Zoe has 2 quarters, 2 dimes, 1 nickels and 3 pennies."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Amir has 1 dime, 2 nickels and 1 penny. How much money does Amir have?",
+       "answer": "21¢"
+      },
+      {
+       "prompt": "Mei has 1 dime and 3 pennies. How much money does Mei have?",
+       "answer": "13¢"
+      },
+      {
+       "prompt": "Hana has 2 quarters, 1 dime and 2 pennies. How much money does Hana have?",
+       "answer": "62¢"
+      },
+      {
+       "prompt": "Jada has 2 quarters, 2 dimes and 2 nickels. How much money does Jada have?",
+       "answer": "80¢"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How much money does Zoe have?",
+       "answer": "78¢"
+      },
+      {
+       "prompt": "How much more does she need to have $1?",
+       "answer": "22¢"
+      },
+      {
+       "prompt": "How much would she have with one more dime?",
+       "answer": "88¢"
+      },
+      {
+       "prompt": "Explain the order you counted the coins in.",
+       "answer": "Sample answer: I counted the coins worth the most first, then counted on."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 21¢; (b) 13¢; (c) 62¢; (d) 80¢",
+     "to": "(a) 78¢; (b) 22¢; (c) 88¢; (d) Sample answer: I counted the coins worth the most first, then counted on."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Values: quarter 25¢, dime 10¢, nickel 5¢, penny 1¢. 10 + 5 + 5 + 1 = 21¢.",
+      "(b) Values: quarter 25¢, dime 10¢, nickel 5¢, penny 1¢. 10 + 1 + 1 + 1 = 13¢.",
+      "(c) Values: quarter 25¢, dime 10¢, nickel 5¢, penny 1¢. 25 + 25 + 10 + 1 + 1 = 62¢.",
+      "(d) Values: quarter 25¢, dime 10¢, nickel 5¢, penny 1¢. 25 + 25 + 10 + 10 + 5 + 5 = 80¢."
+     ],
+     "to": [
+      "(a) 50 + 20 + 5 + 3.",
+      "(b) 100 − 78.",
+      "(c) Add 10.",
+      "(d) Biggest first."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: cc_text_match). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm3_open_coins). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s04-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the groups of bills that make $17."
+    },
+    "answer": {
+     "from": [
+      "2 $20 bills, 2 $10 bills and 1 $5 bill → $65",
+      "3 $20 bills, 1 $10 bill and 1 $5 bill → $75"
+     ],
+     "to": [
+      "3 $5 bills, 2 $1 bills",
+      "1 $10 bill, 7 $1 bills",
+      "1 $10 bill, 1 $5 bill, 2 $1 bills"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "2 $20 bills, 2 $10 bills and 1 $5 bill → $65",
+       "correct": true
+      },
+      {
+       "text": "1 $10 bill, 1 $5 bill and 2 $1 bills → $4",
+       "correct": false
+      },
+      {
+       "text": "3 $20 bills, 1 $10 bill and 1 $5 bill → $75",
+       "correct": true
+      },
+      {
+       "text": "1 $20 bill, 1 $10 bill and 1 $1 bill → $3",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "1 $10 bill, 5 $1 bills",
+       "correct": false
+      },
+      {
+       "text": "3 $5 bills, 2 $1 bills",
+       "correct": true
+      },
+      {
+       "text": "1 $10 bill, 7 $1 bills",
+       "correct": true
+      },
+      {
+       "text": "1 $10 bill, 1 $5 bill, 2 $1 bills",
+       "correct": true
+      },
+      {
+       "text": "3 $5 bills",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "2 $20 bills, 2 $10 bills and 1 $5 bill → $65: correct.",
+      "1 $10 bill, 1 $5 bill and 2 $1 bills → $4: not correct.",
+      "3 $20 bills, 1 $10 bill and 1 $5 bill → $75: correct.",
+      "1 $20 bill, 1 $10 bill and 1 $1 bill → $3: not correct."
+     ],
+     "to": [
+      "Count each group of bills.",
+      "Correct choices: 3 $5 bills, 2 $1 bills; 1 $10 bill, 7 $1 bills; 1 $10 bill, 1 $5 bill, 2 $1 bills. Not correct: 3 $5 bills; 1 $10 bill, 5 $1 bills."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: bc_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm4_select_bills_make). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s04-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Ben has 1 $10 bills, 3 $5 bills and 2 $1 bills."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Nia has 1 $20 bill, 2 $5 bills and 1 $1 bill. How many dollars does Nia have?",
+       "answer": "$31"
+      },
+      {
+       "prompt": "Gus has 1 $20 bill, 1 $10 bill and 2 $5 bills. How many dollars does Gus have?",
+       "answer": "$40"
+      },
+      {
+       "prompt": "Raj has 1 $20 bill, 1 $10 bill and 1 $5 bill. How many dollars does Raj have?",
+       "answer": "$35"
+      },
+      {
+       "prompt": "Ivy has 2 $20 bills, 1 $10 bill and 2 $1 bills. How many dollars does Ivy have?",
+       "answer": "$52"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many dollars does Ben have?",
+       "answer": "$27"
+      },
+      {
+       "prompt": "How many more dollars to have $50?",
+       "answer": "$23"
+      },
+      {
+       "prompt": "How many dollars would he have with one more $5 bill?",
+       "answer": "$32"
+      },
+      {
+       "prompt": "Explain how you counted the bills.",
+       "answer": "Sample answer: I counted the $10 bills by tens, the $5 bills by fives, then the $1 bills by ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) $31; (b) $40; (c) $35; (d) $52",
+     "to": "(a) $27; (b) $23; (c) $32; (d) Sample answer: I counted the $10 bills by tens, the $5 bills by fives, then the $1 bills by ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Add the bill values: 20 + 5 + 5 + 1. Nia has $31.",
+      "(b) Add the bill values: 20 + 10 + 5 + 5. Gus has $40.",
+      "(c) Add the bill values: 20 + 10 + 5. Raj has $35.",
+      "(d) Add the bill values: 20 + 20 + 10 + 1 + 1. Ivy has $52."
+     ],
+     "to": [
+      "(a) 10 + 15 + 2.",
+      "(b) 50 − 27.",
+      "(c) Add 5.",
+      "(d) Skip count."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: bc_text_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm4_open_bills). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s04-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the groups of bills that make $20."
+    },
+    "answer": {
+     "from": [
+      "2 $5 bills and 2 $1 bills → $12",
+      "2 $1 bills → $2"
+     ],
+     "to": [
+      "4 $5 bills",
+      "3 $5 bills, 5 $1 bills",
+      "1 $10 bill, 1 $5 bill, 5 $1 bills",
+      "2 $10 bills"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1 $5 bill and 1 $1 bill → $7",
+       "correct": false
+      },
+      {
+       "text": "2 $5 bills and 2 $1 bills → $12",
+       "correct": true
+      },
+      {
+       "text": "2 $1 bills → $2",
+       "correct": true
+      },
+      {
+       "text": "2 $1 bills → $3",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "4 $5 bills",
+       "correct": true
+      },
+      {
+       "text": "3 $5 bills, 5 $1 bills",
+       "correct": true
+      },
+      {
+       "text": "1 $10 bill, 1 $5 bill, 5 $1 bills",
+       "correct": true
+      },
+      {
+       "text": "2 $10 bills",
+       "correct": true
+      },
+      {
+       "text": "2 $10 bills, 1 $1 bill",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "1 $5 bill and 1 $1 bill → $7: not correct.",
+      "2 $5 bills and 2 $1 bills → $12: correct.",
+      "2 $1 bills → $2: correct.",
+      "2 $1 bills → $3: not correct."
+     ],
+     "to": [
+      "Count each group of bills.",
+      "Correct choices: 4 $5 bills; 3 $5 bills, 5 $1 bills; 1 $10 bill, 1 $5 bill, 5 $1 bills; 2 $10 bills. Not correct: 2 $10 bills, 1 $1 bill."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: bc_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm4_select_bills_make). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s04-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Ben has 0 $10 bills, 3 $5 bills and 3 $1 bills."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Ian has 2 $5 bills. How many dollars does Ian have?",
+       "answer": "$10"
+      },
+      {
+       "prompt": "Mei has 1 $5 bill and 3 $1 bills. How many dollars does Mei have?",
+       "answer": "$8"
+      },
+      {
+       "prompt": "Max has 2 $5 bills and 2 $1 bills. How many dollars does Max have?",
+       "answer": "$12"
+      },
+      {
+       "prompt": "Mei has 1 $5 bill and 2 $1 bills. How many dollars does Mei have?",
+       "answer": "$7"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many dollars does Ben have?",
+       "answer": "$18"
+      },
+      {
+       "prompt": "How many more dollars to have $50?",
+       "answer": "$32"
+      },
+      {
+       "prompt": "How many dollars would he have with one more $5 bill?",
+       "answer": "$23"
+      },
+      {
+       "prompt": "Explain how you counted the bills.",
+       "answer": "Sample answer: I counted the $10 bills by tens, the $5 bills by fives, then the $1 bills by ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) $10; (b) $8; (c) $12; (d) $7",
+     "to": "(a) $18; (b) $32; (c) $23; (d) Sample answer: I counted the $10 bills by tens, the $5 bills by fives, then the $1 bills by ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Add the bill values: 5 + 5. Ian has $10.",
+      "(b) Add the bill values: 5 + 1 + 1 + 1. Mei has $8.",
+      "(c) Add the bill values: 5 + 5 + 1 + 1. Max has $12.",
+      "(d) Add the bill values: 5 + 1 + 1. Mei has $7."
+     ],
+     "to": [
+      "(a) 0 + 15 + 3.",
+      "(b) 50 − 18.",
+      "(c) Add 5.",
+      "(d) Skip count."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: bc_text_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm4_open_bills). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s04-honors-028",
+   "changes": {
+    "prompt": {
+     "from": "1 $20 bill, 1 $10 bill, 1 $5 bill and 2 $1 bills. Is the answer $37?",
+     "to": "Eli has 1 $20 bill, 3 $5 bills, 4 $1 bills. A game costs $6. How much money is left after buying it?"
+    },
+    "answer": {
+     "from": "Yes. Max has $37.",
+     "to": "$33"
+    },
+    "solutionSteps": {
+     "from": [
+      "Add the bill values: 20 + 10 + 5 + 1 + 1.",
+      "Max has $37.",
+      "The answer $37 is correct."
+     ],
+     "to": [
+      "The bills are $39.",
+      "$39 − $6 = $33."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: bc_text_tf). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm4_bills_minus_cost). 2nd Grade Math audit 2026-11-19 (#1, Advanced; rewritten from a lower-level template); answer computed by tools/grade2-audit-20261119/fams.py and recomputed by scripts/test-grade2-audit.cjs."
+    },
+    "options": {
+     "from": [
+      {
+       "text": "Yes. Max has $37.",
+       "correct": true
+      },
+      {
+       "text": "No. The answer is $5.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is 37¢.",
+       "correct": false
+      },
+      {
+       "text": "No. The answer is $38.",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "$39",
+       "correct": false
+      },
+      {
+       "text": "$6",
+       "correct": false
+      },
+      {
+       "text": "$38",
+       "correct": false
+      },
+      {
+       "text": "$33",
+       "correct": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s04-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Select ALL the groups of bills that make $17."
+    },
+    "answer": {
+     "from": [
+      "1 $10 bill and 3 $1 bills → $13",
+      "1 $20 bill, 1 $10 bill and 1 $5 bill → $35"
+     ],
+     "to": [
+      "1 $10 bill, 1 $5 bill, 2 $1 bills",
+      "1 $10 bill, 7 $1 bills"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "1 $10 bill and 3 $1 bills → $13",
+       "correct": true
+      },
+      {
+       "text": "1 $20 bill, 1 $10 bill and 1 $5 bill → $35",
+       "correct": true
+      },
+      {
+       "text": "3 $10 bills → 30¢",
+       "correct": false
+      },
+      {
+       "text": "1 $10 bill and 3 $1 bills → $14",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "1 $10 bill, 1 $5 bill, 2 $1 bills",
+       "correct": true
+      },
+      {
+       "text": "1 $10 bill, 7 $1 bills",
+       "correct": true
+      },
+      {
+       "text": "1 $10 bill, 4 $1 bills",
+       "correct": false
+      },
+      {
+       "text": "1 $10 bill, 1 $5 bill, 1 $1 bill",
+       "correct": false
+      },
+      {
+       "text": "1 $10 bill, 3 $1 bills",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "1 $10 bill and 3 $1 bills → $13: correct.",
+      "1 $20 bill, 1 $10 bill and 1 $5 bill → $35: correct.",
+      "3 $10 bills → 30¢: not correct.",
+      "1 $10 bill and 3 $1 bills → $14: not correct."
+     ],
+     "to": [
+      "Count each group of bills.",
+      "Correct choices: 1 $10 bill, 1 $5 bill, 2 $1 bills; 1 $10 bill, 7 $1 bills. Not correct: 1 $10 bill, 4 $1 bills; 1 $10 bill, 3 $1 bills; 1 $10 bill, 1 $5 bill, 1 $1 bill."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: bc_text_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm4_select_bills_make). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s04-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "Ben has 2 $10 bills, 3 $5 bills and 3 $1 bills."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "Ian has 2 $10 bills and 2 $1 bills. How many dollars does Ian have?",
+       "answer": "$22"
+      },
+      {
+       "prompt": "Dev has 2 $20 bills, 1 $10 bill and 1 $5 bill. How many dollars does Dev have?",
+       "answer": "$55"
+      },
+      {
+       "prompt": "Dev has 2 $20 bills and 1 $10 bill. How many dollars does Dev have?",
+       "answer": "$50"
+      },
+      {
+       "prompt": "Luis has 2 $20 bills and 1 $10 bill. How many dollars does Luis have?",
+       "answer": "$50"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How many dollars does Ben have?",
+       "answer": "$38"
+      },
+      {
+       "prompt": "How many more dollars to have $50?",
+       "answer": "$12"
+      },
+      {
+       "prompt": "How many dollars would he have with one more $5 bill?",
+       "answer": "$43"
+      },
+      {
+       "prompt": "Explain how you counted the bills.",
+       "answer": "Sample answer: I counted the $10 bills by tens, the $5 bills by fives, then the $1 bills by ones."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) $22; (b) $55; (c) $50; (d) $50",
+     "to": "(a) $38; (b) $12; (c) $43; (d) Sample answer: I counted the $10 bills by tens, the $5 bills by fives, then the $1 bills by ones."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Add the bill values: 10 + 10 + 1 + 1. Ian has $22.",
+      "(b) Add the bill values: 20 + 20 + 10 + 5. Dev has $55.",
+      "(c) Add the bill values: 20 + 20 + 10. Dev has $50.",
+      "(d) Add the bill values: 20 + 20 + 10. Luis has $50."
+     ],
+     "to": [
+      "(a) 20 + 15 + 3.",
+      "(b) 50 − 38.",
+      "(c) Add 5.",
+      "(d) Skip count."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: bc_text_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm4_open_bills). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s05-cp1-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Ava has 60¢. Select ALL the pairs of toys she can buy."
+    },
+    "answer": {
+     "from": [
+      "An apple costs 31¢. A sticker costs 9¢. What is the total cost? → 40¢",
+      "A pencil costs 28¢. An eraser costs 23¢. What is the total cost? → 51¢"
+     ],
+     "to": [
+      "a 10¢ toy and a 20¢ toy",
+      "a 15¢ toy and a 20¢ toy",
+      "a 10¢ toy and a 45¢ toy"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "An apple costs 31¢. A sticker costs 9¢. What is the total cost? → 40¢",
+       "correct": true
+      },
+      {
+       "text": "A pencil costs 28¢. An eraser costs 23¢. What is the total cost? → 51¢",
+       "correct": true
+      },
+      {
+       "text": "A ball costs 51¢. A ruler costs 46¢. What is the total cost? → $97",
+       "correct": false
+      },
+      {
+       "text": "An eraser costs 34¢. An apple costs 55¢. What is the total cost? → $89",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "a 25¢ toy and a 40¢ toy",
+       "correct": false
+      },
+      {
+       "text": "a 10¢ toy and a 20¢ toy",
+       "correct": true
+      },
+      {
+       "text": "a 35¢ toy and a 40¢ toy",
+       "correct": false
+      },
+      {
+       "text": "a 15¢ toy and a 20¢ toy",
+       "correct": true
+      },
+      {
+       "text": "a 10¢ toy and a 45¢ toy",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "An apple costs 31¢. A sticker costs 9¢. What is the total cost? → 40¢: correct.",
+      "A pencil costs 28¢. An eraser costs 23¢. What is the total cost? → 51¢: correct.",
+      "A ball costs 51¢. A ruler costs 46¢. What is the total cost? → $97: not correct.",
+      "An eraser costs 34¢. An apple costs 55¢. What is the total cost? → $89: not correct."
+     ],
+     "to": [
+      "Add the two prices; the total must be 60¢ or less.",
+      "Correct choices: a 10¢ toy and a 20¢ toy; a 15¢ toy and a 20¢ toy; a 10¢ toy and a 45¢ toy. Not correct: a 25¢ toy and a 40¢ toy; a 35¢ toy and a 40¢ toy."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: mw_total_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm5_select_can_buy). 2nd Grade Math audit 2026-11-19 (#8, select-all with 3 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s05-cp1-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A pencil costs 41¢ and an eraser costs 27¢."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "A sticker costs 30¢. A ruler costs 31¢. What is the total cost?",
+       "answer": "61¢"
+      },
+      {
+       "prompt": "An eraser costs 34¢. A pencil costs 16¢. What is the total cost?",
+       "answer": "50¢"
+      },
+      {
+       "prompt": "A pencil costs 34¢. A ball costs 43¢. What is the total cost?",
+       "answer": "77¢"
+      },
+      {
+       "prompt": "A ball costs 41¢. A sticker costs 30¢. What is the total cost?",
+       "answer": "71¢"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How much do both cost?",
+       "answer": "68¢"
+      },
+      {
+       "prompt": "How much change from $1 (100¢)?",
+       "answer": "32¢"
+      },
+      {
+       "prompt": "How much more does the pencil cost than the eraser?",
+       "answer": "14¢"
+      },
+      {
+       "prompt": "Explain how you found the change.",
+       "answer": "Sample answer: I subtracted the cost from 100 cents."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 61¢; (b) 50¢; (c) 77¢; (d) 71¢",
+     "to": "(a) 68¢; (b) 32¢; (c) 14¢; (d) Sample answer: I subtracted the cost from 100 cents."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Add 30¢ + 31¢. 30 + 31 = 61¢.",
+      "(b) Add 34¢ + 16¢. 34 + 16 = 50¢.",
+      "(c) Add 34¢ + 43¢. 34 + 43 = 77¢.",
+      "(d) Add 41¢ + 30¢. 41 + 30 = 71¢."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) 100 − 68.",
+      "(c) Subtract.",
+      "(d) Subtract from $1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: mw_total_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm5_open_store). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s05-cp2-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Ava has 80¢. Select ALL the pairs of toys she can buy."
+    },
+    "answer": {
+     "from": [
+      "A sticker costs 15¢. An eraser costs 18¢. What is the total cost? → 33¢",
+      "A pencil costs 34¢. An eraser costs 26¢. What is the total cost? → 60¢"
+     ],
+     "to": [
+      "a 25¢ toy and a 30¢ toy",
+      "a 10¢ toy and a 35¢ toy",
+      "a 15¢ toy and a 40¢ toy",
+      "a 35¢ toy and a 40¢ toy"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A sticker costs 15¢. An eraser costs 18¢. What is the total cost? → 33¢",
+       "correct": true
+      },
+      {
+       "text": "A pencil costs 34¢. An eraser costs 26¢. What is the total cost? → 60¢",
+       "correct": true
+      },
+      {
+       "text": "A pencil costs 32¢. A bookmark costs 31¢. What is the total cost? → 1¢",
+       "correct": false
+      },
+      {
+       "text": "A ball costs 72¢. A sticker costs 5¢. What is the total cost? → 87¢",
+       "correct": false
+      }
+     ],
+     "to": [
+      {
+       "text": "a 25¢ toy and a 30¢ toy",
+       "correct": true
+      },
+      {
+       "text": "a 10¢ toy and a 35¢ toy",
+       "correct": true
+      },
+      {
+       "text": "a 15¢ toy and a 40¢ toy",
+       "correct": true
+      },
+      {
+       "text": "a 40¢ toy and a 45¢ toy",
+       "correct": false
+      },
+      {
+       "text": "a 35¢ toy and a 40¢ toy",
+       "correct": true
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A sticker costs 15¢. An eraser costs 18¢. What is the total cost? → 33¢: correct.",
+      "A pencil costs 34¢. An eraser costs 26¢. What is the total cost? → 60¢: correct.",
+      "A pencil costs 32¢. A bookmark costs 31¢. What is the total cost? → 1¢: not correct.",
+      "A ball costs 72¢. A sticker costs 5¢. What is the total cost? → 87¢: not correct."
+     ],
+     "to": [
+      "Add the two prices; the total must be 80¢ or less.",
+      "Correct choices: a 25¢ toy and a 30¢ toy; a 10¢ toy and a 35¢ toy; a 15¢ toy and a 40¢ toy; a 35¢ toy and a 40¢ toy. Not correct: a 40¢ toy and a 45¢ toy."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: mw_total_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm5_select_can_buy). 2nd Grade Math audit 2026-11-19 (#8, select-all with 4 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s05-cp2-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A pencil costs 15¢ and an eraser costs 17¢."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "An eraser costs 12¢. An apple costs 33¢. What is the total cost?",
+       "answer": "45¢"
+      },
+      {
+       "prompt": "An apple costs 28¢. A sticker costs 19¢. What is the total cost?",
+       "answer": "47¢"
+      },
+      {
+       "prompt": "A sticker costs 29¢. A bookmark costs 29¢. What is the total cost?",
+       "answer": "58¢"
+      },
+      {
+       "prompt": "A sticker costs 19¢. A ball costs 70¢. What is the total cost?",
+       "answer": "89¢"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How much do both cost?",
+       "answer": "32¢"
+      },
+      {
+       "prompt": "How much change from $1 (100¢)?",
+       "answer": "68¢"
+      },
+      {
+       "prompt": "How much more does the pencil cost than the eraser?",
+       "answer": "2¢"
+      },
+      {
+       "prompt": "Explain how you found the change.",
+       "answer": "Sample answer: I subtracted the cost from 100 cents."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 45¢; (b) 47¢; (c) 58¢; (d) 89¢",
+     "to": "(a) 32¢; (b) 68¢; (c) 2¢; (d) Sample answer: I subtracted the cost from 100 cents."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Add 12¢ + 33¢. 12 + 33 = 45¢.",
+      "(b) Add 28¢ + 19¢. 28 + 19 = 47¢.",
+      "(c) Add 29¢ + 29¢. 29 + 29 = 58¢.",
+      "(d) Add 19¢ + 70¢. 19 + 70 = 89¢."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) 100 − 32.",
+      "(c) Subtract.",
+      "(d) Subtract from $1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: mw_total_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm5_open_store). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s05-honors-029",
+   "changes": {
+    "prompt": {
+     "from": "Select ALL the problems that are matched with the correct answer.",
+     "to": "Ava has 50¢. Select ALL the pairs of toys she can buy."
+    },
+    "answer": {
+     "from": [
+      "An apple costs 31¢. A ruler costs 50¢. What is the total cost? → 81¢",
+      "A ruler costs 39¢. An eraser costs 30¢. What is the total cost? → 69¢"
+     ],
+     "to": [
+      "a 15¢ toy and a 35¢ toy",
+      "a 10¢ toy and a 40¢ toy"
+     ]
+    },
+    "options": {
+     "from": [
+      {
+       "text": "A pencil costs 37¢. An apple costs 35¢. What is the total cost? → 2¢",
+       "correct": false
+      },
+      {
+       "text": "An apple costs 31¢. A ruler costs 50¢. What is the total cost? → 81¢",
+       "correct": true
+      },
+      {
+       "text": "An apple costs 57¢. A sticker costs 11¢. What is the total cost? → 46¢",
+       "correct": false
+      },
+      {
+       "text": "A ruler costs 39¢. An eraser costs 30¢. What is the total cost? → 69¢",
+       "correct": true
+      }
+     ],
+     "to": [
+      {
+       "text": "a 25¢ toy and a 30¢ toy",
+       "correct": false
+      },
+      {
+       "text": "a 15¢ toy and a 35¢ toy",
+       "correct": true
+      },
+      {
+       "text": "a 10¢ toy and a 40¢ toy",
+       "correct": true
+      },
+      {
+       "text": "a 30¢ toy and a 45¢ toy",
+       "correct": false
+      },
+      {
+       "text": "a 30¢ toy and a 35¢ toy",
+       "correct": false
+      }
+     ]
+    },
+    "solutionSteps": {
+     "from": [
+      "Work each problem and compare with the answer shown.",
+      "A pencil costs 37¢. An apple costs 35¢. What is the total cost? → 2¢: not correct.",
+      "An apple costs 31¢. A ruler costs 50¢. What is the total cost? → 81¢: correct.",
+      "An apple costs 57¢. A sticker costs 11¢. What is the total cost? → 46¢: not correct.",
+      "A ruler costs 39¢. An eraser costs 30¢. What is the total cost? → 69¢: correct."
+     ],
+     "to": [
+      "Add the two prices; the total must be 50¢ or less.",
+      "Correct choices: a 15¢ toy and a 35¢ toy; a 10¢ toy and a 40¢ toy. Not correct: a 30¢ toy and a 35¢ toy; a 25¢ toy and a 30¢ toy; a 30¢ toy and a 45¢ toy."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: mw_total_sel). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm5_select_can_buy). 2nd Grade Math audit 2026-11-19 (#8, select-all with 2 correct); every choice recomputed by scripts/test-grade2-audit.cjs."
+    }
+   }
+  },
+  {
+   "id": "m2-tm-s05-honors-030",
+   "changes": {
+    "prompt": {
+     "from": "Answer each part. Show your work.",
+     "to": "A pencil costs 53¢ and an eraser costs 13¢."
+    },
+    "parts": {
+     "from": [
+      {
+       "prompt": "An apple costs 52¢. A bookmark costs 24¢. What is the total cost?",
+       "answer": "76¢"
+      },
+      {
+       "prompt": "An eraser costs 35¢. An apple costs 34¢. What is the total cost?",
+       "answer": "69¢"
+      },
+      {
+       "prompt": "An apple costs 44¢. A bookmark costs 33¢. What is the total cost?",
+       "answer": "77¢"
+      },
+      {
+       "prompt": "A pencil costs 16¢. A ruler costs 61¢. What is the total cost?",
+       "answer": "77¢"
+      }
+     ],
+     "to": [
+      {
+       "prompt": "How much do both cost?",
+       "answer": "66¢"
+      },
+      {
+       "prompt": "How much change from $1 (100¢)?",
+       "answer": "34¢"
+      },
+      {
+       "prompt": "How much more does the pencil cost than the eraser?",
+       "answer": "40¢"
+      },
+      {
+       "prompt": "Explain how you found the change.",
+       "answer": "Sample answer: I subtracted the cost from 100 cents."
+      }
+     ]
+    },
+    "answer": {
+     "from": "(a) 76¢; (b) 69¢; (c) 77¢; (d) 77¢",
+     "to": "(a) 66¢; (b) 34¢; (c) 40¢; (d) Sample answer: I subtracted the cost from 100 cents."
+    },
+    "solutionSteps": {
+     "from": [
+      "(a) Add 52¢ + 24¢. 52 + 24 = 76¢.",
+      "(b) Add 35¢ + 34¢. 35 + 34 = 69¢.",
+      "(c) Add 44¢ + 33¢. 44 + 33 = 77¢.",
+      "(d) Add 16¢ + 61¢. 16 + 61 = 77¢."
+     ],
+     "to": [
+      "(a) Add.",
+      "(b) 100 − 66.",
+      "(c) Subtract.",
+      "(d) Subtract from $1."
+     ]
+    },
+    "sourceNotes": {
+     "from": "Original Claude-authored Grade 2 item (family: mw_total_open). Answer computed by the authoring script and re-derived by the independent verifier (tools/grade2-authoring/verify.py).",
+     "to": "Original Claude-authored item (family: tm5_open_store). 2nd Grade Math audit 2026-11-19 (#4, open response); answers recomputed by scripts/test-grade2-audit.cjs; the explanation part is self-checked."
+    }
+   }
+  }
+ ],
+ "additions": [],
+ "meta": {
+  "m2-tm-s01-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "15 minutes later is 8:45.",
+   "distractors": {
+    "8:40": "a common mistake",
+    "8:55": "a common mistake",
+    "8:15": "a common mistake"
+   }
+  },
+  "m2-tm-s01-honors-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "35 minutes later is 11:50.",
+   "distractors": {
+    "11:45": "a common mistake",
+    "12:00": "a common mistake",
+    "10:40": "a common mistake"
+   }
+  },
+  "m2-tm-s01-honors-013": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "35 minutes later is 6:55.",
+   "distractors": {
+    "6:50": "a common mistake",
+    "7:05": "a common mistake",
+    "5:45": "a common mistake"
+   }
+  },
+  "m2-tm-s01-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "15 minutes later is 6:00.",
+   "distractors": {
+    "5:55": "a common mistake",
+    "6:10": "a common mistake",
+    "5:30": "a common mistake"
+   }
+  },
+  "m2-tm-s01-honors-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "30 minutes later is 1:50.",
+   "distractors": {
+    "1:45": "a common mistake",
+    "2:00": "a common mistake",
+    "12:50": "a common mistake"
+   }
+  },
+  "m2-tm-s01-honors-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "25 minutes later is 5:10.",
+   "distractors": {
+    "5:05": "a common mistake",
+    "5:20": "a common mistake",
+    "4:20": "a common mistake"
+   }
+  },
+  "m2-tm-s01-honors-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "20 minutes later is 9:05.",
+   "distractors": {
+    "9:00": "a common mistake",
+    "9:15": "a common mistake",
+    "8:25": "a common mistake"
+   }
+  },
+  "m2-tm-s02-honors-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12:00 noon to 7:00 PM is 7 hours: 5 + 7 = 12.",
+   "distractors": {
+    "0 hours": "a common mistake",
+    "14 hours": "a common mistake",
+    "13 hours": "a common mistake"
+   }
+  },
+  "m2-tm-s02-honors-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12:00 noon to 4:00 PM is 4 hours: 1 + 4 = 5.",
+   "distractors": {
+    "7 hours": "a common mistake",
+    "15 hours": "a common mistake",
+    "6 hours": "a common mistake"
+   }
+  },
+  "m2-tm-s02-honors-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12:00 noon to 6:00 PM is 6 hours: 3 + 6 = 9.",
+   "distractors": {
+    "3 hours": "a common mistake",
+    "15 hours": "a common mistake",
+    "10 hours": "a common mistake"
+   }
+  },
+  "m2-tm-s02-honors-007": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12:00 noon to 6:00 PM is 6 hours: 6 + 6 = 12.",
+   "distractors": {
+    "0 hours": "a common mistake",
+    "13 hours": "a common mistake"
+   }
+  },
+  "m2-tm-s02-honors-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12:00 noon to 4:00 PM is 4 hours: 3 + 4 = 7.",
+   "distractors": {
+    "5 hours": "a common mistake",
+    "13 hours": "a common mistake",
+    "8 hours": "a common mistake"
+   }
+  },
+  "m2-tm-s02-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12:00 noon to 4:00 PM is 4 hours: 5 + 4 = 9.",
+   "distractors": {
+    "3 hours": "a common mistake",
+    "11 hours": "a common mistake",
+    "10 hours": "a common mistake"
+   }
+  },
+  "m2-tm-s02-honors-014": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12:00 noon to 8:00 PM is 8 hours: 1 + 8 = 9.",
+   "distractors": {
+    "3 hours": "a common mistake",
+    "19 hours": "a common mistake",
+    "10 hours": "a common mistake"
+   }
+  },
+  "m2-tm-s02-honors-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12:00 noon to 3:00 PM is 3 hours: 1 + 3 = 4.",
+   "distractors": {
+    "8 hours": "a common mistake",
+    "14 hours": "a common mistake",
+    "5 hours": "a common mistake"
+   }
+  },
+  "m2-tm-s02-honors-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12:00 noon to 5:00 PM is 5 hours: 3 + 5 = 8.",
+   "distractors": {
+    "4 hours": "a common mistake",
+    "14 hours": "a common mistake",
+    "9 hours": "a common mistake"
+   }
+  },
+  "m2-tm-s02-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12:00 noon to 2:00 PM is 2 hours: 1 + 2 = 3.",
+   "distractors": {
+    "9 hours": "a common mistake",
+    "13 hours": "a common mistake",
+    "4 hours": "a common mistake"
+   }
+  },
+  "m2-tm-s02-honors-024": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "12:00 noon to 9:00 PM is 9 hours: 3 + 9 = 12.",
+   "distractors": {
+    "0 hours": "a common mistake",
+    "18 hours": "a common mistake",
+    "13 hours": "a common mistake"
+   }
+  },
+  "m2-tm-s03-honors-005": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "100¢ − 49¢ = 51¢.",
+   "distractors": {
+    "49¢": "a common mistake",
+    "61¢": "a common mistake",
+    "50¢": "a common mistake"
+   }
+  },
+  "m2-tm-s03-honors-011": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "100¢ − 61¢ = 39¢.",
+   "distractors": {
+    "61¢": "a common mistake",
+    "49¢": "a common mistake",
+    "38¢": "a common mistake"
+   }
+  },
+  "m2-tm-s03-honors-012": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "100¢ − 36¢ = 64¢.",
+   "distractors": {
+    "36¢": "a common mistake",
+    "74¢": "a common mistake",
+    "63¢": "a common mistake"
+   }
+  },
+  "m2-tm-s03-honors-017": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "100¢ − 49¢ = 51¢.",
+   "distractors": {
+    "49¢": "a common mistake",
+    "61¢": "a common mistake",
+    "50¢": "a common mistake"
+   }
+  },
+  "m2-tm-s03-honors-021": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "100¢ − 63¢ = 37¢.",
+   "distractors": {
+    "63¢": "a common mistake",
+    "47¢": "a common mistake",
+    "36¢": "a common mistake"
+   }
+  },
+  "m2-tm-s04-honors-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "$39 − $6 = $33.",
+   "distractors": {
+    "$39": "a common mistake",
+    "$6": "a common mistake",
+    "$38": "a common mistake"
+   }
+  },
+  "m2-tm-s01-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "40 + 15 = 55 minutes.",
+   "distractors": {
+    "8 minutes; 23 minutes": "a common mistake",
+    "40 minutes; 45 minutes": "a common mistake",
+    "80 minutes; 95 minutes": "a common mistake"
+   }
+  },
+  "m2-tm-s01-cp1-018": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "15 + 10 = 25 minutes.",
+   "distractors": {
+    "3 minutes; 13 minutes": "a common mistake",
+    "15 minutes; 20 minutes": "a common mistake",
+    "30 minutes; 40 minutes": "a common mistake"
+   }
+  },
+  "m2-tm-s01-cp1-028": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "5 + 15 = 20 minutes.",
+   "distractors": {
+    "1 minutes; 16 minutes": "a common mistake",
+    "5 minutes; 10 minutes": "a common mistake",
+    "10 minutes; 25 minutes": "a common mistake"
+   }
+  },
+  "m2-tm-s02-cp1-002": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It is 12:20 PM; after 12:00 noon it is PM.",
+   "distractors": {
+    "12:20 AM": "a common mistake",
+    "9:20 AM": "a common mistake",
+    "1:20 PM": "a common mistake"
+   }
+  },
+  "m2-tm-s02-cp1-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It is 12:20 PM; after 12:00 noon it is PM.",
+   "distractors": {
+    "12:20 AM": "a common mistake",
+    "11:20 AM": "a common mistake",
+    "1:20 PM": "a common mistake"
+   }
+  },
+  "m2-tm-s02-cp1-010": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It is 9:35 AM; after 12:00 noon it is PM.",
+   "distractors": {
+    "9:35 PM": "a common mistake",
+    "8:35 AM": "a common mistake",
+    "10:35 AM": "a common mistake"
+   }
+  },
+  "m2-tm-s02-cp1-020": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It is 9:30 AM; after 12:00 noon it is PM.",
+   "distractors": {
+    "9:30 PM": "a common mistake",
+    "8:30 AM": "a common mistake",
+    "10:30 AM": "a common mistake"
+   }
+  },
+  "m2-tm-s02-cp1-022": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "It is 11:35 AM; after 12:00 noon it is PM.",
+   "distractors": {
+    "11:35 PM": "a common mistake",
+    "8:35 AM": "a common mistake",
+    "12:35 AM": "a common mistake"
+   }
+  },
+  "m2-tm-s03-cp1-003": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "28¢ + 7¢ = 35¢.",
+   "distractors": {
+    "28¢": "a common mistake",
+    "40¢": "a common mistake",
+    "13¢": "a common mistake"
+   }
+  },
+  "m2-tm-s03-cp1-004": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "67¢ + 14¢ = 81¢.",
+   "distractors": {
+    "67¢": "a common mistake",
+    "86¢": "a common mistake",
+    "22¢": "a common mistake"
+   }
+  },
+  "m2-tm-s03-cp1-009": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "32¢ + 15¢ = 47¢.",
+   "distractors": {
+    "32¢": "a common mistake",
+    "52¢": "a common mistake",
+    "21¢": "a common mistake"
+   }
+  },
+  "m2-tm-s03-cp1-016": {
+   "questionType": "multi-step",
+   "tags": [],
+   "explanation": "77¢ + 19¢ = 96¢.",
+   "distractors": {
+    "77¢": "a common mistake",
+    "101¢": "a common mistake",
+    "27¢": "a common mistake"
+   }
+  },
+  "m2-tm-s01-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "60 minus the minutes."
+  },
+  "m2-tm-s01-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "60 minus the minutes."
+  },
+  "m2-tm-s01-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "60 minus the minutes."
+  },
+  "m2-tm-s02-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "3:00 PM is 3 hours after noon."
+  },
+  "m2-tm-s02-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "6:00 PM is 6 hours after noon."
+  },
+  "m2-tm-s02-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "3:00 PM is 3 hours after noon."
+  },
+  "m2-tm-s03-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 10."
+  },
+  "m2-tm-s03-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 10."
+  },
+  "m2-tm-s03-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 10."
+  },
+  "m2-tm-s04-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 5."
+  },
+  "m2-tm-s04-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 5."
+  },
+  "m2-tm-s04-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Add 5."
+  },
+  "m2-tm-s05-cp2-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-tm-s05-cp1-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-tm-s05-honors-030": {
+   "questionType": "explain",
+   "tags": [
+    "open-response"
+   ],
+   "explanation": "Subtract."
+  },
+  "m2-tm-s01-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Count on by 5s from the time shown."
+  },
+  "m2-tm-s01-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Count on by 5s from the time shown."
+  },
+  "m2-tm-s01-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Count on by 5s from the time shown."
+  },
+  "m2-tm-s02-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "AM is from midnight to noon: the morning."
+  },
+  "m2-tm-s02-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "AM is from midnight to noon: the morning."
+  },
+  "m2-tm-s02-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "AM is from midnight to noon: the morning."
+  },
+  "m2-tm-s03-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Quarters are 25¢, dimes 10¢ and nickels 5¢. Count each group."
+  },
+  "m2-tm-s03-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Quarters are 25¢, dimes 10¢ and nickels 5¢. Count each group."
+  },
+  "m2-tm-s03-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Quarters are 25¢, dimes 10¢ and nickels 5¢. Count each group."
+  },
+  "m2-tm-s04-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Count each group of bills."
+  },
+  "m2-tm-s04-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Count each group of bills."
+  },
+  "m2-tm-s04-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Count each group of bills."
+  },
+  "m2-tm-s05-cp1-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add the two prices; the total must be 60¢ or less."
+  },
+  "m2-tm-s05-cp2-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add the two prices; the total must be 80¢ or less."
+  },
+  "m2-tm-s05-honors-029": {
+   "questionType": "conceptual",
+   "tags": [
+    "select-all"
+   ],
+   "explanation": "Add the two prices; the total must be 50¢ or less."
+  }
+ }
+}
