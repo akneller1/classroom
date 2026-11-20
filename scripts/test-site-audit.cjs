@@ -163,3 +163,8 @@ if (SITE) {
     for (const [id, e] of Object.entries(items)) ok(got[id] && got[id].prompt === e.to.prompt && got[id].answer === e.to.answer, '#3 Grade 5 rewrite applied in ' + rel + ': ' + id);
   }
 }
+// Whole-site audit 2 #8: the Financial Algebra games header follows the level in the link.
+if (SITE) for (const rel of ['financial/games/index.html', 'financial-algebra/financial/games/index.html']) {
+  const f = path.join(SITE, rel); if (!fs.existsSync(f)) continue;
+  ok(/id="faLevelNote"/.test(fs.readFileSync(f, 'utf8')), '#8 ' + rel + ' header names the level');
+}
