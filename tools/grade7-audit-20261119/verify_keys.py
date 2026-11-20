@@ -14,7 +14,7 @@ import sympy as sp
 from sympy.parsing.sympy_parser import parse_expr, standard_transformations, implicit_multiplication_application, convert_xor, rationalize
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-MIN = 2250
+MIN = 1890   # 2026-11-20: 360 rewritten Standard items are recomputed by verify_levels.py instead
 TR = standard_transformations + (implicit_multiplication_application, convert_xor, rationalize)
 SUP = str.maketrans('⁰¹²³⁴⁵⁶⁷⁸⁹⁻ˣ', '0123456789-x')
 

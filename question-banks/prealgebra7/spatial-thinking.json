@@ -424,18 +424,17 @@
    "skillId": "spatial-thinking-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "There are 7 points, and no three of them lie on the same line. How many different lines can be drawn using two of the points?",
-   "answer": "21",
+   "prompt": "There are 10 points, and no three lie on the same line. How many triangles can be drawn using three of the points as vertices?",
+   "answer": "120",
    "solutionSteps": [
-    "Each pair of points determines one line.",
-    "Each of the 7 points pairs with 6 others: 7 × 6 = 42.",
-    "Each line was counted twice: 42 ÷ 2 = 21."
+    "Each triangle is a choice of 3 points from 10, order not mattering.",
+    "10 × 9 × 8 ÷ 6 = 120."
    ],
    "standards": [
     "G-CO.A.1",
     "4.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “There are 7 points, and no three of them lie on the same line. How man”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s01-cp1-002",
@@ -511,36 +510,35 @@
    "skillId": "spatial-thinking-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "There are 11 points, and no three of them lie on the same line. How many different segments can be drawn using two of the points?",
-   "answer": "55",
+   "prompt": "There are 12 points, and no three lie on the same line. How many triangles can be drawn using three of the points as vertices?",
+   "answer": "220",
    "options": [
     {
      "text": "11",
      "correct": false
     },
     {
-     "text": "10",
-     "correct": false
-    },
-    {
-     "text": "55",
+     "text": "220",
      "correct": true
     },
     {
-     "text": "110",
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "10",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Each pair of points determines one segment.",
-    "Each of the 11 points pairs with 10 others: 11 × 10 = 110.",
-    "Each segment was counted twice: 110 ÷ 2 = 55."
+    "Each triangle is a choice of 3 points from 12, order not mattering.",
+    "12 × 11 × 10 ÷ 6 = 220."
    ],
    "standards": [
     "G-CO.A.1",
     "4.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “There are 11 points, and no three of them lie on the same line. How ma”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s01-cp1-005",
@@ -598,18 +596,17 @@
    "skillId": "spatial-thinking-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "There are 11 points, and no three of them lie on the same line. How many different lines can be drawn using two of the points?",
-   "answer": "55",
+   "prompt": "There are 8 points, and no three lie on the same line. How many triangles can be drawn using three of the points as vertices?",
+   "answer": "56",
    "solutionSteps": [
-    "Each pair of points determines one line.",
-    "Each of the 11 points pairs with 10 others: 11 × 10 = 110.",
-    "Each line was counted twice: 110 ÷ 2 = 55."
+    "Each triangle is a choice of 3 points from 8, order not mattering.",
+    "8 × 7 × 6 ÷ 6 = 56."
    ],
    "standards": [
     "G-CO.A.1",
     "4.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “There are 11 points, and no three of them lie on the same line. How ma”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s01-cp1-008",
@@ -667,36 +664,35 @@
    "skillId": "spatial-thinking-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "There are 7 points, and no three of them lie on the same line. How many different segments can be drawn using two of the points?",
-   "answer": "21",
+   "prompt": "There are 9 points, and no three lie on the same line. How many triangles can be drawn using three of the points as vertices?",
+   "answer": "84",
    "options": [
+    {
+     "text": "6",
+     "correct": false
+    },
     {
      "text": "7",
      "correct": false
     },
     {
-     "text": "42",
-     "correct": false
-    },
-    {
-     "text": "21",
+     "text": "84",
      "correct": true
     },
     {
-     "text": "6",
+     "text": "8",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Each pair of points determines one segment.",
-    "Each of the 7 points pairs with 6 others: 7 × 6 = 42.",
-    "Each segment was counted twice: 42 ÷ 2 = 21."
+    "Each triangle is a choice of 3 points from 9, order not mattering.",
+    "9 × 8 × 7 ÷ 6 = 84."
    ],
    "standards": [
     "G-CO.A.1",
     "4.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “There are 7 points, and no three of them lie on the same line. How man”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s01-cp1-011",
@@ -720,18 +716,17 @@
    "skillId": "spatial-thinking-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "There are 9 points, and no three of them lie on the same line. How many different segments can be drawn using two of the points?",
-   "answer": "36",
+   "prompt": "There are 6 points, and no three lie on the same line. How many triangles can be drawn using three of the points as vertices?",
+   "answer": "20",
    "solutionSteps": [
-    "Each pair of points determines one segment.",
-    "Each of the 9 points pairs with 8 others: 9 × 8 = 72.",
-    "Each segment was counted twice: 72 ÷ 2 = 36."
+    "Each triangle is a choice of 3 points from 6, order not mattering.",
+    "6 × 5 × 4 ÷ 6 = 20."
    ],
    "standards": [
     "G-CO.A.1",
     "4.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “There are 9 points, and no three of them lie on the same line. How man”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s01-cp1-013",
@@ -1966,16 +1961,17 @@
    "skillId": "spatial-thinking-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two angles are supplementary. One measures 78°. What is the other?",
-   "answer": "102°",
+   "prompt": "Two lines intersect. One angle measures 101°. Find its vertical angle plus twice an adjacent angle, in degrees.",
+   "answer": "259°",
    "solutionSteps": [
-    "Supplementary angles add to 180°.",
-    "The angle measures 102°."
+    "The vertical angle equals 101°.",
+    "An adjacent angle is 79°.",
+    "101 + 2 × 79 = 259°."
    ],
    "standards": [
     "7.G.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_pair). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Two angles are supplementary. One measures 78°. What is the other?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s02-cp1-010",
@@ -2019,34 +2015,35 @@
    "skillId": "spatial-thinking-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Two angles are complementary. One measures 34°. What is the other?",
-   "answer": "56°",
+   "prompt": "Two lines intersect. One angle measures 79°. Find its vertical angle plus twice an adjacent angle, in degrees.",
+   "answer": "281°",
    "options": [
     {
-     "text": "326°",
+     "text": "79°",
      "correct": false
     },
     {
-     "text": "56°",
+     "text": "101°",
+     "correct": false
+    },
+    {
+     "text": "2°",
+     "correct": false
+    },
+    {
+     "text": "281°",
      "correct": true
-    },
-    {
-     "text": "124°",
-     "correct": false
-    },
-    {
-     "text": "46°",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Complementary angles add to 90°.",
-    "The angle measures 56°."
+    "The vertical angle equals 79°.",
+    "An adjacent angle is 101°.",
+    "79 + 2 × 101 = 281°."
    ],
    "standards": [
     "7.G.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_pair). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Two angles are complementary. One measures 34°. What is the other?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s02-cp1-012",
@@ -2072,16 +2069,17 @@
    "skillId": "spatial-thinking-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Two angles are supplementary. One measures 77°. What is the other?",
-   "answer": "103°",
+   "prompt": "Two lines intersect. One angle measures 59°. Find its vertical angle plus twice an adjacent angle, in degrees.",
+   "answer": "301°",
    "solutionSteps": [
-    "Supplementary angles add to 180°.",
-    "The angle measures 103°."
+    "The vertical angle equals 59°.",
+    "An adjacent angle is 121°.",
+    "59 + 2 × 121 = 301°."
    ],
    "standards": [
     "7.G.B.5"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_pair). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Two angles are supplementary. One measures 77°. What is the other?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s02-cp1-014",
@@ -3296,52 +3294,54 @@
    "skillId": "spatial-thinking-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "What is the name of a polygon with 12 sides?",
-   "answer": "dodecagon",
+   "prompt": "A regular polygon has interior angles that add to 1080°. How many sides does it have?",
+   "answer": "8",
    "options": [
     {
-     "text": "decagon",
+     "text": "1080",
      "correct": false
     },
     {
-     "text": "dodecagon",
+     "text": "8",
      "correct": true
     },
     {
-     "text": "pentagon",
+     "text": "180",
      "correct": false
     },
     {
-     "text": "octagon",
+     "text": "6",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A polygon with 12 sides is a dodecagon."
+    "Angle sum = (n - 2) × 180.",
+    "(n - 2) × 180 = 1080, so n - 2 = 6.",
+    "n = 8."
    ],
    "standards": [
     "8.G.A.5",
     "5.G.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “What is the name of a polygon with 12 sides?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s03-cp1-003",
    "skillId": "spatial-thinking-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A triangle has angles 97°, 28°, and x°. Find x, then classify the triangle as acute, right, or obtuse.",
-   "answer": "x = 55, obtuse",
+   "prompt": "A regular polygon has interior angles that add to 1440°. How many sides does it have?",
+   "answer": "10",
    "solutionSteps": [
-    "x = 180 - 97 - 28 = 55.",
-    "Acute: all angles less than 90°; right: one 90°; obtuse: one greater than 90°.",
-    "The triangle is obtuse."
+    "Angle sum = (n - 2) × 180.",
+    "(n - 2) × 180 = 1440, so n - 2 = 8.",
+    "n = 10."
    ],
    "standards": [
     "8.G.A.5",
     "5.G.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_triangle). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A triangle has angles 97°, 28°, and x°. Find x, then classify the tria”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s03-cp1-004",
@@ -3366,70 +3366,72 @@
    "skillId": "spatial-thinking-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "What is the name of a polygon with 4 sides?",
-   "answer": "quadrilateral",
+   "prompt": "A regular polygon has interior angles that add to 1260°. How many sides does it have?",
+   "answer": "9",
    "options": [
     {
-     "text": "nonagon",
+     "text": "7",
      "correct": false
     },
     {
-     "text": "quadrilateral",
+     "text": "180",
+     "correct": false
+    },
+    {
+     "text": "1260",
+     "correct": false
+    },
+    {
+     "text": "9",
      "correct": true
-    },
-    {
-     "text": "hexagon",
-     "correct": false
-    },
-    {
-     "text": "octagon",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "A polygon with 4 sides is a quadrilateral."
+    "Angle sum = (n - 2) × 180.",
+    "(n - 2) × 180 = 1260, so n - 2 = 7.",
+    "n = 9."
    ],
    "standards": [
     "8.G.A.5",
     "5.G.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “What is the name of a polygon with 4 sides?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s03-cp1-006",
    "skillId": "spatial-thinking-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A triangle has angles 113°, 33°, and x°. Find x, then classify the triangle as acute, right, or obtuse.",
-   "answer": "x = 34, obtuse",
+   "prompt": "A regular polygon has interior angles that add to 540°. How many sides does it have?",
+   "answer": "5",
    "options": [
     {
-     "text": "x = 34, obtuse",
+     "text": "540",
+     "correct": false
+    },
+    {
+     "text": "5",
      "correct": true
     },
     {
-     "text": "x = 146, obtuse",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "x = 214, obtuse",
-     "correct": false
-    },
-    {
-     "text": "x = 34, acute",
+     "text": "180",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "x = 180 - 113 - 33 = 34.",
-    "Acute: all angles less than 90°; right: one 90°; obtuse: one greater than 90°.",
-    "The triangle is obtuse."
+    "Angle sum = (n - 2) × 180.",
+    "(n - 2) × 180 = 540, so n - 2 = 3.",
+    "n = 5."
    ],
    "standards": [
     "8.G.A.5",
     "5.G.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_triangle). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A triangle has angles 113°, 33°, and x°. Find x, then classify the tri”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s03-cp1-007",
@@ -3472,34 +3474,36 @@
    "skillId": "spatial-thinking-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "What is the name of a polygon with 12 sides?",
-   "answer": "dodecagon",
+   "prompt": "A regular polygon has interior angles that add to 1800°. How many sides does it have?",
+   "answer": "12",
    "options": [
     {
-     "text": "hexagon",
-     "correct": false
-    },
-    {
-     "text": "dodecagon",
+     "text": "12",
      "correct": true
     },
     {
-     "text": "heptagon",
+     "text": "1800",
      "correct": false
     },
     {
-     "text": "octagon",
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "180",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A polygon with 12 sides is a dodecagon."
+    "Angle sum = (n - 2) × 180.",
+    "(n - 2) × 180 = 1800, so n - 2 = 10.",
+    "n = 12."
    ],
    "standards": [
     "8.G.A.5",
     "5.G.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_name). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “What is the name of a polygon with 12 sides?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s03-cp1-009",
@@ -4778,18 +4782,17 @@
    "skillId": "spatial-thinking-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A straight fence is 80 feet long with a post every 10 feet, including both ends. How many posts are there?",
-   "answer": "9",
+   "prompt": "A rectangular yard is 48 feet by 16 feet. A fence post stands at every corner and every 8 feet along the edge. How many posts are there?",
+   "answer": "16",
    "solutionSteps": [
-    "Draw a diagram: posts at 0, 10, 20, …, 80 feet.",
-    "There are 8 gaps.",
-    "Posts = gaps + 1 = 9."
+    "Perimeter: 2(48 + 16) = 128 feet.",
+    "Around a closed loop, posts = gaps: 128 ÷ 8 = 16."
    ],
    "standards": [
     "MP.1",
     "MP.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A straight fence is 80 feet long with a post every 10 feet, including ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s04-cp1-006",
@@ -4832,36 +4835,35 @@
    "skillId": "spatial-thinking-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A snail starts 4 ft up a wall. Each day it climbs 9 ft and each night slides back 4 ft. How high is it after 3 full days and nights?",
-   "answer": "19 feet",
+   "prompt": "A rectangular yard is 96 feet by 16 feet. A fence post stands at every corner and every 8 feet along the edge. How many posts are there?",
+   "answer": "28",
    "options": [
     {
-     "text": "43 feet",
+     "text": "224",
      "correct": false
     },
     {
-     "text": "15 feet",
+     "text": "16",
      "correct": false
     },
     {
-     "text": "19 feet",
+     "text": "28",
      "correct": true
     },
     {
-     "text": "31 feet",
+     "text": "8",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Draw the wall and mark each day and night.",
-    "Net gain per day: 9 - 4 = 5 ft.",
-    "4 + 3 × 5 = 19 ft."
+    "Perimeter: 2(96 + 16) = 224 feet.",
+    "Around a closed loop, posts = gaps: 224 ÷ 8 = 28."
    ],
    "standards": [
     "MP.1",
     "MP.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A snail starts 4 ft up a wall. Each day it climbs 9 ft and each night ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s04-cp1-008",
@@ -4886,18 +4888,17 @@
    "skillId": "spatial-thinking-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Trees are planted in a row, 5 meters apart. There are 4 trees. How far is it from the first tree to the last tree?",
-   "answer": "15 meters",
+   "prompt": "A rectangular yard is 66 feet by 18 feet. A fence post stands at every corner and every 6 feet along the edge. How many posts are there?",
+   "answer": "28",
    "solutionSteps": [
-    "Draw the row of trees.",
-    "4 trees make 3 gaps.",
-    "Distance = 3 × 5 = 15 meters."
+    "Perimeter: 2(66 + 18) = 168 feet.",
+    "Around a closed loop, posts = gaps: 168 ÷ 6 = 28."
    ],
    "standards": [
     "MP.1",
     "MP.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Trees are planted in a row, 5 meters apart. There are 4 trees. How far”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s04-cp1-010",
@@ -4940,36 +4941,35 @@
    "skillId": "spatial-thinking-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A straight fence is 60 feet long with a post every 4 feet, including both ends. How many posts are there?",
-   "answer": "16",
+   "prompt": "A rectangular yard is 110 feet by 80 feet. A fence post stands at every corner and every 10 feet along the edge. How many posts are there?",
+   "answer": "38",
    "options": [
     {
-     "text": "15",
+     "text": "10",
      "correct": false
     },
     {
-     "text": "16",
+     "text": "80",
+     "correct": false
+    },
+    {
+     "text": "38",
      "correct": true
     },
     {
-     "text": "60",
-     "correct": false
-    },
-    {
-     "text": "17",
+     "text": "380",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Draw a diagram: posts at 0, 4, 8, …, 60 feet.",
-    "There are 15 gaps.",
-    "Posts = gaps + 1 = 16."
+    "Perimeter: 2(110 + 80) = 380 feet.",
+    "Around a closed loop, posts = gaps: 380 ÷ 10 = 38."
    ],
    "standards": [
     "MP.1",
     "MP.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A straight fence is 60 feet long with a post every 4 feet, including b”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s04-cp1-012",
@@ -7472,34 +7472,34 @@
    "skillId": "spatial-thinking-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A circle has diameter 22 in. What is its radius?",
-   "answer": "11 in.",
+   "prompt": "A circle has diameter 14 in. Find its circumference. Use 3.14 for π.",
+   "answer": "43.96 in.",
    "options": [
     {
-     "text": "22 in.",
+     "text": "44.96 in.",
      "correct": false
     },
     {
-     "text": "5 1/2 in.",
+     "text": "3.14 in.",
      "correct": false
     },
     {
-     "text": "44 in.",
-     "correct": false
-    },
-    {
-     "text": "11 in.",
+     "text": "43.96 in.",
      "correct": true
+    },
+    {
+     "text": "14 in.",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "The radius is half the diameter.",
-    "r = 22 ÷ 2 = 11 in."
+    "C = πd.",
+    "3.14 × 14 = 43.96 in."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_reverse). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A circle has diameter 22 in. What is its radius?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s06-cp1-003",
@@ -7557,16 +7557,16 @@
    "skillId": "spatial-thinking-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A circle has diameter 19 in. What is its radius?",
-   "answer": "9 1/2 in.",
+   "prompt": "A circle has diameter 42 in. Find its circumference. Use 3.14 for π.",
+   "answer": "131.88 in.",
    "solutionSteps": [
-    "The radius is half the diameter.",
-    "r = 19 ÷ 2 = 9 1/2 in."
+    "C = πd.",
+    "3.14 × 42 = 131.88 in."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_reverse). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A circle has diameter 19 in. What is its radius?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s06-cp1-006",
@@ -7624,34 +7624,34 @@
    "skillId": "spatial-thinking-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A circle has diameter 39 in. What is its radius?",
-   "answer": "19 1/2 in.",
+   "prompt": "A circle has diameter 22 in. Find its circumference. Use 3.14 for π.",
+   "answer": "69.08 in.",
    "options": [
     {
-     "text": "9 3/4 in.",
+     "text": "3.14 in.",
      "correct": false
     },
     {
-     "text": "78 in.",
+     "text": "70.08 in.",
      "correct": false
     },
     {
-     "text": "19 1/2 in.",
+     "text": "22 in.",
+     "correct": false
+    },
+    {
+     "text": "69.08 in.",
      "correct": true
-    },
-    {
-     "text": "39 in.",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "The radius is half the diameter.",
-    "r = 39 ÷ 2 = 19 1/2 in."
+    "C = πd.",
+    "3.14 × 22 = 69.08 in."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_reverse). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A circle has diameter 39 in. What is its radius?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s06-cp1-009",
@@ -7709,16 +7709,16 @@
    "skillId": "spatial-thinking-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A circle has diameter 18 in. What is its radius?",
-   "answer": "9 in.",
+   "prompt": "A circle has diameter 32 in. Find its circumference. Use 3.14 for π.",
+   "answer": "100.48 in.",
    "solutionSteps": [
-    "The radius is half the diameter.",
-    "r = 18 ÷ 2 = 9 in."
+    "C = πd.",
+    "3.14 × 32 = 100.48 in."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_reverse). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A circle has diameter 18 in. What is its radius?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s06-cp1-012",
@@ -12987,17 +12987,17 @@
    "skillId": "spatial-thinking-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Point A(-8, -4) is rotated 180° counterclockwise about the origin. What are the coordinates of A′?",
-   "answer": "(8, 4)",
+   "prompt": "Point A(-5, -3) is rotated 90° counterclockwise about the origin. What are the coordinates of A′?",
+   "answer": "(3, -5)",
    "solutionSteps": [
-    "180°: (x, y) → (-x, -y).",
-    "A′(8, 4)."
+    "A 90° counterclockwise rotation maps (x, y) to (-y, x).",
+    "(-5, -3) → (3, -5)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Point A(-8, -4) is rotated 180° counterclockwise about the origin. Wha”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s10-cp1-002",
@@ -13039,35 +13039,35 @@
    "skillId": "spatial-thinking-skill-10",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Point A(-7, -8) is rotated 180° counterclockwise about the origin. What are the coordinates of A′?",
-   "answer": "(7, 8)",
+   "prompt": "Point A(3, -7) is rotated 90° counterclockwise about the origin. What are the coordinates of A′?",
+   "answer": "(7, 3)",
    "options": [
     {
-     "text": "(-7, 8)",
+     "text": "(-7, 3)",
      "correct": false
     },
     {
-     "text": "(7, 8)",
+     "text": "(7, 3)",
      "correct": true
     },
     {
-     "text": "(-8, -7)",
+     "text": "(7, -3)",
      "correct": false
     },
     {
-     "text": "(7, -8)",
+     "text": "(3, 7)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "180°: (x, y) → (-x, -y).",
-    "A′(7, 8)."
+    "A 90° counterclockwise rotation maps (x, y) to (-y, x).",
+    "(3, -7) → (7, 3)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Point A(-7, -8) is rotated 180° counterclockwise about the origin. Wha”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s10-cp1-004",
@@ -13091,17 +13091,17 @@
    "skillId": "spatial-thinking-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Point A(-5, -1) is rotated 270° counterclockwise about the origin. What are the coordinates of A′?",
-   "answer": "(-1, 5)",
+   "prompt": "Point A(4, 6) is rotated 90° counterclockwise about the origin. What are the coordinates of A′?",
+   "answer": "(-6, 4)",
    "solutionSteps": [
-    "270° counterclockwise: (x, y) → (y, -x).",
-    "A′(-1, 5)."
+    "A 90° counterclockwise rotation maps (x, y) to (-y, x).",
+    "(4, 6) → (-6, 4)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Point A(-5, -1) is rotated 270° counterclockwise about the origin. Wha”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s10-cp1-006",
@@ -13143,19 +13143,19 @@
    "skillId": "spatial-thinking-skill-10",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Point A(-5, -4) is rotated 180° counterclockwise about the origin. What are the coordinates of A′?",
-   "answer": "(5, 4)",
+   "prompt": "Point A(-4, 5) is rotated 90° counterclockwise about the origin. What are the coordinates of A′?",
+   "answer": "(-5, -4)",
    "options": [
-    {
-     "text": "(5, -4)",
-     "correct": false
-    },
     {
      "text": "(-5, 4)",
      "correct": false
     },
     {
-     "text": "(5, 4)",
+     "text": "(5, -4)",
+     "correct": false
+    },
+    {
+     "text": "(-5, -4)",
      "correct": true
     },
     {
@@ -13164,14 +13164,14 @@
     }
    ],
    "solutionSteps": [
-    "180°: (x, y) → (-x, -y).",
-    "A′(5, 4)."
+    "A 90° counterclockwise rotation maps (x, y) to (-y, x).",
+    "(-4, 5) → (-5, -4)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Point A(-5, -4) is rotated 180° counterclockwise about the origin. Wha”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s10-cp1-008",
@@ -13195,17 +13195,17 @@
    "skillId": "spatial-thinking-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Point A(-2, -5) is rotated 270° counterclockwise about the origin. What are the coordinates of A′?",
-   "answer": "(-5, 2)",
+   "prompt": "Point A(-8, 3) is rotated 90° counterclockwise about the origin. What are the coordinates of A′?",
+   "answer": "(-3, -8)",
    "solutionSteps": [
-    "270° counterclockwise: (x, y) → (y, -x).",
-    "A′(-5, 2)."
+    "A 90° counterclockwise rotation maps (x, y) to (-y, x).",
+    "(-8, 3) → (-3, -8)."
    ],
    "standards": [
     "8.G.A.1",
     "8.G.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_spt_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Point A(-2, -5) is rotated 270° counterclockwise about the origin. Wha”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-spt-s10-cp1-010",

@@ -668,17 +668,18 @@
    "skillId": "data-analysis-probability-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A frequency table shows the number of values in each interval: 1–5: 2; 6–10: 1; 11–15: 4; 16–20: 3. How many values are there in all?",
-   "answer": "10",
+   "prompt": "A frequency table shows: 1–5: 8; 6–10: 4; 11–15: 3; 16–20: 5. What percent of the values are greater than 10? Round to the nearest whole percent.",
+   "answer": "40%",
    "solutionSteps": [
-    "Add all the frequencies.",
-    "2 + 1 + 4 + 3 = 10."
+    "Total: 20.",
+    "Greater than 10: 3 + 5 = 8.",
+    "8/20 ≈ 40%."
    ],
    "standards": [
     "6.SP.B.4",
     "6.SP.B.5a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_freq_text). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A frequency table shows the number of values in each interval: 1–5: 2;”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s01-cp1-007",
@@ -750,35 +751,36 @@
    "skillId": "data-analysis-probability-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A frequency table shows the number of values in each interval: 1–5: 8; 6–10: 13; 11–15: 5; 16–20: 4. How many values are there in all?",
-   "answer": "30",
+   "prompt": "A frequency table shows: 1–5: 8; 6–10: 3; 11–15: 7; 16–20: 8. What percent of the values are greater than 10? Round to the nearest whole percent.",
+   "answer": "58%",
    "options": [
     {
-     "text": "13",
-     "correct": false
-    },
-    {
-     "text": "30",
+     "text": "58%",
      "correct": true
     },
     {
-     "text": "4",
+     "text": "15/26%",
      "correct": false
     },
     {
-     "text": "26",
+     "text": "8%",
+     "correct": false
+    },
+    {
+     "text": "15%",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Add all the frequencies.",
-    "8 + 13 + 5 + 4 = 30."
+    "Total: 26.",
+    "Greater than 10: 7 + 8 = 15.",
+    "15/26 ≈ 58%."
    ],
    "standards": [
     "6.SP.B.4",
     "6.SP.B.5a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_freq_text). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A frequency table shows the number of values in each interval: 1–5: 8;”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s01-cp1-010",
@@ -851,35 +853,36 @@
    "skillId": "data-analysis-probability-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A frequency table shows the number of values in each interval: 1–5: 2; 6–10: 12; 11–15: 14; 16–20: 2. Which interval has the most values?",
-   "answer": "11–15",
+   "prompt": "A frequency table shows: 1–5: 1; 6–10: 3; 11–15: 9; 16–20: 5. What percent of the values are greater than 10? Round to the nearest whole percent.",
+   "answer": "78%",
    "options": [
     {
-     "text": "11–15",
+     "text": "7/9%",
+     "correct": false
+    },
+    {
+     "text": "14%",
+     "correct": false
+    },
+    {
+     "text": "78%",
      "correct": true
     },
     {
-     "text": "16–20",
-     "correct": false
-    },
-    {
-     "text": "1–5",
-     "correct": false
-    },
-    {
-     "text": "6–10",
+     "text": "5%",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Compare the frequencies.",
-    "The greatest frequency is 14, for 11–15."
+    "Total: 18.",
+    "Greater than 10: 9 + 5 = 14.",
+    "14/18 ≈ 78%."
    ],
    "standards": [
     "6.SP.B.4",
     "6.SP.B.5a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_freq_text). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A frequency table shows the number of values in each interval: 1–5: 2;”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s01-cp1-013",
@@ -2087,36 +2090,36 @@
    "skillId": "data-analysis-probability-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Data: 11, 12, 17, 18, 18, 28, 35, 36, 37, 48, 54. Find the median.",
-   "answer": "28",
+   "prompt": "Data: 10, 11, 43, 44, 48, 48, 49, 58, 60. Find the interquartile range.",
+   "answer": "53/2",
    "options": [
     {
-     "text": "20",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "17",
-     "correct": false
-    },
-    {
-     "text": "28",
+     "text": "53/2",
      "correct": true
     },
     {
-     "text": "43",
+     "text": "27",
+     "correct": false
+    },
+    {
+     "text": "107/2",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Order the data (already ordered).",
-    "Median = 28; Q1 = 17 (median of the lower half); Q3 = 37 (median of the upper half).",
-    "The median is 28."
+    "Median: 48. Lower half 10, 11, 43, 44; upper half 48, 49, 58, 60.",
+    "Q1 = 27, Q3 = 107/2.",
+    "IQR = 53/2."
    ],
    "standards": [
     "6.SP.B.4",
     "6.SP.B.5c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_summary). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Data: 11, 12, 17, 18, 18, 28, 35, 36, 37, 48, 54. Find the median.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s02-cp1-004",
@@ -6045,36 +6048,36 @@
    "skillId": "data-analysis-probability-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A bag has 8 red and 3 blue marbles. You draw a marble, replace it, and draw again. What is P(red, then red)? Write a fraction in simplest form.",
-   "answer": "64/121",
+   "prompt": "A bag has 5 red and 4 blue marbles. You draw one marble, do not replace it, and draw again. What is P(red, then red)? Write a fraction in simplest form.",
+   "answer": "5/18",
    "options": [
     {
-     "text": "28/55",
+     "text": "5/9",
      "correct": false
     },
     {
-     "text": "64/121",
+     "text": "1/2",
+     "correct": false
+    },
+    {
+     "text": "5/18",
      "correct": true
     },
     {
-     "text": "8/11",
-     "correct": false
-    },
-    {
-     "text": "157/110",
+     "text": "23/18",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "P(first red) = 8/11.",
-    "P(second red) = 8/11.",
-    "P = 8/11 × 8/11 = 64/121."
+    "P(red first) = 5/9.",
+    "P(red second) = 4/8.",
+    "Multiply: 5/18."
    ],
    "standards": [
     "7.SP.C.8a",
     "S-CP.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_bag). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A bag has 8 red and 3 blue marbles. You draw a marble, replace it, and”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s05-cp1-003",
@@ -6152,18 +6155,18 @@
    "skillId": "data-analysis-probability-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A bag has 4 red and 4 blue marbles. You draw a marble, replace it, and draw again. What is P(red, then red)? Write a fraction in simplest form.",
-   "answer": "1/4",
+   "prompt": "A bag has 8 red and 8 blue marbles. You draw one marble, do not replace it, and draw again. What is P(red, then red)? Write a fraction in simplest form.",
+   "answer": "7/30",
    "solutionSteps": [
-    "P(first red) = 4/8.",
-    "P(second red) = 4/8.",
-    "P = 4/8 × 4/8 = 1/4."
+    "P(red first) = 8/16.",
+    "P(red second) = 7/15.",
+    "Multiply: 7/30."
    ],
    "standards": [
     "7.SP.C.8a",
     "S-CP.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_bag). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A bag has 4 red and 4 blue marbles. You draw a marble, replace it, and”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s05-cp1-006",
@@ -7337,54 +7340,52 @@
    "skillId": "data-analysis-probability-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "In how many ways can 1st, 2nd place be awarded among 7 runners?",
-   "answer": "42",
+   "prompt": "In how many ways can 1st, 2nd and 3rd place be awarded among 6 runners?",
+   "answer": "120",
    "solutionSteps": [
-    "Order matters, so this is a permutation.",
-    "7P2 = 7 × 6.",
-    "= 42."
+    "6 choices for 1st, 5 for 2nd, 4 for 3rd.",
+    "6 × 5 × 4 = 120."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “In how many ways can 1st, 2nd place be awarded among 7 runners?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s06-cp1-002",
    "skillId": "data-analysis-probability-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "In how many ways can 1st, 2nd, and 3rd place be awarded among 8 runners?",
-   "answer": "336",
+   "prompt": "In how many ways can 1st, 2nd and 3rd place be awarded among 9 runners?",
+   "answer": "504",
    "options": [
     {
-     "text": "24",
+     "text": "7",
      "correct": false
     },
     {
-     "text": "56",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "512",
-     "correct": false
-    },
-    {
-     "text": "336",
+     "text": "504",
      "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Order matters, so this is a permutation.",
-    "8P3 = 8 × 7 × 6.",
-    "= 336."
+    "9 choices for 1st, 8 for 2nd, 7 for 3rd.",
+    "9 × 8 × 7 = 504."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “In how many ways can 1st, 2nd, and 3rd place be awarded among 8 runner”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s06-cp1-003",
@@ -7463,36 +7464,35 @@
    "skillId": "data-analysis-probability-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "In how many ways can 1st, 2nd place be awarded among 10 runners?",
-   "answer": "90",
+   "prompt": "In how many ways can 1st, 2nd and 3rd place be awarded among 10 runners?",
+   "answer": "720",
    "options": [
     {
-     "text": "45",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "20",
+     "text": "2",
      "correct": false
     },
     {
-     "text": "100",
+     "text": "8",
      "correct": false
     },
     {
-     "text": "90",
+     "text": "720",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Order matters, so this is a permutation.",
-    "10P2 = 10 × 9.",
-    "= 90."
+    "10 choices for 1st, 9 for 2nd, 8 for 3rd.",
+    "10 × 9 × 8 = 720."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “In how many ways can 1st, 2nd place be awarded among 10 runners?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s06-cp1-007",
@@ -7607,18 +7607,17 @@
    "skillId": "data-analysis-probability-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "In how many ways can 1st, 2nd, and 3rd place be awarded among 7 runners?",
+   "prompt": "In how many ways can 1st, 2nd and 3rd place be awarded among 7 runners?",
    "answer": "210",
    "solutionSteps": [
-    "Order matters, so this is a permutation.",
-    "7P3 = 7 × 6 × 5.",
-    "= 210."
+    "7 choices for 1st, 6 for 2nd, 5 for 3rd.",
+    "7 × 6 × 5 = 210."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “In how many ways can 1st, 2nd, and 3rd place be awarded among 7 runner”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s06-cp1-012",
@@ -7661,18 +7660,17 @@
    "skillId": "data-analysis-probability-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "In how many ways can 1st, 2nd, and 3rd place be awarded among 5 runners?",
+   "prompt": "In how many ways can 1st, 2nd and 3rd place be awarded among 5 runners?",
    "answer": "60",
    "solutionSteps": [
-    "Order matters, so this is a permutation.",
-    "5P3 = 5 × 4 × 3.",
-    "= 60."
+    "5 choices for 1st, 4 for 2nd, 3 for 3rd.",
+    "5 × 4 × 3 = 60."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “In how many ways can 1st, 2nd, and 3rd place be awarded among 5 runner”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s06-cp1-014",
@@ -8693,17 +8691,17 @@
    "skillId": "data-analysis-probability-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "In 100 trials, the bus was late 86 times. What is the experimental probability? Write a fraction in simplest form.",
-   "answer": "43/50",
+   "prompt": "In 80 trials, the bus was late 73 times. Based on this, how many late arrivals would you predict in 480 trips?",
+   "answer": "438",
    "solutionSteps": [
-    "Experimental probability = number of times the event happened ÷ number of trials.",
-    "86/100 = 43/50."
+    "Experimental probability: 73/80.",
+    "Prediction: 73/80 × 480 = 438."
    ],
    "standards": [
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “In 100 trials, the bus was late 86 times. What is the experimental pro”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-cp1-002",
@@ -8870,35 +8868,35 @@
    "skillId": "data-analysis-probability-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "In 20 trials, a seed sprouted 14 times. What is the experimental probability? Write a fraction in simplest form.",
-   "answer": "7/10",
+   "prompt": "In 30 trials, the bus was late 14 times. Based on this, how many late arrivals would you predict in 300 trips?",
+   "answer": "140",
    "options": [
     {
-     "text": "14/21",
+     "text": "141",
      "correct": false
     },
     {
-     "text": "3/10",
+     "text": "7/15",
      "correct": false
     },
     {
-     "text": "7/10",
+     "text": "300",
+     "correct": false
+    },
+    {
+     "text": "140",
      "correct": true
-    },
-    {
-     "text": "7/3",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Experimental probability = number of times the event happened ÷ number of trials.",
-    "14/20 = 7/10."
+    "Experimental probability: 7/15.",
+    "Prediction: 7/15 × 300 = 140."
    ],
    "standards": [
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “In 20 trials, a seed sprouted 14 times. What is the experimental proba”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-cp1-008",
@@ -8958,17 +8956,17 @@
    "skillId": "data-analysis-probability-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "In 100 trials, a free throw went in 90 times. What is the experimental probability? Write a fraction in simplest form.",
-   "answer": "9/10",
+   "prompt": "In 30 trials, the bus was late 24 times. Based on this, how many late arrivals would you predict in 210 trips?",
+   "answer": "168",
    "solutionSteps": [
-    "Experimental probability = number of times the event happened ÷ number of trials.",
-    "90/100 = 9/10."
+    "Experimental probability: 4/5.",
+    "Prediction: 4/5 × 210 = 168."
    ],
    "standards": [
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “In 100 trials, a free throw went in 90 times. What is the experimental”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-cp1-011",
@@ -8992,17 +8990,17 @@
    "skillId": "data-analysis-probability-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "In 60 trials, a free throw went in 55 times. What is the experimental probability? Write a fraction in simplest form.",
-   "answer": "11/12",
+   "prompt": "In 70 trials, the bus was late 22 times. Based on this, how many late arrivals would you predict in 280 trips?",
+   "answer": "88",
    "solutionSteps": [
-    "Experimental probability = number of times the event happened ÷ number of trials.",
-    "55/60 = 11/12."
+    "Experimental probability: 11/35.",
+    "Prediction: 11/35 × 280 = 88."
    ],
    "standards": [
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “In 60 trials, a free throw went in 55 times. What is the experimental ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-cp1-013",
@@ -11436,11 +11434,11 @@
    "skillId": "data-analysis-probability-skill-09",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Number of push-ups done by students in two gym classes. The mean for Class A is 44 push-ups and the mean for Class B is 20 push-ups. Both groups have a mean absolute deviation (MAD) of 8.\nThe difference between the means is how many times the MAD?",
+   "prompt": "Class A has a mean of 38 push-ups and Class B a mean of 44. Both have a mean absolute deviation of 2. How many MADs apart are the means?",
    "answer": "3",
    "options": [
     {
-     "text": "24",
+     "text": "6",
      "correct": false
     },
     {
@@ -11448,23 +11446,23 @@
      "correct": true
     },
     {
-     "text": "0.3",
+     "text": "38",
      "correct": false
     },
     {
-     "text": "4",
+     "text": "2",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Difference of means: 44 - 20 = 24.",
-    "Divide by the MAD: 24 ÷ 8 = 3."
+    "Difference of means: 44 - 38 = 6.",
+    "6 ÷ 2 = 3 MADs."
    ],
    "standards": [
     "7.SP.B.3",
     "7.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Number of push-ups done by students in two gym classes. The mean for C”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s09-cp1-005",
@@ -11576,17 +11574,17 @@
    "skillId": "data-analysis-probability-skill-09",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Daily high temperatures (°F) in two towns. The mean for Town A is 54 °F and the mean for Town B is 30 °F. Both groups have a mean absolute deviation (MAD) of 8.\nThe difference between the means is how many times the MAD?",
-   "answer": "3",
+   "prompt": "Class A has a mean of 40 push-ups and Class B a mean of 64. Both have a mean absolute deviation of 6. How many MADs apart are the means?",
+   "answer": "4",
    "solutionSteps": [
-    "Difference of means: 54 - 30 = 24.",
-    "Divide by the MAD: 24 ÷ 8 = 3."
+    "Difference of means: 64 - 40 = 24.",
+    "24 ÷ 6 = 4 MADs."
    ],
    "standards": [
     "7.SP.B.3",
     "7.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Daily high temperatures (°F) in two towns. The mean for Town A is 54 °”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s09-cp1-010",
@@ -11681,17 +11679,17 @@
    "skillId": "data-analysis-probability-skill-09",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Number of push-ups done by students in two gym classes. The mean for Class A is 59 push-ups and the mean for Class B is 38 push-ups. Both groups have a mean absolute deviation (MAD) of 6.\nThe difference between the means is how many times the MAD?",
-   "answer": "3.5",
+   "prompt": "Class A has a mean of 53 push-ups and Class B a mean of 59. Both have a mean absolute deviation of 3. How many MADs apart are the means?",
+   "answer": "2",
    "solutionSteps": [
-    "Difference of means: 59 - 38 = 21.",
-    "Divide by the MAD: 21 ÷ 6 = 3.5."
+    "Difference of means: 59 - 53 = 6.",
+    "6 ÷ 3 = 2 MADs."
    ],
    "standards": [
     "7.SP.B.3",
     "7.SP.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_dap_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Number of push-ups done by students in two gym classes. The mean for C”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s09-cp1-014",

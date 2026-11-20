@@ -3483,18 +3483,18 @@
    "skillId": "linear-functions-graphing-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "What is the y-intercept of the line y = 4x - 6?",
-   "answer": "-6",
+   "prompt": "For the line y = -5x - 9, find the y-intercept and the x-intercept. Give the x-intercept.",
+   "answer": "-9/5",
    "solutionSteps": [
-    "In y = mx + b, m is the slope and b is the y-intercept.",
-    "m = 4, b = -6.",
-    "The y-intercept is -6."
+    "y-intercept: -9.",
+    "x-intercept: set y = 0: -5x = 9.",
+    "x = -9/5."
    ],
    "standards": [
     "8.EE.B.6",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_from_eq). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_lfg_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “What is the y-intercept of the line y = 4x - 6?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-lfg-s03-cp1-011",
@@ -3562,18 +3562,18 @@
    "skillId": "linear-functions-graphing-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the slope of the line through (-5, -4) and (-1, -6).",
-   "answer": "-1/2",
+   "prompt": "For the line y = 5x - 9, find the y-intercept and the x-intercept. Give the x-intercept.",
+   "answer": "9/5",
    "solutionSteps": [
-    "Slope = (y₂ - y₁) ÷ (x₂ - x₁).",
-    "= (-6 - (-4)) ÷ (-1 - (-5)) = -2 ÷ 4.",
-    "Slope = -1/2."
+    "y-intercept: -9.",
+    "x-intercept: set y = 0: 5x = 9.",
+    "x = 9/5."
    ],
    "standards": [
     "8.EE.B.6",
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_two_points). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_lfg_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find the slope of the line through (-5, -4) and (-1, -6).”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-lfg-s03-cp1-014",
@@ -4599,17 +4599,16 @@
    "skillId": "linear-functions-graphing-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A candle is 68 cm tall and burns 6 cm per hour. Write a rule for its height y after x hours.",
-   "answer": "y = -6x + 68",
+   "prompt": "A candle is 80 cm tall and burns 4 cm per hour. Write a rule for its height y after x hours, then find the height after 5 hours.",
+   "answer": "60 cm",
    "solutionSteps": [
-    "The rate of change is the slope m.",
-    "The starting amount is the y-intercept b.",
-    "y = -6x + 68."
+    "y = -4x + 80.",
+    "y = -4(5) + 80 = 60 cm."
    ],
    "standards": [
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_words). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_lfg_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A candle is 68 cm tall and burns 6 cm per hour. Write a rule for its h”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-lfg-s04-cp1-004",
@@ -4669,35 +4668,34 @@
    "skillId": "linear-functions-graphing-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A pool has 480 gallons and fills at 45 gallons per minute. Write a rule for the gallons y after x minutes.",
-   "answer": "y = 45x + 480",
+   "prompt": "A candle is 62 cm tall and burns 7 cm per hour. Write a rule for its height y after x hours, then find the height after 7 hours.",
+   "answer": "13 cm",
    "options": [
     {
-     "text": "y = -45x + 480",
+     "text": "62 cm",
      "correct": false
     },
     {
-     "text": "y = 45x",
-     "correct": false
-    },
-    {
-     "text": "y = 480x + 45",
-     "correct": false
-    },
-    {
-     "text": "y = 45x + 480",
+     "text": "13 cm",
      "correct": true
+    },
+    {
+     "text": "7 cm",
+     "correct": false
+    },
+    {
+     "text": "-7 cm",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "The rate of change is the slope m.",
-    "The starting amount is the y-intercept b.",
-    "y = 45x + 480."
+    "y = -7x + 62.",
+    "y = -7(7) + 62 = 13 cm."
    ],
    "standards": [
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_words). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_lfg_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A pool has 480 gallons and fills at 45 gallons per minute. Write a rul”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-lfg-s04-cp1-007",
@@ -4757,17 +4755,16 @@
    "skillId": "linear-functions-graphing-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A candle is 127 cm tall and burns 12 cm per hour. Write a rule for its height y after x hours.",
-   "answer": "y = -12x + 127",
+   "prompt": "A candle is 82 cm tall and burns 5 cm per hour. Write a rule for its height y after x hours, then find the height after 11 hours.",
+   "answer": "27 cm",
    "solutionSteps": [
-    "The rate of change is the slope m.",
-    "The starting amount is the y-intercept b.",
-    "y = -12x + 127."
+    "y = -5x + 82.",
+    "y = -5(11) + 82 = 27 cm."
    ],
    "standards": [
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_words). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_lfg_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A candle is 127 cm tall and burns 12 cm per hour. Write a rule for its”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-lfg-s04-cp1-010",
@@ -4827,35 +4824,34 @@
    "skillId": "linear-functions-graphing-skill-04",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A pool has 230 gallons and fills at 95 gallons per minute. Write a rule for the gallons y after x minutes.",
-   "answer": "y = 95x + 230",
+   "prompt": "A candle is 74 cm tall and burns 7 cm per hour. Write a rule for its height y after x hours, then find the height after 4 hours.",
+   "answer": "46 cm",
    "options": [
     {
-     "text": "y = -95x + 230",
+     "text": "74 cm",
      "correct": false
     },
     {
-     "text": "y = 230x + 95",
-     "correct": false
-    },
-    {
-     "text": "y = 95x",
-     "correct": false
-    },
-    {
-     "text": "y = 95x + 230",
+     "text": "46 cm",
      "correct": true
+    },
+    {
+     "text": "4 cm",
+     "correct": false
+    },
+    {
+     "text": "-7 cm",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "The rate of change is the slope m.",
-    "The starting amount is the y-intercept b.",
-    "y = 95x + 230."
+    "y = -7x + 74.",
+    "y = -7(4) + 74 = 46 cm."
    ],
    "standards": [
     "8.F.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_words). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_lfg_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A pool has 230 gallons and fills at 95 gallons per minute. Write a rul”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-lfg-s04-cp1-013",
@@ -6018,17 +6014,18 @@
    "skillId": "linear-functions-graphing-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A trend line for a scatter plot of hours practiced (x) and points scored (y) is y = 1.5x + 12. Predict the points for 16 hours of practice.",
-   "answer": "36",
+   "prompt": "A trend line for hours practiced (x) and points scored (y) is y = 0.7x + 8. About how many hours of practice predict 65 points? Round to the nearest tenth.",
+   "answer": "81.4",
    "solutionSteps": [
-    "Substitute x = 16.",
-    "y = 1.5(16) + 12 = 36."
+    "0.7x + 8 = 65.",
+    "0.7x = 57.",
+    "x ≈ 81.4 hours."
    ],
    "standards": [
     "8.SP.A.1",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_lfg_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A trend line for a scatter plot of hours practiced (x) and points scor”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-lfg-s05-cp1-004",
@@ -6131,35 +6128,36 @@
    "skillId": "linear-functions-graphing-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A trend line for a scatter plot of hours practiced (x) and points scored (y) is y = 1.5x + 17. Predict the points for 16 hours of practice.",
-   "answer": "41",
+   "prompt": "A trend line for hours practiced (x) and points scored (y) is y = 0.7x + 14. About how many hours of practice predict 52 points? Round to the nearest tenth.",
+   "answer": "54.3",
    "options": [
     {
-     "text": "41",
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "52",
+     "correct": false
+    },
+    {
+     "text": "54.3",
      "correct": true
     },
     {
-     "text": "24",
-     "correct": false
-    },
-    {
-     "text": "34.5",
-     "correct": false
-    },
-    {
-     "text": "49.5",
+     "text": "38",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Substitute x = 16.",
-    "y = 1.5(16) + 17 = 41."
+    "0.7x + 14 = 52.",
+    "0.7x = 38.",
+    "x ≈ 54.3 hours."
    ],
    "standards": [
     "8.SP.A.1",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_lfg_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A trend line for a scatter plot of hours practiced (x) and points scor”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-lfg-s05-cp1-008",
@@ -6202,17 +6200,18 @@
    "skillId": "linear-functions-graphing-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A trend line for a scatter plot of hours practiced (x) and points scored (y) is y = 1x + 30. Predict the points for 8 hours of practice.",
-   "answer": "38",
+   "prompt": "A trend line for hours practiced (x) and points scored (y) is y = 2.2x + 8. About how many hours of practice predict 47 points? Round to the nearest tenth.",
+   "answer": "17.7",
    "solutionSteps": [
-    "Substitute x = 8.",
-    "y = 1(8) + 30 = 38."
+    "2.2x + 8 = 47.",
+    "2.2x = 39.",
+    "x ≈ 17.7 hours."
    ],
    "standards": [
     "8.SP.A.1",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_lfg_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A trend line for a scatter plot of hours practiced (x) and points scor”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-lfg-s05-cp1-010",
@@ -6237,17 +6236,18 @@
    "skillId": "linear-functions-graphing-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A trend line for a scatter plot of hours practiced (x) and points scored (y) is y = 3.5x + 29. Predict the points for 10 hours of practice.",
-   "answer": "64",
+   "prompt": "A trend line for hours practiced (x) and points scored (y) is y = 1.9x + 11. About how many hours of practice predict 35 points? Round to the nearest tenth.",
+   "answer": "12.6",
    "solutionSteps": [
-    "Substitute x = 10.",
-    "y = 3.5(10) + 29 = 64."
+    "1.9x + 11 = 35.",
+    "1.9x = 24.",
+    "x ≈ 12.6 hours."
    ],
    "standards": [
     "8.SP.A.1",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_lfg_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A trend line for a scatter plot of hours practiced (x) and points scor”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-lfg-s05-cp1-012",
@@ -6272,17 +6272,18 @@
    "skillId": "linear-functions-graphing-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A trend line for a scatter plot of hours practiced (x) and points scored (y) is y = 3x + 19. Predict the points for 15 hours of practice.",
-   "answer": "64",
+   "prompt": "A trend line for hours practiced (x) and points scored (y) is y = 1.8x + 5. About how many hours of practice predict 59 points? Round to the nearest tenth.",
+   "answer": "30",
    "solutionSteps": [
-    "Substitute x = 15.",
-    "y = 3(15) + 19 = 64."
+    "1.8x + 5 = 59.",
+    "1.8x = 54.",
+    "x ≈ 30 hours."
    ],
    "standards": [
     "8.SP.A.1",
     "8.SP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_lfg_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A trend line for a scatter plot of hours practiced (x) and points scor”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-lfg-s05-cp1-014",
@@ -7474,35 +7475,35 @@
    "skillId": "linear-functions-graphing-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "How many solutions does the system y = -4x + 1 and 8x + 2y = 2 have?",
-   "answer": "infinitely many solutions",
+   "prompt": "Solve the system: y = 2x + 2 and y = -x - 4. Write the solution as an ordered pair.",
+   "answer": "(-2, -2)",
    "options": [
     {
-     "text": "exactly one solution",
-     "correct": false
-    },
-    {
-     "text": "no solution",
-     "correct": false
-    },
-    {
-     "text": "infinitely many solutions",
+     "text": "(-2, -2)",
      "correct": true
     },
     {
-     "text": "exactly two solutions",
+     "text": "(-2, 2)",
+     "correct": false
+    },
+    {
+     "text": "(2, -2)",
+     "correct": false
+    },
+    {
+     "text": "(2, 2)",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Compare slopes and y-intercepts.",
-    "Different slopes: one solution. Same slope, different intercept: no solution. Same line: infinitely many.",
-    "infinitely many solutions."
+    "Set equal: 2x + 2 = -x - 4.",
+    "3x = -6, so x = -2.",
+    "y = 2(-2) + (2) = -2."
    ],
    "standards": [
     "8.EE.C.8a"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_count). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_lfg_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “How many solutions does the system y = -4x + 1 and 8x + 2y = 2 have?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-lfg-s06-cp1-007",
@@ -10196,35 +10197,34 @@
    "skillId": "linear-functions-graphing-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "How do you graph y < -2x - 5?",
-   "answer": "dashed line, shade below",
+   "prompt": "Is the point (3, 4) a solution of y < -4x - 2? Answer yes or no.",
+   "answer": "no",
    "options": [
     {
-     "text": "solid line, shade above",
+     "text": "none of these",
      "correct": false
     },
     {
-     "text": "solid line, shade below",
+     "text": "no (only the first step)",
      "correct": false
     },
     {
-     "text": "dashed line, shade above",
-     "correct": false
-    },
-    {
-     "text": "dashed line, shade below",
+     "text": "no",
      "correct": true
+    },
+    {
+     "text": "cannot be determined",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "≤ and ≥ use a solid boundary; < and > use a dashed boundary.",
-    "y > or y ≥ shade above; y < or y ≤ shade below.",
-    "dashed line, shade below."
+    "Substitute x = 3: -4(3) + (-2) = -14.",
+    "Is 4 < -14? No."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_boundary). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_lfg_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “How do you graph y < -2x - 5?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-lfg-s08-cp1-004",
@@ -10291,35 +10291,34 @@
    "skillId": "linear-functions-graphing-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "How do you graph y ≥ -4x - 4?",
-   "answer": "solid line, shade above",
+   "prompt": "Is the point (5, -9) a solution of y < 3x + 2? Answer yes or no.",
+   "answer": "yes",
    "options": [
     {
-     "text": "solid line, shade above",
+     "text": "none of these",
+     "correct": false
+    },
+    {
+     "text": "yes",
      "correct": true
     },
     {
-     "text": "solid line, shade below",
+     "text": "yes (only the first step)",
      "correct": false
     },
     {
-     "text": "dashed line, shade above",
-     "correct": false
-    },
-    {
-     "text": "dashed line, shade below",
+     "text": "cannot be determined",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "≤ and ≥ use a solid boundary; < and > use a dashed boundary.",
-    "y > or y ≥ shade above; y < or y ≤ shade below.",
-    "solid line, shade above."
+    "Substitute x = 5: 3(5) + (2) = 17.",
+    "Is -9 < 17? Yes."
    ],
    "standards": [
     "A-REI.D.12"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_boundary). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_lfg_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “How do you graph y ≥ -4x - 4?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-lfg-s08-cp1-007",

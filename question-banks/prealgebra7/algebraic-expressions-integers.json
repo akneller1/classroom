@@ -423,17 +423,18 @@
    "skillId": "algebraic-expressions-integers-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "What is the value of the digit 9 in 481.3659?",
-   "answer": "0.0009",
+   "prompt": "In the number 847.01438, what is the value of the digit in the ten-thousandths place, multiplied by 1,000?",
+   "answer": "0.3",
    "solutionSteps": [
-    "The 9 is in the ten-thousandths place.",
-    "Value = 9 × 0.0001 = 0.0009."
+    "The ten-thousandths place is position 4 after the decimal point, so that digit is 3.",
+    "Its value is 0.0003.",
+    "0.0003 × 1,000 = 0.3."
    ],
    "standards": [
     "5.NBT.A.1",
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_place_value_cp1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “What is the value of the digit 9 in 481.3659?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s01-cp1-002",
@@ -492,17 +493,18 @@
    "skillId": "algebraic-expressions-integers-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The digit 2 appears in 2 and in 0.00002. The value of the 2 in 2 is how many times the value of the 2 in 0.00002?",
-   "answer": "100,000",
+   "prompt": "In the number 366.020, what is the value of the digit in the hundredths place, multiplied by 1,000?",
+   "answer": "20",
    "solutionSteps": [
-    "In 2 the 2 is worth 2; in 0.00002 it is worth 0.00002.",
-    "Each place to the left is 10 times the place to its right, and the places are 5 apart: 10 to the power 5 = 100,000."
+    "The hundredths place is position 2 after the decimal point, so that digit is 2.",
+    "Its value is 0.02.",
+    "0.02 × 1,000 = 20."
    ],
    "standards": [
     "5.NBT.A.1",
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_place_value_cp1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “The digit 2 appears in 2 and in 0.00002. The value of the 2 in 2 is ho”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s01-cp1-005",
@@ -525,35 +527,36 @@
    "skillId": "algebraic-expressions-integers-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "What is the value of the digit 5 in 964.3587?",
-   "answer": "0.05",
+   "prompt": "In the number 682.5081, what is the value of the digit in the thousandths place, multiplied by 1,000?",
+   "answer": "8",
    "options": [
     {
-     "text": "0.5",
+     "text": "3",
      "correct": false
     },
     {
-     "text": "0.005",
-     "correct": false
-    },
-    {
-     "text": "5",
-     "correct": false
-    },
-    {
-     "text": "0.05",
+     "text": "8",
      "correct": true
+    },
+    {
+     "text": "1/125",
+     "correct": false
+    },
+    {
+     "text": "1000",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "The 5 is in the hundredths place.",
-    "Value = 5 × 0.01 = 0.05."
+    "The thousandths place is position 3 after the decimal point, so that digit is 8.",
+    "Its value is 0.008.",
+    "0.008 × 1,000 = 8."
    ],
    "standards": [
     "5.NBT.A.1",
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_place_value_cp1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “What is the value of the digit 5 in 964.3587?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s01-cp1-007",
@@ -647,35 +650,36 @@
    "skillId": "algebraic-expressions-integers-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "The digit 2 appears in 200 and in 0.002. The value of the 2 in 200 is how many times the value of the 2 in 0.002?",
-   "answer": "100,000",
+   "prompt": "In the number 358.36599, what is the value of the digit in the ten-thousandths place, multiplied by 1,000?",
+   "answer": "0.9",
    "options": [
     {
-     "text": "1,000,000",
+     "text": "9",
      "correct": false
     },
     {
-     "text": "100,000",
+     "text": "0.0009",
+     "correct": false
+    },
+    {
+     "text": "1000",
+     "correct": false
+    },
+    {
+     "text": "0.9",
      "correct": true
-    },
-    {
-     "text": "10,000",
-     "correct": false
-    },
-    {
-     "text": "5",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "In 200 the 2 is worth 200; in 0.002 it is worth 0.002.",
-    "Each place to the left is 10 times the place to its right, and the places are 5 apart: 10 to the power 5 = 100,000."
+    "The ten-thousandths place is position 4 after the decimal point, so that digit is 9.",
+    "Its value is 0.0009.",
+    "0.0009 × 1,000 = 0.9."
    ],
    "standards": [
     "5.NBT.A.1",
     "8.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_place_value_cp1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “The digit 2 appears in 200 and in 0.002. The value of the 2 in 200 is ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s01-cp1-011",
@@ -3024,36 +3028,37 @@
    "skillId": "algebraic-expressions-integers-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Evaluate: (6 + 7 × 6) ÷ 8",
-   "answer": "6",
+   "prompt": "Evaluate: (9 + 6) × 6 - 8²",
+   "answer": "26",
    "options": [
     {
-     "text": "45/4",
+     "text": "90",
      "correct": false
     },
     {
-     "text": "39/4",
-     "correct": false
-    },
-    {
-     "text": "48",
-     "correct": false
-    },
-    {
-     "text": "6",
+     "text": "26",
      "correct": true
+    },
+    {
+     "text": "64",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "The parentheses group the whole numerator.",
-    "Numerator: 6 + 7 × 6 = 48.",
-    "Divide: 48 ÷ 8 = 6."
+    "Parentheses first: 9 + 6 = 15.",
+    "Exponent: 8² = 64.",
+    "Multiply: 15 × 6 = 90.",
+    "Subtract: 90 - 64 = 26."
    ],
    "standards": [
     "6.EE.A.1",
     "5.OA.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_fraction_bar). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Evaluate: (6 + 7 × 6) ÷ 8”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s03-cp1-003",
@@ -3116,18 +3121,19 @@
    "skillId": "algebraic-expressions-integers-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Evaluate: (5 + 7 × 5) ÷ 8",
-   "answer": "5",
+   "prompt": "Evaluate: (2 + 2) × 2 - 9²",
+   "answer": "-73",
    "solutionSteps": [
-    "The parentheses group the whole numerator.",
-    "Numerator: 5 + 7 × 5 = 40.",
-    "Divide: 40 ÷ 8 = 5."
+    "Parentheses first: 2 + 2 = 4.",
+    "Exponent: 9² = 81.",
+    "Multiply: 4 × 2 = 8.",
+    "Subtract: 8 - 81 = -73."
    ],
    "standards": [
     "6.EE.A.1",
     "5.OA.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_fraction_bar). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Evaluate: (5 + 7 × 5) ÷ 8”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s03-cp1-006",
@@ -3190,54 +3196,56 @@
    "skillId": "algebraic-expressions-integers-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Evaluate: (2 + 6 × 2) ÷ 7",
-   "answer": "2",
+   "prompt": "Evaluate: (9 + 6) × 6 - 4²",
+   "answer": "74",
    "options": [
     {
-     "text": "2",
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "74",
      "correct": true
     },
     {
-     "text": "16/7",
+     "text": "90",
      "correct": false
     },
     {
-     "text": "14",
-     "correct": false
-    },
-    {
-     "text": "26/7",
+     "text": "16",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "The parentheses group the whole numerator.",
-    "Numerator: 2 + 6 × 2 = 14.",
-    "Divide: 14 ÷ 7 = 2."
+    "Parentheses first: 9 + 6 = 15.",
+    "Exponent: 4² = 16.",
+    "Multiply: 15 × 6 = 90.",
+    "Subtract: 90 - 16 = 74."
    ],
    "standards": [
     "6.EE.A.1",
     "5.OA.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_fraction_bar). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Evaluate: (2 + 6 × 2) ÷ 7”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s03-cp1-009",
    "skillId": "algebraic-expressions-integers-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Priya buys 5 notebooks at $10 each and 2 packs of pens at $10 each. Evaluate 5 × 10 + 2 × 10 to find the total cost in dollars.",
-   "answer": "70",
+   "prompt": "Evaluate: (4 + 2) × 3 - 4²",
+   "answer": "2",
    "solutionSteps": [
-    "Multiply first: 5 × 10 = 50 and 2 × 10 = 20.",
-    "Then add: 50 + 20 = 70.",
-    "Total: $70."
+    "Parentheses first: 4 + 2 = 6.",
+    "Exponent: 4² = 16.",
+    "Multiply: 6 × 3 = 18.",
+    "Subtract: 18 - 16 = 2."
    ],
    "standards": [
     "6.EE.A.1",
     "5.OA.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Priya buys 5 notebooks at $10 each and 2 packs of pens at $10 each. Ev”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s03-cp1-010",
@@ -3282,18 +3290,19 @@
    "skillId": "algebraic-expressions-integers-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Evaluate: (8 + 2 × 5) ÷ 3",
-   "answer": "6",
+   "prompt": "Evaluate: (2 + 4) × 5 - 9²",
+   "answer": "-51",
    "solutionSteps": [
-    "The parentheses group the whole numerator.",
-    "Numerator: 8 + 2 × 5 = 18.",
-    "Divide: 18 ÷ 3 = 6."
+    "Parentheses first: 2 + 4 = 6.",
+    "Exponent: 9² = 81.",
+    "Multiply: 6 × 5 = 30.",
+    "Subtract: 30 - 81 = -51."
    ],
    "standards": [
     "6.EE.A.1",
     "5.OA.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_fraction_bar). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Evaluate: (8 + 2 × 5) ÷ 3”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s03-cp1-012",
@@ -7160,36 +7169,36 @@
    "skillId": "algebraic-expressions-integers-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "The temperature was -9°F at dawn and rose 15°F by noon. What was the noon temperature?",
-   "answer": "6",
+   "prompt": "At 6 a.m. the temperature was -5°F. It rose 8°F by noon and then fell 8°F by evening. What was the evening temperature, in °F?",
+   "answer": "-5",
    "options": [
     {
-     "text": "27",
-     "correct": false
-    },
-    {
-     "text": "6",
+     "text": "-5",
      "correct": true
     },
     {
-     "text": "9",
+     "text": "-4",
      "correct": false
     },
     {
-     "text": "-6",
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "3",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Write the changes as integers (up, gain, or deposit is positive; down, loss, or fee is negative).",
-    "Add: -9 + 15.",
-    "Result: 6."
+    "Start: -5.",
+    "Noon: -5 + 8 = 3.",
+    "Evening: 3 - 8 = -5."
    ],
    "standards": [
     "7.NS.A.1b",
     "7.NS.A.1d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “The temperature was -9°F at dawn and rose 15°F by noon. What was the n”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s06-cp1-003",
@@ -7251,18 +7260,18 @@
    "skillId": "algebraic-expressions-integers-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The temperature was -10°F at dawn and rose 9°F by noon. What was the noon temperature?",
-   "answer": "-1",
+   "prompt": "At 6 a.m. the temperature was -13°F. It rose 8°F by noon and then fell 9°F by evening. What was the evening temperature, in °F?",
+   "answer": "-14",
    "solutionSteps": [
-    "Write the changes as integers (up, gain, or deposit is positive; down, loss, or fee is negative).",
-    "Add: -10 + 9.",
-    "Result: -1."
+    "Start: -13.",
+    "Noon: -13 + 8 = -5.",
+    "Evening: -5 - 9 = -14."
    ],
    "standards": [
     "7.NS.A.1b",
     "7.NS.A.1d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “The temperature was -10°F at dawn and rose 9°F by noon. What was the n”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s06-cp1-006",
@@ -7324,36 +7333,36 @@
    "skillId": "algebraic-expressions-integers-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "The temperature was -8°F at dawn and rose 17°F by noon. What was the noon temperature?",
-   "answer": "9",
+   "prompt": "At 6 a.m. the temperature was -12°F. It rose 20°F by noon and then fell 9°F by evening. What was the evening temperature, in °F?",
+   "answer": "-1",
    "options": [
     {
-     "text": "-9",
-     "correct": false
+     "text": "-1",
+     "correct": true
     },
     {
-     "text": "37",
+     "text": "20",
      "correct": false
     },
     {
      "text": "9",
-     "correct": true
+     "correct": false
     },
     {
-     "text": "21",
+     "text": "8",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Write the changes as integers (up, gain, or deposit is positive; down, loss, or fee is negative).",
-    "Add: -8 + 17.",
-    "Result: 9."
+    "Start: -12.",
+    "Noon: -12 + 20 = 8.",
+    "Evening: 8 - 9 = -1."
    ],
    "standards": [
     "7.NS.A.1b",
     "7.NS.A.1d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “The temperature was -8°F at dawn and rose 17°F by noon. What was the n”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s06-cp1-009",
@@ -7415,18 +7424,18 @@
    "skillId": "algebraic-expressions-integers-skill-06",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "An elevator starts on floor 16, goes down 10 floors, then up 14 floors. On which floor does it stop?",
-   "answer": "20",
+   "prompt": "At 6 a.m. the temperature was -4°F. It rose 12°F by noon and then fell 5°F by evening. What was the evening temperature, in °F?",
+   "answer": "3",
    "solutionSteps": [
-    "Write the changes as integers (up, gain, or deposit is positive; down, loss, or fee is negative).",
-    "Add: 16 + (-10) + 14.",
-    "Result: 20."
+    "Start: -4.",
+    "Noon: -4 + 12 = 8.",
+    "Evening: 8 - 5 = 3."
    ],
    "standards": [
     "7.NS.A.1b",
     "7.NS.A.1d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “An elevator starts on floor 16, goes down 10 floors, then up 14 floors”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s06-cp1-012",
@@ -8524,17 +8533,16 @@
    "skillId": "algebraic-expressions-integers-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the difference: -1 - (-13)",
-   "answer": "12",
+   "prompt": "Find the value: -10 - (-3) - 10",
+   "answer": "-17",
    "solutionSteps": [
-    "To subtract an integer, add its opposite.",
-    "Rewrite each subtraction as adding the opposite.",
-    "Add: 12."
+    "Subtracting -3 is adding 3: -10 + 3 = -7.",
+    "Then -7 - 10 = -17."
    ],
    "standards": [
     "7.NS.A.1c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find the difference: -1 - (-13)”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s07-cp1-002",
@@ -8592,52 +8600,50 @@
    "skillId": "algebraic-expressions-integers-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the difference: 17 - (-4)",
-   "answer": "21",
+   "prompt": "Find the value: -7 - (-2) - 12",
+   "answer": "-17",
    "solutionSteps": [
-    "To subtract an integer, add its opposite.",
-    "Rewrite each subtraction as adding the opposite.",
-    "Add: 21."
+    "Subtracting -2 is adding 2: -7 + 2 = -5.",
+    "Then -5 - 12 = -17."
    ],
    "standards": [
     "7.NS.A.1c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find the difference: 17 - (-4)”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s07-cp1-005",
    "skillId": "algebraic-expressions-integers-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Death Valley is -3 meters relative to sea level and a nearby peak is 1900 meters. How much higher is the peak in meters?",
-   "answer": "1903",
+   "prompt": "Find the value: -12 - (-13) - 11",
+   "answer": "-10",
    "options": [
     {
-     "text": "1897",
+     "text": "-12",
      "correct": false
     },
     {
-     "text": "-1903",
+     "text": "1",
      "correct": false
     },
     {
-     "text": "1913",
-     "correct": false
-    },
-    {
-     "text": "1903",
+     "text": "-10",
      "correct": true
+    },
+    {
+     "text": "11",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Find the difference: higher value minus lower value.",
-    "1900 - (-3) = 1903.",
-    "The difference is 1903."
+    "Subtracting -13 is adding 13: -12 + 13 = 1.",
+    "Then 1 - 11 = -10."
    ],
    "standards": [
     "7.NS.A.1c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Death Valley is -3 meters relative to sea level and a nearby peak is 1”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s07-cp1-006",
@@ -8678,52 +8684,50 @@
    "skillId": "algebraic-expressions-integers-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the difference: 32 - (-25)",
-   "answer": "57",
+   "prompt": "Find the value: -13 - (-12) - 8",
+   "answer": "-9",
    "solutionSteps": [
-    "To subtract an integer, add its opposite.",
-    "Rewrite each subtraction as adding the opposite.",
-    "Add: 57."
+    "Subtracting -12 is adding 12: -13 + 12 = -1.",
+    "Then -1 - 8 = -9."
    ],
    "standards": [
     "7.NS.A.1c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find the difference: 32 - (-25)”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s07-cp1-008",
    "skillId": "algebraic-expressions-integers-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Death Valley is -19 meters relative to sea level and a nearby peak is 1200 meters. How much higher is the peak in meters?",
-   "answer": "1219",
+   "prompt": "Find the value: -14 - (-6) - 14",
+   "answer": "-22",
    "options": [
     {
-     "text": "1229",
-     "correct": false
-    },
-    {
-     "text": "1181",
-     "correct": false
-    },
-    {
-     "text": "1219",
+     "text": "-22",
      "correct": true
     },
     {
-     "text": "-1219",
+     "text": "-14",
+     "correct": false
+    },
+    {
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "-8",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Find the difference: higher value minus lower value.",
-    "1200 - (-19) = 1219.",
-    "The difference is 1219."
+    "Subtracting -6 is adding 6: -14 + 6 = -8.",
+    "Then -8 - 14 = -22."
    ],
    "standards": [
     "7.NS.A.1c"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Death Valley is -19 meters relative to sea level and a nearby peak is ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s07-cp1-009",
@@ -11124,18 +11128,18 @@
    "skillId": "algebraic-expressions-integers-skill-09",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use inductive reasoning to find the next term: 15, 27, 39, 51, 63, …",
-   "answer": "75",
+   "prompt": "The pattern 14, 22, 30, 38, … continues by adding the same number. What is the 12th term?",
+   "answer": "102",
    "solutionSteps": [
-    "Look at how each term changes from the one before.",
-    "Pattern: add 12 each time.",
-    "Next term: 75."
+    "Each term adds 8.",
+    "The 12th term is 14 + 11 × 8.",
+    "= 14 + 88 = 102."
    ],
    "standards": [
     "8.F.A.1",
     "MP.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_next). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Use inductive reasoning to find the next term: 15, 27, 39, 51, 63, …”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s09-cp1-002",
@@ -11195,72 +11199,72 @@
    "skillId": "algebraic-expressions-integers-skill-09",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use inductive reasoning to find the next term: 4, 9, 16, 25, 36, …",
-   "answer": "49",
+   "prompt": "The pattern 17, 29, 41, 53, … continues by adding the same number. What is the 12th term?",
+   "answer": "149",
    "options": [
     {
-     "text": "-49",
-     "correct": false
-    },
-    {
-     "text": "54",
-     "correct": false
-    },
-    {
-     "text": "47",
-     "correct": false
-    },
-    {
-     "text": "49",
+     "text": "149",
      "correct": true
+    },
+    {
+     "text": "17",
+     "correct": false
+    },
+    {
+     "text": "132",
+     "correct": false
+    },
+    {
+     "text": "11",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Look at how each term changes from the one before.",
-    "Pattern: the terms are consecutive perfect squares.",
-    "Next term: 49."
+    "Each term adds 12.",
+    "The 12th term is 17 + 11 × 12.",
+    "= 17 + 132 = 149."
    ],
    "standards": [
     "8.F.A.1",
     "MP.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_next). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Use inductive reasoning to find the next term: 4, 9, 16, 25, 36, …”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s09-cp1-005",
    "skillId": "algebraic-expressions-integers-skill-09",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Conjecture: “The sum of two integers is always greater than either integer.” Which choice is a counterexample?",
-   "answer": "-5 and 4",
+   "prompt": "The pattern 14, 24, 34, 44, … continues by adding the same number. What is the 13th term?",
+   "answer": "134",
    "options": [
     {
-     "text": "5 and 5",
-     "correct": false
-    },
-    {
-     "text": "-5 and 4",
+     "text": "134",
      "correct": true
     },
     {
-     "text": "5 and 7",
+     "text": "120",
      "correct": false
     },
     {
-     "text": "9 and 3",
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "14",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A counterexample makes the conjecture false.",
-    "Test -5 and 4: the statement fails.",
-    "So the conjecture is not always true."
+    "Each term adds 10.",
+    "The 13th term is 14 + 12 × 10.",
+    "= 14 + 120 = 134."
    ],
    "standards": [
     "8.F.A.1",
     "MP.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_counter). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Conjecture: \"The sum of two integers is always greater than either int”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s09-cp1-006",
@@ -11321,36 +11325,36 @@
    "skillId": "algebraic-expressions-integers-skill-09",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Conjecture: “The square of an integer is always greater than the integer.” Which choice is a counterexample?",
-   "answer": "1",
+   "prompt": "The pattern 12, 19, 26, 33, … continues by adding the same number. What is the 9th term?",
+   "answer": "68",
    "options": [
     {
-     "text": "-3",
+     "text": "8",
      "correct": false
     },
     {
-     "text": "1",
+     "text": "68",
      "correct": true
     },
     {
-     "text": "5",
+     "text": "56",
      "correct": false
     },
     {
-     "text": "7",
+     "text": "12",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A counterexample makes the conjecture false.",
-    "Test 1: the statement fails.",
-    "So the conjecture is not always true."
+    "Each term adds 7.",
+    "The 9th term is 12 + 8 × 7.",
+    "= 12 + 56 = 68."
    ],
    "standards": [
     "8.F.A.1",
     "MP.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_counter). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Conjecture: \"The square of an integer is always greater than the integ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s09-cp1-009",
@@ -11375,36 +11379,36 @@
    "skillId": "algebraic-expressions-integers-skill-09",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use inductive reasoning to find the next term: 4, 8, 16, 32, 64, …",
-   "answer": "128",
+   "prompt": "The pattern 7, 11, 15, 19, … continues by adding the same number. What is the 8th term?",
+   "answer": "35",
    "options": [
     {
-     "text": "-128",
+     "text": "8",
      "correct": false
     },
     {
-     "text": "96",
+     "text": "28",
      "correct": false
     },
     {
-     "text": "128",
+     "text": "35",
      "correct": true
     },
     {
-     "text": "132",
+     "text": "7",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Look at how each term changes from the one before.",
-    "Pattern: multiply by 2 each time.",
-    "Next term: 128."
+    "Each term adds 4.",
+    "The 8th term is 7 + 7 × 4.",
+    "= 7 + 28 = 35."
    ],
    "standards": [
     "8.F.A.1",
     "MP.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_next). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Use inductive reasoning to find the next term: 4, 8, 16, 32, 64, …”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s09-cp1-011",
@@ -12429,36 +12433,36 @@
    "skillId": "algebraic-expressions-integers-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Figure 1 uses 11 dots, Figure 2 uses 17, and Figure 3 uses 23. If the pattern continues, how many dots are in Figure 29?",
-   "answer": "179",
+   "prompt": "Figure 1 uses 3 tiles, and each new figure uses 3 more tiles than the one before. What is the largest figure number that uses no more than 91 tiles?",
+   "answer": "30",
    "solutionSteps": [
-    "Each figure adds 6 dots.",
-    "Figure n has 6n + 5 dots.",
-    "Figure 29: 6(29) + 5 = 179."
+    "Figure n uses 3 + 3(n - 1) tiles.",
+    "3 + 3(n - 1) ≤ 91 gives n - 1 ≤ 88/3.",
+    "The largest whole number is n = 30 (Figure 30 uses 90 tiles)."
    ],
    "standards": [
     "5.OA.B.3",
     "6.EE.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_figure). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Figure 1 uses 11 dots, Figure 2 uses 17, and Figure 3 uses 23. If the ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s10-cp1-002",
    "skillId": "algebraic-expressions-integers-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The pattern repeats: A, B, C, D, A, B, C, D, … What is item number 42?",
-   "answer": "B",
+   "prompt": "Figure 1 uses 12 tiles, and each new figure uses 3 more tiles than the one before. What is the largest figure number that uses no more than 75 tiles?",
+   "answer": "22",
    "solutionSteps": [
-    "The pattern repeats every 4 items.",
-    "42 ÷ 4 has remainder 2.",
-    "Item 42 matches item 2 of the block: B."
+    "Figure n uses 12 + 3(n - 1) tiles.",
+    "12 + 3(n - 1) ≤ 75 gives n - 1 ≤ 21.",
+    "The largest whole number is n = 22 (Figure 22 uses 75 tiles)."
    ],
    "standards": [
     "5.OA.B.3",
     "6.EE.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_repeat). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “The pattern repeats: A, B, C, D, A, B, C, D, … What is item number 42?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s10-cp1-003",
@@ -12501,36 +12505,36 @@
    "skillId": "algebraic-expressions-integers-skill-10",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use inductive reasoning to find the next term: 5, 8, 11, 14, 17, …",
-   "answer": "20",
+   "prompt": "Figure 1 uses 10 tiles, and each new figure uses 4 more tiles than the one before. What is the largest figure number that uses no more than 75 tiles?",
+   "answer": "17",
    "options": [
     {
-     "text": "21",
+     "text": "74",
      "correct": false
     },
     {
-     "text": "23",
+     "text": "65/4",
      "correct": false
     },
     {
-     "text": "20",
+     "text": "17",
      "correct": true
     },
     {
-     "text": "-20",
+     "text": "75",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Look at how each term changes from the one before.",
-    "Pattern: add 3 each time.",
-    "Next term: 20."
+    "Figure n uses 10 + 4(n - 1) tiles.",
+    "10 + 4(n - 1) ≤ 75 gives n - 1 ≤ 65/4.",
+    "The largest whole number is n = 17 (Figure 17 uses 74 tiles)."
    ],
    "standards": [
     "5.OA.B.3",
     "6.EE.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_next). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Use inductive reasoning to find the next term: 5, 8, 11, 14, 17, …”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s10-cp1-005",
@@ -12573,18 +12577,18 @@
    "skillId": "algebraic-expressions-integers-skill-10",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "The pattern repeats: ▲, ●, ■, ●, ▲, ▲, ●, ■, ●, ▲, … What is item number 34?",
-   "answer": "●",
+   "prompt": "Figure 1 uses 6 tiles, and each new figure uses 3 more tiles than the one before. What is the largest figure number that uses no more than 90 tiles?",
+   "answer": "29",
    "solutionSteps": [
-    "The pattern repeats every 5 items.",
-    "34 ÷ 5 has remainder 4.",
-    "Item 34 matches item 4 of the block: ●."
+    "Figure n uses 6 + 3(n - 1) tiles.",
+    "6 + 3(n - 1) ≤ 90 gives n - 1 ≤ 28.",
+    "The largest whole number is n = 29 (Figure 29 uses 90 tiles)."
    ],
    "standards": [
     "5.OA.B.3",
     "6.EE.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_repeat). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “The pattern repeats: ▲, ●, ■, ●, ▲, ▲, ●, ■, ●, ▲, … What is item numb”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s10-cp1-007",
@@ -12609,7 +12613,7 @@
    "skillId": "algebraic-expressions-integers-skill-10",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Use inductive reasoning to find the next term: 11, 14, 17, 20, 23, …",
+   "prompt": "Figure 1 uses 7 tiles, and each new figure uses 3 more tiles than the one before. What is the largest figure number that uses no more than 84 tiles?",
    "answer": "26",
    "options": [
     {
@@ -12617,28 +12621,28 @@
      "correct": true
     },
     {
-     "text": "27",
+     "text": "82",
      "correct": false
     },
     {
-     "text": "29",
+     "text": "77/3",
      "correct": false
     },
     {
-     "text": "-26",
+     "text": "84",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Look at how each term changes from the one before.",
-    "Pattern: add 3 each time.",
-    "Next term: 26."
+    "Figure n uses 7 + 3(n - 1) tiles.",
+    "7 + 3(n - 1) ≤ 84 gives n - 1 ≤ 77/3.",
+    "The largest whole number is n = 26 (Figure 26 uses 82 tiles)."
    ],
    "standards": [
     "5.OA.B.3",
     "6.EE.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_next). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Use inductive reasoning to find the next term: 11, 14, 17, 20, 23, …”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s10-cp1-009",
@@ -13787,36 +13791,36 @@
    "skillId": "algebraic-expressions-integers-skill-11",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A diver descended 12 feet in 3 equal stages. What was the change in depth per stage, in feet?",
+   "prompt": "A submarine descended 10 feet in 5 equal stages, then rose 6 feet. What was its total change in depth, in feet? (Use a negative number for down.)",
    "answer": "-4",
    "options": [
     {
-     "text": "0",
-     "correct": false
-    },
-    {
-     "text": "4",
-     "correct": false
-    },
-    {
-     "text": "-8",
-     "correct": false
-    },
-    {
      "text": "-4",
      "correct": true
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Write the situation as a product or quotient of integers.",
-    "-12 ÷ 3.",
-    "Result: -4."
+    "Each stage: -10 ÷ 5 = -2 feet.",
+    "After the descent: -10.",
+    "Then -10 + 6 = -4."
    ],
    "standards": [
     "7.NS.A.2a",
     "7.NS.A.2b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s11_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s11). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A diver descended 12 feet in 3 equal stages. What was the change in de”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s11-cp1-003",
@@ -13876,18 +13880,18 @@
    "skillId": "algebraic-expressions-integers-skill-11",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A stock lost $4 per day for 8 days. What was the total change in value, in dollars?",
-   "answer": "-32",
+   "prompt": "A submarine descended 6 feet in 3 equal stages, then rose 2 feet. What was its total change in depth, in feet? (Use a negative number for down.)",
+   "answer": "-4",
    "solutionSteps": [
-    "Write the situation as a product or quotient of integers.",
-    "8 × (-4).",
-    "Result: -32."
+    "Each stage: -6 ÷ 3 = -2 feet.",
+    "After the descent: -6.",
+    "Then -6 + 2 = -4."
    ],
    "standards": [
     "7.NS.A.2a",
     "7.NS.A.2b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s11_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s11). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A stock lost $4 per day for 8 days. What was the total change in value”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s11-cp1-006",
@@ -13947,36 +13951,36 @@
    "skillId": "algebraic-expressions-integers-skill-11",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A diver descended 28 feet in 7 equal stages. What was the change in depth per stage, in feet?",
-   "answer": "-4",
+   "prompt": "A submarine descended 24 feet in 4 equal stages, then rose 4 feet. What was its total change in depth, in feet? (Use a negative number for down.)",
+   "answer": "-20",
    "options": [
     {
-     "text": "0",
+     "text": "-6",
      "correct": false
     },
     {
-     "text": "-4",
+     "text": "-20",
      "correct": true
-    },
-    {
-     "text": "-8",
-     "correct": false
     },
     {
      "text": "4",
      "correct": false
+    },
+    {
+     "text": "-24",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Write the situation as a product or quotient of integers.",
-    "-28 ÷ 7.",
-    "Result: -4."
+    "Each stage: -24 ÷ 4 = -6 feet.",
+    "After the descent: -24.",
+    "Then -24 + 4 = -20."
    ],
    "standards": [
     "7.NS.A.2a",
     "7.NS.A.2b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s11_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s11). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A diver descended 28 feet in 7 equal stages. What was the change in de”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s11-cp1-009",
@@ -14036,18 +14040,18 @@
    "skillId": "algebraic-expressions-integers-skill-11",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A diver descended 45 feet in 5 equal stages. What was the change in depth per stage, in feet?",
-   "answer": "-9",
+   "prompt": "A submarine descended 15 feet in 3 equal stages, then rose 9 feet. What was its total change in depth, in feet? (Use a negative number for down.)",
+   "answer": "-6",
    "solutionSteps": [
-    "Write the situation as a product or quotient of integers.",
-    "-45 ÷ 5.",
-    "Result: -9."
+    "Each stage: -15 ÷ 3 = -5 feet.",
+    "After the descent: -15.",
+    "Then -15 + 9 = -6."
    ],
    "standards": [
     "7.NS.A.2a",
     "7.NS.A.2b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s11_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s11). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A diver descended 45 feet in 5 equal stages. What was the change in de”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s11-cp1-012",
@@ -15188,36 +15192,35 @@
    "skillId": "algebraic-expressions-integers-skill-12",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "In which quadrant is the point (11, -3)?",
-   "answer": "Quadrant IV",
+   "prompt": "A point starts at (9, -3). It moves 6 units right and 8 units up. In which quadrant does it end?",
+   "answer": "Quadrant I",
    "options": [
     {
-     "text": "Quadrant III",
-     "correct": false
-    },
-    {
-     "text": "Quadrant II",
-     "correct": false
-    },
-    {
      "text": "Quadrant I",
+     "correct": true
+    },
+    {
+     "text": "cannot be determined",
      "correct": false
     },
     {
-     "text": "Quadrant IV",
-     "correct": true
+     "text": "Quadrant I (only the first step)",
+     "correct": false
+    },
+    {
+     "text": "none of these",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Quadrant I (+, +), II (-, +), III (-, -), IV (+, -).",
-    "x is positive and y is negative.",
-    "So the point is in Quadrant IV."
+    "New x: 9 + (6) = 15; new y: -3 + (8) = 5.",
+    "(15, 5) has x positive and y positive: Quadrant I."
    ],
    "standards": [
     "6.NS.C.6b",
     "6.NS.C.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s12_quadrant). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s12). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “In which quadrant is the point (11, -3)?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s12-cp1-003",
@@ -15285,18 +15288,17 @@
    "skillId": "algebraic-expressions-integers-skill-12",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "In which quadrant is the point (2, -12)?",
-   "answer": "Quadrant IV",
+   "prompt": "A point starts at (8, 8). It moves 9 units left and 7 units up. In which quadrant does it end?",
+   "answer": "Quadrant II",
    "solutionSteps": [
-    "Quadrant I (+, +), II (-, +), III (-, -), IV (+, -).",
-    "x is positive and y is negative.",
-    "So the point is in Quadrant IV."
+    "New x: 8 + (-9) = -1; new y: 8 + (7) = 15.",
+    "(-1, 15) has x negative and y positive: Quadrant II."
    ],
    "standards": [
     "6.NS.C.6b",
     "6.NS.C.8"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s12_quadrant). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_aei_s12). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “In which quadrant is the point (2, -12)?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-aei-s12-cp1-006",
