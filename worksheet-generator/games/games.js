@@ -238,7 +238,7 @@
   // Solo mode: one student plays the computer (worksheet-generator/games/solo-ai.js).
   // games.js loads it on demand from its own folder, so every Connect 4 and Tic-Tac-Toe page gets solo mode
   // without its own script tag. If the file cannot load, the setup simply offers the two-team game.
-  var AI = null, CPU_NAME = 'Computer', AI_SRC = 'solo-ai.js?v=solo-1';
+  var AI = null, CPU_NAME = 'Computer', AI_SRC = 'solo-ai.js?v=solo-ai-20261120';
   var gamesSrc = (doc.currentScript && doc.currentScript.src) || '';
   function withSoloAI(done) {
     if (G.MKSOLOAI || !gamesSrc) { AI = G.MKSOLOAI || null; return done(); }

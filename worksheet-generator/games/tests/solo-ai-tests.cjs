@@ -37,6 +37,32 @@ for (let k = 0; k < 300; k++) {
 }
 ok('300 random positions per game: the computer always picks an open square or column');
 
+function drop(g, c, p) { for (let i = 5; i >= 0; i--) if (!g[i][c]) { g[i][c] = p; return; } }
+/* ---- 1b. it plays sensibly (2026-11-20): blocks, never sets up the student's win, takes its own win ---- */
+{
+  const threats = (g, p) => [0, 1, 2, 3, 4, 5, 6].filter(c => { if (g[0][c]) return false; const k = g.map(x => x.slice()); drop(k, c, p); return A.connectFourWins(k, p); });
+  const stats = { easy: [0, 0], medium: [0, 0], hard: [0, 0] }; let gifts = 0, hardMs = 0;
+  for (let k = 0; k < 1500; k++) {
+    const level = ['easy', 'medium', 'hard'][k % 3], g = empty();
+    for (let n = 0; n < 6 + (k % 20); n++) { const v = [0, 1, 2, 3, 4, 5, 6].filter(c => !g[0][c]); drop(g, v[Math.floor(Math.random() * v.length)], n % 2 ? 'R' : 'L'); }
+    if (A.connectFourWins(g, 'L') || A.connectFourWins(g, 'R') || g[0].every(Boolean)) continue;
+    const t0 = Date.now(), col = A.connectFourMove(g, 'R', 'L', level); if (level === 'hard') hardMs = Math.max(hardMs, Date.now() - t0);
+    const mine = threats(g, 'R'), theirs = threats(g, 'L');
+    if (!mine.length && theirs.length === 1) { stats[level][1]++; if (col === theirs[0]) stats[level][0]++; }
+    if (!mine.length && !theirs.length) {
+      const after = g.map(x => x.slice()); drop(after, col, 'R');
+      const safeExists = [0, 1, 2, 3, 4, 5, 6].some(c => { if (g[0][c]) return false; const k2 = g.map(x => x.slice()); drop(k2, c, 'R'); return !threats(k2, 'L').length; });
+      if (threats(after, 'L').length && safeExists) gifts++;
+    }
+  }
+  const rateOf = l => stats[l][0] / Math.max(1, stats[l][1]);
+  assert.strictEqual(rateOf('hard'), 1, 'hard always blocks a single threat');
+  assert.ok(rateOf('medium') >= 0.9 && rateOf('easy') >= 0.8, 'medium and easy almost always block ' + JSON.stringify(stats));
+  assert.strictEqual(gifts, 0, 'never drops a disc under the student\'s winning square when a safe column exists');
+  assert.ok(hardMs < 1500, 'hard move time ' + hardMs + ' ms');
+  ok('connect four blocks a threat (easy ' + Math.round(rateOf('easy') * 100) + '%, medium ' + Math.round(rateOf('medium') * 100) + '%, hard 100%), never sets up the student, hard move ≤ ' + hardMs + ' ms');
+}
+
 /* ---- 2. simulated games ---- */
 const r = Math.random, ACC = 0.7, SEES = 0.8;
 function tttStudent(b) {
@@ -45,7 +71,6 @@ function tttStudent(b) {
   if (!b[4] && r() < 0.6) return 4;
   return f[Math.floor(r() * f.length)];
 }
-function drop(g, c, p) { for (let i = 5; i >= 0; i--) if (!g[i][c]) { g[i][c] = p; return; } }
 function c4Student(g) {
   const v = [0, 1, 2, 3, 4, 5, 6].filter(c => !g[0][c]);
   for (const p of ['L', 'R']) for (const c of v) { const k = g.map(x => x.slice()); drop(k, c, p); if (A.connectFourWins(k, p) && r() < SEES) return c; }

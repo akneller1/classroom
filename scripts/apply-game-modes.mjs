@@ -31,7 +31,7 @@ for(let grade=1;grade<=5;grade++){
  });
  const page=path.join(base,'grade'+grade+'-games.html');
  fs.mkdirSync(path.join(base,'games'),{recursive:true});fs.copyFileSync(path.join(root,'worksheet-generator/games/solo-ai.js'),path.join(base,'games/solo-ai.js'));
- edit(page,s=>s.replace(/<script src="(?:elementary\/el-games|grade5\/g5-games)\.js/, '<script src="games/solo-ai.js?v=solo-20261116"></script><script src="'+(elementary?'elementary/el-games':'grade5/g5-games')+'.js'));
+ edit(page,s=>s.replace(/<script src="(?:elementary\/el-games|grade5\/g5-games)\.js/, '<script src="games/solo-ai.js?v=solo-ai-20261120"></script><script src="'+(elementary?'elementary/el-games':'grade5/g5-games')+'.js'));
 }
 // Financial Algebra bundles the same generated engine in two locations.
 for(const folder of ['financial/games/vendor','financial-algebra/financial/games/vendor']){
