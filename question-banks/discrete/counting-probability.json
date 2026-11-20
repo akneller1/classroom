@@ -8900,6 +8900,318 @@
      "correct": true
     }
    ]
+  },
+  {
+   "id": "dm-cn-s01-cp2-f01",
+   "skillId": "counting-probability-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A fair coin is tossed 2 times and then a fair 10-sided die is rolled once. How many outcomes are in the sample space?",
+   "answer": "40",
+   "solutionSteps": [
+    "Each toss has 2 outcomes and the die has 10.",
+    "By the multiplication rule: 2^2 · 10 = 4 · 10 = 40 outcomes."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: sample_space_size). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.1",
+    "S-CP.A.1"
+   ]
+  },
+  {
+   "id": "dm-cn-s01-honors-f01",
+   "skillId": "counting-probability-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two fair dice are rolled (in order: first, second). The sample space has 36 ordered outcomes. How many outcomes are in the event \"the sum is 9\"?",
+   "answer": "4",
+   "solutionSteps": [
+    "List the ordered outcomes in the event systematically: (3, 6), (4, 5), (5, 4), (6, 3).",
+    "There are 4 outcomes in the event (out of 36)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: event_count_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.1",
+    "S-CP.A.1"
+   ]
+  },
+  {
+   "id": "dm-cn-s01-honors-f02",
+   "skillId": "counting-probability-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two fair dice are rolled (in order: first, second). The sample space has 36 ordered outcomes. How many outcomes are in the event \"the larger number is 4\"?",
+   "answer": "7",
+   "solutionSteps": [
+    "List the ordered outcomes in the event systematically: (1, 4), (2, 4), (3, 4), (4, 1), ….",
+    "There are 7 outcomes in the event (out of 36)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: event_count_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.1",
+    "S-CP.A.1"
+   ]
+  },
+  {
+   "id": "dm-cn-s03-cp2-f01",
+   "skillId": "counting-probability-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A possibility tree first branches for the choice of color (4 options), then for the size (4 options). How many leaves does the tree have?",
+   "answer": "16",
+   "solutionSteps": [
+    "Each of the 4 first branches splits into 4 second branches.",
+    "Leaves = 4 · 4 = 16."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: tree_leaves). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.3"
+   ]
+  },
+  {
+   "id": "dm-cn-s03-honors-f01",
+   "skillId": "counting-probability-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Teams X and Y play until one team has won 3 games (no ties). A possibility tree shows each game as a branch. How many leaves (complete series) does the tree have?",
+   "answer": "20",
+   "solutionSteps": [
+    "Branch at every game: X wins or Y wins; a branch stops as soon as one team reaches 3 wins.",
+    "Count the stopped branches: the series can end after 3 to 5 games.",
+    "There are 20 leaves (each team wins in 10 of them)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: tree_series_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.3"
+   ]
+  },
+  {
+   "id": "dm-cn-s03-honors-f02",
+   "skillId": "counting-probability-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Teams X and Y play until one team has won 2 games (no ties). A possibility tree shows each game as a branch. How many leaves (complete series) does the tree have?",
+   "answer": "6",
+   "solutionSteps": [
+    "Branch at every game: X wins or Y wins; a branch stops as soon as one team reaches 2 wins.",
+    "Count the stopped branches: the series can end after 2 to 3 games.",
+    "There are 6 leaves (each team wins in 3 of them)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: tree_series_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.3"
+   ]
+  },
+  {
+   "id": "dm-cn-s04-cp2-f01",
+   "skillId": "counting-probability-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Maya picks one movie: one of 11 comedies or one of 9 documentaries (none is both). How many choices does she have?",
+   "answer": "20",
+   "solutionSteps": [
+    "The two groups do not overlap, so use the addition rule.",
+    "11 + 9 = 20 choices."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: addition_rule). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.4"
+   ]
+  },
+  {
+   "id": "dm-cn-s04-cp2-f02",
+   "skillId": "counting-probability-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Maya picks one movie: one of 10 comedies or one of 9 documentaries (none is both). How many choices does she have?",
+   "answer": "19",
+   "solutionSteps": [
+    "The two groups do not overlap, so use the addition rule.",
+    "10 + 9 = 19 choices."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: addition_rule). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.4"
+   ]
+  },
+  {
+   "id": "dm-cn-s05-cp2-f01",
+   "skillId": "counting-probability-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A pizza order is one crust (3 kinds), one sauce (2 kinds) and one topping (2 kinds). How many different orders are possible?",
+   "answer": "12",
+   "solutionSteps": [
+    "Each order is a sequence of three independent choices, so use the multiplication rule.",
+    "3 · 2 · 2 = 12 orders."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: multiplication_rule). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.5"
+   ]
+  },
+  {
+   "id": "dm-cn-s06-cp2-f01",
+   "skillId": "counting-probability-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "How many ways can a president, vice president be chosen from 5 club members?",
+   "answer": "20",
+   "solutionSteps": [
+    "Order matters, so count arrangements: P(n, k).",
+    "P(5, 2) = 5 · 4 = 20."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_systematic). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.6",
+    "S-CP.B.9"
+   ]
+  },
+  {
+   "id": "dm-cn-s06-honors-f01",
+   "skillId": "counting-probability-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many 4-digit numbers have digits that strictly increase from left to right (like 1247)?",
+   "answer": "126",
+   "solutionSteps": [
+    "The first digit cannot be 0, and increasing digits can never include 0 after a nonzero digit, so the digits come from 1–9.",
+    "Each choice of 4 different digits from 1–9 gives exactly one increasing number: C(9, 4) = 126."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_increasing_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.6",
+    "S-CP.B.9"
+   ]
+  },
+  {
+   "id": "dm-cn-s07-cp2-f01",
+   "skillId": "counting-probability-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A bag holds 6 red, 3 green and 4 yellow tiles. One tile is drawn at random. Find P(green). Give a fraction in lowest terms.",
+   "answer": "3/13",
+   "solutionSteps": [
+    "There are 13 equally likely tiles; 3 are green.",
+    "P(green) = 3/13, already in lowest terms."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: equally_likely). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.7",
+    "S-CP.A.1",
+    "S-MD.A.1"
+   ]
+  },
+  {
+   "id": "dm-cn-s07-cp1-f01",
+   "skillId": "counting-probability-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A bag holds 3 red, 2 green and 2 yellow tiles. One tile is drawn at random. Find P(green). Give a fraction in lowest terms.",
+   "answer": "2/7",
+   "solutionSteps": [
+    "There are 7 equally likely tiles; 2 are green.",
+    "P(green) = 2/7, already in lowest terms."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: equally_likely). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.7",
+    "S-CP.A.1",
+    "S-MD.A.1"
+   ]
+  },
+  {
+   "id": "dm-cn-s07-honors-f01",
+   "skillId": "counting-probability-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two fair dice are rolled. Find the probability that the first die is greater than the second. Give a fraction in lowest terms.",
+   "answer": "5/12",
+   "solutionSteps": [
+    "The 36 ordered outcomes are equally likely.",
+    "Count the outcomes where the first die is greater than the second: 15.",
+    "P = 15/36 = 5/12."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: dice_event_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.7",
+    "S-CP.A.1",
+    "S-MD.A.1"
+   ]
+  },
+  {
+   "id": "dm-cn-s07-honors-f02",
+   "skillId": "counting-probability-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two fair dice are rolled. Find the probability that the product is even. Give a fraction in lowest terms.",
+   "answer": "3/4",
+   "solutionSteps": [
+    "The 36 ordered outcomes are equally likely.",
+    "Count the outcomes where the product is even: 27.",
+    "P = 27/36 = 3/4."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: dice_event_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.7",
+    "S-CP.A.1",
+    "S-MD.A.1"
+   ]
+  },
+  {
+   "id": "dm-cn-s08-cp2-f01",
+   "skillId": "counting-probability-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A 3-digit code (digits 0–9, repetition allowed) is chosen at random. Find P(no digit repeats). Give a fraction in lowest terms.",
+   "answer": "18/25",
+   "solutionSteps": [
+    "Total codes: 10^3 = 1000. Codes with no repeat: 10 · 9 · 8 = 720.",
+    "P = 720/1000 = 18/25."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_prob). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.8",
+    "S-CP.B.9",
+    "S-MD.A.1"
+   ]
+  },
+  {
+   "id": "dm-cn-s08-cp2-f02",
+   "skillId": "counting-probability-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A 3-digit code (digits 0–9, repetition allowed) is chosen at random. Find P(the code contains no 7). Give a fraction in lowest terms.",
+   "answer": "729/1000",
+   "solutionSteps": [
+    "Total codes: 10^3. Codes without a 7 use 9 digits in each place: 9^3 = 729.",
+    "P = 729/1000 = 729/1000."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: count_prob). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.8",
+    "S-CP.B.9",
+    "S-MD.A.1"
+   ]
+  },
+  {
+   "id": "dm-cn-s08-honors-f01",
+   "skillId": "counting-probability-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The letters A, B, C, D are arranged in a random order. Find the probability that A and B are at the two ends. Give a fraction in lowest terms.",
+   "answer": "1/6",
+   "solutionSteps": [
+    "All 4! = 24 arrangements are equally likely.",
+    "A and B fill the ends in 2 ways, the rest in 2! ways: 4 arrangements.",
+    "P = 4/24 = 1/6."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: arrangement_prob_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.COUNTING.8",
+    "S-CP.B.9",
+    "S-MD.A.1"
+   ]
   }
  ]
 }

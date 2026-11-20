@@ -8219,6 +8219,886 @@
      "correct": false
     }
    ]
+  },
+  {
+   "id": "dm-lg-s04-cp2-f01",
+   "skillId": "compound-statements-logic-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Write the truth column of (p → q) ∧ q in the row order (p, q) = TT, TF, FT, FF, as four letters such as TFTT.",
+   "answer": "TFTF",
+   "solutionSteps": [
+    "A conditional a → b is false only when a is true and b is false.",
+    "Row by row: TT: T, TF: F, FT: T, FF: F.",
+    "The column is TFTF."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: truth_column). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.4"
+   ]
+  },
+  {
+   "id": "dm-lg-s04-cp2-f02",
+   "skillId": "compound-statements-logic-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Write the truth column of ¬q → ¬p in the row order (p, q) = TT, TF, FT, FF, as four letters such as TFTT.",
+   "answer": "TFTT",
+   "solutionSteps": [
+    "A conditional a → b is false only when a is true and b is false.",
+    "Row by row: TT: T, TF: F, FT: T, FF: T.",
+    "The column is TFTT."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: truth_column). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.4"
+   ]
+  },
+  {
+   "id": "dm-lg-s04-cp1-f01",
+   "skillId": "compound-statements-logic-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Write the truth column of (p ∧ q) → p in the row order (p, q) = TT, TF, FT, FF, as four letters such as TFTT.",
+   "answer": "TTTT",
+   "solutionSteps": [
+    "A conditional a → b is false only when a is true and b is false.",
+    "Row by row: TT: T, TF: T, FT: T, FF: T.",
+    "The column is TTTT."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: truth_column). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.4"
+   ]
+  },
+  {
+   "id": "dm-lg-s04-cp1-f02",
+   "skillId": "compound-statements-logic-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Write the truth column of ¬p → (p ∨ q) in the row order (p, q) = TT, TF, FT, FF, as four letters such as TFTT.",
+   "answer": "TTTF",
+   "solutionSteps": [
+    "A conditional a → b is false only when a is true and b is false.",
+    "Row by row: TT: T, TF: T, FT: T, FF: F.",
+    "The column is TTTF."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: truth_column). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.4"
+   ]
+  },
+  {
+   "id": "dm-lg-s04-honors-f01",
+   "skillId": "compound-statements-logic-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Which expression is logically equivalent to p → (q → r)? Compare truth tables over p, q and r.",
+   "answer": "¬r → ¬(p ∧ q)",
+   "options": [
+    {
+     "text": "¬r → ¬(p ∧ q)",
+     "correct": true
+    },
+    {
+     "text": "(p → q) ∨ (p → r)",
+     "correct": false
+    },
+    {
+     "text": "(p → r) ∧ (q → r)",
+     "correct": false
+    },
+    {
+     "text": "q ∨ (p → r)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Build the truth table of p → (q → r) over all 8 rows of p, q, r: column TFTTTTTT.",
+    "¬r → ¬(p ∧ q) has the same column in every row, so the two are equivalent.",
+    "Each other choice differs in at least one row: (p → q) ∨ (p → r): TTTFTTTT; (p → r) ∧ (q → r): TFTFTFTT; q ∨ (p → r): TTTFTTTT."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: equivalent_forms_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.4"
+   ]
+  },
+  {
+   "id": "dm-lg-s04-honors-f02",
+   "skillId": "compound-statements-logic-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Which expression is logically equivalent to (p ∨ q) → r? Compare truth tables over p, q and r.",
+   "answer": "(p → r) ∧ (q → r)",
+   "options": [
+    {
+     "text": "(p → r) ∧ (q → r)",
+     "correct": true
+    },
+    {
+     "text": "¬p → q",
+     "correct": false
+    },
+    {
+     "text": "p ∧ ¬q",
+     "correct": false
+    },
+    {
+     "text": "p → (q → r)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Build the truth table of (p ∨ q) → r over all 8 rows of p, q, r: column TFTFTFTT.",
+    "(p → r) ∧ (q → r) has the same column in every row, so the two are equivalent.",
+    "Each other choice differs in at least one row: ¬p → q: TTTTTTFF; p ∧ ¬q: FFTTFFFF; p → (q → r): TFTTTTTT."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: equivalent_forms_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.4"
+   ]
+  },
+  {
+   "id": "dm-lg-s05-cp2-f01",
+   "skillId": "compound-statements-logic-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Which is the negation of \"If you study, then you pass the quiz.\"?",
+   "answer": "You study and you do not pass the quiz.",
+   "options": [
+    {
+     "text": "You study and you do not pass the quiz.",
+     "correct": true
+    },
+    {
+     "text": "If you study, then you do not pass the quiz.",
+     "correct": false
+    },
+    {
+     "text": "If you do not study, then you do not pass the quiz.",
+     "correct": false
+    },
+    {
+     "text": "You do not study and you pass the quiz.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The negation of p → q is p ∧ ¬q: the hypothesis happens and the conclusion does not.",
+    "So the negation is: You study and you do not pass the quiz."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: negate_conditional). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.5"
+   ]
+  },
+  {
+   "id": "dm-lg-s05-cp1-f01",
+   "skillId": "compound-statements-logic-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Which is the negation of \"If the battery is dead, then the phone will not turn on.\"?",
+   "answer": "The battery is dead and the phone will turn on.",
+   "options": [
+    {
+     "text": "The battery is dead and the phone will turn on.",
+     "correct": true
+    },
+    {
+     "text": "If the battery is dead, then the phone will turn on.",
+     "correct": false
+    },
+    {
+     "text": "If the battery is not dead, then the phone will turn on.",
+     "correct": false
+    },
+    {
+     "text": "The battery is not dead and the phone will not turn on.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The negation of p → q is p ∧ ¬q: the hypothesis happens and the conclusion does not.",
+    "So the negation is: The battery is dead and the phone will turn on."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: negate_conditional). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.5"
+   ]
+  },
+  {
+   "id": "dm-lg-s05-honors-f01",
+   "skillId": "compound-statements-logic-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Use ¬(a → b) ≡ a ∧ ¬b and De Morgan's laws. Which expression is equivalent to ¬(p → (q ∨ r))?",
+   "answer": "p ∧ ¬q ∧ ¬r",
+   "options": [
+    {
+     "text": "p ∧ ¬q ∧ ¬r",
+     "correct": true
+    },
+    {
+     "text": "¬p ∨ ¬q",
+     "correct": false
+    },
+    {
+     "text": "(p ∧ q) ∨ ¬r",
+     "correct": false
+    },
+    {
+     "text": "(p ∨ q) ∧ ¬r",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Negating a conditional keeps the hypothesis and negates the conclusion: ¬(a → b) ≡ a ∧ ¬b.",
+    "Apply it, then De Morgan's laws to the negated conclusion: ¬(p → (q ∨ r)) ≡ p ∧ ¬q ∧ ¬r.",
+    "Check: both have truth column FFFTFFFF over the 8 rows of p, q, r."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: negate_conditional_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.5"
+   ]
+  },
+  {
+   "id": "dm-lg-s05-honors-f02",
+   "skillId": "compound-statements-logic-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Use ¬(a → b) ≡ a ∧ ¬b and De Morgan's laws. Which expression is equivalent to ¬((p ∧ q) → r)?",
+   "answer": "p ∧ q ∧ ¬r",
+   "options": [
+    {
+     "text": "p ∧ q ∧ ¬r",
+     "correct": true
+    },
+    {
+     "text": "p ∧ ¬q",
+     "correct": false
+    },
+    {
+     "text": "p ∧ q",
+     "correct": false
+    },
+    {
+     "text": "¬p ∨ q ∨ r",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Negating a conditional keeps the hypothesis and negates the conclusion: ¬(a → b) ≡ a ∧ ¬b.",
+    "Apply it, then De Morgan's laws to the negated conclusion: ¬((p ∧ q) → r) ≡ p ∧ q ∧ ¬r.",
+    "Check: both have truth column FTFFFFFF over the 8 rows of p, q, r."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: negate_conditional_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.5"
+   ]
+  },
+  {
+   "id": "dm-lg-s06-cp2-f01",
+   "skillId": "compound-statements-logic-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Statement: \"If a number ends in 0, then it is divisible by 5.\" Which is its CONTRAPOSITIVE?",
+   "answer": "If it is not divisible by 5, then a number does not end in 0.",
+   "options": [
+    {
+     "text": "If it is divisible by 5, then a number ends in 0.",
+     "correct": false
+    },
+    {
+     "text": "If it is not divisible by 5, then a number does not end in 0.",
+     "correct": true
+    },
+    {
+     "text": "If a number does not end in 0, then it is not divisible by 5.",
+     "correct": false
+    },
+    {
+     "text": "If it is divisible by 5, then a number does not end in 0.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Here p is \"a number ends in 0\" and q is \"it is divisible by 5\".",
+    "The contrapositive swaps and negates both parts: ¬q → ¬p.",
+    "So the contrapositive is: If it is not divisible by 5, then a number does not end in 0."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: converse_inverse). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.6"
+   ]
+  },
+  {
+   "id": "dm-lg-s06-cp2-f02",
+   "skillId": "compound-statements-logic-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Statement: \"If a figure is a square, then it is a rectangle.\" Which is its INVERSE?",
+   "answer": "If a figure is not a square, then it is not a rectangle.",
+   "options": [
+    {
+     "text": "If a figure is not a square, then it is not a rectangle.",
+     "correct": true
+    },
+    {
+     "text": "If it is a rectangle, then a figure is a square.",
+     "correct": false
+    },
+    {
+     "text": "If it is not a rectangle, then a figure is not a square.",
+     "correct": false
+    },
+    {
+     "text": "If it is a rectangle, then a figure is not a square.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Here p is \"a figure is a square\" and q is \"it is a rectangle\".",
+    "The inverse negates both parts: ¬p → ¬q.",
+    "So the inverse is: If a figure is not a square, then it is not a rectangle."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: converse_inverse). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.6"
+   ]
+  },
+  {
+   "id": "dm-lg-s06-cp1-f01",
+   "skillId": "compound-statements-logic-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Statement: \"If the battery is dead, then the phone will not turn on.\" Which is its CONVERSE?",
+   "answer": "If the phone will not turn on, then the battery is dead.",
+   "options": [
+    {
+     "text": "If the battery is not dead, then the phone will turn on.",
+     "correct": false
+    },
+    {
+     "text": "If the phone will not turn on, then the battery is dead.",
+     "correct": true
+    },
+    {
+     "text": "If the phone will turn on, then the battery is not dead.",
+     "correct": false
+    },
+    {
+     "text": "If the phone will not turn on, then the battery is not dead.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Here p is \"the battery is dead\" and q is \"the phone will not turn on\".",
+    "The converse swaps the hypothesis and the conclusion: q → p.",
+    "So the converse is: If the phone will not turn on, then the battery is dead."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: converse_inverse). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.6"
+   ]
+  },
+  {
+   "id": "dm-lg-s06-honors-f01",
+   "skillId": "compound-statements-logic-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "For the conditional p → (q ∨ r), which expression is its contrapositive? Simplify negations with De Morgan's laws.",
+   "answer": "(¬q ∧ ¬r) → ¬p",
+   "options": [
+    {
+     "text": "(¬q ∧ ¬r) → ¬p",
+     "correct": true
+    },
+    {
+     "text": "(q ∨ r) → p",
+     "correct": false
+    },
+    {
+     "text": "¬p → (¬q ∧ ¬r)",
+     "correct": false
+    },
+    {
+     "text": "(¬q ∨ ¬r) → ¬p",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Contrapositive: ¬(conclusion) → ¬(hypothesis).",
+    "¬(p) = ¬p and ¬(q ∨ r) = ¬q ∧ ¬r by De Morgan's laws.",
+    "So the contrapositive is (¬q ∧ ¬r) → ¬p. It is equivalent to the original statement."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: converse_inverse_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.6"
+   ]
+  },
+  {
+   "id": "dm-lg-s06-honors-f02",
+   "skillId": "compound-statements-logic-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "For the conditional p → (q ∨ r), which expression is its converse? Simplify negations with De Morgan's laws.",
+   "answer": "(q ∨ r) → p",
+   "options": [
+    {
+     "text": "(¬q ∧ ¬r) → ¬p",
+     "correct": false
+    },
+    {
+     "text": "(q ∨ r) → p",
+     "correct": true
+    },
+    {
+     "text": "¬p → (¬q ∧ ¬r)",
+     "correct": false
+    },
+    {
+     "text": "¬p → (¬q ∨ ¬r)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Converse: conclusion → hypothesis.",
+    "¬(p) = ¬p and ¬(q ∨ r) = ¬q ∧ ¬r by De Morgan's laws.",
+    "So the converse is (q ∨ r) → p. It is not equivalent to the original statement."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: converse_inverse_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.6"
+   ]
+  },
+  {
+   "id": "dm-lg-s07-cp2-f01",
+   "skillId": "compound-statements-logic-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Name the rule of inference:\nu → w\nu\n∴ w",
+   "answer": "Modus ponens",
+   "options": [
+    {
+     "text": "Modus tollens",
+     "correct": false
+    },
+    {
+     "text": "Generalization",
+     "correct": false
+    },
+    {
+     "text": "Specialization",
+     "correct": false
+    },
+    {
+     "text": "Modus ponens",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Premises: u → w; u. Conclusion: w.",
+    "This is the pattern of modus ponens: from p → q and p, conclude q."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: rule_name). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.7",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-lg-s07-cp2-f02",
+   "skillId": "compound-statements-logic-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Name the rule of inference:\nq ∨ r\n¬q\n∴ r",
+   "answer": "Elimination",
+   "options": [
+    {
+     "text": "Elimination",
+     "correct": true
+    },
+    {
+     "text": "Modus ponens",
+     "correct": false
+    },
+    {
+     "text": "Modus tollens",
+     "correct": false
+    },
+    {
+     "text": "Generalization",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Premises: q ∨ r; ¬q. Conclusion: r.",
+    "This is the pattern of elimination: from p ∨ q and ¬p, conclude q."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: rule_name). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.7",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-lg-s07-cp1-f01",
+   "skillId": "compound-statements-logic-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Name the rule of inference:\ns\nt\n∴ s ∧ t",
+   "answer": "Conjunction",
+   "options": [
+    {
+     "text": "Modus ponens",
+     "correct": false
+    },
+    {
+     "text": "Conjunction",
+     "correct": true
+    },
+    {
+     "text": "Modus tollens",
+     "correct": false
+    },
+    {
+     "text": "Generalization",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Premises: s; t. Conclusion: s ∧ t.",
+    "This is the pattern of conjunction: from p and q, conclude p ∧ q."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: rule_name). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.7",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-lg-s07-honors-f01",
+   "skillId": "compound-statements-logic-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "This argument is invalid:\np ∨ r\nq → r\n¬q\n∴ p\nWhich assignment (p, q, r) makes every premise true and the conclusion false?",
+   "answer": "(F, F, T)",
+   "options": [
+    {
+     "text": "(T, F, F)",
+     "correct": false
+    },
+    {
+     "text": "(T, T, T)",
+     "correct": false
+    },
+    {
+     "text": "(F, T, F)",
+     "correct": false
+    },
+    {
+     "text": "(F, F, T)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "An argument is invalid when some row of the truth table makes all premises true and the conclusion false.",
+    "At (F, F, T): p ∨ r is T; q → r is T; ¬q is T; the conclusion p is F.",
+    "Each other choice makes a premise false or the conclusion true."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: invalid_row_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.7",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-lg-s07-honors-f02",
+   "skillId": "compound-statements-logic-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "This argument is invalid:\np → q\n¬p\nq → r\n∴ ¬r\nWhich assignment (p, q, r) makes every premise true and the conclusion false?",
+   "answer": "(F, F, T)",
+   "options": [
+    {
+     "text": "(F, F, T)",
+     "correct": true
+    },
+    {
+     "text": "(T, F, F)",
+     "correct": false
+    },
+    {
+     "text": "(T, F, T)",
+     "correct": false
+    },
+    {
+     "text": "(F, F, F)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "An argument is invalid when some row of the truth table makes all premises true and the conclusion false.",
+    "At (F, F, T): p → q is T; ¬p is T; q → r is T; the conclusion ¬r is F.",
+    "Each other choice makes a premise false or the conclusion true."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: invalid_row_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.7",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-lg-s07-honors-f03",
+   "skillId": "compound-statements-logic-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "This argument is invalid:\np → r\nq → r\nr\n∴ p ∨ q\nWhich assignment (p, q, r) makes every premise true and the conclusion false?",
+   "answer": "(F, F, T)",
+   "options": [
+    {
+     "text": "(T, T, F)",
+     "correct": false
+    },
+    {
+     "text": "(F, F, T)",
+     "correct": true
+    },
+    {
+     "text": "(F, F, F)",
+     "correct": false
+    },
+    {
+     "text": "(T, F, T)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "An argument is invalid when some row of the truth table makes all premises true and the conclusion false.",
+    "At (F, F, T): p → r is T; q → r is T; r is T; the conclusion p ∨ q is F.",
+    "Each other choice makes a premise false or the conclusion true."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: invalid_row_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.7",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-lg-s08-cp2-f01",
+   "skillId": "compound-statements-logic-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Classify the argument:\nIf the battery is dead, then the phone will not turn on. The phone will not turn on. So the battery is dead.",
+   "answer": "Converse error (affirming the conclusion)",
+   "options": [
+    {
+     "text": "Inverse error (denying the hypothesis)",
+     "correct": false
+    },
+    {
+     "text": "Valid (modus ponens)",
+     "correct": false
+    },
+    {
+     "text": "Valid (modus tollens)",
+     "correct": false
+    },
+    {
+     "text": "Converse error (affirming the conclusion)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Let p = \"the battery is dead\" and q = \"the phone will not turn on\"; the first premise is p → q.",
+    "The argument goes from q to p, which a true conditional does not allow.",
+    "So it is: Converse error (affirming the conclusion)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: fallacy_name). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.8",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-lg-s08-cp2-f02",
+   "skillId": "compound-statements-logic-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Classify the argument:\nIf you study, then you pass the quiz. You pass the quiz. So you study.",
+   "answer": "Converse error (affirming the conclusion)",
+   "options": [
+    {
+     "text": "Converse error (affirming the conclusion)",
+     "correct": true
+    },
+    {
+     "text": "Inverse error (denying the hypothesis)",
+     "correct": false
+    },
+    {
+     "text": "Valid (modus ponens)",
+     "correct": false
+    },
+    {
+     "text": "Valid (modus tollens)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let p = \"you study\" and q = \"you pass the quiz\"; the first premise is p → q.",
+    "The argument goes from q to p, which a true conditional does not allow.",
+    "So it is: Converse error (affirming the conclusion)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: fallacy_name). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.8",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-lg-s08-cp1-f01",
+   "skillId": "compound-statements-logic-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Classify the argument:\nIf a number ends in 0, then it is divisible by 5. It is divisible by 5. So a number ends in 0.",
+   "answer": "Converse error (affirming the conclusion)",
+   "options": [
+    {
+     "text": "Inverse error (denying the hypothesis)",
+     "correct": false
+    },
+    {
+     "text": "Converse error (affirming the conclusion)",
+     "correct": true
+    },
+    {
+     "text": "Valid (modus ponens)",
+     "correct": false
+    },
+    {
+     "text": "Valid (modus tollens)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let p = \"a number ends in 0\" and q = \"it is divisible by 5\"; the first premise is p → q.",
+    "The argument goes from q to p, which a true conditional does not allow.",
+    "So it is: Converse error (affirming the conclusion)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: fallacy_name). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.8",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-lg-s08-cp1-f02",
+   "skillId": "compound-statements-logic-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Classify the argument:\nIf it is Saturday, then the library opens late. It is not Saturday. So the library does not open late.",
+   "answer": "Inverse error (denying the hypothesis)",
+   "options": [
+    {
+     "text": "Converse error (affirming the conclusion)",
+     "correct": false
+    },
+    {
+     "text": "Valid (modus ponens)",
+     "correct": false
+    },
+    {
+     "text": "Valid (modus tollens)",
+     "correct": false
+    },
+    {
+     "text": "Inverse error (denying the hypothesis)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Let p = \"it is Saturday\" and q = \"the library opens late\"; the first premise is p → q.",
+    "The argument goes from ¬p to ¬q, which a true conditional does not allow.",
+    "So it is: Inverse error (denying the hypothesis)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: fallacy_name). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.8",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-lg-s08-honors-f01",
+   "skillId": "compound-statements-logic-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Which argument commits the inverse error?",
+   "answer": "If x = 3, then x² = 9. X ≠ 3. Therefore x² ≠ 9.",
+   "options": [
+    {
+     "text": "If x = 3, then x² = 9. X ≠ 3. Therefore x² ≠ 9.",
+     "correct": true
+    },
+    {
+     "text": "If x = 3, then x² = 9. X² = 9. Therefore x = 3.",
+     "correct": false
+    },
+    {
+     "text": "If x = 3, then x² = 9. X = 3. Therefore x² = 9.",
+     "correct": false
+    },
+    {
+     "text": "If x = 3, then x² = 9. X² ≠ 9. Therefore x ≠ 3.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Converse error: from p → q and q, conclude p. Inverse error: from p → q and ¬p, conclude ¬q.",
+    "The argument \"If x = 3, then x² = 9. X ≠ 3. Therefore x² ≠ 9.\" has exactly that form, so it commits the inverse error.",
+    "Of the others, two are valid (modus ponens and modus tollens) and one is the other error."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: fallacy_pick_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.8",
+    "MP.3"
+   ]
+  },
+  {
+   "id": "dm-lg-s08-honors-f02",
+   "skillId": "compound-statements-logic-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Which argument commits the converse error?",
+   "answer": "If it snows, then school is closed. School is closed. Therefore it snows.",
+   "options": [
+    {
+     "text": "If it snows, then school is closed. It does not snow. Therefore school is not closed.",
+     "correct": false
+    },
+    {
+     "text": "If it snows, then school is closed. School is closed. Therefore it snows.",
+     "correct": true
+    },
+    {
+     "text": "If it snows, then school is closed. It snows. Therefore school is closed.",
+     "correct": false
+    },
+    {
+     "text": "If it snows, then school is closed. School is not closed. Therefore it does not snow.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Converse error: from p → q and q, conclude p. Inverse error: from p → q and ¬p, conclude ¬q.",
+    "The argument \"If it snows, then school is closed. School is closed. Therefore it snows.\" has exactly that form, so it commits the converse error.",
+    "Of the others, two are valid (modus ponens and modus tollens) and one is the other error."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: fallacy_pick_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LOGIC.8",
+    "MP.3"
+   ]
   }
  ]
 }

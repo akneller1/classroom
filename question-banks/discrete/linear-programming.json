@@ -10708,6 +10708,331 @@
     "DM.LP.4",
     "A-CED.A.2"
    ]
+  },
+  {
+   "id": "dm-lp-s01-cp2-f01",
+   "skillId": "linear-programming-skill-01",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In a school store, x = number of notebooks and y = number of folders. Each notebook uses 4 dollars of budget and each folder uses 2. The plan must use at most 40 dollars of budget. Which inequality expresses this constraint?",
+   "answer": "4x + 2y ≤ 40",
+   "options": [
+    {
+     "text": "2x + 4y ≤ 40",
+     "correct": false
+    },
+    {
+     "text": "4x + 2y ≥ 40",
+     "correct": false
+    },
+    {
+     "text": "4x + 2y ≤ 40",
+     "correct": true
+    },
+    {
+     "text": "4x + 2y < 40",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Dollars of budget used: 4x + 2y.",
+    "\"At most\" means ≤, so 4x + 2y ≤ 40."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LP.1",
+    "A-CED.A.3",
+    "MP.4"
+   ]
+  },
+  {
+   "id": "dm-lp-s01-cp2-f02",
+   "skillId": "linear-programming-skill-01",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In a farm, x = number of acres of corn and y = number of acres of beans. Each acre of corn uses 3 hours of labor and each acre of beans uses 5. The plan must use at most 140 hours of labor. Which inequality expresses this constraint?",
+   "answer": "3x + 5y ≤ 140",
+   "options": [
+    {
+     "text": "5x + 3y ≤ 140",
+     "correct": false
+    },
+    {
+     "text": "3x + 5y ≥ 140",
+     "correct": false
+    },
+    {
+     "text": "3x + 5y < 140",
+     "correct": false
+    },
+    {
+     "text": "3x + 5y ≤ 140",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Hours of labor used: 3x + 5y.",
+    "\"At most\" means ≤, so 3x + 5y ≤ 140."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: write_constraint). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LP.1",
+    "A-CED.A.3",
+    "MP.4"
+   ]
+  },
+  {
+   "id": "dm-lp-s01-honors-f01",
+   "skillId": "linear-programming-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In a farm, x = number of acres of corn and y = number of acres of beans. Each acre of corn needs 2 hours of labor and each acre of beans needs 3, with 100 hours of labor available. There must be at least 3 times as many acres of beans as acres of corn, and amounts cannot be negative. Which system of constraints models this?",
+   "answer": "2x + 3y ≤ 100; y ≥ 3x; x ≥ 0; y ≥ 0",
+   "options": [
+    {
+     "text": "2x + 3y ≤ 100; y ≥ 3x; x ≥ 0; y ≥ 0",
+     "correct": true
+    },
+    {
+     "text": "2x + 3y ≤ 100; x ≥ 3y; x ≥ 0; y ≥ 0",
+     "correct": false
+    },
+    {
+     "text": "2x + 3y ≥ 100; y ≥ 3x; x ≥ 0; y ≥ 0",
+     "correct": false
+    },
+    {
+     "text": "3x + 2y ≤ 100; y ≤ 3x; x ≥ 0; y ≥ 0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Resource: 2x + 3y ≤ 100.",
+    "\"At least 3 times as many acres of beans as acres of corn\": y ≥ 3x.",
+    "Nonnegativity: x ≥ 0, y ≥ 0."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: write_system_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LP.1",
+    "A-CED.A.3",
+    "MP.4"
+   ]
+  },
+  {
+   "id": "dm-lp-s01-honors-f02",
+   "skillId": "linear-programming-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In a furniture shop, x = number of tables and y = number of chairs. Each table needs 3 carpentry hours and each chair needs 2, with 150 carpentry hours available. There must be at least 4 times as many chairs as tables, and amounts cannot be negative. Which system of constraints models this?",
+   "answer": "3x + 2y ≤ 150; y ≥ 4x; x ≥ 0; y ≥ 0",
+   "options": [
+    {
+     "text": "3x + 2y ≤ 150; x ≥ 4y; x ≥ 0; y ≥ 0",
+     "correct": false
+    },
+    {
+     "text": "3x + 2y ≤ 150; y ≥ 4x; x ≥ 0; y ≥ 0",
+     "correct": true
+    },
+    {
+     "text": "3x + 2y ≥ 150; y ≥ 4x; x ≥ 0; y ≥ 0",
+     "correct": false
+    },
+    {
+     "text": "2x + 3y ≤ 150; y ≤ 4x; x ≥ 0; y ≥ 0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Resource: 3x + 2y ≤ 150.",
+    "\"At least 4 times as many chairs as tables\": y ≥ 4x.",
+    "Nonnegativity: x ≥ 0, y ≥ 0."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: write_system_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LP.1",
+    "A-CED.A.3",
+    "MP.4"
+   ]
+  },
+  {
+   "id": "dm-lp-s04-honors-f01",
+   "skillId": "linear-programming-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In a farm, x = number of acres of corn and y = number of acres of beans. Each acre of corn sells for $57 and costs $13 to make; each acre of beans sells for $49 and costs $8. What objective should the manager use to earn the most profit?",
+   "answer": "Maximize P = 44x + 41y",
+   "options": [
+    {
+     "text": "Maximize P = 57x + 49y",
+     "correct": false
+    },
+    {
+     "text": "Minimize C = 13x + 8y",
+     "correct": false
+    },
+    {
+     "text": "Maximize P = 44x + 41y",
+     "correct": true
+    },
+    {
+     "text": "Maximize P = 70x + 57y",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Profit per acre of corn: 57 − 13 = 44. Profit per acre of beans: 49 − 8 = 41.",
+    "Total profit is P = 44x + 41y, and the goal is to maximize it."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: objective_profit_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LP.4",
+    "A-CED.A.2"
+   ]
+  },
+  {
+   "id": "dm-lp-s06-cp2-f01",
+   "skillId": "linear-programming-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Maximize P = 2x + 5y subject to x + y ≤ 16; 4x + 3y ≤ 12; x ≥ 0; y ≥ 0. Give the optimal point and value as \"(x, y), P = value\".",
+   "answer": "(0, 4), P = 20",
+   "solutionSteps": [
+    "List the corner points of the feasible region: (0, 4), (3, 0), (0, 0).",
+    "Evaluate P at each: 20, 6, 0.",
+    "The largest is P = 20 at (0, 4)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: lp_max). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LP.6",
+    "A-CED.A.3"
+   ]
+  },
+  {
+   "id": "dm-lp-s06-cp2-f02",
+   "skillId": "linear-programming-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Maximize P = 4x + 3y subject to x + y ≤ 11; 2x + 3y ≤ 14; x ≥ 0; y ≥ 0. Give the optimal point and value as \"(x, y), P = value\".",
+   "answer": "(7, 0), P = 28",
+   "solutionSteps": [
+    "List the corner points of the feasible region: (7, 0), (0, 14/3), (0, 0).",
+    "Evaluate P at each: 28, 14, 0.",
+    "The largest is P = 28 at (7, 0)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: lp_max). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LP.6",
+    "A-CED.A.3"
+   ]
+  },
+  {
+   "id": "dm-lp-s06-cp1-f01",
+   "skillId": "linear-programming-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Maximize P = 2x + 6y subject to 2x + y ≤ 13; 4x + 4y ≤ 20; x ≥ 0; y ≥ 0. Give the optimal point and value as \"(x, y), P = value\".",
+   "answer": "(0, 5), P = 30",
+   "solutionSteps": [
+    "List the corner points of the feasible region: (0, 5), (5, 0), (0, 0).",
+    "Evaluate P at each: 30, 10, 0.",
+    "The largest is P = 30 at (0, 5)."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: lp_max). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LP.6",
+    "A-CED.A.3"
+   ]
+  },
+  {
+   "id": "dm-lp-s06-honors-f01",
+   "skillId": "linear-programming-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A diet mixes x units of food A and y units of food B. Minimize the cost C = 9x + 8y subject to x + 4y ≥ 17; 3x + 2y ≥ 21; x ≥ 0; y ≥ 0. Give the optimal point and cost as \"(x, y), C = value\".",
+   "answer": "(5, 3), C = 69",
+   "solutionSteps": [
+    "The feasible region is unbounded, so check the corner points: (5, 3), (0, 21/2), (17, 0).",
+    "Cost at each corner: 69, 84, 153.",
+    "The least cost is C = 69 at (5, 3); moving farther out only raises the cost."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: lp_min_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LP.6",
+    "A-CED.A.3"
+   ]
+  },
+  {
+   "id": "dm-lp-s07-cp2-f01",
+   "skillId": "linear-programming-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In a school store, x = notebooks and y = folders. The maximum profit is found at the corner point (8, 11) with P = 122. What does this mean?",
+   "answer": "Make 8 notebooks and 11 folders for the maximum profit of $122",
+   "options": [
+    {
+     "text": "Make 11 notebooks and 8 folders for the maximum profit of $122",
+     "correct": false
+    },
+    {
+     "text": "Make 8 notebooks and 11 folders for a profit of $19",
+     "correct": false
+    },
+    {
+     "text": "Profit is $122 for each item made",
+     "correct": false
+    },
+    {
+     "text": "Make 8 notebooks and 11 folders for the maximum profit of $122",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The coordinates of the optimal point are the amounts to make: x first, y second.",
+    "The objective value is the best profit: $122."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: interpret_optimum). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LP.7",
+    "A-CED.A.3",
+    "MP.4"
+   ]
+  },
+  {
+   "id": "dm-lp-s07-honors-f01",
+   "skillId": "linear-programming-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In a print shop, the optimal plan is x = 3 posters and y = 3 banners. One constraint is 6x + 4y ≤ 36 (ink cartridges). How many ink cartridges are left unused at the optimum?",
+   "answer": "6",
+   "solutionSteps": [
+    "Ink cartridges used: 6(3) + 4(3) = 30.",
+    "Unused (slack) = 36 − 30 = 6. A constraint with slack is not binding."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: slack_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LP.7",
+    "A-CED.A.3",
+    "MP.4"
+   ]
+  },
+  {
+   "id": "dm-lp-s07-honors-f02",
+   "skillId": "linear-programming-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In a bakery, the optimal plan is x = 18 loaves and y = 15 pies. One constraint is 6x + 2y ≤ 152 (oven hours). How many oven hours are left unused at the optimum?",
+   "answer": "14",
+   "solutionSteps": [
+    "Oven hours used: 6(18) + 2(15) = 138.",
+    "Unused (slack) = 152 − 138 = 14. A constraint with slack is not binding."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: slack_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LP.7",
+    "A-CED.A.3",
+    "MP.4"
+   ]
   }
  ]
 }

@@ -7690,6 +7690,311 @@
      "correct": true
     }
    ]
+  },
+  {
+   "id": "dm-sm-s01-cp2-f01",
+   "skillId": "speaking-mathematically-skill-01",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Classify the sentence. (A statement is a sentence that is true or false, but not both.)\n\"7 is an even number.\"",
+   "answer": "A statement that is false",
+   "options": [
+    {
+     "text": "A statement that is true",
+     "correct": false
+    },
+    {
+     "text": "Not a statement: it is a question or a command",
+     "correct": false
+    },
+    {
+     "text": "Not a statement: its truth depends on the value of a variable",
+     "correct": false
+    },
+    {
+     "text": "A statement that is false",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Ask: is the sentence a complete claim that is either true or false?",
+    "\"7 is an even number.\": a statement that is false."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: statement_class). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LANG.1"
+   ]
+  },
+  {
+   "id": "dm-sm-s03-cp2-f01",
+   "skillId": "speaking-mathematically-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Rewrite in \"if p, then q\" form: \"All rhombuses have four equal sides.\"",
+   "answer": "If a figure is a rhombus, then it has four equal sides.",
+   "options": [
+    {
+     "text": "If a figure is a rhombus, then it has four equal sides.",
+     "correct": true
+    },
+    {
+     "text": "If it has four equal sides, then a figure is a rhombus.",
+     "correct": false
+    },
+    {
+     "text": "A figure is a rhombus and it has four equal sides.",
+     "correct": false
+    },
+    {
+     "text": "A figure is a rhombus if and only if it has four equal sides.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Find the condition (hypothesis) and the result (conclusion).",
+    "Hypothesis: a figure is a rhombus; conclusion: it has four equal sides. So: If a figure is a rhombus, then it has four equal sides."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: if_then_form). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LANG.3"
+   ]
+  },
+  {
+   "id": "dm-sm-s03-honors-f01",
+   "skillId": "speaking-mathematically-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Which conditional has the same meaning as \"Having a ticket is necessary for entering the concert.\"?",
+   "answer": "If a person enters the concert, then the person has a ticket.",
+   "options": [
+    {
+     "text": "If the person has a ticket, then a person enters the concert.",
+     "correct": false
+    },
+    {
+     "text": "If a person enters the concert, then the person has a ticket.",
+     "correct": true
+    },
+    {
+     "text": "If a person enters the concert, then it is not true that the person has a ticket.",
+     "correct": false
+    },
+    {
+     "text": "A person enters the concert if and only if the person has a ticket.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "\"p is necessary for q\" means \"if q, then p\".",
+    "So the statement means: If a person enters the concert, then the person has a ticket."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: necessary_sufficient_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LANG.3"
+   ]
+  },
+  {
+   "id": "dm-sm-s03-honors-f02",
+   "skillId": "speaking-mathematically-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Which conditional has the same meaning as \"Paying the fee is sufficient for joining the club.\"?",
+   "answer": "If a person pays the fee, then the person can join the club.",
+   "options": [
+    {
+     "text": "If the person can join the club, then a person pays the fee.",
+     "correct": false
+    },
+    {
+     "text": "If a person pays the fee, then it is not true that the person can join the club.",
+     "correct": false
+    },
+    {
+     "text": "If a person pays the fee, then the person can join the club.",
+     "correct": true
+    },
+    {
+     "text": "A person pays the fee if and only if the person can join the club.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "\"p is sufficient for q\" means \"if p, then q\".",
+    "So the statement means: If a person pays the fee, then the person can join the club."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: necessary_sufficient_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LANG.3"
+   ]
+  },
+  {
+   "id": "dm-sm-s03-honors-f03",
+   "skillId": "speaking-mathematically-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Which conditional has the same meaning as \"The game is played unless it storms.\"?",
+   "answer": "If it does not storm, then the game is played.",
+   "options": [
+    {
+     "text": "If the game is played, then it does not storm.",
+     "correct": false
+    },
+    {
+     "text": "If it does not storm, then it is not true that the game is played.",
+     "correct": false
+    },
+    {
+     "text": "It does not storm if and only if the game is played.",
+     "correct": false
+    },
+    {
+     "text": "If it does not storm, then the game is played.",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "\"p unless q\" means \"if not q, then p\".",
+    "So the statement means: If it does not storm, then the game is played."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: necessary_sufficient_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LANG.3"
+   ]
+  },
+  {
+   "id": "dm-sm-s03-honors-f04",
+   "skillId": "speaking-mathematically-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Which conditional has the same meaning as \"Being a resident is necessary for voting in the town election.\"?",
+   "answer": "If a person votes in the town election, then the person is a resident.",
+   "options": [
+    {
+     "text": "If a person votes in the town election, then the person is a resident.",
+     "correct": true
+    },
+    {
+     "text": "If the person is a resident, then a person votes in the town election.",
+     "correct": false
+    },
+    {
+     "text": "If a person votes in the town election, then it is not true that the person is a resident.",
+     "correct": false
+    },
+    {
+     "text": "A person votes in the town election if and only if the person is a resident.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "\"p is necessary for q\" means \"if q, then p\".",
+    "So the statement means: If a person votes in the town election, then the person is a resident."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: necessary_sufficient_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LANG.3"
+   ]
+  },
+  {
+   "id": "dm-sm-s04-honors-f01",
+   "skillId": "speaking-mathematically-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Which set-builder description equals {−1, 1, 3, 5}?",
+   "answer": "{2k + 1 | k ∈ ℤ and −1 ≤ k ≤ 2}",
+   "options": [
+    {
+     "text": "{2k − 1 | k ∈ ℤ and −1 ≤ k ≤ 2}",
+     "correct": false
+    },
+    {
+     "text": "{2k + 1 | k ∈ ℤ and −1 ≤ k ≤ 2}",
+     "correct": true
+    },
+    {
+     "text": "{2k + 1 | k ∈ ℤ and 0 ≤ k ≤ 3}",
+     "correct": false
+    },
+    {
+     "text": "{n ∈ ℤ | −1 ≤ n ≤ 5}",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Generate each candidate's elements and compare with the roster.",
+    "{2k + 1 | k ∈ ℤ and −1 ≤ k ≤ 2} produces exactly {−1, 1, 3, 5}."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_builder_match_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LANG.4"
+   ]
+  },
+  {
+   "id": "dm-sm-s05-honors-f01",
+   "skillId": "speaking-mathematically-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Let A = {∅, {2}, 3}. Which is true about X = ∅: is X ∈ A (X is an element), is X ⊆ A (every element of X is in A), both, or neither?",
+   "answer": "Both: ∅ ∈ A and ∅ ⊆ A",
+   "options": [
+    {
+     "text": "Only ∅ ⊆ A",
+     "correct": false
+    },
+    {
+     "text": "Only ∅ ∈ A",
+     "correct": false
+    },
+    {
+     "text": "Both: ∅ ∈ A and ∅ ⊆ A",
+     "correct": true
+    },
+    {
+     "text": "Neither",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "X ∈ A asks whether X itself is listed as an element of A.",
+    "X ⊆ A asks whether each element of X is an element of A (∅ is a subset of every set).",
+    "So: Both: ∅ ∈ A and ∅ ⊆ A."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: member_subset_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LANG.5"
+   ]
+  },
+  {
+   "id": "dm-sm-s06-honors-f01",
+   "skillId": "speaking-mathematically-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Let A = {3, 4, 6} and B = {3, 5, 8}. How many ordered pairs (a, b) in A × B have a < b?",
+   "answer": "5",
+   "solutionSteps": [
+    "A × B has 3 · 3 = 9 pairs.",
+    "For each a, count the b's larger than a: 3: 2, 4: 2, 6: 1. Total 5."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: cartesian_count_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LANG.6"
+   ]
+  },
+  {
+   "id": "dm-sm-s07-honors-f01",
+   "skillId": "speaking-mathematically-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many strings of length 6 over the alphabet {a, b} contain exactly 3 a's?",
+   "answer": "20",
+   "solutionSteps": [
+    "Choose which 3 of the 6 positions hold a; the rest are b.",
+    "C(6, 3) = 20."
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: string_count_h). Whole-site audit 2 (2026-11-20, tools/site-audit-20261120/discrete_fill): answer computed by brute force in the script.",
+   "standards": [
+    "DM.LANG.7"
+   ]
   }
  ]
 }
