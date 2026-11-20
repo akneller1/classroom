@@ -1,6 +1,6 @@
 /* Solo mode (one student against the computer) for the hand-built Connect 4 and Tic-Tac-Toe pages
    (the Algebra 2 games). Load it after the page's own game script and after solo-ai.js:
-     <script src="../../worksheet-generator/games/solo-ai.js?v=solo-1"></script>
+     <script src="../../worksheet-generator/games/solo-ai.js?v=solo-ai-20261120"></script>
      <script src="../../worksheet-generator/games/solo-legacy.js?v=solo-1"></script>
    It reuses the page's own functions (startTurn, dropCol, submit, afterQuiz, render, ...) and only changes
    what solo mode needs: no steals, and the computer takes its own turns. Two-team play is unchanged. */
