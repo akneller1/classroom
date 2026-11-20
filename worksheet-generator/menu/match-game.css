@@ -273,3 +273,9 @@ body.mg-modal-open{overflow:hidden}
 .mg-card .mk-txt.mk-money{font-size:1.9rem;font-weight:700;text-align:center;font-variant-numeric:tabular-nums}
 .mg-card.mini .mk-txt.mk-money{font-size:1.15rem}
 .mg-big .mk-txt.mk-money{font-size:3rem}
+/* Chromebook readability (2026-11-20). Cards are white "paper" in every theme because the graphs are drawn on white.
+   Dark theme (ChromeOS dark mode turns it on): give cards a light edge so they don't blur into the page.
+   High-contrast / forced colors: keep each card's own ink and fills, so graphs keep their shading and colours. */
+:root[data-theme="dark"] .mg-card{border-color:#c3cede;box-shadow:2px 2px 0 #000}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mg-card{border-color:#c3cede;box-shadow:2px 2px 0 #000}}
+@media (forced-colors:active){.mg-card,.mg-big,.mg-card svg,.mg-big svg{forced-color-adjust:none}.mg-card{border-color:CanvasText}}
