@@ -1,0 +1,24 @@
+import { M, money, $ } from '../kit.mjs';
+import { RUBRIC, RUBRIC_SLIDE } from './_common.mjs';
+const r2 = M.round2;
+const A = (t) => 42000 + 2400 * t, B = (t) => r2(40000 * 1.05 ** t), C = (t) => r2(46000 * 1.025 ** t);
+let cross = 1; while (B(cross) <= A(cross)) cross++;
+const tot = (f, n) => r2(Array.from({ length: n }, (_, t) => f(t)).reduce((s, x) => s + x, 0));
+export default [{
+  slug: 'career-offers', title: 'Three Career Offers: Linear vs. Exponential Pay', unit: 'exponential', unitNum: 13,
+  tagline: 'Model three salary offers over a career and decide which grows into the best deal.',
+  grouping: 'Pairs or groups of 3', days: '2–3 class periods', skills: ['exponential-skill-01', 'exponential-skill-02', 'exponential-skill-03', 'exponential-skill-04'],
+  intro: 'Jordan, a new graduate, has three fictional job offers. One gives a flat raise each year; two give percent raises. Your team will model each salary, find when one passes another, total the pay over different stays, and account for the car Jordan must buy for one of the jobs, which loses value every year.',
+  scenario: 'Offer A: $42,000, plus $2,400 each year. Offer B: $40,000, plus 5% each year. Offer C: $46,000, plus 2.5% each year, but it requires a $26,000 car that depreciates 15% a year.',
+  goals: ['Write linear and exponential salary models.', 'Use tables and graphs to find when one model passes another.', 'Total pay over 5, 10 and 20 years.', 'Model depreciation of a required purchase.', 'Recommend an offer for different plans.'],
+  documents: [{ title: 'Offers (fictional)', table: { headers: ['Offer', 'Start', 'Raise each year'], rows: [['A', '$42,000', '+$2,400'], ['B', '$40,000', '+5%'], ['C', '$46,000', '+2.5% (requires a $26,000 car)']] } }],
+  tasks: [{ title: 'Models', steps: ['Write a model for each salary after t years.', 'Make a table for t = 0, 5, 10, 15 and 20.'], deliverable: 'Models and table.' }, { title: 'Crossovers', steps: ['When does Offer B first pay more than Offer A in a year?', 'Does Offer B ever pass Offer C? When?'], deliverable: 'Crossover years with a graph.' }, { title: 'Total pay', steps: ['Total the salary for the first 5, 10 and 20 years for each offer.', 'Which offer is best for each length of stay?'], deliverable: 'Total-pay table.' }, { title: 'The car', steps: ['Model the car’s value: V = 26,000(0.85)ᵗ.', 'How much value does the car lose in 5 years? Subtract that from Offer C’s 5-year total.'], deliverable: 'Adjusted Offer C.' }, { title: 'Recommend', steps: ['Recommend an offer if Jordan stays 5 years, and if Jordan stays 20 years. Include one non-money factor.'], deliverable: 'Written recommendation.' }],
+  reflection: ['Why does a smaller percent raise eventually beat a bigger flat raise?', 'How did the car change the comparison?', 'What else would you want to know about each job?'],
+  checklist: ['Three models', 'Crossover years', 'Total-pay table', 'Car depreciation', 'Recommendation', 'Reflection'],
+  teacher: { materials: ['Student packet', 'Spreadsheet or graphing calculator'], pacing: [['Day 1', 'Tasks 1–2'], ['Day 2', 'Tasks 3–4'], ['Day 3 (optional)', 'Task 5 and presentations']], implementation: ['Totals: the first year is t = 0 (the starting salary).', 'Let students build the year-by-year table in a spreadsheet.'],
+    worked: [{ task: 'Task 1', work: ['A(t) = 42,000 + 2,400t; B(t) = 40,000(1.05)ᵗ; C(t) = 46,000(1.025)ᵗ.', ...[0, 5, 10, 15, 20].map((t) => `t = ${t}: A ${money(A(t))}, B ${money(B(t))}, C ${money(C(t))}`)] }, { task: 'Task 2', work: [`B first pays more than A at t = ${cross}.`] }, { task: 'Task 3', work: [5, 10, 20].map((n) => `${n} years: A ${money(tot(A, n))}, B ${money(tot(B, n))}, C ${money(tot(C, n))}`) }, { task: 'Task 4', work: [`Car after 5 years: 26,000(0.85)⁵ ≈ ${money(26000 * 0.85 ** 5)}; value lost ≈ ${money(26000 - 26000 * 0.85 ** 5)}.`] }],
+    samples: [`“Over 5 years Offer C pays the most (${money(tot(C, 5))}), but the car loses about ${money(26000 - 26000 * 0.85 ** 5)}. Over 20 years Offer B’s 5% raises win (${money(tot(B, 20))}).”`],
+    misconceptions: ['Comparing only starting salaries.', 'Adding 5% of the starting salary every year (linear, not exponential).'], differentiation: { support: ['Give a spreadsheet with the year column filled in.'], extend: ['Adjust all three for 3% inflation.'] }, extensions: ['Look up typical raises in a career you are interested in.'] },
+  rubric: RUBRIC({ math: 'Linear and exponential models, totals and depreciation correct.' }),
+  slides: [{ title: 'Three Career Offers', bullets: ['Unit 13: Exponential Growth & Decay'] }, { title: 'The offers', bullets: ['A: +$2,400 a year', 'B: +5% a year', 'C: +2.5% a year, plus a car'] }, { title: 'Questions', bullets: ['When does B pass A?', 'Which is best for 5 years? 20?', 'What does the car really cost?'] }, { title: 'Deliverables', bullets: ['Models and tables', 'Crossover graph', 'Recommendation'] }, RUBRIC_SLIDE]
+}];

@@ -1135,8 +1135,38 @@
       "Estimate retirement savings",
       "Compare account contributions",
       "Analyze purchasing power"
+    ],
+    "consumer": [
+      "Calculate discounts and sale prices",
+      "Apply sales tax, tips and fees",
+      "Find percent change and markups",
+      "Compare unit prices and deals"
+    ],
+    "linear": [
+      "Interpret rate of change in context",
+      "Write linear cost and earnings models",
+      "Compare plans and find break-even points",
+      "Model tiered and piecewise pricing"
+    ],
+    "exponential": [
+      "Model exponential growth",
+      "Model depreciation and decay",
+      "Compare linear and exponential change",
+      "Find doubling time and half-life"
+    ],
+    "data": [
+      "Summarize data with center and spread",
+      "Interpret scatterplots and correlation",
+      "Use lines of best fit to predict",
+      "Analyze residuals and misleading graphs"
+    ],
+    "probability": [
+      "Compute probabilities of events",
+      "Use compound probability and counting",
+      "Calculate expected value of decisions",
+      "Evaluate games, warranties and lotteries"
     ]
-  };
+  };;;
   function get(courseId,unitId){
     return ((skills[courseId] && skills[courseId][unitId]) ||
       (integrationPreviewSkills[courseId] && integrationPreviewSkills[courseId][unitId]) || []).slice();

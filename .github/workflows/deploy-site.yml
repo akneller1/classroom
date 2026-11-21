@@ -84,9 +84,11 @@ jobs:
           ref: 2b04204744dcae8ae2a0bc4686c6155fcc43f6eb
           path: _course_sources/financial-algebra
           persist-credentials: false
+      - name: Add the Quantitative Modeling units (11-15) to Financial Algebra
+        run: node scripts/build-fa-extension.mjs _course_sources/financial-algebra _course_sources/financial-algebra-extended
       - name: Assemble approved Financial Algebra into production artifact
         env:
-          FINANCIAL_ALGEBRA_SOURCE_DIR: _course_sources/financial-algebra
+          FINANCIAL_ALGEBRA_SOURCE_DIR: _course_sources/financial-algebra-extended
         run: node scripts/integrate-financial-algebra.mjs
       - name: Check out approved Grade 4 source
         uses: actions/checkout@v4

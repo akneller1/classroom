@@ -19,4 +19,4 @@ for(const base of ['','financial-algebra/']){
  assert.match(script,/error:q=>!!q.errorAnalysis/);
  assert.match(script,/params.get\('format'\)/);
 }
-console.log('PASS 80 Error Analysis items in both Financial Algebra entry points, all ten generator links, and game exclusions.');
+console.log('PASS '+manifest.units.length*8+' Error Analysis items in both Financial Algebra entry points, all '+manifest.units.length+' generator links, and game exclusions.');

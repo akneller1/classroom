@@ -1,0 +1,282 @@
+{
+ "about": "Quantitative Modeling units added to Financial Algebra (2026-11-21). scripts/build-fa-extension.mjs adds them to the pinned Financial Algebra source before it is assembled. standards: National Standards for Personal Financial Education (2021) codes; math: Common Core high-school codes.",
+ "units": [
+  {
+   "id": "consumer",
+   "name": "Percents & Consumer Math",
+   "skills": [
+    "Calculate discounts and sale prices",
+    "Apply sales tax, tips and fees",
+    "Find percent change and markups",
+    "Compare unit prices and deals"
+   ],
+   "standards": [
+    [
+     "SP 12-2",
+     "SP 12-5"
+    ],
+    [
+     "EI 12-7",
+     "SP 12-2"
+    ],
+    [
+     "SP 12-2",
+     "SV 12-4"
+    ],
+    [
+     "SP 12-2",
+     "SP 12-5"
+    ]
+   ],
+   "math": [
+    [
+     "N-Q.A.1",
+     "A-CED.A.1"
+    ],
+    [
+     "N-Q.A.1",
+     "A-SSE.A.1"
+    ],
+    [
+     "N-Q.A.1",
+     "A-SSE.A.1",
+     "A-CED.A.1"
+    ],
+    [
+     "N-Q.A.1",
+     "N-Q.A.2",
+     "A-CED.A.1"
+    ]
+   ],
+   "thumb": [
+    "PRICE TAG",
+    "$80 × 0.75 = $60",
+    "Percent off",
+    "Dollar off",
+    "Find the best deal"
+   ],
+   "scene": "box(10,30,120,90,'white',c)+path('M10 75h120',c,3)+txt(70,64,'25% OFF',22,c,True,'middle')+txt(70,108,'$60',26,c,True,'middle')+f'<circle cx=\"118\" cy=\"42\" r=\"8\" fill=\"{c}\"/>'+path('M20 140h110',c,5)"
+  },
+  {
+   "id": "linear",
+   "name": "Linear Models & Rates",
+   "skills": [
+    "Interpret rate of change in context",
+    "Write linear cost and earnings models",
+    "Compare plans and find break-even points",
+    "Model tiered and piecewise pricing"
+   ],
+   "standards": [
+    [
+     "SP 12-2"
+    ],
+    [
+     "SP 12-1",
+     "EI 12-1"
+    ],
+    [
+     "SP 12-2",
+     "SP 12-5"
+    ],
+    [
+     "SP 12-2",
+     "EI 12-6"
+    ]
+   ],
+   "math": [
+    [
+     "F-IF.B.6",
+     "F-LE.B.5"
+    ],
+    [
+     "A-CED.A.2",
+     "F-BF.A.1a",
+     "F-LE.A.2"
+    ],
+    [
+     "A-REI.C.6",
+     "A-CED.A.3"
+    ],
+    [
+     "F-IF.C.7b",
+     "A-CED.A.2"
+    ]
+   ],
+   "thumb": [
+    "LINEAR MODEL",
+    "y = 15x + 40",
+    "Plan A",
+    "Plan B",
+    "Find the break-even point"
+   ],
+   "scene": "path('M15 10v125h130',c,4)+path('M15 110L140 30',c,5)+path('M15 70L140 50',c,5,'none')+f'<circle cx=\"95\" cy=\"57\" r=\"7\" fill=\"{c}\"/>'+txt(80,152,'BREAK-EVEN',12,c,True,'middle')"
+  },
+  {
+   "id": "exponential",
+   "name": "Exponential Growth & Decay",
+   "skills": [
+    "Model exponential growth",
+    "Model depreciation and decay",
+    "Compare linear and exponential change",
+    "Find doubling time and half-life"
+   ],
+   "standards": [
+    [
+     "IN 12-2",
+     "SV 12-2"
+    ],
+    [
+     "SP 12-3",
+     "IN 12-4"
+    ],
+    [
+     "IN 12-2",
+     "SV 12-4"
+    ],
+    [
+     "IN 12-2",
+     "IN 12-4"
+    ]
+   ],
+   "math": [
+    [
+     "F-LE.A.1c",
+     "F-LE.A.2",
+     "F-LE.B.5"
+    ],
+    [
+     "F-LE.A.1c",
+     "F-IF.C.8b"
+    ],
+    [
+     "F-LE.A.1a",
+     "F-LE.A.3"
+    ],
+    [
+     "F-LE.A.4",
+     "F-IF.C.8b"
+    ]
+   ],
+   "thumb": [
+    "GROWTH CURVE",
+    "$500 × 1.06ᵗ",
+    "Linear",
+    "Exponential",
+    "Compare growth over time"
+   ],
+   "scene": "path('M15 10v125h130',c,4)+path('M15 120Q90 115 140 15',c,5)+path('M15 120L140 70',c,3)+txt(118,150,'TIME',12,c,True,'middle')"
+  },
+  {
+   "id": "data",
+   "name": "Data & Regression",
+   "skills": [
+    "Summarize data with center and spread",
+    "Interpret scatterplots and correlation",
+    "Use lines of best fit to predict",
+    "Analyze residuals and misleading graphs"
+   ],
+   "standards": [
+    [
+     "SP 12-5",
+     "SP 12-9"
+    ],
+    [
+     "EI 12-3",
+     "EI 12-4"
+    ],
+    [
+     "SP 12-5",
+     "IN 12-3"
+    ],
+    [
+     "SP 12-5",
+     "SP 12-8"
+    ]
+   ],
+   "math": [
+    [
+     "S-ID.A.2",
+     "S-ID.A.3"
+    ],
+    [
+     "S-ID.B.6",
+     "S-ID.C.8",
+     "S-ID.C.9"
+    ],
+    [
+     "S-ID.B.6a",
+     "S-ID.B.6c",
+     "S-ID.C.7"
+    ],
+    [
+     "S-ID.B.6b",
+     "S-ID.A.1"
+    ]
+   ],
+   "thumb": [
+    "SCATTERPLOT",
+    "ŷ = 2.4x + 31",
+    "Data",
+    "Trend line",
+    "Predict from data"
+   ],
+   "scene": "path('M15 10v125h130',c,4)+''.join(f'<circle cx=\"{x}\" cy=\"{y}\" r=\"5\" fill=\"{c}\"/>' for x,y in [(30,112),(45,100),(58,104),(72,84),(86,80),(100,66),(114,60),(128,44)])+path('M22 118L140 40',c,3)"
+  },
+  {
+   "id": "probability",
+   "name": "Probability & Expected Value",
+   "skills": [
+    "Compute probabilities of events",
+    "Use compound probability and counting",
+    "Calculate expected value of decisions",
+    "Evaluate games, warranties and lotteries"
+   ],
+   "standards": [
+    [
+     "MR 12-1"
+    ],
+    [
+     "MR 12-1",
+     "IN 12-3"
+    ],
+    [
+     "MR 12-1",
+     "MR 12-2",
+     "IN 12-3"
+    ],
+    [
+     "MR 12-2",
+     "SP 12-8",
+     "MC 12-13"
+    ]
+   ],
+   "math": [
+    [
+     "S-CP.A.1",
+     "S-CP.A.4"
+    ],
+    [
+     "S-CP.A.2",
+     "S-CP.B.8",
+     "S-CP.B.9"
+    ],
+    [
+     "S-MD.A.2",
+     "S-MD.B.5a"
+    ],
+    [
+     "S-MD.B.5b",
+     "S-MD.B.7"
+    ]
+   ],
+   "thumb": [
+    "EXPECTED VALUE",
+    "0.2(50) + 0.8(−5) = $6",
+    "Play",
+    "Pass",
+    "Decide with expected value"
+   ],
+   "scene": "box(18,28,70,70,'white',c)+''.join(f'<circle cx=\"{x}\" cy=\"{y}\" r=\"7\" fill=\"{c}\"/>' for x,y in [(36,46),(70,80),(53,63)])+box(78,70,62,62,'white',c)+''.join(f'<circle cx=\"{x}\" cy=\"{y}\" r=\"6\" fill=\"{c}\"/>' for x,y in [(94,86),(124,116)])"
+  }
+ ]
+}
