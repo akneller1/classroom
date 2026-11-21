@@ -10,7 +10,8 @@ const assert=(condition,message)=>{if(!condition)throw Error(message);};
 assert(fs.existsSync(path.join(output,'index.html')),'Build Classroom site before course assembly');
 assert(fs.existsSync(path.join(source,'financial/resources.json')),'Financial Algebra source checkout missing');
 const manifest=JSON.parse(fs.readFileSync(path.join(source,'financial/resources.json'),'utf8'));
-assert(manifest.courseId==='financial-algebra'&&manifest.units.length===10,'Financial Algebra release manifest must have exactly ten units');
+// Ten personal-finance units, plus the Quantitative Modeling units added by scripts/build-fa-extension.mjs (2026-11-21).
+assert(manifest.courseId==='financial-algebra'&&manifest.units.length>=10&&manifest.units.slice(0,10).every((u,i)=>u.unitNum===i+1),'Financial Algebra release manifest must start with its ten units');
 assert(manifest.units.every(u=>u.resources&&Array.isArray(u.resources.games)&&u.resources.games.length),'Missing approved unit games/resources');
 function copyDir(from,to){
  assert(fs.existsSync(from),'Missing approved source directory: '+from);

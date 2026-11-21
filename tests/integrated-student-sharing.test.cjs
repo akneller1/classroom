@@ -8,12 +8,14 @@ vm.runInNewContext(read('integrated-student-share.js'),context);
 const catalog=context.window.MK_INTEGRATED_STUDENT_SKILLS;
 const share=context.window.MK_INTEGRATED_STUDENT_SHARE;
 const gradeUnits=['place-value-number-sense','multi-digit-multiplication-division','decimal-operations','numerical-expressions-patterns','fraction-addition-subtraction','fraction-multiplication-division','measurement-conversions','volume-three-dimensional-figures','coordinate-plane-graphing','classifying-two-dimensional-figures','data-line-plots-problem-solving'];
-const financeUnits=['income','budgeting','banking','credit','borrowing','investing','housing','insurance','college','retirement'];
+const financeUnits=['income','budgeting','banking','credit','borrowing','investing','housing','insurance','college','retirement',
+ // Quantitative Modeling units 11-15 (2026-11-21, tools/fa-modeling)
+ 'consumer','linear','exponential','data','probability'];
 test('Grade 5 and Financial Algebra student share catalog includes exact unit skill IDs',()=>{
  assert.deepEqual(Object.keys(catalog.grade5),gradeUnits);
  assert.deepEqual(Object.keys(catalog['financial-algebra']).sort(),financeUnits.slice().sort());
  assert.equal(Object.values(catalog.grade5).flat().length,55);
- assert.equal(Object.values(catalog['financial-algebra']).flat().length,44);
+ assert.equal(Object.values(catalog['financial-algebra']).flat().length,64);
  for(const [course,units] of [['grade5',gradeUnits],['financial-algebra',financeUnits]]){
   for(const unit of units){
    const skills=catalog[course][unit];
@@ -27,7 +29,7 @@ test('Grade 5 and Financial Algebra student share catalog includes exact unit sk
  }
 });
 test('all ten financial game banks match the student share skill IDs',()=>{
- for(const unit of financeUnits){
+ for(const unit of financeUnits.slice(0,10)){   // the repo's financial/ copy has the first ten; the modeling units are built at deploy
   const bank=JSON.parse(read('financial/banks/'+unit+'.json'));
   assert.deepEqual(bank.skills.map(x=>x.id),Array.from(catalog['financial-algebra'][unit],x=>x.id));
  }

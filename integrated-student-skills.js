@@ -440,6 +440,96 @@
         "id": "retirement-skill-04",
         "name": "Analyze purchasing power"
       }
+    ],
+    "consumer": [
+      {
+        "id": "consumer-skill-01",
+        "name": "Calculate discounts and sale prices"
+      },
+      {
+        "id": "consumer-skill-02",
+        "name": "Apply sales tax, tips and fees"
+      },
+      {
+        "id": "consumer-skill-03",
+        "name": "Find percent change and markups"
+      },
+      {
+        "id": "consumer-skill-04",
+        "name": "Compare unit prices and deals"
+      }
+    ],
+    "linear": [
+      {
+        "id": "linear-skill-01",
+        "name": "Interpret rate of change in context"
+      },
+      {
+        "id": "linear-skill-02",
+        "name": "Write linear cost and earnings models"
+      },
+      {
+        "id": "linear-skill-03",
+        "name": "Compare plans and find break-even points"
+      },
+      {
+        "id": "linear-skill-04",
+        "name": "Model tiered and piecewise pricing"
+      }
+    ],
+    "exponential": [
+      {
+        "id": "exponential-skill-01",
+        "name": "Model exponential growth"
+      },
+      {
+        "id": "exponential-skill-02",
+        "name": "Model depreciation and decay"
+      },
+      {
+        "id": "exponential-skill-03",
+        "name": "Compare linear and exponential change"
+      },
+      {
+        "id": "exponential-skill-04",
+        "name": "Find doubling time and half-life"
+      }
+    ],
+    "data": [
+      {
+        "id": "data-skill-01",
+        "name": "Summarize data with center and spread"
+      },
+      {
+        "id": "data-skill-02",
+        "name": "Interpret scatterplots and correlation"
+      },
+      {
+        "id": "data-skill-03",
+        "name": "Use lines of best fit to predict"
+      },
+      {
+        "id": "data-skill-04",
+        "name": "Analyze residuals and misleading graphs"
+      }
+    ],
+    "probability": [
+      {
+        "id": "probability-skill-01",
+        "name": "Compute probabilities of events"
+      },
+      {
+        "id": "probability-skill-02",
+        "name": "Use compound probability and counting"
+      },
+      {
+        "id": "probability-skill-03",
+        "name": "Calculate expected value of decisions"
+      },
+      {
+        "id": "probability-skill-04",
+        "name": "Evaluate games, warranties and lotteries"
+      }
     ]
   }
 }; })(window);
