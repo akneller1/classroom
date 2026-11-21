@@ -1012,6 +1012,1076 @@ def _(r, nm):
             [f'Water depth: {h_} − {fill} = {h_ - fill} in.', f'Volume: {l} × {w} × {h_ - fill} = {l * w * (h_ - fill)} cubic inches.'])
 
 
+# ================================================================ More templates (audit 2 #3 follow-up: variety)
+# A skill with many rewrites alternates between its first template above and the templates below, so the harder levels
+# of one skill do not all follow a single pattern. Each template has its own rule in verify.py.
+T2, TH2 = {}, {}
+
+
+def t2(u, n):
+    def deco(fn):
+        T2.setdefault(f'{u}-skill-{n:02d}', []).append(fn)
+        return fn
+    return deco
+
+
+def h2(u, n):
+    def deco(fn):
+        TH2.setdefault(f'{u}-skill-{n:02d}', []).append(fn)
+        return fn
+    return deco
+
+
+def nz(r, a, b):
+    """A random whole number in [a, b] whose last digit is not 0 or 5 (so rounding has no ties)."""
+    while True:
+        v = R(r, a, b)
+        if v % 10 not in (0, 5):
+            return v
+
+
+# ---------------------------------------------------------------- Classifying Two-Dimensional Figures
+U = 'classifying-two-dimensional-figures'
+
+
+@t2(U, 3)
+def _(r, nm):
+    l, w = R(r, 9, 30), R(r, 3, 8)
+    return (f'A rectangle has a perimeter of {2 * (l + w)} cm. Its length is {l} cm. What is its width?', f'{w} cm',
+            [f'Half the perimeter is one length plus one width: {2 * (l + w)} ÷ 2 = {l + w} cm.', f'Width: {l + w} − {l} = {w} cm.'])
+
+
+@h2(U, 3)
+def _(r, nm):
+    l, w, k = R(r, 20, 90), R(r, 10, 60), R(r, 2, 5)
+    return (f'{nm} walks around a rectangular park that is {l} m long and {w} m wide. {nm} goes around {k} times. How many meters is that in all?', f'{2 * (l + w) * k} meters',
+            [f'Once around: 2 × ({l} + {w}) = {2 * (l + w)} m.', f'{k} times: {2 * (l + w)} × {k} = {2 * (l + w) * k} m.'])
+
+
+@t2(U, 4)
+def _(r, nm):
+    a = 4 * R(r, 2, 9)
+    return (f'An equilateral triangle has sides of {a} cm. A square has the same perimeter. How long is each side of the square?', f'{3 * a // 4} cm',
+            [f'Triangle perimeter: 3 × {a} = {3 * a} cm.', f'Square side: {3 * a} ÷ 4 = {3 * a // 4} cm.'])
+
+
+@h2(U, 4)
+def _(r, nm):
+    s = R(r, 5, 12)
+    l = s + R(r, 1, 4)
+    w = 2 * s - l
+    return (f'A square and a rectangle have the same perimeter. The square has sides of {s} m. The rectangle is {l} m long. How many more square meters is the area of the square than the area of the rectangle?', f'{s * s - l * w} square meters',
+            [f'Perimeter: 4 × {s} = {4 * s} m, so the rectangle is {4 * s} ÷ 2 − {l} = {w} m wide.', f'Areas: {s} × {s} = {s * s} and {l} × {w} = {l * w}.', f'{s * s} − {l * w} = {s * s - l * w} square meters.'])
+
+
+@h2(U, 4)
+def _(r, nm):
+    a = R(r, 3, 14)
+    if 6 * a % 5 == 0:
+        a += 1
+    return (f'A regular hexagon has sides of {a} cm. A regular pentagon has the same perimeter. How long is each side of the pentagon? Write a mixed number.', f'{mixed(Fr(6 * a, 5))} cm',
+            [f'Hexagon perimeter: 6 × {a} = {6 * a} cm.', f'Pentagon side: {6 * a} ÷ 5 = {mixed(Fr(6 * a, 5))} cm.'])
+
+
+# ---------------------------------------------------------------- Coordinate Plane Graphing
+U = 'coordinate-plane-graphing'
+
+
+@t2(U, 1)
+def _(r, nm):
+    x, y = R(r, 1, 9), R(r, 5, 12)
+    dx, dy = R(r, 2, 8), R(r, 2, y - 1)
+    return (f'Point A is at ({x}, {y}). Point B is {dx} units to the right of A and {dy} units below A. What are the coordinates of B?', f'({x + dx}, {y - dy})',
+            [f'Right {dx}: x = {x} + {dx} = {x + dx}.', f'Down {dy}: y = {y} − {dy} = {y - dy}.'])
+
+
+@t2(U, 1)
+def _(r, nm):
+    x, y = R(r, 0, 6), R(r, 0, 6)
+    a, b = R(r, 3, 9), R(r, 2, 8)
+    c = R(r, 1, y + a - 1)
+    return (f'Start at ({x}, {y}). Move {a} units up, then {b} units right, then {c} units down. Where do you end?', f'({x + b}, {y + a - c})',
+            [f'x: {x} + {b} = {x + b}.', f'y: {y} + {a} − {c} = {y + a - c}.'])
+
+
+@h2(U, 1)
+def _(r, nm):
+    x, y = R(r, 1, 9), R(r, 1, 6)
+    y2, d = y + R(r, 3, 9), R(r, 2, 9)
+    return (f'Point A is at ({x}, {y}) and point B is at ({x}, {y2}). Point C is {d} units to the right of B. How many units is the path from A to B and then from B to C?', f'{y2 - y + d} units',
+            [f'A to B: same x, so {y2} − {y} = {y2 - y} units.', f'B to C: {d} units.', f'{y2 - y} + {d} = {y2 - y + d} units.'])
+
+
+@h2(U, 1)
+def _(r, nm):
+    y = R(r, 1, 9)
+    x1 = R(r, 0, 6)
+    x2 = x1 + 2 * R(r, 2, 6)
+    return (f'Points A({x1}, {y}) and B({x2}, {y}) are on a horizontal line. Point M is on the line halfway between A and B. What are the coordinates of M?', f'({(x1 + x2) // 2}, {y})',
+            [f'A and B are {x2} − {x1} = {x2 - x1} units apart, so M is {(x2 - x1) // 2} units from A.', f'M = ({x1} + {(x2 - x1) // 2}, {y}) = ({(x1 + x2) // 2}, {y}).'])
+
+
+@t2(U, 2)
+def _(r, nm):
+    y = R(r, 1, 9)
+    x1, x2 = R(r, 1, 4), R(r, 10, 16)
+    x3 = R(r, x1 + 1, x2 - 1)
+    return (f'A bug walks from ({x1}, {y}) to ({x2}, {y}), then back to ({x3}, {y}). How many units does it walk in all?', f'{x2 - x1 + x2 - x3} units',
+            [f'First part: {x2} − {x1} = {x2 - x1} units.', f'Back: {x2} − {x3} = {x2 - x3} units.', f'{x2 - x1} + {x2 - x3} = {x2 - x1 + x2 - x3} units.'])
+
+
+@h2(U, 2)
+def _(r, nm):
+    a, b, s = R(r, 1, 5), R(r, 1, 5), R(r, 3, 9)
+    return (f'A square has corners at ({a}, {b}), ({a + s}, {b}), ({a + s}, {b + s}) and ({a}, {b + s}). What is its area, in square units?', f'{s * s} square units',
+            [f'Side: {a + s} − {a} = {s} units.', f'Area: {s} × {s} = {s * s} square units.'])
+
+
+@t2(U, 3)
+def _(r, nm):
+    p, k = R(r, 2, 6), R(r, 3, 9)
+    return (f'A graph shows the cost in dollars (y) of x pounds of apples. It passes through (0, 0) and (2, {2 * p}). At the same rate, how many dollars do {k} pounds cost?', f'{p * k} dollars',
+            [f'1 pound costs {2 * p} ÷ 2 = {p} dollars.', f'{k} pounds: {p} × {k} = {p * k} dollars.'])
+
+
+@h2(U, 3)
+def _(r, nm):
+    a, b = R(r, 2, 6), R(r, 7, 12)
+    k = R(r, 3, 9)
+    return (f'Line A passes through (0, 0) and (1, {a}). Line B passes through (0, 0) and (1, {b}). At x = {k}, how far apart are the two lines?', f'{(b - a) * k} units',
+            [f'Line A at x = {k}: {a} × {k} = {a * k}.', f'Line B at x = {k}: {b} × {k} = {b * k}.', f'{b * k} − {a * k} = {(b - a) * k} units.'])
+
+
+@t2(U, 4)
+def _(r, nm):
+    a, d = R(r, 0, 9), R(r, 2, 6)
+    k = 2 * R(r, 4, 9)
+    return (f'The points (0, {a}), (2, {a + 2 * d}), (4, {a + 4 * d}) follow a pattern. If the pattern continues, what is y when x = {k}?', f'{a + k * d}',
+            [f'When x goes up 2, y goes up {2 * d}, so y goes up {d} for each 1.', f'y = {a} + {d} × {k} = {a + k * d}.'])
+
+
+@t2(U, 4)
+def _(r, nm):
+    m, b, k = R(r, 2, 6), R(r, 1, 9), R(r, 3, 9)
+    return (f'Rule: y is {m} times x, plus {b}. What point on the graph has x = {k}?', f'({k}, {m * k + b})',
+            [f'y = {m} × {k} + {b} = {m * k + b}.', f'The point is ({k}, {m * k + b}).'])
+
+
+@h2(U, 4)
+def _(r, nm):
+    d = R(r, 2, 5)
+    e = d + R(r, 1, 4)
+    x = R(r, 3, 8)
+    c = R(r, 0, 6)
+    a = c + (e - d) * x
+    return (f'Pattern A has points (0, {a}), (1, {a + d}), (2, {a + 2 * d}), … Pattern B has points (0, {c}), (1, {c + e}), (2, {c + 2 * e}), … For which x do both patterns have the same y?', f'{x}',
+            [f'B starts {a} − {c} = {a - c} lower and gains {e} − {d} = {e - d} more each step.', f'{a - c} ÷ {e - d} = {x}, so x = {x}.'])
+
+
+@h2(U, 4)
+def _(r, nm):
+    m, b = R(r, 2, 9), R(r, 1, 9)
+    return (f'Rule: y is {m} times x, plus {b}. What is the sum of the y-values for x = 1, 2, 3 and 4?', f'{10 * m + 4 * b}',
+            [f'y-values: {", ".join(str(m * x + b) for x in range(1, 5))}.', f'Sum: {10 * m + 4 * b}.'])
+
+
+# ---------------------------------------------------------------- Data, Line Plots and Problem Solving
+U = 'data-line-plots-problem-solving'
+
+
+@h2(U, 2)
+def _(r, nm):
+    xs = [Fr(R(r, 4, 24), 8) for _ in range(6)]
+    s = sorted(xs)
+    d = sum(s[3:]) - sum(s[:3])
+    if d == 0:
+        xs[0] += Fr(1, 8)
+        s = sorted(xs)
+        d = sum(s[3:]) - sum(s[:3])
+    return (f'Plant heights in inches: {", ".join(mixed(x) for x in xs)}. How much more is the total of the 3 tallest plants than the total of the 3 shortest?', mixed(d),
+            [f'3 tallest: {" + ".join(mixed(x) for x in s[3:])} = {mixed(sum(s[3:]))}.', f'3 shortest: {" + ".join(mixed(x) for x in s[:3])} = {mixed(sum(s[:3]))}.', f'{mixed(sum(s[3:]))} − {mixed(sum(s[:3]))} = {mixed(d)}.'])
+
+
+@t2(U, 4)
+def _(r, nm):
+    n = R(r, 12, 40)
+    c = Fr(R(r, 50, 250), 100)
+    s = c + Fr(R(r, 25, 200), 100)
+    return (f'A club buys {n} bracelet kits for {money(c)} each and sells {n} bracelets for {money(s)} each. What is the profit?', money(n * (s - c)),
+            [f'Earned: {n} × {money(s)} = {money(n * s)}. Spent: {n} × {money(c)} = {money(n * c)}.', f'{money(n * s)} − {money(n * c)} = {money(n * (s - c))}.'])
+
+
+@h2(U, 4)
+def _(r, nm):
+    p, q = Fr(R(r, 50, 150), 100), Fr(R(r, 100, 300), 100)
+    a, b = R(r, 20, 60), R(r, 10, 40)
+    c = Fr(R(r, 1000, int((a * p + b * q) * 100) - 500), 100)
+    return (f'A class sells cookies for {money(p)} each and brownies for {money(q)} each. They sold {a} cookies and {b} brownies and spent {money(c)} on supplies. What is the profit?', money(a * p + b * q - c),
+            [f'Cookies: {a} × {money(p)} = {money(a * p)}. Brownies: {b} × {money(q)} = {money(b * q)}.', f'Total: {money(a * p + b * q)}.', f'{money(a * p + b * q)} − {money(c)} = {money(a * p + b * q - c)}.'])
+
+
+# ---------------------------------------------------------------- Decimal Operations
+U = 'decimal-operations'
+
+
+@t2(U, 1)
+def _(r, nm):
+    b, c = Fr(R(r, 300, 1500), 100), Fr(R(r, 50, 500), 100)
+    a = b + c + Fr(R(r, 100, 2000), 100)
+    return (f'{nm} has {money(a)}. A book costs {money(b)} and a pen costs {money(c)}. How much money is left after buying both?', money(a - b - c),
+            [f'Both items: {money(b)} + {money(c)} = {money(b + c)}.', f'{money(a)} − {money(b + c)} = {money(a - b - c)}.'])
+
+
+@h2(U, 1)
+def _(r, nm):
+    xs = [Fr(R(r, 15, 80), 10) for _ in range(3)]
+    g = R(r, int(sum(xs)) + 2, int(sum(xs)) + 15)
+    return (f'{nm} ran {dz(xs[0], 1)} km on Monday, {dz(xs[1], 1)} km on Tuesday and {dz(xs[2], 1)} km on Wednesday. How many more kilometers does {nm} need to reach a goal of {g} km?', f'{dz(g - sum(xs), 1)} km',
+            [f'{dz(xs[0], 1)} + {dz(xs[1], 1)} + {dz(xs[2], 1)} = {dz(sum(xs), 1)} km.', f'{g} − {dz(sum(xs), 1)} = {dz(g - sum(xs), 1)} km.'])
+
+
+@t2(U, 2)
+def _(r, nm):
+    p, k = Fr(R(r, 250, 450), 100), R(r, 4, 12)
+    c = Fr(R(r, 100, 500), 100)
+    return (f'Gas costs {money(p)} per gallon. {nm} buys {k} gallons of gas and a {money(c)} snack. How much does {nm} spend in all?', money(p * k + c),
+            [f'Gas: {k} × {money(p)} = {money(p * k)}.', f'{money(p * k)} + {money(c)} = {money(p * k + c)}.'])
+
+
+@h2(U, 2)
+def _(r, nm):
+    p, q = Fr(R(r, 300, 700), 100), Fr(R(r, 300, 900), 100)
+    a, b = Fr(R(r, 11, 39), 10), Fr(R(r, 11, 39), 10)
+    tot = p * a + q * b
+    return (f'Cheddar costs {money(p)} per pound and Swiss costs {money(q)} per pound. {nm} buys {dz(a, 1)} pounds of cheddar and {dz(b, 1)} pounds of Swiss. What is the total cost to the nearest cent?', money(tot),
+            [f'Cheddar: {dz(a, 1)} × {dz(p, 2)} = {dz(p * a, 3)}. Swiss: {dz(b, 1)} × {dz(q, 2)} = {dz(q * b, 3)}.', f'Total: {dz(tot, 3)}, which is {money(tot)} to the nearest cent.'])
+
+
+@t2(U, 3)
+def _(r, nm):
+    l, w = Fr(R(r, 12, 60), 10), Fr(R(r, 2, 9), 10)
+    return (f'A rectangle is {dz(l, 1)} m long and {dz(w, 1)} m wide. A second rectangle has the same width and is twice as long. What is the area of the second rectangle, in square meters?', dz(2 * l * w, 3),
+            [f'Second length: 2 × {dz(l, 1)} = {dz(2 * l, 1)} m.', f'Area: {dz(2 * l, 1)} × {dz(w, 1)} = {dz(2 * l * w, 3)} square meters.'])
+
+
+@t2(U, 3)
+def _(r, nm):
+    a, b, k = Fr(R(r, 2, 6), 10), Fr(R(r, 2, 6), 10), R(r, 12, 60)
+    return (f'A tile is {dz(a, 1)} m by {dz(b, 1)} m. How many square meters do {k} tiles cover?', dz(a * b * k, 3),
+            [f'One tile: {dz(a, 1)} × {dz(b, 1)} = {dz(a * b, 2)} square meters.', f'{k} tiles: {dz(a * b, 2)} × {k} = {dz(a * b * k, 3)} square meters.'])
+
+
+@h2(U, 3)
+def _(r, nm):
+    l, hh = Fr(R(r, 40, 90), 10), Fr(R(r, 22, 30), 10)
+    a, b = Fr(R(r, 8, 15), 10), Fr(R(r, 8, 15), 10)
+    return (f'A wall is {dz(l, 1)} m long and {dz(hh, 1)} m high. A window that is {dz(a, 1)} m by {dz(b, 1)} m is not painted. How many square meters of the wall are painted?', dz(l * hh - a * b, 3),
+            [f'Wall: {dz(l, 1)} × {dz(hh, 1)} = {dz(l * hh, 2)}. Window: {dz(a, 1)} × {dz(b, 1)} = {dz(a * b, 2)}.', f'{dz(l * hh, 2)} − {dz(a * b, 2)} = {dz(l * hh - a * b, 3)} square meters.'])
+
+
+@h2(U, 3)
+def _(r, nm):
+    l, w, a = Fr(R(r, 20, 90), 10), Fr(R(r, 12, 40), 10), Fr(R(r, 3, 15), 10)
+    return (f'A rectangle is {dz(l, 1)} m long and {dz(w, 1)} m wide. Its length grows by {dz(a, 1)} m and its width stays the same. By how many square meters does the area grow?', dz(a * w, 3),
+            [f'New area − old area = ({dz(l, 1)} + {dz(a, 1)}) × {dz(w, 1)} − {dz(l, 1)} × {dz(w, 1)}.', f'That is {dz(a, 1)} × {dz(w, 1)} = {dz(a * w, 3)} square meters.'])
+
+
+@t2(U, 4)
+def _(r, nm):
+    k = R(r, 3, 8)
+    share = Fr(R(r, 400, 1500), 100)
+    card = Fr(R(r, 150, 600), 100)
+    gift = share * k - card
+    return (f'{k} friends share the cost of a {money(gift)} gift and a {money(card)} card equally. How much does each friend pay?', money(share),
+            [f'Total: {money(gift)} + {money(card)} = {money(gift + card)}.', f'{money(gift + card)} ÷ {k} = {money(share)}.'])
+
+
+@h2(U, 4)
+def _(r, nm):
+    p1 = R(r, 40, 90)
+    p2 = p1 + R(r, 3, 25)
+    return (f'A 12-pack of juice costs {money(Fr(12 * p1, 100))} and a 6-pack costs {money(Fr(6 * p2, 100))}. How many cents cheaper per can is the 12-pack?', f'{p2 - p1} cents',
+            [f'12-pack: {money(Fr(12 * p1, 100))} ÷ 12 = {money(Fr(p1, 100))} per can.', f'6-pack: {money(Fr(6 * p2, 100))} ÷ 6 = {money(Fr(p2, 100))} per can.', f'{p2} − {p1} = {p2 - p1} cents.'])
+
+
+@t2(U, 5)
+def _(r, nm):
+    g = r.choice([Fr(2, 10), Fr(4, 10), Fr(5, 10), Fr(6, 10), Fr(8, 10), Fr(25, 100)])
+    k = R(r, 8, 20)
+    u = R(r, 2, k - 2)
+    return (f'A {dz(g * k, 2)}-meter ribbon is cut into pieces that are each {dz(g, 2)} meters long. {nm} uses {u} pieces. How many pieces are left?', f'{k - u}',
+            [f'Pieces: {dz(g * k, 2)} ÷ {dz(g, 2)} = {k}.', f'{k} − {u} = {k - u} pieces.'])
+
+
+@h2(U, 5)
+def _(r, nm):
+    a = Fr(R(r, 15, 45), 10)
+    g = R(r, 12, 40)
+    if g % a == 0:
+        g += 1
+    return (f'{nm} walks {dz(a, 1)} km each day. How many days does it take {nm} to walk at least {g} km?', f'{math.ceil(g / a)} days',
+            [f'{g} ÷ {dz(a, 1)} = {dz(g / a, 3) if (g / a * 1000).denominator == 1 else "about " + dz(g / a, 2)}.', f'Round up: {math.ceil(g / a)} days.'])
+
+
+@h2(U, 5)
+def _(r, nm):
+    k = R(r, 2, 6)
+    rest = R(r, 4, 16)
+    L = Fr(k, 2) + Fr(rest, 4)
+    return (f'A {dz(L, 2)}-meter board is cut into {k} pieces that are 0.5 m long. How many 0.25-m pieces can be cut from the rest?', f'{rest}',
+            [f'{k} × 0.5 = {dz(Fr(k, 2), 1)} m used.', f'Left: {dz(L, 2)} − {dz(Fr(k, 2), 1)} = {dz(L - Fr(k, 2), 2)} m.', f'{dz(L - Fr(k, 2), 2)} ÷ 0.25 = {rest} pieces.'])
+
+
+@t2(U, 6)
+def _(r, nm):
+    p, k = Fr(R(r, 900, 1600), 100), R(r, 3, 8)
+    s = Fr(R(r, 500, int(p * k * 100) - 100), 100)
+    return (f'{nm} earns {money(p)} per hour and works {k} hours. Then {nm} spends {money(s)}. How much of the pay is left?', money(p * k - s),
+            [f'Pay: {k} × {money(p)} = {money(p * k)}.', f'{money(p * k)} − {money(s)} = {money(p * k - s)}.'])
+
+
+@h2(U, 6)
+def _(r, nm):
+    y = Fr(R(r, 150, 400), 100)
+    x = 3 * y - Fr(R(r, 20, 150), 100)
+    return (f'Store A sells a 3-pack of markers for {money(x)}. Store B sells single markers for {money(y)} each. {nm} needs 6 markers. How much does {nm} save at the cheaper store?', money(6 * y - 2 * x),
+            [f'Store A: 2 packs × {money(x)} = {money(2 * x)}.', f'Store B: 6 × {money(y)} = {money(6 * y)}.', f'{money(6 * y)} − {money(2 * x)} = {money(6 * y - 2 * x)}.'])
+
+
+# ---------------------------------------------------------------- Fraction Addition and Subtraction
+U = 'fraction-addition-subtraction'
+
+
+def two_fracs(r):
+    while True:
+        a, b = pf(r), pf(r)
+        if a.denominator != b.denominator and a != b:
+            return (a, b) if a > b else (b, a)
+
+
+@t2(U, 1)
+def _(r, nm):
+    a, b = two_fracs(r)
+    l = math.lcm(a.denominator, b.denominator)
+    return (f'Find the least common denominator of {fs(a)} and {fs(b)}, then subtract the smaller fraction from the larger.', fs(a - b),
+            [f'The least common denominator of {a.denominator} and {b.denominator} is {l}.', f'{a.numerator * l // a.denominator}/{l} − {b.numerator * l // b.denominator}/{l} = {fs(a - b)}.'])
+
+
+@h2(U, 1)
+def _(r, nm):
+    while True:
+        ds = r.sample([2, 3, 4, 5, 6, 8, 9, 10, 12], 3)
+        l = math.lcm(*ds)
+        if l not in ds and l <= 72:
+            break
+    return (f'What is the least common denominator of 1/{ds[0]}, 1/{ds[1]} and 1/{ds[2]}?', str(l),
+            [f'List multiples of {max(ds)} until all of {ds[0]}, {ds[1]} and {ds[2]} divide it.', f'The least is {l}.'])
+
+
+@t2(U, 2)
+def _(r, nm):
+    a, b = two_fracs(r)
+    return (f'{nm} drank {fs(a)} liter of water in the morning and {fs(b)} liter in the afternoon. How many liters did {nm} drink in all? Write a fraction or mixed number.', mixed(a + b),
+            [f'Common denominator: {math.lcm(a.denominator, b.denominator)}.', f'{fs(a)} + {fs(b)} = {mixed(a + b)} liters.'])
+
+
+@h2(U, 2)
+def _(r, nm):
+    s = pf(r, (2, 3, 4, 6, 8))
+    e = pf(r, (2, 3, 4, 6, 8))
+    return (f'A recipe uses {fs(s)} cup of sugar. It uses {fs(e)} cup more flour than sugar. How many cups of sugar and flour does it use in all?', mixed(2 * s + e),
+            [f'Flour: {fs(s)} + {fs(e)} = {mixed(s + e)} cup' + ('s.' if s + e != 1 else '.'), f'Together: {fs(s)} + {mixed(s + e)} = {mixed(2 * s + e)} cups.'])
+
+
+@t2(U, 3)
+def _(r, nm):
+    b, c = pf(r, (2, 3, 4, 6, 8)), pf(r, (2, 3, 4, 6, 8))
+    m = b + c + pf(r, (2, 4, 8)) + R(r, 0, 2)
+    return (f'{nm} had {mixed(m)} yards of ribbon. {nm} used {fs(b)} yard for a bow and {fs(c)} yard for a card. How many yards are left?', mixed(m - b - c),
+            [f'{mixed(m)} − {fs(b)} = {mixed(m - b)}.', f'{mixed(m - b)} − {fs(c)} = {mixed(m - b - c)} yards.'])
+
+
+@h2(U, 3)
+def _(r, nm):
+    while True:
+        c, e = pf(r, (2, 3, 4, 6, 8)), pf(r, (2, 3, 4, 6, 8))
+        if c + e < 1:
+            break
+    return (f'A tank of water is drained until it is {fs(c)} full. Then {fs(e)} of a tank is added. What fraction of the tank still needs to be filled to make it full?', fs(1 - c - e),
+            [f'Now: {fs(c)} + {fs(e)} = {fs(c + e)} full.', f'Still needed: 1 − {fs(c + e)} = {fs(1 - c - e)}.'])
+
+
+@t2(U, 4)
+def _(r, nm):
+    a = R(r, 3, 7) + pf(r, (2, 3, 4, 5, 6, 8))
+    b = R(r, 1, int(a) - 1) + pf(r, (2, 3, 4, 5, 6, 8))
+    return (f'A trail is {mixed(a)} miles long. {nm} has hiked {mixed(b)} miles. How many more miles are left?', mixed(a - b),
+            [f'Rename with a common denominator: {math.lcm(a.denominator, b.denominator)}.', f'{mixed(a)} − {mixed(b)} = {mixed(a - b)} miles.'])
+
+
+@t2(U, 4)
+def _(r, nm):
+    a, b = R(r, 1, 4) + pf(r, (2, 3, 4, 6)), R(r, 1, 4) + pf(r, (2, 3, 4, 6))
+    c = R(r, 1, int(a + b) - 1) + pf(r, (2, 3, 4, 6))
+    return (f'Add {mixed(a)} + {mixed(b)}, then subtract {mixed(c)}.', mixed(a + b - c),
+            [f'{mixed(a)} + {mixed(b)} = {mixed(a + b)}.', f'{mixed(a + b)} − {mixed(c)} = {mixed(a + b - c)}.'])
+
+
+@h2(U, 4)
+def _(r, nm):
+    b, c = R(r, 1, 4) + pf(r, (2, 3, 4, 6, 8)), R(r, 1, 4) + pf(r, (2, 3, 4, 6, 8))
+    a = b + c + R(r, 1, 3) + pf(r, (2, 4, 8))
+    return (f'{nm} needs {mixed(a)} feet of trim. {nm} has two pieces, {mixed(b)} feet and {mixed(c)} feet long. How many more feet of trim does {nm} need?', mixed(a - b - c),
+            [f'{mixed(b)} + {mixed(c)} = {mixed(b + c)} feet.', f'{mixed(a)} − {mixed(b + c)} = {mixed(a - b - c)} feet.'])
+
+
+@h2(U, 4)
+def _(r, nm):
+    a, b = R(r, 5, 14) + pf(r, (2, 3, 4, 6)), R(r, 3, 9) + pf(r, (2, 3, 4, 6))
+    return (f'A room is {mixed(a)} feet long and {mixed(b)} feet wide. What is its perimeter, in feet?', mixed(2 * (a + b)),
+            [f'{mixed(a)} + {mixed(b)} = {mixed(a + b)}.', f'2 × {mixed(a + b)} = {mixed(2 * (a + b))} feet.'])
+
+
+def near_half(x, top):
+    c = [Fr(k, 2) for k in range(2 * top + 1)]
+    return min(c, key=lambda v: abs(x - v))
+
+
+@t2(U, 5)
+def _(r, nm):
+    while True:
+        a, b = two_fracs(r)
+        d = a - b
+        if all(abs(d - Fr(k, 2)) != Fr(1, 4) for k in range(3)):
+            break
+    return (f'Estimate {fs(a)} − {fs(b)}. Is the difference closest to 0, 1/2 or 1?', mixed(near_half(d, 1)),
+            [f'{fs(a)} is close to {mixed(near_half(a, 1))} and {fs(b)} is close to {mixed(near_half(b, 1))}.', f'The exact difference {fs(d)} is closest to {mixed(near_half(d, 1))}.'])
+
+
+@h2(U, 5)
+def _(r, nm):
+    while True:
+        a, b = R(r, 1, 6) + pf(r), R(r, 1, 6) + pf(r)
+        s = a + b
+        if s - int(s) != Fr(1, 2):
+            break
+    w = int(s + Fr(1, 2))
+    return (f'Estimate {mixed(a)} + {mixed(b)} to the nearest whole number.', str(w),
+            [f'Exact sum: {mixed(s)}.', f'The nearest whole number is {w}.'])
+
+
+# ---------------------------------------------------------------- Fraction Multiplication and Division
+U = 'fraction-multiplication-division'
+
+
+@t2(U, 1)
+def _(r, nm):
+    b = R(r, 3, 8)
+    a = R(r, 10, 60)
+    if a % b == 0:
+        a += 1
+    return (f'{a} pounds of nuts are put equally into {b} bags. How many pounds are in 2 of the bags? Write a mixed number.', mixed(Fr(2 * a, b)),
+            [f'One bag: {a} ÷ {b} = {mixed(Fr(a, b))} pounds.', f'Two bags: 2 × {mixed(Fr(a, b))} = {mixed(Fr(2 * a, b))} pounds.'])
+
+
+@h2(U, 1)
+def _(r, nm):
+    while True:
+        a, b, c, d = R(r, 5, 20), R(r, 3, 8), R(r, 5, 20), R(r, 2, 6)
+        if Fr(c, d) > Fr(a, b) and a % b and c % d:
+            break
+    return (f'{a} liters of juice are shared equally by {b} kids, and {c} liters are shared equally by {d} adults. How many more liters does each adult get than each kid? Write a fraction or mixed number.', mixed(Fr(c, d) - Fr(a, b)),
+            [f'Each kid: {a} ÷ {b} = {mixed(Fr(a, b))} liters. Each adult: {c} ÷ {d} = {mixed(Fr(c, d))} liters.', f'{mixed(Fr(c, d))} − {mixed(Fr(a, b))} = {mixed(Fr(c, d) - Fr(a, b))}.'])
+
+
+@t2(U, 2)
+def _(r, nm):
+    f = pf(r, (3, 4, 5, 6, 8))
+    n = f.denominator * R(r, 3, 12)
+    return (f'{nm} has {n} stickers and gives away {fs(f)} of them. How many stickers does {nm} have left?', str(int(n - n * f)),
+            [f'{fs(f)} of {n} = {int(n * f)}.', f'{n} − {int(n * f)} = {int(n - n * f)} stickers.'])
+
+
+@h2(U, 2)
+def _(r, nm):
+    f, g = pf(r, (2, 3, 4, 5)), pf(r, (2, 3, 4))
+    n = f.denominator * g.denominator * R(r, 2, 8)
+    rest = n - n * f
+    return (f'A farm has {n} animals. {fs(f)} of them are cows. {fs(g)} of the rest are goats. How many goats are there?', str(int(rest * g)),
+            [f'Cows: {fs(f)} × {n} = {int(n * f)}. The rest: {n} − {int(n * f)} = {int(rest)}.', f'Goats: {fs(g)} × {int(rest)} = {int(rest * g)}.'])
+
+
+@t2(U, 3)
+def _(r, nm):
+    a, c = pf(r, (2, 3, 4, 5)), pf(r, (2, 3, 4, 5))
+    return (f'{fs(a)} of a class are girls. {fs(c)} of the girls wear glasses. What fraction of the class are girls who do not wear glasses?', fs(a * (1 - c)),
+            [f'Girls without glasses are 1 − {fs(c)} = {fs(1 - c)} of the girls.', f'{fs(1 - c)} × {fs(a)} = {fs(a * (1 - c))} of the class.'])
+
+
+@h2(U, 3)
+def _(r, nm):
+    a, b = pf(r, (2, 3, 4, 5, 6)), pf(r, (2, 3, 4, 5, 6))
+    return (f'A field is {fs(a)} km long and {fs(b)} km wide. Half of it is planted with corn. How many square kilometers are planted with corn?', fs(a * b / 2),
+            [f'Area: {fs(a)} × {fs(b)} = {fs(a * b)} square km.', f'Half: {fs(a * b)} × 1/2 = {fs(a * b / 2)} square km.'])
+
+
+@t2(U, 4)
+def _(r, nm):
+    s = R(r, 1, 5) + Fr(1, r.choice([2, 3, 4]))
+    return (f'Two square tiles each have sides of {mixed(s)} inches. What is their total area, in square inches?', mixed(2 * s * s),
+            [f'One tile: {mixed(s)} × {mixed(s)} = {mixed(s * s)} square inches.', f'Two tiles: 2 × {mixed(s * s)} = {mixed(2 * s * s)} square inches.'])
+
+
+@h2(U, 4)
+def _(r, nm):
+    k, l = R(r, 2, 4), R(r, 3, 12)
+    w = Fr(1, k)
+    return (f'A rectangle has an area of {mixed(l * w)} square feet and a width of {fs(w)} foot. What is its perimeter, in feet?', mixed(2 * (l + w)),
+            [f'Length: {mixed(l * w)} ÷ {fs(w)} = {l} feet.', f'Perimeter: 2 × ({l} + {fs(w)}) = {mixed(2 * (l + w))} feet.'])
+
+
+@t2(U, 5)
+def _(r, nm):
+    f = pf(r, (2, 3, 4, 5, 6, 8))
+    n = f.denominator * R(r, 2, 9)
+    return (f'{nm} shrinks a {n}-inch drawing to {fs(f)} of its size. Is the new drawing longer or shorter, and how many inches long is it?', f'shorter; {int(n * f)} inches',
+            [f'{fs(f)} is less than 1, so the drawing gets shorter.', f'{fs(f)} × {n} = {int(n * f)} inches.'])
+
+
+@h2(U, 5)
+def _(r, nm):
+    m = 1 + Fr(1, r.choice([2, 3, 4]))
+    q = R(r, 2, 6) * m.denominator
+    return (f'A recipe uses {q} cups of flour. {nm} multiplies every amount by {mixed(m)}. How many more cups of flour does the new recipe use?', mixed(q * (m - 1)),
+            [f'New amount: {mixed(m)} × {q} = {mixed(q * m)} cups.', f'{mixed(q * m)} − {q} = {mixed(q * (m - 1))} more cups.'])
+
+
+@h2(U, 5)
+def _(r, nm):
+    f, g = pf(r, (2, 3, 4, 5)), pf(r, (2, 3, 4))
+    n = f.denominator * g.denominator * R(r, 2, 6)
+    left = n - n * f
+    return (f'{nm} has {n} dollars. {nm} spends {fs(f)} of it on a book and {fs(g)} of what is left on lunch. How many dollars does {nm} have now?', f'{int(left - left * g)} dollars',
+            [f'Book: {fs(f)} × {n} = {int(n * f)} dollars, leaving {int(left)}.', f'Lunch: {fs(g)} × {int(left)} = {int(left * g)}, leaving {int(left - left * g)} dollars.'])
+
+
+@t2(U, 6)
+def _(r, nm):
+    k, n = R(r, 2, 6), R(r, 2, 9)
+    g = R(r, 2, n * k - 2)
+    return (f'{n} cups of trail mix are split into bags that each hold 1/{k} cup. {nm} gives away {g} bags. How many bags are left?', str(n * k - g),
+            [f'Bags: {n} ÷ 1/{k} = {n} × {k} = {n * k}.', f'{n * k} − {g} = {n * k - g} bags.'])
+
+
+@h2(U, 6)
+def _(r, nm):
+    k, m = R(r, 2, 5), R(r, 3, 8)
+    j = R(r, 2, m - 1)
+    return (f'1/{k} liter of juice is shared equally by {m} kids. How much of a liter do {j} of the kids get together?', fs(Fr(j, k * m)),
+            [f'Each kid: 1/{k} ÷ {m} = 1/{k * m} liter.', f'{j} kids: {j} × 1/{k * m} = {fs(Fr(j, k * m))} liter.'])
+
+
+@h2(U, 6)
+def _(r, nm):
+    L, k = 2 * R(r, 2, 9), R(r, 2, 6)
+    return (f'A {L}-meter ribbon is cut in half. {nm} cuts one half into pieces that are 1/{k} meter long. How many pieces is that?', str(L // 2 * k),
+            [f'Half: {L} ÷ 2 = {L // 2} meters.', f'{L // 2} ÷ 1/{k} = {L // 2} × {k} = {L // 2 * k} pieces.'])
+
+
+@t2(U, 7)
+def _(r, nm):
+    k = R(r, 3, 6)
+    a = pf(r, (2, 3, 4, 5))
+    return (f'{k} kids share {fs(a)} of a pizza equally. What fraction of the whole pizza do 2 of the kids eat together?', fs(2 * a / k),
+            [f'Each kid: {fs(a)} ÷ {k} = {fs(a / k)}.', f'Two kids: 2 × {fs(a / k)} = {fs(2 * a / k)}.'])
+
+
+@h2(U, 7)
+def _(r, nm):
+    k = R(r, 3, 6)
+    a = pf(r, (2, 3, 4, 5))
+    j = R(r, 1, k - 1)
+    return (f'{fs(a)} of a pan of lasagna is cut into {k} equal pieces. {j} of the pieces {"is" if j == 1 else "are"} eaten. What fraction of the whole pan is left?', fs(a - j * a / k),
+            [f'Each piece: {fs(a)} ÷ {k} = {fs(a / k)} of the pan.', f'Left: {k - j} × {fs(a / k)} = {fs(a - j * a / k)}.'])
+
+
+# ---------------------------------------------------------------- Measurement Conversions
+U = 'measurement-conversions'
+
+
+@t2(U, 1)
+def _(r, nm):
+    n = R(r, 25, 120)
+    if n % 12 == 0:
+        n += 1
+    return (f'Convert: {n} inches = ? feet ? inches', f'{n // 12} ft {n % 12} in.',
+            [f'{n} ÷ 12 = {n // 12} R{n % 12}.', f'{n // 12} feet {n % 12} inch' + ('es.' if n % 12 != 1 else '.')])
+
+
+@t2(U, 1)
+def _(r, nm):
+    f, i, d = R(r, 4, 5), R(r, 1, 11), R(r, 2, 9)
+    return (f'{nm} is {f} feet {i} {"inch" if i == 1 else "inches"} tall. {nm}\'s brother is {d} inches taller. How tall is the brother, in inches?', f'{12 * f + i + d} inches',
+            [f'{f} feet {i} in. = {12 * f} + {i} = {12 * f + i} inches.', f'{12 * f + i} + {d} = {12 * f + i + d} inches.'])
+
+
+@h2(U, 1)
+def _(r, nm):
+    k = R(r, 2, 6)
+    each = R(r, 8, 30)
+    tot = k * each
+    return (f'A board is {tot // 12} ft {tot % 12} in. long. It is cut into {k} equal pieces. How many inches long is each piece?', f'{each} inches',
+            [f'{tot // 12} ft {tot % 12} in. = {12 * (tot // 12)} + {tot % 12} = {tot} inches.', f'{tot} ÷ {k} = {each} inches.'])
+
+
+@t2(U, 2)
+def _(r, nm):
+    g = R(r, 2, 6)
+    p = R(r, 1, 8 * g - 1)
+    return (f'A jug holds {g} gallons of water. {nm} pours out {p} pints. How many pints are left in the jug?', f'{8 * g - p} pints',
+            [f'{g} gallons = {g} × 8 = {8 * g} pints.', f'{8 * g} − {p} = {8 * g - p} pints.'])
+
+
+@h2(U, 2)
+def _(r, nm):
+    a, b, c, d = R(r, 1, 4), R(r, 1, 15), R(r, 1, 4), R(r, 1, 15)
+    lb, oz = (lambda v: f'{v} pound' + ('s' if v != 1 else '')), (lambda v: f'{v} ounce' + ('s' if v != 1 else ''))
+    return (f'{nm} buys {lb(a)} {oz(b)} of cheese and {lb(c)} {oz(d)} of ham. How many ounces is that in all?', f'{16 * (a + c) + b + d} ounces',
+            [f'Cheese: {16 * a} + {b} = {16 * a + b} oz. Ham: {16 * c} + {d} = {16 * c + d} oz.', f'{16 * a + b} + {16 * c + d} = {16 * (a + c) + b + d} ounces.'])
+
+
+@t2(U, 3)
+def _(r, nm):
+    m, c = R(r, 2, 9), R(r, 15, 95)
+    return (f'A rope is {m} meters long. {nm} cuts off {c} centimeters. How many centimeters of rope are left?', f'{100 * m - c} centimeters',
+            [f'{m} m = {m} × 100 = {100 * m} cm.', f'{100 * m} − {c} = {100 * m - c} cm.'])
+
+
+@h2(U, 3)
+def _(r, nm):
+    k, g = R(r, 3, 12), R(r, 120, 950)
+    return (f'{k} boxes each weigh {g} grams. What is their total weight in kilograms?', f'{dz(Fr(k * g, 1000), 3)} kilograms',
+            [f'{k} × {g} = {k * g} grams.', f'{k * g} ÷ 1,000 = {dz(Fr(k * g, 1000), 3)} kilograms.'])
+
+
+@t2(U, 4)
+def _(r, nm):
+    L = R(r, 2, 5)
+    ml = r.choice([150, 200, 250, 300, 400])
+    c = R(r, 2, 1000 * L // ml - 1)
+    return (f'A {L}-liter bottle of water fills {c} glasses that each hold {ml} milliliters. How many milliliters are left in the bottle?', f'{1000 * L - c * ml} milliliters',
+            [f'{L} L = {1000 * L} mL. Poured: {c} × {ml} = {c * ml} mL.', f'{1000 * L} − {c * ml} = {1000 * L - c * ml} mL.'])
+
+
+@h2(U, 4)
+def _(r, nm):
+    a = r.choice([250, 330, 355, 400, 450])
+    L = R(r, 3, 9)
+    if 1000 * L % a == 0:
+        L += 1
+    return (f'Juice comes in {a}-milliliter cans. How many cans are needed to fill a {L}-liter punch bowl?', f'{-(-1000 * L // a)} cans',
+            [f'{L} L = {1000 * L} mL.', f'{1000 * L} ÷ {a} = {1000 * L // a} R{1000 * L % a}, so {-(-1000 * L // a)} cans are needed.'])
+
+
+# ---------------------------------------------------------------- Multi-Digit Multiplication and Division
+U = 'multi-digit-multiplication-division'
+
+
+@t2(U, 1)
+def _(r, nm):
+    a, b, c = R(r, 12, 48), R(r, 12, 36), R(r, 10, 99)
+    return (f'{nm} buys {a} boxes of pencils with {b} pencils in each box. {nm} already had {c} pencils. How many pencils does {nm} have now?', com(a * b + c),
+            [f'{a} × {b} = {com(a * b)}.', f'{com(a * b)} + {c} = {com(a * b + c)} pencils.'])
+
+
+@h2(U, 1)
+def _(r, nm):
+    a, b, c = R(r, 4, 12), R(r, 120, 500), R(r, 12, 30)
+    return (f'A school orders {a} packs of paper for each of {c} classrooms. Each pack has {b} sheets. How many sheets is that in all?', com(a * b * c),
+            [f'Packs: {a} × {c} = {a * c}.', f'Sheets: {a * c} × {b} = {com(a * b * c)}.'])
+
+
+@t2(U, 2)
+def _(r, nm):
+    a, b = nz(r, 21, 98), nz(r, 21, 98)
+    ra, rb = round(a, -1), round(b, -1)
+    return (f'Estimate {a} × {b} by rounding each factor to the nearest ten.', com(ra * rb),
+            [f'{a} rounds to {ra} and {b} rounds to {rb}.', f'{ra} × {rb} = {com(ra * rb)}.'])
+
+
+@h2(U, 2)
+def _(r, nm):
+    a, b = nz(r, 121, 989), nz(r, 21, 98)
+    ra, rb = round(a, -1), round(b, -1)
+    return (f'Round {a} and {b} to the nearest ten and multiply. What is the difference between that estimate and the exact product {a} × {b}?', com(abs(ra * rb - a * b)),
+            [f'Estimate: {ra} × {rb} = {com(ra * rb)}. Exact: {a} × {b} = {com(a * b)}.', f'Difference: {com(abs(ra * rb - a * b))}.'])
+
+
+@t2(U, 3)
+def _(r, nm):
+    d = R(r, 3, 9)
+    q, rem = R(r, 41, 299), R(r, 1, d - 1)
+    n = q * d + rem
+    return (f'Divide: {com(n)} ÷ {d}. Write the quotient and the remainder.', f'{q} R{rem}',
+            [f'{d} × {q} = {com(q * d)}.', f'{com(n)} − {com(q * d)} = {rem}, so the answer is {q} R{rem}.'])
+
+
+@h2(U, 3)
+def _(r, nm):
+    d = R(r, 6, 24)
+    q, rem = R(r, 12, 80), R(r, 1, d - 1)
+    n = q * d + rem
+    return (f'{nm} has {com(n)} cards and puts them in rows of {d}. How many more cards does {nm} need to make one more full row?', f'{d - rem} cards',
+            [f'{com(n)} ÷ {d} = {q} R{rem}.', f'A full row needs {d}: {d} − {rem} = {d - rem} more cards.'])
+
+
+@h2(U, 4)
+def _(r, nm):
+    d, b = R(r, 6, 24), R(r, 8, 20)
+    n = R(r, 1500, 9000)
+    boxes = -(-n // d)
+    if n % d == 0:
+        n += 1
+        boxes = -(-n // d)
+    return (f'A factory makes {com(n)} toys. They are packed {d} to a box, and {b} boxes fit in a crate. How many crates are needed to ship all the toys?', f'{-(-boxes // b)} crates',
+            [f'Boxes: {com(n)} ÷ {d} = {n // d} R{n % d}, so {boxes} boxes.', f'Crates: {boxes} ÷ {b} = {boxes // b} R{boxes % b}, so {-(-boxes // b)} crates.'])
+
+
+@t2(U, 5)
+def _(r, nm):
+    d = R(r, 6, 18)
+    q, rem = R(r, 12, 60), R(r, 1, d - 1)
+    n = q * d + rem
+    return (f'A baker has {n} eggs. Each cake uses {d} eggs. After making as many cakes as possible, how many more eggs are needed to make one more cake?', f'{d - rem} eggs',
+            [f'{n} ÷ {d} = {q} R{rem}.', f'One more cake needs {d}: {d} − {rem} = {d - rem} eggs.'])
+
+
+@h2(U, 5)
+def _(r, nm):
+    b = R(r, 3, 9)
+    a = R(r, 5, 40)
+    if 4 * a % b == 0:
+        a += 1
+    if 4 * a % b == 0:
+        a += 1
+    return (f'{a} gallons of paint are shared equally among {b} rooms. How many quarts of paint does each room get? Write a mixed number.', f'{mixed(Fr(4 * a, b))} quarts',
+            [f'{a} gallons = {a} × 4 = {4 * a} quarts.', f'{4 * a} ÷ {b} = {mixed(Fr(4 * a, b))} quarts.'])
+
+
+# ---------------------------------------------------------------- Numerical Expressions and Patterns
+U = 'numerical-expressions-patterns'
+
+
+@t2(U, 1)
+def _(r, nm):
+    a, b, c = R(r, 2, 9), R(r, 2, 9), R(r, 2, 6)
+    e = R(r, 2, 5)
+    d = e * R(r, 1, 6)
+    return (f'Evaluate: ({a} + {b}) × {c} − {d} ÷ {e}', str((a + b) * c - d // e),
+            [f'Parentheses: {a} + {b} = {a + b}.', f'Multiply and divide: {a + b} × {c} = {(a + b) * c} and {d} ÷ {e} = {d // e}.', f'{(a + b) * c} − {d // e} = {(a + b) * c - d // e}.'])
+
+
+@h2(U, 1)
+def _(r, nm):
+    e = R(r, 2, 5)
+    c = R(r, 6, 12)
+    d = R(r, 1, c - 2)
+    b = e * R(r, 1, 4)
+    q = b * (c - d) // e
+    a = q + R(r, 5, 40)
+    return (f'Evaluate: {a} − [{b} × ({c} − {d})] ÷ {e}', str(a - q),
+            [f'({c} − {d}) = {c - d}; {b} × {c - d} = {b * (c - d)}.', f'{b * (c - d)} ÷ {e} = {q}.', f'{a} − {q} = {a - q}.'])
+
+
+@t2(U, 2)
+def _(r, nm):
+    a, c = R(r, 3, 20), R(r, 2, 9)
+    b = a + R(r, 5, 40)
+    return (f'Write an expression for "subtract {a} from {b}, then multiply by {c}" and evaluate it.', str((b - a) * c),
+            [f'({b} − {a}) × {c}.', f'{b - a} × {c} = {(b - a) * c}.'])
+
+
+@h2(U, 2)
+def _(r, nm):
+    k, a, b = R(r, 2, 9), R(r, 5, 40), R(r, 5, 40)
+    c = R(r, 1, k * (a + b) - 1)
+    return (f'Write an expression for "{k} times the sum of {a} and {b}, minus {c}" and evaluate it.', str(k * (a + b) - c),
+            [f'{k} × ({a} + {b}) − {c}.', f'{k} × {a + b} = {k * (a + b)}; {k * (a + b)} − {c} = {k * (a + b) - c}.'])
+
+
+@t2(U, 3)
+def _(r, nm):
+    a, b, k = R(r, 12, 48), R(r, 3, 9), r.choice([2, 3, 4, 5, 10])
+    return (f'{a} × {b} = {a * b}. Use this, without multiplying again, to find {a} × {b * k}.', com(a * b * k),
+            [f'{b * k} is {k} times {b}.', f'So the product is {k} × {a * b} = {com(a * b * k)}.'])
+
+
+@h2(U, 3)
+def _(r, nm):
+    y = R(r, 100, 500)
+    x = y + R(r, 50, 400)
+    k, e = R(r, 3, 9), R(r, 10, 99)
+    return (f'{x} − {y} = {x - y}. Use this, without subtracting again, to find {k} × ({x} − {y}) + {e}.', com(k * (x - y) + e),
+            [f'{k} × {x - y} = {k * (x - y)}.', f'{k * (x - y)} + {e} = {com(k * (x - y) + e)}.'])
+
+
+@h2(U, 3)
+def _(r, nm):
+    k, a, b = R(r, 3, 9), R(r, 10, 60), R(r, 5, 30)
+    return (f'Without finding either value, decide which is greater: {k} × ({a} + {b}) or {k} × {a} + {b}. How much greater is it?', com((k - 1) * b),
+            [f'{k} × ({a} + {b}) = {k} × {a} + {k} × {b}, which adds {b} a total of {k} times.', f'The other adds {b} once, so the difference is {k - 1} × {b} = {com((k - 1) * b)}.'])
+
+
+@t2(U, 4)
+def _(r, nm):
+    d, n = R(r, 2, 9), R(r, 5, 10)
+    s = d * (n - 1) + R(r, 3, 40)
+    return (f'A pattern starts at {s}. The rule is "Subtract {d}." What is term {n}?', str(s - (n - 1) * d),
+            [f'From term 1 to term {n} the rule is used {n - 1} times: {n - 1} × {d} = {(n - 1) * d}.', f'{s} − {(n - 1) * d} = {s - (n - 1) * d}.'])
+
+
+@h2(U, 4)
+def _(r, nm):
+    s, d = R(r, 1, 20), R(r, 3, 12)
+    g = s + d * R(r, 6, 15) + R(r, 0, d - 1)
+    k = (g - s) // d + 2
+    return (f'A pattern starts at {s}. The rule is "Add {d}." Which term is the first one greater than {g}?', f'term {k}',
+            [f'Term n is {s} + {d} × (n − 1).', f'Term {k - 1} is {s + d * (k - 2)} and term {k} is {s + d * (k - 1)}, so the answer is term {k}.'])
+
+
+@t2(U, 5)
+def _(r, nm):
+    a, b = R(r, 2, 6), R(r, 2, 9)
+    if a == b:
+        b += 1
+    return (f'Pattern A: start at 0, add {a}. Pattern B: start at 0, add {b}. Make ordered pairs (A term, B term). What is the sixth ordered pair?', f'({5 * a}, {5 * b})',
+            [f'Sixth terms: A = 0 + 5 × {a} = {5 * a}, B = 0 + 5 × {b} = {5 * b}.', f'The pair is ({5 * a}, {5 * b}).'])
+
+
+@h2(U, 5)
+def _(r, nm):
+    a = R(r, 2, 6)
+    b = a + R(r, 1, 5)
+    n = R(r, 3, 9)
+    b0 = R(r, 0, 10)
+    a0 = b0 + (b - a) * (n - 1)
+    return (f'Pattern A: start at {a0}, add {a}. Pattern B: start at {b0}, add {b}. Which term number is the same in both patterns?', f'term {n}',
+            [f'B starts {a0 - b0} lower and gains {b - a} each term.', f'{a0 - b0} ÷ {b - a} = {n - 1} steps, so term {n} (both are {a0 + a * (n - 1)}).'])
+
+
+# ---------------------------------------------------------------- Place Value and Number Sense
+U = 'place-value-number-sense'
+
+
+@t2(U, 1)
+def _(r, nm):
+    d = R(r, 2, 9)
+    o = [x for x in range(10) if x != d]
+    i, j = sorted(r.sample(range(6), 2))
+    digits = [r.choice(o) for _ in range(6)]
+    digits[i] = digits[j] = d
+    if digits[0] == 0:
+        digits[0] = r.choice([x for x in o if x])
+    s = ''.join(map(str, digits))
+    num = f'{s[:3]}.{s[3:]}'
+    return (f'In {num}, the digit {d} appears twice. How many times as large is the value of the left {d} as the value of the right {d}?', com(10 ** (j - i)),
+            [f'The two {d}s are {j - i} place' + ('s' if j - i != 1 else '') + ' apart.', f'Each place to the left is 10 times as large, so {com(10 ** (j - i))} times.'])
+
+
+@h2(U, 1)
+def _(r, nm):
+    n = R(r, 1001, 9999)
+    return (f'What is 1/10 of 1/10 of {com(n)}?', dz(Fr(n, 100), 2),
+            [f'1/10 of {com(n)} = {dz(Fr(n, 10), 1)}.', f'1/10 of {dz(Fr(n, 10), 1)} = {dz(Fr(n, 100), 2)}.'])
+
+
+@t2(U, 2)
+def _(r, nm):
+    a = Fr(R(r, 101, 999), 100)
+    e = r.choice([2, 3])
+    return (f'{dz(a, 2)} × 10{"²" if e == 2 else "³"} = ?', dz(a * 10 ** e, 0),
+            [f'10{"²" if e == 2 else "³"} = {com(10 ** e)}.', f'{dz(a, 2)} × {com(10 ** e)} = {dz(a * 10 ** e, 0)}.'])
+
+
+@h2(U, 2)
+def _(r, nm):
+    h = R(r, 81, 160)
+    return (f'A stack of 1,000 sheets of paper is {h} mm tall. How tall is a stack of 100 sheets, in millimeters?', f'{dz(Fr(h, 10), 1)} millimeters',
+            [f'One sheet: {h} ÷ 1,000 = {dz(Fr(h, 1000), 3)} mm.', f'100 sheets: {dz(Fr(h, 1000), 3)} × 100 = {dz(Fr(h, 10), 1)} mm.'])
+
+
+@t2(U, 3)
+def _(r, nm):
+    h, o, t_, th = R(r, 1, 9), R(r, 1, 9), R(r, 1, 9), R(r, 1, 9)
+    v = 100 * h + o + Fr(t_, 10) + Fr(th, 1000)
+    return (f'What number is {h} × 100 + {o} × 1 + {t_} × (1/10) + {th} × (1/1000)?', dz(v, 3),
+            [f'{100 * h} + {o} + {dz(Fr(t_, 10), 1)} + {dz(Fr(th, 1000), 3)}.', f'= {dz(v, 3)} (0 tens and 0 hundredths).'])
+
+
+@h2(U, 3)
+def _(r, nm):
+    x = Fr(R(r, 100000, 999999), 1000)
+    k, m = R(r, 1, 4), R(r, 2, 9)
+    v = x + 100 * k - Fr(m, 10)
+    return (f'What number is {k} hundreds more and {m} tenths less than {dz(x, 3)}?', dz(v, 3),
+            [f'{dz(x, 3)} + {100 * k} = {dz(x + 100 * k, 3)}.', f'{dz(x + 100 * k, 3)} − {dz(Fr(m, 10), 1)} = {dz(v, 3)}.'])
+
+
+@t2(U, 4)
+def _(r, nm):
+    xs = sorted({Fr(R(r, 1000, 9999), 1000) for _ in range(4)}, reverse=True)
+    order = list(xs)
+    r.shuffle(order)
+    return (f'Order from greatest to least: {", ".join(dz(x, 3) for x in order)}', ', '.join(dz(x, 3) for x in xs),
+            ['Compare digit by digit from the left.', f'Greatest to least: {", ".join(dz(x, 3) for x in xs)}.'])
+
+
+@t2(U, 4)
+def _(r, nm):
+    a, b = Fr(R(r, 1000, 9999), 1000), Fr(R(r, 100, 999), 100)
+    if a == b:
+        b += Fr(1, 100)
+    hi, lo = max(a, b), min(a, b)
+    return (f'Compare {dz(a, 3)} and {dz(b, 2)}. How much greater is the greater number?', dz(hi - lo, 3),
+            [f'{dz(hi, 3)} > {dz(lo, 3)}.', f'{dz(hi, 3)} − {dz(lo, 3)} = {dz(hi - lo, 3)}.'])
+
+
+@h2(U, 4)
+def _(r, nm):
+    xs = [Fr(R(r, 200, 600), 100) for _ in range(4)]
+    s = sorted(xs)
+    return (f'Four long jumps measured {", ".join(dz(x, 2) for x in xs)} meters. What is the total of the two longest jumps?', f'{dz(s[2] + s[3], 2)} meters',
+            [f'The two longest are {dz(s[3], 2)} and {dz(s[2], 2)}.', f'{dz(s[3], 2)} + {dz(s[2], 2)} = {dz(s[2] + s[3], 2)} m.'])
+
+
+@t2(U, 5)
+def _(r, nm):
+    while True:
+        a, b = Fr(R(r, 5000, 9999), 1000), Fr(R(r, 1000, 4999), 1000)
+        d = a - b
+        if int(d * 1000) % 100 != 50:
+            break
+    rd = Fr(math.floor(d * 10 + Fr(1, 2)), 10)
+    return (f'Subtract {dz(a, 3)} − {dz(b, 3)} and round the difference to the nearest tenth.', dz(rd, 1),
+            [f'{dz(a, 3)} − {dz(b, 3)} = {dz(d, 3)}.', f'Rounded to the nearest tenth: {dz(rd, 1)}.'])
+
+
+@h2(U, 5)
+def _(r, nm):
+    while True:
+        a, b = Fr(R(r, 1000, 9999), 1000), Fr(R(r, 100, 999), 100)
+        if int(a * 1000) % 10 != 5 and int(b * 100) % 10 != 5:
+            break
+    ra, rb = Fr(math.floor(a * 100 + Fr(1, 2)), 100), Fr(math.floor(b * 10 + Fr(1, 2)), 10)
+    return (f'Round {dz(a, 3)} to the nearest hundredth and {dz(b, 2)} to the nearest tenth, then add the rounded numbers.', dz(ra + rb, 2),
+            [f'{dz(a, 3)} → {dz(ra, 2)} and {dz(b, 2)} → {dz(rb, 1)}.', f'{dz(ra, 2)} + {dz(rb, 1)} = {dz(ra + rb, 2)}.'])
+
+
+# ---------------------------------------------------------------- Volume and Three-Dimensional Figures
+U = 'volume-three-dimensional-figures'
+
+
+@t2(U, 1)
+def _(r, nm):
+    l, w, k = R(r, 2, 8), R(r, 2, 8), R(r, 2, 9)
+    return (f'Each layer of a box holds {l} × {w} unit cubes. The full box holds {l * w * k} unit cubes. How many layers does it have?', f'{k} layers',
+            [f'One layer: {l} × {w} = {l * w} cubes.', f'{l * w * k} ÷ {l * w} = {k} layers.'])
+
+
+@h2(U, 1)
+def _(r, nm):
+    while True:
+        a, b, c, d, e, f_ = (R(r, 2, 9) for _ in range(6))
+        if a * b * c != d * e * f_:
+            break
+    return (f'Box A holds {a} × {b} × {c} unit cubes. Box B holds {d} × {e} × {f_} unit cubes. How many more cubes does the larger box hold?', str(abs(a * b * c - d * e * f_)),
+            [f'Box A: {a * b * c}. Box B: {d * e * f_}.', f'Difference: {abs(a * b * c - d * e * f_)}.'])
+
+
+@t2(U, 2)
+def _(r, nm):
+    l, w, hh = R(r, 2, 9), R(r, 2, 9), 2 * R(r, 2, 5)
+    return (f'A box holds {l} × {w} × {hh} unit cubes when full. It is filled halfway to the top. How many cubes are in it?', str(l * w * hh // 2),
+            [f'Half of {hh} layers is {hh // 2} layers.', f'{l} × {w} × {hh // 2} = {l * w * hh // 2} cubes.'])
+
+
+@h2(U, 2)
+def _(r, nm):
+    l, w, hh = R(r, 3, 9), R(r, 3, 9), R(r, 3, 8)
+    layer = l * w
+    k = layer * R(r, 1, hh - 1) + R(r, 1, layer - 1)
+    return (f'A box is {l} cubes long, {w} cubes wide and {hh} cubes tall. It has {k} unit cubes inside, packed layer by layer. How many more cubes are needed to finish the layer that has been started?', str(layer - k % layer),
+            [f'One layer: {l} × {w} = {layer}. {k} ÷ {layer} = {k // layer} R{k % layer}.', f'{layer} − {k % layer} = {layer - k % layer} more cubes.'])
+
+
+@t2(U, 3)
+def _(r, nm):
+    B, hh = R(r, 12, 60), R(r, 3, 12)
+    return (f'A rectangular prism has a base area of {B} square centimeters and a height of {hh} centimeters. What is the volume of 2 of these prisms?', f'{2 * B * hh} cubic centimeters',
+            [f'One prism: {B} × {hh} = {B * hh} cubic cm.', f'Two prisms: 2 × {B * hh} = {2 * B * hh} cubic cm.'])
+
+
+@h2(U, 3)
+def _(r, nm):
+    e = R(r, 2, 4)
+    a, b, c = R(r, 2, 6), R(r, 2, 6), R(r, 2, 5)
+    return (f'Cubes with edges of {e} inches are packed into a box that is {a * e} in. by {b * e} in. by {c * e} in. How many cubes fit?', str(a * b * c),
+            [f'Along each edge: {a * e} ÷ {e} = {a}, {b * e} ÷ {e} = {b}, {c * e} ÷ {e} = {c}.', f'{a} × {b} × {c} = {a * b * c} cubes.'])
+
+
+@t2(U, 4)
+def _(r, nm):
+    a, b, c, d, e, f_ = (R(r, 2, 9) for _ in range(6))
+    return (f'A figure is made of two rectangular prisms that do not overlap. One is {a} by {b} by {c} cm and the other is {d} by {e} by {f_} cm. What is the volume of the figure?', f'{a * b * c + d * e * f_} cubic centimeters',
+            [f'{a} × {b} × {c} = {a * b * c}; {d} × {e} × {f_} = {d * e * f_}.', f'{a * b * c} + {d * e * f_} = {a * b * c + d * e * f_} cubic cm.'])
+
+
+@h2(U, 4)
+def _(r, nm):
+    l, w, hh = R(r, 8, 15), R(r, 6, 12), R(r, 5, 10)
+    a, b, c = R(r, 2, l - 3), R(r, 2, w - 3), R(r, 2, hh - 2)
+    return (f'A {l} by {w} by {hh} cm block has a {a} by {b} by {c} cm box-shaped hole cut out of it. What is the volume of what is left?', f'{l * w * hh - a * b * c} cubic centimeters',
+            [f'Block: {l} × {w} × {hh} = {l * w * hh}. Hole: {a} × {b} × {c} = {a * b * c}.', f'{l * w * hh} − {a * b * c} = {l * w * hh - a * b * c} cubic cm.'])
+
+
+@t2(U, 5)
+def _(r, nm):
+    l, w, d = R(r, 4, 12), R(r, 3, 8), R(r, 2, 4)
+    f_ = R(r, 1, d - 1) if d > 2 else 1
+    return (f'A pool is {l} m long, {w} m wide and {d} m deep. Water fills it to a depth of {f_} m. How many cubic meters of water are in the pool?', f'{l * w * f_} cubic meters',
+            [f'Use the water depth, not the pool depth: {f_} m.', f'{l} × {w} × {f_} = {l * w * f_} cubic meters.'])
+
+
+@h2(U, 5)
+def _(r, nm):
+    while True:
+        d, e, hh = R(r, 2, 8), R(r, 2, 8), R(r, 2, 9)
+        V = d * e * hh
+        ch = [(a, b, V // (a * b)) for a in range(2, 13) for b in range(2, 13) if V % (a * b) == 0 and 2 <= V // (a * b) <= 20 and {a, b} != {d, e}]
+        if ch:
+            a, b, c = r.choice(ch)
+            break
+    return (f'Box A is {a} by {b} by {c} inches. Box B has the same volume and a base that is {d} by {e} inches. How tall is Box B?', f'{hh} inches',
+            [f'Volume of A: {a} × {b} × {c} = {V} cubic inches.', f'Height of B: {V} ÷ ({d} × {e}) = {hh} inches.'])
+
+
+@h2(U, 5)
+def _(r, nm):
+    l, w, hh = R(r, 2, 6), R(r, 2, 5), R(r, 1, 3)
+    p = Fr(R(r, 150, 650), 100)
+    return (f'A sandbox is {l} ft long, {w} ft wide and {hh} ft deep. Sand costs {money(p)} per cubic foot. How much does it cost to fill the sandbox?', money(l * w * hh * p),
+            [f'Volume: {l} × {w} × {hh} = {l * w * hh} cubic feet.', f'Cost: {l * w * hh} × {money(p)} = {money(l * w * hh * p)}.'])
+
+
+NAMES = re.compile(r'\b(' + '|'.join(N) + r')\b')
+NK = lambda p: NAMES.sub('#', p)
+
+
+def article(p):
+    """'a 8-meter' -> 'an 8-meter', 'A 11 by' -> 'An 11 by'."""
+    return re.sub(r'\b([Aa]) (?=(?:8[\d,.]*|11|18)(?![\d]))', lambda m: m.group(1) + 'n ', p)
+
+
 SIG = lambda q: re.sub(r'\d+(?:\.\d+)?', '#', str(q['prompt'])).strip()
 NUM = re.compile(r'-?\d[\d,]*(?:\.\d+)?(?: \d+/\d+)?(?:/\d+)?')
 
@@ -1045,8 +2115,9 @@ def options(ans, steps, rng):
     out = [ans]
     for v in pool[::-1] + [a + 1, a + 2, a * 2, a + 10]:
         o = fmt(v)
-        if v == 1 and post.split(' ')[-1] in SING:
-            o = o[:len(o) - len(post.split(' ')[-1])] + SING[post.split(' ')[-1]]
+        w_ = post.split(' ')[-1]
+        if v == 1 and (w_ in SING or w_.endswith('s')):
+            o = o[:len(o) - len(w_)] + SING.get(w_, w_[:-1])
         if o not in out and len(out) < 4 and v > 0:
             out.append(o)
     return out
@@ -1075,24 +2146,33 @@ def main():
         lowh = cp2.get(sid, set()) | {SIG(q) for q in sk if q['level'] == 'cp1' and q['id'] not in ids1}
         ch = sorted((q for q in sk if TH.get(sid) and ok(q, 'honors') and SIG(q) in lowh), key=lambda q: q['id'])[:CAP]
         chosen = ids1 | {q['id'] for q in ch}
-        used = {q['prompt'] for q in items.values() if q['id'] not in chosen}
-        for lv, cand, fn in (('cp1', c1, T.get(sid)), ('honors', ch, TH.get(sid))):
+        used = {NK(q['prompt']) for q in items.values() if q['id'] not in chosen}
+        for lv, cand, gens, low in (('cp1', c1, [T.get(sid)] + T2.get(sid, []), cp2.get(sid, set())), ('honors', ch, [TH.get(sid)] + TH2.get(sid, []), lowh)):
             for i, q in enumerate(cand):
                 rng = random.Random(f'g5-levels-{lv}-' + q['id'])
-                for _ in range(80):
-                    prompt, ans, steps = fn(rng, N[sum(map(ord, q['id'])) % len(N)])
-                    if prompt not in used:
-                        break
-                else:
-                    continue
-                new = dict(prompt=prompt, answer=ans, solutionSteps=steps)
-                if q['format'] == 'multiple-choice':
-                    opts = options(ans, steps, rng)
-                    if not opts or len(set(opts)) != 4:
+                new = None
+                # Templates take turns; if this item's template cannot make a fresh prompt (or four options), try the next.
+                for k in range(len(gens)):
+                    fn = gens[(i + k) % len(gens)]
+                    for _ in range(80):
+                        prompt, ans, steps = fn(rng, N[sum(map(ord, q['id'])) % len(N)])
+                        prompt = article(prompt)
+                        if NK(prompt) not in used and SIG({'prompt': prompt}) not in low:
+                            break
+                    else:
                         continue
-                    rng.shuffle(opts)
-                    new['options'] = [{'text': o, 'correct': o == ans} for o in opts]
-                used.add(prompt)
+                    new = dict(prompt=prompt, answer=ans, solutionSteps=steps)
+                    if q['format'] == 'multiple-choice':
+                        opts = options(ans, steps, rng)
+                        if not opts or len(set(opts)) != 4:
+                            new = None
+                            continue
+                        rng.shuffle(opts)
+                        new['options'] = [{'text': o, 'correct': o == ans} for o in opts]
+                    break
+                if new is None:
+                    continue
+                used.add(NK(prompt))
                 what = 'a Standard item that reused a Support template now adds a step' if lv == 'cp1' else 'an Advanced item that reused an easier template is now a multi-step problem'
                 new['sourceNotes'] = (q.get('sourceNotes', '') + f' Rewritten at deploy: whole-site audit 2 #3 (2026-11-20), {what}; '
                                       'key recomputed by tools/site-audit-20261120/grade5_levels/verify.py.').strip()
