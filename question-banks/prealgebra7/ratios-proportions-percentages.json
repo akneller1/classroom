@@ -1847,35 +1847,35 @@
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Find x so that 8/4 = x/12, then find x + 3.",
-   "answer": "27",
+   "prompt": "Find x so that 5/12 = 25/x, then find 2x.",
+   "answer": "120",
    "options": [
     {
-     "text": "8",
+     "text": "60",
      "correct": false
     },
     {
-     "text": "24",
-     "correct": false
+     "text": "120",
+     "correct": true
     },
     {
      "text": "12",
      "correct": false
     },
     {
-     "text": "27",
-     "correct": true
+     "text": "2",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "4 × 3 = 12, so x = 8 × 3 = 24.",
-    "x + 3 = 27."
+    "25 ÷ 5 = 5, so x = 12 × 5 = 60.",
+    "2x = 120."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “On a map, 5 cm represents 6 km. How many km do 45 cm represent?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “On a map, 5 cm represents 6 km. How many km do 45 cm represent?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-cp1-004",
@@ -1899,17 +1899,17 @@
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find x so that 2/12 = x/24, then find x + 2.",
-   "answer": "6",
+   "prompt": "Find x so that 3/8 = 15/x, then find 2x.",
+   "answer": "80",
    "solutionSteps": [
-    "12 × 2 = 24, so x = 2 × 2 = 4.",
-    "x + 2 = 6."
+    "15 ÷ 3 = 5, so x = 8 × 5 = 40.",
+    "2x = 80."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Do the ratios 8/9 and 40/44 form a proportion?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Do the ratios 8/9 and 40/44 form a proportion?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-cp1-006",
@@ -1988,55 +1988,52 @@
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Do the ratios 1/12 and 3/37 form a proportion?",
-   "answer": "No",
+   "prompt": "Find x so that 6/7 = 12/x, then find 2x.",
+   "answer": "28",
    "solutionSteps": [
-    "Cross products: 1 × 37 = 37 and 12 × 3 = 36.",
-    "They are not equal.",
-    "No"
+    "12 ÷ 6 = 2, so x = 7 × 2 = 14.",
+    "2x = 28."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_is_prop). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Do the ratios 1/12 and 3/37 form a proportion?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-cp1-009",
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "On a map, 3 cm represents 11 km. How many km do 27 cm represent?",
-   "answer": "99 km",
+   "prompt": "Find x so that 8/8 = x/24, then find x + 3.",
+   "answer": "27",
    "options": [
     {
-     "text": "102 km",
-     "correct": false
-    },
-    {
-     "text": "99 km",
+     "text": "27",
      "correct": true
     },
     {
-     "text": "11/9 km",
+     "text": "8",
      "correct": false
     },
     {
-     "text": "27 km",
+     "text": "24",
+     "correct": false
+    },
+    {
+     "text": "3",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Set up a proportion: 3/11 = 27/d.",
-    "Find the scale factor or use cross products.",
-    "d = 99.",
-    "Answer: 99 km."
+    "8 × 3 = 24, so x = 8 × 3 = 24.",
+    "x + 3 = 27."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “On a map, 3 cm represents 11 km. How many km do 27 cm represent?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-cp1-010",
@@ -2080,55 +2077,52 @@
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Do the ratios 3/7 and 18/44 form a proportion?",
-   "answer": "No",
+   "prompt": "Find x so that 2/3 = 12/x, then find 2x.",
+   "answer": "36",
    "solutionSteps": [
-    "Cross products: 3 × 44 = 132 and 7 × 18 = 126.",
-    "They are not equal.",
-    "No"
+    "12 ÷ 2 = 6, so x = 3 × 6 = 18.",
+    "2x = 36."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_is_prop). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Do the ratios 3/7 and 18/44 form a proportion?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-cp1-012",
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A car uses 9 gallons of gas to go 50 miles. How many gallons does it need to go 400 miles?",
-   "answer": "72 gallons",
+   "prompt": "Find x so that 9/4 = x/24, then find x + 6.",
+   "answer": "60",
    "options": [
     {
-     "text": "81 gallons",
-     "correct": false
-    },
-    {
-     "text": "72 gallons",
+     "text": "60",
      "correct": true
     },
     {
-     "text": "49 gallons",
+     "text": "54",
      "correct": false
     },
     {
-     "text": "9/8 gallons",
+     "text": "24",
+     "correct": false
+    },
+    {
+     "text": "9",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Set up a proportion: 9/50 = g/400.",
-    "Find the scale factor or use cross products.",
-    "g = 72.",
-    "Answer: 72 gallons."
+    "4 × 6 = 24, so x = 9 × 6 = 54.",
+    "x + 6 = 60."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A car uses 9 gallons of gas to go 50 miles. How many gallons does it n”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-cp1-013",
@@ -2251,18 +2245,17 @@
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "At a camp, 5 of every 9 campers swim. There are 198 campers. How many swim? If 10 more campers join and all of them swim, how many campers swim then?",
-   "answer": "120",
+   "prompt": "A recipe uses 3.5 cups of rice for 8 people. How many cups are needed for 48 people, and how many more cups is that than for 8 people? Give the number of extra cups.",
+   "answer": "17.5 cups",
    "solutionSteps": [
-    "5/9 = s/198.",
-    "s = 5 × 198 ÷ 9 = 110.",
-    "110 + 10 = 120."
+    "Per person: 3.5 ÷ 8. For 48: 3.5 × 6 = 21 cups.",
+    "21 - 3.5 = 17.5 cups."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Do the ratios 4/4 and 12/11 form a proportion?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Do the ratios 4/4 and 12/11 form a proportion?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-honors-003",
@@ -2287,36 +2280,35 @@
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "At a camp, 5 of every 8 campers swim. There are 200 campers. How many swim? If 5 more campers join and all of them swim, how many campers swim then?",
-   "answer": "130",
+   "prompt": "A recipe uses 3 cups of rice for 8 people. How many cups are needed for 16 people, and how many more cups is that than for 8 people? Give the number of extra cups.",
+   "answer": "3 cups",
    "options": [
     {
-     "text": "5",
+     "text": "2 cups",
      "correct": false
     },
     {
-     "text": "8",
+     "text": "6 cups",
      "correct": false
     },
     {
-     "text": "125",
+     "text": "16 cups",
      "correct": false
     },
     {
-     "text": "130",
+     "text": "3 cups",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "5/8 = s/200.",
-    "s = 5 × 200 ÷ 8 = 125.",
-    "125 + 5 = 130."
+    "Per person: 3 ÷ 8. For 16: 3 × 2 = 6 cups.",
+    "6 - 3 = 3 cups."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve the proportion: 5/8 = 25/n”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve the proportion: 5/8 = 25/n”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-honors-005",
@@ -2341,37 +2333,35 @@
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "On a map, 3 cm represents 8 km. How many km do 27 cm represent?",
-   "answer": "72 km",
+   "prompt": "A recipe uses 2 cups of rice for 4 people. How many cups are needed for 24 people, and how many more cups is that than for 4 people? Give the number of extra cups.",
+   "answer": "10 cups",
    "options": [
     {
-     "text": "8/9 km",
+     "text": "12 cups",
      "correct": false
     },
     {
-     "text": "27 km",
+     "text": "6 cups",
      "correct": false
     },
     {
-     "text": "75 km",
+     "text": "24 cups",
      "correct": false
     },
     {
-     "text": "72 km",
+     "text": "10 cups",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Set up a proportion: 3/8 = 27/d.",
-    "Find the scale factor or use cross products.",
-    "d = 72.",
-    "Answer: 72 km."
+    "Per person: 2 ÷ 4. For 24: 2 × 6 = 12 cups.",
+    "12 - 2 = 10 cups."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “On a map, 3 cm represents 8 km. How many km do 27 cm represent?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-honors-007",
@@ -2397,111 +2387,106 @@
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Do the ratios 1/7 and 2/14 form a proportion?",
-   "answer": "Yes",
+   "prompt": "At a camp, 5 of every 9 campers swim. There are 153 campers. How many swim? If 7 more campers join and all of them swim, how many campers swim then?",
+   "answer": "92",
    "solutionSteps": [
-    "Cross products: 1 × 14 = 14 and 7 × 2 = 14.",
-    "They are equal.",
-    "Yes"
+    "5/9 = s/153.",
+    "s = 5 × 153 ÷ 9 = 85.",
+    "85 + 7 = 92."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_is_prop). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Do the ratios 1/7 and 2/14 form a proportion?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-honors-009",
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "On a map, 2 cm represents 6 km. How many km do 20 cm represent?",
-   "answer": "60 km",
+   "prompt": "A recipe uses 2 cups of rice for 8 people. How many cups are needed for 16 people, and how many more cups is that than for 8 people? Give the number of extra cups.",
+   "answer": "2 cups",
    "options": [
     {
-     "text": "3/5 km",
+     "text": "16 cups",
      "correct": false
     },
     {
-     "text": "60 km",
+     "text": "8 cups",
+     "correct": false
+    },
+    {
+     "text": "4 cups",
+     "correct": false
+    },
+    {
+     "text": "2 cups",
      "correct": true
-    },
-    {
-     "text": "20 km",
-     "correct": false
-    },
-    {
-     "text": "62 km",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Set up a proportion: 2/6 = 20/d.",
-    "Find the scale factor or use cross products.",
-    "d = 60.",
-    "Answer: 60 km."
+    "Per person: 2 ÷ 8. For 16: 2 × 2 = 4 cups.",
+    "4 - 2 = 2 cups."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “On a map, 2 cm represents 6 km. How many km do 20 cm represent?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-honors-010",
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Solve the proportion: 11/3 = 33/n",
-   "answer": "n = 9",
+   "prompt": "At a camp, 3 of every 8 campers swim. There are 104 campers. How many swim? If 8 more campers join and all of them swim, how many campers swim then?",
+   "answer": "47",
    "solutionSteps": [
-    "Use cross products (or find the scale factor).",
-    "Cross products are equal.",
-    "Solve for n: n = 9.",
-    "Check: the cross products match."
+    "3/8 = s/104.",
+    "s = 3 × 104 ÷ 8 = 39.",
+    "39 + 8 = 47."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Solve the proportion: 11/3 = 33/n”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-honors-011",
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A car uses 8 gallons of gas to go 100 miles. How many gallons does it need to go 600 miles?",
-   "answer": "48 gallons",
+   "prompt": "A recipe uses 1 cups of rice for 6 people. How many cups are needed for 24 people, and how many more cups is that than for 6 people? Give the number of extra cups.",
+   "answer": "3 cups",
    "options": [
     {
-     "text": "4/3 gallons",
+     "text": "4 cups",
      "correct": false
     },
     {
-     "text": "48 gallons",
+     "text": "3 cups",
      "correct": true
     },
     {
-     "text": "68 gallons",
+     "text": "6 cups",
      "correct": false
     },
     {
-     "text": "56 gallons",
+     "text": "24 cups",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Set up a proportion: 8/100 = g/600.",
-    "Find the scale factor or use cross products.",
-    "g = 48.",
-    "Answer: 48 gallons."
+    "Per person: 1 ÷ 6. For 24: 1 × 4 = 4 cups.",
+    "4 - 1 = 3 cups."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A car uses 8 gallons of gas to go 100 miles. How many gallons does it ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-honors-012",
@@ -2545,37 +2530,36 @@
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A recipe uses 4 cups of flour for 8 muffins. How many cups are needed for 64 muffins?",
-   "answer": "32 cups",
+   "prompt": "At a camp, 3 of every 9 campers swim. There are 225 campers. How many swim? If 8 more campers join and all of them swim, how many campers swim then?",
+   "answer": "83",
    "options": [
     {
-     "text": "36 cups",
-     "correct": false
-    },
-    {
-     "text": "1/2 cups",
-     "correct": false
-    },
-    {
-     "text": "32 cups",
+     "text": "83",
      "correct": true
     },
     {
-     "text": "68 cups",
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "75",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Set up a proportion: 4/8 = c/64.",
-    "Find the scale factor or use cross products.",
-    "c = 32.",
-    "Answer: 32 cups."
+    "3/9 = s/225.",
+    "s = 3 × 225 ÷ 9 = 75.",
+    "75 + 8 = 83."
    ],
    "standards": [
     "7.RP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A recipe uses 4 cups of flour for 8 muffins. How many cups are needed ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s02-honors-014",
@@ -3742,17 +3726,16 @@
    "skillId": "ratios-proportions-percentages-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A floor plan uses the scale 1 in. : 6 ft. A room is 2.5 in. by 6 in. on the plan. What is the actual area of the room in square feet?",
-   "answer": "540",
+   "prompt": "A map scale is 1 cm : 15 km. Two towns are 7 cm apart on the map. A car drives at 60 km/h. How many hours does the trip take?",
+   "answer": "1.75 hours",
    "solutionSteps": [
-    "Actual length: 2.5 × 6 = 15 ft.",
-    "Actual width: 6 × 6 = 36 ft.",
-    "Area = 15 × 36 = 540 ft²."
+    "Actual distance: 7 × 15 = 105 km.",
+    "Time: 105 ÷ 60 = 1.75 hours."
    ],
    "standards": [
     "7.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A figure is enlarged or reduced so that a 10-inch side becomes 30 inch”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A figure is enlarged or reduced so that a 10-inch side becomes 30 inch”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s03-honors-004",
@@ -3811,35 +3794,34 @@
    "skillId": "ratios-proportions-percentages-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A floor plan uses the scale 1 in. : 6 ft. A room is 3.5 in. by 3 in. on the plan. What is the actual area of the room in square feet?",
-   "answer": "378",
+   "prompt": "A map scale is 1 cm : 12 km. Two towns are 25 cm apart on the map. A car drives at 80 km/h. How many hours does the trip take?",
+   "answer": "3.75 hours",
    "options": [
     {
-     "text": "21",
+     "text": "80 hours",
      "correct": false
     },
     {
-     "text": "18",
-     "correct": false
-    },
-    {
-     "text": "3",
-     "correct": false
-    },
-    {
-     "text": "378",
+     "text": "3.75 hours",
      "correct": true
+    },
+    {
+     "text": "300 hours",
+     "correct": false
+    },
+    {
+     "text": "12 hours",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Actual length: 3.5 × 6 = 21 ft.",
-    "Actual width: 3 × 6 = 18 ft.",
-    "Area = 21 × 18 = 378 ft²."
+    "Actual distance: 25 × 12 = 300 km.",
+    "Time: 300 ÷ 80 = 3.75 hours."
    ],
    "standards": [
     "7.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A figure is enlarged or reduced so that a 7-inch side becomes 28 inche”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A figure is enlarged or reduced so that a 7-inch side becomes 28 inche”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s03-honors-007",
@@ -3863,17 +3845,16 @@
    "skillId": "ratios-proportions-percentages-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A scale drawing uses the scale 1/2 in. : 4 ft. A bridge is 4 in. long on the drawing. How long is the actual bridge?",
-   "answer": "32 feet",
+   "prompt": "A map scale is 1 cm : 8 km. Two towns are 7.5 cm apart on the map. A car drives at 60 km/h. How many hours does the trip take?",
+   "answer": "1 hours",
    "solutionSteps": [
-    "Scale: 1/2 in. represents 4 ft, so 1 in. represents 8 ft.",
-    "x = 4 × 8.",
-    "x = 32 feet."
+    "Actual distance: 7.5 × 8 = 60 km.",
+    "Time: 60 ÷ 60 = 1 hours."
    ],
    "standards": [
     "7.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_scale). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A scale drawing uses the scale 1/2 in. : 4 ft. A bridge is 4 in. long ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s03-honors-009",
@@ -3914,35 +3895,35 @@
    "skillId": "ratios-proportions-percentages-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "The triangles are similar. The small one has sides 5 cm and 7 cm. The corresponding sides of the large one are 15 cm and x cm. Find x.",
-   "answer": "x = 21",
+   "prompt": "A floor plan uses the scale 1 in. : 8 ft. A room is 2.5 in. by 6 in. on the plan. What is the actual area of the room in square feet?",
+   "answer": "960",
    "options": [
     {
-     "text": "x = 15",
+     "text": "48",
      "correct": false
     },
     {
-     "text": "x = 7/3",
+     "text": "20",
      "correct": false
     },
     {
-     "text": "x = 17",
+     "text": "6",
      "correct": false
     },
     {
-     "text": "x = 21",
+     "text": "960",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Scale factor = 15 ÷ 5 = 3.",
-    "x = 7 × 3.",
-    "x = 21 cm."
+    "Actual length: 2.5 × 8 = 20 ft.",
+    "Actual width: 6 × 8 = 48 ft.",
+    "Area = 20 × 48 = 960 ft²."
    ],
    "standards": [
     "7.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_similar). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “The triangles are similar. The small one has sides 5 cm and 7 cm. The ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s03-honors-011",
@@ -3984,33 +3965,33 @@
    "skillId": "ratios-proportions-percentages-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A figure is enlarged or reduced so that a 12-inch side becomes 4 inches. What is the scale factor?",
-   "answer": "1/3",
+   "prompt": "A map scale is 1 cm : 16 km. Two towns are 10 cm apart on the map. A car drives at 40 km/h. How many hours does the trip take?",
+   "answer": "4 hours",
    "solutionSteps": [
-    "Scale factor = new length ÷ original length.",
-    "= 4 ÷ 12 = 1/3."
+    "Actual distance: 10 × 16 = 160 km.",
+    "Time: 160 ÷ 40 = 4 hours."
    ],
    "standards": [
     "7.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_factor). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A figure is enlarged or reduced so that a 12-inch side becomes 4 inche”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s03-honors-013",
    "skillId": "ratios-proportions-percentages-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "The triangles are similar. The small one has sides 7 cm and 10 cm. The corresponding sides of the large one are 21 cm and x cm. Find x.",
-   "answer": "x = 30",
+   "prompt": "A floor plan uses the scale 1 in. : 6 ft. A room is 2.5 in. by 6 in. on the plan. What is the actual area of the room in square feet?",
+   "answer": "540",
    "solutionSteps": [
-    "Scale factor = 21 ÷ 7 = 3.",
-    "x = 10 × 3.",
-    "x = 30 cm."
+    "Actual length: 2.5 × 6 = 15 ft.",
+    "Actual width: 6 × 6 = 36 ft.",
+    "Area = 15 × 36 = 540 ft²."
    ],
    "standards": [
     "7.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_similar). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “The triangles are similar. The small one has sides 7 cm and 10 cm. The”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s03-honors-014",
@@ -4109,32 +4090,31 @@
    "skillId": "ratios-proportions-percentages-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Rectangle R is 3 cm by 5 cm. Rectangle S is 7.5 cm by 13.5 cm. Is S the image of R under a dilation?",
-   "answer": "No",
+   "prompt": "A map scale is 1 cm : 7 km. Two towns are 12.5 cm apart on the map. A car drives at 70 km/h. How many hours does the trip take?",
+   "answer": "1.25 hours",
    "solutionSteps": [
-    "A dilation multiplies every length by the same scale factor.",
-    "7.5 ÷ 3 = 2.5 and 13.5 ÷ 5 = 2.7.",
-    "The ratios are not equal, so S is not a dilation of R."
+    "Actual distance: 12.5 × 7 = 87.5 km.",
+    "Time: 87.5 ÷ 70 = 1.25 hours."
    ],
    "standards": [
     "8.G.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_dilation_similar). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Rectangle R is 3 cm by 5 cm. Rectangle S is 7.5 cm by 13.5 cm. Is S th”); keys rechecked by verify_levels.py.",
    "options": [
     {
-     "text": "Yes; scale factor 2.5",
-     "correct": false
-    },
-    {
-     "text": "No",
+     "text": "1.25 hours",
      "correct": true
     },
     {
-     "text": "Yes; scale factor 4.5",
+     "text": "7 hours",
      "correct": false
     },
     {
-     "text": "Yes; scale factor 2/5",
+     "text": "87.5 hours",
+     "correct": false
+    },
+    {
+     "text": "70 hours",
      "correct": false
     }
    ]
@@ -6003,35 +5983,35 @@
    "skillId": "ratios-proportions-percentages-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Change 36% to a decimal, then use the decimal to find 36% of 100.",
-   "answer": "36",
+   "prompt": "Write 1/10 as a percent, then find that percent of 60.",
+   "answer": "6",
    "options": [
     {
-     "text": "9/25",
-     "correct": false
-    },
-    {
-     "text": "36",
+     "text": "6",
      "correct": true
     },
     {
-     "text": "100",
+     "text": "10",
      "correct": false
     },
     {
-     "text": "37",
+     "text": "1/10",
+     "correct": false
+    },
+    {
+     "text": "60",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "36% = 0.36.",
-    "0.36 × 100 = 36."
+    "1/10 = 10%.",
+    "10% of 60 = 6."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Write 18/25 as a percent.”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s05_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Write 18/25 as a percent.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s05-cp1-004",
@@ -6127,35 +6107,35 @@
    "skillId": "ratios-proportions-percentages-skill-05",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Change 85% to a decimal, then use the decimal to find 85% of 50.",
-   "answer": "42.5",
+   "prompt": "Write 1/4 as a percent, then find that percent of 40.",
+   "answer": "10",
    "options": [
     {
-     "text": "85",
-     "correct": false
-    },
-    {
-     "text": "50",
-     "correct": false
-    },
-    {
-     "text": "0.85",
-     "correct": false
-    },
-    {
-     "text": "42.5",
+     "text": "10",
      "correct": true
+    },
+    {
+     "text": "40",
+     "correct": false
+    },
+    {
+     "text": "25",
+     "correct": false
+    },
+    {
+     "text": "1/4",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "85% = 0.85.",
-    "0.85 × 50 = 42.5."
+    "1/4 = 25%.",
+    "25% of 40 = 10."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Write 0.85 as a percent.”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s05_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Write 0.85 as a percent.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s05-cp1-008",
@@ -6215,70 +6195,68 @@
    "skillId": "ratios-proportions-percentages-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write 1/25 as a percent.",
-   "answer": "4%",
+   "prompt": "Write 9/20 as a percent, then find that percent of 140.",
+   "answer": "63",
    "solutionSteps": [
-    "1/25 = 0.04.",
-    "Multiply by 100 and add %.",
-    "4%."
+    "9/20 = 45%.",
+    "45% of 140 = 63."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s05_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Write 1/25 as a percent.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s05-cp1-011",
    "skillId": "ratios-proportions-percentages-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write 7/10 as a percent.",
-   "answer": "70%",
+   "prompt": "Change 19% to a decimal, then use the decimal to find 19% of 60.",
+   "answer": "11.4",
    "solutionSteps": [
-    "7/10 = 0.7.",
-    "Multiply by 100 and add %.",
-    "70%."
+    "19% = 0.19.",
+    "0.19 × 60 = 11.4."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Write 7/10 as a percent.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s05-cp1-012",
    "skillId": "ratios-proportions-percentages-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write 0.64 as a percent.",
-   "answer": "64%",
+   "prompt": "Write 7/20 as a percent, then find that percent of 140.",
+   "answer": "49",
    "solutionSteps": [
-    "Move the decimal point two places to the right.",
-    "0.64 = 64%."
+    "7/20 = 35%.",
+    "35% of 140 = 49."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s05_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Write 0.64 as a percent.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s05-cp1-013",
    "skillId": "ratios-proportions-percentages-skill-05",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write 60% as a decimal.",
-   "answer": "0.6",
+   "prompt": "Change 44% to a decimal, then use the decimal to find 44% of 180.",
+   "answer": "79.2",
    "solutionSteps": [
-    "Divide by 100 (move the decimal point two places left).",
-    "60% = 0.6."
+    "44% = 0.44.",
+    "0.44 × 180 = 79.2."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Write 60% as a decimal.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s05-cp1-014",
@@ -6395,36 +6373,35 @@
    "skillId": "ratios-proportions-percentages-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Four classes reported the fraction of students who bike: 3/8, 0.4, 0.36, 35%. Write each as a percent. How many percentage points apart are the greatest and least values?",
-   "answer": "5",
+   "prompt": "Three stores take 3/10 off, 0.35 off and 26% off a $460 item. Write each as a percent. How many dollars is the biggest discount?",
+   "answer": "$161.00",
    "options": [
     {
-     "text": "35",
+     "text": "$460",
      "correct": false
     },
     {
-     "text": "5",
+     "text": "$35",
+     "correct": false
+    },
+    {
+     "text": "$26",
+     "correct": false
+    },
+    {
+     "text": "$161.00",
      "correct": true
-    },
-    {
-     "text": "9/25",
-     "correct": false
-    },
-    {
-     "text": "36",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "As percents: 3/8 = 37.5%, 0.4 = 40%, 0.36 = 36%, 35% = 35%.",
-    "Greatest 40%, least 35%.",
-    "Difference: 5 percentage points."
+    "3/10 = 30%, 0.35 = 35%, 26%.",
+    "Biggest: 35% of $460 = $161.00."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which value is greatest?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s05_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which value is greatest?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s05-honors-003",
@@ -6449,36 +6426,35 @@
    "skillId": "ratios-proportions-percentages-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Four classes reported the fraction of students who bike: 3/8, 35%, 0.4, 0.36. Write each as a percent. How many percentage points apart are the greatest and least values?",
-   "answer": "5",
+   "prompt": "Three stores take 2/5 off, 0.28 off and 24% off a $320 item. Write each as a percent. How many dollars is the biggest discount?",
+   "answer": "$128.00",
    "options": [
     {
-     "text": "5",
+     "text": "$28",
+     "correct": false
+    },
+    {
+     "text": "$320",
+     "correct": false
+    },
+    {
+     "text": "$128.00",
      "correct": true
     },
     {
-     "text": "40",
-     "correct": false
-    },
-    {
-     "text": "9/25",
-     "correct": false
-    },
-    {
-     "text": "36",
+     "text": "$24",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "As percents: 3/8 = 37.5%, 35% = 35%, 0.4 = 40%, 0.36 = 36%.",
-    "Greatest 40%, least 35%.",
-    "Difference: 5 percentage points."
+    "2/5 = 40%, 0.28 = 28%, 24%.",
+    "Biggest: 40% of $320 = $128.00."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which value is greatest?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s05_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which value is greatest?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s05-honors-005",
@@ -6593,122 +6569,123 @@
    "skillId": "ratios-proportions-percentages-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Which value is greatest?",
-   "answer": "4/5",
+   "prompt": "Three stores take 3/10 off, 0.15 off and 38% off a $100 item. Write each as a percent. How many dollars is the biggest discount?",
+   "answer": "$38.00",
    "options": [
     {
-     "text": "10%",
+     "text": "$0.15",
      "correct": false
     },
     {
-     "text": "3/8",
+     "text": "$100",
      "correct": false
     },
     {
-     "text": "0.45",
+     "text": "$15",
      "correct": false
     },
     {
-     "text": "4/5",
+     "text": "$38.00",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Convert each to a decimal.",
-    "10% = 0.1, 3/8 = 0.375, 0.45 = 0.45, 4/5 = 0.8.",
-    "Greatest: 4/5."
+    "3/10 = 30%, 0.15 = 15%, 38%.",
+    "Biggest: 38% of $100 = $38.00."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_greatest). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s05_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which value is greatest?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s05-honors-009",
    "skillId": "ratios-proportions-percentages-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write 0.1% as a decimal.",
-   "answer": "0.001",
+   "prompt": "Four classes reported the fraction of students who bike: 3/8, 35%, 0.36, 0.4. Write each as a percent. How many percentage points apart are the greatest and least values?",
+   "answer": "5",
    "solutionSteps": [
-    "Divide by 100 (move the decimal point two places left).",
-    "0.1% = 0.001."
+    "As percents: 3/8 = 37.5%, 35% = 35%, 0.36 = 36%, 0.4 = 40%.",
+    "Greatest 40%, least 35%.",
+    "Difference: 5 percentage points."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Write 0.1% as a decimal.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s05-honors-010",
    "skillId": "ratios-proportions-percentages-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write 0.5% as a fraction in simplest form.",
-   "answer": "1/200",
+   "prompt": "Three stores take 2/5 off, 0.28 off and 38% off a $180 item. Write each as a percent. How many dollars is the biggest discount?",
+   "answer": "$72.00",
    "solutionSteps": [
-    "0.5% = 0.5/100.",
-    "Simplify.",
-    "= 1/200."
+    "2/5 = 40%, 0.28 = 28%, 38%.",
+    "Biggest: 40% of $180 = $72.00."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s05_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Write 0.5% as a fraction in simplest form.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s05-honors-011",
    "skillId": "ratios-proportions-percentages-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write 3.31 as a percent.",
-   "answer": "331%",
+   "prompt": "Four classes reported the fraction of students who bike: 3/8, 35%, 0.4, 0.36. Write each as a percent. How many percentage points apart are the greatest and least values?",
+   "answer": "5",
    "solutionSteps": [
-    "Move the decimal point two places to the right.",
-    "3.31 = 331%."
+    "As percents: 3/8 = 37.5%, 35% = 35%, 0.4 = 40%, 0.36 = 36%.",
+    "Greatest 40%, least 35%.",
+    "Difference: 5 percentage points."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Write 3.31 as a percent.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s05-honors-012",
    "skillId": "ratios-proportions-percentages-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write 0.3% as a decimal.",
-   "answer": "0.003",
+   "prompt": "Three stores take 2/5 off, 0.28 off and 38% off a $240 item. Write each as a percent. How many dollars is the biggest discount?",
+   "answer": "$96.00",
    "solutionSteps": [
-    "Divide by 100 (move the decimal point two places left).",
-    "0.3% = 0.003."
+    "2/5 = 40%, 0.28 = 28%, 38%.",
+    "Biggest: 40% of $240 = $96.00."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s05_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Write 0.3% as a decimal.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s05-honors-013",
    "skillId": "ratios-proportions-percentages-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write 212% as a decimal.",
-   "answer": "2.12",
+   "prompt": "Four classes reported the fraction of students who bike: 3/8, 0.36, 35%, 0.4. Write each as a percent. How many percentage points apart are the greatest and least values?",
+   "answer": "5",
    "solutionSteps": [
-    "Divide by 100 (move the decimal point two places left).",
-    "212% = 2.12."
+    "As percents: 3/8 = 37.5%, 0.36 = 36%, 35% = 35%, 0.4 = 40%.",
+    "Greatest 40%, least 35%.",
+    "Difference: 5 percentage points."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.NS.A.2d"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_convert). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Write 212% as a decimal.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s05-honors-014",
@@ -7553,36 +7530,35 @@
    "skillId": "ratios-proportions-percentages-skill-06",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A team won 104 of its 260 games. What percent of its games did it win?",
-   "answer": "40%",
+   "prompt": "11 students, which is 25% of the grade, signed up for band. How many students in the grade did not sign up?",
+   "answer": "33",
    "options": [
     {
-     "text": "65%",
+     "text": "11",
      "correct": false
     },
     {
-     "text": "2.5%",
+     "text": "44",
      "correct": false
     },
     {
-     "text": "40%",
+     "text": "33",
      "correct": true
     },
     {
-     "text": "104%",
+     "text": "1/4",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Identify the part, the whole, and the percent.",
-    "Use the proportion: part divided by whole equals percent divided by 100.",
-    "Answer: 40%."
+    "Whole: 11 ÷ 0.25 = 44.",
+    "Not signed up: 44 - 11 = 33."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A team won 104 of its 260 games. What percent of its games did it win?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s06-cp1-013",
@@ -7735,18 +7711,17 @@
    "skillId": "ratios-proportions-percentages-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "In a survey of 250 students, 30% play a sport. Of those, 25% play soccer. How many students play soccer?",
-   "answer": "18.8",
+   "prompt": "A shirt is 10% off, and then an extra 10% is taken off the sale price. What single percent discount is that?",
+   "answer": "19%",
    "solutionSteps": [
-    "30% of 250 = 75 students play a sport.",
-    "25% of 75 = 18.8.",
-    "18.8 students play soccer."
+    "You pay 90% and then 90% of that: 0.9 × 0.9 = 0.81.",
+    "Discount: 100% - 81% = 19%."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “What percent of 260 is 312?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s06_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “What percent of 260 is 312?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s06-honors-003",
@@ -7789,36 +7764,35 @@
    "skillId": "ratios-proportions-percentages-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "In a survey of 500 students, 30% play a sport. Of those, 25% play soccer. How many students play soccer?",
-   "answer": "37.5",
+   "prompt": "A shirt is 20% off, and then an extra 10% is taken off the sale price. What single percent discount is that?",
+   "answer": "28%",
    "options": [
     {
-     "text": "25",
+     "text": "72%",
      "correct": false
     },
     {
-     "text": "150",
-     "correct": false
-    },
-    {
-     "text": "500",
-     "correct": false
-    },
-    {
-     "text": "37.5",
+     "text": "28%",
      "correct": true
+    },
+    {
+     "text": "18/25%",
+     "correct": false
+    },
+    {
+     "text": "100%",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "30% of 500 = 150 students play a sport.",
-    "25% of 150 = 37.5.",
-    "37.5 students play soccer."
+    "You pay 80% and then 90% of that: 0.8 × 0.9 = 0.72.",
+    "Discount: 100% - 72% = 28%."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “What percent of 24 is 3?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s06_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “What percent of 24 is 3?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s06-honors-005",
@@ -7843,216 +7817,212 @@
    "skillId": "ratios-proportions-percentages-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "What percent of 560 is 70?",
-   "answer": "12.5%",
+   "prompt": "A shirt is 30% off, and then an extra 50% is taken off the sale price. What single percent discount is that?",
+   "answer": "65%",
    "options": [
     {
-     "text": "0.125%",
+     "text": "35%",
      "correct": false
     },
     {
-     "text": "70%",
-     "correct": false
-    },
-    {
-     "text": "800%",
-     "correct": false
-    },
-    {
-     "text": "12.5%",
+     "text": "65%",
      "correct": true
+    },
+    {
+     "text": "100%",
+     "correct": false
+    },
+    {
+     "text": "7/20%",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Proportion: n/100 = 70/560.",
-    "n = 70 × 100 ÷ 560.",
-    "n = 12.5%."
+    "You pay 70% and then 50% of that: 0.7 × 0.5 = 0.35.",
+    "Discount: 100% - 35% = 65%."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s06_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “What percent of 560 is 70?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s06-honors-007",
    "skillId": "ratios-proportions-percentages-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "7 is 2.5% of what number?",
-   "answer": "280",
+   "prompt": "In a survey of 600 students, 30% play a sport. Of those, 45% play soccer. How many students play soccer?",
+   "answer": "81",
    "solutionSteps": [
-    "Proportion: 2.5/100 = 7/n.",
-    "n = 7 × 100 ÷ 2.5.",
-    "n = 280."
+    "30% of 600 = 180 students play a sport.",
+    "45% of 180 = 81.",
+    "81 students play soccer."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “7 is 2.5% of what number?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s06-honors-008",
    "skillId": "ratios-proportions-percentages-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "What is 120% of 96?",
-   "answer": "115.2",
+   "prompt": "A shirt is 25% off, and then an extra 25% is taken off the sale price. What single percent discount is that?",
+   "answer": "43.75%",
    "options": [
     {
-     "text": "1152",
-     "correct": false
-    },
-    {
-     "text": "0.8",
-     "correct": false
-    },
-    {
-     "text": "115.2",
+     "text": "43.75%",
      "correct": true
     },
     {
-     "text": "11520",
+     "text": "100%",
+     "correct": false
+    },
+    {
+     "text": "0.56%",
+     "correct": false
+    },
+    {
+     "text": "56.25%",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Write a proportion: 120/100 = n/96.",
-    "n = 120 × 96 ÷ 100.",
-    "n = 115.2."
+    "You pay 75% and then 75% of that: 0.75 × 0.75 = 0.56.",
+    "Discount: 100% - 56.25% = 43.75%."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s06_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “What is 120% of 96?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s06-honors-009",
    "skillId": "ratios-proportions-percentages-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "16 is 8% of what number?",
-   "answer": "200",
+   "prompt": "In a survey of 400 students, 60% play a sport. Of those, 25% play soccer. How many students play soccer?",
+   "answer": "60",
    "solutionSteps": [
-    "Proportion: 8/100 = 16/n.",
-    "n = 16 × 100 ÷ 8.",
-    "n = 200."
+    "60% of 400 = 240 students play a sport.",
+    "25% of 240 = 60.",
+    "60 students play soccer."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “16 is 8% of what number?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s06-honors-010",
    "skillId": "ratios-proportions-percentages-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "7.7 is 17.5% of what number?",
-   "answer": "44",
+   "prompt": "A shirt is 40% off, and then an extra 20% is taken off the sale price. What single percent discount is that?",
+   "answer": "52%",
    "options": [
     {
-     "text": "44",
+     "text": "52%",
      "correct": true
     },
     {
-     "text": "134.75",
+     "text": "48%",
      "correct": false
     },
     {
-     "text": "1.3475",
+     "text": "12/25%",
      "correct": false
     },
     {
-     "text": "25.2",
+     "text": "100%",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Proportion: 17.5/100 = 7.7/n.",
-    "n = 7.7 × 100 ÷ 17.5.",
-    "n = 44."
+    "You pay 60% and then 80% of that: 0.6 × 0.8 = 0.48.",
+    "Discount: 100% - 48% = 52%."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s06_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “7.7 is 17.5% of what number?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s06-honors-011",
    "skillId": "ratios-proportions-percentages-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "What is 175% of 120?",
-   "answer": "210",
+   "prompt": "In a survey of 250 students, 40% play a sport. Of those, 25% play soccer. How many students play soccer?",
+   "answer": "25",
    "solutionSteps": [
-    "Write a proportion: 175/100 = n/120.",
-    "n = 175 × 120 ÷ 100.",
-    "n = 210."
+    "40% of 250 = 100 students play a sport.",
+    "25% of 100 = 25.",
+    "25 students play soccer."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “What is 175% of 120?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s06-honors-012",
    "skillId": "ratios-proportions-percentages-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "What percent of 420 is 73.5?",
-   "answer": "17.5%",
+   "prompt": "A shirt is 20% off, and then an extra 50% is taken off the sale price. What single percent discount is that?",
+   "answer": "60%",
    "solutionSteps": [
-    "Proportion: n/100 = 73.5/420.",
-    "n = 73.5 × 100 ÷ 420.",
-    "n = 17.5%."
+    "You pay 80% and then 50% of that: 0.8 × 0.5 = 0.4.",
+    "Discount: 100% - 40% = 60%."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s06_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “What percent of 420 is 73.5?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s06-honors-013",
    "skillId": "ratios-proportions-percentages-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "What is 8% of 32?",
-   "answer": "2.56",
+   "prompt": "In a survey of 500 students, 60% play a sport. Of those, 25% play soccer. How many students play soccer?",
+   "answer": "75",
    "options": [
     {
-     "text": "2.56",
+     "text": "300",
+     "correct": false
+    },
+    {
+     "text": "25",
+     "correct": false
+    },
+    {
+     "text": "75",
      "correct": true
     },
     {
-     "text": "25.6",
-     "correct": false
-    },
-    {
-     "text": "4",
-     "correct": false
-    },
-    {
-     "text": "256",
+     "text": "500",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Write a proportion: 8/100 = n/32.",
-    "n = 8 × 32 ÷ 100.",
-    "n = 2.56."
+    "60% of 500 = 300 students play a sport.",
+    "25% of 300 = 75.",
+    "75 students play soccer."
    ],
    "standards": [
     "6.RP.A.3c",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_percent). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “What is 8% of 32?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s06-honors-014",
@@ -8689,29 +8659,29 @@
    "skillId": "ratios-proportions-percentages-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Write and solve an equation: What number is 5% more than 72?",
-   "answer": "n = 75.6",
+   "prompt": "Write and solve an equation: What number is 25% more than 80?",
+   "answer": "n = 100",
    "options": [
     {
-     "text": "n = 5",
-     "correct": false
-    },
-    {
-     "text": "n = 75.6",
+     "text": "n = 100",
      "correct": true
     },
     {
-     "text": "n = 72",
+     "text": "n = 25",
      "correct": false
     },
     {
-     "text": "n = 3.6",
+     "text": "n = 80",
+     "correct": false
+    },
+    {
+     "text": "n = 20",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "5% of 72 = 3.6.",
-    "n = 72 + 3.6 = 75.6."
+    "25% of 80 = 20.",
+    "n = 80 + 20 = 100."
    ],
    "standards": [
     "7.RP.A.3",
@@ -8795,29 +8765,29 @@
    "skillId": "ratios-proportions-percentages-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Write and solve an equation: What number is 15% more than 64?",
-   "answer": "n = 73.6",
+   "prompt": "Write and solve an equation: What number is 15% more than 40?",
+   "answer": "n = 46",
    "options": [
     {
-     "text": "n = 9.6",
-     "correct": false
-    },
-    {
-     "text": "n = 64",
-     "correct": false
-    },
-    {
-     "text": "n = 73.6",
+     "text": "n = 46",
      "correct": true
+    },
+    {
+     "text": "n = 40",
+     "correct": false
     },
     {
      "text": "n = 15",
      "correct": false
+    },
+    {
+     "text": "n = 6",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "15% of 64 = 9.6.",
-    "n = 64 + 9.6 = 73.6."
+    "15% of 40 = 6.",
+    "n = 40 + 6 = 46."
    ],
    "standards": [
     "7.RP.A.3",
@@ -8901,36 +8871,35 @@
    "skillId": "ratios-proportions-percentages-skill-07",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Write and solve an equation: 32 is 20% of what number?",
-   "answer": "n = 160",
+   "prompt": "Write and solve an equation: What number is 30% more than 72?",
+   "answer": "n = 93.6",
    "options": [
     {
-     "text": "n = 160",
+     "text": "n = 93.6",
      "correct": true
     },
     {
-     "text": "n = 1.6",
+     "text": "n = 30",
      "correct": false
     },
     {
-     "text": "n = 640",
+     "text": "n = 72",
      "correct": false
     },
     {
-     "text": "n = 6.4",
+     "text": "n = 21.6",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Equation: 32 = 0.2n.",
-    "Divide both sides by 0.2.",
-    "n = 160."
+    "30% of 72 = 21.6.",
+    "n = 72 + 21.6 = 93.6."
    ],
    "standards": [
     "7.RP.A.3",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_equation). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Write and solve an equation: 32 is 20% of what number?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s07-cp1-012",
@@ -8955,18 +8924,17 @@
    "skillId": "ratios-proportions-percentages-skill-07",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Write and solve an equation: What is 20% of 44?",
-   "answer": "n = 8.8",
+   "prompt": "Write and solve an equation: What number is 40% more than 80?",
+   "answer": "n = 112",
    "solutionSteps": [
-    "Write the percent as a decimal: 20% = 0.2.",
-    "Equation: n = 0.2 × 44.",
-    "n = 8.8."
+    "40% of 80 = 32.",
+    "n = 80 + 32 = 112."
    ],
    "standards": [
     "7.RP.A.3",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_equation). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Write and solve an equation: What is 20% of 44?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s07-cp1-014",
@@ -9084,36 +9052,35 @@
    "skillId": "ratios-proportions-percentages-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A $36 game is 10% off, and then 7% sales tax is added to the sale price. Write and solve equations to find the final cost to the nearest cent.",
-   "answer": "$34.67",
+   "prompt": "A store marks up a $46 jacket by 10%, and then 5% sales tax is added. Write and solve equations to find the total cost. Round to the nearest cent.",
+   "answer": "$53.13",
    "options": [
     {
-     "text": "$7",
+     "text": "$1.05",
      "correct": false
     },
     {
-     "text": "$32.4",
-     "correct": false
-    },
-    {
-     "text": "$2.27",
-     "correct": false
-    },
-    {
-     "text": "$34.67",
+     "text": "$53.13",
      "correct": true
+    },
+    {
+     "text": "$1.1",
+     "correct": false
+    },
+    {
+     "text": "$50.6",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Sale price: 36 × 9/10 = $32.40.",
-    "Tax: 7% of $32.40 = $2.27.",
-    "Final cost: $34.67."
+    "Marked-up price: 46 × 1.1 = 50.6.",
+    "With tax: 50.6 × 1.05 ≈ $53.13."
    ],
    "standards": [
     "7.RP.A.3",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Quinn's restaurant bill is $47.19. Quinn leaves a 20% tip. How much is”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Quinn's restaurant bill is $47.19. Quinn leaves a 20% tip. How much is”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s07-honors-003",
@@ -9174,18 +9141,17 @@
    "skillId": "ratios-proportions-percentages-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A $36 game is 15% off, and then 6.25% sales tax is added to the sale price. Write and solve equations to find the final cost to the nearest cent.",
-   "answer": "$32.51",
+   "prompt": "A store marks up a $44 jacket by 25%, and then 8% sales tax is added. Write and solve equations to find the total cost. Round to the nearest cent.",
+   "answer": "$59.40",
    "solutionSteps": [
-    "Sale price: 36 × 17/20 = $30.60.",
-    "Tax: 6.25% of $30.60 = $1.91.",
-    "Final cost: $32.51."
+    "Marked-up price: 44 × 1.25 = 55.",
+    "With tax: 55 × 1.08 ≈ $59.40."
    ],
    "standards": [
     "7.RP.A.3",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Write and solve an equation: 8.4 is 7.5% of what number?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Write and solve an equation: 8.4 is 7.5% of what number?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s07-honors-006",
@@ -9228,36 +9194,35 @@
    "skillId": "ratios-proportions-percentages-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Write and solve an equation: What is 3% of 148?",
-   "answer": "n = 4.44",
+   "prompt": "A store marks up a $28 jacket by 10%, and then 7% sales tax is added. Write and solve equations to find the total cost. Round to the nearest cent.",
+   "answer": "$32.96",
    "options": [
     {
-     "text": "n = 444",
+     "text": "$1.07",
      "correct": false
     },
     {
-     "text": "n = 44.4",
+     "text": "$30.8",
      "correct": false
     },
     {
-     "text": "n = 6.44",
+     "text": "$1.1",
      "correct": false
     },
     {
-     "text": "n = 4.44",
+     "text": "$32.96",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Write the percent as a decimal: 3% = 0.03.",
-    "Equation: n = 0.03 × 148.",
-    "n = 4.44."
+    "Marked-up price: 28 × 1.1 = 30.8.",
+    "With tax: 30.8 × 1.07 ≈ $32.96."
    ],
    "standards": [
     "7.RP.A.3",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_equation). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Write and solve an equation: What is 3% of 148?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s07-honors-008",
@@ -9282,18 +9247,18 @@
    "skillId": "ratios-proportions-percentages-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write and solve an equation: What is 115% of 116?",
-   "answer": "n = 133.4",
+   "prompt": "A $24 game is 15% off, and then 7% sales tax is added to the sale price. Write and solve equations to find the final cost to the nearest cent.",
+   "answer": "$21.83",
    "solutionSteps": [
-    "Write the percent as a decimal: 115% = 1.15.",
-    "Equation: n = 1.15 × 116.",
-    "n = 133.4."
+    "Sale price: 24 × 17/20 = $20.40.",
+    "Tax: 7% of $20.40 = $1.43.",
+    "Final cost: $21.83."
    ],
    "standards": [
     "7.RP.A.3",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_equation). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Write and solve an equation: What is 115% of 116?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s07-honors-010",
@@ -9336,36 +9301,35 @@
    "skillId": "ratios-proportions-percentages-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Write and solve an equation: 320 is 250% of what number?",
-   "answer": "n = 128",
+   "prompt": "A store marks up a $83 jacket by 25%, and then 5% sales tax is added. Write and solve equations to find the total cost. Round to the nearest cent.",
+   "answer": "$108.94",
    "options": [
     {
-     "text": "n = 128",
+     "text": "$1.25",
+     "correct": false
+    },
+    {
+     "text": "$103.75",
+     "correct": false
+    },
+    {
+     "text": "$108.94",
      "correct": true
     },
     {
-     "text": "n = 1.28",
-     "correct": false
-    },
-    {
-     "text": "n = 80000",
-     "correct": false
-    },
-    {
-     "text": "n = 800",
+     "text": "$1.05",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Equation: 320 = 2.5n.",
-    "Divide both sides by 2.5.",
-    "n = 128."
+    "Marked-up price: 83 × 1.25 = 103.75.",
+    "With tax: 103.75 × 1.05 ≈ $108.94."
    ],
    "standards": [
     "7.RP.A.3",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_equation). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Write and solve an equation: 320 is 250% of what number?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s07-honors-012",
@@ -9390,38 +9354,35 @@
    "skillId": "ratios-proportions-percentages-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Write and solve an equation: 5.7 is 7.5% of what number?",
-   "answer": "n = 76",
+   "prompt": "A $75 game is 15% off, and then 6.25% sales tax is added to the sale price. Write and solve equations to find the final cost to the nearest cent.",
+   "answer": "$67.73",
    "solutionSteps": [
-    "Equation: 5.7 = 0.075n.",
-    "Divide both sides by 0.075.",
-    "n = 76."
+    "Sale price: 75 × 17/20 = $63.75.",
+    "Tax: 6.25% of $63.75 = $3.98.",
+    "Final cost: $67.73."
    ],
    "standards": [
     "7.RP.A.3",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_equation). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Write and solve an equation: 5.7 is 7.5% of what number?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s07-honors-014",
    "skillId": "ratios-proportions-percentages-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Jamal answered this problem incorrectly.\nWrite and solve an equation: What is 115% of 56?\nJamal's answer: n = 6440\nIdentify the mistake and give the correct answer.",
-   "answer": "n = 64.4",
+   "prompt": "A store marks up a $43 jacket by 30%, and then 6% sales tax is added. Write and solve equations to find the total cost. Round to the nearest cent.",
+   "answer": "$59.25",
    "solutionSteps": [
-    "Mistake: Did not change the percent to a decimal.",
-    "Write the percent as a decimal: 115% = 1.15.",
-    "Equation: n = 1.15 × 56.",
-    "n = 64.4.",
-    "The correct answer is n = 64.4, not n = 6440."
+    "Marked-up price: 43 × 1.3 = 55.9.",
+    "With tax: 55.9 × 1.06 ≈ $59.25."
    ],
    "standards": [
     "7.RP.A.3",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_equation_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Jamal answered this problem incorrectly. Write and solve an equation: ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s07-honors-015",
@@ -9956,8 +9917,8 @@
    "prompt": "A price of $200 rises 50% and then the new price falls 10%. What is the final price?",
    "answer": "$270.00",
    "solutionSteps": [
-    "Rise: $200 × 1.5 = $300.",
-    "Fall: $300 × 0.9 = $270.00."
+    "Rise: $200 × 1.5 = $300.00.",
+    "Fall: $300.00 × 0.9 = $270.00."
    ],
    "standards": [
     "7.RP.A.3"
@@ -9969,7 +9930,7 @@
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A price of $130 rises 20% and then the new price falls 20%. What is the final price?",
+   "prompt": "A price of $130 falls 20% and then the new price rises 20%. What is the final price?",
    "answer": "$124.80",
    "options": [
     {
@@ -9977,42 +9938,42 @@
      "correct": true
     },
     {
-     "text": "$156",
-     "correct": false
-    },
-    {
-     "text": "$1.2",
+     "text": "$104",
      "correct": false
     },
     {
      "text": "$0.8",
      "correct": false
+    },
+    {
+     "text": "$1.2",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Rise: $130 × 1.2 = $156.",
-    "Fall: $156 × 0.8 = $124.80."
+    "Fall: $130 × 0.8 = $104.00.",
+    "Rise: $104.00 × 1.2 = $124.80."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A value changes from 180 to 225. Find the percent of change and say wh”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A value changes from 180 to 225. Find the percent of change and say wh”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-003",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A price of $80 rises 25% and then the new price falls 50%. What is the final price?",
-   "answer": "$50.00",
+   "prompt": "A town of 5,200 people grows 25% one year and 15% the next year. What is the population after the two years? Round to the nearest whole number.",
+   "answer": "7,475",
    "solutionSteps": [
-    "Rise: $80 × 1.25 = $100.",
-    "Fall: $100 × 0.5 = $50.00."
+    "After year 1: 5200 × 1.25 = 6500.",
+    "After year 2: × 1.15 = 7475 ≈ 7,475."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A value changes from 80 to 96. Find the percent of change and say whet”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t2). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A value changes from 80 to 96. Find the percent of change and say whet”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-004",
@@ -10040,8 +10001,8 @@
     }
    ],
    "solutionSteps": [
-    "Rise: $70 × 1.1 = $77.",
-    "Fall: $77 × 0.5 = $38.50."
+    "Rise: $70 × 1.1 = $77.00.",
+    "Fall: $77.00 × 0.5 = $38.50."
    ],
    "standards": [
     "7.RP.A.3"
@@ -10053,224 +10014,216 @@
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A price of $140 rises 50% and then the new price falls 20%. What is the final price?",
-   "answer": "$168.00",
+   "prompt": "A price of $140 falls 50% and then the new price rises 20%. What is the final price?",
+   "answer": "$84.00",
    "solutionSteps": [
-    "Rise: $140 × 1.5 = $210.",
-    "Fall: $210 × 0.8 = $168.00."
+    "Fall: $140 × 0.5 = $70.00.",
+    "Rise: $70.00 × 1.2 = $84.00."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A value changes from 100 to 120. Find the percent of change and say wh”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A value changes from 100 to 120. Find the percent of change and say wh”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-006",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A value changes from 640 to 320. Find the percent of change and say whether it is an increase or a decrease.",
-   "answer": "50% decrease",
+   "prompt": "A town of 14,000 people grows 15% one year and 25% the next year. What is the population after the two years? Round to the nearest whole number.",
+   "answer": "20,125",
    "options": [
     {
-     "text": "50% decrease",
+     "text": "5/4",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "20,125",
      "correct": true
     },
     {
-     "text": "100% decrease",
-     "correct": false
-    },
-    {
-     "text": "50% increase",
-     "correct": false
-    },
-    {
-     "text": "320% decrease",
+     "text": "16,100",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Amount of change: |320 - 640| = 320.",
-    "Divide by the ORIGINAL amount: 320 ÷ 640 = 0.5.",
-    "50% decrease."
+    "After year 1: 14000 × 1.15 = 16100.",
+    "After year 2: × 1.25 = 20125 ≈ 20,125."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_change). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t2). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A value changes from 640 to 320. Find the percent of change and say wh”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-007",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A value changes from 270 to 94.5. Find the percent of change and say whether it is an increase or a decrease.",
-   "answer": "65% decrease",
+   "prompt": "A price of $40 rises 20% and then the new price falls 20%. What is the final price?",
+   "answer": "$38.40",
    "solutionSteps": [
-    "Amount of change: |94.5 - 270| = 175.5.",
-    "Divide by the ORIGINAL amount: 175.5 ÷ 270 = 0.65.",
-    "65% decrease."
+    "Rise: $40 × 1.2 = $48.00.",
+    "Fall: $48.00 × 0.8 = $38.40."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_change). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A value changes from 270 to 94.5. Find the percent of change and say w”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-008",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A value changes from 95 to 147.25. Find the percent of change and say whether it is an increase or a decrease.",
-   "answer": "55% increase",
+   "prompt": "A price of $110 falls 10% and then the new price rises 20%. What is the final price?",
+   "answer": "$118.80",
    "options": [
     {
-     "text": "55% decrease",
+     "text": "$0.9",
      "correct": false
     },
     {
-     "text": "35.5% increase",
+     "text": "$1.2",
      "correct": false
     },
     {
-     "text": "55% increase",
+     "text": "$99",
+     "correct": false
+    },
+    {
+     "text": "$118.80",
      "correct": true
-    },
-    {
-     "text": "52.25% increase",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Amount of change: |147.25 - 95| = 52.25.",
-    "Divide by the ORIGINAL amount: 52.25 ÷ 95 = 0.55.",
-    "55% increase."
+    "Fall: $110 × 0.9 = $99.00.",
+    "Rise: $99.00 × 1.2 = $118.80."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_change). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A value changes from 95 to 147.25. Find the percent of change and say ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-009",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A value changes from 680 to 850. Find the percent of change and say whether it is an increase or a decrease.",
-   "answer": "25% increase",
+   "prompt": "A town of 15,600 people grows 5% one year and 5% the next year. What is the population after the two years? Round to the nearest whole number.",
+   "answer": "17,199",
    "solutionSteps": [
-    "Amount of change: |850 - 680| = 170.",
-    "Divide by the ORIGINAL amount: 170 ÷ 680 = 0.25.",
-    "25% increase."
+    "After year 1: 15600 × 1.05 = 16380.",
+    "After year 2: × 1.05 = 17199 ≈ 17,199."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_change). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t2). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A value changes from 680 to 850. Find the percent of change and say wh”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-010",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A value changes from 120 to 204. Find the percent of change and say whether it is an increase or a decrease.",
-   "answer": "70% increase",
+   "prompt": "A price of $160 rises 25% and then the new price falls 20%. What is the final price?",
+   "answer": "$160.00",
    "options": [
     {
-     "text": "84% increase",
-     "correct": false
-    },
-    {
-     "text": "70% decrease",
-     "correct": false
-    },
-    {
-     "text": "41.2% increase",
-     "correct": false
-    },
-    {
-     "text": "70% increase",
+     "text": "$160.00",
      "correct": true
+    },
+    {
+     "text": "$1.25",
+     "correct": false
+    },
+    {
+     "text": "$0.8",
+     "correct": false
+    },
+    {
+     "text": "$200",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Amount of change: |204 - 120| = 84.",
-    "Divide by the ORIGINAL amount: 84 ÷ 120 = 0.7.",
-    "70% increase."
+    "Rise: $160 × 1.25 = $200.00.",
+    "Fall: $200.00 × 0.8 = $160.00."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_change). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A value changes from 120 to 204. Find the percent of change and say wh”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-011",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A value changes from 140 to 259. Find the percent of change and say whether it is an increase or a decrease.",
-   "answer": "85% increase",
+   "prompt": "A price of $200 falls 25% and then the new price rises 25%. What is the final price?",
+   "answer": "$187.50",
    "solutionSteps": [
-    "Amount of change: |259 - 140| = 119.",
-    "Divide by the ORIGINAL amount: 119 ÷ 140 = 0.85.",
-    "85% increase."
+    "Fall: $200 × 0.75 = $150.00.",
+    "Rise: $150.00 × 1.25 = $187.50."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_change). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A value changes from 140 to 259. Find the percent of change and say wh”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-012",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A value changes from 95 to 14.25. Find the percent of change and say whether it is an increase or a decrease.",
-   "answer": "85% decrease",
+   "prompt": "A town of 16,000 people grows 15% one year and 15% the next year. What is the population after the two years? Round to the nearest whole number.",
+   "answer": "21,160",
    "options": [
     {
-     "text": "85% decrease",
+     "text": "18,400",
+     "correct": false
+    },
+    {
+     "text": "21,160",
      "correct": true
     },
     {
-     "text": "566.7% decrease",
+     "text": "23/20",
      "correct": false
     },
     {
-     "text": "80.75% decrease",
-     "correct": false
-    },
-    {
-     "text": "85% increase",
+     "text": "2",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Amount of change: |14.25 - 95| = 80.75.",
-    "Divide by the ORIGINAL amount: 80.75 ÷ 95 = 0.85.",
-    "85% decrease."
+    "After year 1: 16000 × 1.15 = 18400.",
+    "After year 2: × 1.15 = 21160 ≈ 21,160."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_change). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t2). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A value changes from 95 to 14.25. Find the percent of change and say w”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-013",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A value changes from 100 to 90. Find the percent of change and say whether it is an increase or a decrease.",
-   "answer": "10% decrease",
+   "prompt": "A price of $80 rises 10% and then the new price falls 10%. What is the final price?",
+   "answer": "$79.20",
    "solutionSteps": [
-    "Amount of change: |90 - 100| = 10.",
-    "Divide by the ORIGINAL amount: 10 ÷ 100 = 0.1.",
-    "10% decrease."
+    "Rise: $80 × 1.1 = $88.00.",
+    "Fall: $88.00 × 0.9 = $79.20."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_change). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A value changes from 100 to 90. Find the percent of change and say whe”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-014",
@@ -11273,34 +11226,34 @@
    "skillId": "ratios-proportions-percentages-skill-09",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A $81.40 item is on sale for 10% off. Sales tax of 6% is added to the sale price. What is the total cost? Round to the nearest cent.",
-   "answer": "$77.66",
+   "prompt": "A meal costs $18.17. Sales tax of 6% is added, and a 20% tip is figured on the price before tax. What is the total? Round to the nearest cent.",
+   "answer": "$22.89",
    "options": [
     {
-     "text": "$1.06",
+     "text": "$3.634",
      "correct": false
     },
     {
-     "text": "$73.26",
+     "text": "$20",
      "correct": false
     },
     {
-     "text": "$0.9",
+     "text": "$1.0902",
      "correct": false
     },
     {
-     "text": "$77.66",
+     "text": "$22.89",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Sale price: $81.40 × 0.9 = $73.26.",
-    "With tax: $73.26 × 1.06 ≈ $77.66."
+    "Tax: 6% of 18.17 = 1.0902. Tip: 20% of 18.17 = 3.634.",
+    "Total: 18.17 + 1.0902 + 3.634 ≈ $22.89."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A $51.99 item is on sale for 40% off. What is the sale price?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s09_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A $51.99 item is on sale for 40% off. What is the sale price?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s09-cp1-004",
@@ -11323,16 +11276,16 @@
    "skillId": "ratios-proportions-percentages-skill-09",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A $87.97 item is on sale for 20% off. Sales tax of 7% is added to the sale price. What is the total cost? Round to the nearest cent.",
-   "answer": "$75.30",
+   "prompt": "A meal costs $40.64. Sales tax of 8% is added, and an 18% tip is figured on the price before tax. What is the total? Round to the nearest cent.",
+   "answer": "$51.21",
    "solutionSteps": [
-    "Sale price: $87.97 × 0.8 = $70.38.",
-    "With tax: $70.38 × 1.07 ≈ $75.30."
+    "Tax: 8% of 40.64 = 3.2512. Tip: 18% of 40.64 = 7.3152.",
+    "Total: 40.64 + 3.2512 + 7.3152 ≈ $51.21."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A $72.99 item is on sale for 60% off. What is the sale price?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s09_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A $72.99 item is on sale for 60% off. What is the sale price?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s09-cp1-006",
@@ -11373,69 +11326,66 @@
    "skillId": "ratios-proportions-percentages-skill-09",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A $116.00 item is on sale for 30% off. What is the sale price?",
-   "answer": "$81.20",
+   "prompt": "A meal costs $37.02. Sales tax of 6% is added, and a 15% tip is figured on the price before tax. What is the total? Round to the nearest cent.",
+   "answer": "$44.79",
    "options": [
     {
-     "text": "$150.80",
-     "correct": false
-    },
-    {
-     "text": "$86.00",
-     "correct": false
-    },
-    {
-     "text": "$34.80",
-     "correct": false
-    },
-    {
-     "text": "$81.20",
+     "text": "$44.79",
      "correct": true
+    },
+    {
+     "text": "$2.2212",
+     "correct": false
+    },
+    {
+     "text": "$15",
+     "correct": false
+    },
+    {
+     "text": "$5.553",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Discount: 30% × 116.00 = $34.80.",
-    "Sale price: 116.00 - 34.80.",
-    "= $81.20."
+    "Tax: 6% of 37.02 = 2.2212. Tip: 15% of 37.02 = 5.553.",
+    "Total: 37.02 + 2.2212 + 5.553 ≈ $44.79."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_discount). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s09_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A $116.00 item is on sale for 30% off. What is the sale price?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s09-cp1-008",
    "skillId": "ratios-proportions-percentages-skill-09",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A store buys an item for $47 and marks it up 50%. What is the selling price?",
-   "answer": "$70.50",
+   "prompt": "A $24.18 item is on sale for 25% off. Sales tax of 6% is added to the sale price. What is the total cost? Round to the nearest cent.",
+   "answer": "$19.22",
    "solutionSteps": [
-    "Markup: 50% of 47 = 23.5.",
-    "Selling price: 47 + 23.5.",
-    "= $70.50."
+    "Sale price: $24.18 × 0.75 = $18.14.",
+    "With tax: $18.14 × 1.06 ≈ $19.22."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_markup). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A store buys an item for $47 and marks it up 50%. What is the selling ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s09-cp1-009",
    "skillId": "ratios-proportions-percentages-skill-09",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A $57.99 item is on sale for 40% off. What is the sale price?",
-   "answer": "$34.79",
+   "prompt": "A meal costs $54.65. Sales tax of 7% is added, and a 15% tip is figured on the price before tax. What is the total? Round to the nearest cent.",
+   "answer": "$66.67",
    "solutionSteps": [
-    "Discount: 40% × 57.99 = $23.20.",
-    "Sale price: 57.99 - 23.20.",
-    "= $34.79."
+    "Tax: 7% of 54.65 = 3.8255. Tip: 15% of 54.65 = 8.1975.",
+    "Total: 54.65 + 3.8255 + 8.1975 ≈ $66.67."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_discount). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s09_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A $57.99 item is on sale for 40% off. What is the sale price?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s09-cp1-010",
@@ -11477,35 +11427,34 @@
    "skillId": "ratios-proportions-percentages-skill-09",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A $101.50 item is on sale for 15% off. What is the sale price?",
-   "answer": "$86.28",
+   "prompt": "A $37.43 item is on sale for 15% off. Sales tax of 6% is added to the sale price. What is the total cost? Round to the nearest cent.",
+   "answer": "$33.72",
    "options": [
     {
-     "text": "$116.73",
+     "text": "$31.82",
      "correct": false
     },
     {
-     "text": "$86.28",
+     "text": "$0.85",
+     "correct": false
+    },
+    {
+     "text": "$1.06",
+     "correct": false
+    },
+    {
+     "text": "$33.72",
      "correct": true
-    },
-    {
-     "text": "$15.23",
-     "correct": false
-    },
-    {
-     "text": "$86.50",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Discount: 15% × 101.50 = $15.23.",
-    "Sale price: 101.50 - 15.23.",
-    "= $86.28."
+    "Sale price: $37.43 × 0.85 = $31.82.",
+    "With tax: $31.82 × 1.06 ≈ $33.72."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_discount). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A $101.50 item is on sale for 15% off. What is the sale price?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s09-cp1-012",
@@ -11529,17 +11478,16 @@
    "skillId": "ratios-proportions-percentages-skill-09",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A $104.50 item is on sale for 30% off. What is the sale price?",
-   "answer": "$73.15",
+   "prompt": "A meal costs $36.83. Sales tax of 6% is added, and a 15% tip is figured on the price before tax. What is the total? Round to the nearest cent.",
+   "answer": "$44.56",
    "solutionSteps": [
-    "Discount: 30% × 104.50 = $31.35.",
-    "Sale price: 104.50 - 31.35.",
-    "= $73.15."
+    "Tax: 6% of 36.83 = 2.2098. Tip: 15% of 36.83 = 5.5245.",
+    "Total: 36.83 + 2.2098 + 5.5245 ≈ $44.56."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_discount). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s09_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A $104.50 item is on sale for 30% off. What is the sale price?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s09-cp1-014",
@@ -11761,17 +11709,16 @@
    "skillId": "ratios-proportions-percentages-skill-09",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A store pays $20 for a jacket, marks it up 60%, and later marks the new price down 30%. What is the final price, and what is the store's profit? Give the profit.",
-   "answer": "$2.40",
+   "prompt": "A store buys a bike for $140 and marks it up 100%. During a sale it takes 20% off the marked price. How much profit does the store make on the bike?",
+   "answer": "$84.00",
    "solutionSteps": [
-    "Marked-up price: 20 × 8/5 = $32.00.",
-    "Sale price: $32.00 × 7/10 = $22.40.",
-    "Profit: $22.40 - $20.00 = $2.40."
+    "Marked price: 140 × 2 = 280.",
+    "Sale price: × 0.8 = 224. Profit: 224 - 140 = $84.00."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “An item that costs the store $28 sells for $46.20. What is the percent”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s09_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “An item that costs the store $28 sells for $46.20. What is the percent”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s09-honors-005",
@@ -11867,17 +11814,16 @@
    "skillId": "ratios-proportions-percentages-skill-09",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A store pays $20 for a jacket, marks it up 50%, and later marks the new price down 30%. What is the final price, and what is the store's profit? Give the profit.",
-   "answer": "$1.00",
+   "prompt": "A store buys a bike for $150 and marks it up 80%. During a sale it takes 25% off the marked price. How much profit does the store make on the bike?",
+   "answer": "$52.50",
    "solutionSteps": [
-    "Marked-up price: 20 × 3/2 = $30.00.",
-    "Sale price: $30.00 × 7/10 = $21.00.",
-    "Profit: $21.00 - $20.00 = $1.00."
+    "Marked price: 150 × 1.8 = 270.",
+    "Sale price: × 0.75 = 202.5. Profit: 202.5 - 150 = $52.50."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A store buys an item for $73 and marks it up 65%. What is the selling ”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s09_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A store buys an item for $73 and marks it up 65%. What is the selling ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s09-honors-009",
@@ -11973,17 +11919,16 @@
    "skillId": "ratios-proportions-percentages-skill-09",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A store buys an item for $20 and marks it up 35%. What is the selling price?",
-   "answer": "$27.00",
+   "prompt": "A store buys a bike for $400 and marks it up 50%. During a sale it takes 10% off the marked price. How much profit does the store make on the bike?",
+   "answer": "$140.00",
    "solutionSteps": [
-    "Markup: 35% of 20 = 7.",
-    "Selling price: 20 + 7.",
-    "= $27.00."
+    "Marked price: 400 × 1.5 = 600.",
+    "Sale price: × 0.9 = 540. Profit: 540 - 400 = $140.00."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s9_markup). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s09_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A store buys an item for $20 and marks it up 35%. What is the selling ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s09-honors-013",
@@ -12084,17 +12029,17 @@
    "skillId": "ratios-proportions-percentages-skill-09",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A meal costs $48.00 before tax. The sales tax is 6% and the tip is 20% of the cost before tax. What is the total, to the nearest cent?",
-   "answer": "$60.48",
+   "prompt": "A store pays $40 for a jacket, marks it up 40%, and later marks the new price down 30%. What is the final price, and what is the store's profit? Give the profit.",
+   "answer": "$-0.80",
    "solutionSteps": [
-    "Tax = 6% of $48.00 = $2.88.",
-    "Tip = 20% of $48.00 = $9.60.",
-    "Total = $48.00 + $2.88 + $9.60 = $60.48."
+    "Marked-up price: 40 × 7/5 = $56.00.",
+    "Sale price: $56.00 × 7/10 = $39.20.",
+    "Profit: $39.20 - $40.00 = $-0.80."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_tip_tax). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A meal costs $48.00 before tax. The sales tax is 6% and the tip is 20%”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s09-honors-g02",
@@ -13223,18 +13168,17 @@
    "skillId": "ratios-proportions-percentages-skill-10",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A table shows hours worked x: 2, 5, 6, 8 and pay y: 8, 20, 24, 32 dollars. Show the relationship is proportional, write an equation, and find the pay for 21 hours.",
-   "answer": "84",
+   "prompt": "A table shows gallons of gas x: 2, 5, 6 and cost y: $5.90, $14.75, $17.70. Show the relationship is proportional, then find the cost of 29 gallons.",
+   "answer": "$85.55",
    "solutionSteps": [
-    "Every y/x is 4, so the relationship is proportional with k = 4.",
-    "y = 4x.",
-    "For x = 21: y = 84 dollars."
+    "Each y ÷ x = 2.95, so y = 2.95x.",
+    "y = 2.95 × 29 = $85.55."
    ],
    "standards": [
     "7.RP.A.2a",
     "7.RP.A.2b"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A table shows x: 6, 10, 11 and y: 6, 10, 11. Write an equation y = kx ”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s10_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A table shows x: 6, 10, 11 and y: 6, 10, 11. Write an equation y = kx ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s10-honors-004",
@@ -13302,36 +13246,35 @@
    "skillId": "ratios-proportions-percentages-skill-10",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A table shows hours worked x: 4, 5, 8, 11 and pay y: 28, 35, 56, 77 dollars. Show the relationship is proportional, write an equation, and find the pay for 25 hours.",
-   "answer": "175",
+   "prompt": "A table shows gallons of gas x: 5, 8, 14 and cost y: $22.15, $35.44, $62.02. Show the relationship is proportional, then find the cost of 27 gallons.",
+   "answer": "$119.61",
    "options": [
     {
-     "text": "176",
+     "text": "$4.43",
      "correct": false
     },
     {
-     "text": "175",
+     "text": "$120.61",
+     "correct": false
+    },
+    {
+     "text": "$119.61",
      "correct": true
     },
     {
-     "text": "7",
-     "correct": false
-    },
-    {
-     "text": "25",
+     "text": "$27",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Every y/x is 7, so the relationship is proportional with k = 7.",
-    "y = 7x.",
-    "For x = 25: y = 175 dollars."
+    "Each y ÷ x = 4.43, so y = 4.43x.",
+    "y = 4.43 × 27 = $119.61."
    ],
    "standards": [
     "7.RP.A.2a",
     "7.RP.A.2b"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A table shows x: 3, 4, 5 and y: 22.5, 30, 37.5. Write an equation y = ”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s10_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A table shows x: 3, 4, 5 and y: 22.5, 30, 37.5. Write an equation y = ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s10-honors-007",
@@ -13399,36 +13342,35 @@
    "skillId": "ratios-proportions-percentages-skill-10",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A table shows x: 2, 3, 7 and y: 9, 13.5, 31.5. Write an equation y = kx for the relationship.",
-   "answer": "y = 4.5x",
+   "prompt": "A table shows gallons of gas x: 3, 5, 13 and cost y: $12.30, $20.50, $53.30. Show the relationship is proportional, then find the cost of 29 gallons.",
+   "answer": "$118.90",
    "options": [
     {
-     "text": "y = 4.5x",
+     "text": "$119.9",
+     "correct": false
+    },
+    {
+     "text": "$29",
+     "correct": false
+    },
+    {
+     "text": "$4.1",
+     "correct": false
+    },
+    {
+     "text": "$118.90",
      "correct": true
-    },
-    {
-     "text": "y = 9x",
-     "correct": false
-    },
-    {
-     "text": "y = x + 7",
-     "correct": false
-    },
-    {
-     "text": "y = 2/9x",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "k = y ÷ x for any pair.",
-    "k = 9 ÷ 2 = 4.5.",
-    "y = 4.5x."
+    "Each y ÷ x = 4.1, so y = 4.1x.",
+    "y = 4.1 × 29 = $118.90."
    ],
    "standards": [
     "7.RP.A.2a",
     "7.RP.A.2b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_constant). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s10_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A table shows x: 2, 3, 7 and y: 9, 13.5, 31.5. Write an equation y = k”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s10-honors-010",
@@ -13478,54 +13420,53 @@
    "skillId": "ratios-proportions-percentages-skill-10",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Is the relationship proportional? x: 5, 8, 10, 11; y: 38, 59, 73, 80",
-   "answer": "No",
+   "prompt": "A table shows hours worked x: 5, 8, 9, 11 and pay y: 15, 24, 27, 33 dollars. Show the relationship is proportional, write an equation, and find the pay for 17 hours.",
+   "answer": "51",
    "solutionSteps": [
-    "Find y ÷ x for each pair.",
-    "38/5, 59/8, 73/10, 80/11.",
-    "Proportional only if every ratio is the same. They are not."
+    "Every y/x is 3, so the relationship is proportional with k = 3.",
+    "y = 3x.",
+    "For x = 17: y = 51 dollars."
    ],
    "standards": [
     "7.RP.A.2a",
     "7.RP.A.2b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_is_prop). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s10). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Is the relationship proportional? x: 5, 8, 10, 11; y: 38, 59, 73, 80”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s10-honors-012",
    "skillId": "ratios-proportions-percentages-skill-10",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A table shows x: 2, 3, 9 and y: 29, 43.5, 130.5. Write an equation y = kx for the relationship.",
-   "answer": "y = 14.5x",
+   "prompt": "A table shows gallons of gas x: 3, 7, 13 and cost y: $11.97, $27.93, $51.87. Show the relationship is proportional, then find the cost of 24 gallons.",
+   "answer": "$95.76",
    "options": [
     {
-     "text": "y = x + 27",
+     "text": "$96.76",
      "correct": false
     },
     {
-     "text": "y = 14.5x",
+     "text": "$3.99",
+     "correct": false
+    },
+    {
+     "text": "$95.76",
      "correct": true
     },
     {
-     "text": "y = 29x",
-     "correct": false
-    },
-    {
-     "text": "y = 2/29x",
+     "text": "$24",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "k = y ÷ x for any pair.",
-    "k = 29 ÷ 2 = 14.5.",
-    "y = 14.5x."
+    "Each y ÷ x = 3.99, so y = 3.99x.",
+    "y = 3.99 × 24 = $95.76."
    ],
    "standards": [
     "7.RP.A.2a",
     "7.RP.A.2b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s10_constant). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s10_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A table shows x: 2, 3, 9 and y: 29, 43.5, 130.5. Write an equation y =”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s10-honors-013",
@@ -14113,31 +14054,31 @@
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Jordan found the percent of change from 40 to 30 by computing 10 ÷ 30. What mistake did Jordan make, and what is the correct percent?",
-   "answer": "He divided by the new value; it should be 10 ÷ 40 = 25% decrease.",
+   "prompt": "A price of $140 falls 25% and then the new price rises 25%. What is the final price?",
+   "answer": "$131.25",
    "solutionSteps": [
-    "Percent of change = change ÷ ORIGINAL.",
-    "10 ÷ 40 = 25%."
+    "Fall: $140 × 0.75 = $105.00.",
+    "Rise: $105.00 × 1.25 = $131.25."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: pct-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15.",
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Jordan found the percent of change from 40 to 30 by computing 10 ÷ 30.”); keys rechecked by verify_levels.py.",
    "options": [
     {
-     "text": "He divided by the new value; it should be 10 ÷ 70 = 14.3%.",
+     "text": "$0.75",
      "correct": false
     },
     {
-     "text": "He should divide 30 by 40 to get 75%.",
+     "text": "$1.25",
      "correct": false
     },
     {
-     "text": "Nothing; 33.3% is correct.",
+     "text": "$105",
      "correct": false
     },
     {
-     "text": "He divided by the new value; it should be 10 ÷ 40 = 25% decrease.",
+     "text": "$131.25",
      "correct": true
     }
    ]
@@ -14147,32 +14088,32 @@
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A jacket costs $250. The amount decreases by 50%. What is the new amount?",
-   "answer": "$125",
+   "prompt": "A town of 13,200 people grows 15% one year and 5% the next year. What is the population after the two years? Round to the nearest whole number.",
+   "answer": "15,939",
    "solutionSteps": [
-    "50% of 250 is 125.",
-    "250 - 125 = 125."
+    "After year 1: 13200 × 1.15 = 15180.",
+    "After year 2: × 1.05 = 15939 ≈ 15,939."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: pct-new-value). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t2). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A jacket costs $250. The amount decreases by 50%. What is the new amou”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-v004",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "After a 25% discount, a game costs $90. What was the original price?",
-   "answer": "$120",
+   "prompt": "A price of $160 rises 50% and then the new price falls 25%. What is the final price?",
+   "answer": "$180.00",
    "solutionSteps": [
-    "The sale price is 75% of the original: 90 = 0.75·x.",
-    "x = 90 ÷ 0.75 = 120."
+    "Rise: $160 × 1.5 = $240.00.",
+    "Fall: $240.00 × 0.75 = $180.00."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: pct-original). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “After a 25% discount, a game costs $90. What was the original price?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-v005",
@@ -14214,64 +14155,64 @@
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A jacket costs $400. The amount increases by 50%. What is the new amount?",
-   "answer": "$600",
+   "prompt": "A price of $200 falls 25% and then the new price rises 50%. What is the final price?",
+   "answer": "$225.00",
    "solutionSteps": [
-    "50% of 400 is 200.",
-    "400 + 200 = 600."
+    "Fall: $200 × 0.75 = $150.00.",
+    "Rise: $150.00 × 1.5 = $225.00."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: pct-new-value). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A jacket costs $400. The amount increases by 50%. What is the new amou”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-v007",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "After a 10% discount, a game costs $72. What was the original price?",
-   "answer": "$80",
+   "prompt": "A town of 14,400 people grows 15% one year and 5% the next year. What is the population after the two years? Round to the nearest whole number.",
+   "answer": "17,388",
    "solutionSteps": [
-    "The sale price is 90% of the original: 72 = 0.9·x.",
-    "x = 72 ÷ 0.9 = 80."
+    "After year 1: 14400 × 1.15 = 16560.",
+    "After year 2: × 1.05 = 17388 ≈ 17,388."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: pct-original). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t2). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “After a 10% discount, a game costs $72. What was the original price?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-v008",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Jordan found the percent of change from 80 to 60 by computing 20 ÷ 60. What mistake did Jordan make, and what is the correct percent?",
-   "answer": "He divided by the new value; it should be 20 ÷ 80 = 25% decrease.",
+   "prompt": "A price of $90 rises 10% and then the new price falls 10%. What is the final price?",
+   "answer": "$89.10",
    "solutionSteps": [
-    "Percent of change = change ÷ ORIGINAL.",
-    "20 ÷ 80 = 25%."
+    "Rise: $90 × 1.1 = $99.00.",
+    "Fall: $99.00 × 0.9 = $89.10."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: pct-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15.",
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Jordan found the percent of change from 80 to 60 by computing 20 ÷ 60.”); keys rechecked by verify_levels.py.",
    "options": [
     {
-     "text": "He should divide 60 by 80 to get 75%.",
+     "text": "$0.9",
      "correct": false
     },
     {
-     "text": "Nothing; 33.3% is correct.",
+     "text": "$99",
      "correct": false
     },
     {
-     "text": "He divided by the new value; it should be 20 ÷ 80 = 25% decrease.",
+     "text": "$1.1",
+     "correct": false
+    },
+    {
+     "text": "$89.10",
      "correct": true
-    },
-    {
-     "text": "He divided by the new value; it should be 20 ÷ 140 = 14.3%.",
-     "correct": false
     }
    ]
   },
@@ -14280,48 +14221,48 @@
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A jacket costs $400. The amount decreases by 40%. What is the new amount?",
-   "answer": "$240",
+   "prompt": "A price of $110 falls 50% and then the new price rises 50%. What is the final price?",
+   "answer": "$82.50",
    "solutionSteps": [
-    "40% of 400 is 160.",
-    "400 - 160 = 240."
+    "Fall: $110 × 0.5 = $55.00.",
+    "Rise: $55.00 × 1.5 = $82.50."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: pct-new-value). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A jacket costs $400. The amount decreases by 40%. What is the new amou”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-v010",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Jordan found the percent of change from 120 to 90 by computing 30 ÷ 90. What mistake did Jordan make, and what is the correct percent?",
-   "answer": "He divided by the new value; it should be 30 ÷ 120 = 25% decrease.",
+   "prompt": "A town of 5,600 people grows 15% one year and 10% the next year. What is the population after the two years? Round to the nearest whole number.",
+   "answer": "7,084",
    "solutionSteps": [
-    "Percent of change = change ÷ ORIGINAL.",
-    "30 ÷ 120 = 25%."
+    "After year 1: 5600 × 1.15 = 6440.",
+    "After year 2: × 1.1 = 7084 ≈ 7,084."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: pct-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15.",
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t2). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Jordan found the percent of change from 120 to 90 by computing 30 ÷ 90”); keys rechecked by verify_levels.py.",
    "options": [
     {
-     "text": "He should divide 90 by 120 to get 75%.",
-     "correct": false
-    },
-    {
-     "text": "Nothing; 33.3% is correct.",
-     "correct": false
-    },
-    {
-     "text": "He divided by the new value; it should be 30 ÷ 210 = 14.3%.",
-     "correct": false
-    },
-    {
-     "text": "He divided by the new value; it should be 30 ÷ 120 = 25% decrease.",
+     "text": "7,084",
      "correct": true
+    },
+    {
+     "text": "11/10",
+     "correct": false
+    },
+    {
+     "text": "6,440",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
     }
    ]
   },
@@ -14330,63 +14271,63 @@
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A jacket costs $60. The amount decreases by 50%. What is the new amount?",
-   "answer": "$30",
+   "prompt": "A price of $100 rises 25% and then the new price falls 50%. What is the final price?",
+   "answer": "$62.50",
    "solutionSteps": [
-    "50% of 60 is 30.",
-    "60 - 30 = 30."
+    "Rise: $100 × 1.25 = $125.00.",
+    "Fall: $125.00 × 0.5 = $62.50."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: pct-new-value). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A jacket costs $60. The amount decreases by 50%. What is the new amoun”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-v012",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "After a 10% discount, a game costs $36. What was the original price?",
-   "answer": "$40",
+   "prompt": "A price of $150 falls 25% and then the new price rises 20%. What is the final price?",
+   "answer": "$135.00",
    "solutionSteps": [
-    "The sale price is 90% of the original: 36 = 0.9·x.",
-    "x = 36 ÷ 0.9 = 40."
+    "Fall: $150 × 0.75 = $112.50.",
+    "Rise: $112.50 × 1.2 = $135.00."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: pct-original). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “After a 10% discount, a game costs $36. What was the original price?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s08-cp1-v013",
    "skillId": "ratios-proportions-percentages-skill-08",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Jordan found the percent of change from 120 to 150 by computing 30 ÷ 150. What mistake did Jordan make, and what is the correct percent?",
-   "answer": "He divided by the new value; it should be 30 ÷ 120 = 25% increase.",
+   "prompt": "A town of 3,200 people grows 10% one year and 15% the next year. What is the population after the two years? Round to the nearest whole number.",
+   "answer": "4,048",
    "solutionSteps": [
-    "Percent of change = change ÷ ORIGINAL.",
-    "30 ÷ 120 = 25%."
+    "After year 1: 3200 × 1.1 = 3520.",
+    "After year 2: × 1.15 = 4048 ≈ 4,048."
    ],
    "standards": [
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: pct-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Teacher reviewed 2026-11-15.",
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_rpp_s08_t2). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Jordan found the percent of change from 120 to 150 by computing 30 ÷ 1”); keys rechecked by verify_levels.py.",
    "options": [
     {
-     "text": "He should divide 150 by 120 to get 125%.",
+     "text": "2",
      "correct": false
     },
     {
-     "text": "He divided by the new value; it should be 30 ÷ 270 = 11.1%.",
+     "text": "3,520",
      "correct": false
     },
     {
-     "text": "He divided by the new value; it should be 30 ÷ 120 = 25% increase.",
+     "text": "4,048",
      "correct": true
     },
     {
-     "text": "Nothing; 20% is correct.",
+     "text": "23/20",
      "correct": false
     }
    ]
@@ -15681,17 +15622,16 @@
    "skillId": "ratios-proportions-percentages-skill-11",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A price b increases by 12%. Eli writes the new price as b + 0.12b. Rewrite this as a single term, and use it to find the new price of a $80 item.",
-   "answer": "$89.60",
+   "prompt": "A price p is discounted 20%. Write the sale price p - 0.2p as a single term, and use it to find the sale price when p = $50.26. Round to the nearest cent.",
+   "answer": "$40.21",
    "solutionSteps": [
-    "b + 0.12b = (1 + 0.12)b = 1.12b.",
-    "For b = 80: 1.12 × 80.",
-    "= $89.60."
+    "p - 0.2p = 0.8p.",
+    "0.8 × 50.26 ≈ $40.21."
    ],
    "standards": [
     "7.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s11). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “An order of 6 identical boxes costs 6x + 12 dollars in all, where x is”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s11_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “An order of 6 identical boxes costs 6x + 12 dollars in all, where x is”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s11-honors-004",
@@ -15733,47 +15673,46 @@
    "skillId": "ratios-proportions-percentages-skill-11",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A price b increases by 15%. Leo writes the new price as b + 0.15b. Rewrite this as a single term, and use it to find the new price of a $80 item.",
-   "answer": "$92.00",
+   "prompt": "A price p is discounted 25%. Write the sale price p - 0.25p as a single term, and use it to find the sale price when p = $43.29. Round to the nearest cent.",
+   "answer": "$32.47",
    "solutionSteps": [
-    "b + 0.15b = (1 + 0.15)b = 1.15b.",
-    "For b = 80: 1.15 × 80.",
-    "= $92.00."
+    "p - 0.25p = 0.75p.",
+    "0.75 × 43.29 ≈ $32.47."
    ],
    "standards": [
     "7.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s11). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A ride costs a 26-dollar base fare plus 15 dollars per mile. The total”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s11_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A ride costs a 26-dollar base fare plus 15 dollars per mile. The total”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s11-honors-006",
    "skillId": "ratios-proportions-percentages-skill-11",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A price b increases by 8%. Priya writes the new price as b + 0.08b. Rewrite this as a single term, and use it to find the new price of a $60 item.",
-   "answer": "$64.80",
+   "prompt": "A price b increases by 5%. Priya writes the new price as b + 0.05b. Rewrite this as a single term, and use it to find the new price of a $120 item.",
+   "answer": "$126.00",
    "options": [
-    {
-     "text": "$1.08",
-     "correct": false
-    },
     {
      "text": "$1",
      "correct": false
     },
     {
-     "text": "$60",
+     "text": "$120",
      "correct": false
     },
     {
-     "text": "$64.80",
+     "text": "$1.05",
+     "correct": false
+    },
+    {
+     "text": "$126.00",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "b + 0.08b = (1 + 0.08)b = 1.08b.",
-    "For b = 60: 1.08 × 60.",
-    "= $64.80."
+    "b + 0.05b = (1 + 0.05)b = 1.05b.",
+    "For b = 120: 1.05 × 120.",
+    "= $126.00."
    ],
    "standards": [
     "7.EE.A.2"
@@ -15785,68 +15724,67 @@
    "skillId": "ratios-proportions-percentages-skill-11",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A phone that costs v dollars loses 33% of its value in a year. The value after one year is v - 0.33v. Write the value after one year as a single term.",
-   "answer": "0.67v",
+   "prompt": "A price p is discounted 15%. Write the sale price p - 0.15p as a single term, and use it to find the sale price when p = $52.21. Round to the nearest cent.",
+   "answer": "$44.38",
    "solutionSteps": [
-    "v is the same as 1v.",
-    "1v - 0.33v = 0.67v.",
-    "Multiplying by 0.67 is the same as decreasing by 33%."
+    "p - 0.15p = 0.85p.",
+    "0.85 × 52.21 ≈ $44.38."
    ],
    "standards": [
     "7.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: expr_percent_decrease). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s11_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A phone that costs v dollars loses 33% of its value in a year. The val”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s11-honors-008",
    "skillId": "ratios-proportions-percentages-skill-11",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A ride costs a 10-dollar base fare plus 17 dollars per mile. The total cost of 5 rides of n miles each is 5(17n + 10). Write the total cost in expanded form.",
-   "answer": "85n + 50",
+   "prompt": "A price b increases by 12%. Ana writes the new price as b + 0.12b. Rewrite this as a single term, and use it to find the new price of a $40 item.",
+   "answer": "$44.80",
    "options": [
     {
-     "text": "17n + 50",
+     "text": "$40",
      "correct": false
     },
     {
-     "text": "85n + 50",
+     "text": "$1.12",
+     "correct": false
+    },
+    {
+     "text": "$1",
+     "correct": false
+    },
+    {
+     "text": "$44.80",
      "correct": true
-    },
-    {
-     "text": "22n + 15",
-     "correct": false
-    },
-    {
-     "text": "85n + 10",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Distribute 5 to both terms.",
-    "5·17n + 5·10 = 85n + 50."
+    "b + 0.12b = (1 + 0.12)b = 1.12b.",
+    "For b = 40: 1.12 × 40.",
+    "= $44.80."
    ],
    "standards": [
     "7.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: expr_expand_context). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s11). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A ride costs a 10-dollar base fare plus 17 dollars per mile. The total”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s11-honors-009",
    "skillId": "ratios-proportions-percentages-skill-11",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "The expression 1.025m gives the total cost following a percent increase, where m is the original amount. What is the percent increase?",
-   "answer": "2.5%",
+   "prompt": "A price p is discounted 10%. Write the sale price p - 0.1p as a single term, and use it to find the sale price when p = $53.01. Round to the nearest cent.",
+   "answer": "$47.71",
    "solutionSteps": [
-    "1.025m = 1m + 0.025m.",
-    "The extra 0.025m is 2.5% of the original amount.",
-    "The increase is 2.5%."
+    "p - 0.1p = 0.9p.",
+    "0.9 × 53.01 ≈ $47.71."
    ],
    "standards": [
     "7.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: expr_meaning_increase). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s11_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “The expression 1.025m gives the total cost following a percent increas”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s11-honors-010",
@@ -15888,69 +15826,68 @@
    "skillId": "ratios-proportions-percentages-skill-11",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "The expression 0.935m gives the number of members left following a percent decrease, where m is the original amount. What is the percent decrease?",
-   "answer": "6.5%",
+   "prompt": "A price b increases by 15%. Rosa writes the new price as b + 0.15b. Rewrite this as a single term, and use it to find the new price of a $80 item.",
+   "answer": "$92.00",
    "solutionSteps": [
-    "0.935m = 1m - 0.065m.",
-    "The amount removed, 0.065m, is 6.5% of the original amount.",
-    "The decrease is 6.5%."
+    "b + 0.15b = (1 + 0.15)b = 1.15b.",
+    "For b = 80: 1.15 × 80.",
+    "= $92.00."
    ],
    "standards": [
     "7.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: expr_meaning_decrease). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s11). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “The expression 0.935m gives the number of members left following a per”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s11-honors-012",
    "skillId": "ratios-proportions-percentages-skill-11",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "An order of 4 identical boxes costs 4x + 8 dollars in all, where x is the price of the item in each box. Write the total cost in factored form to show the cost of one box.",
-   "answer": "4(x + 2)",
+   "prompt": "A price p is discounted 25%. Write the sale price p - 0.25p as a single term, and use it to find the sale price when p = $86.88. Round to the nearest cent.",
+   "answer": "$65.16",
    "options": [
     {
-     "text": "4(x + 8)",
+     "text": "$0.75",
      "correct": false
     },
     {
-     "text": "4x + 2",
+     "text": "$0.25",
      "correct": false
     },
     {
-     "text": "12x",
-     "correct": false
-    },
-    {
-     "text": "4(x + 2)",
+     "text": "$65.16",
      "correct": true
+    },
+    {
+     "text": "$86.88",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Both terms are divisible by 4.",
-    "4x + 8 = 4·x + 4·2 = 4(x + 2).",
-    "One box costs x + 2."
+    "p - 0.25p = 0.75p.",
+    "0.75 × 86.88 ≈ $65.16."
    ],
    "standards": [
     "7.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: expr_factor_context). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_rpp_s11_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “An order of 4 identical boxes costs 4x + 8 dollars in all, where x is ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s11-honors-013",
    "skillId": "ratios-proportions-percentages-skill-11",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "The expression 1.33m gives the total cost following a percent increase, where m is the original amount. What is the percent increase?",
-   "answer": "33%",
+   "prompt": "A price b increases by 5%. Maya writes the new price as b + 0.05b. Rewrite this as a single term, and use it to find the new price of a $40 item.",
+   "answer": "$42.00",
    "solutionSteps": [
-    "1.33m = 1m + 0.33m.",
-    "The extra 0.33m is 33% of the original amount.",
-    "The increase is 33%."
+    "b + 0.05b = (1 + 0.05)b = 1.05b.",
+    "For b = 40: 1.05 × 40.",
+    "= $42.00."
    ],
    "standards": [
     "7.EE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: expr_meaning_increase). Answer, every option and every student answer re-checked from the printed problem by tools/audit-gap-skills-20261116/verify.py. Teacher reviewed 2026-11-16."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_rpp_s11). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “The expression 1.33m gives the total cost following a percent increase”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-rpp-s11-honors-014",

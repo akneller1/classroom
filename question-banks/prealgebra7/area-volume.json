@@ -819,17 +819,16 @@
    "skillId": "area-volume-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A parallelogram has area 136 in² and height 8 inches. Find its base.",
-   "answer": "17 inches",
+   "prompt": "A parallelogram has base 11 in. and height 5 in. A second parallelogram has the same height and 3 times the base. What is the area of the second one, in square inches?",
+   "answer": "165",
    "solutionSteps": [
-    "136 = 8 × base.",
-    "Divide: 136 ÷ 8.",
-    "base = 17 inches."
+    "Second base: 11 × 3 = 33 in.",
+    "Area: 33 × 5 = 165 in²."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_arv_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A parallelogram has area 136 in² and height 8 inches. Find its base.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s01-cp1-013",
@@ -965,35 +964,34 @@
    "skillId": "area-volume-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A parallelogram-shaped banner has base 2.5 m and height 2 m. Fabric costs $15 per square meter. What does the fabric cost?",
-   "answer": "$75.00",
+   "prompt": "A triangular sail has base 6 m and height 7 m. Sailcloth costs $12 per square meter. What does the cloth for the sail cost?",
+   "answer": "$252.00",
    "options": [
     {
-     "text": "$15",
+     "text": "$12",
      "correct": false
     },
     {
-     "text": "$75.00",
+     "text": "$252.00",
      "correct": true
     },
     {
-     "text": "$2",
+     "text": "$7",
      "correct": false
     },
     {
-     "text": "$5",
+     "text": "$21",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A = bh = 2.5 × 2 = 5 m².",
-    "Cost = 5 × 15.",
-    "= $75.00."
+    "Area: 1/2 × 6 × 7 = 21 m².",
+    "Cost: 21 × $12 = $252.00."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A parallelogram has area 54 in² and base 6 inches. Find its height.”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A parallelogram has area 54 in² and base 6 inches. Find its height.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s01-honors-003",
@@ -1035,17 +1033,16 @@
    "skillId": "area-volume-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A parallelogram-shaped banner has base 4.5 m and height 2.4 m. Fabric costs $15 per square meter. What does the fabric cost?",
-   "answer": "$162.00",
+   "prompt": "A triangular sail has base 12 m and height 6 m. Sailcloth costs $5 per square meter. What does the cloth for the sail cost?",
+   "answer": "$180.00",
    "solutionSteps": [
-    "A = bh = 4.5 × 2.4 = 10.8 m².",
-    "Cost = 10.8 × 15.",
-    "= $162.00."
+    "Area: 1/2 × 12 × 6 = 36 m².",
+    "Cost: 36 × $5 = $180.00."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A parallelogram has area 91 in² and base 13 inches. Find its height.”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A parallelogram has area 91 in² and base 13 inches. Find its height.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s01-honors-005",
@@ -1069,208 +1066,204 @@
    "skillId": "area-volume-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A parallelogram has area 60 in² and height 3 inches. Find its base.",
-   "answer": "20 inches",
+   "prompt": "A triangular sail has base 10 m and height 8 m. Sailcloth costs $15 per square meter. What does the cloth for the sail cost?",
+   "answer": "$600.00",
    "options": [
     {
-     "text": "57 inches",
+     "text": "$40",
      "correct": false
     },
     {
-     "text": "10 inches",
-     "correct": false
-    },
-    {
-     "text": "20 inches",
+     "text": "$600.00",
      "correct": true
     },
     {
-     "text": "180 inches",
+     "text": "$15",
+     "correct": false
+    },
+    {
+     "text": "$8",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "60 = 3 × base.",
-    "Divide: 60 ÷ 3.",
-    "base = 20 inches."
+    "Area: 1/2 × 10 × 8 = 40 m².",
+    "Cost: 40 × $15 = $600.00."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A parallelogram has area 60 in² and height 3 inches. Find its base.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s01-honors-007",
    "skillId": "area-volume-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the area of the parallelogram. Base = 7.5 m, height = 8 m, slanted side = 7 m.",
-   "answer": "60 m²",
+   "prompt": "A parallelogram-shaped banner has base 2.5 m and height 2.4 m. Fabric costs $8 per square meter. What does the fabric cost?",
+   "answer": "$48.00",
    "options": [
     {
-     "text": "52.5 m²",
+     "text": "$2.4",
      "correct": false
     },
     {
-     "text": "29 m²",
+     "text": "$8",
      "correct": false
     },
     {
-     "text": "60 m²",
+     "text": "$6",
+     "correct": false
+    },
+    {
+     "text": "$48.00",
      "correct": true
-    },
-    {
-     "text": "30 m²",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "A = bh (use the perpendicular height, not the slanted side).",
-    "A = 7.5 × 8.",
-    "A = 60 m²."
+    "A = bh = 2.5 × 2.4 = 6 m².",
+    "Cost = 6 × 8.",
+    "= $48.00."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the area of the parallelogram. Base = 7.5 m, height = 8 m, slante”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s01-honors-008",
    "skillId": "area-volume-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A parallelogram has area 98 in² and height 14 inches. Find its base.",
-   "answer": "7 inches",
+   "prompt": "A triangular sail has base 5 m and height 5 m. Sailcloth costs $5 per square meter. What does the cloth for the sail cost?",
+   "answer": "$62.50",
    "solutionSteps": [
-    "98 = 14 × base.",
-    "Divide: 98 ÷ 14.",
-    "base = 7 inches."
+    "Area: 1/2 × 5 × 5 = 12.5 m².",
+    "Cost: 12.5 × $5 = $62.50."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A parallelogram has area 98 in² and height 14 inches. Find its base.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s01-honors-009",
    "skillId": "area-volume-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the area of the parallelogram. Base = 12 m, height = 5 m, slanted side = 15 m.",
-   "answer": "60 m²",
+   "prompt": "A parallelogram-shaped banner has base 3 m and height 2.4 m. Fabric costs $8 per square meter. What does the fabric cost?",
+   "answer": "$57.60",
    "solutionSteps": [
-    "A = bh (use the perpendicular height, not the slanted side).",
-    "A = 12 × 5.",
-    "A = 60 m²."
+    "A = bh = 3 × 2.4 = 7.2 m².",
+    "Cost = 7.2 × 8.",
+    "= $57.60."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the area of the parallelogram. Base = 12 m, height = 5 m, slanted”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s01-honors-010",
    "skillId": "area-volume-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A parallelogram has area 114 in² and height 6 inches. Find its base.",
-   "answer": "19 inches",
+   "prompt": "A triangular sail has base 6 m and height 4 m. Sailcloth costs $12 per square meter. What does the cloth for the sail cost?",
+   "answer": "$144.00",
    "options": [
     {
-     "text": "19 inches",
+     "text": "$4",
+     "correct": false
+    },
+    {
+     "text": "$144.00",
      "correct": true
     },
     {
-     "text": "108 inches",
+     "text": "$6",
      "correct": false
     },
     {
-     "text": "684 inches",
-     "correct": false
-    },
-    {
-     "text": "19/2 inches",
+     "text": "$12",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "114 = 6 × base.",
-    "Divide: 114 ÷ 6.",
-    "base = 19 inches."
+    "Area: 1/2 × 6 × 4 = 12 m².",
+    "Cost: 12 × $12 = $144.00."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A parallelogram has area 114 in² and height 6 inches. Find its base.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s01-honors-011",
    "skillId": "area-volume-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the area of the parallelogram. Base = 18 m, height = 2 m, slanted side = 17 m.",
-   "answer": "36 m²",
+   "prompt": "A parallelogram-shaped banner has base 3 m and height 1.5 m. Fabric costs $8 per square meter. What does the fabric cost?",
+   "answer": "$36.00",
    "options": [
     {
-     "text": "36 m²",
+     "text": "$1.5",
+     "correct": false
+    },
+    {
+     "text": "$4.5",
+     "correct": false
+    },
+    {
+     "text": "$36.00",
      "correct": true
     },
     {
-     "text": "70 m²",
-     "correct": false
-    },
-    {
-     "text": "18 m²",
-     "correct": false
-    },
-    {
-     "text": "306 m²",
+     "text": "$8",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A = bh (use the perpendicular height, not the slanted side).",
-    "A = 18 × 2.",
-    "A = 36 m²."
+    "A = bh = 3 × 1.5 = 4.5 m².",
+    "Cost = 4.5 × 8.",
+    "= $36.00."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the area of the parallelogram. Base = 18 m, height = 2 m, slanted”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s01-honors-012",
    "skillId": "area-volume-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A parallelogram has area 36 in² and height 4 inches. Find its base.",
-   "answer": "9 inches",
+   "prompt": "A triangular sail has base 8 m and height 7 m. Sailcloth costs $14 per square meter. What does the cloth for the sail cost?",
+   "answer": "$392.00",
    "solutionSteps": [
-    "36 = 4 × base.",
-    "Divide: 36 ÷ 4.",
-    "base = 9 inches."
+    "Area: 1/2 × 8 × 7 = 28 m².",
+    "Cost: 28 × $14 = $392.00."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A parallelogram has area 36 in² and height 4 inches. Find its base.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s01-honors-013",
    "skillId": "area-volume-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the area of the parallelogram. Base = 10.5 m, height = 7.5 m, slanted side = 14 m.",
-   "answer": "78.75 m²",
+   "prompt": "A parallelogram-shaped banner has base 2.5 m and height 2 m. Fabric costs $15 per square meter. What does the fabric cost?",
+   "answer": "$75.00",
    "solutionSteps": [
-    "A = bh (use the perpendicular height, not the slanted side).",
-    "A = 10.5 × 7.5.",
-    "A = 78.75 m²."
+    "A = bh = 2.5 × 2 = 5 m².",
+    "Cost = 5 × 15.",
+    "= $75.00."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the area of the parallelogram. Base = 10.5 m, height = 7.5 m, sla”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s01-honors-014",
@@ -2267,35 +2260,34 @@
    "skillId": "area-volume-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A garden is a trapezoid with bases 10 m and 6 m and height 7 m, plus a triangle with base 6 m and height 3 m on one side. What is the total area?",
-   "answer": "65 m²",
+   "prompt": "A lot is a rectangle 21 m by 12 m. A right triangle with legs 8 m and 13 m is cut off one corner for a path. What area of the lot is left, in square meters?",
+   "answer": "200 m²",
    "options": [
     {
-     "text": "9 m²",
+     "text": "8 m²",
      "correct": false
     },
     {
-     "text": "56 m²",
+     "text": "52 m²",
      "correct": false
     },
     {
-     "text": "65 m²",
+     "text": "13 m²",
+     "correct": false
+    },
+    {
+     "text": "200 m²",
      "correct": true
-    },
-    {
-     "text": "3 m²",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Trapezoid: (10 + 6)/2 × 7 = 56 m².",
-    "Triangle: ½ × 6 × 3 = 9 m².",
-    "Total = 65 m²."
+    "Rectangle: 21 × 12 = 252 m². Triangle: 1/2 × 8 × 13 = 52 m².",
+    "252 - 52 = 200 m²."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the area of a trapezoid with bases 15.5 ft and 9 ft and height 2 ”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the area of a trapezoid with bases 15.5 ft and 9 ft and height 2 ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s02-honors-003",
@@ -2354,17 +2346,16 @@
    "skillId": "area-volume-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A garden is a trapezoid with bases 14 m and 5 m and height 7 m, plus a triangle with base 8 m and height 6 m on one side. What is the total area?",
-   "answer": "90.5 m²",
+   "prompt": "A lot is a rectangle 17 m by 19 m. A right triangle with legs 14 m and 12 m is cut off one corner for a path. What area of the lot is left, in square meters?",
+   "answer": "239 m²",
    "solutionSteps": [
-    "Trapezoid: (14 + 5)/2 × 7 = 66.5 m².",
-    "Triangle: ½ × 8 × 6 = 24 m².",
-    "Total = 90.5 m²."
+    "Rectangle: 17 × 19 = 323 m². Triangle: 1/2 × 14 × 12 = 84 m².",
+    "323 - 84 = 239 m²."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the area of a trapezoid with bases 4.5 ft and 6 ft and height 7 f”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the area of a trapezoid with bases 4.5 ft and 6 ft and height 7 f”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s02-honors-006",
@@ -2423,35 +2414,34 @@
    "skillId": "area-volume-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the area of a trapezoid with bases 11.5 ft and 4 ft and height 10 ft.",
-   "answer": "77.5 ft²",
+   "prompt": "A lot is a rectangle 17 m by 10 m. A right triangle with legs 2 m and 11 m is cut off one corner for a path. What area of the lot is left, in square meters?",
+   "answer": "159 m²",
    "options": [
     {
-     "text": "230 ft²",
+     "text": "2 m²",
      "correct": false
     },
     {
-     "text": "25.5 ft²",
+     "text": "1/2 m²",
      "correct": false
     },
     {
-     "text": "155 ft²",
-     "correct": false
-    },
-    {
-     "text": "77.5 ft²",
+     "text": "159 m²",
      "correct": true
+    },
+    {
+     "text": "11 m²",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "A = (1/2)(b₁ + b₂)h.",
-    "A = (1/2)(11.5 + 4)(10).",
-    "A = (1/2)(15.5)(10) = 77.5 ft²."
+    "Rectangle: 17 × 10 = 170 m². Triangle: 1/2 × 2 × 11 = 11 m².",
+    "170 - 11 = 159 m²."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_trapezoid). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the area of a trapezoid with bases 11.5 ft and 4 ft and height 10”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s02-honors-009",
@@ -2475,52 +2465,51 @@
    "skillId": "area-volume-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the area of a triangle with base 12 cm and height 16 cm.",
-   "answer": "96 cm²",
+   "prompt": "A garden is a trapezoid with bases 10 m and 6 m and height 7 m, plus a triangle with base 8 m and height 6 m on one side. What is the total area?",
+   "answer": "80 m²",
    "options": [
     {
-     "text": "48 cm²",
+     "text": "24 m²",
      "correct": false
     },
     {
-     "text": "96 cm²",
+     "text": "80 m²",
      "correct": true
     },
     {
-     "text": "192 cm²",
+     "text": "56 m²",
      "correct": false
     },
     {
-     "text": "28 cm²",
+     "text": "8 m²",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A = (1/2)bh.",
-    "A = (1/2)(12)(16).",
-    "A = 96 cm²."
+    "Trapezoid: (10 + 6)/2 × 7 = 56 m².",
+    "Triangle: ½ × 8 × 6 = 24 m².",
+    "Total = 80 m²."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_triangle). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the area of a triangle with base 12 cm and height 16 cm.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s02-honors-011",
    "skillId": "area-volume-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the area of a trapezoid with bases 7.5 ft and 9 ft and height 7 ft.",
-   "answer": "57.75 ft²",
+   "prompt": "A lot is a rectangle 15 m by 12 m. A right triangle with legs 5 m and 5 m is cut off one corner for a path. What area of the lot is left, in square meters?",
+   "answer": "167.5 m²",
    "solutionSteps": [
-    "A = (1/2)(b₁ + b₂)h.",
-    "A = (1/2)(7.5 + 9)(7).",
-    "A = (1/2)(16.5)(7) = 57.75 ft²."
+    "Rectangle: 15 × 12 = 180 m². Triangle: 1/2 × 5 × 5 = 12.5 m².",
+    "180 - 12.5 = 167.5 m²."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_trapezoid). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the area of a trapezoid with bases 7.5 ft and 9 ft and height 7 f”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s02-honors-012",
@@ -2562,36 +2551,33 @@
    "skillId": "area-volume-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the area of a triangle with base 22 cm and height 17 cm.",
-   "answer": "187 cm²",
+   "prompt": "A garden is a trapezoid with bases 10 m and 4 m and height 7 m, plus a triangle with base 6 m and height 3 m on one side. What is the total area?",
+   "answer": "58 m²",
    "solutionSteps": [
-    "A = (1/2)bh.",
-    "A = (1/2)(22)(17).",
-    "A = 187 cm²."
+    "Trapezoid: (10 + 4)/2 × 7 = 49 m².",
+    "Triangle: ½ × 6 × 3 = 9 m².",
+    "Total = 58 m²."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_triangle). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the area of a triangle with base 22 cm and height 17 cm.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s02-honors-014",
    "skillId": "area-volume-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Priya answered this problem incorrectly.\nFind the area of a trapezoid with bases 14.5 ft and 19 ft and height 11 ft.\nPriya's answer: 368.5 ft²\nIdentify the mistake and give the correct answer.",
-   "answer": "184.25 ft²",
+   "prompt": "A lot is a rectangle 25 m by 15 m. A right triangle with legs 5 m and 23 m is cut off one corner for a path. What area of the lot is left, in square meters?",
+   "answer": "317.5 m²",
    "solutionSteps": [
-    "Mistake: Forgot to multiply by 1/2.",
-    "A = (1/2)(b₁ + b₂)h.",
-    "A = (1/2)(14.5 + 19)(11).",
-    "A = (1/2)(33.5)(11) = 184.25 ft².",
-    "The correct answer is 184.25 ft², not 368.5 ft²."
+    "Rectangle: 25 × 15 = 375 m². Triangle: 1/2 × 5 × 23 = 57.5 m².",
+    "375 - 57.5 = 317.5 m²."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_trapezoid_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Priya answered this problem incorrectly. Find the area of a trapezoid ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s02-honors-015",
@@ -2649,19 +2635,17 @@
    "skillId": "area-volume-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Priya answered this problem incorrectly.\nFind the area of a trapezoid with bases 13.5 ft and 16 ft and height 8 ft.\nPriya's answer: 864 ft²\nIdentify the mistake and give the correct answer.",
-   "answer": "118 ft²",
+   "prompt": "A garden is a trapezoid with bases 13 m and 6 m and height 6 m, plus a triangle with base 7 m and height 5 m on one side. What is the total area?",
+   "answer": "74.5 m²",
    "solutionSteps": [
-    "Mistake: Multiplied the bases instead of adding.",
-    "A = (1/2)(b₁ + b₂)h.",
-    "A = (1/2)(13.5 + 16)(8).",
-    "A = (1/2)(29.5)(8) = 118 ft².",
-    "The correct answer is 118 ft², not 864 ft²."
+    "Trapezoid: (13 + 6)/2 × 6 = 57 m².",
+    "Triangle: ½ × 7 × 5 = 17.5 m².",
+    "Total = 74.5 m²."
    ],
    "standards": [
     "6.G.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_trapezoid_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Priya answered this problem incorrectly. Find the area of a trapezoid ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s02-honors-h01",
@@ -3632,35 +3616,34 @@
    "skillId": "area-volume-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A circular patio has radius 10 ft with a circular fountain of radius 2 ft in the center. What is the area of the patio around the fountain? Give the answer in terms of π.",
-   "answer": "96π ft²",
+   "prompt": "A round table top has diameter 16 ft and a square table top has sides of 5 ft. Use 3.14 for π. How many more square feet is the round table top?",
+   "answer": "175.96 ft²",
    "options": [
     {
-     "text": "4π ft²",
+     "text": "25 ft²",
      "correct": false
     },
     {
-     "text": "2π ft²",
+     "text": "5 ft²",
      "correct": false
     },
     {
-     "text": "100π ft²",
+     "text": "200.96 ft²",
      "correct": false
     },
     {
-     "text": "96π ft²",
+     "text": "175.96 ft²",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Big circle: π(10)² = 100π.",
-    "Fountain: π(2)² = 4π.",
-    "Patio: 100π - 4π = 96π ft²."
+    "Radius 8 ft: 3.14 × 8² = 200.96 ft². Square: 5² = 25 ft².",
+    "200.96 - 25 = 175.96 ft²."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A figure is a rectangle 13 m by 8 m with a semicircle attached to one ”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A figure is a rectangle 13 m by 8 m with a semicircle attached to one ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s03-honors-003",
@@ -3684,30 +3667,30 @@
    "skillId": "area-volume-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A circular patio has radius 6 ft with a circular fountain of radius 3 ft in the center. What is the area of the patio around the fountain? Give the answer in terms of π.",
-   "answer": "27π ft²",
+   "prompt": "A circular patio has radius 10 ft with a circular fountain of radius 2 ft in the center. What is the area of the patio around the fountain? Give the answer in terms of π.",
+   "answer": "96π ft²",
    "options": [
     {
-     "text": "9π ft²",
-     "correct": false
-    },
-    {
-     "text": "3π ft²",
-     "correct": false
-    },
-    {
-     "text": "27π ft²",
+     "text": "96π ft²",
      "correct": true
     },
     {
-     "text": "36π ft²",
+     "text": "2π ft²",
+     "correct": false
+    },
+    {
+     "text": "100π ft²",
+     "correct": false
+    },
+    {
+     "text": "4π ft²",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Big circle: π(6)² = 36π.",
-    "Fountain: π(3)² = 9π.",
-    "Patio: 36π - 9π = 27π ft²."
+    "Big circle: π(10)² = 100π.",
+    "Fountain: π(2)² = 4π.",
+    "Patio: 100π - 4π = 96π ft²."
    ],
    "standards": [
     "7.G.B.4"
@@ -3719,17 +3702,16 @@
    "skillId": "area-volume-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A circular patio has radius 5 ft with a circular fountain of radius 2 ft in the center. What is the area of the patio around the fountain? Give the answer in terms of π.",
-   "answer": "21π ft²",
+   "prompt": "A round table top has diameter 18 ft and a square table top has sides of 2 ft. Use 3.14 for π. How many more square feet is the round table top?",
+   "answer": "250.34 ft²",
    "solutionSteps": [
-    "Big circle: π(5)² = 25π.",
-    "Fountain: π(2)² = 4π.",
-    "Patio: 25π - 4π = 21π ft²."
+    "Radius 9 ft: 3.14 × 9² = 254.34 ft². Square: 2² = 4 ft².",
+    "254.34 - 4 = 250.34 ft²."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A figure is a rectangle 9 m by 6 m with a semicircle attached to one 6”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A figure is a rectangle 9 m by 6 m with a semicircle attached to one 6”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s03-honors-006",
@@ -3840,52 +3822,51 @@
    "skillId": "area-volume-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A circle has a diameter of 22 cm. Find its area in terms of π.",
-   "answer": "121π cm²",
+   "prompt": "A round table top has diameter 14 ft and a square table top has sides of 3 ft. Use 3.14 for π. How many more square feet is the round table top?",
+   "answer": "144.86 ft²",
    "options": [
     {
-     "text": "11π cm²",
-     "correct": false
-    },
-    {
-     "text": "484π cm²",
-     "correct": false
-    },
-    {
-     "text": "121π cm²",
+     "text": "144.86 ft²",
      "correct": true
     },
     {
-     "text": "22π cm²",
+     "text": "3 ft²",
+     "correct": false
+    },
+    {
+     "text": "9 ft²",
+     "correct": false
+    },
+    {
+     "text": "153.86 ft²",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A = πr².",
-    "r = 11.",
-    "A = π(11)² = 121π cm²."
+    "Radius 7 ft: 3.14 × 7² = 153.86 ft². Square: 3² = 9 ft².",
+    "153.86 - 9 = 144.86 ft²."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A circle has a diameter of 22 cm. Find its area in terms of π.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s03-honors-011",
    "skillId": "area-volume-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A figure is a rectangle 29 m by 20 m with a semicircle attached to one 20-m side. Find the total area. Use π and round to the nearest tenth.",
-   "answer": "737.1 m²",
+   "prompt": "A circular patio has radius 6 ft with a circular fountain of radius 2 ft in the center. What is the area of the patio around the fountain? Give the answer in terms of π.",
+   "answer": "32π ft²",
    "solutionSteps": [
-    "Rectangle: 29 × 20 = 580.",
-    "Semicircle radius = 10: (1/2)π(10)² ≈ 157.08.",
-    "Total ≈ 737.1 m²."
+    "Big circle: π(6)² = 36π.",
+    "Fountain: π(2)² = 4π.",
+    "Patio: 36π - 4π = 32π ft²."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_composite). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A figure is a rectangle 29 m by 20 m with a semicircle attached to one”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s03-honors-012",
@@ -3927,17 +3908,16 @@
    "skillId": "area-volume-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A circle has a radius of 10 cm. Find its area in terms of π.",
-   "answer": "100π cm²",
+   "prompt": "A round table top has diameter 18 ft and a square table top has sides of 10 ft. Use 3.14 for π. How many more square feet is the round table top?",
+   "answer": "154.34 ft²",
    "solutionSteps": [
-    "A = πr².",
-    "r = 10.",
-    "A = π(10)² = 100π cm²."
+    "Radius 9 ft: 3.14 × 9² = 254.34 ft². Square: 10² = 100 ft².",
+    "254.34 - 100 = 154.34 ft²."
    ],
    "standards": [
     "7.G.B.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A circle has a radius of 10 cm. Find its area in terms of π.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s03-honors-014",
@@ -5668,17 +5648,18 @@
    "skillId": "area-volume-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A rectangular prism is 9 cm long, 7 cm wide and 8 cm tall. It is sliced parallel to its 9 cm by 7 cm base. What is the area of the cross-section?",
-   "answer": "63 cm²",
+   "prompt": "A rectangular prism is 12 cm by 8 cm by 5 cm. One slice is parallel to the 12 cm by 8 cm base, and another is perpendicular to the base and parallel to the 12 cm edge. How much greater is the larger cross-section area than the smaller? Give the difference in cm².",
+   "answer": "36 cm²",
    "solutionSteps": [
-    "A slice parallel to the base is a rectangle the same size as the base.",
-    "Area = 9 × 7 = 63 cm²."
+    "Parallel slice: 12 × 8 = 96 cm².",
+    "Perpendicular slice: 12 × 5 = 60 cm².",
+    "Difference: 36 cm²."
    ],
    "standards": [
     "7.G.A.3",
     "7.G.B.6"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cross_section_area). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangular prism is 9 cm long, 7 cm wide and 8 cm tall. It is slice”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s04-honors-g05",
@@ -9342,18 +9323,17 @@
    "skillId": "area-volume-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A cylinder-shaped tank has radius 4 ft and height 6 ft. Use 3.14 for π. Water fills it at 2 ft³ per minute. How many minutes does it take to fill, to the nearest tenth?",
-   "answer": "150.7",
+   "prompt": "A cylindrical can has radius 6 cm and height 11 cm. Use 3.14 for π (1 cm³ = 1 mL). How many full cans can be filled from a 4-liter jug?",
+   "answer": "3 cans",
    "solutionSteps": [
-    "V = πr²h ≈ 3.14 × 4² × 6 = 301.44 ft³.",
-    "Time = 301.44 ÷ 2.",
-    "≈ 150.7 minutes."
+    "One can: 3.14 × 6² × 11 = 1243.44 cm³ = 1243.44 mL.",
+    "4000 ÷ 1243.44 = 3.22, so 3 full cans."
    ],
    "standards": [
     "7.G.B.6",
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangular prism has volume 1440 m³, length 15 m, and width 8 m. Fi”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangular prism has volume 1440 m³, length 15 m, and width 8 m. Fi”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s07-honors-004",
@@ -9414,36 +9394,35 @@
    "skillId": "area-volume-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A cylinder-shaped tank has radius 4 ft and height 8 ft. Use 3.14 for π. Water fills it at 3 ft³ per minute. How many minutes does it take to fill, to the nearest tenth?",
-   "answer": "134",
+   "prompt": "A cylindrical can has radius 6 cm and height 10 cm. Use 3.14 for π (1 cm³ = 1 mL). How many full cans can be filled from a 4-liter jug?",
+   "answer": "3 cans",
    "options": [
     {
-     "text": "134",
+     "text": "3 cans",
      "correct": true
     },
     {
-     "text": "8",
+     "text": "177/50 cans",
      "correct": false
     },
     {
-     "text": "10048/25",
+     "text": "4000 cans",
      "correct": false
     },
     {
-     "text": "3",
+     "text": "5652/5 cans",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "V = πr²h ≈ 3.14 × 4² × 8 = 401.92 ft³.",
-    "Time = 401.92 ÷ 3.",
-    "≈ 134 minutes."
+    "One can: 3.14 × 6² × 10 = 1130.4 cm³ = 1130.4 mL.",
+    "4000 ÷ 1130.4 = 3.54, so 3 full cans."
    ],
    "standards": [
     "7.G.B.6",
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangular prism has volume 715 m³, length 13 m, and width 5 m. Fin”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangular prism has volume 715 m³, length 13 m, and width 5 m. Fin”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s07-honors-007",
@@ -9486,72 +9465,71 @@
    "skillId": "area-volume-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A rectangular prism has volume 120 m³, length 3 m, and width 10 m. Find its height.",
-   "answer": "4 meters",
+   "prompt": "A cylindrical can has radius 3 cm and height 10 cm. Use 3.14 for π (1 cm³ = 1 mL). How many full cans can be filled from a 4-liter jug?",
+   "answer": "14 cans",
    "options": [
     {
-     "text": "4 meters",
+     "text": "283/20 cans",
+     "correct": false
+    },
+    {
+     "text": "1413/5 cans",
+     "correct": false
+    },
+    {
+     "text": "14 cans",
      "correct": true
     },
     {
-     "text": "107 meters",
-     "correct": false
-    },
-    {
-     "text": "120/13 meters",
-     "correct": false
-    },
-    {
-     "text": "3600 meters",
+     "text": "4000 cans",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "V = lwh: 120 = 3 × 10 × h.",
-    "120 = 30h.",
-    "h = 120 ÷ 30 = 4 meters."
+    "One can: 3.14 × 3² × 10 = 282.6 cm³ = 282.6 mL.",
+    "4000 ÷ 282.6 = 14.15, so 14 full cans."
    ],
    "standards": [
     "7.G.B.6",
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangular prism has volume 120 m³, length 3 m, and width 10 m. Fin”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s07-honors-010",
    "skillId": "area-volume-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the volume of a rectangular prism 10.5 in. long, 12 in. wide, and 12 in. high.",
-   "answer": "1512 in³",
+   "prompt": "A cylinder-shaped tank has radius 3 ft and height 8 ft. Use 3.14 for π. Water fills it at 4 ft³ per minute. How many minutes does it take to fill, to the nearest tenth?",
+   "answer": "56.5",
    "options": [
     {
-     "text": "34.5 in³",
+     "text": "226.08",
      "correct": false
     },
     {
-     "text": "792 in³",
-     "correct": false
-    },
-    {
-     "text": "1512 in³",
+     "text": "56.5",
      "correct": true
     },
     {
-     "text": "126 in³",
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "4",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "V = lwh.",
-    "V = 10.5 × 12 × 12.",
-    "V = 1512 in³."
+    "V = πr²h ≈ 3.14 × 3² × 8 = 226.08 ft³.",
+    "Time = 226.08 ÷ 4.",
+    "≈ 56.5 minutes."
    ],
    "standards": [
     "7.G.B.6",
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_prism). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the volume of a rectangular prism 10.5 in. long, 12 in. wide, and”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s07-honors-011",
@@ -9594,36 +9572,35 @@
    "skillId": "area-volume-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A rectangular prism has volume 726 m³, length 6 m, and width 11 m. Find its height.",
-   "answer": "11 meters",
+   "prompt": "A cylindrical can has radius 6 cm and height 10 cm. Use 3.14 for π (1 cm³ = 1 mL). How many full cans can be filled from a 3-liter jug?",
+   "answer": "2 cans",
    "solutionSteps": [
-    "V = lwh: 726 = 6 × 11 × h.",
-    "726 = 66h.",
-    "h = 726 ÷ 66 = 11 meters."
+    "One can: 3.14 × 6² × 10 = 1130.4 cm³ = 1130.4 mL.",
+    "3000 ÷ 1130.4 = 2.65, so 2 full cans."
    ],
    "standards": [
     "7.G.B.6",
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_arv_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangular prism has volume 726 m³, length 6 m, and width 11 m. Fin”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s07-honors-013",
    "skillId": "area-volume-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the volume of a rectangular prism 6.5 in. long, 6 in. wide, and 8 in. high.",
-   "answer": "312 in³",
+   "prompt": "A cylinder-shaped tank has radius 3 ft and height 6 ft. Use 3.14 for π. Water fills it at 2 ft³ per minute. How many minutes does it take to fill, to the nearest tenth?",
+   "answer": "84.8",
    "solutionSteps": [
-    "V = lwh.",
-    "V = 6.5 × 6 × 8.",
-    "V = 312 in³."
+    "V = πr²h ≈ 3.14 × 3² × 6 = 169.56 ft³.",
+    "Time = 169.56 ÷ 2.",
+    "≈ 84.8 minutes."
    ],
    "standards": [
     "7.G.B.6",
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_prism). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_arv_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the volume of a rectangular prism 6.5 in. long, 6 in. wide, and 8”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s07-honors-014",
@@ -10586,19 +10563,17 @@
    "skillId": "area-volume-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Grace answered this problem incorrectly.\nFind the volume of a square pyramid with base edge 9 cm and height 8 cm.\nGrace's answer: 648 cm³\nIdentify the mistake and give the correct answer.",
-   "answer": "216 cm³",
+   "prompt": "A square pyramid has base edge 9 cm and height 6 cm. A prism with the same base and height holds how many more cubic centimeters than the pyramid?",
+   "answer": "324 cm³",
    "solutionSteps": [
-    "Mistake: Forgot the 1/3.",
-    "V = (1/3)Bh.",
-    "B = 9² = 81.",
-    "V = (1/3)(81)(8) = 216 cm³.",
-    "The correct answer is 216 cm³, not 648 cm³."
+    "Prism: 9² × 6 = 486 cm³.",
+    "Pyramid: ⅓ × 486 = 162 cm³.",
+    "Difference: 324 cm³."
    ],
    "standards": [
     "8.G.C.9"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_pyramid_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_arv_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Grace answered this problem incorrectly. Find the volume of a square p”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-arv-s08-honors-001",

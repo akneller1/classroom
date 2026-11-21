@@ -5225,12 +5225,12 @@
    "skillId": "data-analysis-probability-skill-04",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Owen has 3 shirts, 5 pairs of pants and 4 pairs of shoes. How many outfits are possible, and what is the probability that a random outfit uses one particular shirt? Give the number of outfits.",
-   "answer": "60",
+   "prompt": "Owen has 5 shirts, 5 pairs of pants and 3 pairs of shoes. How many outfits are possible, and what is the probability that a random outfit uses one particular shirt? Give the number of outfits.",
+   "answer": "75",
    "solutionSteps": [
-    "Counting principle: 3 × 5 × 4.",
-    "= 60 outfits.",
-    "Each shirt appears in 20 outfits, so P = 20/60 = 1/3."
+    "Counting principle: 5 × 5 × 3.",
+    "= 75 outfits.",
+    "Each shirt appears in 15 outfits, so P = 15/75 = 1/5."
    ],
    "standards": [
     "7.SP.C.7a",
@@ -6770,18 +6770,18 @@
    "skillId": "data-analysis-probability-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A bag has 7 red and 2 blue marbles. You draw a marble, do NOT replace it, and draw again. What is P(red, then red)? Write a fraction in simplest form.",
-   "answer": "7/12",
+   "prompt": "A box has 3 green and 7 blue pens. Two pens are drawn. How much greater is P(green, green) when the first pen is replaced than when it is not? Write a fraction in simplest form.",
+   "answer": "7/300",
    "solutionSteps": [
-    "P(first red) = 7/9.",
-    "After removing a red marble: 6/8.",
-    "P = 7/9 × 6/8 = 7/12."
+    "With replacement: (3/10)² = 9/100.",
+    "Without: 3/10 × 2/9 = 1/15.",
+    "Difference: 7/300."
    ],
    "standards": [
     "7.SP.C.8a",
     "S-CP.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_bag). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A bag has 7 red and 2 blue marbles. You draw a marble, do NOT replace ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s05-honors-014",
@@ -7826,18 +7826,17 @@
    "skillId": "data-analysis-probability-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "8 students run for a club. First, 3 officers are chosen with different jobs (order matters). Separately, a 3-person committee is chosen (order does not matter). How many more ways are there to choose the officers than the committee?",
-   "answer": "280",
+   "prompt": "A menu has 4 appetizers, 7 main dishes and 4 desserts. A meal is one of each. If 3 of the main dishes are sold out, how many fewer meals can be made?",
+   "answer": "48",
    "solutionSteps": [
-    "Officers: 8P3 = 336.",
-    "Committee: 8C3 = 56.",
-    "Difference: 280."
+    "All meals: 4 × 7 × 4 = 112. Now: 4 × 4 × 4 = 64.",
+    "112 - 64 = 48 fewer meals."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “How many different 2-person committees can be chosen from 4 people?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s06_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “How many different 2-person committees can be chosen from 4 people?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s06-honors-004",
@@ -7862,36 +7861,35 @@
    "skillId": "data-analysis-probability-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "10 students run for a club. First, 2 officers are chosen with different jobs (order matters). Separately, a 2-person committee is chosen (order does not matter). How many more ways are there to choose the officers than the committee?",
-   "answer": "45",
+   "prompt": "A menu has 3 appetizers, 7 main dishes and 2 desserts. A meal is one of each. If 4 of the main dishes are sold out, how many fewer meals can be made?",
+   "answer": "24",
    "options": [
+    {
+     "text": "24",
+     "correct": true
+    },
+    {
+     "text": "42",
+     "correct": false
+    },
     {
      "text": "2",
      "correct": false
     },
     {
-     "text": "90",
-     "correct": false
-    },
-    {
-     "text": "45",
-     "correct": true
-    },
-    {
-     "text": "10",
+     "text": "18",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Officers: 10P2 = 90.",
-    "Committee: 10C2 = 45.",
-    "Difference: 45."
+    "All meals: 3 × 7 × 2 = 42. Now: 3 × 3 × 2 = 18.",
+    "42 - 18 = 24 fewer meals."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In how many ways can 1st, 2nd, and 3rd place be awarded among 9 runner”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s06_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In how many ways can 1st, 2nd, and 3rd place be awarded among 9 runner”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s06-honors-006",
@@ -7934,12 +7932,12 @@
    "skillId": "data-analysis-probability-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "9 students run for a club. First, 3 officers are chosen with different jobs (order matters). Separately, a 3-person committee is chosen (order does not matter). How many more ways are there to choose the officers than the committee?",
-   "answer": "420",
+   "prompt": "10 students run for a club. First, 2 officers are chosen with different jobs (order matters). Separately, a 2-person committee is chosen (order does not matter). How many more ways are there to choose the officers than the committee?",
+   "answer": "45",
    "solutionSteps": [
-    "Officers: 9P3 = 504.",
-    "Committee: 9C3 = 84.",
-    "Difference: 420."
+    "Officers: 10P2 = 90.",
+    "Committee: 10C2 = 45.",
+    "Difference: 45."
    ],
    "standards": [
     "S-CP.B.9",
@@ -9154,36 +9152,35 @@
    "skillId": "data-analysis-probability-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A number cube was rolled 120 times and showed a 6 on 23 rolls. Find the experimental probability of a 6 and the theoretical probability. How many more (or fewer) 6s came up than the theoretical expected number? Give actual minus expected.",
-   "answer": "3",
+   "prompt": "A spinner landed on blue 37 times in 40 spins. Using the experimental probability, how many times would you expect blue in 280 spins?",
+   "answer": "259",
    "options": [
     {
-     "text": "3",
+     "text": "259",
      "correct": true
     },
     {
-     "text": "6",
+     "text": "260",
      "correct": false
     },
     {
-     "text": "23",
+     "text": "280",
      "correct": false
     },
     {
-     "text": "20",
+     "text": "37/40",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Experimental: 23/120 = 23/120.",
-    "Theoretical: 1/6, so expected = 120 ÷ 6 = 20.",
-    "23 - 20 = 3."
+    "P(blue) = 37/40.",
+    "37/40 × 280 = 259."
    ],
    "standards": [
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A fair coin is tossed 10 times and lands heads 9 times. Which statemen”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A fair coin is tossed 10 times and lands heads 9 times. Which statemen”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-honors-003",
@@ -9226,39 +9223,197 @@
    "skillId": "data-analysis-probability-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A number cube was rolled 120 times and showed a 6 on 26 rolls. Find the experimental probability of a 6 and the theoretical probability. How many more (or fewer) 6s came up than the theoretical expected number? Give actual minus expected.",
-   "answer": "6",
+   "prompt": "A spinner landed on blue 25 times in 40 spins. Using the experimental probability, how many times would you expect blue in 240 spins?",
+   "answer": "150",
    "options": [
     {
-     "text": "120",
+     "text": "151",
      "correct": false
     },
     {
-     "text": "6",
+     "text": "5/8",
+     "correct": false
+    },
+    {
+     "text": "150",
      "correct": true
     },
     {
-     "text": "26",
-     "correct": false
-    },
-    {
-     "text": "20",
+     "text": "240",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Experimental: 26/120 = 13/60.",
-    "Theoretical: 1/6, so expected = 120 ÷ 6 = 20.",
-    "26 - 20 = 6."
+    "P(blue) = 25/40.",
+    "25/40 × 240 = 150."
    ],
    "standards": [
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A fair coin is tossed 20 times and lands heads 16 times. Which stateme”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A fair coin is tossed 20 times and lands heads 16 times. Which stateme”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-honors-005",
+   "skillId": "data-analysis-probability-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A number cube was rolled 120 times and showed a 6 on 23 rolls. Find the experimental probability of a 6 and the theoretical probability. How many more (or fewer) 6s came up than the theoretical expected number? Give actual minus expected.",
+   "answer": "3",
+   "solutionSteps": [
+    "Experimental: 23/120 = 23/120.",
+    "Theoretical: 1/6, so expected = 120 ÷ 6 = 20.",
+    "23 - 20 = 3."
+   ],
+   "standards": [
+    "7.SP.C.6",
+    "7.SP.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In 25 trials, a seed sprouted 23 times. Predict how many times it will”); keys rechecked by verify_levels.py."
+  },
+  {
+   "id": "pa7-dap-s07-honors-006",
+   "skillId": "data-analysis-probability-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A spinner landed on blue 34 times in 40 spins. Using the experimental probability, how many times would you expect blue in 160 spins?",
+   "answer": "136",
+   "options": [
+    {
+     "text": "137",
+     "correct": false
+    },
+    {
+     "text": "136",
+     "correct": true
+    },
+    {
+     "text": "17/20",
+     "correct": false
+    },
+    {
+     "text": "160",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(blue) = 34/40.",
+    "34/40 × 160 = 136."
+   ],
+   "standards": [
+    "7.SP.C.6",
+    "7.SP.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A fair coin is tossed 10 times and lands heads 8 times. Which statemen”); keys rechecked by verify_levels.py."
+  },
+  {
+   "id": "pa7-dap-s07-honors-007",
+   "skillId": "data-analysis-probability-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A number cube was rolled 60 times and showed a 6 on 6 rolls. Find the experimental probability of a 6 and the theoretical probability. How many more (or fewer) 6s came up than the theoretical expected number? Give actual minus expected.",
+   "answer": "-4",
+   "options": [
+    {
+     "text": "60",
+     "correct": false
+    },
+    {
+     "text": "-4",
+     "correct": true
+    },
+    {
+     "text": "10",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Experimental: 6/60 = 1/10.",
+    "Theoretical: 1/6, so expected = 60 ÷ 6 = 10.",
+    "6 - 10 = -4."
+   ],
+   "standards": [
+    "7.SP.C.6",
+    "7.SP.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In 80 trials, a free throw went in 65 times. What is the experimental ”); keys rechecked by verify_levels.py."
+  },
+  {
+   "id": "pa7-dap-s07-honors-008",
+   "skillId": "data-analysis-probability-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A spinner landed on blue 3 times in 20 spins. Using the experimental probability, how many times would you expect blue in 40 spins?",
+   "answer": "6",
+   "options": [
+    {
+     "text": "3/20",
+     "correct": false
+    },
+    {
+     "text": "40",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "P(blue) = 3/20.",
+    "3/20 × 40 = 6."
+   ],
+   "standards": [
+    "7.SP.C.6",
+    "7.SP.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A fair coin is tossed 30 times and lands heads 2 times. Which statemen”); keys rechecked by verify_levels.py."
+  },
+  {
+   "id": "pa7-dap-s07-honors-009",
+   "skillId": "data-analysis-probability-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A number cube was rolled 120 times and showed a 6 on 16 rolls. Find the experimental probability of a 6 and the theoretical probability. How many more (or fewer) 6s came up than the theoretical expected number? Give actual minus expected.",
+   "answer": "-4",
+   "solutionSteps": [
+    "Experimental: 16/120 = 2/15.",
+    "Theoretical: 1/6, so expected = 120 ÷ 6 = 20.",
+    "16 - 20 = -4."
+   ],
+   "standards": [
+    "7.SP.C.6",
+    "7.SP.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In 40 trials, the spinner landed on blue 13 times. What is the experim”); keys rechecked by verify_levels.py."
+  },
+  {
+   "id": "pa7-dap-s07-honors-010",
+   "skillId": "data-analysis-probability-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A spinner landed on blue 9 times in 20 spins. Using the experimental probability, how many times would you expect blue in 120 spins?",
+   "answer": "54",
+   "solutionSteps": [
+    "P(blue) = 9/20.",
+    "9/20 × 120 = 54."
+   ],
+   "standards": [
+    "7.SP.C.6",
+    "7.SP.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In 50 trials, a seed sprouted 4 times. What is the experimental probab”); keys rechecked by verify_levels.py."
+  },
+  {
+   "id": "pa7-dap-s07-honors-011",
    "skillId": "data-analysis-probability-skill-07",
    "level": "honors",
    "format": "short-answer",
@@ -9273,182 +9428,24 @@
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In 25 trials, a seed sprouted 23 times. Predict how many times it will”); keys rechecked by verify_levels.py."
-  },
-  {
-   "id": "pa7-dap-s07-honors-006",
-   "skillId": "data-analysis-probability-skill-07",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "A fair coin is tossed 10 times and lands heads 8 times. Which statement about the experimental and theoretical probabilities is true?",
-   "answer": "Experimental probability gets closer to theoretical probability as the number of trials increases.",
-   "options": [
-    {
-     "text": "Experimental probability gets closer to theoretical probability as the number of trials increases.",
-     "correct": true
-    },
-    {
-     "text": "Theoretical probability changes after each trial.",
-     "correct": false
-    },
-    {
-     "text": "More trials make experimental probability less reliable.",
-     "correct": false
-    },
-    {
-     "text": "Experimental probability always equals theoretical probability.",
-     "correct": false
-    }
-   ],
-   "solutionSteps": [
-    "Theoretical P(heads) = 1/2; experimental = 8/10.",
-    "They often differ for small numbers of trials.",
-    "With many trials, the experimental probability tends to approach 1/2."
-   ],
-   "standards": [
-    "7.SP.C.6",
-    "7.SP.C.7b"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
-  },
-  {
-   "id": "pa7-dap-s07-honors-007",
-   "skillId": "data-analysis-probability-skill-07",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "In 80 trials, a free throw went in 65 times. What is the experimental probability? Write a fraction in simplest form.",
-   "answer": "13/16",
-   "options": [
-    {
-     "text": "13/16",
-     "correct": true
-    },
-    {
-     "text": "3/16",
-     "correct": false
-    },
-    {
-     "text": "65/81",
-     "correct": false
-    },
-    {
-     "text": "13/3",
-     "correct": false
-    }
-   ],
-   "solutionSteps": [
-    "Experimental probability = number of times the event happened ÷ number of trials.",
-    "65/80 = 13/16."
-   ],
-   "standards": [
-    "7.SP.C.6",
-    "7.SP.C.7b"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
-  },
-  {
-   "id": "pa7-dap-s07-honors-008",
-   "skillId": "data-analysis-probability-skill-07",
-   "level": "honors",
-   "format": "multiple-choice",
-   "prompt": "A fair coin is tossed 30 times and lands heads 2 times. Which statement about the experimental and theoretical probabilities is true?",
-   "answer": "Experimental probability gets closer to theoretical probability as the number of trials increases.",
-   "options": [
-    {
-     "text": "Theoretical probability changes after each trial.",
-     "correct": false
-    },
-    {
-     "text": "Experimental probability always equals theoretical probability.",
-     "correct": false
-    },
-    {
-     "text": "Experimental probability gets closer to theoretical probability as the number of trials increases.",
-     "correct": true
-    },
-    {
-     "text": "More trials make experimental probability less reliable.",
-     "correct": false
-    }
-   ],
-   "solutionSteps": [
-    "Theoretical P(heads) = 1/2; experimental = 2/30.",
-    "They often differ for small numbers of trials.",
-    "With many trials, the experimental probability tends to approach 1/2."
-   ],
-   "standards": [
-    "7.SP.C.6",
-    "7.SP.C.7b"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_compare). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
-  },
-  {
-   "id": "pa7-dap-s07-honors-009",
-   "skillId": "data-analysis-probability-skill-07",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "In 40 trials, the spinner landed on blue 13 times. What is the experimental probability? Write a fraction in simplest form.",
-   "answer": "13/40",
-   "solutionSteps": [
-    "Experimental probability = number of times the event happened ÷ number of trials.",
-    "13/40 = 13/40."
-   ],
-   "standards": [
-    "7.SP.C.6",
-    "7.SP.C.7b"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
-  },
-  {
-   "id": "pa7-dap-s07-honors-010",
-   "skillId": "data-analysis-probability-skill-07",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "In 50 trials, a seed sprouted 4 times. What is the experimental probability? Write a fraction in simplest form.",
-   "answer": "2/25",
-   "solutionSteps": [
-    "Experimental probability = number of times the event happened ÷ number of trials.",
-    "4/50 = 2/25."
-   ],
-   "standards": [
-    "7.SP.C.6",
-    "7.SP.C.7b"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
-  },
-  {
-   "id": "pa7-dap-s07-honors-011",
-   "skillId": "data-analysis-probability-skill-07",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "In 50 trials, the bus was late 45 times. What is the experimental probability? Write a fraction in simplest form.",
-   "answer": "9/10",
-   "solutionSteps": [
-    "Experimental probability = number of times the event happened ÷ number of trials.",
-    "45/50 = 9/10."
-   ],
-   "standards": [
-    "7.SP.C.6",
-    "7.SP.C.7b"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In 50 trials, the bus was late 45 times. What is the experimental prob”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-honors-012",
    "skillId": "data-analysis-probability-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "In 100 trials, a seed sprouted 5 times. What is the experimental probability? Write a fraction in simplest form.",
-   "answer": "1/20",
+   "prompt": "A spinner landed on blue 7 times in 25 spins. Using the experimental probability, how many times would you expect blue in 175 spins?",
+   "answer": "49",
    "solutionSteps": [
-    "Experimental probability = number of times the event happened ÷ number of trials.",
-    "5/100 = 1/20."
+    "P(blue) = 7/25.",
+    "7/25 × 175 = 49."
    ],
    "standards": [
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In 100 trials, a seed sprouted 5 times. What is the experimental proba”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-honors-013",
@@ -9472,19 +9469,18 @@
    "skillId": "data-analysis-probability-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Hiro answered this problem incorrectly.\nIn 40 trials, a seed sprouted 37 times. What is the experimental probability? Write a fraction in simplest form.\nHiro's answer: 37/3\nIdentify the mistake and give the correct answer.",
-   "answer": "37/40",
+   "prompt": "A number cube was rolled 120 times and showed a 6 on 26 rolls. Find the experimental probability of a 6 and the theoretical probability. How many more (or fewer) 6s came up than the theoretical expected number? Give actual minus expected.",
+   "answer": "6",
    "solutionSteps": [
-    "Mistake: Compared successes to failures.",
-    "Experimental probability = number of times the event happened ÷ number of trials.",
-    "37/40 = 37/40.",
-    "The correct answer is 37/40, not 37/3."
+    "Experimental: 26/120 = 13/60.",
+    "Theoretical: 1/6, so expected = 120 ÷ 6 = 20.",
+    "26 - 20 = 6."
    ],
    "standards": [
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_exp_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Hiro answered this problem incorrectly. In 40 trials, a seed sprouted ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-honors-015",
@@ -10488,18 +10484,17 @@
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "In a random sample of 50 students, 29 want a later start time. Predict how many of the school's 600 students want a later start, then how many do not. Give the number who do not.",
-   "answer": "252",
+   "prompt": "In a random sample of 100 shoppers, 7 paid with cash. The store has 2400 shoppers a day. Predict how many shoppers a day do not pay with cash.",
+   "answer": "2232",
    "solutionSteps": [
-    "Sample proportion: 29/50 = 29/50.",
-    "Predicted yes: 29/50 × 600 = 348.",
-    "Predicted no: 600 - 348 = 252."
+    "Not cash in the sample: 100 - 7 = 93, so 93/100.",
+    "93/100 × 2400 = 2232."
    ],
    "standards": [
     "7.SP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 20 students, 17 own a pet. Predict how many of t”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 20 students, 17 own a pet. Predict how many of t”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-003",
@@ -10542,36 +10537,35 @@
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "In a random sample of 60 students, 34 want a later start time. Predict how many of the school's 900 students want a later start, then how many do not. Give the number who do not.",
-   "answer": "390",
+   "prompt": "In a random sample of 100 shoppers, 94 paid with cash. The store has 2200 shoppers a day. Predict how many shoppers a day do not pay with cash.",
+   "answer": "132",
    "options": [
     {
-     "text": "510",
+     "text": "2200",
      "correct": false
     },
     {
-     "text": "900",
+     "text": "3/50",
      "correct": false
     },
     {
-     "text": "390",
+     "text": "132",
      "correct": true
     },
     {
-     "text": "17/30",
+     "text": "6",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Sample proportion: 34/60 = 17/30.",
-    "Predicted yes: 17/30 × 900 = 510.",
-    "Predicted no: 900 - 510 = 390."
+    "Not cash in the sample: 100 - 94 = 6, so 6/100.",
+    "6/100 × 2200 = 132."
    ],
    "standards": [
     "7.SP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 25 students, 23 walk to school. Predict how many”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 25 students, 23 walk to school. Predict how many”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-005",
@@ -10632,70 +10626,71 @@
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A school wants to know students' favorite lunch. Which sampling method is most likely to give a representative (unbiased) sample?",
-   "answer": "Survey every 10th person on an alphabetical list of all members.",
+   "prompt": "In a random sample of 80 shoppers, 74 paid with cash. The store has 2080 shoppers a day. Predict how many shoppers a day do not pay with cash.",
+   "answer": "156",
    "options": [
     {
-     "text": "Ask the first 30 students who arrive at basketball practice.",
+     "text": "2080",
      "correct": false
     },
     {
-     "text": "Post an online poll that people can choose to answer.",
+     "text": "3/40",
      "correct": false
     },
     {
-     "text": "Survey students in one honors class about homework load.",
-     "correct": false
-    },
-    {
-     "text": "Survey every 10th person on an alphabetical list of all members.",
+     "text": "156",
      "correct": true
+    },
+    {
+     "text": "6",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "A random sample gives every member of the population an equal chance to be chosen.",
-    "Convenience and voluntary samples are biased."
+    "Not cash in the sample: 80 - 74 = 6, so 6/80.",
+    "6/80 × 2080 = 156."
    ],
    "standards": [
-    "7.SP.A.1"
+    "7.SP.A.2",
+    "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_bias). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A school wants to know students' favorite lunch. Which sampling method”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-008",
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "In a random sample of 50 students, 37 walk to school. Predict how many of the school's 1000 students walk to school.",
-   "answer": "740",
+   "prompt": "In a random sample of 50 students, 18 want a later start time. Predict how many of the school's 1200 students want a later start, then how many do not. Give the number who do not.",
+   "answer": "768",
    "options": [
     {
-     "text": "37",
+     "text": "432",
      "correct": false
     },
     {
-     "text": "740",
+     "text": "768",
      "correct": true
     },
     {
-     "text": "260",
+     "text": "9/25",
      "correct": false
     },
     {
-     "text": "987",
+     "text": "1200",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Sample proportion: 37/50.",
-    "Proportion: 37/50 = x/1000.",
-    "x = 37 × 1000 ÷ 50 = 740."
+    "Sample proportion: 18/50 = 9/25.",
+    "Predicted yes: 9/25 × 1200 = 432.",
+    "Predicted no: 1200 - 432 = 768."
    ],
    "standards": [
     "7.SP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 50 students, 37 walk to school. Predict how many”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-009",
@@ -10720,36 +10715,35 @@
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "In a random sample of 25 students, 15 prefer pizza. Predict how many of the school's 1000 students prefer pizza.",
-   "answer": "600",
+   "prompt": "In a random sample of 40 shoppers, 13 paid with cash. The store has 1120 shoppers a day. Predict how many shoppers a day do not pay with cash.",
+   "answer": "756",
    "solutionSteps": [
-    "Sample proportion: 15/25.",
-    "Proportion: 15/25 = x/1000.",
-    "x = 15 × 1000 ÷ 25 = 600."
+    "Not cash in the sample: 40 - 13 = 27, so 27/40.",
+    "27/40 × 1120 = 756."
    ],
    "standards": [
     "7.SP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 25 students, 15 prefer pizza. Predict how many o”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-011",
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "In a random sample of 20 students, 18 play an instrument. Predict how many of the school's 500 students play an instrument.",
-   "answer": "450",
+   "prompt": "In a random sample of 50 students, 12 want a later start time. Predict how many of the school's 1200 students want a later start, then how many do not. Give the number who do not.",
+   "answer": "912",
    "solutionSteps": [
-    "Sample proportion: 18/20.",
-    "Proportion: 18/20 = x/500.",
-    "x = 18 × 500 ÷ 20 = 450."
+    "Sample proportion: 12/50 = 6/25.",
+    "Predicted yes: 6/25 × 1200 = 288.",
+    "Predicted no: 1200 - 288 = 912."
    ],
    "standards": [
     "7.SP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 20 students, 18 play an instrument. Predict how ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-012",
@@ -10774,18 +10768,17 @@
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "In a random sample of 20 students, 5 walk to school. Predict how many of the school's 400 students walk to school.",
-   "answer": "100",
+   "prompt": "In a random sample of 40 shoppers, 11 paid with cash. The store has 760 shoppers a day. Predict how many shoppers a day do not pay with cash.",
+   "answer": "551",
    "solutionSteps": [
-    "Sample proportion: 5/20.",
-    "Proportion: 5/20 = x/400.",
-    "x = 5 × 400 ÷ 20 = 100."
+    "Not cash in the sample: 40 - 11 = 29, so 29/40.",
+    "29/40 × 760 = 551."
    ],
    "standards": [
     "7.SP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 20 students, 5 walk to school. Predict how many ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-014",

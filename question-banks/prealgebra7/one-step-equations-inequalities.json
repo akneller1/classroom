@@ -738,17 +738,17 @@
    "skillId": "one-step-equations-inequalities-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "What number makes the statement true? 2 + 4 = 4 + ?",
-   "answer": "2",
+   "prompt": "Zoe rewrites 2 + 4 + 12 as 2 + 12 + 4 so that two numbers are easy to add first. The Commutative Property of Addition allows this. What is the sum?",
+   "answer": "18",
    "solutionSteps": [
-    "This uses the Commutative Property of Addition.",
-    "The missing number is 2."
+    "Only the order of 4 and 12 changed: Commutative Property of Addition.",
+    "Sum: 2 + 12 + 4 = 18."
    ],
    "standards": [
     "6.EE.A.3",
     "7.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_osei_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “What number makes the statement true? 2 + 4 = 4 + ?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-osei-s01-cp1-014",
@@ -2076,18 +2076,18 @@
    "skillId": "one-step-equations-inequalities-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Use the Distributive Property to simplify 4(t + 8).",
-   "answer": "4t + 32",
+   "prompt": "A garden is 8 m wide. Its length is 3 m of lettuce plus 3 m of beans. Use the Distributive Property to write the area as two products, then find the total area in square meters.",
+   "answer": "48",
    "solutionSteps": [
-    "Multiply 4 by each term inside the parentheses.",
-    "4 × t = 4t and 4 × 8 = 32.",
-    "Result: 4t + 32."
+    "8(3 + 3) = 8 × 3 + 8 × 3.",
+    "= 24 + 24.",
+    "= 48 square meters."
    ],
    "standards": [
     "6.EE.A.3",
     "7.EE.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_expand). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_osei_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Use the Distributive Property to simplify 4(t + 8).”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-osei-s02-cp1-014",
@@ -3994,19 +3994,18 @@
    "skillId": "one-step-equations-inequalities-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A triangle has sides (3x + 4), (4x), and (x + 8). Write a simplified expression for its perimeter.",
-   "answer": "8x + 12",
+   "prompt": "A garden has sides of length 4x + 7, x - 2, 5x and x feet. Write the perimeter as a simplified expression, then find it when x = 8.",
+   "answer": "93",
    "solutionSteps": [
-    "Perimeter is the sum of the sides.",
-    "Add the x-terms: 3 + 4 + 1 = 8.",
-    "Add the constants: 4 + 8 = 12.",
-    "Perimeter: 8x + 12."
+    "Add the sides: (4x + 7) + (x - 2) + 5x + x.",
+    "Combine like terms: 11x + 5.",
+    "When x = 8: 11 × 8 + 5 = 93 feet."
    ],
    "standards": [
     "7.EE.A.1",
     "6.EE.A.4"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_osei_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A triangle has sides (3x + 4), (4x), and (x + 8). Write a simplified e”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-osei-s03-honors-014",
@@ -4931,18 +4930,18 @@
    "skillId": "one-step-equations-inequalities-skill-04",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Is a = 4 a solution of 5a + 10 = 30?",
-   "answer": "Yes",
+   "prompt": "Is the equation true, false, or open? 6 + 15 = 24 - 3",
+   "answer": "true",
    "solutionSteps": [
-    "Substitute 4 for a.",
-    "Left side = 30; right side = 30.",
-    "They are equal, so yes."
+    "Left side: 6 + 15 = 21.",
+    "Right side: 24 - 3 = 21.",
+    "Both sides are equal and there is no variable, so it is true."
    ],
    "standards": [
     "6.EE.B.5",
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s4_is_solution). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_osei_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Is a = 4 a solution of 5a + 10 = 30?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-osei-s04-cp1-014",
@@ -6365,17 +6364,16 @@
    "skillId": "one-step-equations-inequalities-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Eli spent $24 on Monday and then earned $26 on Tuesday. Now he has $61. Write and solve an equation to find how much he had at the start.",
-   "answer": "59",
+   "prompt": "Eli started with $231 and paid 4 equal bills. Eli now has $51. Write and solve an equation to find the amount of each bill.",
+   "answer": "$45",
    "solutionSteps": [
-    "Let x be the starting amount: x - 24 + 26 = 61.",
-    "Combine: x + 2 = 61.",
-    "x = 59 dollars."
+    "231 - 4b = 51.",
+    "4b = 180, so b = 45."
    ],
    "standards": [
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_osei_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “After a $30 discount, a jacket costs $89. Write and solve an equation ”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_osei_s05_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “After a $30 discount, a jacket costs $89. Write and solve an equation ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-osei-s05-honors-003",
@@ -6523,35 +6521,34 @@
    "skillId": "one-step-equations-inequalities-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Owen spent $24 on Monday and then earned $34 on Tuesday. Now he has $90. Write and solve an equation to find how much he had at the start.",
-   "answer": "80",
+   "prompt": "Owen started with $109 and paid 4 equal bills. Owen now has $29. Write and solve an equation to find the amount of each bill.",
+   "answer": "$20",
    "options": [
     {
-     "text": "34",
+     "text": "$4",
      "correct": false
     },
     {
-     "text": "90",
+     "text": "$29",
      "correct": false
     },
     {
-     "text": "80",
+     "text": "$80",
+     "correct": false
+    },
+    {
+     "text": "$20",
      "correct": true
-    },
-    {
-     "text": "10",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Let x be the starting amount: x - 24 + 34 = 90.",
-    "Combine: x + 10 = 90.",
-    "x = 80 dollars."
+    "109 - 4b = 29.",
+    "4b = 80, so b = 20."
    ],
    "standards": [
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_osei_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “The temperature rose 22°F to reach 82°F. Write and solve an equation t”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_osei_s05_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “The temperature rose 22°F to reach 82°F. Write and solve an equation t”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-osei-s05-honors-009",
@@ -6575,17 +6572,16 @@
    "skillId": "one-step-equations-inequalities-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "After a $18 discount, a jacket costs $90. Write and solve an equation to find c, the original price.",
-   "answer": "c = 108",
+   "prompt": "Rosa started with $59 and paid 2 equal bills. Rosa now has $25. Write and solve an equation to find the amount of each bill.",
+   "answer": "$17",
    "solutionSteps": [
-    "Equation: c - 18 = 90.",
-    "Use the inverse operation on both sides.",
-    "c = 108."
+    "59 - 2b = 25.",
+    "2b = 34, so b = 17."
    ],
    "standards": [
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_osei_s05_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “After a $18 discount, a jacket costs $90. Write and solve an equation ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-osei-s05-honors-011",
@@ -6628,35 +6624,35 @@
    "skillId": "one-step-equations-inequalities-skill-05",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "After a $56 discount, a jacket costs $49. Write and solve an equation to find c, the original price.",
-   "answer": "c = 105",
+   "prompt": "Maya spent $33 on Monday and then earned $21 on Tuesday. Now she has $22. Write and solve an equation to find how much she had at the start.",
+   "answer": "34",
    "options": [
     {
-     "text": "c = 49",
+     "text": "22",
      "correct": false
     },
     {
-     "text": "c = 105",
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "34",
      "correct": true
     },
     {
-     "text": "c = -7",
-     "correct": false
-    },
-    {
-     "text": "c = 7",
+     "text": "21",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Equation: c - 56 = 49.",
-    "Use the inverse operation on both sides.",
-    "c = 105."
+    "Let x be the starting amount: x - 33 + 21 = 22.",
+    "Combine: x - 12 = 22.",
+    "x = 34 dollars."
    ],
    "standards": [
     "6.EE.B.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_osei_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “After a $56 discount, a jacket costs $49. Write and solve an equation ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-osei-s05-honors-013",
@@ -9063,18 +9059,17 @@
    "skillId": "one-step-equations-inequalities-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Two whole numbers have a sum of 19 and a product of 88. Guess, check and revise to find the greater number.",
-   "answer": "11",
+   "prompt": "Two whole numbers have a difference of 6 and a product of 247. Guess, check and revise to find the greater number.",
+   "answer": "19",
    "solutionSteps": [
-    "List factor pairs of 88 and check their sums.",
-    "11 × 8 = 88 and 11 + 8 = 19.",
-    "The greater number is 11."
+    "Try pairs that differ by 6: (n + 6) × n = 247.",
+    "19 × 13 = 247, so the greater number is 19."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_osei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A farm has chickens and cows. There are 16 animals with 38 legs in all”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_osei_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A farm has chickens and cows. There are 16 animals with 38 legs in all”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-osei-s07-honors-004",
@@ -9136,36 +9131,35 @@
    "skillId": "one-step-equations-inequalities-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Two whole numbers have a sum of 22 and a product of 112. Guess, check and revise to find the greater number.",
-   "answer": "14",
+   "prompt": "Two whole numbers have a difference of 9 and a product of 322. Guess, check and revise to find the greater number.",
+   "answer": "23",
    "options": [
     {
-     "text": "14",
+     "text": "23",
      "correct": true
     },
     {
-     "text": "112",
+     "text": "9",
      "correct": false
     },
     {
-     "text": "22",
+     "text": "14",
      "correct": false
     },
     {
-     "text": "8",
+     "text": "322",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "List factor pairs of 112 and check their sums.",
-    "14 × 8 = 112 and 14 + 8 = 22.",
-    "The greater number is 14."
+    "Try pairs that differ by 9: (n + 9) × n = 322.",
+    "23 × 14 = 322, so the greater number is 23."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_osei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A farm has chickens and cows. There are 25 animals with 72 legs in all”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_osei_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A farm has chickens and cows. There are 25 animals with 72 legs in all”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-osei-s07-honors-007",
@@ -9227,19 +9221,17 @@
    "skillId": "one-step-equations-inequalities-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A farm has chickens and cows. There are 16 animals with 50 legs in all. How many cows are there?",
-   "answer": "9",
+   "prompt": "Two whole numbers have a difference of 3 and a product of 180. Guess, check and revise to find the greater number.",
+   "answer": "15",
    "solutionSteps": [
-    "Guess a number of cows; the rest are chickens.",
-    "Count the legs: 4 per cow and 2 per chicken.",
-    "Adjust the guess until the leg total matches.",
-    "9 cows and 7 chickens: 4(9) + 2(7) = 50."
+    "Try pairs that differ by 3: (n + 3) × n = 180.",
+    "15 × 12 = 180, so the greater number is 15."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_legs). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_osei_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A farm has chickens and cows. There are 16 animals with 50 legs in all”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-osei-s07-honors-010",
@@ -9283,56 +9275,53 @@
    "skillId": "one-step-equations-inequalities-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Adult tickets cost $11 and child tickets cost $4. A group bought 18 tickets for $149. How many adult tickets did they buy?",
-   "answer": "11",
+   "prompt": "Two whole numbers have a sum of 13 and a product of 40. Guess, check and revise to find the greater number.",
+   "answer": "8",
    "solutionSteps": [
-    "Guess a number of adult tickets, a; then child tickets = 18 - a.",
-    "Check: 11a + 4(18 - a) should equal 149.",
-    "Revise the guess based on whether the total is too high or too low.",
-    "a = 11: 11(11) + 4(7) = 149."
+    "List factor pairs of 40 and check their sums.",
+    "8 × 5 = 40 and 8 + 5 = 13.",
+    "The greater number is 8."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_tickets). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_osei_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Adult tickets cost $11 and child tickets cost $4. A group bought 18 ti”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-osei-s07-honors-012",
    "skillId": "one-step-equations-inequalities-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A farm has chickens and cows. There are 18 animals with 58 legs in all. How many cows are there?",
-   "answer": "11",
+   "prompt": "Two whole numbers have a difference of 4 and a product of 117. Guess, check and revise to find the greater number.",
+   "answer": "13",
    "options": [
     {
-     "text": "7",
+     "text": "4",
      "correct": false
     },
     {
-     "text": "14",
-     "correct": false
-    },
-    {
-     "text": "17",
-     "correct": false
-    },
-    {
-     "text": "11",
+     "text": "13",
      "correct": true
+    },
+    {
+     "text": "117",
+     "correct": false
+    },
+    {
+     "text": "9",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Guess a number of cows; the rest are chickens.",
-    "Count the legs: 4 per cow and 2 per chicken.",
-    "Adjust the guess until the leg total matches.",
-    "11 cows and 7 chickens: 4(11) + 2(7) = 58."
+    "Try pairs that differ by 4: (n + 4) × n = 117.",
+    "13 × 9 = 117, so the greater number is 13."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_legs). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_osei_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A farm has chickens and cows. There are 18 animals with 58 legs in all”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-osei-s07-honors-013",
