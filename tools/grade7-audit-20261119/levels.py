@@ -1683,7 +1683,8 @@ def main():
     done = {'cp1': 0, 'honors': 0}
     TAG = 'audit 2 #3'
     ok = lambda q, lv: (q['level'] == lv and q['format'] in ('multiple-choice', 'short-answer') and not q.get('diagram')
-                        and q['id'] not in keep and not re.search(r'-(?:h|pc)\d\d$', q['id']) and 'Partner-check companion' not in q.get('sourceNotes', ''))
+                        and q['id'] not in keep and not re.search(r'-(?:h|pc)\d\d$', q['id']) and 'Partner-check companion' not in q.get('sourceNotes', '')
+                        and not re.search(r'family: g7_(polygon|circle|scale_drawing_figure|dot_plot|congruent|rewrite)', q.get('sourceNotes', '')))   # verify_g4.py items
     for u in lib.UNITS:
         qs = banks[u]['questions']
         for sid in sorted({q['skillId'] for q in qs}):

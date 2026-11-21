@@ -11585,32 +11585,32 @@
    "skillId": "ratios-proportions-percentages-skill-09",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A $36.74 item is on sale for 20% off. Sales tax of 6.25% is added to the sale price. What is the total cost? Round to the nearest cent.",
-   "answer": "$31.23",
+   "prompt": "An item has price p. After a 15% discount the new price is p - 0.15p. Which rewritten form shows that the new price is a percent of p, and what percent?",
+   "answer": "0.85p, so 85% of p",
    "solutionSteps": [
-    "Sale price: $36.74 × 0.8 = $29.39.",
-    "With tax: $29.39 × 1.0625 ≈ $31.23."
+    "p - 0.15p = (1 - 0.15)p = 0.85p.",
+    "0.85 = 85%, so the new price is 85% of the original."
    ],
    "standards": [
     "7.EE.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_rpp_s09). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “An item has price p. After a 15% discount the new price is p - 0.15p. ”); keys rechecked by verify_levels.py.",
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_rewrite_percent). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Teacher review pending.",
    "options": [
     {
-     "text": "$1.0625",
+     "text": "1.15p, so 115% of p",
      "correct": false
     },
     {
-     "text": "$29.39",
-     "correct": false
-    },
-    {
-     "text": "$31.23",
+     "text": "0.85p, so 85% of p",
      "correct": true
     },
     {
-     "text": "$0.8",
+     "text": "p - 15, so $15 less",
+     "correct": false
+    },
+    {
+     "text": "0.15p, so 15% of p",
      "correct": false
     }
    ]

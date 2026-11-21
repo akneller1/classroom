@@ -5420,36 +5420,36 @@
    "skillId": "data-analysis-probability-skill-04",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Ana has 4 shirts, 4 pairs of pants and 4 pairs of shoes. How many outfits are possible, and what is the probability that a random outfit uses one particular shirt? Give the number of outfits.",
-   "answer": "64",
+   "prompt": "Two number cubes are rolled. What is P(a sum of 10)? Write a fraction in simplest form.",
+   "answer": "1/12",
    "options": [
     {
-     "text": "1/4",
-     "correct": false
-    },
-    {
-     "text": "4",
-     "correct": false
-    },
-    {
-     "text": "64",
+     "text": "1/12",
      "correct": true
     },
     {
-     "text": "16",
+     "text": "1/11",
+     "correct": false
+    },
+    {
+     "text": "1/2",
+     "correct": false
+    },
+    {
+     "text": "1/4",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Counting principle: 4 × 4 × 4.",
-    "= 64 outfits.",
-    "Each shirt appears in 16 outfits, so P = 16/64 = 1/4."
+    "There are 6 × 6 = 36 equally likely outcomes.",
+    "Count the outcomes with a sum of 10: 3.",
+    "P = 3/36 = 1/12."
    ],
    "standards": [
     "7.SP.C.7a",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s04). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Two number cubes are rolled. What is P(a sum of 10)? Write a fraction ”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s4_prob). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-dap-s04-honors-013",
@@ -8004,106 +8004,108 @@
    "skillId": "data-analysis-probability-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A menu has 5 appetizers, 7 main dishes and 2 desserts. A meal is one of each. If 3 of the main dishes are sold out, how many fewer meals can be made?",
-   "answer": "30",
+   "prompt": "How many different 4-person committees can be chosen from 6 people?",
+   "answer": "15",
    "options": [
     {
-     "text": "70",
+     "text": "24",
      "correct": false
     },
     {
-     "text": "4",
+     "text": "360",
      "correct": false
     },
     {
-     "text": "40",
-     "correct": false
-    },
-    {
-     "text": "30",
+     "text": "15",
      "correct": true
+    },
+    {
+     "text": "20",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "All meals: 5 × 7 × 2 = 70. Now: 5 × 4 × 2 = 40.",
-    "70 - 40 = 30 fewer meals."
+    "Order does not matter, so this is a combination.",
+    "6C4 = (6 × 5 × 4 × 3) ÷ 4! = 360 ÷ 24.",
+    "= 15."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s06_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “How many different 4-person committees can be chosen from 6 people?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s6_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-dap-s06-honors-011",
    "skillId": "data-analysis-probability-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "9 students run for a club. First, 2 officers are chosen with different jobs (order matters). Separately, a 2-person committee is chosen (order does not matter). How many more ways are there to choose the officers than the committee?",
-   "answer": "36",
+   "prompt": "How many different 4-person committees can be chosen from 7 people?",
+   "answer": "35",
    "solutionSteps": [
-    "Officers: 9P2 = 72.",
-    "Committee: 9C2 = 36.",
-    "Difference: 36."
+    "Order does not matter, so this is a combination.",
+    "7C4 = (7 × 6 × 5 × 4) ÷ 4! = 840 ÷ 24.",
+    "= 35."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “How many different 4-person committees can be chosen from 7 people?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s6_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-dap-s06-honors-012",
    "skillId": "data-analysis-probability-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A menu has 4 appetizers, 8 main dishes and 3 desserts. A meal is one of each. If 6 of the main dishes are sold out, how many fewer meals can be made?",
-   "answer": "72",
+   "prompt": "How many different 2-person committees can be chosen from 7 people?",
+   "answer": "21",
    "options": [
     {
-     "text": "72",
+     "text": "21",
      "correct": true
     },
     {
-     "text": "96",
+     "text": "7",
      "correct": false
     },
     {
-     "text": "24",
+     "text": "42",
      "correct": false
     },
     {
-     "text": "2",
+     "text": "14",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "All meals: 4 × 8 × 3 = 96. Now: 4 × 2 × 3 = 24.",
-    "96 - 24 = 72 fewer meals."
+    "Order does not matter, so this is a combination.",
+    "7C2 = (7 × 6) ÷ 2! = 42 ÷ 2.",
+    "= 21."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s06_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “How many different 2-person committees can be chosen from 7 people?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s6_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-dap-s06-honors-013",
    "skillId": "data-analysis-probability-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "7 students run for a club. First, 2 officers are chosen with different jobs (order matters). Separately, a 2-person committee is chosen (order does not matter). How many more ways are there to choose the officers than the committee?",
-   "answer": "21",
+   "prompt": "How many different 4-person committees can be chosen from 5 people?",
+   "answer": "5",
    "solutionSteps": [
-    "Officers: 7P2 = 42.",
-    "Committee: 7C2 = 21.",
-    "Difference: 21."
+    "Order does not matter, so this is a combination.",
+    "5C4 = (5 × 4 × 3 × 2) ÷ 4! = 120 ÷ 24.",
+    "= 5."
    ],
    "standards": [
     "S-CP.B.9",
     "7.SP.C.8b"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “How many different 4-person committees can be chosen from 5 people?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s6_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-dap-s06-honors-014",
@@ -9450,6 +9452,23 @@
    "skillId": "data-analysis-probability-skill-07",
    "level": "honors",
    "format": "short-answer",
+   "prompt": "In 60 trials, a seed sprouted 11 times. Predict how many times it will happen in 300 trials.",
+   "answer": "55",
+   "solutionSteps": [
+    "Experimental probability = 11/60.",
+    "11/60 × 300 = 55."
+   ],
+   "standards": [
+    "7.SP.C.6",
+    "7.SP.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_exp). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+  },
+  {
+   "id": "pa7-dap-s07-honors-014",
+   "skillId": "data-analysis-probability-skill-07",
+   "level": "honors",
+   "format": "short-answer",
    "prompt": "A number cube was rolled 120 times and showed a 6 on 26 rolls. Find the experimental probability of a 6 and the theoretical probability. How many more (or fewer) 6s came up than the theoretical expected number? Give actual minus expected.",
    "answer": "6",
    "solutionSteps": [
@@ -9461,24 +9480,7 @@
     "7.SP.C.6",
     "7.SP.C.7b"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In 60 trials, a seed sprouted 11 times. Predict how many times it will”); keys rechecked by verify_levels.py."
-  },
-  {
-   "id": "pa7-dap-s07-honors-014",
-   "skillId": "data-analysis-probability-skill-07",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "A spinner landed on blue 15 times in 50 spins. Using the experimental probability, how many times would you expect blue in 150 spins?",
-   "answer": "45",
-   "solutionSteps": [
-    "P(blue) = 15/50.",
-    "15/50 × 150 = 45."
-   ],
-   "standards": [
-    "7.SP.C.6",
-    "7.SP.C.7b"
-   ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Hiro answered this problem incorrectly. In 40 trials, a seed sprouted ”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Hiro answered this problem incorrectly. In 40 trials, a seed sprouted ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s07-honors-015",
@@ -10606,106 +10608,107 @@
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "In a random sample of 40 shoppers, 34 paid with cash. The store has 520 shoppers a day. Predict how many shoppers a day do not pay with cash.",
-   "answer": "78",
+   "prompt": "In a random sample of 50 students, 13 own a pet. Predict how many of the school's 500 students own a pet.",
+   "answer": "130",
    "solutionSteps": [
-    "Not cash in the sample: 40 - 34 = 6, so 6/40.",
-    "6/40 × 520 = 78."
+    "Sample proportion: 13/50.",
+    "Proportion: 13/50 = x/500.",
+    "x = 13 × 500 ÷ 50 = 130."
    ],
    "standards": [
     "7.SP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 50 students, 13 own a pet. Predict how many of t”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s8_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-dap-s08-honors-007",
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "In a random sample of 50 students, 23 want a later start time. Predict how many of the school's 1200 students want a later start, then how many do not. Give the number who do not.",
-   "answer": "648",
+   "prompt": "In a random sample of 80 shoppers, 74 paid with cash. The store has 2080 shoppers a day. Predict how many shoppers a day do not pay with cash.",
+   "answer": "156",
    "options": [
     {
-     "text": "1200",
+     "text": "2080",
      "correct": false
     },
     {
-     "text": "23/50",
+     "text": "3/40",
      "correct": false
     },
     {
-     "text": "648",
+     "text": "156",
      "correct": true
     },
     {
-     "text": "552",
+     "text": "6",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Sample proportion: 23/50 = 23/50.",
-    "Predicted yes: 23/50 × 1200 = 552.",
-    "Predicted no: 1200 - 552 = 648."
+    "Not cash in the sample: 80 - 74 = 6, so 6/80.",
+    "6/80 × 2080 = 156."
    ],
    "standards": [
     "7.SP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A school wants to know students' favorite lunch. Which sampling method”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A school wants to know students' favorite lunch. Which sampling method”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-008",
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "In a random sample of 100 shoppers, 81 paid with cash. The store has 2800 shoppers a day. Predict how many shoppers a day do not pay with cash.",
-   "answer": "532",
+   "prompt": "In a random sample of 50 students, 18 want a later start time. Predict how many of the school's 1200 students want a later start, then how many do not. Give the number who do not.",
+   "answer": "768",
    "options": [
     {
-     "text": "19",
+     "text": "432",
      "correct": false
     },
     {
-     "text": "532",
+     "text": "768",
      "correct": true
     },
     {
-     "text": "2800",
+     "text": "9/25",
      "correct": false
     },
     {
-     "text": "19/100",
+     "text": "1200",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Not cash in the sample: 100 - 81 = 19, so 19/100.",
-    "19/100 × 2800 = 532."
+    "Sample proportion: 18/50 = 9/25.",
+    "Predicted yes: 9/25 × 1200 = 432.",
+    "Predicted no: 1200 - 432 = 768."
    ],
    "standards": [
     "7.SP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 50 students, 37 walk to school. Predict how many”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 50 students, 37 walk to school. Predict how many”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-009",
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "In a random sample of 50 students, 11 want a later start time. Predict how many of the school's 900 students want a later start, then how many do not. Give the number who do not.",
-   "answer": "702",
+   "prompt": "In a random sample of 50 students, 34 own a pet. Predict how many of the school's 600 students own a pet.",
+   "answer": "408",
    "solutionSteps": [
-    "Sample proportion: 11/50 = 11/50.",
-    "Predicted yes: 11/50 × 900 = 198.",
-    "Predicted no: 900 - 198 = 702."
+    "Sample proportion: 34/50.",
+    "Proportion: 34/50 = x/600.",
+    "x = 34 × 600 ÷ 50 = 408."
    ],
    "standards": [
     "7.SP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 50 students, 34 own a pet. Predict how many of t”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s8_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-dap-s08-honors-010",
@@ -10747,35 +10750,35 @@
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "In a random sample of 40 shoppers, 28 paid with cash. The store has 320 shoppers a day. Predict how many shoppers a day do not pay with cash.",
-   "answer": "96",
+   "prompt": "In a random sample of 20 students, 3 own a pet. Predict how many of the school's 800 students own a pet.",
+   "answer": "120",
    "solutionSteps": [
-    "Not cash in the sample: 40 - 28 = 12, so 12/40.",
-    "12/40 × 320 = 96."
+    "Sample proportion: 3/20.",
+    "Proportion: 3/20 = x/800.",
+    "x = 3 × 800 ÷ 20 = 120."
    ],
    "standards": [
     "7.SP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 20 students, 3 own a pet. Predict how many of th”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (family: s8_predict). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
   },
   {
    "id": "pa7-dap-s08-honors-013",
    "skillId": "data-analysis-probability-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "In a random sample of 40 students, 22 want a later start time. Predict how many of the school's 600 students want a later start, then how many do not. Give the number who do not.",
-   "answer": "270",
+   "prompt": "In a random sample of 40 shoppers, 11 paid with cash. The store has 760 shoppers a day. Predict how many shoppers a day do not pay with cash.",
+   "answer": "551",
    "solutionSteps": [
-    "Sample proportion: 22/40 = 11/20.",
-    "Predicted yes: 11/20 × 600 = 330.",
-    "Predicted no: 600 - 330 = 270."
+    "Not cash in the sample: 40 - 11 = 29, so 29/40.",
+    "29/40 × 760 = 551."
    ],
    "standards": [
     "7.SP.A.2",
     "7.RP.A.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_dap_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 20 students, 5 walk to school. Predict how many ”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_dap_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “In a random sample of 20 students, 5 walk to school. Predict how many ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-dap-s08-honors-014",
