@@ -6,11 +6,22 @@
    alone so it still shows exactly what will print. Remove the build step to go back. */
 
 @media screen {
-  :root:not([data-theme="dark"]) {
+  /* The light palette applies only in light mode: the page's Light/dark choice, or the device's setting when
+     none is chosen. (Applying it whenever the page was not set to dark gave light text on a white page on
+     devices in dark mode, such as many school Chromebooks.) */
+  :root[data-theme="light"] {
     --bg: #f6f7f9; --paper: #ffffff; --card: #ffffff;
-    --line: #d1d5db; --muted: #9ca3af;
+    --line: #d1d5db; --muted: #6b7280;
     --blue: #1e3a8a; --blue-soft: #eef2ff; --accent: #e0e7ff;
     --shadow: none;
+  }
+  @media not (prefers-color-scheme: dark) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f6f7f9; --paper: #ffffff; --card: #ffffff;
+      --line: #d1d5db; --muted: #6b7280;
+      --blue: #1e3a8a; --blue-soft: #eef2ff; --accent: #e0e7ff;
+      --shadow: none;
+    }
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) { --line: #334155; --accent: #1e293b; --shadow: none; }
@@ -72,4 +83,23 @@
 
   /* ---------- Financial Algebra pages (lib/fa.css, course-site.css) ---------- */
   :root { --fa-accent: #1e3a8a; --fa-accent-text: #1e3a8a; --fa-tint: #eef2ff; }
+}
+
+/* Dark mode: filled buttons use the light dark-mode blue, so their text is dark; plain links and selected
+   options keep enough contrast on dark cards. */
+@media screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .btn:not(.ghost):not(.sec2),
+  :root:not([data-theme="light"]) .seg input:checked + label,
+  :root:not([data-theme="light"]) .mm-stepbtn[aria-current], :root:not([data-theme="light"]) .mm-stepbtn[aria-current] * { color: #0b1733; border-color: #0b1733; }
+  :root:not([data-theme="light"]) .mm-skip { color: var(--ink); }
+  :root:not([data-theme="light"]) .card a:not([class]), :root:not([data-theme="light"]) .ptool a:not([class]) { color: var(--blue); }
+  :root:not([data-theme="light"]) .nt-opt.on { background: var(--blue-soft); }
+}
+@media screen {
+  :root[data-theme="dark"] .btn:not(.ghost):not(.sec2),
+  :root[data-theme="dark"] .seg input:checked + label,
+  :root[data-theme="dark"] .mm-stepbtn[aria-current], :root[data-theme="dark"] .mm-stepbtn[aria-current] * { color: #0b1733; border-color: #0b1733; }
+  :root[data-theme="dark"] .mm-skip { color: var(--ink); }
+  :root[data-theme="dark"] .card a:not([class]), :root[data-theme="dark"] .ptool a:not([class]) { color: var(--blue); }
+  :root[data-theme="dark"] .nt-opt.on { background: var(--blue-soft); }
 }

@@ -116,6 +116,8 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.01em; }
   background: var(--accent); color: #fff; border-radius: 8px; font-weight: 600; text-decoration: none; text-align: center;
 }
 .course-picker-go:hover { background: var(--accent-hover); color: #fff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .course-picker-go, :root:not([data-theme="light"]) .course-picker-go:hover { color: #0b1733; } }
+:root[data-theme="dark"] .course-picker-go, :root[data-theme="dark"] .course-picker-go:hover { color: #0b1733; }
 @media (max-width: 640px) { .course-picker-go { flex: 1 1 100%; } }
 
 /* ---------- Course page ---------- */
