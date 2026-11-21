@@ -25,7 +25,7 @@ def same(a, b):
     """Compare a key with a computed value: numbers (units and labels around them are ignored), or exact text."""
     if isinstance(b, str):
         return a.strip() == b
-    m = re.fullmatch(r'\s*(?:[a-z] = )?(-?\$?[\d,]*\.?\d+(?:/\d+)?)(?: ?(?:%|°|in\.|ft²|cm²|cm³|in²|cm|ft|feet|miles|milliliters|hours|in\.|square meters))?\s*', a.replace('−', '-'))
+    m = re.fullmatch(r'\s*(?:[a-z] = )?(-?\$?[\d,]*\.?\d+(?:/\d+)?)(?: ?(?:%|°|in\.|ft²|cm²|cm³|in²|cm|ft|feet|miles|milliliters|hours|in\.|square meters|[°a-zA-Z][a-zA-Z.²³° ]*))?\s*', a.replace('−', '-'))
     return bool(m) and n(m.group(1)) == F(b)
 
 
@@ -104,7 +104,7 @@ RULES = [
     (r'^Factor out the greatest common factor: (\d+)x \+ (\d+)$', lambda g: (lambda a, b, gg: f'{gg}({"" if a // gg == 1 else a // gg}x + {b // gg})')(int(g[0]), int(g[1]), math.gcd(int(g[0]), int(g[1])))),
     (r'taxi charges \$(\d+) plus \$(\d+) per mile\. \w+ also gave a \$(\d+) tip and paid \$(\d+)', lambda g: F(int(g[3]) - int(g[0]) - int(g[2]), int(g[1]))),
     (r'^Solve: (\d+)\(' + D + r't \+ ' + D + r'\) = ' + D + '$', lambda g: (n(g[3]) / int(g[0]) - n(g[2])) / n(g[1])),
-    (r'^"(\d+) less than (\d+) times a number is (\d+)\."', lambda g: F(int(g[2]) + int(g[0]), int(g[1]))),
+    (r'^"(\d+) less than (\d+) times a number is (-?\d+)\."', lambda g: F(int(g[2]) + int(g[0]), int(g[1]))),
     (r'drives (\d+) miles at (\d+) mph, then (\d+) miles at (\d+) mph\. How many hours', lambda g: F(int(g[0]), int(g[1])) + F(int(g[2]), int(g[3]))),
     (r'deposits \$' + D + r' at ' + D + r'% simple interest per year\. What is the balance after (\d+) years', lambda g: n(g[0]) * (1 + n(g[1]) / 100 * int(g[2]))),
     (r'^For the line y = (.+?), find the y-intercept and the x-intercept\. Give the x-intercept\.$', lambda g: (lambda mb: -mb[1] / mb[0])(lin(g[0]))),
@@ -147,6 +147,104 @@ RULES = [
 ]
 
 
+# ---------------- More templates (variety follow-up); prompts are read with − as -
+def _rnd(x, p=0):
+    return F(math.floor(F(x) * 10 ** p + F(1, 2)), 10 ** p)
+
+
+def _ratcount(items):
+    sq = {k * k for k in range(1, 40)}
+    return sum(1 for x in items if not (x == 'π' or (x.startswith('√') and int(x[1:]) not in sq)))
+
+
+def _tan(a):
+    return math.tan(math.radians(a))
+
+
+def _mx(x):
+    x = F(x)
+    w, f = divmod(x.numerator, x.denominator)
+    return str(w) if f == 0 else (f'{w} {f}/{x.denominator}' if w else f'{f}/{x.denominator}')
+
+
+VAR = [
+    (r'^The temperature was (-?\d+)°F at 6 a\.m\. It fell (\d+)°F by noon and then rose (\d+)°F by evening\.', lambda g: int(g[0]) - int(g[1]) + int(g[2])),
+    (r'^A diver is at -(\d+) ft\. She rises (\d+) ft, then dives (\d+) ft deeper\.', lambda g: int(g[0]) - int(g[1]) + int(g[2])),
+    (r'^A savings plan starts with \$(\d+) in week 1 and adds \$(\d+) each week after that\. In which week does the total first go over \$(\d+)\?', lambda g: next(k for k in range(1, 999) if int(g[0]) + (k - 1) * int(g[1]) > int(g[2]))),
+    (r'^Figure 1 uses (\d+) squares, and each new figure adds (\d+) squares\. How many squares are in Figure (\d+)\?', lambda g: int(g[0]) + (int(g[2]) - 1) * int(g[1])),
+    (r'^Figure 1 of a dot pattern has (\d+) dots, and each new figure adds (\d+)\. How many dots do Figure (\d+) and Figure (\d+) have together\?', lambda g: 2 * int(g[0]) + (int(g[2]) + int(g[3]) - 2) * int(g[1])),
+    (r'^A triangular sail has base (\d+) m and height (\d+) m\. Sailcloth costs \$(\d+) per square meter\.', lambda g: F(int(g[0]) * int(g[1]), 2) * int(g[2])),
+    (r'^A lot is a rectangle (\d+) m by (\d+) m\. A right triangle with legs (\d+) m and (\d+) m is cut off', lambda g: int(g[0]) * int(g[1]) - F(int(g[2]) * int(g[3]), 2)),
+    (r'^A round table top has diameter (\d+) ft and a square table top has sides of (\d+) ft\. Use 3\.14', lambda g: F(314, 100) * F(int(g[0]), 2) ** 2 - int(g[1]) ** 2),
+    (r'^A cylindrical can has radius (\d+) cm and height (\d+) cm\. Use 3\.14 for π \(1 cm³ = 1 mL\)\. How many full cans can be filled from a (\d+)-liter jug\?', lambda g: int(1000 * int(g[2]) // (F(314, 100) * int(g[0]) ** 2 * int(g[1])))),
+    (r'^A menu has (\d+) appetizers, (\d+) main dishes and (\d+) desserts\. A meal is one of each\. If (\d+) of the main dishes are sold out, how many fewer', lambda g: int(g[0]) * int(g[3]) * int(g[2])),
+    (r'^A spinner landed on blue (\d+) times in (\d+) spins\. Using the experimental probability, how many times would you expect blue in (\d+) spins\?', lambda g: F(int(g[0]), int(g[1])) * int(g[2])),
+    (r'^In a random sample of (\d+) shoppers, (\d+) paid with cash\. The store has (\d+) shoppers a day\.', lambda g: F(int(g[0]) - int(g[1]), int(g[0])) * int(g[2])),
+    (r'^Estimate ' + D + ' × ' + D + ' - ' + D + r' by rounding each number to the nearest whole number\.$', lambda g: _rnd(n(g[0])) * _rnd(n(g[1])) - _rnd(n(g[2]))),
+    (r'buys ' + D + r' pounds of grapes at \$' + D + ' per pound and ' + D + r' pounds of cherries at \$' + D + r' per pound\. Estimate', lambda g: _rnd(n(g[0])) * _rnd(n(g[1])) + _rnd(n(g[2])) * _rnd(n(g[3]))),
+    (r'^A cyclist rides ' + D + ' miles in ' + D + r' hours\. At the same rate, how many hours will ' + D + r' miles take\?', lambda g: n(g[2]) * n(g[1]) / n(g[0])),
+    (r'has \$' + D + r'\. \w+ buys (\d+) books for \$' + D + r' each and then earns \$' + D + r'\. Write and solve an equation for the final balance b\.', lambda g: n(g[0]) - int(g[1]) * n(g[2]) + n(g[3])),
+    (r'^Use the prime factorizations of (\d+) and (\d+) to find their least common multiple\.$', lambda g: math.lcm(int(g[0]), int(g[1]))),
+    (r'^A class has (\d+) students and (\d+) are wearing blue\. What fraction of the class is not wearing blue\?', lambda g: ('frac', F(int(g[0]) - int(g[1]), int(g[0])))),
+    (r'^(\d+) of (\d+) seeds sprouted\. Write the fraction that did not sprout in simplest form\. At that rate, how many of (\d+) seeds', lambda g: F(int(g[1]) - int(g[0]), int(g[1])) * int(g[2])),
+    (r'^Five morning temperatures \(°C\) were (.+)\. How many degrees warmer was the warmest morning than the coldest\?', lambda g: (lambda xs: max(xs) - min(xs))([n(x) for x in g[0].split(', ')])),
+    (r'^How many of these numbers are rational: (.+)\?$', lambda g: _ratcount(g[0].split(', '))),
+    (r'^A gym charges \$(\d+) to join and \$(\d+) per month\. Write a rule for the total cost y after x months, then find the cost for (\d+) months\.', lambda g: int(g[0]) + int(g[1]) * int(g[2])),
+    (r'^A trend line for plant height y \(cm\) after x weeks is y = ' + D + r'x \+ (\d+)\. A plant measured ' + D + r' cm at week (\d+)\.', lambda g: abs(n(g[2]) - (n(g[0]) * int(g[3]) + int(g[1])))),
+    (r'^A farm stand sold (\d+) pies and cakes for \$(\d+)\. Pies cost \$(\d+) and cakes cost \$(\d+)\.', lambda g: F(int(g[2]) * int(g[0]) - int(g[1]), int(g[2]) - int(g[3]))),
+    (r'^For the arithmetic sequence (\d+), (\d+), \d+, …, which term number has the value (\d+)\?$', lambda g: F(int(g[2]) - int(g[0]), int(g[1]) - int(g[0])) + 1),
+    (r'^One paper cup is (\d+) cm tall, and each cup added to a stack adds (\d+) cm\. How many cups make a stack (\d+) cm tall\?$', lambda g: F(int(g[2]) - int(g[0]), int(g[1])) + 1),
+    (r'^A ball is dropped from (\d+) ft\. Its height after t seconds is h = \d+ - 16t² feet\. How many feet does it fall between t = (\d+) and t = (\d+)\?$', lambda g: 16 * (int(g[2]) ** 2 - int(g[1]) ** 2)),
+    (r'^A town of ' + I + r' people grows (\d+)% each year\. What is its population after 2 years\?', lambda g: _rnd(n(g[0]) * F(100 + int(g[1]), 100) ** 2)),
+    (r'invests \$' + I + r' at (\d+)% interest compounded once a year\. How much more is the account worth after 3 years than after 2 years\?', lambda g: _rnd(n(g[0]) * F(100 + int(g[1]), 100) ** 2 * F(int(g[1]), 100), 2)),
+    (r'^A box has length x \+ (\d+), width x and height (\d+)\. Write its volume as a polynomial, then find the volume when x = (\d+)\.$', lambda g: int(g[1]) * int(g[2]) * (int(g[2]) + int(g[0]))),
+    (r'^A square garden is x m by x m\. It is made (\d+) m longer and (\d+) m narrower\. Write the new area as a polynomial, then find it when x = (\d+)\.$', lambda g: (int(g[2]) + int(g[0])) * (int(g[2]) - int(g[1]))),
+    (r'^A jar has (\d+) nickels and dimes worth \$' + D + r'\. How many nickels are there\?$', lambda g: F(10 * int(g[0]) - 100 * n(g[1]), 5)),
+    (r'^A bank holds quarters and nickels\. There are (\d+) more nickels than quarters, and the coins are worth \$' + D + r'\.', lambda g: (100 * n(g[1]) - 5 * int(g[0])) / 30),
+    (r'started with \$(\d+) and paid (\d+) equal bills\. \w+ now has \$(\d+)\.', lambda g: F(int(g[0]) - int(g[2]), int(g[1]))),
+    (r'^Two whole numbers have a difference of (\d+) and a product of (\d+)\. Guess, check and revise', lambda g: next(x for x in range(1, 999) if x * (x - int(g[0])) == int(g[1]))),
+    (r'^Write (\d+)/(\d+) as a decimal, then add ' + D + r'\.$', lambda g: F(int(g[0]), int(g[1])) + n(g[2])),
+    (r'^A recipe needs (\d+) cups of flour\. \w+ has (\d+ \d+/\d+) cups\. How many more cups are needed\? Write the answer as a decimal\.$', lambda g: int(g[0]) - n(g[1])),
+    (r'^Simplify: (\d+ \d+/\d+|\d+) - (\d+/\d+) \+ (\d+/\d+)\. Write the answer as a mixed number', lambda g: ('mixed', n(g[0]) - F(g[1]) + F(g[2]))),
+    (r'^A board is (\d+(?: \d+/\d+)?) ft long\. \w+ cuts off (\d+(?: \d+/\d+)?) ft and then (\d+(?: \d+/\d+)?) ft\. Write and solve an equation', lambda g: ('mixedx', n(g[0]) - n(g[1]) - n(g[2]))),
+    (r'^Find x so that (\d+)/(\d+) = (\d+)/x, then find 2x\.$', lambda g: 2 * F(int(g[1]) * int(g[2]), int(g[0]))),
+    (r'^A recipe uses ' + D + r' cups of rice for (\d+) people\. How many cups are needed for (\d+) people, and how many more', lambda g: n(g[0]) * int(g[2]) / int(g[1]) - n(g[0])),
+    (r'^A map scale is 1 cm : (\d+) km\. Two towns are ' + D + r' cm apart on the map\. A car drives at (\d+) km/h\.', lambda g: n(g[1]) * int(g[0]) / int(g[2])),
+    (r'^Write (\d+)/(\d+) as a percent, then find that percent of (\d+)\.$', lambda g: F(int(g[0]), int(g[1])) * int(g[2])),
+    (r'^Three stores take (\d+/\d+) off, ' + D + r' off and (\d+)% off a \$(\d+) item\.', lambda g: max(F(g[0]), n(g[1]), F(int(g[2]), 100)) * int(g[3])),
+    (r'^A shirt is (\d+)% off, and then an extra (\d+)% is taken off the sale price\. What single percent', lambda g: 100 - F((100 - int(g[0])) * (100 - int(g[1])), 100)),
+    (r'^Write and solve an equation: ' + D + r' is (\d+)% of what number\?$', lambda g: n(g[0]) * 100 / int(g[1])),
+    (r'^A store marks up a \$(\d+) jacket by (\d+)%, and then (\d+)% sales tax is added\.', lambda g: _rnd(int(g[0]) * F(100 + int(g[1]), 100) * F(100 + int(g[2]), 100), 2)),
+    (r'^A price of \$(\d+) falls (\d+)% and then the new price rises (\d+)%\. What is the final price\?$', lambda g: int(g[0]) * F(100 - int(g[1]), 100) * F(100 + int(g[2]), 100)),
+    (r'^A town of ' + I + r' people grows (\d+)% one year and (\d+)% the next year\.', lambda g: _rnd(n(g[0]) * F(100 + int(g[1]), 100) * F(100 + int(g[2]), 100))),
+    (r'^A meal costs \$' + D + r'\. Sales tax of (\d+)% is added, and a (\d+)% tip is figured on the price before tax\.', lambda g: _rnd(n(g[0]) * F(100 + int(g[1]) + int(g[2]), 100), 2)),
+    (r'^A store buys a bike for \$(\d+) and marks it up (\d+)%\. During a sale it takes (\d+)% off the marked price\.', lambda g: int(g[0]) * F(100 + int(g[1]), 100) * F(100 - int(g[2]), 100) - int(g[0])),
+    (r'^A table shows gallons of gas x: ([\d, ]+) and cost y: (.+)\. Show the relationship is proportional, then find the cost of (\d+) gallons\.$', lambda g: (lambda xs, ys: (ys[0] / xs[0]) * int(g[2]) if all(y / x == ys[0] / xs[0] for x, y in zip(xs, ys)) else None)([int(x) for x in g[0].split(', ')], [n(y) for y in g[1].split(', ')])),
+    (r'^A price p is discounted (\d+)%\. Write the sale price p - ' + D + r'p as a single term, and use it to find the sale price when p = \$' + D, lambda g: _rnd(n(g[2]) * F(100 - int(g[0]), 100), 2)),
+    (r'^A TV screen is (\d+) in\. wide and (\d+) in\. tall\. How much longer is its diagonal than its width\?$', lambda g: F(math.isqrt(int(g[0]) ** 2 + int(g[1]) ** 2)) - int(g[0]) if math.isqrt(int(g[0]) ** 2 + int(g[1]) ** 2) ** 2 == int(g[0]) ** 2 + int(g[1]) ** 2 else None),
+    (r'^A pump fills (\d+) liters in (\d+) minutes\. At the same rate, how many minutes does it take to fill a (\d+)-liter tank\?$', lambda g: F(int(g[2]) * int(g[1]), int(g[0]))),
+    (r'^A (\d+)-ft pole casts a (\d+)-ft shadow\. At the same time, a tree casts a (\d+)-ft shadow\.', lambda g: F(int(g[0]) * int(g[2]), int(g[1])) - int(g[0])),
+    (r'^In a 45°-45°-90° triangle, each leg is (\d+)\. What is the hypotenuse\?$', lambda g: f'{g[0]}√2'),
+    (r'^An equilateral triangle has sides of (\d+) cm\. Using a 30°-60°-90° triangle, what is its height\?$', lambda g: f'{int(g[0]) // 2}√3 cm' if int(g[0]) % 2 == 0 else None),
+    (r'^A kite string is (\d+) ft long and makes a (\d+)° angle with the ground\. How high is the kite\? Round to the nearest tenth', lambda g: _rnd(F(int(g[0]) * math.sin(math.radians(int(g[1])))), 1)),
+    (r'^A ladder makes a (\d+)° angle with the ground and reaches (\d+) ft up a wall\. How far is the base', lambda g: _rnd(F(int(g[1]) / _tan(int(g[0]))), 1)),
+    (r'^From the top of a (\d+)-ft lighthouse, the angle of depression to a boat is (\d+)°\. Later it is (\d+)°\.', lambda g: _rnd(F(int(g[0]) / _tan(int(g[1])) - int(g[0]) / _tan(int(g[2]))))),
+    (r'^A taxi charges \$' + D + r' plus \$' + D + r' per mile\. \w+\'s fare was \$' + D + r'\.', lambda g: (n(g[2]) - n(g[0])) / n(g[1])),
+    (r'^"The sum of (\d+) times a number and (\d+) is (-?\d+)\." Write the equation and solve for the number\.$', lambda g: F(int(g[2]) - int(g[1]), int(g[0]))),
+    (r'\'s sister is (\d+) years older than \w+\. The sum of their ages is (\d+)\.', lambda g: F(int(g[1]) - int(g[0]), 2)),
+    (r'^Solve A = \(1/2\)bh for h\. Then find the height of a triangle with area ' + D + r' cm² and base (\d+) cm\.$', lambda g: 2 * n(g[0]) / int(g[1])),
+    (r'borrows \$' + I + r' at ' + D + r'% simple interest per year for (\d+) years\. How much interest is paid\?$', lambda g: n(g[0]) * n(g[1]) / 100 * int(g[2])),
+    (r'^\$' + I + r' is invested at (\d+)% interest compounded once a year for 2 years\. How much interest is earned\?', lambda g: _rnd(n(g[0]) * F(100 + int(g[1]), 100) ** 2 - n(g[0]), 2)),
+    (r'^Two angles are complementary\. One measures \(3x \+ (\d+)\)° and the other \(2x \+ (\d+)\)°\.', lambda g: (lambda x: max(3 * x + int(g[0]), 2 * x + int(g[1])))(F(90 - int(g[0]) - int(g[1]), 5))),
+    (r'^Each interior angle of a regular polygon measures (\d+)°\. How many sides does the polygon have\?$', lambda g: F(360, 180 - int(g[0]))),
+    (r'^A square garden has sides of (\d+) m\. Posts go at each corner and every (\d+) m along the sides\.', lambda g: F(4 * int(g[0]), int(g[1]))),
+    (r'^Two sides of a triangle are (\d+) cm and (\d+) cm\. The third side is a whole number of centimeters\.', lambda g: sum(1 for c in range(1, 99) if abs(int(g[0]) - int(g[1])) < c < int(g[0]) + int(g[1]))),
+    (r'^Point A\((-?\d+), (-?\d+)\) is rotated 180° about the origin\. What are the coordinates of A′\?$', lambda g: ('pair', -int(g[0]), -int(g[1]))),
+    (r'^Point A\((-?\d+), (-?\d+)\) is reflected over the x-axis and then translated (\d+) units right\.', lambda g: ('pair', int(g[0]) + int(g[2]), -int(g[1]))),
+]
+RULES = RULES + VAR
+
+
 def check(a, want):
     a = a.replace('−', '-')
     if isinstance(want, tuple):
@@ -156,6 +254,12 @@ def check(a, want):
             return a == f'({want[1]}, {want[2]})'
         if want[0] == 'sci':
             return sci(a.replace('-', '−'), want[1])
+        if want[0] == 'frac':
+            return a == (str(want[1].numerator) if want[1].denominator == 1 else f'{want[1].numerator}/{want[1].denominator}')
+        if want[0] == 'mixed':
+            return a == _mx(want[1])
+        if want[0] == 'mixedx':
+            return a == f'x = {_mx(want[1])} ft'
         if want[0] == 'quad':
             b, c = want[1], want[2]
             t = 'x²' + ('' if b == 0 else f' + {b}x' if b > 0 else f' - {-b}x').replace(' 1x', ' x') + (f' + {c}' if c > 0 else f' - {-c}' if c < 0 else '')
@@ -169,10 +273,10 @@ def main():
     banks = lib.load()
     errors, n_ = [], 0
     for u, q in lib.items(banks):
-        if 'audit 2 #3' not in q.get('sourceNotes', '') or q['level'] != 'cp1':
-            continue   # Advanced rewrites come from honors.py, the generators of the Advanced h-items
+        if 'audit 2 #3' not in q.get('sourceNotes', '') or (q['level'] != 'cp1' and 'multistep2' not in q['sourceNotes']):
+            continue   # other Advanced rewrites come from honors.py, the generators of the Advanced h-items (verify_keys.py)
         n_ += 1
-        P = q['prompt'].replace('−', '-')
+        P = re.sub(r'\b([Aa])n (?=\d)', r'\1 ', q['prompt'].replace('−', '-'))   # 'an 8-ft' reads as 'a 8-ft'
         hits = [(rx, fn) for rx, fn in RULES if re.search(rx, P)]
         if len(hits) != 1:
             errors.append(f'{q["id"]}: {len(hits)} rules match: {q["prompt"][:90]}')
@@ -190,7 +294,7 @@ def main():
                     errors.append(f'{q["id"]}: distractor {o["text"]!r} is also right')
     for e in errors[:50]:
         print(e)
-    print(f'Grade 7 levels: {n_} rewritten Standard items checked, {len(errors)} errors')
+    print(f'Grade 7 levels: {n_} rewritten Standard items and new-template Advanced items checked, {len(errors)} errors')
     sys.exit(1 if errors or n_ < 300 else 0)
 
 

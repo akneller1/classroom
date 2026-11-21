@@ -489,17 +489,17 @@
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "For the arithmetic sequence 9, 18, 27, …, find term 39, then add it to the first term.",
-   "answer": "360",
+   "prompt": "For the arithmetic sequence 23, 28, 33, …, which term number has the value 243?",
+   "answer": "45",
    "solutionSteps": [
-    "Term 39: 9 + 38 × 9 = 351.",
-    "Sum: 9 + 351 = 360."
+    "Term n = 23 + 5(n - 1).",
+    "23 + 5(n - 1) = 243, so n - 1 = 44 and n = 45."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_nfp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find the common ratio and the next term of the geometric sequence 3, 9”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_nfp_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find the common ratio and the next term of the geometric sequence 3, 9”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-cp1-004",
@@ -559,35 +559,35 @@
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "For the arithmetic sequence 4, 6, 8, …, find term 32, then add it to the first term.",
-   "answer": "70",
+   "prompt": "For the arithmetic sequence 26, 29, 32, …, which term number has the value 68?",
+   "answer": "15",
    "options": [
     {
-     "text": "66",
+     "text": "68",
      "correct": false
     },
     {
-     "text": "70",
+     "text": "15",
      "correct": true
     },
     {
-     "text": "2",
+     "text": "1",
      "correct": false
     },
     {
-     "text": "31",
+     "text": "14",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Term 32: 4 + 31 × 2 = 66.",
-    "Sum: 4 + 66 = 70."
+    "Term n = 26 + 3(n - 1).",
+    "26 + 3(n - 1) = 68, so n - 1 = 14 and n = 15."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_nfp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find the common ratio and the next term of the geometric sequence 5, 1”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_nfp_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find the common ratio and the next term of the geometric sequence 5, 1”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-cp1-007",
@@ -611,107 +611,104 @@
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Is the sequence 6, 9, 12, 15, 18, … arithmetic, geometric, or neither?",
-   "answer": "arithmetic",
+   "prompt": "For the arithmetic sequence 29, 37, 45, …, which term number has the value 477?",
+   "answer": "57",
    "options": [
     {
-     "text": "arithmetic",
+     "text": "56",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "477",
+     "correct": false
+    },
+    {
+     "text": "57",
      "correct": true
-    },
-    {
-     "text": "geometric",
-     "correct": false
-    },
-    {
-     "text": "neither",
-     "correct": false
-    },
-    {
-     "text": "both arithmetic and geometric",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Arithmetic: constant difference. Geometric: constant ratio.",
-    "Differences: 3, 3, 3, 3.",
-    "The sequence is arithmetic."
+    "Term n = 29 + 8(n - 1).",
+    "29 + 8(n - 1) = 477, so n - 1 = 56 and n = 57."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_type). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_nfp_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Is the sequence 6, 9, 12, 15, 18, … arithmetic, geometric, or neither?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-cp1-009",
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find the common ratio and the next term of the geometric sequence 2, -4, 8, -16, …. Give the next term.",
-   "answer": "32",
+   "prompt": "For the arithmetic sequence 15, 20, 25, …, find term 42, then add it to the first term.",
+   "answer": "235",
    "solutionSteps": [
-    "Common ratio = -4 ÷ 2 = -2.",
-    "Next term = -16 × -2 = 32."
+    "Term 42: 15 + 41 × 5 = 220.",
+    "Sum: 15 + 220 = 235."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_ratio). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_nfp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find the common ratio and the next term of the geometric sequence 2, -”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-cp1-010",
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find term 27 of the arithmetic sequence 8, 7, 6, 5, …",
-   "answer": "-18",
+   "prompt": "For the arithmetic sequence 6, 8, 10, …, which term number has the value 96?",
+   "answer": "46",
    "solutionSteps": [
-    "Common difference d = -1.",
-    "aₙ = a₁ + (n - 1)d = 8 + (27 - 1)(-1).",
-    "a₂₇ = -18."
+    "Term n = 6 + 2(n - 1).",
+    "6 + 2(n - 1) = 96, so n - 1 = 45 and n = 46."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_nfp_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find term 27 of the arithmetic sequence 8, 7, 6, 5, …”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-cp1-011",
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Is the sequence 2, 5, 8, 11, 14, … arithmetic, geometric, or neither?",
-   "answer": "arithmetic",
+   "prompt": "For the arithmetic sequence 4, 9, 14, …, find term 58, then add it to the first term.",
+   "answer": "293",
    "options": [
     {
-     "text": "arithmetic",
+     "text": "57",
+     "correct": false
+    },
+    {
+     "text": "289",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "293",
      "correct": true
-    },
-    {
-     "text": "geometric",
-     "correct": false
-    },
-    {
-     "text": "neither",
-     "correct": false
-    },
-    {
-     "text": "both arithmetic and geometric",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Arithmetic: constant difference. Geometric: constant ratio.",
-    "Differences: 3, 3, 3, 3.",
-    "The sequence is arithmetic."
+    "Term 58: 4 + 57 × 5 = 289.",
+    "Sum: 4 + 289 = 293."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_type). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_nfp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Is the sequence 2, 5, 8, 11, 14, … arithmetic, geometric, or neither?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-cp1-012",
@@ -753,18 +750,17 @@
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "Find term 19 of the arithmetic sequence -8, -12, -16, -20, …",
-   "answer": "-80",
+   "prompt": "For the arithmetic sequence 19, 28, 37, …, which term number has the value 307?",
+   "answer": "33",
    "solutionSteps": [
-    "Common difference d = -4.",
-    "aₙ = a₁ + (n - 1)d = -8 + (19 - 1)(-4).",
-    "a₁₉ = -80."
+    "Term n = 19 + 9(n - 1).",
+    "19 + 9(n - 1) = 307, so n - 1 = 32 and n = 33."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_nfp_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Find term 19 of the arithmetic sequence -8, -12, -16, -20, …”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-cp1-014",
@@ -866,36 +862,35 @@
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Seats in a theater form an arithmetic sequence: row 1 has 5 seats and each row has 4 more. How many seats are in row 34, and how many in rows 1–34 together? Give the total.",
-   "answer": "2414",
+   "prompt": "One paper cup is 9 cm tall, and each cup added to a stack adds 1 cm. How many cups make a stack 34 cm tall?",
+   "answer": "26 cups",
    "options": [
     {
-     "text": "2414",
+     "text": "26 cups",
      "correct": true
     },
     {
-     "text": "1",
+     "text": "9 cups",
      "correct": false
     },
     {
-     "text": "137",
+     "text": "1 cups",
      "correct": false
     },
     {
-     "text": "2",
+     "text": "34 cups",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Row 34: 5 + 4(34 - 1) = 137.",
-    "Total = (first + last) × 34 ÷ 2.",
-    "= (5 + 137) × 34 ÷ 2 = 2414."
+    "Stack of n cups: 9 + 1(n - 1).",
+    "9 + 1(n - 1) = 34, so n = 26."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Is the sequence 3, 6, 12, 21, 33, … arithmetic, geometric, or neither?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Is the sequence 3, 6, 12, 21, 33, … arithmetic, geometric, or neither?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-honors-003",
@@ -937,36 +932,35 @@
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Seats in a theater form an arithmetic sequence: row 1 has 3 seats and each row has 5 more. How many seats are in row 33, and how many in rows 1–33 together? Give the total.",
-   "answer": "2739",
+   "prompt": "One paper cup is 13 cm tall, and each cup added to a stack adds 1 cm. How many cups make a stack 32 cm tall?",
+   "answer": "20 cups",
    "options": [
     {
-     "text": "163",
+     "text": "32 cups",
      "correct": false
     },
     {
-     "text": "2",
+     "text": "1 cups",
      "correct": false
     },
     {
-     "text": "1",
-     "correct": false
-    },
-    {
-     "text": "2739",
+     "text": "20 cups",
      "correct": true
+    },
+    {
+     "text": "13 cups",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Row 33: 3 + 5(33 - 1) = 163.",
-    "Total = (first + last) × 33 ÷ 2.",
-    "= (3 + 163) × 33 ÷ 2 = 2739."
+    "Stack of n cups: 13 + 1(n - 1).",
+    "13 + 1(n - 1) = 32, so n = 20."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Is the sequence 16, 25, 36, 49, 64, … arithmetic, geometric, or neithe”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Is the sequence 16, 25, 36, 49, 64, … arithmetic, geometric, or neithe”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-honors-006",
@@ -1009,178 +1003,176 @@
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find term 64 of the arithmetic sequence 18, 25, 32, 39, …",
-   "answer": "459",
+   "prompt": "One paper cup is 13 cm tall, and each cup added to a stack adds 3 cm. How many cups make a stack 61 cm tall?",
+   "answer": "17 cups",
    "solutionSteps": [
-    "Common difference d = 7.",
-    "aₙ = a₁ + (n - 1)d = 18 + (64 - 1)(7).",
-    "a₆₄ = 459."
+    "Stack of n cups: 13 + 3(n - 1).",
+    "13 + 3(n - 1) = 61, so n = 17."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find term 64 of the arithmetic sequence 18, 25, 32, 39, …”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-honors-008",
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Is the sequence 4, 12, 36, 108, 324, … arithmetic, geometric, or neither?",
-   "answer": "geometric",
+   "prompt": "Seats in a theater form an arithmetic sequence: row 1 has 7 seats and each row has 5 more. How many seats are in row 37, and how many in rows 1–37 together? Give the total.",
+   "answer": "3589",
    "options": [
     {
-     "text": "arithmetic",
+     "text": "2",
      "correct": false
     },
     {
-     "text": "geometric",
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "187",
+     "correct": false
+    },
+    {
+     "text": "3589",
      "correct": true
-    },
-    {
-     "text": "neither",
-     "correct": false
-    },
-    {
-     "text": "both arithmetic and geometric",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Arithmetic: constant difference. Geometric: constant ratio.",
-    "Differences: 8, 24, 72, 216.",
-    "The sequence is geometric."
+    "Row 37: 7 + 5(37 - 1) = 187.",
+    "Total = (first + last) × 37 ÷ 2.",
+    "= (7 + 187) × 37 ÷ 2 = 3589."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_type). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Is the sequence 4, 12, 36, 108, 324, … arithmetic, geometric, or neith”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-honors-009",
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find the common ratio and the next term of the geometric sequence 144, -72, 36, -18, …. Give the next term.",
-   "answer": "9",
+   "prompt": "One paper cup is 12 cm tall, and each cup added to a stack adds 2 cm. How many cups make a stack 76 cm tall?",
+   "answer": "33 cups",
    "solutionSteps": [
-    "Common ratio = -72 ÷ 144 = -1/2.",
-    "Next term = -18 × -1/2 = 9."
+    "Stack of n cups: 12 + 2(n - 1).",
+    "12 + 2(n - 1) = 76, so n = 33."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_ratio). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the common ratio and the next term of the geometric sequence 144,”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-honors-010",
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find term 74 of the arithmetic sequence 0, -7, -14, -21, …",
-   "answer": "-511",
+   "prompt": "Seats in a theater form an arithmetic sequence: row 1 has 11 seats and each row has 3 more. How many seats are in row 35, and how many in rows 1–35 together? Give the total.",
+   "answer": "2170",
    "solutionSteps": [
-    "Common difference d = -7.",
-    "aₙ = a₁ + (n - 1)d = 0 + (74 - 1)(-7).",
-    "a₇₄ = -511."
+    "Row 35: 11 + 3(35 - 1) = 113.",
+    "Total = (first + last) × 35 ÷ 2.",
+    "= (11 + 113) × 35 ÷ 2 = 2170."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find term 74 of the arithmetic sequence 0, -7, -14, -21, …”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-honors-011",
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Is the sequence 36, 49, 64, 81, 100, … arithmetic, geometric, or neither?",
-   "answer": "neither",
+   "prompt": "One paper cup is 13 cm tall, and each cup added to a stack adds 3 cm. How many cups make a stack 124 cm tall?",
+   "answer": "38 cups",
    "options": [
     {
-     "text": "arithmetic",
-     "correct": false
-    },
-    {
-     "text": "geometric",
-     "correct": false
-    },
-    {
-     "text": "neither",
+     "text": "38 cups",
      "correct": true
     },
     {
-     "text": "both arithmetic and geometric",
+     "text": "3 cups",
+     "correct": false
+    },
+    {
+     "text": "124 cups",
+     "correct": false
+    },
+    {
+     "text": "1 cups",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Arithmetic: constant difference. Geometric: constant ratio.",
-    "Differences: 13, 15, 17, 19.",
-    "The sequence is neither."
+    "Stack of n cups: 13 + 3(n - 1).",
+    "13 + 3(n - 1) = 124, so n = 38."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_type). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Is the sequence 36, 49, 64, 81, 100, … arithmetic, geometric, or neith”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-honors-012",
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Find the common ratio and the next term of the geometric sequence 120, 60, 30, 15, …. Give the next term.",
-   "answer": "15/2",
+   "prompt": "Seats in a theater form an arithmetic sequence: row 1 has 12 seats and each row has 7 more. How many seats are in row 37, and how many in rows 1–37 together? Give the total.",
+   "answer": "5106",
    "options": [
     {
-     "text": "30",
+     "text": "264",
      "correct": false
     },
     {
-     "text": "0",
-     "correct": false
-    },
-    {
-     "text": "15/2",
+     "text": "5106",
      "correct": true
     },
     {
-     "text": "-15/2",
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "1",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Common ratio = 60 ÷ 120 = 1/2.",
-    "Next term = 15 × 1/2 = 15/2."
+    "Row 37: 12 + 7(37 - 1) = 264.",
+    "Total = (first + last) × 37 ÷ 2.",
+    "= (12 + 264) × 37 ÷ 2 = 5106."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_ratio). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s01). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find the common ratio and the next term of the geometric sequence 120,”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-honors-013",
    "skillId": "nonlinear-functions-polynomials-skill-01",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Find term 41 of the arithmetic sequence 5, -3, -11, -19, …",
-   "answer": "-315",
+   "prompt": "One paper cup is 14 cm tall, and each cup added to a stack adds 2 cm. How many cups make a stack 40 cm tall?",
+   "answer": "14 cups",
    "solutionSteps": [
-    "Common difference d = -8.",
-    "aₙ = a₁ + (n - 1)d = 5 + (41 - 1)(-8).",
-    "a₄₁ = -315."
+    "Stack of n cups: 14 + 2(n - 1).",
+    "14 + 2(n - 1) = 40, so n = 14."
    ],
    "standards": [
     "F-BF.A.2",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s1_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s01_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Find term 41 of the arithmetic sequence 5, -3, -11, -19, …”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s01-honors-014",
@@ -2019,17 +2011,18 @@
    "skillId": "nonlinear-functions-polynomials-skill-02",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "For y = |x|, find y when x = 1.",
-   "answer": "1",
+   "prompt": "For f(x) = 4x², find f(2) and f(4). How many times larger is f(4)?",
+   "answer": "4",
    "solutionSteps": [
-    "Substitute x = 1.",
-    "|1| = 1."
+    "f(2) = 16.",
+    "f(4) = 64.",
+    "64 ÷ 16 = 4."
    ],
    "standards": [
     "8.F.A.3",
     "F-IF.C.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_nfp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “For y = |x|, find y when x = 1.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s02-cp1-012",
@@ -2206,36 +2199,35 @@
    "skillId": "nonlinear-functions-polynomials-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "The area of a square garden is y = x², where x is the side in meters. How much does the area increase when the side grows from 3 m to 6 m? Is the change the same for each 1 m increase?",
-   "answer": "27 m²",
+   "prompt": "A ball is dropped from 427 ft. Its height after t seconds is h = 427 - 16t² feet. How many feet does it fall between t = 3 and t = 5?",
+   "answer": "256 ft",
    "options": [
     {
-     "text": "36 m²",
-     "correct": false
-    },
-    {
-     "text": "1 m²",
-     "correct": false
-    },
-    {
-     "text": "27 m²",
+     "text": "256 ft",
      "correct": true
     },
     {
-     "text": "6 m²",
+     "text": "400 ft",
+     "correct": false
+    },
+    {
+     "text": "27 ft",
+     "correct": false
+    },
+    {
+     "text": "5 ft",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "y(3) = 9, y(6) = 36.",
-    "Increase = 36 - 9 = 27 m².",
-    "No: each 1 m increase adds more area than the last, so the function is nonlinear."
+    "At t = 3: 427 - 144 = 283. At t = 5: 427 - 400 = 27.",
+    "283 - 27 = 256 ft."
    ],
    "standards": [
     "8.F.A.3",
     "F-IF.C.7"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which function is linear?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which function is linear?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s02-honors-004",
@@ -2321,36 +2313,35 @@
    "skillId": "nonlinear-functions-polynomials-skill-02",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "The area of a square garden is y = x², where x is the side in meters. How much does the area increase when the side grows from 4 m to 7 m? Is the change the same for each 1 m increase?",
-   "answer": "33 m²",
+   "prompt": "A ball is dropped from 90 ft. Its height after t seconds is h = 90 - 16t² feet. How many feet does it fall between t = 1 and t = 2?",
+   "answer": "48 ft",
    "options": [
     {
-     "text": "1 m²",
+     "text": "2 ft",
      "correct": false
     },
     {
-     "text": "49 m²",
+     "text": "64 ft",
      "correct": false
     },
     {
-     "text": "7 m²",
+     "text": "26 ft",
      "correct": false
     },
     {
-     "text": "33 m²",
+     "text": "48 ft",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "y(4) = 16, y(7) = 49.",
-    "Increase = 49 - 16 = 33 m².",
-    "No: each 1 m increase adds more area than the last, so the function is nonlinear."
+    "At t = 1: 90 - 16 = 74. At t = 2: 90 - 64 = 26.",
+    "74 - 26 = 48 ft."
    ],
    "standards": [
     "8.F.A.3",
     "F-IF.C.7"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which function is nonlinear?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Which function is nonlinear?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s02-honors-007",
@@ -2418,17 +2409,17 @@
    "skillId": "nonlinear-functions-polynomials-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "For y = 2|x| - 1, find y when x = 3.",
-   "answer": "5",
+   "prompt": "A ball is dropped from 162 ft. Its height after t seconds is h = 162 - 16t² feet. How many feet does it fall between t = 2 and t = 3?",
+   "answer": "80 ft",
    "solutionSteps": [
-    "Substitute x = 3.",
-    "2|3| - 1 = 5."
+    "At t = 2: 162 - 64 = 98. At t = 3: 162 - 144 = 18.",
+    "98 - 18 = 80 ft."
    ],
    "standards": [
     "8.F.A.3",
     "F-IF.C.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s02_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “For y = 2|x| - 1, find y when x = 3.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s02-honors-010",
@@ -2486,17 +2477,18 @@
    "skillId": "nonlinear-functions-polynomials-skill-02",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "For y = -x², find y when x = -2.",
-   "answer": "-4",
+   "prompt": "The area of a square garden is y = x², where x is the side in meters. How much does the area increase when the side grows from 4 m to 7 m? Is the change the same for each 1 m increase?",
+   "answer": "33 m²",
    "solutionSteps": [
-    "Substitute x = -2.",
-    "-(-2)² = -4."
+    "y(4) = 16, y(7) = 49.",
+    "Increase = 49 - 16 = 33 m².",
+    "No: each 1 m increase adds more area than the last, so the function is nonlinear."
    ],
    "standards": [
     "8.F.A.3",
     "F-IF.C.7"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s2_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s02). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “For y = -x², find y when x = -2.”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s02-honors-014",
@@ -3042,35 +3034,35 @@
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A $2,100 item loses 15% of its value each year. How much value does it lose in total over 2 years? Round to the nearest cent.",
-   "answer": "$582.75",
+   "prompt": "A town of 5,600 people grows 6% each year. What is its population after 2 years? Round to the nearest whole number.",
+   "answer": "6,292",
    "options": [
     {
-     "text": "$0.85",
+     "text": "2809/2500",
      "correct": false
     },
     {
-     "text": "$582.75",
+     "text": "53/50",
+     "correct": false
+    },
+    {
+     "text": "6,292",
      "correct": true
     },
     {
-     "text": "$2100",
-     "correct": false
-    },
-    {
-     "text": "$1517.25",
+     "text": "157304/25",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Value after 2 years: 2,100 × 0.85² ≈ $1,517.25.",
-    "Loss: $2,100 - $1,517.25 = $582.75."
+    "y = 5600(1.06)².",
+    "5600 × 1.1236 = 6292.16 ≈ 6,292."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_nfp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Does y = 84(2)ˣ show exponential growth or exponential decay?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_nfp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Does y = 84(2)ˣ show exponential growth or exponential decay?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-cp1-003",
@@ -3130,35 +3122,35 @@
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A $300 item loses 15% of its value each year. How much value does it lose in total over 4 years? Round to the nearest cent.",
-   "answer": "$143.40",
+   "prompt": "A town of 2,100 people grows 8% each year. What is its population after 2 years? Round to the nearest whole number.",
+   "answer": "2,449",
    "options": [
     {
-     "text": "$156.6",
+     "text": "61236/25",
      "correct": false
     },
     {
-     "text": "$0.85",
+     "text": "729/625",
      "correct": false
     },
     {
-     "text": "$300",
+     "text": "27/25",
      "correct": false
     },
     {
-     "text": "$143.40",
+     "text": "2,449",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Value after 4 years: 300 × 0.85⁴ ≈ $156.60.",
-    "Loss: $300 - $156.60 = $143.40."
+    "y = 2100(1.08)².",
+    "2100 × 1.1664 = 2449.44 ≈ 2,449."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_nfp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Does y = 41(0.9)ˣ show exponential growth or exponential decay?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_nfp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Does y = 41(0.9)ˣ show exponential growth or exponential decay?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-cp1-006",
@@ -3218,35 +3210,35 @@
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "Does y = 81(3)ˣ show exponential growth or exponential decay?",
-   "answer": "exponential growth",
+   "prompt": "A town of 5,600 people grows 4% each year. What is its population after 2 years? Round to the nearest whole number.",
+   "answer": "6,057",
    "options": [
     {
-     "text": "exponential growth",
+     "text": "6,057",
      "correct": true
     },
     {
-     "text": "exponential decay",
+     "text": "151424/25",
      "correct": false
     },
     {
-     "text": "linear growth",
+     "text": "676/625",
      "correct": false
     },
     {
-     "text": "linear decay",
+     "text": "26/25",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "In y = a·bˣ, b > 1 means growth and 0 < b < 1 means decay.",
-    "b = 3, so it is exponential growth."
+    "y = 5600(1.04)².",
+    "5600 × 1.0816 = 6056.96 ≈ 6,057."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_classify). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_nfp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “Does y = 81(3)ˣ show exponential growth or exponential decay?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-cp1-009",
@@ -3271,36 +3263,35 @@
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "cp1",
    "format": "multiple-choice",
-   "prompt": "A $450 car loses 25% of its value each year. What is the value after 4 years? Round to the nearest cent.",
-   "answer": "$142.38",
+   "prompt": "A $2,800 item loses 10% of its value each year. How much value does it lose in total over 4 years? Round to the nearest cent.",
+   "answer": "$962.92",
    "options": [
     {
-     "text": "$142.38",
+     "text": "$0.9",
+     "correct": false
+    },
+    {
+     "text": "$2800",
+     "correct": false
+    },
+    {
+     "text": "$1837.08",
+     "correct": false
+    },
+    {
+     "text": "$962.92",
      "correct": true
-    },
-    {
-     "text": "$1.76",
-     "correct": false
-    },
-    {
-     "text": "$0.00",
-     "correct": false
-    },
-    {
-     "text": "$1098.63",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "y = a(1 - r)ᵗ.",
-    "y = 450(0.75)⁴.",
-    "y ≈ $142.38."
+    "Value after 4 years: 2,800 × 0.9⁴ ≈ $1,837.08.",
+    "Loss: $2,800 - $1,837.08 = $962.92."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_nfp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A $450 car loses 25% of its value each year. What is the value after 4”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-cp1-011",
@@ -3325,18 +3316,17 @@
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A town of 100 people grows 25% per year. What is the population after 3 years? Round to the nearest whole number.",
-   "answer": "195",
+   "prompt": "A town of 3,700 people grows 5% each year. What is its population after 2 years? Round to the nearest whole number.",
+   "answer": "4,079",
    "solutionSteps": [
-    "y = a(1 + r)ᵗ.",
-    "y = 100(1.25)³.",
-    "y ≈ 195."
+    "y = 3700(1.05)².",
+    "3700 × 1.1025 = 4079.25 ≈ 4,079."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_nfp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A town of 100 people grows 25% per year. What is the population after ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-cp1-013",
@@ -3456,36 +3446,35 @@
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A car worth $2,500 loses 8% of its value each year. Write y = 2500(0.92)ᵗ and find its value after 3 years, to the nearest dollar. Is this growth or decay?",
-   "answer": "$1,947",
+   "prompt": "Leo invests $2,600 at 6% interest compounded once a year. How much more is the account worth after 3 years than after 2 years? Round to the nearest cent.",
+   "answer": "$175.28",
    "options": [
     {
-     "text": "$23/25",
-     "correct": false
-    },
-    {
-     "text": "$48668/25",
-     "correct": false
-    },
-    {
-     "text": "$1,947",
+     "text": "$175.28",
      "correct": true
     },
     {
-     "text": "$2,500",
+     "text": "$2921.36",
+     "correct": false
+    },
+    {
+     "text": "$3",
+     "correct": false
+    },
+    {
+     "text": "$3096.6416",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Decay factor: 1 - 0.08 = 0.92 (less than 1, so decay).",
-    "y = 2500 × 0.92³ ≈ 1946.72.",
-    "≈ $1,947."
+    "After 2 years: 2600(1.06)² = 2921.36. After 3 years: 2600(1.06)³ = 3096.6416.",
+    "3096.6416 - 2921.36 ≈ $175.28."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Does y = 37(0.9)ˣ show exponential growth or exponential decay?”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Does y = 37(0.9)ˣ show exponential growth or exponential decay?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-honors-003",
@@ -3510,36 +3499,35 @@
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A car worth $2,500 loses 10% of its value each year. Write y = 2500(0.9)ᵗ and find its value after 5 years, to the nearest dollar. Is this growth or decay?",
-   "answer": "$1,476",
+   "prompt": "Diego invests $3,100 at 4% interest compounded once a year. How much more is the account worth after 3 years than after 2 years? Round to the nearest cent.",
+   "answer": "$134.12",
    "options": [
     {
-     "text": "$9/10",
+     "text": "$3352.96",
      "correct": false
     },
     {
-     "text": "$2,500",
-     "correct": false
-    },
-    {
-     "text": "$1,476",
+     "text": "$134.12",
      "correct": true
     },
     {
-     "text": "$147623/100",
+     "text": "$3",
+     "correct": false
+    },
+    {
+     "text": "$3487.0784",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Decay factor: 1 - 0.1 = 0.9 (less than 1, so decay).",
-    "y = 2500 × 0.9⁵ ≈ 1476.23.",
-    "≈ $1,476."
+    "After 2 years: 3100(1.04)² = 3352.96. After 3 years: 3100(1.04)³ = 3487.0784.",
+    "3487.0784 - 3352.96 ≈ $134.12."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A town of 260 people grows 15% per year. What is the population after ”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A town of 260 people grows 15% per year. What is the population after ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-honors-005",
@@ -3582,196 +3570,194 @@
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A bacteria sample of 1000 cells doubles every 6 hours. How many cells are there after 18 hours?",
-   "answer": "8,000",
+   "prompt": "Owen invests $1,800 at 6% interest compounded once a year. How much more is the account worth after 3 years than after 2 years? Round to the nearest cent.",
+   "answer": "$121.35",
    "options": [
     {
-     "text": "1,008",
+     "text": "$3",
      "correct": false
     },
     {
-     "text": "6,000",
+     "text": "$2143.8288",
      "correct": false
     },
     {
-     "text": "8,000",
+     "text": "$2022.48",
+     "correct": false
+    },
+    {
+     "text": "$121.35",
      "correct": true
-    },
-    {
-     "text": "262,144,000",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Number of doublings: 18 ÷ 6 = 3.",
-    "1000 × 2³ = 1000 × 8.",
-    "= 8,000 cells."
+    "After 2 years: 1800(1.06)² = 2022.48. After 3 years: 1800(1.06)³ = 2143.8288.",
+    "2143.8288 - 2022.48 ≈ $121.35."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_doubling). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A bacteria sample of 1000 cells doubles every 6 hours. How many cells ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-honors-007",
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A town of 420 people grows 20% per year. What is the population after 4 years? Round to the nearest whole number.",
-   "answer": "871",
+   "prompt": "A car worth $4,000 loses 10% of its value each year. Write y = 4000(0.9)ᵗ and find its value after 3 years, to the nearest dollar. Is this growth or decay?",
+   "answer": "$2,916",
    "solutionSteps": [
-    "y = a(1 + r)ᵗ.",
-    "y = 420(1.2)⁴.",
-    "y ≈ 871."
+    "Decay factor: 1 - 0.1 = 0.9 (less than 1, so decay).",
+    "y = 4000 × 0.9³ ≈ 2916.00.",
+    "≈ $2,916."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A town of 420 people grows 20% per year. What is the population after ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-honors-008",
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Does y = 41(0.75)ˣ show exponential growth or exponential decay?",
-   "answer": "exponential decay",
+   "prompt": "Raj invests $4,800 at 4% interest compounded once a year. How much more is the account worth after 3 years than after 2 years? Round to the nearest cent.",
+   "answer": "$207.67",
    "options": [
     {
-     "text": "exponential growth",
+     "text": "$5399.3472",
      "correct": false
     },
     {
-     "text": "exponential decay",
+     "text": "$3",
+     "correct": false
+    },
+    {
+     "text": "$5191.68",
+     "correct": false
+    },
+    {
+     "text": "$207.67",
      "correct": true
-    },
-    {
-     "text": "linear growth",
-     "correct": false
-    },
-    {
-     "text": "linear decay",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "In y = a·bˣ, b > 1 means growth and 0 < b < 1 means decay.",
-    "b = 0.75, so it is exponential decay."
+    "After 2 years: 4800(1.04)² = 5191.68. After 3 years: 4800(1.04)³ = 5399.3472.",
+    "5399.3472 - 5191.68 ≈ $207.67."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_classify). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Does y = 41(0.75)ˣ show exponential growth or exponential decay?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-honors-009",
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A bacteria sample of 900 cells doubles every 6 hours. How many cells are there after 30 hours?",
-   "answer": "28,800",
+   "prompt": "A car worth $4,000 loses 6% of its value each year. Write y = 4000(0.94)ᵗ and find its value after 3 years, to the nearest dollar. Is this growth or decay?",
+   "answer": "$3,322",
    "solutionSteps": [
-    "Number of doublings: 30 ÷ 6 = 5.",
-    "900 × 2⁵ = 900 × 32.",
-    "= 28,800 cells."
+    "Decay factor: 1 - 0.06 = 0.94 (less than 1, so decay).",
+    "y = 4000 × 0.94³ ≈ 3322.34.",
+    "≈ $3,322."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_doubling). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A bacteria sample of 900 cells doubles every 6 hours. How many cells a”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-honors-010",
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A $330 car loses 50% of its value each year. What is the value after 4 years? Round to the nearest cent.",
-   "answer": "$20.63",
+   "prompt": "Maya invests $1,600 at 3% interest compounded once a year. How much more is the account worth after 3 years than after 2 years? Round to the nearest cent.",
+   "answer": "$50.92",
    "solutionSteps": [
-    "y = a(1 - r)ᵗ.",
-    "y = 330(0.5)⁴.",
-    "y ≈ $20.63."
+    "After 2 years: 1600(1.03)² = 1697.44. After 3 years: 1600(1.03)³ = 1748.3632.",
+    "1748.3632 - 1697.44 ≈ $50.92."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A $330 car loses 50% of its value each year. What is the value after 4”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-honors-011",
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Does y = 29(0.75)ˣ show exponential growth or exponential decay?",
-   "answer": "exponential decay",
+   "prompt": "A car worth $4,000 loses 6% of its value each year. Write y = 4000(0.94)ᵗ and find its value after 4 years, to the nearest dollar. Is this growth or decay?",
+   "answer": "$3,123",
    "options": [
     {
-     "text": "exponential growth",
-     "correct": false
-    },
-    {
-     "text": "exponential decay",
+     "text": "$3,123",
      "correct": true
     },
     {
-     "text": "linear growth",
+     "text": "$3/50",
      "correct": false
     },
     {
-     "text": "linear decay",
+     "text": "$4,000",
+     "correct": false
+    },
+    {
+     "text": "$47/50",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "In y = a·bˣ, b > 1 means growth and 0 < b < 1 means decay.",
-    "b = 0.75, so it is exponential decay."
+    "Decay factor: 1 - 0.06 = 0.94 (less than 1, so decay).",
+    "y = 4000 × 0.94⁴ ≈ 3123.00.",
+    "≈ $3,123."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_classify). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Does y = 29(0.75)ˣ show exponential growth or exponential decay?”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-honors-012",
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A bacteria sample of 900 cells doubles every 2 hours. How many cells are there after 6 hours?",
-   "answer": "7,200",
+   "prompt": "Priya invests $2,900 at 5% interest compounded once a year. How much more is the account worth after 3 years than after 2 years? Round to the nearest cent.",
+   "answer": "$159.86",
    "solutionSteps": [
-    "Number of doublings: 6 ÷ 2 = 3.",
-    "900 × 2³ = 900 × 8.",
-    "= 7,200 cells."
+    "After 2 years: 2900(1.05)² = 3197.25. After 3 years: 2900(1.05)³ = 3357.1125.",
+    "3357.1125 - 3197.25 ≈ $159.86."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_doubling). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s03_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A bacteria sample of 900 cells doubles every 2 hours. How many cells a”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-honors-013",
    "skillId": "nonlinear-functions-polynomials-skill-03",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A town of 400 people grows 50% per year. What is the population after 5 years? Round to the nearest whole number.",
-   "answer": "3038",
+   "prompt": "A car worth $2,500 loses 8% of its value each year. Write y = 2500(0.92)ᵗ and find its value after 3 years, to the nearest dollar. Is this growth or decay?",
+   "answer": "$1,947",
    "solutionSteps": [
-    "y = a(1 + r)ᵗ.",
-    "y = 400(1.5)⁵.",
-    "y ≈ 3038."
+    "Decay factor: 1 - 0.08 = 0.92 (less than 1, so decay).",
+    "y = 2500 × 0.92³ ≈ 1946.72.",
+    "≈ $1,947."
    ],
    "standards": [
     "F-LE.A.1",
     "F-LE.A.2"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s3_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s03). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A town of 400 people grows 50% per year. What is the population after ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s03-honors-014",
@@ -6269,17 +6255,17 @@
    "skillId": "nonlinear-functions-polynomials-skill-05",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A rectangle has length (7x + 8) and width (6x + 6). Write a simplified expression for its perimeter.",
-   "answer": "26x + 28",
+   "prompt": "A triangle has sides 3x + 2, 1x - 1 and x + 4. Write the perimeter as a polynomial, then find it when x = 8.",
+   "answer": "45",
    "solutionSteps": [
-    "P = 2l + 2w.",
-    "2(7x + 8) + 2(6x + 6).",
-    "= 26x + 28."
+    "Add: (3x + 2) + (1x - 1) + (x + 4).",
+    "= 5x + 5.",
+    "x = 8: 5(8) + 5 = 45."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s5_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s05). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangle has length (7x + 8) and width (6x + 6). Write a simplified”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s05-honors-013",
@@ -7291,35 +7277,34 @@
    "skillId": "nonlinear-functions-polynomials-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A rectangle has width 3x and length x² + 3x + 3. Write its area as a polynomial, then find the area when x = 4.",
-   "answer": "372",
+   "prompt": "A box has length x + 8, width x and height 4. Write its volume as a polynomial, then find the volume when x = 4.",
+   "answer": "192",
    "options": [
     {
-     "text": "372",
+     "text": "192",
      "correct": true
+    },
+    {
+     "text": "8",
+     "correct": false
     },
     {
      "text": "16",
      "correct": false
     },
     {
-     "text": "64",
-     "correct": false
-    },
-    {
-     "text": "4",
+     "text": "32",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "3x(x² + 3x + 3) = 3x³ + 9x² + 9x.",
-    "x = 4: 3(64) + 9(16) + 9(4).",
-    "= 372."
+    "V = 4x(x + 8) = 4x² + 32x.",
+    "x = 4: 4(16) + 32(4) = 192."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Simplify: -4x(6x² - x - 3)”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s06_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Simplify: -4x(6x² - x - 3)”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s06-honors-004",
@@ -7343,17 +7328,16 @@
    "skillId": "nonlinear-functions-polynomials-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A rectangle has width 3x and length x² + 1x + 4. Write its area as a polynomial, then find the area when x = 2.",
-   "answer": "60",
+   "prompt": "A box has length x + 9, width x and height 2. Write its volume as a polynomial, then find the volume when x = 5.",
+   "answer": "140",
    "solutionSteps": [
-    "3x(x² + 1x + 4) = 3x³ + 3x² + 12x.",
-    "x = 2: 3(8) + 3(4) + 12(2).",
-    "= 60."
+    "V = 2x(x + 9) = 2x² + 18x.",
+    "x = 5: 2(25) + 18(5) = 140."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Simplify: 5x(2x² - 2x - 6)”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s06_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Simplify: 5x(2x² - 2x - 6)”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s06-honors-006",
@@ -7430,16 +7414,16 @@
    "skillId": "nonlinear-functions-polynomials-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A rectangle has width 6x and length (x + 6). Write a simplified expression for its area.",
-   "answer": "6x² + 36x",
+   "prompt": "A box has length x + 5, width x and height 2. Write its volume as a polynomial, then find the volume when x = 5.",
+   "answer": "100",
    "solutionSteps": [
-    "A = 6x(x + 6).",
-    "= 6x² + 36x."
+    "V = 2x(x + 5) = 2x² + 10x.",
+    "x = 5: 2(25) + 10(5) = 100."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s06_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangle has width 6x and length (x + 6). Write a simplified expres”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s06-honors-009",
@@ -7463,34 +7447,35 @@
    "skillId": "nonlinear-functions-polynomials-skill-06",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A rectangle has width 8x and length (x + 6). Write a simplified expression for its area.",
-   "answer": "8x² + 48x",
+   "prompt": "A rectangle has width 2x and length x² + 4x + 4. Write its area as a polynomial, then find the area when x = 4.",
+   "answer": "288",
    "options": [
     {
-     "text": "8x² + 48",
-     "correct": false
-    },
-    {
-     "text": "9x + 6",
-     "correct": false
-    },
-    {
-     "text": "8x² + 48x",
+     "text": "288",
      "correct": true
     },
     {
-     "text": "18x + 12",
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "16",
+     "correct": false
+    },
+    {
+     "text": "64",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "A = 8x(x + 6).",
-    "= 8x² + 48x."
+    "2x(x² + 4x + 4) = 2x³ + 8x² + 8x.",
+    "x = 4: 2(64) + 8(16) + 8(4).",
+    "= 288."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s06). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangle has width 8x and length (x + 6). Write a simplified expres”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s06-honors-011",
@@ -7532,16 +7517,16 @@
    "skillId": "nonlinear-functions-polynomials-skill-06",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A rectangle has width 6x and length (x + 4). Write a simplified expression for its area.",
-   "answer": "6x² + 24x",
+   "prompt": "A box has length x + 6, width x and height 2. Write its volume as a polynomial, then find the volume when x = 6.",
+   "answer": "144",
    "solutionSteps": [
-    "A = 6x(x + 4).",
-    "= 6x² + 24x."
+    "V = 2x(x + 6) = 2x² + 12x.",
+    "x = 6: 2(36) + 12(6) = 144."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s6_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s06_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangle has width 6x and length (x + 4). Write a simplified expres”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s06-honors-013",
@@ -8603,17 +8588,16 @@
    "skillId": "nonlinear-functions-polynomials-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A square photo has sides x inches. A frame adds 2 in. to the length and 1 in. to the width, making a (x + 2) by (x + 1) rectangle. Write the area as a polynomial, and find how much area the frame adds when x = 8.",
-   "answer": "26",
+   "prompt": "A square garden is x m by x m. It is made 4 m longer and 2 m narrower. Write the new area as a polynomial, then find it when x = 6.",
+   "answer": "40 m²",
    "solutionSteps": [
-    "(x + 2)(x + 1) = x² + 3x + 2.",
-    "Added area = (x² + 3x + 2) - x² = 3x + 2.",
-    "x = 8: 3(8) + 2 = 26 in²."
+    "(x + 4)(x - 2) = x² + 2x - 8.",
+    "x = 6: 10 × 4 = 40 m²."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Expand: (x + 3)²”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Expand: (x + 3)²”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s07-honors-005",
@@ -8672,35 +8656,34 @@
    "skillId": "nonlinear-functions-polynomials-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A square photo has sides x inches. A frame adds 4 in. to the length and 3 in. to the width, making a (x + 4) by (x + 3) rectangle. Write the area as a polynomial, and find how much area the frame adds when x = 9.",
-   "answer": "75",
+   "prompt": "A square garden is x m by x m. It is made 5 m longer and 2 m narrower. Write the new area as a polynomial, then find it when x = 8.",
+   "answer": "78 m²",
    "options": [
     {
-     "text": "12",
+     "text": "8 m²",
      "correct": false
     },
     {
-     "text": "75",
+     "text": "13 m²",
+     "correct": false
+    },
+    {
+     "text": "78 m²",
      "correct": true
     },
     {
-     "text": "7",
-     "correct": false
-    },
-    {
-     "text": "9",
+     "text": "6 m²",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "(x + 4)(x + 3) = x² + 7x + 12.",
-    "Added area = (x² + 7x + 12) - x² = 7x + 12.",
-    "x = 9: 7(9) + 12 = 75 in²."
+    "(x + 5)(x - 2) = x² + 3x - 10.",
+    "x = 8: 13 × 6 = 78 m²."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Multiply: (x + 5)(x + 9)”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Multiply: (x + 5)(x + 9)”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s07-honors-008",
@@ -8741,35 +8724,34 @@
    "skillId": "nonlinear-functions-polynomials-skill-07",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "Expand: (x - 4)²",
-   "answer": "x² - 8x + 16",
+   "prompt": "A square garden is x m by x m. It is made 7 m longer and 1 m narrower. Write the new area as a polynomial, then find it when x = 5.",
+   "answer": "48 m²",
    "options": [
     {
-     "text": "x² + 16",
-     "correct": false
-    },
-    {
-     "text": "x² - 4x + 16",
-     "correct": false
-    },
-    {
-     "text": "x² - 8x + 16",
+     "text": "48 m²",
      "correct": true
     },
     {
-     "text": "x² - 8x - 8",
+     "text": "5 m²",
+     "correct": false
+    },
+    {
+     "text": "12 m²",
+     "correct": false
+    },
+    {
+     "text": "4 m²",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "(x - 4)² = (x - 4)(x - 4).",
-    "Multiply with FOIL.",
-    "= x² - 8x + 16."
+    "(x + 7)(x - 1) = x² + 6x - 7.",
+    "x = 5: 12 × 4 = 48 m²."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_square). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s07_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Expand: (x - 4)²”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s07-honors-011",
@@ -8811,17 +8793,17 @@
    "skillId": "nonlinear-functions-polynomials-skill-07",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "Expand: (x + 7)²",
-   "answer": "x² + 14x + 49",
+   "prompt": "A square photo has sides x inches. A frame adds 2 in. to the length and 2 in. to the width, making a (x + 2) by (x + 2) rectangle. Write the area as a polynomial, and find how much area the frame adds when x = 12.",
+   "answer": "52",
    "solutionSteps": [
-    "(x + 7)² = (x + 7)(x + 7).",
-    "Multiply with FOIL.",
-    "= x² + 14x + 49."
+    "(x + 2)(x + 2) = x² + 4x + 4.",
+    "Added area = (x² + 4x + 4) - x² = 4x + 4.",
+    "x = 12: 4(12) + 4 = 52 in²."
    ],
    "standards": [
     "A-APR.A.1"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s7_square). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s07). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “Expand: (x + 7)²”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s07-honors-013",
@@ -9416,18 +9398,17 @@
    "skillId": "nonlinear-functions-polynomials-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A jar has 33 quarters and dimes worth $5.55. How many dimes are there?",
-   "answer": "18",
+   "prompt": "A jar has 35 nickels and dimes worth $2.70. How many nickels are there?",
+   "answer": "16",
    "solutionSteps": [
-    "0.25q + 0.10(33 - q) = 5.55.",
-    "0.15q = 5.55 - 3.3, so q = 15.",
-    "Dimes: 33 - 15 = 18."
+    "Let x = nickels: 0.05x + 0.10(35 - x) = 2.7.",
+    "3.5 - 0.05x = 2.7, so x = 16."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_nfp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A jar has 10 quarters and dimes worth $1.60. How many quarters are the”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_nfp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A jar has 10 quarters and dimes worth $1.60. How many quarters are the”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s08-cp1-003",
@@ -9488,18 +9469,17 @@
    "skillId": "nonlinear-functions-polynomials-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A jar has 28 quarters and dimes worth $5.05. How many dimes are there?",
-   "answer": "13",
+   "prompt": "A jar has 49 nickels and dimes worth $3.80. How many nickels are there?",
+   "answer": "22",
    "solutionSteps": [
-    "0.25q + 0.10(28 - q) = 5.05.",
-    "0.15q = 5.05 - 2.8, so q = 15.",
-    "Dimes: 28 - 15 = 13."
+    "Let x = nickels: 0.05x + 0.10(49 - x) = 3.8.",
+    "4.9 - 0.05x = 3.8, so x = 22."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_nfp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A mother is 3 times as old as her son. The sum of their ages is 60. Ho”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_nfp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A mother is 3 times as old as her son. The sum of their ages is 60. Ho”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s08-cp1-006",
@@ -9524,18 +9504,17 @@
    "skillId": "nonlinear-functions-polynomials-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A mother is 4 times as old as her son. The sum of their ages is 20. How old is the son?",
-   "answer": "4",
+   "prompt": "A jar has 30 nickels and dimes worth $2.20. How many nickels are there?",
+   "answer": "16",
    "solutionSteps": [
-    "Strategy 1 (equation): s + 4s = 20, so 5s = 20.",
-    "Strategy 2 (table): try ages until the sum is 20.",
-    "s = 4."
+    "Let x = nickels: 0.05x + 0.10(30 - x) = 2.2.",
+    "3 - 0.05x = 2.2, so x = 16."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step2_nfp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A mother is 4 times as old as her son. The sum of their ages is 20. Ho”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s08-cp1-008",
@@ -9616,18 +9595,18 @@
    "skillId": "nonlinear-functions-polynomials-skill-08",
    "level": "cp1",
    "format": "short-answer",
-   "prompt": "A mother is 3 times as old as her son. The sum of their ages is 16. How old is the son?",
-   "answer": "4",
+   "prompt": "A jar has 14 quarters and dimes worth $2.00. How many dimes are there?",
+   "answer": "10",
    "solutionSteps": [
-    "Strategy 1 (equation): s + 3s = 16, so 4s = 16.",
-    "Strategy 2 (table): try ages until the sum is 16.",
-    "s = 4."
+    "0.25q + 0.10(14 - q) = 2.",
+    "0.15q = 2 - 1.4, so q = 4.",
+    "Dimes: 14 - 4 = 10."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_cp1_added_step_nfp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Standard item that reused a Support template (was: “A mother is 3 times as old as her son. The sum of their ages is 16. Ho”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s08-cp1-011",
@@ -9839,36 +9818,35 @@
    "skillId": "nonlinear-functions-polynomials-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A jar has 31 quarters and dimes worth $4.75. Use an equation or a table to find the number of quarters.",
-   "answer": "11",
+   "prompt": "A bank holds quarters and nickels. There are 9 more nickels than quarters, and the coins are worth $5.25. How many quarters are there?",
+   "answer": "16",
    "options": [
     {
-     "text": "165",
+     "text": "9/20",
      "correct": false
     },
     {
-     "text": "310",
+     "text": "3/10",
      "correct": false
     },
     {
-     "text": "11",
+     "text": "16",
      "correct": true
     },
     {
-     "text": "15",
+     "text": "21/4",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Let q be quarters: 25q + 10(31 - q) = 475.",
-    "15q + 310 = 475, so 15q = 165.",
-    "q = 11 quarters."
+    "0.25q + 0.05(q + 9) = 5.25.",
+    "0.30q + 0.45 = 5.25, so q = 16."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “The product of two consecutive positive integers is 210. What is the s”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “The product of two consecutive positive integers is 210. What is the s”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s08-honors-003",
@@ -9893,36 +9871,35 @@
    "skillId": "nonlinear-functions-polynomials-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A jar has 23 quarters and dimes worth $3.65. Use an equation or a table to find the number of quarters.",
-   "answer": "9",
+   "prompt": "A bank holds quarters and nickels. There are 6 more nickels than quarters, and the coins are worth $4.20. How many quarters are there?",
+   "answer": "13",
    "options": [
     {
-     "text": "135",
+     "text": "3/10",
      "correct": false
     },
     {
-     "text": "230",
+     "text": "21/5",
      "correct": false
     },
     {
-     "text": "15",
+     "text": "6",
      "correct": false
     },
     {
-     "text": "9",
+     "text": "13",
      "correct": true
     }
    ],
    "solutionSteps": [
-    "Let q be quarters: 25q + 10(23 - q) = 365.",
-    "15q + 230 = 365, so 15q = 135.",
-    "q = 9 quarters."
+    "0.25q + 0.05(q + 6) = 4.2.",
+    "0.30q + 0.3 = 4.2, so q = 13."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A jar has 20 quarters and dimes worth $3.35. How many quarters are the”); keys rechecked by verify_levels.py."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A jar has 20 quarters and dimes worth $3.35. How many quarters are the”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s08-honors-005",
@@ -9947,217 +9924,212 @@
    "skillId": "nonlinear-functions-polynomials-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "The product of two consecutive positive integers is 132. What is the smaller integer?",
-   "answer": "11",
+   "prompt": "A bank holds quarters and nickels. There are 6 more nickels than quarters, and the coins are worth $2.10. How many quarters are there?",
+   "answer": "6",
    "options": [
     {
-     "text": "10",
+     "text": "1/20",
      "correct": false
     },
     {
-     "text": "66",
+     "text": "3/10",
      "correct": false
     },
     {
-     "text": "12",
-     "correct": false
-    },
-    {
-     "text": "11",
+     "text": "6",
      "correct": true
+    },
+    {
+     "text": "21/10",
+     "correct": false
     }
    ],
    "solutionSteps": [
-    "Estimate: the integers are close to √132.",
-    "Test: 11 × 12 = 132.",
-    "The smaller integer is 11."
+    "0.25q + 0.05(q + 6) = 2.1.",
+    "0.30q + 0.3 = 2.1, so q = 6."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “The product of two consecutive positive integers is 132. What is the s”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s08-honors-007",
    "skillId": "nonlinear-functions-polynomials-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "The product of two consecutive positive integers is 12. What is the smaller integer?",
-   "answer": "3",
+   "prompt": "A jar has 28 quarters and dimes worth $4.15. Use an equation or a table to find the number of quarters.",
+   "answer": "9",
    "solutionSteps": [
-    "Estimate: the integers are close to √12.",
-    "Test: 3 × 4 = 12.",
-    "The smaller integer is 3."
+    "Let q be quarters: 25q + 10(28 - q) = 415.",
+    "15q + 280 = 415, so 15q = 135.",
+    "q = 9 quarters."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “The product of two consecutive positive integers is 12. What is the sm”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s08-honors-008",
    "skillId": "nonlinear-functions-polynomials-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A jar has 10 quarters and dimes worth $1.90. How many quarters are there?",
-   "answer": "6",
+   "prompt": "A bank holds quarters and nickels. There are 8 more nickels than quarters, and the coins are worth $4.00. How many quarters are there?",
+   "answer": "12",
    "solutionSteps": [
-    "Equation: 0.25q + 0.10(10 - q) = 1.90.",
-    "Or make a table of possible numbers of quarters.",
-    "q = 6."
+    "0.25q + 0.05(q + 8) = 4.",
+    "0.30q + 0.4 = 4, so q = 12."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A jar has 10 quarters and dimes worth $1.90. How many quarters are the”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s08-honors-009",
    "skillId": "nonlinear-functions-polynomials-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A jar has 16 quarters and dimes worth $3.10. How many quarters are there?",
-   "answer": "10",
+   "prompt": "A jar has 15 quarters and dimes worth $2.70. Use an equation or a table to find the number of quarters.",
+   "answer": "8",
    "options": [
     {
-     "text": "10",
+     "text": "8",
      "correct": true
     },
     {
-     "text": "11",
+     "text": "120",
      "correct": false
     },
     {
-     "text": "12",
+     "text": "270",
      "correct": false
     },
     {
-     "text": "6",
+     "text": "150",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Equation: 0.25q + 0.10(16 - q) = 3.10.",
-    "Or make a table of possible numbers of quarters.",
-    "q = 10."
+    "Let q be quarters: 25q + 10(15 - q) = 270.",
+    "15q + 150 = 270, so 15q = 120.",
+    "q = 8 quarters."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A jar has 16 quarters and dimes worth $3.10. How many quarters are the”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s08-honors-010",
    "skillId": "nonlinear-functions-polynomials-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "A rectangle's length is 8 more than its width. Its area is 105 square units. Find the width. (Try a table or guess and check.)",
-   "answer": "7 units",
+   "prompt": "A bank holds quarters and nickels. There are 13 more nickels than quarters, and the coins are worth $6.05. How many quarters are there?",
+   "answer": "18",
    "options": [
     {
-     "text": "7 units",
+     "text": "3/10",
+     "correct": false
+    },
+    {
+     "text": "18",
      "correct": true
     },
     {
-     "text": "6 units",
+     "text": "13/20",
      "correct": false
     },
     {
-     "text": "15 units",
-     "correct": false
-    },
-    {
-     "text": "8 units",
+     "text": "121/20",
      "correct": false
     }
    ],
    "solutionSteps": [
-    "Let the width be w; the length is w + 8.",
-    "Make a table of w and w(w + 8), or guess and check.",
-    "w = 7: 7 × 15 = 105.",
-    "The width is 7 units."
+    "0.25q + 0.05(q + 13) = 6.05.",
+    "0.30q + 0.65 = 6.05, so q = 18."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A rectangle's length is 8 more than its width. Its area is 105 square ”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s08-honors-011",
    "skillId": "nonlinear-functions-polynomials-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "A jar has 10 quarters and dimes worth $1.45. How many quarters are there?",
-   "answer": "3",
+   "prompt": "A jar has 21 quarters and dimes worth $4.20. Use an equation or a table to find the number of quarters.",
+   "answer": "14",
    "solutionSteps": [
-    "Equation: 0.25q + 0.10(10 - q) = 1.45.",
-    "Or make a table of possible numbers of quarters.",
-    "q = 3."
+    "Let q be quarters: 25q + 10(21 - q) = 420.",
+    "15q + 210 = 420, so 15q = 210.",
+    "q = 14 quarters."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “A jar has 10 quarters and dimes worth $1.45. How many quarters are the”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s08-honors-012",
    "skillId": "nonlinear-functions-polynomials-skill-08",
    "level": "honors",
    "format": "multiple-choice",
-   "prompt": "The product of two consecutive positive integers is 306. What is the smaller integer?",
-   "answer": "17",
+   "prompt": "A bank holds quarters and nickels. There are 8 more nickels than quarters, and the coins are worth $3.10. How many quarters are there?",
+   "answer": "9",
    "options": [
     {
-     "text": "153",
+     "text": "2/5",
      "correct": false
     },
     {
-     "text": "17",
+     "text": "31/10",
+     "correct": false
+    },
+    {
+     "text": "3/10",
+     "correct": false
+    },
+    {
+     "text": "9",
      "correct": true
-    },
-    {
-     "text": "18",
-     "correct": false
-    },
-    {
-     "text": "16",
-     "correct": false
     }
    ],
    "solutionSteps": [
-    "Estimate: the integers are close to √306.",
-    "Test: 17 × 18 = 306.",
-    "The smaller integer is 17."
+    "0.25q + 0.05(q + 8) = 3.1.",
+    "0.30q + 0.4 = 3.1, so q = 9."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep2_nfp_s08_t1). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “The product of two consecutive positive integers is 306. What is the s”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s08-honors-013",
    "skillId": "nonlinear-functions-polynomials-skill-08",
    "level": "honors",
    "format": "short-answer",
-   "prompt": "The product of two consecutive positive integers is 72. What is the smaller integer?",
-   "answer": "8",
+   "prompt": "A jar has 22 quarters and dimes worth $4.00. Use an equation or a table to find the number of quarters.",
+   "answer": "12",
    "solutionSteps": [
-    "Estimate: the integers are close to √72.",
-    "Test: 8 × 9 = 72.",
-    "The smaller integer is 8."
+    "Let q be quarters: 25q + 10(22 - q) = 400.",
+    "15q + 220 = 400, so 15q = 180.",
+    "q = 12 quarters."
    ],
    "standards": [
     "MP.1",
     "7.EE.B.3"
    ],
-   "sourceNotes": "Original Claude-authored item (family: s8_problem). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Teacher reviewed 2026-11-15."
+   "sourceNotes": "Original Claude-authored item (Grade 7 audit 2026-11-19, family: g7_honors_multistep_nfp_s08). Answer computed in the authoring script and re-checked from the printed prompt by tools/grade7-audit-20261119/verify_keys.py. Rewritten in place: whole-site audit 2 #3 (2026-11-20), Advanced item that reused a lower-level template (was: “The product of two consecutive positive integers is 72. What is the sm”); keys rechecked by verify_levels.py."
   },
   {
    "id": "pa7-nfp-s08-honors-014",
