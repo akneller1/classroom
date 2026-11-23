@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Input or Output? Variable Sort</title>
+<style>
+/* Input or Output? Variable Sort (Algebra 1, Unit 4: Relations and Functions)
+   Students drag the quantities in a situation into Independent, Dependent or Neither, then
+   evaluate the situation's function in notation, say what the result means and, at Honors,
+   solve for the input. Matches the site's calm theme: white paper, one navy accent. */
+:root{color-scheme:light dark;
+  --bg:#f6f7f9;--paper:#fff;--ink:#111827;--muted:#4b5563;--line:#d1d5db;--blue:#1e3a8a;--soft:#eef2ff;
+  --ind:#1e3a8a;--indbg:#eef2ff;--dep:#9a3412;--depbg:#fff4ed;--nei:#4b5563;--neibg:#f3f4f6;
+  --ok:#166534;--okbg:#ecfdf3;--no:#9a3412;--nobg:#fff4ed}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f172a;--paper:#111c33;--ink:#e5e7eb;--muted:#a3aec2;--line:#334155;--blue:#93b4ff;--soft:#1b2950;
+  --ind:#93b4ff;--indbg:#17234a;--dep:#fdba74;--depbg:#33200f;--nei:#cbd5e1;--neibg:#1e293b;
+  --ok:#86efac;--okbg:#0f2e1f;--no:#fdba74;--nobg:#3a1d0c}}
+:root[data-theme=dark]{color-scheme:dark;
+  --bg:#0f172a;--paper:#111c33;--ink:#e5e7eb;--muted:#a3aec2;--line:#334155;--blue:#93b4ff;--soft:#1b2950;
+  --ind:#93b4ff;--indbg:#17234a;--dep:#fdba74;--depbg:#33200f;--nei:#cbd5e1;--neibg:#1e293b;
+  --ok:#86efac;--okbg:#0f2e1f;--no:#fdba74;--nobg:#3a1d0c}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:22px max(4vw,14px) 40px}
+h1{font-size:clamp(28px,4.4vw,40px);line-height:1.1;margin:0 0 6px}
+h2{font-size:22px;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 18px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:0 0 14px}
+.top{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.bar{flex:1 1 200px;height:10px;background:var(--line);border-radius:5px;overflow:hidden}.bar i{display:block;height:100%;background:var(--blue);transition:width .3s}
+.muted{color:var(--muted)}
+.situation{font-size:19px;margin:0}
+.tray{display:flex;flex-wrap:wrap;gap:8px;min-height:56px;padding:10px;border:1px dashed var(--line);border-radius:10px;margin:12px 0}
+.tray:empty::after{content:"All sorted. Check your answer.";color:var(--muted);align-self:center;padding-left:6px}
+.chip{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;min-height:44px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;font-size:16px;text-align:left}
+.chip:hover{border-color:var(--blue)}.chip.sel{outline:3px solid var(--blue);outline-offset:2px}
+.chip.drag{position:fixed;z-index:50;cursor:grabbing;box-shadow:0 8px 24px rgba(0,0,0,.25);pointer-events:none}
+.chip.good{border-color:var(--ok);background:var(--okbg);cursor:default}
+.chip.bad{border-color:var(--no);background:var(--nobg)}
+.zones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.zone{border:2px solid var(--line);border-radius:12px;padding:10px;min-height:150px;display:flex;flex-direction:column;gap:8px;background:var(--paper);font:inherit;color:inherit;text-align:left;cursor:pointer}
+.zone h3{margin:0;font-size:17px}.zone small{display:block;color:var(--muted);font-size:14px;font-weight:400}
+.zone[data-z=ind]{border-color:var(--ind);background:var(--indbg)}.zone[data-z=ind] h3{color:var(--ind)}
+.zone[data-z=dep]{border-color:var(--dep);background:var(--depbg)}.zone[data-z=dep] h3{color:var(--dep)}
+.zone[data-z=nei]{border-color:var(--line);background:var(--neibg)}.zone[data-z=nei] h3{color:var(--nei)}
+.zone.over{outline:3px solid var(--blue);outline-offset:2px}
+.zone .chips{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.frame{margin:12px 0 0;padding:10px 14px;border-radius:8px;background:var(--soft);font-size:17px}
+.frame b{padding:0 4px;border-bottom:2px solid currentColor}.frame .i{color:var(--ind)}.frame .d{color:var(--dep)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.btn{min-height:44px;padding:8px 18px;border-radius:8px;border:1px solid var(--blue);background:var(--blue);color:var(--paper);font:inherit;font-weight:700;cursor:pointer}
+.btn.sec{background:var(--paper);color:var(--blue)}.btn:disabled{opacity:.45;cursor:not-allowed}
+.link{background:none;border:0;color:var(--blue);text-decoration:underline;font:inherit;padding:10px 4px;min-height:44px;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.fb:empty{display:none}.fb{margin-top:10px;padding:10px 14px;border-radius:8px}
+.fb.ok{background:var(--okbg);color:var(--ok)}.fb.no{background:var(--nobg);color:var(--no)}.fb.tip{background:var(--soft)}
+.fb ul{margin:4px 0 0;padding-left:20px}
+.fn{font-size:clamp(22px,3.6vw,28px);text-align:center;padding:14px;margin:8px 0 6px;background:var(--soft);border-radius:10px}
+i.v{font-family:Georgia,"Times New Roman",serif}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:15px;color:var(--muted);justify-content:center}
+input.box{font:inherit;font-size:18px;width:130px;min-height:44px;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink)}
+.choices{display:grid;gap:8px;margin-top:8px}
+.choices button{text-align:left;min-height:44px;padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);font:inherit;cursor:pointer}
+.choices button:hover{border-color:var(--blue)}.choices button.right{border-color:var(--ok);background:var(--okbg)}.choices button.wrong{border-color:var(--no);background:var(--nobg)}
+.part{display:none}.part.on{display:block}
+.levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}
+.levels button{display:flex;flex-direction:column;justify-content:flex-start;min-height:44px;padding:14px;border-radius:10px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.levels button b{display:block;font-size:18px}.levels button:hover{border-color:var(--blue)}
+.score{font-size:44px;font-weight:700;line-height:1}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:10px;margin:14px 0}
+.stats div{border:1px solid var(--line);border-radius:10px;padding:10px 14px}.stats b{display:block;font-size:24px}
+@media(max-width:620px){.zones,.levels{grid-template-columns:minmax(0,1fr)}.zone{min-height:84px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Input or Output?</h1>
+  <p class="sub">Sort each quantity in the situation, then use function notation.</p>
+
+  <div id="start" class="card">
+    <h2>How it works</h2>
+    <p style="margin-top:0">For each situation, drag every quantity into a box. (You can also tap a quantity and then tap a box.)</p>
+    <ul>
+      <li><b>Independent variable</b>: the input. It changes, and you choose or control it.</li>
+      <li><b>Dependent variable</b>: the output. It changes <i>because</i> the input changes.</li>
+      <li><b>Neither</b>: stays the same in this situation, or doesn’t affect the output.</li>
+    </ul>
+    <p>Test your sort with the sentence: “The <b>dependent</b> depends on the <b>independent</b>.” Once it’s right, you’ll evaluate the function.</p>
+    <h2 style="margin-top:18px">Choose a level</h2>
+    <div class="levels" id="levels">
+      <button type="button" data-l="1"><b>CP2</b>Two variables and one quantity that stays the same. Evaluate the function.</button>
+      <button type="button" data-l="2"><b>CP1</b>More quantities to sort. Evaluate the function and say what it means.</button>
+      <button type="button" data-l="3"><b>Honors</b>All of CP1, then work backward: find the input for a given output.</button>
+    </div>
+    <p class="muted" style="margin-bottom:0">8 situations per round, about 15 minutes.</p>
+  </div>
+
+  <div id="game" hidden>
+    <div class="top"><span id="count" class="muted"></span><div class="bar" aria-hidden="true"><i id="prog" style="width:0"></i></div><span id="pts" class="muted"></span></div>
+
+    <div class="card"><p class="situation" id="sit"></p></div>
+
+    <div class="card part on" id="p-sort">
+      <h2>1. Sort the quantities</h2>
+      <div class="tray" id="tray" aria-label="Quantities to sort"></div>
+      <div class="zones">
+        <div class="zone" data-z="ind" role="button" tabindex="0" aria-label="Independent variable box"><h3>Independent variable<small>input, ⟶ goes in</small></h3><div class="chips"></div></div>
+        <div class="zone" data-z="dep" role="button" tabindex="0" aria-label="Dependent variable box"><h3>Dependent variable<small>output, comes out ⟶</small></h3><div class="chips"></div></div>
+        <div class="zone" data-z="nei" role="button" tabindex="0" aria-label="Neither box"><h3>Neither<small>stays the same or doesn’t matter</small></h3><div class="chips"></div></div>
+      </div>
+      <p class="frame" id="frame"></p>
+      <div class="row"><button class="btn" id="checkSort" type="button" disabled>Check my sort</button><button class="link" id="hintSort" type="button">Hint</button></div>
+      <div class="fb" id="fbSort" aria-live="polite"></div>
+    </div>
+
+    <div class="card part" id="p-eval">
+      <h2>2. Use function notation</h2>
+      <div class="fn" id="fn"></div>
+      <div class="legend" id="legend"></div>
+      <p id="evalQ" style="font-size:19px;margin:14px 0 4px"></p>
+      <form class="row" id="evalForm" style="margin-top:4px"><input class="box" id="evalIn" inputmode="decimal" autocomplete="off" aria-label="Your answer"><button class="btn">Check</button><button class="link" type="button" id="hintEval">Hint</button></form>
+      <div class="fb" id="fbEval" aria-live="polite"></div>
+      <div id="meaning" hidden><p style="margin:16px 0 0;font-size:18px" id="meanQ"></p><div class="choices" id="meanC"></div><div class="fb" id="fbMean" aria-live="polite"></div></div>
+      <div id="solve" hidden><p style="margin:16px 0 4px;font-size:18px" id="solveQ"></p>
+        <form class="row" id="solveForm" style="margin-top:4px"><input class="box" id="solveIn" inputmode="decimal" autocomplete="off" aria-label="Your answer"><button class="btn">Check</button><button class="link" type="button" id="hintSolve">Hint</button></form>
+        <div class="fb" id="fbSolve" aria-live="polite"></div></div>
+      <div class="row"><button class="btn" id="next" type="button" hidden>Next situation</button></div>
+    </div>
+  </div>
+
+  <div id="end" class="card" hidden>
+    <h2>Round complete</h2>
+    <div class="score" id="final"></div>
+    <div class="stats" id="stats"></div>
+    <p id="advice"></p>
+    <div class="row"><button class="btn" id="again" type="button">Play again</button><button class="btn sec" id="change" type="button">Change level</button></div>
+  </div>
+</div>
+
+<script>
+{
+/* ---------- Situations ----------
+   q: the quantities, each [text, 'ind' | 'dep' | 'nei', why (shown when misplaced)]
+   f: the function; name/x: letters; rule: right side as shown; xs: inputs to ask about
+   inP/outP: phrases for "what it means"; perP: a tempting wrong reading
+   extra: CP1/Honors-only quantities (still sorted). Every value asked about is a whole number. */
+const S=[
+ {sit:'A plumber charges a $60 visit fee plus $45 for each hour of work.',q:[['number of hours worked','ind'],['total cost of the visit','dep'],['$60 visit fee','nei','The visit fee is $60 for every job. It never changes, so it is not a variable.']],
+  extra:[['$45 hourly rate','nei','$45 per hour is the same for every job. It is a constant rate.']],
+  name:'C',x:'h',xl:'hours worked',yl:'total cost, in dollars',f:h=>45*h+60,rule:'45h + 60',m:45,b:60,xs:[2,3,4,5,6],
+  inP:x=>`the plumber works ${x} hours`,outP:y=>`the visit costs $${y}`,perP:y=>`each hour of work costs $${y}`},
+ {sit:'A gym charges $25 to sign up and then $30 for each month of membership.',q:[['number of months','ind'],['total amount paid','dep'],['$25 sign-up fee','nei','You pay the $25 sign-up fee once, no matter how long you stay.']],
+  extra:[['the gym’s address','nei','The address doesn’t change the amount paid.']],
+  name:'G',x:'m',xl:'months',yl:'total paid, in dollars',f:m=>30*m+25,rule:'30m + 25',m:30,b:25,xs:[3,4,6,10,12],
+  inP:x=>`a member stays ${x} months`,outP:y=>`they pay $${y} in all`,perP:y=>`each month costs $${y}`},
+ {sit:'How far a car travels depends on how long it drives at a steady 55 miles per hour.',q:[['time driving, in hours','ind'],['distance traveled','dep'],['speed of 55 mph','nei','The speed stays at 55 mph the whole time, so it is a constant.']],
+  extra:[['number of passengers','nei','Passengers don’t change how far the car goes.']],
+  name:'d',x:'t',xl:'hours driving',yl:'distance, in miles',f:t=>55*t,rule:'55t',m:55,b:0,xs:[2,3,4,6],
+  inP:x=>`the car drives for ${x} hours`,outP:y=>`it travels ${y} miles`,perP:y=>`the car drives ${y} miles per hour`},
+ {sit:'A candle starts 30 cm tall and burns down 2 cm every hour.',q:[['hours the candle burns','ind'],['height of the candle','dep'],['starting height of 30 cm','nei','The candle only starts at 30 cm once. It is a fixed starting value.']],
+  extra:[['2 cm burned each hour','nei','The candle always burns 2 cm per hour. That rate stays the same.']],
+  name:'L',x:'t',xl:'hours burning',yl:'height, in cm',f:t=>30-2*t,rule:'30 − 2t',m:-2,b:30,xs:[3,5,8,10,12],
+  inP:x=>`the candle has burned for ${x} hours`,outP:y=>`it is ${y} cm tall`,perP:y=>`the candle burns ${y} cm each hour`},
+ {sit:'The class sells T-shirts for $12 each. The money raised depends on how many shirts are sold.',q:[['number of shirts sold','ind'],['money raised','dep'],['$12 price per shirt','nei','Every shirt sells for $12, so the price is a constant.']],
+  extra:[['color of the shirts','nei','The color doesn’t change the money raised.']],
+  name:'M',x:'s',xl:'shirts sold',yl:'money raised, in dollars',f:s=>12*s,rule:'12s',m:12,b:0,xs:[15,20,25,40],
+  inP:x=>`the class sells ${x} shirts`,outP:y=>`it raises $${y}`,perP:y=>`each shirt sells for $${y}`},
+ {sit:'A bean plant is 4 cm tall when it is planted, and it grows 3 cm each week.',q:[['number of weeks','ind'],['height of the plant','dep'],['3 cm of growth each week','nei','The plant grows the same 3 cm every week. That rate is constant.']],
+  extra:[['height at planting, 4 cm','nei','The plant starts at 4 cm only once. It is a fixed starting value.']],
+  name:'H',x:'w',xl:'weeks',yl:'height, in cm',f:w=>3*w+4,rule:'3w + 4',m:3,b:4,xs:[2,5,6,8],
+  inP:x=>`the plant has grown for ${x} weeks`,outP:y=>`it is ${y} cm tall`,perP:y=>`the plant grows ${y} cm a week`},
+ {sit:'A tank holds 500 gallons of water. A pump drains 25 gallons each minute.',q:[['minutes the pump runs','ind'],['water left in the tank','dep'],['25 gallons drained per minute','nei','The pump always drains 25 gallons a minute. That rate doesn’t change.']],
+  extra:[['starting amount, 500 gallons','nei','The tank starts with 500 gallons only once. It is a fixed starting value.']],
+  name:'W',x:'m',xl:'minutes',yl:'water left, in gallons',f:m=>500-25*m,rule:'500 − 25m',m:-25,b:500,xs:[4,6,10,12],
+  inP:x=>`the pump runs for ${x} minutes`,outP:y=>`${y} gallons are left`,perP:y=>`the pump drains ${y} gallons a minute`},
+ {sit:'A taxi ride costs $3 to start plus $2 for each mile.',q:[['miles driven','ind'],['fare for the ride','dep'],['$3 starting charge','nei','Every ride starts at $3, so it is a constant.']],
+  extra:[['name of the driver','nei','The driver’s name doesn’t change the fare.']],
+  name:'F',x:'m',xl:'miles',yl:'fare, in dollars',f:m=>2*m+3,rule:'2m + 3',m:2,b:3,xs:[4,7,9,12],
+  inP:x=>`the ride is ${x} miles`,outP:y=>`the fare is $${y}`,perP:y=>`each mile costs $${y}`},
+ {sit:'At the trailhead it is 70°F. The temperature drops 3°F for every 1,000 feet a hiker climbs.',q:[['thousands of feet climbed','ind'],['temperature','dep'],['3°F drop per 1,000 feet','nei','It always drops 3°F per 1,000 feet, so the rate is constant.']],
+  extra:[['70°F at the trailhead','nei','70°F is only the starting temperature. It is a fixed value.']],
+  name:'T',x:'k',xl:'thousands of feet climbed',yl:'temperature, in °F',f:k=>70-3*k,rule:'70 − 3k',m:-3,b:70,xs:[2,4,5,6],
+  inP:x=>`the hiker has climbed ${x},000 feet`,outP:y=>`it is ${y}°F`,perP:y=>`it gets ${y}°F colder per 1,000 feet`},
+ {sit:'Jordan earns $15 an hour babysitting. How much Jordan earns depends on how long Jordan babysits.',q:[['hours babysitting','ind'],['money earned','dep'],['$15 hourly pay','nei','Jordan always earns $15 per hour, so it is a constant rate.']],
+  extra:[['number of children','nei','In this situation, pay depends only on hours, not on how many children.']],
+  name:'E',x:'h',xl:'hours',yl:'money earned, in dollars',f:h=>15*h,rule:'15h',m:15,b:0,xs:[3,4,6,8],
+  inP:x=>`Jordan babysits for ${x} hours`,outP:y=>`Jordan earns $${y}`,perP:y=>`Jordan earns $${y} an hour`},
+ {sit:'The area of a square garden depends on the length of its sides.',q:[['side length, in feet','ind'],['area of the garden','dep'],['the garden has 4 sides','nei','Every square has 4 sides, so that never changes.']],
+  extra:[['kind of plants grown','nei','The plants don’t change the area.']],
+  name:'A',x:'s',xl:'side length, in feet',yl:'area, in square feet',f:s=>s*s,rule:'s²',m:null,b:null,xs:[5,6,8,9,12],
+  inP:x=>`each side is ${x} feet`,outP:y=>`the area is ${y} square feet`,perP:y=>`the perimeter is ${y} feet`},
+ {sit:'A lab starts with 50 bacteria, and the number doubles every hour.',q:[['hours that pass','ind'],['number of bacteria','dep'],['starting amount of 50','nei','The lab starts with 50 bacteria only once. It is a fixed starting value.']],
+  extra:[['doubling each hour','nei','The growth rule (×2 each hour) is the same every hour.']],
+  name:'P',x:'t',xl:'hours',yl:'number of bacteria',f:t=>50*2**t,rule:'50 · 2<sup><i class="v">t</i></sup>',m:null,b:null,xs:[1,2,3,4,5],
+  inP:x=>`${x} hours have passed`,outP:y=>`there are ${y} bacteria`,perP:y=>`${y} bacteria are added each hour`},
+ {sit:'Concert tickets cost $35 each, plus one $10 service fee for the whole order.',q:[['number of tickets bought','ind'],['total cost of the order','dep'],['$10 service fee','nei','The $10 fee is charged once per order, no matter how many tickets.']],
+  extra:[['$35 ticket price','nei','Each ticket costs $35, the same every time.']],
+  name:'C',x:'n',xl:'tickets',yl:'total cost, in dollars',f:n=>35*n+10,rule:'35n + 10',m:35,b:10,xs:[2,3,4,6],
+  inP:x=>`someone buys ${x} tickets`,outP:y=>`the order costs $${y}`,perP:y=>`each ticket costs $${y}`},
+ {sit:'A phone starts at 100% battery and loses 5% every hour of use.',q:[['hours of use','ind'],['battery percent left','dep'],['5% used per hour','nei','The phone always uses 5% an hour, so the rate is constant.']],
+  extra:[['the phone’s brand','nei','In this situation the brand doesn’t change the battery left.']],
+  name:'B',x:'h',xl:'hours of use',yl:'battery left, in %',f:h=>100-5*h,rule:'100 − 5h',m:-5,b:100,xs:[3,4,7,10,12],
+  inP:x=>`the phone is used for ${x} hours`,outP:y=>`${y}% of the battery is left`,perP:y=>`the phone uses ${y}% an hour`},
+ {sit:'A stack of nested cups: one cup is 4 inches tall, and each extra cup adds 1 inch to the stack.',q:[['number of cups','ind'],['height of the stack','dep'],['1 inch per extra cup','nei','Each extra cup always adds 1 inch, so that is constant.']],
+  extra:[['color of the cups','nei','The color doesn’t change the height.']],
+  name:'H',x:'n',xl:'cups',yl:'height, in inches',f:n=>n+3,rule:'n + 3',m:1,b:3,xs:[5,8,10,20],
+  inP:x=>`the stack has ${x} cups`,outP:y=>`it is ${y} inches tall`,perP:y=>`each cup adds ${y} inches`},
+ {sit:'How long it takes to fill a 300-gallon pool depends on how many gallons per minute the hose delivers.',q:[['hose flow, in gallons per minute','ind'],['minutes to fill the pool','dep'],['pool size of 300 gallons','nei','The pool always holds 300 gallons. That stays the same.']],
+  extra:[['outdoor temperature','nei','The temperature doesn’t change how long filling takes.']],
+  name:'T',x:'r',xl:'gallons per minute',yl:'minutes to fill',f:r=>300/r,rule:'<span style="display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;font-size:.8em;line-height:1.1"><span style="border-bottom:1.5px solid currentColor">300</span><i class="v">r</i></span>',m:null,b:null,xs:[5,10,12,15,20],
+  inP:x=>`the hose delivers ${x} gallons a minute`,outP:y=>`the pool fills in ${y} minutes`,perP:y=>`the hose delivers ${y} gallons a minute`}
+];
+
+/* ---------- Helpers ---------- */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const v=s=>`<i class="v">${s}</i>`;
+const num=n=>String(n).replace('-','−');
+const parse=s=>{s=String(s).trim().replace(/[−–]/g,'-').replace(/[,$%\s]/g,'');return /^-?\d*\.?\d+$/.test(s)?Number(s):null};
+const ROUND=8;
+let level=1,order=[],idx=0,cur=null,stat={};
+const say=(el,cls,html)=>{el.className='fb '+cls;el.innerHTML=html};
+
+/* ---------- Round flow ---------- */
+$('#levels').onclick=e=>{const b=e.target.closest('button');if(!b)return;level=+b.dataset.l;start()};
+$('#again').onclick=start;
+$('#change').onclick=()=>{$('#end').hidden=true;$('#start').hidden=false};
+function start(){order=shuffle(S).slice(0,ROUND);idx=0;stat={sort:0,eval:0,mean:0,solve:0};$('#start').hidden=true;$('#end').hidden=true;$('#game').hidden=false;load()}
+function load(){
+  const s=order[idx];const x=pick(s.xs);cur={s,x,y:s.f(x),sortTries:0,placed:new Map(),sel:null};
+  $('#count').textContent=`Situation ${idx+1} of ${ROUND}`;$('#prog').style.width=(idx/ROUND*100)+'%';
+  $('#pts').textContent=`${stat.sort+stat.eval+stat.mean+stat.solve} points`;
+  $('#sit').textContent=s.sit;
+  const qs=level>1?s.q.concat(s.extra):s.q;
+  $('#tray').innerHTML='';$$('.zone .chips').forEach(z=>z.innerHTML='');
+  shuffle(qs).forEach(([t,z,why],i)=>{const c=document.createElement('button');c.type='button';c.className='chip';c.textContent=t;c.dataset.z=z;c.dataset.why=why||'';c.id='q'+i;$('#tray').append(c);bindChip(c)});
+  $('#p-sort').classList.add('on');$('#p-eval').classList.remove('on');
+  $('#fbSort').className='fb';$('#fbSort').innerHTML='';$('#checkSort').disabled=true;$('#checkSort').hidden=false;$('#hintSort').hidden=false;
+  updateFrame();window.scrollTo({top:0});
+}
+function where(c){const z=c.closest('.zone');return z?z.dataset.z:null}
+function updateFrame(){
+  const iz=$$('.zone[data-z=ind] .chip').map(c=>c.textContent),dz=$$('.zone[data-z=dep] .chip').map(c=>c.textContent);
+  $('#frame').innerHTML=`Read it back: “The <b class="d">${dz[0]||'______'}</b> depends on the <b class="i">${iz[0]||'______'}</b>.”`;
+  $('#checkSort').disabled=$('#tray').children.length>0;
+}
+
+/* ---------- Drag and drop (mouse, touch and pen), plus tap-to-place and keyboard ---------- */
+function place(c,z){if(c.classList.contains('good'))return;c.classList.remove('bad','sel');$(`.zone[data-z=${z}] .chips`).append(c);cur.sel=null;updateFrame()}
+function bindChip(c){
+  let sx=0,sy=0,dragging=false,ox=0,oy=0,ghost=null;
+  c.addEventListener('pointerdown',e=>{if(c.classList.contains('good'))return;sx=e.clientX;sy=e.clientY;dragging=false;c.setPointerCapture(e.pointerId)});
+  c.addEventListener('pointermove',e=>{if(!c.hasPointerCapture(e.pointerId))return;
+    if(!dragging&&Math.hypot(e.clientX-sx,e.clientY-sy)>6){dragging=true;const r=c.getBoundingClientRect();ox=sx-r.left;oy=sy-r.top;
+      ghost=c.cloneNode(true);ghost.classList.add('drag');ghost.style.width=r.width+'px';document.body.append(ghost);c.style.opacity=.35}
+    if(dragging){ghost.style.left=(e.clientX-ox)+'px';ghost.style.top=(e.clientY-oy)+'px';
+      const z=document.elementFromPoint(e.clientX,e.clientY)?.closest('.zone,.tray');$$('.zone').forEach(x=>x.classList.toggle('over',x===z))}});
+  const end=e=>{if(!dragging)return;dragging=false;ghost.remove();c.style.opacity='';$$('.zone').forEach(x=>x.classList.remove('over'));
+    const t=document.elementFromPoint(e.clientX,e.clientY);const z=t?.closest('.zone');
+    if(z)place(c,z.dataset.z);else if(t?.closest('.tray')){c.classList.remove('bad');$('#tray').append(c);updateFrame()}
+    c._jd=true;setTimeout(()=>{c._jd=false},0)};
+  c.addEventListener('pointerup',end);c.addEventListener('pointercancel',end);
+  c.addEventListener('click',e=>{e.stopPropagation();if(c._jd)return;if(c.classList.contains('good'))return;
+    const was=cur.sel===c;$$('.chip').forEach(x=>x.classList.remove('sel'));cur.sel=was?null:c;if(!was)c.classList.add('sel')});
+}
+$('#tray').addEventListener('click',()=>{if(cur.sel){cur.sel.classList.remove('sel','bad');$('#tray').append(cur.sel);cur.sel=null;updateFrame()}});
+$$('.zone').forEach(z=>{const go=()=>{if(cur.sel)place(cur.sel,z.dataset.z)};z.addEventListener('click',go);
+  z.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}})});
+
+/* ---------- Checking the sort ---------- */
+$('#hintSort').onclick=()=>say($('#fbSort'),'tip','<b>Hint:</b> Ask “Which one do I choose or control?” That is the input. “Which one is the result?” That is the output. Anything that stays the same, or doesn’t affect the result, goes in Neither.');
+$('#checkSort').onclick=()=>{
+  cur.sortTries++;const msgs=[];let wrong=0;
+  $$('.zones .chip').forEach(c=>{const want=c.dataset.z,got=where(c);
+    if(want===got){c.classList.add('good');c.classList.remove('bad');return}
+    wrong++;c.classList.add('bad');const t=`“${c.textContent}”`;
+    if(want==='nei')msgs.push(c.dataset.why||`${t} stays the same, so it is not a variable.`);
+    else if(got==='nei')msgs.push(`${t} changes in this situation, so it is a variable.`);
+    else if(want==='ind')msgs.push(`${t} is what you choose or control, so it is the input (independent).`);
+    else msgs.push(`${t} is the result, so it is the output (dependent).`)});
+  if(!wrong){if(cur.sortTries===1)stat.sort++;
+    say($('#fbSort'),'ok',`<b>Correct!</b> The ${cur.s.q[1][0]} depends on the ${cur.s.q[0][0]}.`);
+    $('#checkSort').hidden=true;$('#hintSort').hidden=true;setTimeout(showEval,700)}
+  else{say($('#fbSort'),'no',`<b>${wrong===1?'One quantity is':wrong+' quantities are'} in the wrong box.</b> Move the orange ones.`+(cur.sortTries>=2?`<ul>${msgs.map(m=>`<li>${m}</li>`).join('')}</ul>`:' Press Check again for a hint about each one.'));
+    $('#checkSort').disabled=false}
+};
+
+/* ---------- Evaluate, interpret, solve ---------- */
+let evalTries=0,solveTries=0;
+function showEval(){
+  const{s,x,y}=cur;evalTries=0;solveTries=0;
+  $('#p-sort').classList.remove('on');$('#p-eval').classList.add('on');
+  $('#fn').innerHTML=`${v(s.name)}(${v(s.x)}) = ${s.rule.includes('<')?s.rule:s.rule.replace(new RegExp(s.x,'g'),v(s.x))}`;
+  $('#legend').innerHTML=`<span>${v(s.x)} = ${s.xl} (input)</span><span>${v(s.name)}(${v(s.x)}) = ${s.yl} (output)</span>`;
+  $('#evalQ').innerHTML=`Find ${v(s.name)}(${num(x)}).`;
+  $('#evalIn').value='';$('#evalIn').disabled=false;$('#evalForm .btn').disabled=false;$('#hintEval').hidden=false;
+  $('#fbEval').className='fb';$('#fbEval').innerHTML='';$('#meaning').hidden=true;$('#solve').hidden=true;$('#next').hidden=true;
+  $('#evalIn').focus({preventScroll:true});$('#p-eval').scrollIntoView({block:'nearest'});
+}
+/* Rules printed with plain letters; the one variable letter is italicised. */
+function evalDiag(s,x,a){
+  if(a===x)return`${x} is the input. ${v(s.name)}(${x}) asks for the output when the input is ${x}.`;
+  if(s.m!=null&&s.m!==1){if(s.b&&a===s.m*x)return`You multiplied ${s.m<0?num(s.m):s.m} · ${x}. Don’t forget the ${s.b} in the rule.`;
+    if(a===s.m+x+s.b||a===s.b+s.m+x)return`${v(s.name)}(${x}) means put ${x} in for ${v(s.x)}, so ${num(s.m)}${v(s.x)} becomes ${num(s.m)} · ${x}, a multiplication.`}
+  if(s.name==='A'&&a===2*x)return`${v('s')}² means ${v('s')} · ${v('s')}, not 2 · ${v('s')}.`;
+  if(s.name==='P'&&a===100*x)return`2<sup>${x}</sup> means multiply ${x} twos together. Then multiply by 50.`;
+  return null}
+$('#hintEval').onclick=()=>say($('#fbEval'),'tip',`<b>Hint:</b> ${v(cur.s.name)}(${cur.x}) means “replace ${v(cur.s.x)} with ${cur.x}.” It does <i>not</i> mean ${v(cur.s.name)} times ${cur.x}.`);
+$('#evalForm').onsubmit=e=>{e.preventDefault();const a=parse($('#evalIn').value);const{s,x,y}=cur;
+  if(a===null){say($('#fbEval'),'tip','Type a number, like 195.');return}
+  evalTries++;
+  if(Math.abs(a-y)<1e-9){if(evalTries===1)stat.eval++;
+    say($('#fbEval'),'ok',`<b>Correct.</b> ${v(s.name)}(${x}) = ${num(y)}.`);$('#evalIn').disabled=true;$('#evalForm .btn').disabled=true;$('#hintEval').hidden=true;
+    if(level>1)showMeaning();else $('#next').hidden=false;$('#next').scrollIntoView&&$('#next').scrollIntoView({block:'nearest'})}
+  else{const d=evalDiag(s,x,a);say($('#fbEval'),'no',`<b>Not yet.</b> ${d||'Replace '+v(s.x)+' with '+x+' and follow the order of operations.'}`+(evalTries>=2?` The answer is ${num(y)}.`:''));
+    if(evalTries>=2){$('#evalIn').disabled=true;$('#evalForm .btn').disabled=true;$('#hintEval').hidden=true;if(level>1)showMeaning();else $('#next').hidden=false}}
+};
+const sh=t=>t.split(',')[0];
+function cap(t){return t[0].toUpperCase()+t.slice(1)}
+function showMeaning(){const{s,x,y}=cur;$('#meaning').hidden=false;
+  $('#meanQ').innerHTML=`What does ${v(s.name)}(${x}) = ${num(y)} mean?`;
+  const opts=shuffle([[`When ${s.inP(x)}, ${s.outP(y)}.`,true],[`When ${s.inP(y)}, ${s.outP(x)}.`,false],[cap(s.perP(y))+'.',false]]);
+  $('#meanC').innerHTML=opts.map(([t,ok],i)=>`<button type="button" data-ok="${ok?1:0}">${t}</button>`).join('');
+  $('#fbMean').className='fb';$('#fbMean').innerHTML='';let tries=0;
+  $$('#meanC button').forEach(b=>b.onclick=()=>{if($('#meanC').dataset.done==='1')return;tries++;
+    if(b.dataset.ok==='1'){b.classList.add('right');if(tries===1)stat.mean++;$('#meanC').dataset.done='1';
+      say($('#fbMean'),'ok',`<b>Correct.</b> The input ${x} is the ${sh(s.xl)}, and the output ${num(y)} is the ${sh(s.yl)}.`);
+      if(level>2&&s.solve!==false)showSolve();else $('#next').hidden=false}
+    else{b.classList.add('wrong');say($('#fbMean'),'no',/^When/.test(b.textContent)?`<b>Not quite.</b> That swaps the input and output. In ${v(s.name)}(${x}), the number in parentheses is the input (${s.xl}).`:`<b>Not quite.</b> ${v(s.name)}(${x}) = ${num(y)} tells you the ${sh(s.yl)} when the input is ${x}. It is not a rate.`)}});
+  $('#meanC').dataset.done='0';
+}
+function showSolve(){const{s}=cur;const choices=s.xs.filter(t=>t!==cur.x);const x2=pick(choices.length?choices:s.xs);cur.x2=x2;cur.y2=s.f(x2);
+  $('#solve').hidden=false;$('#solveQ').innerHTML=`Work backward: find ${v(s.x)} when ${v(s.name)}(${v(s.x)}) = ${num(cur.y2)}.`;
+  $('#solveIn').value='';$('#solveIn').disabled=false;$('#solveForm .btn').disabled=false;$('#hintSolve').hidden=false;$('#fbSolve').className='fb';$('#fbSolve').innerHTML='';
+  $('#solveIn').focus({preventScroll:true})}
+$('#hintSolve').onclick=()=>{const{s}=cur;say($('#fbSolve'),'tip',`<b>Hint:</b> Now the output is known. Set ${s.rule.replace(/<[^>]+>/g,'')} equal to ${num(cur.y2)} and solve for ${v(s.x)}${s.m==null?', or try inputs until the output matches':''}.`)};
+$('#solveForm').onsubmit=e=>{e.preventDefault();const a=parse($('#solveIn').value);const{s}=cur;
+  if(a===null){say($('#fbSolve'),'tip','Type a number.');return}solveTries++;
+  if(Math.abs(a-cur.x2)<1e-9){if(solveTries===1)stat.solve++;say($('#fbSolve'),'ok',`<b>Correct.</b> ${v(s.name)}(${cur.x2}) = ${num(cur.y2)}, so ${v(s.x)} = ${cur.x2}.`);done()}
+  else{let d=null;if(Math.abs(a-s.f(cur.y2))<1e-9||a===s.f(cur.y2))d=`You put ${num(cur.y2)} in as the input. Here ${num(cur.y2)} is the <b>output</b>; you need the input that produces it.`;
+    say($('#fbSolve'),'no',`<b>Not yet.</b> ${d||`Check by evaluating ${v(s.name)} at your answer: ${v(s.name)}(${num(a)}) = ${Number.isFinite(s.f(a))?num(+s.f(a).toFixed(2)):'?'}, not ${num(cur.y2)}.`}`+(solveTries>=2?` The answer is ${cur.x2}.`:''));
+    if(solveTries>=2)done()}
+  function done(){$('#solveIn').disabled=true;$('#solveForm .btn').disabled=true;$('#hintSolve').hidden=true;$('#next').hidden=false}
+};
+$('#next').onclick=()=>{idx++;if(idx<ROUND)load();else finish()};
+function finish(){
+  $('#game').hidden=true;$('#end').hidden=false;$('#prog').style.width='100%';
+  const parts=[['Sorted on the first try','sort'],['Evaluated on the first try','eval']];if(level>1)parts.push(['Meaning on the first try','mean']);if(level>2)parts.push(['Solved on the first try','solve']);
+  const tot=parts.reduce((a,[,k])=>a+stat[k],0),max=parts.length*ROUND;
+  $('#final').textContent=`${tot} / ${max}`;
+  $('#stats').innerHTML=parts.map(([t,k])=>`<div><b>${stat[k]} / ${ROUND}</b>${t}</div>`).join('');
+  const weak=parts.filter(([,k])=>stat[k]<ROUND*0.75).map(([t,k])=>({sort:'deciding which quantity is the input and which is the output',eval:'evaluating function notation (replace the variable, then follow the order of operations)',mean:'explaining what a function value means in the situation',solve:'working backward from an output to the input'})[k]);
+  $('#advice').textContent=weak.length?'Keep practicing '+weak.join('; ')+'.':(level<3?'Excellent work. Try the next level up.':'Excellent work at the Honors level.');
+}
+}
+</script>
+</body>
+</html>

@@ -1508,6 +1508,26 @@ window.LIBRARY = {
               "added": "2026-10-31"
             },
             {
+              "title": "Input or Output? Variable Sort",
+              "path": "artifacts/relations-functions-variable-sort/index.html",
+              "thumb": "thumbs/relations-functions-variable-sort.jpg",
+              "description": "Drag the quantities in a real situation into Independent, Dependent or Neither, then evaluate the situation's function in notation. CP1 adds what the value means; Honors works backward from an output to the input. 16 situations, 8 per round, with feedback on each mistake.",
+              "type": "Game",
+              "bankFormat": "topic-games",
+              "level": [
+                "CP2",
+                "CP1",
+                "Honors"
+              ],
+              "topics": [
+                "Independent and dependent variables",
+                "Function notation",
+                "Evaluating functions",
+                "Interpreting functions in context"
+              ],
+              "added": "2026-11-23"
+            },
+            {
               "title": "The Arcade Token Heist",
               "path": "artifacts/relations-functions-arcade-token-heist/index.html",
               "thumb": "thumbs/relations-functions-arcade-token-heist.jpg",
