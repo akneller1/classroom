@@ -39,7 +39,7 @@
  location.replace(target.href);
  window.MK_GAME_REDIRECTING = true;
 })();
-</script><link rel="stylesheet" href="vendor/katex/katex.min.css"><link rel="stylesheet" href="games/games.css?v=solo-20261114"><script src="games/skill-setup.js?v=student-skills-2"></script><script src="../analytics.js?v=analytics-20261108" defer></script>
+</script><link rel="stylesheet" href="vendor/katex/katex.min.css"><link rel="stylesheet" href="games/games.css?v=graph-cards-20261124"><script src="games/skill-setup.js?v=student-skills-2"></script><script src="../analytics.js?v=analytics-20261108" defer></script>
 <link rel="stylesheet" href="core/plot.css"></head><body><header id="activityHeader"></header><main id="app" class="gm-app"><div class="gm-panel gm-loading">Loading mathematics game…</div></main><script src="vendor/katex/katex.min.js"></script>
 <script src="core/rng.js"></script>
 <script src="core/frac.js"></script>
@@ -84,7 +84,7 @@
 <script src="menu/skills/geometry-circles.js?v=wording-20261116"></script>
 <script src="menu/skills/geometry-area-surface-area-volume.js?v=coverage-20261111d"></script>
 <script src="menu/mcas-context-bank.js?v=wording-20261116"></script>
-<script src="games/bank.js?v=coverage-proof-cards-20261111d"></script>
+<script src="games/bank.js?v=graph-cards-20261124"></script>
 <script src="../question-bank-adapter.js?v=banks-fast2-20261115"></script><script src="../question-bank-loader.js?v=banks-fast2-20261115"></script><script src="core/plot.js?v=content-20261115"></script><script src="algebra2-bank-native.js?v=banks-fast-20261115"></script><script src="core/math-display.js?v=g8-audit-20261119"></script><script src="vocabulary-data.js?v=statistics-bank-20261107"></script><script src="vocabulary-data-middle-grades.js?v=pa7-compare-20261114"></script><script src="games/vocabulary-flashcards.js?v=prealgebra-vocab"></script><script src="games/course-source.js?v=inequality-parity-20261104b"></script><script>
 (async function(){
  if(window.MK_GAME_REDIRECTING)return;
@@ -101,6 +101,6 @@
  document.body.setAttribute('data-unit',id);document.body.setAttribute('data-game',game);document.body.setAttribute('data-title',source.unit.name+' '+({'flashcards':'Flashcards','connect-four':'Connect 4','tic-tac-toe':'Tic-Tac-Toe','picture-reveal':'Picture Reveal','showdown':'Showdown'}[game]||''));
  if(MK_QUESTION_BANKS.available(source.courseId,source.unit.id))document.body.setAttribute('data-algebra2-game','');
  if(['math6','prealgebra7','prealgebra'].includes(source.courseId)){window.MK_GRADE_GAME_COURSE=source.courseId;window.MK_GRADE_GAME_LABELS={cp2:'Support',cp1:'Standard',honors:'Advanced'};}
- var script=document.createElement('script');script.src='games/games.js?v=solo-20261114';document.body.appendChild(script);
+ var script=document.createElement('script');script.src='games/games.js?v=graph-cards-20261124';document.body.appendChild(script);
 })().catch(function(e){document.getElementById('app').textContent='Unable to load course game: '+e.message;});
 </script></body></html>

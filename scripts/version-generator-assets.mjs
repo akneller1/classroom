@@ -7,6 +7,8 @@ const targets=new Set([
  'worksheet-generator/core/math-display.js',
  'worksheet-generator/core/render.js',
  'worksheet-generator/plot-practice.js',
+ 'worksheet-generator/core/plot.js',
+ 'worksheet-generator/games/games.js','worksheet-generator/games/bank.js',
  'worksheet-generator/menu/app.js','worksheet-generator/menu/engine.js',
  'worksheet-generator/menu/render.js','worksheet-generator/menu/verify.js',
  'worksheet-generator/menu/skills/algebra1-expressions-equations.js',

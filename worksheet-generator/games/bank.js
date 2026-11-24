@@ -437,11 +437,65 @@
     }
     return { prompt: p.compactPrompt || (NS.displayPrompt ? NS.displayPrompt(p) : p.prompt), flashcardPrompt: p.flashcardPrompt || null, fig: p.fig || null, work: p.work || null, ask: ask, label: multi && pt.label ? pt.label : '' };
   };
-  GB.makeItems = function (setId, skillId, c, policy, seed, used) {
+  /* A "Graph …" line problem becomes an interactive graph card in flashcards (2026-11-24): the student drags two
+     dots on a grid and core/plot.js checks the line exactly; the back shows the completed graph. Returns the
+     core/plot.js spec, or null when the problem is not a single straight-line graph. */
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a || 1; }
+  function frac(n, d) { if (d < 0) { n = -n; d = -d; } var g = gcd(n, d); n /= g; d /= g; return d === 1 ? String(n) : n + '/' + d; }
+  /* The answer graph for a game card: the whole line across the grid with its two points marked, not just
+     the short segment the printed key uses. */
+  GB.fullLineFig = function (fig) {
+    if (!fig || fig.kind !== 'plane' || !fig.segs || fig.segs.length !== 1) return fig;
+    var a = fig.segs[0].a, b = fig.segs[0].b, ends;
+    if (a[0] === b[0]) ends = [[a[0], fig.ymin], [a[0], fig.ymax]];
+    else {
+      var m = (b[1] - a[1]) / (b[0] - a[0]), c0 = a[1] - m * a[0], pts = [];
+      [[fig.xmin], [fig.xmax]].forEach(function (x) { var y = m * x[0] + c0; if (y >= fig.ymin - 1e-9 && y <= fig.ymax + 1e-9) pts.push([x[0], y]); });
+      if (m) [fig.ymin, fig.ymax].forEach(function (y) { var x = (y - c0) / m; if (x > fig.xmin && x < fig.xmax) pts.push([x, y]); });
+      if (pts.length < 2) return fig;
+      pts.sort(function (u, v) { return u[0] - v[0]; }); ends = [pts[0], pts[pts.length - 1]];
+    }
+    var out = JSON.parse(JSON.stringify(fig));
+    out.segs = [{ a: ends[0], b: ends[1], aEnd: 'arrow', bEnd: 'arrow' }];
+    out.points = [{ x: a[0], y: a[1] }, { x: b[0], y: b[1] }];
+    return out;
+  };
+  GB.graphSpec = function (p) {
+    if (!p || p.parts.length !== 1) return null;
+    var pt = p.parts[0], fig = pt.answerFig;
+    if (!pt.check || pt.check.type !== 'line-eq' || !fig || fig.kind !== 'plane' || !fig.segs || fig.segs.length !== 1) return null;
+    if (!/^\s*Graph\b/i.test(String(p.prompt || ''))) return null;
+    var a = fig.segs[0].a, b = fig.segs[0].b;
+    if (![a[0], a[1], b[0], b[1]].every(function (v) { return Number.isInteger(v); }) || (a[0] === b[0] && a[1] === b[1])) return null;
+    var target;
+    if (a[0] === b[0]) target = { x: String(a[0]) };
+    else { var dx = b[0] - a[0], dy = b[1] - a[1]; target = { m: frac(dy, dx), b: frac(a[1] * dx - dy * a[0], dx) }; }
+    var spec = { tool: 'line', grid: { xmin: fig.xmin, xmax: fig.xmax, ymin: fig.ymin, ymax: fig.ymax, step: 1, snap: 1 }, target: target,
+      feedback: { 'same-point': 'Place the two dots on two different points.',
+        intercept: 'Your slope is right. Check the y-intercept: where should the line cross the y-axis?',
+        'slope-sign': 'Your line slants the wrong way. A negative slope goes down from left to right.',
+        'slope-reciprocal': 'You used run over rise. Slope is rise over run.',
+        slope: 'Start at the y-intercept, then use rise over run to find a second point.',
+        'vertical-horizontal': target.x !== undefined ? 'x = ' + target.x + ' is a vertical line: every point has the same x-coordinate.' : 'This is a horizontal line: every point has the same y-coordinate.',
+        'vertical-x': 'Every point on this line has x = ' + target.x + '.' } };
+    if (target.m === '0') { spec.feedback.slope = spec.feedback['slope-sign'] = spec.feedback['slope-reciprocal'] = 'This is a horizontal line: every point has the same y-coordinate.'; spec.feedback.intercept = 'Your line is flat, which is right. Check its height: every point has y = ' + target.b + '.'; }
+    if (target.x !== undefined) spec.feedback.slope = spec.feedback.intercept = spec.feedback['slope-sign'] = 'x = ' + target.x + ' is a vertical line: every point has the same x-coordinate.';
+    return spec;
+  };
+  GB.makeItems = function (setId, skillId, c, policy, seed, used, mode) {
     var p = NS.generateProblem(setId, skillId, c, policy, seed, used);
     if (p.failed) return [];
     var set = NS.skillSets[setId], rng = G.MKWS.rng.make(G.MKWS.rng.hash(seed + '|mc'));
     var items = [];
+    var gspec = mode === 'flashcard' && GB.graphSpec(p);
+    if (gspec) {
+      var gq = GB.partQuestion(p, 0); gq.fig = null; gq.ask = '';
+      gq.prompt = String(gq.prompt || '').replace(/\s*(Plot (two|both) points[^.]*\.|Draw the complete line\.|using two points\.?)\s*/g, ' ').replace(/\s+$/, '') ;
+      if (!/[.?]$/.test(gq.prompt)) gq.prompt += '.';
+      gq.prompt += ' Drag the two dots onto the line.';
+      return [{ id: p.uid + '-graph', p: p, k: 0, skill: skillId, skillName: set.byId[skillId].name, tag: p.tag, tagName: set.tags[p.tag] || p.tag, c: c,
+        q: gq, answer: p.parts[0].answer, answerFigures: [GB.fullLineFig(p.parts[0].answerFig)], steps: p.steps || [], options: [], typed: null, graph: gspec }];
+    }
     // A verified Honors systems-of-inequalities scenario contains a separable
     // point-membership question. Isolate that part for game MC; leave every other
     // multipart investigation intact in teacher assessments.
@@ -501,7 +555,7 @@
       if (!ds.length) return;    // an item with no verified wrong options cannot be multiple choice
       var opts = rng.shuffle([{ a: pt.answer, ok: true }].concat(ds.map(function (d) { return { a: d, ok: false }; })));
       items.push({ id: p.uid + '-' + k, p: p, k: k, skill: skillId, skillName: set.byId[skillId].name, tag: p.tag, tagName: set.tags[p.tag] || p.tag, c: c,
-        q: GB.partQuestion(p, k), answer: pt.answer, steps: p.steps || [], options: opts, typed: typedKind(pt) });
+        q: GB.partQuestion(p, k), answer: pt.answer, answerFigures: pt.answerFig ? [pt.check && pt.check.type === 'line-eq' ? GB.fullLineFig(pt.answerFig) : pt.answerFig] : [], steps: p.steps || [], options: opts, typed: typedKind(pt) });
     });
     return items;
   };
@@ -529,7 +583,7 @@
         var policy = { intOnly: cs[k] <= 5, level: 'game' };
         for (var tries = 0; tries < (k ? 6 : 10); tries++) {
           var make = opts.wholeProblem ? GB.makeWholeItems : GB.makeItems;
-          var its = make(setId, slot.skill, cs[k], policy, seed + '|' + n + '|' + k + '|' + tries, used);
+          var its = make(setId, slot.skill, cs[k], policy, seed + '|' + n + '|' + k + '|' + tries, used, opts.flashcard ? 'flashcard' : undefined);
           if (opts.typedOnly) its = its.filter(function (it) { return it.typed; });
           if (opts.preferTyped && its.some(function (it) { return it.typed; })) its = its.filter(function (it) { return it.typed; });
           if (its.length) return rng.pick(its);
@@ -561,7 +615,7 @@
       for (var attempt = 0; attempt < 3; attempt++) {
         var c = tiers[ti], policy = { intOnly: c <= 5, level: 'game' };
         var used = { keys: new Set(), sigs: new Set() };
-        if (GB.makeItems(setId, skillId, c, policy, 'flashcard-availability|' + setId + '|' + skillId + '|' + c + '|' + attempt, used).length) return true;
+        if (GB.makeItems(setId, skillId, c, policy, 'flashcard-availability|' + setId + '|' + skillId + '|' + c + '|' + attempt, used, 'flashcard').length) return true;
       }
     }
     return false;
