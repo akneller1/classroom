@@ -60,7 +60,7 @@
     return h + '</div>';
   }
   function solHtml(it) {
-    return '<div class="gm-sol"><h4>Answer</h4><div>' + M(it.answer) + '</div>' + (it.answerFigures||[]).map(function(fig){return NS.figHtml(fig);}).join('') +
+    return '<div class="gm-sol"><h4>Answer</h4><div>' + M(it.answer) + '</div>' + (it.answerFigures||[]).map(function(fig){return '<div class="gm-ansfig">'+NS.figHtml(fig)+'</div>';}).join('') +
       (it.steps.length ? '<h4 style="margin-top:10px">' + (it.vocabulary ? 'Example' : 'Worked solution') + '</h4><ol>' + it.steps.map(function (st) { return '<li>' + M(st.t || '') + (st.m ? ' ' + M('⟨' + st.m + '⟩') : '') + '</li>'; }).join('') + '</ol>' : '') + '</div>';
   }
   function optsHtml(it, st) {
@@ -100,21 +100,38 @@
   Pile.prototype.fill = function (done) { var self = this; deck(levelSlots(this.level, skillIds), {}, function (its) { self.items = rng.shuffle(its); done(); }); };
   Pile.prototype.draw = function (done) { var self = this; if (this.items.length) return done(this.items.pop()); this.fill(function () { done(self.items.length ? self.items.pop() : null); }); };
 
+  /* Interactive graph cards load core/plot.js on demand, next to this script (2026-11-24). */
+  function gamesBase() {
+    try { var sc = doc.querySelector('script[src*="games/games.js"]'), src = sc && sc.getAttribute && sc.getAttribute('src'); if (typeof src === 'string') return src.replace(/games\/games\.js.*$/, ''); } catch (e) {}
+    return '../../worksheet-generator/';
+  }
+  var plotWaiters = null;
+  function withPlot(fn) {
+    if (G.MK_PLOT && G.MK_PLOT.celebrate) return fn();
+    if (plotWaiters) return plotWaiters.push(fn);
+    plotWaiters = [fn];
+    var css = doc.createElement('link'); css.rel = 'stylesheet'; css.href = gamesBase() + 'core/plot.css?v=graph-ux-20261124'; doc.head.appendChild(css);
+    var js = doc.createElement('script'); js.src = gamesBase() + 'core/plot.js?v=graph-ux-20261124';
+    js.onload = function () { var w = plotWaiters; plotWaiters = null; w.forEach(function (f) { f(); }); };
+    js.onerror = function () { plotWaiters = null; var m = $('#fcGraphMsg'); if (m) m.textContent = 'The graph could not load. Reveal the answer to see the completed graph.'; };
+    doc.head.appendChild(js);
+  }
+
   /* =========================== FLASHCARDS =========================== */
   function flashcards() {
     var vocabCards = G.MK_VOCAB_FLASHCARDS ? G.MK_VOCAB_FLASHCARDS.build(UNIT) : [];
-    var S = { mode: vocabCards.length && ['mixed','skills','vocabulary'].indexOf(saved.mode)>=0 ? saved.mode : vocabCards.length?'mixed':'skills', level: saved.level || 'cp1', skill: 'all', cards: [], order: [], i: 0, flip: false, rate: saved.rate || {}, missed: false };
+    var S = { mode: vocabCards.length && ['mixed','skills','vocabulary'].indexOf(saved.mode)>=0 ? saved.mode : vocabCards.length?'mixed':'skills', level: saved.level || 'cp1', skill: 'all', cards: [], order: [], i: 0, flip: false, rate: saved.rate || {}, missed: false, graph: {}, graphOk: {}, graphMiss: {} };
     GB._state = function () { return S; };
     function availableSkills() {
       var visible = skillsWithCardsAt(S.level);
       return skillIds.filter(function (id) { return visible.indexOf(id) >= 0; });
     }
     function build() {
-      function ready(its){S.cards=rng.shuffle(its.concat(S.mode==='skills'?[]:vocabCards));S.rate={};S.i=0;S.flip=false;S.missed=false;refilter();persist();render();}
+      function ready(its){S.cards=rng.shuffle(its.concat(S.mode==='skills'?[]:vocabCards));S.graph={};S.graphOk={};S.graphMiss={};S.rate={};S.i=0;S.flip=false;S.missed=false;refilter();persist();render();}
       if(S.mode==='vocabulary'){ready([]);return;}
       var activeSkills = availableSkills();
       if (!activeSkills.length) { if(vocabCards.length && S.mode!=='skills'){ready([]);return;} S.cards = []; S.rate = {}; S.i = 0; S.flip = false; S.missed = false; refilter(); persist(); render(); return; }
-      deck(levelSlots(S.level, activeSkills, Math.max(1, Math.ceil(20 / (activeSkills.length * 3)))), { msg: 'Shuffling a fresh deck…' }, function (its) {
+      deck(levelSlots(S.level, activeSkills, Math.max(1, Math.ceil(20 / (activeSkills.length * 3)))), { msg: 'Shuffling a fresh deck…', flashcard: true }, function (its) {
         ready(its);
       });
     }
@@ -136,8 +153,8 @@
       if (!c) h += '<div class="gm-panel" role="status">' + (S.missed ? 'No missed cards here. Nice work!' : 'No cards for this choice.') + '</div>';
       else h += '<div class="gm-panel fc-card' + (S.flip ? ' back' : '') + '" id="fcCard" tabindex="0" role="button" aria-label="Flip card">' +
         '<div class="fc-top"><span class="gm-tag">' + esc(c.tagName) + ' · ' + esc(c.skillName) + '</span><span class="fc-side">' + (S.flip ? 'Answer side' : 'Question side') + '</span></div>' +
-        (S.flip ? qHtml(c) + solHtml(c) : '<div class="gm-muted" style="font-weight:700;margin-top:10px;font-size:.85rem">PROBLEM</div>' + qHtml(c, true)) +
-        '<div class="fc-foot">' + (S.flip ? 'How did it go? Rate the card below.' : 'Click the card or press Space to reveal the answer and the worked solution.') + '</div></div>';
+        (S.flip ? qHtml(c) + solHtml(c) : '<div class="gm-muted" style="font-weight:700;margin-top:10px;font-size:.85rem">PROBLEM</div>' + qHtml(c, true) + (c.graph ? '<div class="fc-graph" data-noflip><div id="fcGraph"></div><div class="fc-graph-row"><button type="button" class="gm-btn primary" id="fcCheck"' + (S.graphOk[c.id] ? ' disabled' : '') + '>' + (S.graphOk[c.id] ? '✓ Correct' : 'Check graph') + '</button><span id="fcGraphMsg" role="status" aria-live="polite">' + (S.graphOk[c.id] ? '✓ Correct! Flip the card for the worked solution.' : '') + '</span></div></div>' : '')) +
+        '<div class="fc-foot">' + (S.flip ? (c.graph ? 'The completed graph is shown above. ' : '') + 'How did it go? Rate the card below.' : c.graph ? 'Drag the dots, then Check graph. Reveal the answer to see the completed graph.' : 'Click the card or press Space to reveal the answer and the worked solution.') + '</div></div>';
       h += '<div class="fc-nav"><button class="gm-btn" id="fcPrev"' + (S.i > 0 ? '' : ' disabled') + '>← Previous</button>' +
         (S.flip ? '<span class="fc-rate gm-row"><button class="gm-btn need" id="fcNeed">Need practice</button><button class="gm-btn got" id="fcGot">Got it</button></span>' : '<button class="gm-btn primary" id="fcFlip"' + (c ? '' : ' disabled') + '>Reveal answer</button>') +
         '<button class="gm-btn" id="fcNext"' + (S.i < S.order.length - 1 ? '' : ' disabled') + '>Next →</button></div>' +
@@ -154,13 +171,37 @@
       $('#fcMissed').onclick = function () { S.missed = !S.missed; S.i = 0; S.flip = false; refilter(); render(); };
       $('#fcNew').onclick = build;
       $('#fcReset').onclick = function () { S.rate = {}; persist(); S.missed = false; refilter(); render(); };
-      var card = $('#fcCard'); if (card) card.onclick = function () { S.flip = !S.flip; render(); };
+      var card = $('#fcCard'); if (card) card.onclick = function (e) { if (e.target.closest && e.target.closest('[data-noflip]')) return; S.flip = !S.flip; render(); };
+      var c = cur(), host = $('#fcGraph');
+      if (c && c.graph && host && !S.flip) withPlot(function () {
+        if ($('#fcGraph') !== host || cur() !== c) return;
+        host.innerHTML = '';
+        var widget = G.MK_PLOT.create(host, c.graph, { response: S.graph[c.id], onChange: function (r) { S.graph[c.id] = r; }, onSubmit: function () { checkGraph(); } });
+        if (S.graphOk[c.id]) host.classList.add('mk-plot-solved');
+        function checkGraph() {
+          if (S.graphOk[c.id]) return;
+          var res = G.MK_PLOT.check(c.graph, widget.getResponse()), msg = $('#fcGraphMsg'), btn = $('#fcCheck');
+          if (res.ok) {
+            S.graphOk[c.id] = true; btn.disabled = true; btn.textContent = '✓ Correct';
+            msg.className = 'ok'; msg.textContent = '✓ Correct! Flip the card for the worked solution.';
+            G.MK_PLOT.celebrate(host, 'Correct! 🎉');
+          } else {
+            S.graphMiss[c.id] = (S.graphMiss[c.id] || 0) + 1;
+            var why = (c.graph.feedback || {})[res.code] || 'Check your two dots and try again.';
+            msg.className = 'no'; msg.textContent = 'Not quite: ' + why;
+            G.MK_PLOT.tryAgain(why, { onRetry: function () { var h = host.querySelector('[data-handle]'); if (h) h.focus(); },
+              onShow: S.graphMiss[c.id] >= 2 ? function () { S.flip = true; render(); } : null });
+          }
+        }
+        $('#fcCheck').onclick = checkGraph;
+      });
       if ($('#fcFlip')) $('#fcFlip').onclick = function () { S.flip = true; render(); };
       $('#fcPrev').onclick = function () { go(-1); }; $('#fcNext').onclick = function () { go(1); };
       if ($('#fcNeed')) { $('#fcNeed').onclick = function () { rate('need'); }; $('#fcGot').onclick = function () { rate('got'); }; }
     }
     doc.addEventListener('keydown', function (e) {
       if (/INPUT|SELECT|TEXTAREA/.test((e.target || {}).tagName || '')) return;
+      if (e.defaultPrevented || doc.querySelector('.mk-try') || (e.target && e.target.closest && e.target.closest('[data-noflip]'))) return;
       if (e.key === 'ArrowRight') go(1); else if (e.key === 'ArrowLeft') go(-1);
       else if (e.key === ' ') { e.preventDefault(); S.flip = !S.flip; render(); }
       else if (e.key === '1' && S.flip) rate('need'); else if (e.key === '2' && S.flip) rate('got');

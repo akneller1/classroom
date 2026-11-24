@@ -167,3 +167,11 @@ body.dark .gm-sel{background:#13294a;color:#fff;border-color:#33507f}
 .ttt-sq.last{box-shadow:0 0 0 4px color-mix(in srgb,var(--b) 45%,transparent)}
 body.dark .gm-mode-btn{background:#1d3a66;color:#fff}body.dark .gm-mode-btn[aria-pressed="true"]{background:#f2b705;color:#16233f}
 body.dark .gm-msg.gm-cpu{background:#3a3315;color:#ffe9a8}
+/* interactive graph cards (2026-11-24) */
+.fc-graph{cursor:default;margin:8px auto 0;max-width:560px;width:100%}
+.fc-graph .mk-plot{margin:.4rem auto}
+.fc-graph-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;margin-top:4px}
+.fc-graph-row #fcGraphMsg{font-weight:700}
+.fc-graph-row #fcGraphMsg.ok{color:#15803d}.fc-graph-row #fcGraphMsg.no{color:#b91c1c}
+.fc-graph-row .gm-btn[disabled]{background:#16a34a;border-color:#16a34a;color:#fff;opacity:1}
+.gm-sol .gm-ansfig{margin:8px 0}.gm-sol .gm-ansfig svg,.gm-sol .gm-ansfig img{width:min(100%,440px);height:auto}
