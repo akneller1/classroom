@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 const fs = require('fs'), vm = require('vm'), path = require('path');
 const M = require('./load.cjs')().MKMENU;
 const NEW = { 'algebra1-polynomials': ['poly-error'], 'algebra1-exponents-scientific-notation': ['pow-error'], 'algebra1-factoring-zero-product': ['factor-error', 'poly-zeros-graph'],
-  'algebra1-systems-of-equations': ['sys-error', 'elim-replace'], 'algebra1-quadratics': ['quad-error', 'quad-maxmin'], 'algebra1-relations-functions': ['func-error', 'inverse-linear'],
+  'algebra1-systems-of-equations': ['sys-error', 'elim-replace'], 'algebra1-quadratics': ['quad-error', 'quad-maxmin'], 'algebra1-relations-functions': ['func-error', 'inverse-linear', 'geometric-sequence'],
   'algebra1-linear-equations-slope': ['graph-solution-set'], 'algebra1-exponential-functions': ['constant-rate'], 'algebra1-statistics-data-modeling': ['twoway-summarize'] };
 const wrong = a => /Line \d+/.test(a) ? a.replace(/Line (\d+)/, (m, n) => 'Line ' + (+n === 1 ? 2 : 1))
   : /^(Yes|No)\b/.test(a) ? a.replace(/^(Yes|No)/, m => m === 'Yes' ? 'No' : 'Yes')
