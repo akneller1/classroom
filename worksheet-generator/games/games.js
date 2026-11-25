@@ -174,9 +174,11 @@
       var card = $('#fcCard'); if (card) card.onclick = function (e) { if (e.target.closest && e.target.closest('[data-noflip]')) return; S.flip = !S.flip; render(); };
       var c = cur(), host = $('#fcGraph');
       if (c && c.graph && host && !S.flip) withPlot(function () {
-        if ($('#fcGraph') !== host || cur() !== c) return;
+        if ($('#fcGraph') !== host || cur() !== c || !host.classList || !host.querySelector) return;   // not a real page element (headless test stubs)
         host.innerHTML = '';
-        var widget = G.MK_PLOT.create(host, c.graph, { response: S.graph[c.id], onChange: function (r) { S.graph[c.id] = r; }, onSubmit: function () { checkGraph(); } });
+        var widget;
+        try { widget = G.MK_PLOT.create(host, c.graph, { response: S.graph[c.id], onChange: function (r) { S.graph[c.id] = r; }, onSubmit: function () { checkGraph(); } }); }
+        catch (e) { var m0 = $('#fcGraphMsg'); if (m0) m0.textContent = 'The graph could not load. Reveal the answer to see the completed graph.'; return; }
         if (S.graphOk[c.id]) host.classList.add('mk-plot-solved');
         function checkGraph() {
           if (S.graphOk[c.id]) return;

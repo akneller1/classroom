@@ -1,4 +1,4 @@
-/* Menu Assessment Generator — Algebra 1 · Unit 4 Relations and Functions (roadmap days 41–56).
+/* Menu Assessment Generator — Algebra 1 · Unit 4 Relations and Functions (roadmap days 41–54).
    Skill groups: RELATIONS (domain, range, is it a function), NOTATION (function notation, reading
    values from tables and graphs), REPRESENT (tables ↔ rules), RATE (rate of change, interpreting
    graphs), SEQUENCE (arithmetic and geometric sequences as functions).

@@ -204,6 +204,12 @@
     steps: ['Find ⟨d⟩ by subtracting consecutive terms: 5, 8, 11, 14 → ⟨d={{3}}⟩.', 'Explicit: ⟨a_n = 5 + (n-1)\\cdot 3⟩.', '20th term: ⟨a_{20} = 5 + 19\\cdot 3 = {{62}}⟩.', 'Recursive: ⟨a_1=5⟩, ⟨a_n = a_{n-1} + {{3}}⟩.'],
     figs: [{ t: 'plane', x: [0, 5], y: [0, 16], ystep: 2, numEveryY: 2, xl: 'n', yl: 'aₙ', pts: [[1, 5, '5'], [2, 8, '8'], [3, 11, '11'], [4, 14, '14']], cap: 'The points lie on a line with slope {{3}}' }]
   }];
+  N['U4-L9'] = [{
+    h: 'Geometric sequences',
+    big: 'A {{geometric sequence}} multiplies by the same number, the common {{ratio}} ⟨r⟩, to get each next term. Explicit formula: ⟨a_n = a_1 \\cdot r^{n-1}⟩. Compare: an arithmetic sequence {{adds}} the same number; a geometric sequence {{multiplies}} by the same number.',
+    steps: ['3, 6, 12, 24, … ⟨r = \\frac{6}{3} = {{2}}⟩.', '⟨a_n = 3 \\cdot 2^{n-1}⟩.', '8th term: ⟨3 \\cdot 2^{7} = {{384}}⟩.', 'Recursive: ⟨a_1 = 3⟩, ⟨a_n = {{2}} \\cdot a_{n-1}⟩.'],
+    figs: []
+  }];
   /* ---------- Unit 5 · Linear Equations and Slope ---------- */
   N['U5-L1'] = [{
     h: 'Rate of change',
@@ -409,18 +415,12 @@
     figs: [{ t: 'tbl', head: ['Compounded', '⟨n⟩'], rows: [['yearly', '1'], ['quarterly', '{{4}}'], ['monthly', '{{12}}'], ['daily', '365']] }]
   }];
   N['U8-L7'] = [{
-    h: 'Geometric sequences',
-    big: 'A {{geometric sequence}} multiplies by the same number, the common {{ratio}} ⟨r⟩, to get each next term. Explicit formula: ⟨a_n = a_1 \\cdot r^{n-1}⟩.',
-    steps: ['3, 6, 12, 24, … ⟨r = \\frac{6}{3} = {{2}}⟩.', '⟨a_n = 3 \\cdot 2^{n-1}⟩.', '8th term: ⟨3 \\cdot 2^{7} = {{384}}⟩.', 'Recursive: ⟨a_1 = 3⟩, ⟨a_n = {{2}} \\cdot a_{n-1}⟩.'],
-    figs: []
-  }];
-  N['U8-L8'] = [{
     h: 'Linear versus exponential models',
     big: 'An increasing exponential model {{eventually}} passes any increasing linear model, even one that starts higher, because it multiplies instead of adding.',
     steps: ['Compare ⟨y = 50x + 100⟩ and ⟨y = 2^x⟩ with a table or graph.', 'At ⟨x = 10⟩: linear 600, exponential 1024 → exponential is {{greater}}.', 'Find about where they cross (between ⟨x = 9⟩ and ⟨x = 10⟩).'],
     figs: [{ t: 'plane', x: [0, 11], y: [0, 1200], step: 1, ystep: 200, numEveryY: 2, maxH: 190, fns: [{ f: '50*x+100', lab: 'y = 50x + 100', at: [3.2, 520] }, { f: 'pow(2,x)', color: '#c0561b', lab: 'y = 2ˣ', at: [9.3, 1130] }], cap: 'The exponential passes the line near ⟨x \\approx {{9.2}}⟩' }]
   }];
-  N['U8-L9'] = [{
+  N['U8-L8'] = [{
     h: 'Solving exponential equations',
     big: 'If both sides can be written with the {{same base}}, set the {{exponents}} equal. Otherwise estimate the solution from a table or the intersection of two graphs.',
     steps: ['⟨2^{x+1} = 32⟩: ⟨32 = 2^{{5}}⟩.', 'Set exponents equal: ⟨x + 1 = 5⟩, ⟨x = {{4}}⟩.', '⟨9^x = 27⟩: ⟨3^{2x} = 3^3⟩, ⟨x = {{\\frac{3}{2}}}⟩.'],

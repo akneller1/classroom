@@ -1,4 +1,4 @@
-/* Menu Assessment Generator — Algebra 1 · Unit 8 Exponential Functions (roadmap days 104–115).
+/* Menu Assessment Generator — Algebra 1 · Unit 8 Exponential Functions (roadmap days 103–115).
    Skill groups: EVAL (evaluate exponential functions), GROWTH (growth/decay, initial value, factor,
    rate, key features of the graph), MODEL (linear vs. exponential, writing y = a·b^x), SOLVE (equations
    with a common base), SEQUENCE (geometric sequences), APPLY (growth and decay in context).

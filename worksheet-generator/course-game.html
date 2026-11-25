@@ -56,8 +56,8 @@
 <script src="menu/skills/kit.js?v=coverage-20261111d"></script>
 <script src="menu/skills/algebra1-expressions-equations.js?v=reddit-fixes-20261117"></script>
 <script src="menu/skills/algebra1-inequalities.js?v=unit-curriculum-20261027"></script>
-<script src="menu/skills/algebra1-relations-functions.js?v=geo-seq-20261124"></script>
-<script src="menu/skills/algebra1-exponential-functions.js?v=coverage-20261111d"></script>
+<script src="menu/skills/algebra1-relations-functions.js?v=geo-lesson-20261124"></script>
+<script src="menu/skills/algebra1-exponential-functions.js?v=geo-lesson-20261124"></script>
 <script src="menu/skills/algebra1-factoring-zero-product.js?v=algebra-skill-audit-20261026"></script>
 <script src="menu/skills/algebra1-statistics-data-modeling.js?v=algebra-skill-audit-20261026"></script>
 <script src="menu/skills/algebra1-linear-equations-slope.js?v=coverage-20261111d"></script>
@@ -101,6 +101,6 @@
  document.body.setAttribute('data-unit',id);document.body.setAttribute('data-game',game);document.body.setAttribute('data-title',source.unit.name+' '+({'flashcards':'Flashcards','connect-four':'Connect 4','tic-tac-toe':'Tic-Tac-Toe','picture-reveal':'Picture Reveal','showdown':'Showdown'}[game]||''));
  if(MK_QUESTION_BANKS.available(source.courseId,source.unit.id))document.body.setAttribute('data-algebra2-game','');
  if(['math6','prealgebra7','prealgebra'].includes(source.courseId)){window.MK_GRADE_GAME_COURSE=source.courseId;window.MK_GRADE_GAME_LABELS={cp2:'Support',cp1:'Standard',honors:'Advanced'};}
- var script=document.createElement('script');script.src='games/games.js?v=graph-cards-20261124';document.body.appendChild(script);
+ var script=document.createElement('script');script.src='games/games.js?v=geo-lesson-20261124';document.body.appendChild(script);
 })().catch(function(e){document.getElementById('app').textContent='Unable to load course game: '+e.message;});
 </script></body></html>
