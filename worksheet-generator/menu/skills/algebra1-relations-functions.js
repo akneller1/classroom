@@ -1,7 +1,7 @@
 /* Menu Assessment Generator — Algebra 1 · Unit 4 Relations and Functions (roadmap days 41–56).
    Skill groups: RELATIONS (domain, range, is it a function), NOTATION (function notation, reading
    values from tables and graphs), REPRESENT (tables ↔ rules), RATE (rate of change, interpreting
-   graphs), SEQUENCE (arithmetic sequences as functions).
+   graphs), SEQUENCE (arithmetic and geometric sequences as functions).
    Figures (coordinate graphs, tables, mapping diagrams) are data specs drawn by menu/figures.js; the
    verifier reads the drawn SVG/HTML back, so every answer is checked against what students see. */
 (function (G) {
@@ -358,6 +358,43 @@
     }
   });
 
+
+  /* ================= SEQUENCE · geometric sequences (2026-11-24) =================
+     Taught next to arithmetic sequences in this unit; the same generator as the Exponential Functions
+     unit's geo-seq skill, so both units give the same verified problems. */
+  function fpow(f, n) { var r = F(1); for (var i = 0; i < Math.abs(n); i++) r = r.mul(f); return n < 0 ? F(1).div(r) : r; }
+  skill({
+    id: 'geometric-sequence', best: [0, 1, 2], tag: 'SEQUENCE', name: 'Geometric sequences',
+    blurb: 'Next terms (CP2) → negative and fraction ratios, the nth term, an explicit formula (CP1) → which term is k, formulas from two terms, recursive and explicit (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, rt = c <= 1 ? F(r.int(2, 5)) : c === 2 ? r.pick([F(-2), F(1, 2), F(-3), F(3), F(1, 3), F(4)]) : c <= 5 ? r.pick([F(2), F(3), F(-2), F(4), F(-3), F(5)]) : r.pick([F(2), F(3), F(-2), F(1, 2), F(-3)]);
+      var a1 = F(r.int(1, 9) * (rt.d === 1 ? 1 : Math.pow(rt.d, 6))), term = function (n) { return a1.mul(fpow(rt, n - 1)); };
+      need(Math.abs(a1.n) <= 800);
+      var terms = [1, 2, 3, 4].map(term), tt = terms.map(num).join(',\\ ') + ',\\ \\dots', steps = [];
+      var formula = 'a_n=' + (a1.eq(1) ? '' : num(a1) + '\\cdot ') + (rt.isInt() && rt.n > 0 ? String(rt.n) : '\\left(' + num(rt) + '\\right)') + '^{n-1}';
+      steps.push(step('Common ratio: divide a term by the one before it.', 'r=' + num(rt), 1));
+      if (c <= 2) { steps.push(step('Multiply by r to get each next term.', num(term(5)) + ',\\ ' + num(term(6)), 2));
+        return { variant: 'gs-next', prompt: 'Find the next two terms of the geometric sequence ' + M(tt) + '.', parts: [{ answer: M(num(term(5)) + ',\\ ' + num(term(6))), check: { type: 'sequence', terms: tt, want: 'next' } }], steps: steps, space: [0.5, 0.7, 0.9] }; }
+      if (c === 3) { var n3 = r.int(6, 8); need(Math.abs(term(n3).n) < 100000); steps.push(step('Use ' + M('a_n=a_1\\cdot r^{n-1}') + '.', 'a_{' + n3 + '}=' + num(a1) + '\\cdot ' + (rt.n < 0 ? '(' + num(rt) + ')' : num(rt)) + '^{' + (n3 - 1) + '}=' + num(term(n3)), 3));
+        return { variant: 'gs-nth', prompt: 'Find the ' + n3 + 'th term of the geometric sequence ' + M(tt) + '.', parts: [{ answer: M('a_{' + n3 + '}=' + num(term(n3))), check: { type: 'sequence', terms: tt, want: 'nth', n: n3 } }], steps: steps, space: [0.6, 0.8, 1.0] }; }
+      if (c === 4) { steps.push(step('Substitute ' + M('a_1') + ' and r into ' + M('a_n=a_1\\cdot r^{n-1}') + '.', formula, 3));
+        return { variant: 'gs-formula', prompt: 'Write an explicit formula for the geometric sequence ' + M(tt) + '.', parts: [{ answer: M(formula), check: { type: 'sequence', terms: tt, want: 'formula' } }], steps: steps, space: [0.6, 0.8, 1.0] }; }
+      if (c === 5) { var nk = r.int(6, 9), vk = term(nk); need(Math.abs(vk.n) < 100000); steps.push(step('Keep multiplying by r (or solve ' + M(num(a1) + '\\cdot ' + (rt.isInt() && rt.n > 0 ? num(rt) : '\\left(' + num(rt) + '\\right)') + '^{n-1}=' + num(vk)) + ').', 'n=' + nk, 3));
+        return { variant: 'gs-which', prompt: 'Which term of the geometric sequence ' + M(tt) + ' is ' + M(num(vk)) + '?', parts: [{ answer: 'Term ' + M('n=' + nk), check: { type: 'sequence', terms: tt, want: 'which', value: num(vk).replace(/\\frac\{(\d+)\}\{(\d+)\}/, '$1/$2') } }], steps: steps, space: [0.6, 0.8, 1.0] }; }
+      if (c === 6) { var i1 = r.int(1, 3), i2 = i1 + r.pick([1, 3]), g1 = 'a_{' + i1 + '}=' + num(term(i1)), g2 = 'a_{' + i2 + '}=' + num(term(i2)); need(term(i1).isInt() && term(i2).isInt() && Math.abs(term(i2).n) < 5000);
+        steps.push(step('Divide: ' + M('r^{' + (i2 - i1) + '}=\\frac{' + num(term(i2)) + '}{' + num(term(i1)) + '}') + ', so ' + M('r=' + num(rt)) + '.', '', 2), step('Work back to ' + M('a_1') + ' and write the formula.', formula, 2));
+        return { variant: 'gs-two', prompt: 'A geometric sequence has ' + M(g1) + ' and ' + M(g2) + '. Write an explicit formula.', parts: [{ answer: M(formula), check: { type: 'sequence', given: [{ tex: g1, n: i1, val: String(term(i1).n) }, { tex: g2, n: i2, val: String(term(i2).n) }], want: 'formula' } }], steps: steps, space: [0.7, 0.9, 1.1] }; }
+      var isT = r.chance(0.5), nk7 = r.int(6, 9), test = isT ? term(nk7) : term(nk7).add(rt.isInt() ? 1 : 0); need(isT || rt.isInt()); need(test.isInt() && Math.abs(test.n) < 100000);
+      var recursive = 'a_1=' + num(a1) + ',\\ a_n=' + num(rt) + 'a_{n-1}';
+      steps.push(step('(a) Start value and “multiply by r”.', recursive, 2), step('(b) Explicit formula.', formula, 2), step('(c) Keep multiplying by r and compare with ' + num(test) + '.', '', 2));
+      return { variant: 'gs-full', prompt: 'For the geometric sequence ' + M(tt),
+        parts: [{ label: 'a', prompt: 'Write a recursive formula.', answer: M(recursive), check: { type: 'sequence', terms: tt, want: 'recursive' } },
+                { label: 'b', prompt: 'Write an explicit formula.', answer: M(formula), check: { type: 'sequence', terms: tt, want: 'formula' } },
+                { label: 'c', prompt: 'Is ' + M(num(test)) + ' a term of the sequence? Explain.', answer: isT ? 'Yes: it is term ' + M('n=' + nk7) + '.' : 'No: it is skipped between two terms of the sequence.', check: { type: 'sequence', terms: tt, want: 'which', value: String(test.n), yesno: true } }],
+        steps: steps, space: [1.1, 1.4, 1.7] };
+    }
+  });
+
   /* ================= RATE · describe a curved graph ================= */
   function pt(x, y) { return '(' + num(x) + ',\ ' + num(y) + ')'; }
   function curvePts(f, x1, x2) { var pts = []; for (var x = x1; x <= x2 + 1e-9; x += 0.5) pts.push([x, f(x)]); return pts; }
@@ -519,6 +556,7 @@
       '<section><h4>Function notation</h4><p>⟨f(3)⟩ means “the output when ⟨x=3⟩”. Substitute with parentheses.</p><p>⟨f(x)=7⟩ means “find the input that gives 7”: solve.</p></section>' +
       '<section><h4>Rate of change</h4><p>⟨\\text{rate}=\\frac{\\text{change in }y}{\\text{change in }x}=\\frac{y_2-y_1}{x_2-x_1}⟩</p><p>Average rate of change on ⟨a\\le x\\le b⟩: ⟨\\frac{f(b)-f(a)}{b-a}⟩</p></section>' +
       '<section><h4>Arithmetic sequences</h4><p>Common difference ⟨d⟩. Explicit: ⟨a_n=a_1+(n-1)d⟩</p><p>Recursive: ⟨a_n=a_{n-1}+d⟩ with ⟨a_1⟩ given.</p></section>' +
+      '<section><h4>Geometric sequences</h4><p>Common ratio ⟨r⟩: divide a term by the one before it. Explicit: ⟨a_n=a_1\\cdot r^{n-1}⟩</p><p>Recursive: ⟨a_n=r\\cdot a_{n-1}⟩ with ⟨a_1⟩ given. Arithmetic adds the same amount; geometric multiplies by the same factor.</p></section>' +
       '<section><h4>Reading graphs</h4><p>Left to right: up = increasing, down = decreasing, level = constant.</p></section></div>',
     gaps: [],
     skills: skills

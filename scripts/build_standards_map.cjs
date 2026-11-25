@@ -67,7 +67,7 @@ const MANUAL = {
   'algebra1-foundations': { percent: ['7.RP.A.3', 'N-Q.A.1'], 'expr-error': ['A-SSE.A.2', 'A-SSE.A.1a'] },
   'algebra1-expressions-equations': { 'eq-error': ['A-REI.A.1', 'A-REI.B.3'], 'expr-error': ['A-SSE.A.2', 'A-SSE.A.1a'] },
   'algebra1-inequalities': { 'error-analysis': ['A-REI.A.1', 'A-REI.B.3'], 'graph-number-line': ['A-REI.B.3'] },
-  'algebra1-relations-functions': { 'func-error': ['F-IF.A.2'], 'inverse-linear': ['F-BF.B.4a'], 'table-fill': ['F-IF.A.2'], 'arithmetic-explicit': ['F-BF.A.2', 'F-LE.A.2'], 'arithmetic-nth': ['F-IF.A.3', 'F-BF.A.2'], 'discrete-continuous': ['F-IF.B.5'] },
+  'algebra1-relations-functions': { 'func-error': ['F-IF.A.2'], 'inverse-linear': ['F-BF.B.4a'], 'table-fill': ['F-IF.A.2'], 'arithmetic-explicit': ['F-BF.A.2', 'F-LE.A.2'], 'arithmetic-nth': ['F-IF.A.3', 'F-BF.A.2'], 'geometric-sequence': ['F-IF.A.3', 'F-BF.A.2', 'F-LE.A.2'], 'discrete-continuous': ['F-IF.B.5'] },
   'algebra1-exponential-functions': { 'constant-rate': ['F-LE.A.1b', 'F-LE.A.1a'], 'exponential-graph-features': ['F-IF.C.7e', 'F-IF.B.4', 'F-IF.B.5'], 'exp-graph-hand': ['F-IF.C.7e'] },
   'algebra1-factoring-zero-product': { 'factor-error': ['A-SSE.A.2'], 'poly-zeros-graph': ['A-APR.B.3', 'A-SSE.B.3a'], 'factor-by-grouping': ['A-SSE.A.2'] },
   'algebra1-statistics-data-modeling': { 'twoway-summarize': ['S-ID.B.5'], stdev: ['S-ID.A.2'], 'statistics-mean': ['S-ID.A.2', '6.SP.B.5c'], 'statistics-median': ['S-ID.A.2', '6.SP.B.5c'], 'statistics-mode': ['S-ID.A.2'] },
