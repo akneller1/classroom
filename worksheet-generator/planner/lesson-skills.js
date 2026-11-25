@@ -57,6 +57,7 @@
     'U4-L6': part([['R', 'graph-from-story', 1, 7], ['R', 'graph-behavior', 1, 7]], 'The generator checks the order of increasing, constant and decreasing pieces for each story; the sketch itself is checked by the teacher.'),
     'U4-L7': full([['R', 'discrete-continuous', 1, 7], ['R', 'domain-range', 4, 7]]),
     'U4-L8': full([['R', 'sequence', 1, 7]]),
+    'U4-L9': full([['R', 'geometric-sequence', 1, 7]]),
     /* Unit 5 · Linear Functions and Graphing */
     'U5-L1': full([['R', 'rate-of-change', 1, 4], ['L', 'slope', 1, 3]]),
     'U5-L2': full([['L', 'slope', 1, 7]]),
@@ -94,9 +95,8 @@
     'U8-L4': full([['P', 'exp-identify', 1, 7], ['P', 'exp-apply', 2, 7]]),
     'U8-L5': full([['P', 'exp-write', 1, 7]]),
     'U8-L6': full([['P', 'exp-identify', 3, 5], ['P', 'exp-apply', 3, 5], ['P', 'compound', 1, 7]]),
-    'U8-L7': full([['P', 'geo-seq', 1, 7]]),
-    'U8-L8': full([['P', 'exp-overtakes-linear', 1, 7], ['P', 'lin-vs-exp', 1, 7], ['P', 'exp-apply', 4, 6]]),
-    'U8-L9': full([['P', 'exp-solve', 1, 7]]),
+    'U8-L7': full([['P', 'exp-overtakes-linear', 1, 7], ['P', 'lin-vs-exp', 1, 7], ['P', 'exp-apply', 4, 6]]),
+    'U8-L8': full([['P', 'exp-solve', 1, 7]]),
     /* Unit 9 · Polynomials */
     'U9-L1': full([['Y', 'poly-classify', 1, 7]]),
     'U9-L2': full([['Y', 'poly-addsub', 1, 7]]),
